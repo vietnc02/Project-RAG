@@ -1,0 +1,209 @@
+{
+  "n": 86,
+  "main": {
+    "lc": {
+      "faithfulness": [
+        0.8945047217199115,
+        0.8440712276471769,
+        0.939232218203737
+      ],
+      "answer_relevancy": [
+        0.7576794812738679,
+        0.7056052795721877,
+        0.8040271616481045
+      ],
+      "hallucination": [
+        0.27906976744186046,
+        0.18604651162790697,
+        0.37209302325581395
+      ]
+    },
+    "sr": {
+      "faithfulness": [
+        0.9231123981123982,
+        0.8923511904761905,
+        0.9521833440583439
+      ],
+      "answer_relevancy": [
+        0.7028166546749459,
+        0.6372240147068955,
+        0.7617097967553007
+      ],
+      "hallucination": [
+        0.2558139534883721,
+        0.16279069767441862,
+        0.3488372093023256
+      ]
+    }
+  },
+  "extra": {
+    "lc": {
+      "claim_halluc_rate": 0.09776536312849161,
+      "n_claims": 358,
+      "n_unsupported": 35,
+      "halluc_among_answered": 0.3037974683544304,
+      "n_answered": 79,
+      "answer_correctness": 0.8604651162790697,
+      "refusal_rate": 0.08139534883720931,
+      "retrieval_hit": 0.9651162790697675,
+      "latency_s": 10.81639534883721,
+      "llm_calls": 1.0
+    },
+    "sr": {
+      "claim_halluc_rate": 0.07647058823529412,
+      "n_claims": 340,
+      "n_unsupported": 26,
+      "halluc_among_answered": 0.2972972972972973,
+      "n_answered": 74,
+      "answer_correctness": 0.8255813953488372,
+      "refusal_rate": 0.13953488372093023,
+      "retrieval_hit": 0.8837209302325582,
+      "latency_s": 29.69779069767442,
+      "llm_calls": 8.104651162790697
+    }
+  },
+  "paired": {
+    "faithfulness": {
+      "delta": 0.020814307458143076,
+      "lo": -0.022201565557729938,
+      "hi": 0.07048366492715807,
+      "n": 73,
+      "p": 0.3636
+    },
+    "answer_relevancy": {
+      "delta": -0.05486282659892174,
+      "lo": -0.10655834240613522,
+      "hi": -0.006908124520403308,
+      "n": 86,
+      "p": 0.0224
+    },
+    "hallucination": {
+      "delta": -0.023255813953488372,
+      "lo": -0.13953488372093023,
+      "hi": 0.09302325581395349,
+      "n": 86,
+      "p": 0.7656
+    }
+  },
+  "mcnemar": {
+    "both": 11,
+    "only_lc": 13,
+    "only_sr": 11,
+    "neither": 51,
+    "p": 0.8388197422027588,
+    "fixed_by_refusal": 2
+  },
+  "sr_behaviour": {
+    "ends": {
+      "useful": 73,
+      "abstain": 11,
+      "not_useful": 1,
+      "refusal": 1
+    },
+    "rewrites": 8,
+    "regenerations": 10
+  },
+  "sr_refusals": {
+    "lc_also_refused": [
+      "q029",
+      "q032",
+      "q042",
+      "q047",
+      "q049",
+      "q074"
+    ],
+    "lc_hallucinated_or_wrong": [
+      "q060",
+      "q072"
+    ],
+    "false_abstain": [
+      "q006",
+      "q037",
+      "q038",
+      "q046"
+    ]
+  },
+  "topics": {
+    "Quantum Security": {
+      "n": 16,
+      "lc": 0.1875,
+      "sr": 0.0625
+    },
+    "Deception": {
+      "n": 10,
+      "lc": 0.3,
+      "sr": 0.2
+    },
+    "Quantum Machine Learning": {
+      "n": 5,
+      "lc": 0.2,
+      "sr": 0.2
+    },
+    "Ref": {
+      "n": 36,
+      "lc": 0.3333333333333333,
+      "sr": 0.3055555555555556
+    },
+    "WAF": {
+      "n": 6,
+      "lc": 0.16666666666666666,
+      "sr": 0.5
+    },
+    "Survey": {
+      "n": 7,
+      "lc": 0.2857142857142857,
+      "sr": 0.42857142857142855
+    },
+    "k8s policy conflict": {
+      "n": 4,
+      "lc": 0.0,
+      "sr": 0.25
+    },
+    "QoS": {
+      "n": 2,
+      "lc": 1.0,
+      "sr": 0.0
+    }
+  },
+  "corpus": {
+    "Deception": {
+      "papers": 10,
+      "chunks": 914
+    },
+    "k8s policy conflict": {
+      "papers": 4,
+      "chunks": 192
+    },
+    "QoS": {
+      "papers": 2,
+      "chunks": 101
+    },
+    "Quantum Machine Learning": {
+      "papers": 6,
+      "chunks": 458
+    },
+    "Quantum Security": {
+      "papers": 17,
+      "chunks": 1590
+    },
+    "Ref": {
+      "papers": 43,
+      "chunks": 2774
+    },
+    "Survey": {
+      "papers": 7,
+      "chunks": 357
+    },
+    "WAF": {
+      "papers": 6,
+      "chunks": 263
+    }
+  },
+  "review": {
+    "generated": 93,
+    "kept": 86,
+    "edited": 75,
+    "dropped": 7,
+    "unchanged": 11
+  }
+}

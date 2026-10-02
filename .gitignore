@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# File tạm của Word / Office khi đang mở tài liệu
+~$*
+
+# Hệ điều hành
+Thumbs.db
+desktop.ini

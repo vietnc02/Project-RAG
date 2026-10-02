@@ -1,0 +1,1500 @@
+[
+  {
+    "id": "q001",
+    "question": "What is Shor's algorithm and how does it impact the security of current cryptographic systems?",
+    "ground_truth": "Shor's algorithm, proposed by Peter Shor in 1994, efficiently factors large integers and computes discrete logarithms in polynomial time, which directly undermines the security assumptions of current public-key cryptographic systems.",
+    "source": "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing",
+    "topic": "Quantum Security",
+    "page": 3,
+    "chunk_id": "2c179858df1d-7",
+    "chunk_text": "and adaptive strategies for score aggregation in complex information systems [7].\nAdditional efforts have addressed challenges in crowdsourced multimedia querying [4] and context-aware database environments [21], which are increasingly\nrelevant in secure and distributed computing architectures.\n2\nPost-quantum cryptography\nQuantum computing introduces transformative computational capabilities that\nthreaten current cryptographic systems by solving specific problems exponentially faster than classical computers can. Two quantum algorithms stand out\nas particularly disruptive: Shor’s algorithm and Grover’s algorithm.\n2.1\nShor’s Algorithm\nShor’s algorithm, proposed by Peter Shor in 1994, revolutionized the understanding of quantum computational power in the context of cryptographic security. This algorithm efficiently factors large integers and computes discrete\nlogarithms in polynomial time, directly undermining the security assumptions",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What algorithm proposed by Peter Shor in 1994 revolutionized the understanding of quantum computational power in the context of cryptographic security and how does it impact cryptographic security?",
+      "ground_truth": "Shor’s algorithm efficiently factors large integers and computes discrete logarithms in polynomial time, directly undermining the security assumptions of current cryptographic systems."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q002",
+    "question": "What is the formula for Parametric Layer Norm (PLN)?",
+    "ground_truth": "PLN(𝑥) = 𝛾  (𝑥−𝜇) /𝜎  + 𝛽 where 𝛾and 𝛽are learnable parameters for adaptive scaling and bias.",
+    "source": "A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness",
+    "topic": "Ref",
+    "page": 7,
+    "chunk_id": "647f2fe8eed3-35",
+    "chunk_text": "Layer Normalization [185] stabilizes the training process by normalizing layer outputs, accelerating convergence.\nTwo types of layer normalization are commonly used [185]: (i) Non-Parametric Layer Norm normalizes inputs using\nthe mean and variance calculated across the layer’s dimensions without learnable parameters as LN(𝑥) = 𝑥−𝜇\n𝜎\nwhere 𝜇is\nthe mean and 𝜎is the standard deviation of the inputs. Its simplicity makes it ideal for SLMs. (ii) Parametric Layer Norm\nincludes learnable parameters 𝛾and 𝛽for adaptive scaling and bias, enhancing model flexibility: PLN(𝑥) = 𝛾\n\u0010 𝑥−𝜇\n𝜎\n\u0011\n+ 𝛽\nAdditionally, RMS Norm (Root Mean Square Layer Normalization) [431] simplifies the calculation by using the\nroot mean square of inputs, reducing computational demands: RMSNorm(𝑥) = 𝛾\n𝑥\n√︃\n1\n𝑁\nÍ𝑁\n𝑖=1 𝑥2\n𝑖+𝜖\n+ 𝛽where 𝑁is the\nnumber of inputs, 𝑥𝑖is the 𝑖-th input, and 𝜖is a small constant to prevent division by zero.\nManuscript submitted to ACM",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "hỏi công thức; công thức trích từ PDF bị vỡ ký tự"
+  },
+  {
+    "id": "q003",
+    "question": "Which game-theoretic concept did Lu et al. base their argument on when discussing the scenarios under which KPSD is incentive-compatible?",
+    "ground_truth": "Nash equilibrium: Lu et al. use a game-theoretic argument based on Nash equilibrium to discuss when KPSD is incentive-compatible.",
+    "source": "A Game-Theoretic Taxonomy and Survey of Defensive Deception for Cybersecurity and Privacy",
+    "topic": "Deception",
+    "page": 13,
+    "chunk_id": "f2365ef9effd-57",
+    "chunk_text": "keys needed for vehicle operation. Lu et al. incorporate a game-theoretic argument\n(based on Nash equilibrium) to discuss the scenarios under which KPSD is incentivecompatible [Lu et al. 2012].\n3.5. Honey-X\nBy honey-x, we refer to deception which uses techniques named with the preﬁx honey\n(e.g., honeypot, honeynet, honeybot, etc.). In many implementations of these techniques, defenders have a limited capacity to monitor honeypots, and attackers have\nconstrained time and available technologies in order to detect honeypots. Therefore,\ngame-theoretic trade-offs arise. Carroll and Grosu [2011] study a network in which a\nACM Journal Name, Vol. V, No. N, Article A, Publication date: January YYYY.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What game-theoretic concept does Lu et al. use to discuss the scenarios under which Key Phrases for Secure Deception (KPSD) is incentive-compatible?",
+      "ground_truth": "Lu et al. incorporate a game-theoretic argument (based on Nash equilibrium) to discuss the scenarios under which KPSD is incentive-compatible [Lu et al. 2012]."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q004",
+    "question": "Which researchers successfully recovered the full key of Kyber from the polynomial multiplication on Kyber’s software implementations?",
+    "ground_truth": "Tosun et al. [4] successfully recovered the full key of Kyber from the polynomial multiplication on Kyber’s software implementations.",
+    "source": "A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber",
+    "topic": "Quantum Security",
+    "page": 1,
+    "chunk_id": "2def9bea4093-3",
+    "chunk_text": "keys by introducing faults into cryptographic devices during\nThis work was supported in part by the Natural Science Foundation\nof Jiangsu Province of China under Grant BK20243038, in part by the\nKey Research Plan of Jiangsu Province of China under Grant BE2022098,\nand in part by the Young Elite Scientists Sponsorship Program by the\nChina Association for Science and Technology under Grant 2023QNRC001.\n(Corresponding author: Jing Tian.)\nThe authors are with the School of Integrated Circuits, Nanjing University,\nSuzhou, 215163, China (e-mail: tianjing@nju.edu.cn).\ntheir operation. Error detection mechanisms can effectively\nidentify and respond to the injection of these faults. On the\nSCAs side, Tosun et al. [4] successfully recovered the full\nkey of Kyber from the polynomial multiplication on Kyber’s\nsoftware implementations. Zhao et al. [5] recently pointed out\nthat there are three side-channel leakage points in Kyber’s\ndecryption procedure, and successfully completed SCAs on",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "chỉ hỏi tên tác giả (Tosun et al.)"
+  },
+  {
+    "id": "q005",
+    "question": "Does Libsodium support any NIST PQC finalist algorithms as of its latest release in the 1.0.x series?",
+    "ground_truth": "As of the latest release in the 1.0.x series, Libsodium does not include support for any of the NIST PQC finalist algorithms.",
+    "source": "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries",
+    "topic": "Quantum Security",
+    "page": 6,
+    "chunk_id": "6b46c927c9f6-35",
+    "chunk_text": "year, built-in PQC is expected, enabling seamless use in services\nlike Apache or NGINX using Kyber for TLS 1.3, or verifying\nDilithium certificates.\nObservation: The OpenSSL PQC support status is currently\n“in development, not yet in mainline,” but through the OQS plugin, PQC can be used with OpenSSL 3.x for testing purposes.1\n5.2\nLibsodium\nLibsodium is a popular cryptographic library known for its simplicity and a consistent API that abstracts low-level details. We\nrank it second in our list of libraries. It is widely used by developers for ease-of-use in applications ranging from mobile\napps to server-side software. As of the latest release in the\n1In April 2025, OpenSSL officially launched version 3.5, which\nincludes full incorporation of the NIST PQC standard algorithms.\n1.0.x series, Libsodium does not include support for any of the\nNIST PQC finalist algorithms. The library currently provides",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q006",
+    "question": "What type of QGAN was designed to generate classical image data using linear optical circuits and Fock-space encoding?",
+    "ground_truth": "A photonic QGAN, implemented on a photonic processor (Quandela's Ascella) rather than qubits, which uses linear optical circuits and Fock-space encoding and is trained end-to-end to produce digit-like images.",
+    "source": "A Survey of Quantum Generative Adversarial Networks",
+    "topic": "Quantum Machine Learning",
+    "page": 15,
+    "chunk_id": "209d04d0da90-54",
+    "chunk_text": "state, making it well-suited for generative learning. To enhance model capacity, a\nhybrid generator introduces classical nonlinearity into the QGAN architecture. Three\nbenchmark tasks were successfully executed on the chip: single-qubit pure state learning,\nclassical probability distribution loading, and compressed image generation. These\nresults validate the potential of photonic quantum hardware in executing both pure\nand hybrid QGANs with practical generative capabilities, reinforcing its promise for\nfuture scalable quantum machine learning applications.\nA photonic QGAN was designed to generate classical image data using linear\noptical circuits and Fock-space encoding [71]. Unlike qubit-based QGANs, the model\nis implemented on a photonic processor (Quandela’s Ascella) and trained end-to-end\nto produce digit-like images. The quantum generator employs variational circuits,\nand experimental results show convergence of the loss function and visually coherent\n15",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What type of QGAN was designed to generate classical image data using linear optical circuits and Fock-space encoding?",
+      "ground_truth": "A photonic QGAN was designed to generate classical image data using linear optical circuits and Fock-space encoding [71]."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q007",
+    "question": "What is the role of the quantum feature map in QSVM?",
+    "ground_truth": "QSVM uses a quantum circuit, the quantum feature map, to embed data into a quantum feature space (states |phi(x)> in a Hilbert space), exploiting the parallelism of quantum computers and avoiding the computationally intensive construction of a high-dimensional classical feature space.",
+    "source": "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+    "topic": "Quantum Machine Learning",
+    "page": 14,
+    "chunk_id": "f642ef5c199a-63",
+    "chunk_text": "resulting in an optimal set of parameter values 𝜃∗. The solution we obtain upon convergence of the\noptimizer will be |𝜓(𝜃∗)⟩= 𝑈𝐴(𝜃∗)|0⟩.\nFinally, its pseudocode can be found in Algorithm 5 (see Appendix C).\n4.2.2\nQuantum Support Vector Machines. QSVM builds upon the traditional Support Vector\nMachine (SVM) framework by incorporating quantum computing principles. Classically, SVMs\noperate by identifying a hyperplane in a high-dimensional feature space that effectively separates\ndifferent data classes. The optimal hyperplane maximizes the distance, or margin, from the nearest\npoints of each class, known as support vectors.\nIn contrast, the QSVM avoids the computationally intensive task of constructing a highdimensional feature space by using a quantum circuit to embed data into a quantum feature\nspace. This process, known as the quantum feature map, utilizes the parallel processing capabilities of quantum computers. The embedded states, denoted as |𝜙(⃖⃗𝑥)⟩, reside in a Hilbert space",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the role of the quantum feature map in QSVM?",
+      "ground_truth": "The quantum feature map utilizes the parallel processing capabilities of quantum computers to embed data into a quantum feature space, denoted as |𝜙(⃖⃗𝑥)⟩, avoiding the computationally intensive task of constructing a high-dimensional feature space."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q008",
+    "question": "According to the meta-survey of cyber deception, what is the 'need for intelligent adaptation' gap in honeypot research, and what practical deployment challenges are identified?",
+    "ground_truth": "Modern papers identify intelligent adaptation as a major gap: they advocate AI integration to build adaptive honeynets that learn from attacker interactions and improve deception strategies without manual reconfiguration. Practical challenges include high maintenance costs to keep deception environments current with legitimate system updates and patches, and the significant resource demands of high-interaction honeypots.",
+    "source": "A Systematic Meta-Survey of Cyber Deception - Unified Taxonomy and Research Directions",
+    "topic": "Deception",
+    "page": 27,
+    "chunk_id": "4015206e5739-132",
+    "chunk_text": "for comprehensive measures of deception realism, intelligence value, operational cost, and attacker dwell time. This\nlong-standing gap reflects the broader evaluation challenges discussed in Sec. 5.1 and continues to hinder comparative\nstudies and evidence-based honeypot deployment decisions.\nNeed for Intelligent Adaptation. Modern papers [37, 59] identify intelligent adaptation as the second major gap,\nreflecting contemporary interest in autonomous security systems. Both papers advocate for AI integration to create\nadaptive honeynets that can learn from attacker interactions and dynamically improve deception strategies without\nmanual reconfiguration. Additionally, [59] identifies a set of practical, real-world challenges that complicate honeypot\ndeployment beyond technical capabilities. These include high maintenance costs for keeping deception environments\ncurrent with legitimate system updates and patches, significant resource demands of high-interaction honeypots that",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the second major gap identified by modern papers regarding honeypot deployment, and what challenges does it bring?",
+      "ground_truth": "Modern papers identify intelligent adaptation as the second major gap, reflecting contemporary interest in autonomous security systems. This includes high maintenance costs for keeping deception environments current with legitimate system updates and patches, and significant resource demands of high-interaction honeypots."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q009",
+    "question": "What does the VECTOR framework integrate into existing eviction methods to improve cache compression?",
+    "ground_truth": "VECTOR integrates reconstructability-aware approximation into existing eviction methods, extending binary retain/evict decisions into retention, approximation and eviction under the same memory budget.",
+    "source": "A simple plug-in for improving eviction-based kv cache compression",
+    "topic": "Ref",
+    "page": 9,
+    "chunk_id": "2a0a4421d4b8-50",
+    "chunk_text": "memory budgets: rather than merely shifting average scores upward, VECTOR changes the failure\npattern from large contiguous low-score regions to more localized difficult cells, indicating improved\nrobustness under challenging retrieval conditions.\n6\nConclusion\nWe propose VECTOR, a lightweight three-way allocation framework that integrates reconstructabilityaware approximation into existing eviction methods. By separating token importance from reconstructability, VECTOR extends binary retain/evict decisions into retention, approximation, and\neviction under the same memory budget. The design is practical: value approximation is implemented\nwith offline OLS calibration and does not require model retraining. Theoretical discussions are\nprovided to connect the OLS R2 with the compression performance. Empirically, augmenting representative baselines with VECTOR improves long-context performance in most high-compression",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What does the VECTOR framework integrate into existing eviction methods to improve cache compression?",
+      "ground_truth": "VECTOR integrates reconstructability-aware approximation into existing eviction methods."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q010",
+    "question": "What technologies do AI-powered honeypots leverage to create realistic and evolving decoy environments?",
+    "ground_truth": "AI-powered honeypots leverage machine learning, natural language processing, and automated threat analysis to create realistic and evolving decoy environments.",
+    "source": "AI-Powered Honeypots - Enhancing Deception Technologies for Cyber Defense",
+    "topic": "Deception",
+    "page": 2,
+    "chunk_id": "9400e0fc8ddf-4",
+    "chunk_text": "honeypots to adapt, learn, and respond dynamically to cyber threats. AI-powered honeypots \nleverage machine learning, natural language processing, and automated threat analysis to \ncreate realistic and evolving decoy environments. This research delves into the integration of \nAI with honeypots, examining their potential to enhance cyber defense through proactive \nthreat detection, improved deception capabilities, and real-time attack response. The study \nevaluates existing literature, methodologies, and empirical findings to establish the \neffectiveness of AI-driven deception technologies in modern cybersecurity frameworks. \nLiterature Review \nHoneypots have been a staple in cybersecurity for decades, with early implementations \nfocusing on static systems designed to attract and log unauthorized access attempts. The \nconcept of honeypots was first introduced in the 1990s as a means to study hacker behavior",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q011",
+    "question": "Which conventional public key cryptography methods are described as susceptible to quantum risks in the survey of pre- versus post-quantum security for 5G-enabled IoT?",
+    "ground_truth": "RSA, Diffie-Hellman, Secret Sharing, and Elliptic Curve Cryptography (ECC).",
+    "source": "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications",
+    "topic": "Quantum Security",
+    "page": 1,
+    "chunk_id": "39f246bd1b83-1",
+    "chunk_text": "ABSTRACT The proliferation of 5th generation (5G) technology has catalyzed significant advancements in\nvarious application of Internet of Things (IoT) such as Intelligent Transportation Systems, Smart Energy,\nIndustrial IoT (IIoT), Digital Twins, Autonomous Aerial Vehicles (UAVs) and Smart Health. However,\nwith the upcoming advent of quantum computing, conventional security methods are encountering new\nand significant challenges, requiring the revaluation of pre and post-quantum security measures. This study\nprovides an in-depth analysis of security measures before and after the advent of quantum computing for\nintelligent IoT applications enabled by 5G-connected network. The survey thoroughly analyzes the strengths\nand weaknesses of conventional public key cryptography methods such as RSA, Diffie-Hellman, Secret\nSharing, and Elliptic Curve Cryptography (ECC), which are susceptible to quantum risks, and postquantum",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What are some conventional public key cryptography methods discussed in the survey that are susceptible to quantum risks?",
+      "ground_truth": "The survey thoroughly analyzes the strengths and weaknesses of conventional public key cryptography methods such as RSA, Diffie-Hellman, Secret Sharing, and Elliptic Curve Cryptography (ECC), which are susceptible to quantum risks."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q012",
+    "question": "What machine learning algorithm does the second layer of ADL-WAF use to classify anomalies?",
+    "ground_truth": "The second layer employs Support Vector Machine (SVM) to classify these anomalies as either threat anomalies or benign anomalies.",
+    "source": "Adaptive Dual-Layer Web Application Firewall (ADL-WAF) Leveraging Machine Learning for Enhanced Anomaly and Threat Detection",
+    "topic": "WAF",
+    "page": 1,
+    "chunk_id": "758cedf3507e-1",
+    "chunk_text": "layer employs a Decision Tree (DT) algorithm to detect anomalies by \nidentifying traffic deviations from established normal patterns. The \nsecond layer employs Support Vector Machine (SVM) to classify \nthese anomalies as either threat anomalies or benign anomalies. Our \n“Adaptive \nDual-Layer \nWAF \n(ADL-WAF)” \nincorporates \ncomprehensive data pre-processing and feature engineering \ntechniques and has been thoroughly evaluated using five large \nbenchmark datasets. Evaluation using these datasets shows that \nADL-WAF achieves a detection accuracy of 99.88% and a precision \nof 100%, significantly enhancing anomaly detection and reducing \nfalse positives. These findings suggest that integrating machine \nlearning techniques into WAFs can substantially improve web \napplication security by providing more accurate and efficient threat \ndetection. \n Keywords-Web Application Firewall (WAF), Machine Learning \n(ML), Decision Tree (DT), Support Vector Machines (SVM),",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q013",
+    "question": "In the experimental evaluation of honeypots and deception strategies, which system was used to simulate attacks and which tools performed the reconnaissance network scans?",
+    "ground_truth": "Kali Linux was used to simulate attacks; network scans targeting open ports and service banners were performed with tools such as Nmap and Nessus.",
+    "source": "Advancing Cybersecurity with Honeypots and Deception Strategies",
+    "topic": "Deception",
+    "page": 20,
+    "chunk_id": "309a501835c1-89",
+    "chunk_text": "Informatics 2025, 12, 14\n20 of 36\nsystems for the honeypots, while Kali Linux was used to simulate attacks. Network traffic\nwas routed through a firewall to replicate real-world segmentation and security measures.\nAdditionally, logging tools were configured on the honeypots to capture interaction logs,\nsystem events, and network traffic, ensuring comprehensive data collection was achieved\nduring the experiments.\nThree primary scenarios were evaluated: reconnaissance attacks, credential-based\nattacks, and payload delivery. Specific capabilities of the honeypots were tested through\nthe design of each scenario, and intermediate results were produced that validated their\nperformance. The ability of the honeypots to detect and log scanning activity was evaluated\nfor reconnaissance attacks. Network scans targeting open ports and service banners were\nperformed using tools such as Nmap and Nessus. Techniques such as TCP SYN, ACK scans,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What operating system was used to simulate attacks in the honeypot experiments?",
+      "ground_truth": "Kali Linux was used to simulate attacks."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q014",
+    "question": "What technique is used for quantization in the ONNX model for efficient hardware acceleration on SpiNNaker2?",
+    "ground_truth": "Post-training quantization from the AMD Quark library with INT8 power-of-two quantization, using mean squared error optimization and cross-layer equalization on a small calibration dataset.",
+    "source": "An End-to-End DNN Inference Framework for the SpiNNaker2 Neuromorphic MPSoC",
+    "topic": "Ref",
+    "page": 3,
+    "chunk_id": "0b436a57f5f5-14",
+    "chunk_text": "intermediate representation (IR). Post-training quantization\nfrom the AMD Quark library [14] with INT8 power-of-two\nquantization is applied to the ONNX model for efficient hardware acceleration of the matrix multiplications on SpiNNaker2\nusing the MLA. To minimize quantization errors, Quark uses\nmean squared error optimization and cross-layer equalization\n[15] on a small calibration dataset.\n2) Lowering & Layer Fusion: The quantized ONNX graph\nis lowered into an application graph, a simplified IR containing\nthe layers with parameters and quantization scales in the\nnodes and connections in the edges. This simplifies further\ngraph manipulations, such as layer fusion. Linear layer nodes\nare fused with immediately following ReLU nodes to exploit\nthe ability of the MLA to execute matrix multiplications\nand ReLU as a joined operation. Furthermore, unnecessary\nQuantize and Dequantize layers inserted by Quark (e.g. around\nsoftmax) are removed, pulling the quantization scaling factors",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique is used for quantization in the ONNX model for efficient hardware acceleration on SpiNNaker2?",
+      "ground_truth": "Post-training quantization from the AMD Quark library [14] with INT8 power-of-two quantization is applied to the ONNX model for efficient hardware acceleration of the matrix multiplications on SpiNNaker2 using the MLA."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q015",
+    "question": "In side-channel attacks on Kyber with an imperfect plaintext-checking oracle, how much of the Kyber-512 secret key was recovered by applying the CPA attack twice, and with how many power traces?",
+    "ground_truth": "About 60% of the Kyber-512 secret key was recovered using about 1619 power traces, leaving 40% erroneous coefficients.",
+    "source": "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber",
+    "topic": "Quantum Security",
+    "page": 1,
+    "chunk_id": "cc70e283bcc5-3",
+    "chunk_text": "(FO) transform for the first time. Then for correlation power\nThis work was supported in part by the Natural Science Foundation\nof Jiangsu Province of China under Grant BK20243038, in part by the\nKey Research Plan of Jiangsu Province of China under Grant BE2022098,\nand in part by the Young Elite Scientists Sponsorship Program by the\nChina Association for Science and Technology under Grant 2023QNRC001.\n(Corresponding author: Jing Tian.)\nThe authors are with the School of Integrated Circuits, Nanjing University,\nSuzhou, 215163, China (e-mail: tianjing@nju.edu.cn).\nanalysis (CPA), Ueno et al. [5] proposed the side-channel\nleakage in re-encryption as a PC oracle, utilizing 3072 power\ntraces to recover the key. The work in [6] deals with imperfect\nPC oracle SCAs by using the CPA attack twice to recover 60%\nsecret key of Kyber-512 at the cost of about 1619 power traces,\nbut there are still 40% error coefficients. Contrast to previous",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What percentage of the secret key of Kyber-512 was recovered in the work that used the CPA attack twice, and how many power traces were required for this recovery?",
+      "ground_truth": "60% secret key of Kyber-512 was recovered at the cost of about 1619 power traces."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q016",
+    "question": "How does the O(1) LFU cache algorithm organize its data structures when the first element is inserted, and what is the insertion complexity?",
+    "ground_truth": "The cache starts as an empty hash map and an empty frequency list. On the first insertion, a hash map entry pointing to the new element is created and a frequency node with value 1 is added to the frequency list; the element's node points back to its frequency node. Insertion runs in O(1).",
+    "source": "An o(1) algorithm for implementing the lfu cache eviction scheme",
+    "topic": "Ref",
+    "page": 6,
+    "chunk_id": "f7b8388af397-12",
+    "chunk_text": "GET-NEW-NODE(value, prev, next)\n01\nnn ←NEW-FREQ-NODE()\n02\nnn.value ←value\n03\nnn.prev ←prev\n04\nnn.next ←next\n05\nprev.next ←nn\n06\nnext.prev ←nn\n07\nreturn nn\nRemove (unlink) a node from the linked list\nDELETE-NODE(node)\n01\nnode.prev.next ←node.next\n02\nnode.next.prev ←prev\nInitially, the LFU cache starts oﬀas an empty hash map and an empty frequency list. When the ﬁrst element is added, a single element in the hash map\nis created which points to this new element (by its key) and a new frequency\nnode with a value of 1 is added to the frequency list. It should be clear that the\nnumber of elements in the hash map will be the same as the number of items in\nthe LFU cache. A new node is added to 1’s frequency list. This node actually\npoints back to the frequency node whose member it is. For example, if x was\nthe node added, then the node x will point back to the frequency node 1. Hence\nthe runtime complexity of element insertion is O(1).",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the runtime complexity of element insertion in the LFU cache according to the passage?",
+      "ground_truth": "The runtime complexity of element insertion is O(1)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q017",
+    "question": "How are technology service providers using quantum resilience as a selling point?",
+    "ground_truth": "Certain VPN and secure communications products advertise that they are 'quantum-safe' by integrating PQC, and cloud companies like AWS, IBM and Microsoft have released tools for experimenting with PQC on their platforms.",
+    "source": "Are Enterprises Ready for Quantum-Safe Cybersecurity",
+    "topic": "Quantum Security",
+    "page": 9,
+    "chunk_id": "88cc0662be4c-42",
+    "chunk_text": "it signals that by the late 2020s, not having a plan will be deemed irresponsible.\nAnother factor is client and market expectations: as large enterprises (e.g., global banks,\ncloud providers) start boasting of “quantum-resistant security” in their offerings, it may spur\nothers to follow to avoid being seen as the weak link. Already, some technology service providers\nuse quantum-resilience as a selling point; for example, certain VPN and secure communications\nproducts advertise that they are “quantum-safe” by integrating PQC, and cloud companies like\nAWS, IBM, and Microsoft have released tools for experimenting with PQC in their platforms.\n3.2\nKey Challenges in Implementation and Integration\nEven once an enterprise decides to act on quantum security, they encounter several practical\nchallenges that can slow progress. Key among these are: (a) the complexity of identifying and\nupgrading legacy systems, (b) resource constraints (both budget and skilled personnel), (c)",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What are some technology service providers using quantum-resilience as a selling point for?",
+      "ground_truth": "Certain VPN and secure communications products advertise that they are “quantum-safe” by integrating PQC."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q018",
+    "question": "What is the formula for calculating the final membrane potential Xl after passing through all L encoder layers?",
+    "ground_truth": "Xl = U′l + Sl, Xl ∈RT ×N×D (27)",
+    "source": "Attention via synaptic plasticity is all you need - A biologically inspired spiking neuromorphic transformer",
+    "topic": "Ref",
+    "page": 11,
+    "chunk_id": "e626407ab0f2-46",
+    "chunk_text": "For the l-th Transformer encoder layer (l = 1 . . . L), the input is the membrane potential Ul−1 ∈\nRT ×N×D. We adopt s as the scaling factor, analogous to the approach described in [3].The attention\nsub-block(S2TDPSA) computes the spike output as:\nS′\nl = S2TDPSA(Qs, Ks, Vs), S′\nl ∈RT ×N×D,\n(24)\nThis output is integrated into the block’s membrane potential via the first residual connection:\nU′\nl = Ul−1 + S′\nl, U′\nl ∈RT ×N×D.\n(25)\nThe updated membrane potential U′\nl is normalized using LayerNorm and passed through the two-layer\nspiking MLP module. The MLP produces a output membrane potential Sl, where Shid is the hidden\nlayer’s response:\nSl = BNout\n\u0000Conv2dout(SNout(Shid))\n\u0001\n, Sl ∈RT ×N×D.\n(26)\nThe final membrane potential from MLP is obtained through a second residual link:\nXl = U′\nl + Sl, Xl ∈RT ×N×D\n(27)\nAfter propagating through all L encoder layers, the last membrane potential Xl is converted into the",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "hỏi công thức (membrane potential), vỡ ký tự"
+  },
+  {
+    "id": "q019",
+    "question": "What method does AutoPen employ to obtain more relevant and accurate responses from the LLM?",
+    "ground_truth": "AutoPen employs techniques such as Retrieval-Augmented Generation (RAG), chain-of-thought reasoning, and structured output to obtain more relevant and accurate responses from the LLM.",
+    "source": "AutoPen - Towards Autonomous Penetration Testing Using LLM-Powered Agents",
+    "topic": "Survey",
+    "page": 1,
+    "chunk_id": "5b05f81a0f08-1",
+    "chunk_text": "propose AutoPen, a method designed to autonomously conduct\npenetration testing without human intervention. AutoPen employs\ntechniques such as Retrieval-Augmented Generation (RAG), chainof-thought reasoning, and structured output to obtain more relevant\nand accurate responses from the LLM. Furthermore, it incorporates\na carefully designed penetration testing workflow with task decomposition and specialized agents to ensure efficient and autonomous\noperation. We conducted penetration testing experiments on various vulnerable hosts from VulnHub. The results demonstrate that\nAutoPen performs automated penetration testing with high stability and exhibits significantly superior capability compared to\nopen-source methods and other approaches described in related\nliterature.\nCCS Concepts\n• Computing methodologies →Multi-agent systems; • Security and privacy →Penetration testing; • Networks →Network\nsecurity.\nKeywords\nLarge language models, LLM, RAG, LLM agent, penetration testing",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q020",
+    "question": "What is the main focus of the AttacKG+ approach in constructing attack knowledge graphs?",
+    "ground_truth": "AttacKG+ is an LLM-based approach that uses LLM-based rewriting preprocessing to remove noise, and primarily targets extraction of tactical-level threat information (rather than complete attack processes).",
+    "source": "Automated Attack Knowledge Graph Construction with Large Language Models",
+    "topic": "Survey",
+    "page": 3,
+    "chunk_id": "8ed4d7260ace-16",
+    "chunk_text": "Section 1, all these deep learning methods require extensive labelled\ndataset and extensive supervised learning.\nAttacKG+[18] is an LLM-based approach for constructing attack\nknowledge graph and is the most closely related work to ours. It\nemploys an LLM-based rewriting preprocessing to eliminate noise\ninterference. However, as shown in Appendix B of our technical\nreport [19], such rewriting may lose essential information. Moreover, AttacKG+ primarily targets the extraction of tactical-level\nthreat information, while our approach emphasizes the extraction\nof complete attack processes.\n3\nOUR APPROACH\nTo address the issues of weak generalization ability, high manual cost, and insufficient semantic understanding in traditional\nmethods for analyzing cyber threat reports and constructing attack\nknowledge graph, this paper designs LLM-CAKG, an automated\nattack knowledge graph construction technique based on LLMs.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the main focus of the AttacKG+ approach in constructing attack knowledge graphs?",
+      "ground_truth": "AttacKG+ primarily targets the extraction of tactical-level threat information."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q021",
+    "question": "What does the RAGAS framework provide for evaluating RAG systems?",
+    "ground_truth": "The RAGAS framework offers automated, reference-free evaluation using independent LLM-based metrics such as faithfulness, answer relevance, and context relevance.",
+    "source": "Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN)",
+    "topic": "Survey",
+    "page": 2,
+    "chunk_id": "11d0e759827c-8",
+    "chunk_text": "II. RELATED WORK\nA baseline RAG model [15] consists of two key components: a retriever and a generator. The retriever selects\nsemantically similar context from a vector-based knowledge\ndatabase, which is then combined with the query and passed to\nan LLM-based generator to produce a coherent, context-aware\nresponse. The evaluation of RAG systems has evolved from\ntraditional metrics such as ROUGE and BLEU, focused on\nlexical overlap, to LLM-based evaluators that enable contextaware assessments of coherence, fluency, and relevance [11].\nA key contribution is the RAGAS framework [13], which\noffers automated, reference-free evaluation using independent\nLLM-based metrics such as faithfulness, answer relevance, and\ncontext relevance. Roychowdhury et al. [16] enhance this approach by introducing greater transparency through intermediate output capture and prompt engineering for domain-specific\ntasks, including telecom adaptation. Other works, including",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q022",
+    "question": "What accuracy does the scalable quantum convolutional neural network (QCNN) achieve on MNIST, and with how many trainable parameters?",
+    "ground_truth": "The scalable QCNN achieves 98.7% accuracy (98.1% on validation) using only 45 independent rotational parameters, while the baseline QCNN is trapped at 52%.",
+    "source": "Beyond Barren Plateaus - A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification",
+    "topic": "Quantum Machine Learning",
+    "page": 12,
+    "chunk_id": "cd12e558ac29-47",
+    "chunk_text": "required over 120, 000 trainable parameters. Our\nscalable QCNN achieves 98.7% accuracy utilizing only 45 independent rotational parameters (θ).\nThis translates to an extraordinary parameter-efficiency advantage, explicitly\ndemonstrating that the quantum circuit is learning deep, highly entangled representations of the\nimage data rather than memorizing spatial mappings. Table 4 summarizes these pivotal metrics.\n0\n50\n100\n150\n0.4\n0.6\n0.8\n1\nEpochs\nAccuracy\n(a) Training and Validation Accuracy\nTraining Acc\nValidation Acc\nBaseline QCNN Acc\n0\n50\n100\n150\n0\n0.1\n0.2\n0.3\nEpochs\nMean Squared Error (MSE)\n(b) Training and Validation Loss\nTraining Loss\nValidation Loss\nFigure 6: Convergence dynamics of the proposed QCNN\non the MNIST dataset. (a) The classification accuracy\nclimbs aggressively, plateauing at an empirical maximum\nof 98.7% on the training set and 98.1% on the validation\nset. The baseline QCNN is trapped at 52%. (b) The\ncorresponding MSE loss function demonstrates smooth,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the accuracy achieved by the scalable QCNN using only 45 independent rotational parameters?",
+      "ground_truth": "Our scalable QCNN achieves 98.7% accuracy utilizing only 45 independent rotational parameters (θ)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q023",
+    "question": "In prior work on reasoning over CVEs with attack graphs, how did researchers visualize how CAPECs could be chained in an information system, and what inputs did they use?",
+    "ground_truth": "They developed a tool to visualize how CAPECs could be chained in an information system containing CVEs; they manually described the characteristics and settings of the information system and input data from the CVSS vectors related to the CVEs.",
+    "source": "CVE representation to build attack positions graphs",
+    "topic": "Survey",
+    "page": 2,
+    "chunk_id": "39ca4a9b536a-10",
+    "chunk_text": "“Which Techniques are related to CVE-2022-36804?”.\nConcepts more abstract than CVE can be used to reason in\nattack graphs. Some researchers developed a tool to visualize\nhow CAPECs could be chained in an information system containing CVEs [14]. They manually describe the characteristics\nand settings of the IS and input some data from the CVSS\nvector related to the CVEs. Authors of [15] even define a new\nontology to describe an attack graph. Nevertheless, they give\nno methodology about how to fill this ontology, letting think\nthat everything must be hand-made by human experts with\ngood knowledge of the system and its vulnerabilities.\nOther studies try to derive the causes and effects of CVEs\nbased on their related description [16]. They propose algorithms using keywords and heuristics to extract semantics from\nthe description of the CVE. However, the lack of standardization of CVEs’ descriptions complicates the task. Others\ndeal with the problem of CVE enrichment by automatically",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method did some researchers use to visualize the chaining of CAPECs in an information system containing CVEs?",
+      "ground_truth": "Some researchers developed a tool to visualize how CAPECs could be chained in an information system containing CVEs [14]."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q024",
+    "question": "What approach was proposed to characterize encrypted and VPN traffic using time-related features, and what dataset was published?",
+    "ground_truth": "A flow-based classification method that uses only time-related features (with low computational complexity) to characterize encrypted and VPN traffic; the authors also published a labeled encrypted traffic dataset with 14 labels (7 regular encrypted, 7 VPN).",
+    "source": "Characterization of Encrypted and VPN Traffic using Time-related Features",
+    "topic": "Ref",
+    "page": 2,
+    "chunk_id": "6a945f720b2b-6",
+    "chunk_text": "tion of VPN trafﬁc is a challenging task that remains\nto be solved. VPN tunnels are used to maintain the\nprivacy of data shared over the physical network\nconnection holding packet-level encryption, therefore\nmaking very difﬁcult to identify the applications\nrunning through these VPN services.\nOur Contribution in this paper is twofold. First,\nwe propose a ﬂow-based classiﬁcation method to\ncharacterize encrypted and VPN trafﬁc using only\ntime-related features. Moreover, we reduce the computational overhead by reducing the set of features\nto a set that can be extracted with low computational\ncomplexity (Kim et al., 2008; Li et al., 2009). And\nsecond, we generate and publish an extensive labeled\ndataset of encrypted trafﬁc, with 14 different labels\n(7 for regular encrypted trafﬁc and 7 for VPN trafﬁc).\nWe choose only time-related features to expedite the\nefﬁciency and to ensure an encryption independent\ntrafﬁc classiﬁer.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method does the paper propose to characterize encrypted and VPN traffic?",
+      "ground_truth": "The paper proposes a flow-based classification method to characterize encrypted and VPN traffic using only time-related features."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q025",
+    "question": "Why can a SIMD engine for data-parallel floating-point applications minimize the energy cost of programmability?",
+    "ground_truth": "Because an FP operation takes around 1/10 the energy of a simple instruction, a SIMD engine performing the same operation on about 10 data lanes makes instruction energy dominated by the FP operations, minimizing the cost of programmability, as GPUs do.",
+    "source": "Computings energy problem (and what we can do about it)",
+    "topic": "Ref",
+    "page": 3,
+    "chunk_id": "4ee2372a221f-23",
+    "chunk_text": "applications to create a user programmable hardware engine for accelerating\nthat entire application class. We have seen this sort of evolution before in\ngraphics, where we went from units with limited programmability to a highlyprogrammable engine for a class of data-parallel floating-point (FP) applications. In fact, since FP arithmetic takes around 1/10 the energy of a simple\ninstruction, forming a SIMD engine which performs the same operation on\nabout 10 data lanes, easily makes the machine’s instruction energy dominated\nby the FP operation, minimizing the cost of the programmability. This is the\napproach that GPUs have taken, so it is likely that this class of machine might\nbe able to handle all data-parallel FP computation efficiently. Current machines\ncannot yet do this, since they were architected to maximize performance, and\nthey do not yet leverage locality as much as they could. However, both hardware and software are migrating in this direction, since they need to exploit",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What characteristic of FP arithmetic makes it suitable for creating a programmable engine in hardware for data-parallel applications?",
+      "ground_truth": "Since FP arithmetic takes around 1/10 the energy of a simple instruction, forming a SIMD engine which performs the same operation on about 10 data lanes, easily makes the machine’s instruction energy dominated by the FP operation, minimizing the cost of the programmability."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q026",
+    "question": "In the ProbPol framework for probabilistic policy languages, what are crisp signals?",
+    "ground_truth": "Crisp signals, such as keyword match, group membership and token count, always return 0 or 1, unlike probabilistic signals (e.g., geometric embedding-based signals).",
+    "source": "Conflict-Free Policy Languages for Probabilistic ML Predicates",
+    "topic": "k8s policy conflict",
+    "page": 4,
+    "chunk_id": "897aed56fb65-9",
+    "chunk_text": "Logical\ncontradiction\nStructural\nshadowing\nStructural\nredundancy\nCrisp Signals\nProbable\nconflict\nSoft\nshadowing\nCalibration\nconflict\nProbabilistic Signals\ndecidable −−−−−−−−−−−−−−−→approximable\nFigure 2: Conflict taxonomy for probabilistic policy languages. Left: classical types, decidable\nvia SAT/set algebra. Right: new types for probabilistic predicates, requiring geometric\napproximation or distributional knowledge.\n3\nThe ProbPol Framework\nA policy is an ordered list of rules evaluated first-match: each rule has a Boolean condition\nover signal activations, an action, and a priority, and the highest-priority rule whose condition\nholds wins. A signal maps a query to a confidence score in [0, 1] and fires when that score\nexceeds a threshold.\nThe critical observation is that not all signals are alike. Crisp signals (keyword match,\ngroup membership, token count) always return 0 or 1. Geometric signals (embedding cosine",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What type of signals always return 0 or 1 according to the passage?",
+      "ground_truth": "Crisp signals (keyword match, group membership, token count) always return 0 or 1."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q027",
+    "question": "In the study of tarpit feasibility against Internet worms, how many Mirai-infected IP addresses were trapped in the tarpit, and how many unique infections were observed per day on average?",
+    "ground_truth": "202,003 IP addresses (48%) were trapped in the tarpit; accounting for IP churn, there were on average 13,298 unique infections on a given day.",
+    "source": "Could you clean up the Internet with a Pit of Tar - Investigating tarpit feasibility on Internet worms",
+    "topic": "Deception",
+    "page": 6,
+    "chunk_id": "5d397ef0dfa1-43",
+    "chunk_text": "ecosystem now also targeted 17 other ports. As all of these\nmalwares rely on Mirai’s scanning routines, our tarpitting is\neffective against all of them. While all of these malwares were\ncaptured by our technique, we focus in the following on Mirai\nas the largest IoT malware. During our study we successfully\ntrapped 202,003 (48%) of these IP addresses in our tarpit.\nAlthough we observed hundreds of thousands of infected IP\naddresses, the momentary number of infections is significantly\nlower: Mirai-infected devices frequently crash and become\navailable for reinfection [20], furthermore ISPs often dynamically reassign IP addresses – so-called IP churn –, which means\nthat a unique infection might reappear from a different IP. We\naccount for IP churn using the methodology in [21] and find\non average 13,298 unique infections on a given day. We designed and executed a series of experiments to understand the\ndynamics of the environment and the resulting requirements on",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "How many IP addresses were successfully trapped in the tarpit during the study?",
+      "ground_truth": "202,003 (48%) of these IP addresses were successfully trapped in our tarpit."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q028",
+    "question": "In moving target defense for cloud and SDN environments, how does the technique of rotating system components work?",
+    "ground_truth": "It continuously changes key system elements such as the operating system and web applications, at regular intervals or in response to specific events, making them harder for attackers to identify and exploit; this increases attack complexity and was shown to be implementable in SDN environments.",
+    "source": "Cyber Deception - State of the art, Trends, and Open challenges",
+    "topic": "Deception",
+    "page": 20,
+    "chunk_id": "4f4b7e172ded-129",
+    "chunk_text": "attackers to predict asset locations and increased the cost\nof their attacks. The study showed that this combination\ncould improve cloud system security and resilience without\nsignificantly affecting user performance.\nBesides, the authors of [180], an innovative method was\nintroduced involving the rotation of system components. This\nstrategy continuously changed key system elements like the\noperating system and web applications to make them more\nchallenging for attackers to identify and exploit. Rotation was\nperformed at regular intervals or in response to specific events,\nincreasing attack complexity and reducing the attacker’s success chances. Research demonstrated that this technique could\nbe effectively implemented in SDN environments, providing\nan additional security layer.\nFurthermore, the work in [181] proposed integrating MTD\nwith SDN to create a dynamic cyber terrain. This technique\nused multiple MTD techniques, including IP address rotation,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method was introduced in [180] to improve cloud system security and resilience?",
+      "ground_truth": "The authors of [180] introduced an innovative method involving the rotation of system components. This strategy continuously changed key system elements like the operating system and web applications to make them more challenging for attackers to identify and exploit."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q029",
+    "question": "What is the purpose of a mobile honeypot system for industrial control systems?",
+    "ground_truth": "It can be placed in many network locations to provide an additional layer of defense that disrupts the attacker's reconnaissance activities, and it gives the defender early notification of incoming attacks.",
+    "source": "Cyber Deception for Computer and Network Security - Survey and Challenges",
+    "topic": "Deception",
+    "page": 4,
+    "chunk_id": "3cb0cafb2ee9-20",
+    "chunk_text": "4\napproach produces a believable, but incorrect network\ntopology to mislead the adversary.\n• Network host information. In [28], a mobile honeypot\nsystem for industrial control systems was introduced.\nThis system can be placed in many network locations\nto provide an additional layer of defense to disrupt attacker’s reconnaissance activities. In addition the system\ncan provide the defender with an early notiﬁcation of\nincoming attacks.\nNetwork tarpits [29] have been used as a form of defensive cyber deception to masquerade as many fake hosts\nas possible to deceive or to confuse network scanner. It\nis worth noting that in [30], an active probing detector\nDegreaser was developed to detect tarpits based on packet\nﬁngerprinting. Degreaser could be potentially used by an\nattacker as a detection tool. It is critical to revise current\ngeneration of tarpits to continue using the technique as a\nnetwork security mechanism.\n• Network trafﬁc information. The work in [31] proposed",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What system was introduced in [28] for industrial control systems to provide an additional layer of defense against attacker’s reconnaissance activities?",
+      "ground_truth": "a mobile honeypot system"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q030",
+    "question": "What does decoupled weight decay (as in AdamW) improve for Adam?",
+    "ground_truth": "Decoupling weight decay from the gradient-based update decouples the optimal weight decay factor from the learning rate setting, and substantially improves Adam's generalization so that it can compete with SGD with momentum on image classification datasets, where Adam was previously outperformed.",
+    "source": "Decoupled weight decay regularization",
+    "topic": "Ref",
+    "page": 1,
+    "chunk_id": "9d5af48931e7-1",
+    "chunk_text": "the setting of the learning rate for both standard SGD and Adam and (ii) substantially improves Adam’s generalization performance, allowing it to compete with\nSGD with momentum on image classiﬁcation datasets (on which it was previously\ntypically outperformed by the latter). Our proposed decoupled weight decay has\nalready been adopted by many researchers, and the community has implemented\nit in TensorFlow and PyTorch; the complete source code for our experiments is\navailable at https://github.com/loshchil/AdamW-and-SGDW\n1\nINTRODUCTION\nAdaptive gradient methods, such as AdaGrad (Duchi et al., 2011), RMSProp (Tieleman & Hinton,\n2012), Adam (Kingma & Ba, 2014) and most recently AMSGrad (Reddi et al., 2018) have become\na default method of choice for training feed-forward and recurrent neural networks (Xu et al., 2015;\nRadford et al., 2015). Nevertheless, state-of-the-art results for popular image classiﬁcation datasets,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "Which adaptive gradient method is mentioned as being outperformed by SGD with momentum on image classification datasets before the proposed decoupled weight decay?",
+      "ground_truth": "Adam (Kingma & Ba, 2014)"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q031",
+    "question": "How is the Multi-Layer Perceptron (MLP) described in the overview of deep learning for encrypted traffic classification, and what is its main drawback?",
+    "ground_truth": "An MLP has an input layer, an output layer and several hidden layers of densely connected neurons, each applying a non-linear activation to a weighted sum; a deep enough MLP can approximate any function, but its huge number of parameters makes it complex, inefficient and hard to train.",
+    "source": "Deep learning for encrypted traffic classification - An overview",
+    "topic": "Ref",
+    "page": 3,
+    "chunk_id": "81d564e9d47e-19",
+    "chunk_text": "laws prohibit accessing or storing packet content which limit\nthe use of payload features.\nIII. DEEP LEARNING TECHNIQUES\nIn this section, we brieﬂy introduce some recent papers\nfor each deep learning method, the summary of which is\nshown in Table I. Then, we complete our 7-step framework\nby explaining the model selection and evaluation in detail.\nA. Multi-Layer Perceptron\nMulti-layer perceptron (MLP) is the ﬁrst neural network\narchitecture and consists of an input layer, an output layer\nand several hidden layers of neurons. Each layer has several\nneurons which are densely connected to adjacent layers, as\nshown in Fig. 2(a). A neuron takes a weighted sum of its\ninputs and passes through a non-linear activation function to\nproduce an output. Theoretically, a dense and deep enough\nMLP can estimate any arbitrary function. However, due to the\nhuge number of parameters that a model need to learn, this\nmodel is usually very complex, inefﬁcient and hard to train for",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the first neural network architecture mentioned in the passage?",
+      "ground_truth": "Multi-Layer Perceptron (MLP) is the first neural network architecture and consists of an input layer, an output layer and several hidden layers of neurons."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q032",
+    "question": "What method did Diehl et al. use to train the two-layer SNN for digit recognition on the MNIST dataset and what was the best performance achieved?",
+    "ground_truth": "They used unsupervised STDP-based learning rules in a two-layer SNN and achieved a best performance of 95% on MNIST digit recognition.",
+    "source": "Deep learning in spiking neural networks",
+    "topic": "Ref",
+    "page": 8,
+    "chunk_id": "16bd9bef0af0-45",
+    "chunk_text": "The remaining subsections review spiking deep learning approaches covering deep fully connected SNNs,\nspiking CNNs, spiking DBNs, and spiking RNNs.\nA. Deep, Fully Connected SNNs\nRecent studies have developed a number of deep\nSNNs using STDP and stochastic gradient descent. Spiking networks consisting of many LIF neurons equipped\nby spike-based synaptic plasticity rules have shown success in different pattern recognition tasks [128], [129].\nDiehl et al. [130] showed that STDP in a two-layer SNN\nis able to extract discriminative features and patterns\nfrom stimuli. They used unsupervised learning rules\nintroduced by [131], [90], [132] to train the SNN for the\nModiﬁed National Institute of Standards and Technology\n(MNIST) dataset [133] digit recognition with the best\nperformance of 95%.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method did Diehl et al. use to train the two-layer SNN for digit recognition on the MNIST dataset and what was the best performance achieved?",
+      "ground_truth": "Diehl et al. used unsupervised learning rules introduced by [131], [90], [132] to train the SNN for the Modified National Institute of Standards and Technology (MNIST) dataset digit recognition with the best performance of 95%."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q033",
+    "question": "What is the formulation of the Spike-Element-Wise (SEW) residual block proposed in the paper?",
+    "ground_truth": "The SEW residual block can be formulated as: Ol[t] = g(SN(Fl(Sl[t])), Sl[t]) = g(Al[t], Sl[t]), where g represents an element-wise function with two spikes tensor as inputs. Here we use Al[t] to denote the residual mapping to be learned as Al[t] = SN(Fl(Sl[t])).",
+    "source": "Deep residual learning in spiking neural networks",
+    "topic": "Ref",
+    "page": 4,
+    "chunk_id": "aaf351cd984a-17",
+    "chunk_text": "caused by spiking neurons, and can hardly implement residual learning. Nonetheless, the basic block\nin Fig. 1(b) is still decent for ANN2SNN with extra normalization [17, 49], as the SNN converted\nfrom ANN aims to use ﬁring rates to match the origin ANN’s activations.\n3.3\nSpike-Element-Wise ResNet\nHere we propose the Spike-Element-Wise (SEW) residual block to realize the residual learning in\nSNNs, which can easily implement identity mapping and overcome the vanishing/exploding gradient\nproblems at the same time. As illustrated in Fig. 1(c), the SEW residual block can be formulated as:\nOl[t] = g(SN(Fl(Sl[t])), Sl[t]) = g(Al[t], Sl[t]),\n(9)\nwhere g represents an element-wise function with two spikes tensor as inputs. Here we use Al[t] to\ndenote the residual mapping to be learned as Al[t] = SN(Fl(Sl[t])).\nName\nExpression of g(Al[t], Sl[t])\nADD\nAl[t] + Sl[t]\nAND\nAl[t] ∧Sl[t] = Al[t] · Sl[t]\nIAND\n(¬Al[t]) ∧Sl[t] = (1 −Al[t]) · Sl[t]\nTable 1: List of element-wise functions g.",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "hỏi công thức SEW block"
+  },
+  {
+    "id": "q034",
+    "question": "In the streaming question-answering evaluation, how does StreamingLLM compare with dense attention and window attention?",
+    "ground_truth": "Dense attention runs out of memory; window attention is efficient but has low accuracy (random outputs) once the input exceeds the cache size; StreamingLLM handles the streaming format efficiently and matches the one-shot, sample-by-sample baseline accuracy.",
+    "source": "Efficient streaming language models with attention sinks",
+    "topic": "Ref",
+    "page": 8,
+    "chunk_id": "e8a7de67c7c5-40",
+    "chunk_text": "position using an exact match criterion. As table 5 indicates, dense attention results in Out-of-Memory\n(OOM) errors, showing it unsuitable for this setting. While the window attention method works\nefficiently, it exhibits low accuracy due to random outputs when the input length exceeds the cache\nsize. Conversely, StreamingLLM excels by efficiently handling the streaming format, aligning with\nthe one-shot, sample-by-sample baseline accuracy.\nHighlighting a more fitting scenario for StreamingLLM, we introduce a dataset, StreamEval, inspired\nby the LongEval (Li et al., 2023) benchmark. As depicted in Figure 8, diverging from LongEval’s\nsingle query over a long-span setup, we query the model every 10 lines of new information. Each\nquery’s answer is consistently 20 lines prior, reflecting real-world instances where questions typically\npertain to recent information. As illustrated in Figure 9, LLMs employing StreamingLLM maintain",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method does StreamingLLM use to handle the streaming format efficiently, and how does it perform compared to window attention?",
+      "ground_truth": "StreamingLLM excels by efficiently handling the streaming format, aligning with the one-shot, sample-by-sample baseline accuracy, whereas window attention method works efficiently but exhibits low accuracy due to random outputs when the input length exceeds the cache size."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q035",
+    "question": "For the encrypted traffic classification approach that converts each packet into a normalized byte sequence fed to a 1-D CNN and stacked auto-encoders, how well did it perform on VPN and on Tor traffic?",
+    "ground_truth": "It categorized unencrypted and VPN traffic well (around 93-94% average recall) without time-related features, but on the unencrypted vs. Tor dataset average recall dropped to 57% and average precision to 44%.",
+    "source": "Encrypted Internet Traffic Classification Using a Supervised Spiking Neural Network",
+    "topic": "Ref",
+    "page": 2,
+    "chunk_id": "9a5a3ced0fd0-13",
+    "chunk_text": "the former containing both VPN and unencrypted trafﬁc, and the\nlatter containing both Tor and unencrypted trafﬁc.\nIn [25] each packet (header and payload) is converted to a normalized byte sequence and used as an input for a 1-D convolutional neural network and a set of stacked auto-encoders. Both\nare trained with unencrypted and VPN-encrypted trafﬁc. Surprisingly, the resulting networks can categorize trafﬁc for both unencrypted and VPN trafﬁc without using time-related features (but\nsize). Performance is quite good with 94% average recall and 93%\naverage recall. Unfortunately, for the unencrypted vs. Tor dataset,\nthere is an important drop in average recall (down to 57%) and\naverage precision (down to 44%).\nThe Flowpic approach [10] uses all spatial and temporal information contained in a trafﬁc ﬂow without looking at its content.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method in [25] converts each packet to a normalized byte sequence for input into a 1-D convolutional neural network and a set of stacked auto-encoders?",
+      "ground_truth": "each packet (header and payload) is converted to a normalized byte sequence and used as an input for a 1-D convolutional neural network and a set of stacked auto-encoders."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q036",
+    "question": "What kind of spiking neural network was used for encrypted internet traffic classification, how was it trained, and what accuracy did it reach on the ISCX datasets?",
+    "ground_truth": "A simple feedforward SNN with one fully connected hidden layer, using only packet size and arrival time, trained in a supervised manner with Surrogate Gradient Learning; it reached 95.9% accuracy on the ISCX datasets, outperforming previous approaches.",
+    "source": "Encrypted internet traffic classification using a supervised spik¬ing neural network",
+    "topic": "Ref",
+    "page": 1,
+    "chunk_id": "5b2c83523aff-1",
+    "chunk_text": "order to enhance user experience, e.g., a high priority for an audio conference and a low priority for a ﬁle\ntransfer. As internet trafﬁc becomes increasingly encrypted, the main classic trafﬁc recognition technique, payload inspection, is rendered ineffective. Hence this paper uses machine learning techniques\nlooking only at packet size and time of arrival. For the ﬁrst time, Spiking neural networks (SNNs), which\nare inspired by biological neurons, were used for this task for two reasons. Firstly, they can recognize\ntime-related data packet features. Secondly, they can be implemented efﬁciently on neuromorphic hardware. Here we used a simple feedforward SNN, with only one fully connected hidden layer, and trained in\na supervised manner using the new method known as Surrogate Gradient Learning. Surprisingly, such a\nsimple SNN reached an accuracy of 95.9% on ISCX datasets, outperforming previous approaches. Besides",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique did the paper use for internet traffic classification, and what was the accuracy on the ISCX datasets?",
+      "ground_truth": "The paper used a simple feedforward Spiking neural network (SNN) with one fully connected hidden layer, trained in a supervised manner using the Surrogate Gradient Learning method. The SNN reached an accuracy of 95.9% on the ISCX datasets."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q037",
+    "question": "What type of neural network is used for end-to-end encrypted traffic classification that learns features directly from raw traffic?",
+    "ground_truth": "A one-dimensional convolutional neural network (1D-CNN), which learns features from raw traffic layer by layer and feeds high-level features to a softmax layer that directly outputs the predicted labels.",
+    "source": "End-to-end Encrypted Traffic Classification with One-dimensional Convolution Neural Networks",
+    "topic": "Ref",
+    "page": 2,
+    "chunk_id": "d87eb44dec9c-8",
+    "chunk_text": "hand, the disadvantage is also obvious. The optimal solution \nof sub-problem does not mean the optimal solution of the \nglobal problem, and the optimal solution of each step does \nnot mean the optimal solution of the whole process. \nIn this paper, we propose an end-to-end method of \nencrypted \ntraffic \nclassification \nwith \none-dimensional \nconvolution neural networks [8] (1D-CNN). This method is \nbased on deep learning which is a representative technology \nin representation learning domain. 1D-CNN is applied as \nlearning algorithm, and it directly learns features from raw \ntraffic automatically. The traffic features are learned layer \nby layer, and the high level features are as the input of \nsoftmax layer. Finally the 1D-CNN directly outputs the \npredicted labels. Figure 1b shows the procedure described \nabove. That strategy is the end-to-end strategy, which is \ncommonly used in deep learning technology. Instead of \ndividing a complex problem into sub-problems, it can",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What type of neural network is used in the proposed method for end-to-end encrypted traffic classification?",
+      "ground_truth": "1D-CNN"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q038",
+    "question": "What does the stacked deep ensembles approach for encrypted HTTPS traffic classification contribute?",
+    "ground_truth": "A deployment-oriented, leakage-controlled recipe for flow-level encrypted HTTPS classification: a standardized pipeline, probability-level stacked ensembling, a like-for-like comparison of deep architectures under identical data, splits, preprocessing, imbalance handling and training budget, state-of-the-art results on the HTTPS/CESNET family, and a released codebase for reproducibility.",
+    "source": "Enhancing encrypted HTTPS traffic classification based on stacked deep ensembles models",
+    "topic": "Ref",
+    "page": 2,
+    "chunk_id": "c05a6d204c10-7",
+    "chunk_text": "ensure transparency and reproducibility, the full codebase is released on GitHub, providing the community with \na ready-to-use framework for HTTPS traffic analytics and a baseline for future research on encrypted traffic \nclassification.\nOur contribution is a deployment-oriented, leakage-controlled recipe for flow-level encrypted HTTPS \nclassification, standardizing the entire pipeline, implementing probability-level stacked ensembling, conducting a \nlike-for-like comparison of deep architectures under the same dataset, splits, preprocessing, imbalance handling, \nand training budget, achieving state-of-the-art results on the same HTTPS/CESNET family, and emphasizing \nreproducibility and deployment.\nThe remainder of this paper is organized as follows. Section 2 reviews related work on encrypted traffic \nclassification and the role of machine and deep learning in modern network analytics. Section 3 describes the",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the contribution of the paper regarding encrypted HTTPS traffic classification?",
+      "ground_truth": "Our contribution is a deployment-oriented, leakage-controlled recipe for flow-level encrypted HTTPS classification, standardizing the entire pipeline, implementing probability-level stacked ensembling, conducting a like-for-like comparison of deep architectures under the same dataset, splits, preprocessing, imbalance handling, and training budget, achieving state-of-the-art results on the same HTTPS/CESNET family, and emphasizing reproducibility and deployment."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q039",
+    "question": "What does the network attack simulation methodology for evaluating deception and moving target defense allow defenders to determine?",
+    "ground_truth": "It quantitatively measures the effectiveness of honeypots and moving target defense in a simulation environment, enabling recommendations on how many honeypots to deploy and how quickly network addresses must be mutated to effectively disrupt attacks across network and attacker configurations.",
+    "source": "Evaluating Deception and Moving Target Defense with Network Attack Simulation",
+    "topic": "Deception",
+    "page": 1,
+    "chunk_id": "f6f6708639d3-1",
+    "chunk_text": "and response strategies, the novel concept of cyber deception has\nemerged. Starting from the well-known example of honeypots,\nmany other deception strategies have been developed such as honeytokens and moving target defense, all sharing the objective of\ncreating uncertainty for attackers and increasing the chance for the\nattacker of making mistakes. In this paper a methodology to evaluate the effectiveness of honeypots and moving target defense in a\nnetwork is presented. This methodology allows to quantitatively\nmeasure the effectiveness in a simulation environment, allowing to\nmake recommendations on how many honeypots to deploy and on\nhow quickly network addresses have to be mutated to effectively\ndisrupt an attack in multiple network and attacker configurations.\nWith this optimum, attacks can be detected and slowed down with\na minimal resource and configuration overhead. With the provided\nmethodology, the optimal number of honeypots to be deployed and",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What methodology does the paper present to evaluate the effectiveness of honeypots and moving target defense in a network simulation environment?",
+      "ground_truth": "This methodology allows to quantitatively measure the effectiveness in a simulation environment, allowing to make recommendations on how many honeypots to deploy and on how quickly network addresses have to be mutated to effectively disrupt an attack in multiple network and attacker configurations."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q040",
+    "question": "How does ZoMBI improve Bayesian optimization on needle-in-a-haystack problems compared with standard Bayesian optimization?",
+    "ground_truth": "ZoMBI zooms the search bounds inward and prunes redundant memory points, so the needle-like optimum region is resolved accurately aligned with the true target, whereas standard Bayesian optimization does not progress significantly after 10 additional experiments.",
+    "source": "Fast bayesian optimization of needle-in-a-haystack problems using zooming memory-based initialization (zombi)",
+    "topic": "Ref",
+    "page": 4,
+    "chunk_id": "82a233bab287-18",
+    "chunk_text": "Fast Bayesian Optimization of Needle-in-a-Haystack Problems using Zooming Memory-Based Initialization\nFigure 2: Accelerated Convergence to True Target using ZoMBI. Using a standard Bayesian optimization procedure,\nthe discovery of a Needle-in-a-Haystack condition does not progress signiﬁcantly after 10 additional experiments from\nthe initial GP guess. However, using ZoMBI to zoom the bounds inward and prune redundant memory points, the\nneedle-like optimum region is resolved to be accurately aligned with the true target. (a) The true target to optimize,\nwhich is a slice from the 6D Poisson’s Ratio dataset, (b) The initial guess of the target function using a GP surrogate\nwith 20 randomly sampled experiments, (c) (top) The estimated target resolved by standard BO after 10 additional\nexperiments sampled using a greedy LCB acquisition function (β = 0.1); (bottom) the estimated target resolved by",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique does the passage describe to improve the discovery of a Needle-in-a-Haystack condition in Bayesian optimization?",
+      "ground_truth": "The passage describes the use of Zooming Memory-Based Initialization (ZoMBI) to improve the discovery of a Needle-in-a-Haystack condition in Bayesian optimization."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q041",
+    "question": "What clustering methods are used in GenXSS for grouping XSS payloads, and how do they complement each other?",
+    "ground_truth": "The integration of TF-IDF with Hierarchical Agglomerative Clustering (HAC) and SequenceMatcher with DBSCAN provides a robust solution for clustering XSS payloads by leveraging their complementary strengths. TF-IDF + HAC effectively extracts features and captures hierarchical relationships without predefined cluster shapes, while SequenceMatcher + DBSCAN excels in identifying string-level similarities, managing overlapping clusters, and dynamically determining cluster counts.",
+    "source": "GenXSS - an AI-Driven Framework for Automated Detection of XSS Attacks in WAFs Vahid Babaey, Arun Ravindran",
+    "topic": "WAF",
+    "page": 3,
+    "chunk_id": "5d3b45273074-19",
+    "chunk_text": "[14]. For instance, -alert(1)%0d%0a//%20comment- and alert(1)//comment%0d%0a- are grouped due to their structural similarity. The integration of TF-IDF with HAC and\nSequenceMatcher with DBSCAN provides a robust solution\nfor clustering XSS payloads by leveraging their complementary strengths. TF-IDF + HAC effectively extracts features\nand captures hierarchical relationships without predefined\ncluster shapes, while SequenceMatcher + DBSCAN excels\nin identifying string-level similarities, managing overlapping\nclusters, and dynamically determining cluster counts. These\napproaches outperform traditional methods like k-means and\nregular expression-based clustering.\n4) WAF Security Rule Generation: The features of each\ncluster, along with some of the generated XSS attacks, can\nbe utilized to create a comprehensive and structured prompt\nfor the LLM to generate new security rules for updating\nWAF security rules. The prompt includes (1) System Role:",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q042",
+    "question": "What constraints does the H2O (Heavy-Hitter Oracle) eviction policy impose on the KV cache at each step?",
+    "ground_truth": "The KV cache size stays fixed at k, and at most one KV entry can be evicted per step (|S_i \\ S_{i-1}| <= 1, equivalently |S_i ∩ S_{i-1}| >= k-1).",
+    "source": "H2o - Heavyhitter oracle for efficient generative inference of large language models",
+    "topic": "Ref",
+    "page": 6,
+    "chunk_id": "f2d699db2c1f-25",
+    "chunk_text": "Remark 4.2. We provide practical insights of Definition 4.1. X denotes the existing words in the\nKV cache. Y is any superset of X. x can be viewed as a “word” which is either newly added to KV\ncache or existing deleted from KV cache. An example f can be attention score, i.e., see Algorithm 1.\nIf we load the sequence of S1, S2, · · · , Sn (we promise that |Si| ≤k and |Si\\Si−1| ≤1) into\nDefinition 4.1, i.e., for each i ∈[n], we choose Z = Si, then it becomes a particular instance of the\ndynamic submodular problem.\nNext, we provide a formal description of our algorithm, followed by an example.\nDefinition 4.3 (H2O Eviction Policy). Let Fscore : 2[n] →R denote certain score function. Let Si−1\ndenote the source set. Let Si denote the target set. We defined the eviction policy g : Si−1 →Si s.t.\n• |Si| = k (KV cache size is not changing over the time)\n• |Si\\Si−1| ≤1 or equivalently |Si ∩Si−1| ≥k −1 (we can evict at most 1 KV in the KV cache)",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the condition for the eviction policy g in Definition 4.3 regarding the change in the size of the target set Si compared to the source set Si−1?",
+      "ground_truth": "The condition is that |Si\\Si−1| ≤1 or equivalently |Si ∩Si−1| ≥k −1, which means we can evict at most 1 KV in the KV cache."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q043",
+    "question": "Why are FPGAs considered an ideal platform for SNN hardware accelerators, and what is the key challenge?",
+    "ground_truth": "FPGAs offer flexible hardware reconfigurability and parallel computing, with low latency, high efficiency and good power control; the key challenge is their limited resources, which makes balancing inference speed, power consumption and accuracy difficult.",
+    "source": "Hardware implementation of FPGA-based spiking attention neural network accelerator",
+    "topic": "Ref",
+    "page": 3,
+    "chunk_id": "9145bd143bca-8",
+    "chunk_text": "Field programmable gate arrays (FPGAs) represent an ideal platform for implementing\nSNN hardware accelerators (Han et al., 2020) due to their ﬂexible hardware\nreconﬁgurability and parallel computing capabilities (Brown et al., 2012; Kulkarni et al.,\n2019; Bhattacharjee et al., 2024). FPGAs offer numerous advantages in neural network\nacceleration, including low latency, high efﬁciency, and effective power consumption\ncontrol. However, FPGAs have limited resources, and balancing inference speed, power\nconsumption, and model accuracy with these constraints remains a key challenge.\nWhile GPU architectures demonstrate limitations in harnessing the intrinsic sparsity of\nSNNs during training phases (Cong et al., 2018), their fundamental mismatch with\ntemporal accumulation-dominant computations further restricts efﬁcient implementation.\nRecent advances in neuromorphic computing have yielded specialized ASIC solutions",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is an ideal platform for implementing SNN hardware accelerators according to the passage?",
+      "ground_truth": "Field programmable gate arrays (FPGAs) represent an ideal platform for implementing SNN hardware accelerators due to their flexible hardware reconﬁgurability and parallel computing capabilities."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q044",
+    "question": "In the network-centric Harvest-Now, Decrypt-Later (HNDL) model, what information besides application data is included in harvested ciphertext?",
+    "ground_truth": "Network-layer routing information, subscriber authentication vectors, and inter-domain trust relationships that persist in network registries and certificate transparency logs.",
+    "source": "Harvest-Now, Decrypt-Later - A Temporal Cybersecurity Risk in the Quantum Transition",
+    "topic": "Quantum Security",
+    "page": 8,
+    "chunk_id": "8bb51b835577-33",
+    "chunk_text": "short lifetimes (hours to days), while control-plane authentication credentials, routing\ntable updates, and network slice configurations require protection for years. The HNDL\nmodel quantifies this asymmetry: network operators must evaluate not only cryptographic strength but also the temporal persistence of network state information across\nprotocol stacks.\nThe adversarial horizon Ha(t) becomes network-parameterized when considering\nprotocol-specific breakpoints. For example, RSA-2048 keys protecting TLS 1.3 handshakes\nin current deployments will become vulnerable when quantum factoring becomes feasible,\nbut the harvested ciphertext includes not only application data but also network-layer\nrouting information, subscriber authentication vectors, and inter-domain trust relationships that persist in network registries and certificate transparency logs. This networkcentric formulation transforms the generic HNDL model into an operational framework",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What types of network state information are harvested by the HNDL model and remain vulnerable even when quantum factoring becomes feasible?",
+      "ground_truth": "The harvested ciphertext includes not only application data but also network-layer routing information, subscriber authentication vectors, and inter-domain trust relationships that persist in network registries and certificate transparency logs."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q045",
+    "question": "What are the two distinct RAG techniques that HybridRAG integrates, and how do they complement each other?",
+    "ground_truth": "HybridRAG integrates VectorRAG and GraphRAG. VectorRAG provides broad, similarity-based retrieval of relevant information, while GraphRAG contributes structured, relationship-rich contextual information.",
+    "source": "HybridRAG - Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+    "topic": "Survey",
+    "page": 3,
+    "chunk_id": "ac529ab762fd-20",
+    "chunk_text": "is given in Figure 2. Here we first write a prompt to clean the\ndata and then write another prompt in the second stage to create\nknowledge triplets along with metadata. It will be covered in more\ndetail in section 4.1\nFigure 2: A schematic diagram describing knowledge graph\ncreation process of GraphRAG.\n2.3.1\nHybridRAG. For the HybridRAG technique, we propose to\nintegrate the aforementioned two distinct RAG techniques: VectorRAG and GraphRAG. This integration involves a systematic\ncombination of contextual information retrieved from both the\ntraditional vector-based retrieval mechanism and the KG-based\nretrieval system, the latter of which was constructed specifically\nfor this study.\nThe amalgamation of these two contexts allows us to leverage the\nstrengths of both approaches. The VectorRAG component provides\na broad, similarity-based retrieval of relevant information, while\nthe GraphRAG element contributes structured, relationship-rich",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q046",
+    "question": "Which four evaluation metrics are used in the ICLSTM study of encrypted traffic service identification?",
+    "ground_truth": "Accuracy, Precision, Recall and F1score.",
+    "source": "ICLSTM_Encrypted_Traffic_Service_Identification_Ba",
+    "topic": "Ref",
+    "page": 10,
+    "chunk_id": "2e4bb9604b02-39",
+    "chunk_text": "mixed encryption trafﬁc service identiﬁcation, without considering the encryption method\nor encapsulation type, which only consider the service type identiﬁcation in the case\nof the same service type, and the same trafﬁc type of trafﬁc into one category, a total\nof six categories (Regular encrypted trafﬁc and VPN encrypted trafﬁc with the same\ntype of service are grouped together). Experiments 3 and 4 are regular encrypted trafﬁc\nservice identiﬁcation and VPN encrypted trafﬁc service identiﬁcation, with six service types\nrespectively. Experiment 5 is the trafﬁc service type identiﬁcation considering encapsulation\nmethod, identiﬁcation of trafﬁc service types under regular encrypted trafﬁc (six service\ntypes) and VPN encrypted trafﬁc (six service types), for a total of twelve categories.\n4.2. Evaluation Indicators\nIn this paper, we use four evaluation metrics: Accuracy, Precision, Recall and F1score. Accuracy is used to evaluate the overall performance of the classiﬁer and this is",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What are the four evaluation metrics used in the paper for classifying encrypted traffic service types?",
+      "ground_truth": "Accuracy, Precision, Recall and F1score."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q047",
+    "question": "Why can attack data generated with tools like SQLMap, WPScan and Metasploit lead to mislabeled requests when building ML-based WAF datasets?",
+    "ground_truth": "Most of these tools first run a scanning process to gather information about the target website before launching attacks, so many normal requests get mixed into the attack requests, causing mislabeling.",
+    "source": "Improving ModSecurity WAF with Machine Learning Methods",
+    "topic": "WAF",
+    "page": 7,
+    "chunk_id": "507fbd0f73b8-21",
+    "chunk_text": "recorded requests may be more or less. Currently, we have been capturing our\nweb traﬃc data within ﬁve days and obtained a total of 182,103 normal HTTP\nrequests on a total of 1,405 diﬀerent websites (calculated according to the Host\nheader in HTTP requests). The statistical result of 15 domains with the most\nnumber of requests in the dataset is shown in Table 1. In the next step, we will\nshow the way we generate attack data.\nGenerating Data with Attack-Label. Currently, the simplest way to generate attack data is to use available open-source web application security tools\nsuch as SQLMap, WPScan, MetaSploit, etc. However, there are some notable\ncharacteristics and mechanisms of these tools. Most of these tools will conduct a\nscanning process to ﬁnd some information about the target website before actually launching an attack. Therefore, among these attack requests, it is possible\nto mix quite a lot of normal requests, which will lead to mislabeling of request",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What are some characteristics of the open-source web application security tools used to generate attack data, such as SQLMap, WPScan, and MetaSploit?",
+      "ground_truth": "Most of these tools will conduct a scanning process to find some information about the target website before actually launching an attack. Therefore, among these attack requests, it is possible to mix quite a lot of normal requests, which will lead to mislabeling of requests."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q048",
+    "question": "In the analysis of the recurrent memory transformer on long-context needle tasks, what happens to the memory state when a fact is introduced, and what does this indicate?",
+    "ground_truth": "The memory state changes visibly when a fact is introduced, indicating that the model learned to distinguish important facts from background text and preserve them in memory until a question appears.",
+    "source": "In Search of Needles in a 11M Haystack - Recurrent Memory Finds What LLMs Miss",
+    "topic": "Ref",
+    "page": 6,
+    "chunk_id": "188c285be2a3-27",
+    "chunk_text": "states, but the introduction of fact leads to visible change\nin the memory state. This indicates that the model learned\nto distinguish important facts from the background text and\npreserving them in memory until a question appears. The\noperations with memory are represented by distinctive patterns on attention maps, specifically, the process of writing a\nnew fact to memory Figure 10 (c) and reading from memory\nto answer a question (d). This visual demonstration supports the intuition of learning distinct memory operations\nwhen dealing with information scattered across extended\ncontextual spans.\n6. Related Work\nA new set of datasets (Bai et al., 2023; An et al., 2023) and\nbenchmarks (Shaham et al., 2023) specifically designed to\ntest the ability of LLMs to handle long contexts has been proposed. The LongBench dataset (Bai et al., 2023) contains 6\ntypes of real and synthetic problems, ranging from summarisation and multidoc QA to code completion. The average",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What does the introduction of a fact lead to in the memory state according to the passage?",
+      "ground_truth": "The introduction of a fact leads to a visible change in the memory state."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q049",
+    "question": "In CRYSTALS-Kyber, how is the shared key K derived during encapsulation?",
+    "ground_truth": "The value represented by the letter K is the outcome of concatenating a message and public key hash with the hash of the output from the CPAPKE.Enc function using a key derivation function. To put it another way, the encryption key (K) is obtained from extra data about the message and public key, as well as from certain outputs of the encryption function (CPAPKE.Enc).",
+    "source": "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation",
+    "topic": "Quantum Security",
+    "page": 5,
+    "chunk_id": "60cc7a198bb1-16",
+    "chunk_text": "Cryptography 2024, 8, 15\n5 of 13\nvariants of CRYSTALS—Kyber, Kyber-512, Kyber-768, and Kyber-1024. Since the target\nimplementations support Kyber-512, that version is the main focus. Number-theoretic\ntransform (NTT) is used by CRYSTALS-Kyber to efficiently perform multiplications in Rq.\nThe value represented by the letter K is the outcome of concatenating a message and\npublic key hash with the hash of the output from the CPAPKE.Enc function using a key\nderivation function. To put it another way, the encryption key (K) is obtained from extra\ndata about the message and public key, as well as from certain outputs of the encryption\nfunction (CPAPKE.Enc).\nThis method is described in the function definition for Kyber.Encaps. The K value is\nreturned during the encryption process, and the returned K value after the decryption process (Kyber.Decaps) may be the same as during the encryption or a fake value, depending\non the assessment of the potentially maliciously created ciphertext (c).",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the value represented by the letter K in CRYSTALS-Kyber, and how is it obtained?",
+      "ground_truth": "The value represented by the letter K is the outcome of concatenating a message and public key hash with the hash of the output from the CPAPKE.Enc function using a key derivation function. To put it another way, the encryption key (K) is obtained from extra data about the message and public key, as well as from certain outputs of the encryption function (CPAPKE.Enc)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q050",
+    "question": "How do Loihi's synaptic density and neuron density compare with TrueNorth?",
+    "ground_truth": "Loihi provides 2.1 million unique synaptic variables per mm2, over three times higher than TrueNorth, but its maximum neuron density of 2,184 per mm2 is marginally worse than TrueNorth's (a 2x reduction when process-normalized).",
+    "source": "Loihi - A neuromorphic manycore processor with on-chip learning",
+    "topic": "Ref",
+    "page": 14,
+    "chunk_id": "c342dff93fef-56",
+    "chunk_text": "Loihi includes a total of 16 MB of synaptic memory. With its densest 1-bit synapse format, this \nprovides a total of 2.1 million unique synaptic variables per mm2, over three times higher than \nTrueNorth, the previously most dense SNN chip.11 This does not consider Loihi’s hierarchical \nnetwork support that can significantly boost its effective synaptic density. On the other hand, \nLoihi’s maximum neuron density of 2,184 per mm2 is marginally worse than TrueNorth’s. Process normalized, this represents a 2× reduction in the design’s neuron density, which may be interpreted as the cost of Loihi’s greatly expanded feature set, an intentional design choice. \n \n \n \n \n \n95\nJanuary/February 2018\nwww.computer.org/micro\nAuthorized licensed use limited to: CERN. Downloaded on July 21,2020 at 12:07:18 UTC from IEEE Xplore. Restrictions apply.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the maximum neuron density of Loihi per mm2 and how does it compare to TrueNorth's density?",
+      "ground_truth": "Loihi’s maximum neuron density of 2,184 per mm2 is marginally worse than TrueNorth’s."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q051",
+    "question": "Why does Loihi support a hierarchical network model, and how is a hierarchical template network formally represented?",
+    "ground_truth": "It significantly reduces the chip-wide connectivity and synaptic resources needed to map convolutional-style networks; the hierarchical template network is represented as a directed multigraph whose nodes are disjoint neuron population types and whose edges are sets of synapses connecting pairs of population types.",
+    "source": "Loihi_A_Neuromorphic_Manycore_Processor_with_On-Chip_Learning",
+    "topic": "Ref",
+    "page": 8,
+    "chunk_id": "04f6102c5488-35",
+    "chunk_text": "To exploit structure that might exist in the network ࣡, Loihi supports a hierarchical network \nmodel. This feature can significantly reduce the chip-wide connectivity and synaptic resources \nneeded to map convolutional-style networks in which a template of synaptic connections is applied to many neurons in a uniform way. \nFormally, we represent the hierarchical template network as a directed multigraph ℋ = (࣮, ℰ) \nwhere ࣮ is a set of disjoint neuron population types and ℰ defines a set of edges connecting between pairs Tsrc,Tdst ∈ ࣮. An edge E ∈ ℰ associated with the (Tsrc,Tdst) population type pair is a \nset of synapses where each s ∈ E connects a neuron i ∈ Tsrc to a neuron j ∈ Tdst. \nTo hierarchically compress the resource mapping of the desired flat network ࣡ = (N,S), a set of \ndisjoint neuron populations instances ࣪ must be defined where each P ∈ ࣪ is a subset of neurons \nP ⊂ N. Each population instance is associated with a population type T ∈ ࣮ from the hierarchical",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What formal representation does Loihi use for hierarchical template networks?",
+      "ground_truth": "Formally, we represent the hierarchical template network as a directed multigraph ℋ = (࣮, ℰ) where ࣮ is a set of disjoint neuron population types and ℰ defines a set of edges connecting between pairs Tsrc,Tdst ∈ ࣮."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q052",
+    "question": "What does the LongBench benchmark contain, and what is its average length in English and Chinese?",
+    "ground_truth": "LongBench is a bilingual, multi-task benchmark with 21 datasets across 6 task categories in English and Chinese, with an average length of 6,711 words (English) and 13,386 characters (Chinese).",
+    "source": "LongBench - A Bilingual, Multitask Benchmark for Long Context Understanding",
+    "topic": "Ref",
+    "page": 1,
+    "chunk_id": "2ef5a32cc119-1",
+    "chunk_text": "long context understanding are lacking. In this\npaper, we introduce LongBench, the first bilingual, multi-task benchmark for long context\nunderstanding, enabling a more rigorous evaluation of long context understanding. LongBench comprises 21 datasets across 6 task categories in both English and Chinese, with an\naverage length of 6,711 words (English) and\n13,386 characters (Chinese). These tasks cover\nkey long-text application areas including singledoc QA, multi-doc QA, summarization, fewshot learning, synthetic tasks, and code completion. All datasets in LongBench are standardized into a unified format, allowing for\neffortless automatic evaluation of LLMs. Upon\ncomprehensive evaluation of 8 LLMs on LongBench, we find that: (1) Commercial model\n(GPT-3.5-Turbo-16k) outperforms other opensourced models, but still struggles on longer\ncontexts. (2) Scaled position embedding and",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the average length of the English datasets in LongBench in terms of words?",
+      "ground_truth": "6,711 words"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q053",
+    "question": "What does NetSMT do before the exploration starts to improve the efficiency of solving network verification formulas?",
+    "ground_truth": "Before exploration starts, NetSMT arranges branching variables (e.g., variables for matching conditions in route policies) to be explored first, and among them those corresponding to configurations in routers closer to the destination are explored first.",
+    "source": "Network Can Help Check Itself - Accelerating SMT-based Network Configuration Verification Using Network Domain Knowledge",
+    "topic": "k8s policy conflict",
+    "page": 2,
+    "chunk_id": "5f1ee4685010-10",
+    "chunk_text": "possible. Specifically, given a formula, before the exploration\nstarts, NetSMT arranges branching variables (e.g., variables\ncorresponding to matching conditions in route policies) to be\nexplored firsts. Within the set of branching variables, NetSMT\narranges the ones corresponding to configurations in routers\ncloser to the destination to be explored first. Second, during\nthe exploration, NetSMT leverages the intent of operators to\nfirst explore assignments that are more likely to be satisfiable\n(i.e., network error). With these two designs, NetSMT can\nsubstantially improve the efficiency of solving the network\nverification formula over off-the-shelf SMT solvers.\nKey insight 2: network domain knowledge allows a more\nsuccinct verification formula, accelerating verification by\nConfigs\nInvariant\nEncoder\nSMT\nSolver\nA simplified SMT \nverification formula (§ Ⅳ)\nSAT / \nUNSAT\nNetSMT\nVariable & assignment \nexploration order (§ Ⅲ)\nPlanner\nOperator\nNetwork domain knowledge",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What does NetSMT do before the exploration starts to improve the efficiency of solving network verification formulas?",
+      "ground_truth": "Specifically, given a formula, before the exploration starts, NetSMT arranges branching variables (e.g., variables corresponding to matching conditions in route policies) to be explored firsts. Within the set of branching variables, NetSMT arranges the ones corresponding to configurations in routers closer to the destination to be explored first."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q054",
+    "question": "What is a Trojan and how can it be used by hackers?",
+    "ground_truth": "A Trojan is a concealed application that runs in the background, allowing a hacker to become a ghost user on your PC/Workstation. Hackers can monitor when your computer is online to deliver captured keystroke log files to their preferred address. They can also upload a malicious code via the Trojan that may kill your antivirus program, take your snap via webcam, or tap into your office conversations from your laptop microphone.",
+    "source": "Network Security Threats and Protection Models",
+    "topic": "k8s policy conflict",
+    "page": 3,
+    "chunk_id": "4d88f656fb6a-4",
+    "chunk_text": "as a text file. That includes all private information you type like Passwords, Google searches, \nCredit card number, emails, to name but a few. Regularly updating of the Antivirus is a sure way \nto beat this. Let it also be known that Hardware key loggers exist, masquerading as flash disks. \nUSB password applications should deter such. \n \nc. TROJANS \nAn experienced programmer is capable of creating a Trojan, a concealed application that runs in \nthe background. A Trojan allows a hacker to become a ghost user on your PC/Workstation. They \nmonitor when your computer is online to deliver captured keystroke log files to their preferred \naddress. Hackers can always come back and upload a malicious code via the Trojan. Such a code \nmaybe the one that kills your antivirus program after which, it takes your snap via webcam or \ntaps into your office conversations from your laptop microphone. Trojans come tucked away",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q055",
+    "question": "Which optimization method is used to approximate the functional contribution of the brain's optimization processes when training recurrent spiking neural networks such as LSNNs?",
+    "ground_truth": "Backpropagation through time (BPTT), combined with a rewiring algorithm that optimizes the network architecture.",
+    "source": "NeurIPS-2018-long-short-term-memory-and-learning-to-learn-in-networks-of-spiking-neurons-Paper",
+    "topic": "Ref",
+    "page": 1,
+    "chunk_id": "9387bda04842-1",
+    "chunk_text": "experience. Details of these optimization processes are largely unknown. But\ntheir functional contribution can be approximated through powerful optimization\nmethods, such as backpropagation through time (BPTT).\nA second major mismatch between RSNNs in the brain and models is that the\nlatter only show a small fraction of the dynamics of neurons and synapses in\nthe brain. We include neurons in our RSNN model that reproduce one prominent dynamical process of biological neurons that takes place at the behaviourally\nrelevant time scale of seconds: neuronal adaptation. We denote these networks\nas LSNNs because of their Long short-term memory. The inclusion of adapting\nneurons drastically increases the computing and learning capability of RSNNs if\nthey are trained and conﬁgured by deep learning (BPTT combined with a rewiring\nalgorithm that optimizes the network architecture). In fact, the computational performance of these RSNNs approaches for the ﬁrst time that of LSTM networks.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What optimization method is mentioned as being able to approximate the functional contribution of the optimization processes in recurrent spiking neural networks (RSNNs)?",
+      "ground_truth": "backpropagation through time (BPTT)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q056",
+    "question": "How does a simple cell in the primary visual cortex respond to a light dot falling in its receptive field?",
+    "ground_truth": "The neuron increases its activity when a light dot falls into one of the positive subﬁelds, and decreases the activity when a light dot falls into a negative subﬁeld.",
+    "source": "Neuronal Dynamics",
+    "topic": "Ref",
+    "page": 16,
+    "chunk_id": "9246fcae6f3d-36",
+    "chunk_text": "involved in working memory or motor control.\nNeurons in sensory cortices can be experimentally characterized by the stimuli to which\nthey exhibit a strong response. For example, neurons in the primary visual cortex respond\nto dots of lights only within a small region of the visual space. The limited zone where a\nneuron is sensitive to stimuli is called the neuron’s receptive ﬁeld (Fig. 1.4).\nThe receptive ﬁeld of so-called simple cells in visual cortex is not homogeneous, but has\ntypically two of three elongated subﬁelds. When a light dot falls into one of the positive\nsubﬁelds, the neuron increases its activity, i.e., it emits more spikes than in the absence\nof a stimulus. Whenever a light dot falls into a negative subﬁeld, it decreases the activity\ncompared to its spontaneous activity in the presence of a gray screen. A spot of light is in\nfact not the best stimulus. The neuron responds maximally to a moving light bar with an",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the response of a neuron in the primary visual cortex to a light dot within its receptive field?",
+      "ground_truth": "The neuron increases its activity when a light dot falls into one of the positive subﬁelds, and decreases the activity when a light dot falls into a negative subﬁeld."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q057",
+    "question": "How is the state of a qubit defined in terms of probability amplitudes?",
+    "ground_truth": "A qubit is in a superposition state alpha|0> + beta|1>, where alpha and beta are complex probability amplitudes satisfying |alpha|^2 + |beta|^2 = 1.",
+    "source": "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions",
+    "topic": "Quantum Security",
+    "page": 6,
+    "chunk_id": "08d761285c1c-31",
+    "chunk_text": "S. Ali et al.\nFig. 2. Roadmap of the review article.\nTable 3\nPreliminary table of mathematical symbols and descriptions.\n Symbol\nType\nDescription\n \n 𝑏\nBit\nClassical binary bit that can be in state 0 or 1\n \n |𝜓⟩\nQubit\nQuantum bit (qubit) in superposition state 𝛼|0⟩+ 𝛽|1⟩\n \n 𝛼, 𝛽\nComplex numbers\nProbability amplitudes in qubit state, where |𝛼|2 + |𝛽|2 = 1\n \n |0⟩, |1⟩\nBasis states\nOrthogonal basis states of a qubit\n \n |𝜓𝑒𝑛𝑡𝑎𝑛𝑔𝑙𝑒𝑑⟩\nEntangled state\nBell state representing quantum entanglement 1\n√\n2 (|00⟩+ |11⟩) \n 𝑁\nInteger\nComposite number to be factored (in RSA) 𝑁= 𝑝⋅𝑞\n \n 𝑝, 𝑞\nPrime numbers\nLarge primes used in RSA key generation\n \n 𝑒, 𝑑\nIntegers\nPublic and private exponents in RSA cryptosystem\n \n 𝜑(𝑛)\nEuler’s totient\n𝜑(𝑛) = (𝑝−1)(𝑞−1) for RSA modulus 𝑛\n \n 𝐺\nPoint\nGenerator point on elliptic curve (for ECC)\n \n 𝑘\nInteger\nPrivate key in ECC (𝑄= 𝑘⋅𝐺)\n \n 𝐻(𝑀)\nHash function\nCryptographic hash of message 𝑀\n \n 𝐀, 𝐬, 𝐞\nMatrix/Vectors\nComponents in LWE problem: 𝐀⋅𝐬+ 𝐞= 𝐛\n \n 𝑓𝑖(𝑥1, … , 𝑥𝑛)",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the definition of a qubit in the context of quantum computing according to the passage?",
+      "ground_truth": "Qubit in superposition state 𝛼|0⟩+ 𝛽|1⟩, where 𝛼, 𝛽 are complex numbers and |𝛼|2 + |𝛽|2 = 1."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q058",
+    "question": "What does formula (5) become according to the passage?",
+    "ground_truth": "(P2-Pl) = (d ÷ a) / (N-1)",
+    "source": "Note_on_the_sampling_error_of_the_differ",
+    "topic": "Ref",
+    "page": 4,
+    "chunk_id": "e81e38085aac-8",
+    "chunk_text": "156 \nFSYCHOMETRIKA \nIt will be seen that (3), hence by implication that (4), involves \nthe use Qf two separate estimates of the unknown population propor- \ntions, and therefore both are analogous to (1). If we wish a formula \nanalogous to the preferred (2), that is, one involving an estimate \nbased on the combined sets of responses or a p based on the total as a \nbetter estimate, we note that such a p would, as in the case of (2), \nimply that the population values for the two proportions are equal. \nThis would be consistent with the null hypothesis that p2 -- P___z~-- 0 \nexcept for random sampling fluctuations. The proper p to replace p~ \nand pl in (3) becomes the simple average of p~ and p~ since for the \ngiven situation N~ -- N1 ---- N. Now the null hypothesis that p~ -- p~ \nalso implies that the equivalent, d -- a, must equal zero except for \nsampling errors; hence formula (4) becomes \n1 \n(,2 \n= \n(d ÷ a) \n(5) \nP2-Pl \nN-",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "công thức trích OCR lỗi, không đọc được"
+  },
+  {
+    "id": "q059",
+    "question": "In ML-empowered eBPF/XDP packet processing for intrusion detection, how much do integer-arithmetic-only NN and decision tree classifiers in kernel space reduce inference time compared with floating-point versions in user space?",
+    "ground_truth": "The integer-only NN reduces inference time to 15.3% and the DT to 1.6% of the floating-point user-space versions, with little degradation in classification performance.",
+    "source": "On_Practicality_of_Kernel_Packet_Processing_Empowered_by_Lightweight_Neural_Network_and_Decision_Tree",
+    "topic": "QoS",
+    "page": 2,
+    "chunk_id": "5f52879a9140-9",
+    "chunk_text": "proportional to packet arrival rate). In this paper, we quantitatively reveal the potential of ML-empowered eBPF/XDP\npacket processing for IDS, in terms of packet processing\nspeed, resource efﬁciency, and detection performance.\nExperimental results\nwill show that (1) the integerarithmetic-only NN (resp. DT) classiﬁer running on the kernel\nspace can reduce the inference time to 15.3% (resp. 1.6%)\nwhile suppressing degradation of classiﬁcation performance\ncompared with the ﬂoating-point NN (resp. DT) running on\nthe user space, and (2) the kernel-based method with NN\n(resp. DT) classiﬁer can process received packets in a realtime manner under a certain transmission rate, i.e., 300,000 pps\n(resp. 450,000 pps). 1\nThe rest of the manuscript is organized as follows. Section II\ngives the related work. In Section III, we introduce some\npreliminaries. In Section IV, we propose the NN-empowered\neBPF for packet processing. Section V shows the fundamental",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the inference time reduction achieved by the integer-arithmetic-only NN classifier running on the kernel space compared to the floating-point NN classifier running on the user space?",
+      "ground_truth": "the integer-arithmetic-only NN (resp. DT) classifier running on the kernel space can reduce the inference time to 15.3% (resp. 1.6%) while suppressing degradation of classification performance compared with the floating-point NN (resp. DT) running on the user space"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q060",
+    "question": "What is the configuration of the MobileBERT model used as the study target for BFloat16 deployment of tiny transformers?",
+    "ground_truth": "24 encoder blocks, each with a 4-head multi-head self-attention kernel and a 2-stage feed-forward bottleneck layer, with a hidden projection size of 128.",
+    "source": "Optimizing_BFloat16_Deployment_of_Tiny_Transformer",
+    "topic": "Ref",
+    "page": 17,
+    "chunk_id": "6e35be591377-64",
+    "chunk_text": "device while maintaining a level of accuracy comparable with the original version. We\nuse a basic MobileBert model as a study target for sequence classification. The original\nmodel configuration includes 24 encoder blocks, each composed of a trainable 4-head\nMHSA kernel and a 2-stage Feed-Forward Network (FFN) bottleneck layer, operating\nwith a hidden projection size of 128 elements. The encoder sequence is preceded by an\nembedding stage on the token values, positions, and types, using a set of three dictionaries,\nthe first of 30,522 entries for the token values, up to 512 entries for the positions, and two",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the hidden projection size of each encoder block in the MobileBert model used as a study target?",
+      "ground_truth": "The encoder blocks have a hidden projection size of 128 elements."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q061",
+    "question": "What specific vulnerability was exploited in the July 2022 cryptanalytic breakthrough against SIDH/SIKE, and how was it carried out?",
+    "ground_truth": "The attack exploited auxiliary point information included in the protocol specification, enabling classical key recovery in approximately one hour on standard hardware through mathematical techniques that do not require quantum computation.",
+    "source": "Post-Quantum Cryptography and Quantum-Safe Security",
+    "topic": "Quantum Security",
+    "page": 10,
+    "chunk_id": "6bd42fde4e48-41",
+    "chunk_text": "attacks exploit subtle mathematical relationships in the polynomial structure that were not apparent\nduring initial security analysis, demonstrating how the complex algebraic structure that enables\nefficient multivariate operations can also create vulnerabilities that become apparent only through\nsophisticated cryptanalytic techniques.\n3.5\nIsogeny-Based Cryptography\nThe isogeny-based approach to PQC suffered a catastrophic and unexpected setback with the\nJuly 2022 cryptanalytic breakthrough against SIDH/SIKE, which demonstrated how seemingly\nsecure mathematical constructions can harbor subtle vulnerabilities that become apparent only\nthrough sophisticated attacks utilizing advanced mathematical techniques [25]. The attack exploits\nauxiliary point information included in the protocol specification, enabling classical key recovery\nin approximately one hour on standard hardware through mathematical techniques that do not\nrequire quantum computation.",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q062",
+    "question": "What technique can be used in a blockchain-IoT environment to obscure the information of the sender transferring coins?",
+    "ground_truth": "Ring signatures, which let a signer sign on behalf of a ring of members so the verifier can validate the signature without knowing which member signed (as used in Monero), obscuring the sender's information.",
+    "source": "Post-Quantum_Blockchain_Security_for_the_Internet_of_Things_Survey_and_Research_Directions",
+    "topic": "Quantum Security",
+    "page": 20,
+    "chunk_id": "434ecaa7528d-128",
+    "chunk_text": "ecosystems simple targets to compromise privacy in different\nways, involving data collection, exchange, and processing.\nThe quantum-resistant blockchains will also provide auditable\ninteractions. Therefore, protecting privacy in IoT systems, such\nas data or entities, would open research directions for PQB\nto improve privacy while considering transparency using the\nfollowing approaches:\n1) Ring Signature: Rivest et al. [192] invented ring signatures to allow a signer to use several members as a ring of\nsigners and sign a message such that the veriﬁer can validate\nthe signature but cannot detect which of the ring members\nsigned. The unforgeability and signer anonymity of ring signatures make them perfect for preserving blockchain privacy.\nFor instance, the information of the sender(signer) transferring\ncoins is obscured in Monero [193] using Ed25519 [194]\nclassical signature in a ring of participant nodes. Therefore,\nin a blockchain-IoT environment, ring signatures can be used",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique can be used in a blockchain-IoT environment to obscure the information of the sender transferring coins?",
+      "ground_truth": "Ring signatures can be used in a blockchain-IoT environment to obscure the information of the sender transferring coins."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q063",
+    "question": "What are the advantages and the main challenge of NV centers in diamond as a qubit technology?",
+    "ground_truth": "NV centers encode qubits in the spin of a lattice defect and offer long coherence times and room-temperature operation, but scaling them to large, controllable registers is difficult because of the difficulty of precise and reliable manufacturing.",
+    "source": "Practical Challenges in Executing Shor’s Algorithm",
+    "topic": "Quantum Security",
+    "page": 3,
+    "chunk_id": "8a5faa30cee8-10",
+    "chunk_text": "High accuracy and stability;\nqubits identical by nature;\nvery long coherence times\nEnergy efficient; builds on\nsome telecom-industry\nmatured photonic\ntechnologies\nMain Challenges\nQubit uniformity; limited\ncooling power and wiring;\nhigh sensitivity to noise;\nfast classical-electronics\nrequirements\nComplex laser-based\ncontrol that is hard to scale\nPhoton loss and detection;\nentanglement preparation;\noften non-deterministic\noperation slowing clock\nspeeds\n* indicates the highest TRL modalities at the time of writing\noverheads in principle.\nYet, their experimental realization remains difficult and has not been\nconclusively demonstrated.\nNV centers in diamond use electronic or nuclear spin associated with a lattice defect to encode qubit states.\nThey offer long coherence times and can operate at room-temperature, but\nscaling them to large, controllable registers is difficult, due to the difficulty of precise and reliable\nmanufacturing.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What challenge does the passage mention regarding NV centers in diamond for qubit encoding?",
+      "ground_truth": "scaling them to large, controllable registers is difficult, due to the difficulty of precise and reliable manufacturing."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q064",
+    "question": "Which physical effect was exploited in a 2019 jamming attack against QKD, and what was its impact?",
+    "ground_truth": "The Faraday effect; it disrupts QKD by increasing the QBER and halting key exchange.",
+    "source": "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction",
+    "topic": "Quantum Security",
+    "page": 16,
+    "chunk_id": "b5b8f79e773e-72",
+    "chunk_text": "mitigates it using photon beam splitters and wavelength filters.\n2024\nSushchev et al [47].\nDefines bounds on fidelity using\nOTDR and spectral transmittance\nfor Trojan Horse attacks.\nJamming Attack\n2017\nBoche et al [51].\nAnalyzes secrecy capacity for channels under jamming and eavesdropping with super-activation effects.\n2019\nDaschner et al [50].\nExploits the Faraday effect to disrupt QKD, increasing QBER and\nhalting key exchange.\n2019\nBoche et al [52].\nDerives capacity regions for compound and AVQCs, demonstrating simultaneous classical-quantum\ntransmission.\n2023\nSimmons et al [53].\nExplores line-of-sight and reflective\njamming on satellite QKD, improving SIR with SPAD arrays.\n16",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique does Daschner et al. use to disrupt QKD in 2019?",
+      "ground_truth": "Exploits the Faraday effect to disrupt QKD, increasing QBER and halting key exchange."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q065",
+    "question": "What scheme is proposed in 2022 for dynamically allocating key resources in QKD networks, and what technology is used to realize this scheme?",
+    "ground_truth": "The Dynamic-On-Demand Key Allocation scheme for QKD networks (DDKA-QKDN), which dynamically allocates key resources per application request in Quantum IoT scenarios; it is realized using SDN technology.",
+    "source": "Quantum Key Distribution Networks -- Key Management - A Survey",
+    "topic": "Quantum Security",
+    "page": 19,
+    "chunk_id": "eb482c92a629-97",
+    "chunk_text": "Quantum Key Distribution Networks – Key Management: A Survey\nA PREPRINT\n3.14\nNKPs DDKA-QKDN scheme\nIn 2022, a Dynamic-On-Demand Key Allocation (DDKA) scheme for QKD networks (QKDN) has been proposed [75].\nTo efficiently use key resources in the Quantum Internet-of-Things (Q-IoT) scenario, the DDKA-QKDN scheme\ndynamically allocates key resources per the application request. The scheme simultaneously addresses the key\nsupplement of QKPs as well. Again, the concept is realized using SDN technology.\nThe primary criterion used to process application requests is request arrival time. However, due to the large number\nof requests that can arrive simultaneously, requests are queued for processing. A new strategy that prioritizes queues\nhad to be developed to decrease queuing delays. There are two main request requirements: request key quantity Kqua\nand security Ksec. These two requirements are directly related, as the greater key quantity implies greater key security",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What scheme is proposed in 2022 for dynamically allocating key resources in QKD networks, and what technology is used to realize this scheme?",
+      "ground_truth": "In 2022, a Dynamic-On-Demand Key Allocation (DDKA) scheme for QKD networks (QKDN) has been proposed. The scheme is realized using SDN technology."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q066",
+    "question": "How is the trojan gate attack on quantum circuit models for 6G resource allocation constructed, and why is it stealthy?",
+    "ground_truth": "Adversarial perturbations are inserted as subcircuits into regions of the quantum circuit model with limited error detection; the natural noise and decoherence of quantum systems mask these perturbations, making errors hard to attribute to malicious interference.",
+    "source": "Quantum Machine Learning for 6G Network",
+    "topic": "Quantum Machine Learning",
+    "page": 4,
+    "chunk_id": "1439760f12a7-25",
+    "chunk_text": "implemented on open-source quantum-inspired real-time optimization techniques for 6G networks [1]. Accordingly, the\nquantum circuit model is poised with a trojan gate, adversarial perturbation in subcircuits integrated into regions of the\nmodel with limited error detection capabilities. The natural\npresence of noise and decoherence in quantum systems masks\nthese perturbations, making it difﬁcult to attribute errors to\nmalicious interference and enhancing the stealthiness of the\nattack. The original QML model for resource allocation uses\ndeep reinforcement learning (DRL) with a variational quantum\neigensolver (VQE) and parametrized quantum policies. It\nincorporates Hamiltonian components and leverages a Qiskit\nruntime estimator to enhance prediction accuracy in classical\noptimizers. The dataset is derived from the source provided\nin [14]. The quantum superposition state space ρ includes",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique is used in the quantum circuit model to integrate adversarial perturbations in subcircuits for 6G networks?",
+      "ground_truth": "The quantum circuit model is poised with a trojan gate, adversarial perturbation in subcircuits integrated into regions of the model with limited error detection capabilities."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q067",
+    "question": "In the hybrid QNN and QSVM pipeline for real-time network traffic monitoring, what accuracies and alerting latency were achieved?",
+    "ground_truth": "The QNN achieved 96% accuracy in anomaly detection, the QSVM 93%, with near-instant average alerting latency of about 10 ms.",
+    "source": "Quantum Machine Learning for Cybersecurity",
+    "topic": "Quantum Machine Learning",
+    "page": 8,
+    "chunk_id": "25e78fc9ccfe-48",
+    "chunk_text": "8\nTHREAT\nDETECTION\nDGA BOTNET\nDETECTION\nANOMALY\nDETECTION\nDATA\nHANDLING AND\nPRIVACY\nADVERSARIAL\nATTACKS\nMALWARE\nANALYSIS\n1\n3\n2\n5\n6\n4\nAPPLICATIONS\nFigure 3: Application landscape of Quantum Machine Learning in cybersecurity.\nanomaly detection methods. This subsection also highlights\ntheir practical applications in cybersecurity.\nWith their advent, QML models have shown impressive\nperformance in terms of accuracy and latency. Hossain et\nal. [1] integrated QNNs and QSVMs in a hybrid pipeline for\nreal-time monitoring of network traffic. The QNN achieved 96%\naccuracy in anomaly detection, and the QSVM achieved 93%\naccuracy, with the average alerting latency being near-instant\nat 10 ms. Exploring further, Noah et al. [25] ventured in\nQML for cybersecurity in 5G networks. They used hybrid\nsimulations using the IBM Qiskit and TensorFlow Quantum\nframeworks. Their quantum-assisted intrusion detection system,\nbased on QNNs, achieved 96.8% accuracy, whereas the classical",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What was the accuracy of the QNN in anomaly detection as reported by Hossain et al. [1]?",
+      "ground_truth": "The QNN achieved 96% accuracy in anomaly detection."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q068",
+    "question": "Why is quantum key distribution (QKD) considered provably secure against eavesdropping?",
+    "ground_truth": "QKD relies on principles of physics rather than the computational complexity of mathematical problems, so anyone attempting to access the key exchange can be detected.",
+    "source": "Quantum key distribution through quantum machine learning - a research review",
+    "topic": "Quantum Security",
+    "page": 2,
+    "chunk_id": "096268fca3ea-5",
+    "chunk_text": "2024). Quantum private communication is a practical application\nfor quantum mechanics. It enables secure communication against\ntraditional approaches and advanced technologies such as quantum\ncomputers. There are several types of Cryptographic tasks, such as\nquantum private inquiry and quantum digital signatures control\ncommunication. The most basic one is quantum key distribution\n(QKD) (Liu et al., 2022). The QKD system utilizes physics principles\nrather than the computational complexity of mathematics problems\nto enable the provably safe exchange of cryptographic keys against\neavesdropping. This fact helps make sure anyone attempting to\naccess the key exchange process may be identiﬁed, ensuring the\nhighest level of security possible. Quantum Random Number\nGeneration\n(QRNG)\nimproves\ncryptographic\nsolutions\nby\nproducing real random numbers needed for key-setting and\ngrowth processes, among other areas (Gowda et al., 2025). For\nquantum key generation, random numbers are used. Various",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the most basic cryptographic task mentioned in the passage, and how does it work?",
+      "ground_truth": "The most basic cryptographic task mentioned is quantum key distribution (QKD). QKD utilizes physics principles rather than the computational complexity of mathematical problems to enable the provably safe exchange of cryptographic keys against eavesdropping."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q069",
+    "question": "What is the formula used by the generator in Quantum Generative Adversarial Networks (QGANs)?",
+    "ground_truth": "Generator formula: G(z)",
+    "source": "Quantum_Machine_Learning_A_Survey",
+    "topic": "Quantum Machine Learning",
+    "page": 4,
+    "chunk_id": "5f0741856e70-13",
+    "chunk_text": "J. Electrical Systems 20-6s (2024): 971-981 \n974 \n∣ϕ′′⟩=Ud∣ϕ′⟩ \nWhere: \nUe and Ud are the unitary matrices for encoding and decoding. \n∣ϕ⟩ is the input state. \n∣ϕ′⟩ is the encoded state. \n∣ϕ′′⟩ is the reconstructed state. \nQuantum Generative Adversarial Networks (QGANs) \nDescription: Quantum versions of GANs for generating synthetic data that closely matches real data distributions. \nUse Cases: Data augmentation, anomaly detection, and creating realistic synthetic samples for machine learning \n[1]. \nFields of Use: Applied in medical imaging, virtual reality, and autonomous driving. \nQGANs use quantum circuits to generate new data instances. \nGenerator formula: G(z) \nDiscriminator formula: \nD(x) \nWhere: \nG is the generator function mapping from latent space to data space. \nD is the discriminator function mapping from data space to a binary class label. \nz represents the input to the generator. \nx represents the input to the discriminator.",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "đáp án tầm thường 'G(z)', không có nội dung"
+  },
+  {
+    "id": "q070",
+    "question": "What is the Single NIAH task in the RULER benchmark, and how does Multi-keys NIAH differ from it?",
+    "ground_truth": "In Single NIAH, one key-value needle (e.g., a word key and a number value) is inserted into an essay haystack whose size scales with context length, and the model must retrieve the value. Multi-keys NIAH inserts multiple needles with different keys as distractors, and the model must retrieve the value of only the queried key.",
+    "source": "Ruler - What’s the real context size of your long-context language models",
+    "topic": "Ref",
+    "page": 4,
+    "chunk_id": "8a4bc6ca28d8-15",
+    "chunk_text": "Published as a conference paper at COLM 2024\nTask\nConfiguration\nExample\nSingle\nNIAH\n(S-NIAH)\ntype key = word\ntype value = number\ntype haystack = essay\nsize haystack ∝context length\n(essays) ......\nOne of the special magic numbers for long-context is: 12345. ......\nWhat is the special magic number for long-context mentioned in the\nprovided text?\nAnswer: 12345\nMulti-keys\nNIAH\n(MK-NIAH)\nnum keys = 2\ntype key = word\ntype value = number\ntype haystack = essay\nsize haystack ∝context length\n(essays) ......\nOne of the special magic numbers for long-context is: 12345.\nOne of the special magic numbers for large-model is: 54321.\n......\nWhat is the special magic number for long-context mentioned in the\nprovided text?\nAnswer: 12345\nMulti-values\nNIAH\n(MV-NIAH)\nnum values = 2\ntype key = word\ntype value = number\ntype haystack = essay\nsize haystack ∝context length\n(essays) ......\nOne of the special magic numbers for long-context is: 12345.\nOne of the special magic numbers for long-context is: 54321.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the special magic number for long-context mentioned in the provided text?",
+      "ground_truth": "12345"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q071",
+    "question": "What technique does SCNNTraffic use to achieve effective classification while reducing parameters and energy consumption?",
+    "ground_truth": "SCNNTraffic uses a Spiking Convolutional Encoder to downsample and encode text-form inputs and a Spiking Cross-Gating Module for feature fusion; using spiking neurons reduces parameters and energy consumption, enabling deployment on edge devices.",
+    "source": "SCNNTraffic - A lightweight and energy-efficient traffic classification method based on spiking convolution neural networks",
+    "topic": "Ref",
+    "page": 3,
+    "chunk_id": "f00eacd20072-12",
+    "chunk_text": "Peer-to-Peer Networking and Applications (2026) 19:52\non computational resources and power consumption, posing \nchallenges for deployment in practical network equipment.\nIn contrast, our proposed method employs a Spiking \nConvolutional Encoder to downsample and encode textform inputs, leveraging a Spiking Cross-Gating Module \nfor feature fusion. By utilizing spiking neurons, we achieve \neffective classification while significantly reducing parame­\nters and energy consumption, making it feasible for deploy­\nment on edge devices.\n2.2  Spiking neural networks\nAs Artificial Intelligence(AI) and big data technologies \nadvance, traditional computers based on the von Neumann \narchitecture increasingly struggle to meet exponentially \ngrowing computational demands. Spiking Neural Net­\nworks offer a promising avenue toward high-efficiency, \nlow-latency computing [19]. By integrating spiking-based \ncomputation with neuromorphic hardware, SNNs unlock",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What technique does SCNNTraffic use to achieve effective classification while reducing parameters and energy consumption?",
+      "ground_truth": "SCNNTraffic employs a Spiking Convolutional Encoder to downsample and encode textform inputs, leveraging a Spiking Cross-Gating Module for feature fusion."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q072",
+    "question": "Which layers make up the spiking convolutional encoder in SCNNTraffic?",
+    "ground_truth": "The encoder applies Conv1d, then BatchNorm, then a LIF spiking neuron, then MaxPool to the embedded packet payload vector: encoder(p) = MaxPool(LIF(BatchNorm(Conv1d(p)))).",
+    "source": "SCNNTraffic A lightweight and energy-efficient traffic classification method based on spiking convolution neural networks",
+    "topic": "Ref",
+    "page": 5,
+    "chunk_id": "d41df30753e7-23",
+    "chunk_text": "then the linear layers output the classification results, as \nexpressed by the following equation:\nf = wT\nz2\n(\nwT\nz1 (Flatten (z)) + bz1\n)\n+ bz2\b\n(9)\nHere, f denotes the classification result.\nIn Spiking Neural Networks, for classification tasks, \nthe Cross Entropy (CE) loss optimizes the model by maxi­\nmizing the probability of the true label, with its gradient \ndependent on the derivative of the softmax function. When \nthe SNN output approaches 0 while the true label is 1, the \nlogarithmic term in the CE loss increases sharply, leading to \ngradient explosion. This nonlinear behavior under extreme \nThe spiking convolutional encoder can be expressed by \nthe following equation:\nencoderp (p) = MaxPool (LIF (Batchnorm (Conv1d (p))))\b\n(5)\nwhere p ∈Rd2×d1 is the embedded payload vector, and \nencoderp(p) is the output of the packet payload vec­\ntor through the convolutional encoder, LIF is the spiking \nneuron.\nCompared to using CNNs alone, which excel at captur­",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What equation expresses the spiking convolutional encoder in the paper?",
+      "ground_truth": "encoderp (p) = MaxPool (LIF (Batchnorm (Conv1d (p))))"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q073",
+    "question": "What is the capacity limit of WorkingMemory in the Sleep-Consolidated Memory (SCM) system, and what principle does it follow?",
+    "ground_truth": "WorkingMemory is fixed at seven items, following Miller's Law on the limits of human working memory; when full, new episodes displace the oldest.",
+    "source": "Scm - Sleep-consolidated memory with algorithmic forgetting for large language models",
+    "topic": "Ref",
+    "page": 7,
+    "chunk_id": "8ca84e355d01-19",
+    "chunk_text": "3.4\nWorkingMemory\nWorkingMemory serves as the hippocampal equivalent in SCM: fast, temporary, and strictly capacity-limited. It stores Episode objects, each containing\na timestamp, the concept IDs present in that interaction, the raw user text,\nand a composite value vector. The capacity is fixed at seven items, in accordance with Miller’s Law on the limits of human working memory [6]. When\nthe buffer is full, new episodes displace the oldest. Recent access boosts an\nepisode’s importance, creating a recency effect that competes with the overall\nvalue score. This limited capacity creates natural memory pressure: not\neverything can be retained indefinitely in fast storage, forcing the system to\nconsolidate valuable information into long-term memory and discard noise.\n3.5\nLongTermMemory\nLongTermMemory implements cortical-equivalent stable storage as a NetworkX directed graph with concepts as nodes and typed relations as edges.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the capacity limit of the WorkingMemory in SCM, and what principle does it follow?",
+      "ground_truth": "The capacity of WorkingMemory is fixed at seven items, in accordance with Miller’s Law on the limits of human working memory [6]."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q074",
+    "question": "How are synaptic weights initialized in the Spike Agreement Dependent Plasticity (SADP) paradigm, and why?",
+    "ground_truth": "They are initialized from a Rademacher distribution (uniform over {-1, +1}), which promotes early activity symmetry and propagation.",
+    "source": "Spike Agreement Dependent Plasticity - A scalable Bio-Inspired learning paradigm for Spiking Neural Networks",
+    "topic": "Ref",
+    "page": 9,
+    "chunk_id": "bc7fc2d23543-23",
+    "chunk_text": "SADP and can be used by downstream workflows for further computation.\nEach layer is parameterized by a trainable synaptic weight matrix W ∈RNin×Nout, where\nwij ∈W denotes the strength of the synapse from pre-synaptic neuron i to post-synaptic\nneuron j. This matrix transforms pre-synaptic spike input at each time step into postsynaptic current. Synaptic weights are initialized from a Rademacher distribution wi j ∼\nUniform{−1, +1}, which promotes early activity symmetry and propagation. Training\nis conducted to learn w in an unsupervised manner using the SADP rule, where synaptic\nupdates are driven by spike train agreement rather than precise timing.\n3.1. Neuron Dynamics in SADP-adapted SNN\nThe SNN integrates LIF dynamics with the proposed SADP rule. Each output neuron’s\nmembrane potential evolves over discrete time steps t = 1, . . . , T based on a decay\nfactor λ ∈(0, 1) and the incoming synaptic current:\nVt = λVt−1 + It,\nwhere\nIt = XtW.\n(3)",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the initial distribution used for synaptic weights in the SADP paradigm, and what does it promote?",
+      "ground_truth": "Synaptic weights are initialized from a Rademacher distribution wi j ∼ Uniform{−1, +1}, which promotes early activity symmetry and propagation."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q075",
+    "question": "On CIFAR100, how does Spikformer-4-384 compare with the ResNet-19 ANN in accuracy and parameter count?",
+    "ground_truth": "Spikformer-4-384 reaches 77.86% with 9.32M parameters versus 75.35% with 12.63M for ResNet-19 ANN, an improvement of 2.51%.",
+    "source": "Spikformer - When spiking neural network meets transformer",
+    "topic": "Ref",
+    "page": 8,
+    "chunk_id": "fb7e8b6dce3e-37",
+    "chunk_text": "and improves by 0.39% compared to Spikformer-2-384. We also ﬁnd that extending the number of\ntraining epochs to 400 can improve the performance (Spikformer-4-384 400E achieves 0.32% and\n0.35% advance compared to Spikformer-4-384 on CIFAR10 and CIFAR100). The improvement\nof the proposed Spikformer on complex datasets such as CIFAR100 is even higher. Spikformer4-384 (77.86%, 9.32M) obtains a signiﬁcant improvement of 2.51% compared with ResNet-19\nANN (75.35%, 12.63M) model. The ANN-Transformer model is 1.54% and 3.16% higher than\nSpikformer-4-384, respectively. As shown in appendix D.5, transfer learning can achieve higher\nperformance on CIFAR based on pre-trained Spikformer, which demonstrates high transfer ability.\n4.2\nNEUROMORPHIC DATASETS CLASSIFICATION\nDVS128 Gesture is a gesture recognition dataset that contains 11 hand gesture categories from 29\nindividuals under 3 illumination conditions. CIFAR10-DVS is also a neuromorphic dataset converted",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What improvement does Spikformer-4-384 (77.86%, 9.32M) achieve over ResNet-19 ANN (75.35%, 12.63M) on CIFAR100?",
+      "ground_truth": "Spikformer4-384 (77.86%, 9.32M) obtains a signiﬁcant improvement of 2.51% compared with ResNet-19 ANN (75.35%, 12.63M) model."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q076",
+    "question": "In differentiable plasticity, how is a synapse's weight composed, and which parts are meta-learned?",
+    "ground_truth": "The weight is w = w_BP + zeta * w_H, the sum of a backprop part and a Hebbian part scaled by a weighting factor zeta; the backprop part and the weighting constant are meta-learned.",
+    "source": "Spiking neural networks and bio-inspired supervised deep learning - A survey",
+    "topic": "Ref",
+    "page": 22,
+    "chunk_id": "9b1549f44d07-94",
+    "chunk_text": "22\nLagani, et al.\nweight. A weighting factor also determines the balance between the two contributions. The weight on a differentiable\nplasticity-based synapse can be written as:\n𝑤= 𝑤𝐵𝑃+ 𝜁𝑤𝐻\n(27)\nwhere 𝑤𝐵𝑃is the backprop part of the weight, 𝑤𝐻is the Hebbian part, and 𝜁is the weighting factor. The backprop\npart and the weighting constant are meta-learned, so that they learn to exploit the general information extracted\nfrom the Hebbian part for the specific task. The vanilla Hebbian plasticity model is used in this case, but still, the\nexperimental analysis showed promising results on metalearning benchmarks. A related approach proposes Hebbian\nfast weights [145] in a melalearning context, i.e. Hebbian learning in the inner loop and backprop-based metalearning in\nthe outer loop of the learning-to-learn process. Other researchers proposed to leverage the learning-to-learn paradigm",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the formula for the weight on a differentiable plasticity-based synapse according to the passage?",
+      "ground_truth": "The weight on a differentiable plasticity-based synapse can be written as: 𝑤= 𝑤𝐵𝑃+ 𝜁𝑤𝐻, where 𝑤𝐵𝑃 is the backprop part of the weight, 𝑤𝐻 is the Hebbian part, and 𝜁 is the weighting factor."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q077",
+    "question": "In supervised spike agreement dependent plasticity, what role does the CNN-based feature extractor play?",
+    "ground_truth": "It acts as a frozen sensory front-end: convolutional preprocessing transforms raw sensory inputs into structured, semantically meaningful representations that are converted into spike trains suitable for agreement-driven plasticity.",
+    "source": "Supervised spike agreement dependent plasticity for fast local learning in spiking neural networks",
+    "topic": "Ref",
+    "page": 15,
+    "chunk_id": "afdead79fc6f-57",
+    "chunk_text": "reward modulation, or teacher forcing. This establishes agreement-driven plasticity as a\nviable and scalable alternative for supervised SNN training.\n• A principled sensory front-end for scalable spike-based learning. The integration of a\nCNN-based feature extractor as a frozen sensory front-end provides a principled solution\nfor extending local spike-based learning to visually complex data. Convolutional preprocessing transforms raw sensory inputs into structured, semantically meaningful representations, which are then converted into spike trains suitable for agreement-driven plasticity.\nMore broadly, these results highlight a necessary paradigm shift in spike-based learning:\ncomplex perceptual tasks cannot be addressed by relying solely on brightness-driven or\nna¨ıve spike generation schemes. Expecting a spiking network to discover rich semantic\nstructure from unstructured intensity-based spike trains places an unrealistic burden on",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What method is used to transform raw sensory inputs into structured, semantically meaningful representations suitable for agreement-driven plasticity?",
+      "ground_truth": "Convolutional preprocessing transforms raw sensory inputs into structured, semantically meaningful representations, which are then converted into spike trains suitable for agreement-driven plasticity."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q078",
+    "question": "How do Feedback Alignment and Direct Feedback Alignment relax the requirements of backpropagation?",
+    "ground_truth": "Feedback Alignment replaces the transposed forward weight matrix used in backpropagation with a fixed random matrix, while Direct Feedback Alignment directly propagates the errors from the top layer to the hidden layers through fixed random connections.",
+    "source": "Surrogate gradient learning in spiking neural networks",
+    "topic": "Ref",
+    "page": 16,
+    "chunk_id": "6b9c34e25f16-49",
+    "chunk_text": "16\nIEEE SIGNAL PROCESSING MAGAZINE \n1053-5888/18©2018IEEE\nx(0)\ny(1)\ny(2)\nL\n(a) BP\nx(0)\ny(1)\ny(2)\nL\n(b) FA\nx(0)\ny(1)\ny(2)\nL\n(c) DFA\nx(0)\ny(1)\ny(2)\nL(1)\nL(2)\n(d) Local Errors\nFig. 5: Strategies for relaxing gradient\nBP requirements. Dashed lines indicate\nﬁxed, random connections. (a) BP propagates errors through each layer using the\ntranspose of the forward weights by alternating forward and backward passes.\n(b) Feedback Alignment [37] replaces the\ntransposed matrix with a random one. (c)\nDirect Feedback Alignment [38] directly\npropagates the errors from the top layer to\nthe hidden layers. (d) Local errors [29] uses\na ﬁxed, random, auxiliary cost function at\neach layer.\nA. Feedback alignment and random error backpropagation\nOne family of algorithms that relaxes some of the requirements of BP are feedback alignment\nor, more generally, random BP algorithms [37–39]. These are approximations to the gradient BP",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What does the Direct Feedback Alignment method directly propagate from the top layer to the hidden layers?",
+      "ground_truth": "Direct Feedback Alignment [38] directly propagates the errors from the top layer to the hidden layers."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q079",
+    "question": "In Hebbian winner-take-all (WTA) learning, how is the weight update defined, and how does k-WTA differ?",
+    "ground_truth": "The update is delta w_ij = eta * r_j * (x_i - w_ij), where r_j is 1 for the winning neuron and 0 otherwise; in k-WTA the top-k neurons closest to the input are all winners (r_j = 1).",
+    "source": "Synaptic plasticity models and bio-inspired unsupervised deep learning - A survey",
+    "topic": "Ref",
+    "page": 9,
+    "chunk_id": "79a08b1a27ce-34",
+    "chunk_text": "The following equation gives a mathematical description of Hebbian WTA learning:\nΔ𝑤𝑖,𝑗= 𝜂𝑟𝑗(𝑥𝑖−𝑤𝑖,𝑗)\n(14)\nHere, subscripts 𝑖and 𝑗refer to the i-th input/synapse and j-th neuron in the layer, respectively, and 𝑟𝑗is the neuron\nactivation after a competitive nonlinearity: it is 1 for the winning neuron and 0 otherwise. A variant of WTA is k-WTA\n[161], where top-k neurons closest to the input are the winners, which means that 𝑟𝑗= 1 for these neurons and 0 for all\nthe others.\nIn contrast with the sharp competition provided by WTA, soft forms of competition are also possible. In these cases,\ninstead of having sharp winning neurons, corresponding to 𝑟𝑗being 0 or 1, we can also attribute intermediate values to\n𝑟𝑗for each neuron. For example, soft-WTA [175] allows all the neurons to receive a score based on their activations so\nthat neurons with higher activation will receive a higher score. In the original work, the score was computed simply as",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the mathematical description of Hebbian WTA learning given in the equation Δ𝑤𝑖,𝑗= 𝜂𝑟𝑗(𝑥𝑖−𝑤𝑖,𝑗)?",
+      "ground_truth": "The mathematical description of Hebbian WTA learning is Δ𝑤𝑖,𝑗= 𝜂𝑟𝑗(𝑥𝑖−𝑤𝑖,𝑗), where subscripts 𝑖and 𝑗refer to the i-th input/synapse and j-th neuron in the layer, respectively, and 𝑟𝑗is the neuron activation after a competitive nonlinearity: it is 1 for the winning neuron and 0 otherwise."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q080",
+    "question": "What is the memory complexity of the compressed embedding layers in TensorSLM during compression?",
+    "ground_truth": "Compressed Embedding Layers O(V NIr2)",
+    "source": "Tensorslm - Energy-efficient embedding compression of sub-billion parameter language models on low-end devices",
+    "topic": "Ref",
+    "page": 6,
+    "chunk_id": "7f0e8e4493e7-27",
+    "chunk_text": "TensorSLM: Energy-efficient Embedding Compression of Sub-billion Parameter Language Models on Low-end Devices\nTable 2. Computation and memory complexity during the compression (Section 4.1) and inference(Section 4.2) of TensorSLM.\nMtrans is the transformer module, V denotes the vocabulary size,\nd is the original token embedding dimension, and l is the token\nnumber of the input text. For simplicity, the dimensions for each\nmode of the tensor and TT rank are represented as I and r.\nMemory\nOriginal Embedding Layers\nO(V d)\nCompressed Embedding Layers\nO(V NIr2)\nCompressed Encoded Texts\nO(lNIr2)\nIntermediate input to Mtrans\nO(ld)\nComputation\nTT-SVD for single token embedding\nO(NIr3)\nReconstruction of single token embedding\nO(NIr2)\na simple approach for the task evaluated with perplexity,\n∆lg PPL(S,M)\nηemb\n, with the measurements on GPT-2 and CerebrasGPT shown in Figure. 2a. We found that larger model\nsizes achieve better trade-offs, with CerebrasGPT showing",
+    "reviewed": true,
+    "keep": false,
+    "review_note": "hỏi độ phức tạp trong bảng, ký hiệu vỡ"
+  },
+  {
+    "id": "q081",
+    "question": "What two complementary directions are pursued to explain how the brain performs computations, as discussed in the expressive leaky memory neuron work?",
+    "ground_truth": "One direction studies how computation arises from the collective activity of simple neurons (e.g., leaky integrators or ReLU units) connected in networks; the other proposes that the intrinsic computational power of individual neurons contributes significantly, supported by evidence that cortical neurons are remarkably sophisticated, comparable to multilayer ANNs.",
+    "source": "The expressive leaky memory neuron - an efficient and expressive phenomenological neuron model can solve long-horizon tasks",
+    "topic": "Ref",
+    "page": 1,
+    "chunk_id": "74004919491d-3",
+    "chunk_text": "them remain largely undetermined.\nTwo complementary directions are pursued in search of\nmechanisms for brain computations. On the one hand, many researchers investigate how these\ncapabilities could arise from the collective activity of neurons connected into a complex network\nstructure Maass (1997); Gerstner & Kistler (2002); Grüning & Bohte (2014), where individual\nneurons might be as basic as leaky integrators or ReLU neurons. On the other hand, it has been\nproposed that the intrinsic computational power possessed by individual neurons Koch (1997); Koch\n& Segev (2000); Silver (2010) contributes a significant part to the computations.\nEven though most work focuses on the former hypothesis, an increasing amount of evidence indicates\nthat cortical neurons are remarkably sophisticated Silver (2010); Gidon et al. (2020); Larkum (2022),\neven comparable to expressive multilayered artificial neural networks Poirazi et al. (2003); Jadi et al.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What type of neurons are proposed to have significant computational power individually according to the passage?",
+      "ground_truth": "It has been proposed that the intrinsic computational power possessed by individual neurons Koch (1997); Koch & Segev (2000); Silver (2010) contributes a significant part to the computations."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q082",
+    "question": "Under the Harvest-Now, Decrypt-Later (HNDL) model, what is the status of encrypted data transmitted or stored today without quantum resistance?",
+    "ground_truth": "It is effectively 'pre-compromised', even if quantum computers capable of breaking RSA-2048 or ECC-256 are a decade away; once decrypted it could undermine national security, erode public trust and violate regulations such as GDPR and FISMA.",
+    "source": "The-Quantum-Security-Deadline",
+    "topic": "Quantum Security",
+    "page": 7,
+    "chunk_id": "c43a276d672a-16",
+    "chunk_text": "European Journal of Computer Science and Information Technology, 13(52),35-52, 2025 \n \n \n Print ISSN: 2054-0957 (Print) \n Online ISSN: 2054-0965 (Online) \n Website: https://www.eajournals.org/ \n Publication of the European Centre for Research Training and Development -UK \n41 \n \nThe longevity of encryption thus becomes a critical factor in determining exposure risk. Even if \nCRQCs capable of breaking RSA-2048 or ECC-256 are a decade away, any encrypted dataset \ntransmitted or stored today without quantum resistance is effectively “pre-compromised” under \nthe HNDL model (Kampanakis, 2024; HashiCorp, 2025). Once decrypted, these records could \nundermine national security, erode public trust, and violate data protection regulations such as the \nGeneral Data Protection Regulation (GDPR) and U.S. Federal Information Security Modernization \nAct (FISMA) (NIST, 2024; CISA, 2024). \n \nMitigating this risk requires immediate adoption of quantum-safe key management practices,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What does the HNDL model suggest about encrypted datasets transmitted or stored today without quantum resistance?",
+      "ground_truth": "Any encrypted dataset transmitted or stored today without quantum resistance is effectively “pre-compromised” under the HNDL model (Kampanakis, 2024; HashiCorp, 2025)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q083",
+    "question": "What are the three primary mechanisms employed by network tarpits?",
+    "ground_truth": "Network tarpits employ three primary mechanisms: 1) a means to determine which IP addresses on a subnetwork are unused and thus may be faked; 2) a strategy to impersonate hosts by responding to TCP, UDP, or ICMP probes destined to fake IP addresses; and 3) a method to hold the TCP connection open.",
+    "source": "Uncovering Network Tarpits with Degreaser",
+    "topic": "Deception",
+    "page": 2,
+    "chunk_id": "e5feba5ea417-11",
+    "chunk_text": "be at the SMTP-layer, for instance by taking an arbitrarily\nlong time to respond to incoming SMTP commands.\nOther tarpits are able to extend their deceptive operation\nby co-opting unused addresses on their local subnetwork.\nNetwork tarpits such as those in LaBrea [21] and the Netﬁlter TARPIT plugin [15] can answer and hold connections to\nmultiple IP addresses on a network, including addresses that\nare not in use. In this fashion, not only do these tarpits slow\nconnections to active machines on the network, they fake the\nexistence of servers for every IP address in network preﬁx.\n2.2\nTarpit Operation\nNetwork tarpits employ three primary mechanisms: 1) a\nmeans to determine which IP addresses on a subnetwork are\nunused and thus may be faked; 2) a strategy to impersonate\nhosts by responding to TCP, UDP, or ICMP probes destined\nto fake IP addresses; and 3) a method to hold the TCP\nconnection open.\nThe IP addresses for which the tarpit responds may be",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What are the three primary mechanisms employed by network tarpits according to the passage?",
+      "ground_truth": "Network tarpits employ three primary mechanisms: 1) a means to determine which IP addresses on a subnetwork are unused and thus may be faked; 2) a strategy to impersonate hosts by responding to TCP, UDP, or ICMP probes destined to fake IP addresses; and 3) a method to hold the TCP connection open."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q084",
+    "question": "What type of honeypots are designed to simulate the behavior of a human and analyze how attackers exploit vulnerabilities in client programs such as browsers?",
+    "ground_truth": "Client honeypots are designed to simulate the behavior of a human and analyze how such behavior is exploited by an attacker.",
+    "source": "Use of Deception to Improve Client Honeypot Detection of Drive-by-Download Attacks",
+    "topic": "Deception",
+    "page": 2,
+    "chunk_id": "fc2fb8e18610-5",
+    "chunk_text": "cracker, the traps used to lure and detect him, and the chroot “Jail” the researchers \nbuilt to watch his activities [6]. \nTypes of honeypots can be differentiated by their ability to interact with an attacker. Systems that emulate vulnerabilities and allow limited interaction with the \nattacker are low-interaction honeypots. Systems that are vulnerable and allow interaction with the attacker at all levels are high-interaction honeypots [7]. Another differentiation is between physical honeypots, which run on physical machines, and virtual \nhoneypots, which run on virtual machines [2]. \nAs a result of attackers exploiting vulnerabilities in client programs (such as \nbrowsers), honeypots have evolved to simulate the behavior of a human and analyze \nhow such behavior is exploited by an attacker [2]. \n2.1 Client Honeypots",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q085",
+    "question": "How does VulnBot represent the dependencies among penetration testing tasks?",
+    "ground_truth": "As a Penetration Task Graph: a directed graph where an edge from T1 to T2 means T2 depends on T1, and these dependencies determine task execution order; each task has an id, dependencies, an instruction and an action (e.g., Shell).",
+    "source": "VulnBot - Autonomous Penetration Testing for A Multi-Agent Collaborative Framework",
+    "topic": "Survey",
+    "page": 7,
+    "chunk_id": "2ff0c89f9a9a-34",
+    "chunk_text": "T2, then there exists a directed edge from T1 to T2. These\ndependencies determine the execution order of tasks in\nthe overall penetration testing process.\n{\n \"id\": \"1\", \"dependencies\": [],\n \"instruction\": \"Use the credentials (wavex:door+open) to SSH into \nthe target machine (IP: 192.168.1.104, Port: 22.\",\n \"action\": \"Shell\"\n},\n{\n \"id\": \"2\", \"dependencies\": [\"1\"],\n \"instruction\": \"Search for writable directories on the target machine \nusing the command: 'find / -writable -type d 2>/dev/null'.\",\n \"action\": \"Shell\"\n},\n{\n \"id\": \"3\", \"dependencies\": [\"1\"],\n \"instruction\": \"Enumerate running processes on the target machine \nusing the command: 'ps aux'.\",\n \"action\": \"Shell\"\n},\n……\n{\n \"id\": \"9\", \"dependencies\": [\"5\", \"8\"],\n \"instruction\": \"Exploit the sudo permissions to escalate privileges to \nroot using the command 'sudo su'.\",\n \"action\": \"Shell\"\n}\nTask List\nTask List\nTask 1\nTask 2\nTask 3\nTask 5\nTask 4\nTask 6\nTask 7\nTask 8\nTask 9\nFigure 3: The process of generating Penetration Task Graph",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the dependency of Task 9 in the penetration testing process?",
+      "ground_truth": "The dependency of Task 9 is ['5', '8']."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q086",
+    "question": "How does WAF-A-MoLE manage its payload pool during the mutation-based evasion algorithm?",
+    "ground_truth": "The payload pool is a priority queue Q, prioritized by the confidence value returned by the WAF's classifier; initially it contains only the initial payload p0, and payloads are mutated until one falls below the threshold t under which it is considered harmless.",
+    "source": "WAF-A-MoLE - Evading Web Application Firewalls through Adversarial Machine Learning",
+    "topic": "WAF",
+    "page": 2,
+    "chunk_id": "bb07fc242dd0-11",
+    "chunk_text": "confidence value generated by the detection algorithm of the WAF.\nThe payload pool is the data structure containing the SQL injection\ncandidates to be mutated during the next round. Below we describe\nin more detail the set of mutation operators and the payload pool.\nA pseudo code implementation of the core algorithm of WAF-AMoLE is shown in Figure 3. The algorithm takes the learning model\nm : X →[0, 1], where X is the feature space, an initial payload p0\nand a threshold t, i.e., a confidence value under which a payload is\nconsidered harmless. WAF-A-MoLE implements the payload pool\n(see Section 3.3) as a priority queue Q (line 1). The payloads in Q\nare prioritized according to the confidence value returned by the\nclassification algorithm, namely classify, associated to m. The classification algorithm assigns to each payload an x ∈X, by extracting\na feature vector, and computes m(x).\nInitially, Q only contains p0 (lines 2–3). The main loop (lines 4–7)",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the initial payload in the payload pool Q according to the pseudo code implementation of WAF-A-MoLE?",
+      "ground_truth": "Initially, Q only contains p0 (lines 2–3)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q087",
+    "question": "In the WAFFLED study of 'forgot-password' requests on real websites, which content types did the websites use?",
+    "ground_truth": "More than two-thirds used application/x-www-form-urlencoded, about one-fourth used application/json or its variations, only two used multipart/form-data, and one used URL parameters.",
+    "source": "WAFFLED - Exploiting Parsing Discrepancies to Bypass Web Application Firewalls",
+    "topic": "WAF",
+    "page": 10,
+    "chunk_id": "818d301b3b61-56",
+    "chunk_text": "half of these webpages were excluded from the study for\nreasons such as “non-english language”, “obscenity” and “an\nemerging captcha”.\nOn each “forgot-password” page, we submitted the form\nafter typing in a non-existent email address and intercepted\nthe generated HTTP request on the Burp Suite tool. We\nexamined the Content-Type header field and the request\nbody format to decide the content-type for each request.\nWe found that more than two-thirds of the websites use\nthe application/x-www-form-urlencoded, while\none-fourth\nof\nthem\nuse\nthe\napplication/json\nand\nits\nvariation.\nOnly\ntwo\nwebsites\nuse\nmultipart/form-data and one uses URL parameters.\nFor\neach\nintercepted\n“forgot-password”\nrequest,\nto\ncheck\nthe\ninterchangeability\nbetween\ncontent\ntypes,\nwe\nused\nthe\n“Change\nbody\nencoding”\nfeature\nof\nBurp\nSuite\n(in\nthe\n“Repeater”\nsection)\nto\nconvert\nthe\ncontent\ntype\nto\nmultipart/form-data\nin\napplication/x-www-form-urlencoded\nrequests.\nWe then examined the response status code and response",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What content type was found to be used by more than two-thirds of the websites in the study?",
+      "ground_truth": "more than two-thirds of the websites use the application/x-www-form-urlencoded"
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q088",
+    "question": "What are the two categories of machine learning approaches for detecting web attacks, and how does supervised learning work?",
+    "ground_truth": "Unsupervised and supervised learning; supervised learning, the most common for classification, learns a mapping function Y = f(X) from labeled input data to output labels and then predicts labels for new inputs.",
+    "source": "Web Application Attack Detection using Deep Learning",
+    "topic": "WAF",
+    "page": 3,
+    "chunk_id": "ac89a56b8673-9",
+    "chunk_text": "performance of the proposed model. Section V concludes the paper.\n2\nBackground and Related work\n2.1\nDeep Learning for Web Attack Detection\nThere are two categories of Machine Learning approaches for detecting web attacks: unsupervised and supervised learning. Supervised learning is the learning approach feeds mapped labeled data which then outputs the expected data,\nwhich is simply mapping of input functions to dataset and expecting new input with learned labels at the output. For the classiﬁcation of data, the most\ncommon algorithm is supervised learning, which is used to learn the machine\nlearning model to train and identify the data using the labels which are mapped.\nThe concept of the algorithm is to learn the mapping function of a given input\nto the output, where the output is deﬁned by variable Y and input is deﬁned\nby variable x.\nY = f(X)\nIf web attacks labeled dataset is trained using supervised algorithms such",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the most common algorithm used for classifying data in web attack detection according to the passage?",
+      "ground_truth": "The most common algorithm is supervised learning, which is used to learn the machine learning model to train and identify the data using the labels which are mapped."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q089",
+    "question": "What project provides a framework for developing intent-based network applications?",
+    "ground_truth": "The OpenDaylight NetIDE project provides a framework for developing intent-based network applications.",
+    "source": "aa777444-e949-4950-9e07-da920a30d604",
+    "topic": "k8s policy conflict",
+    "page": 3,
+    "chunk_id": "54c3eb65028b-15",
+    "chunk_text": "that captures network architect knowledge and automatically generates configurations that comply with best \npractices and design principles (Li et al., 2023; Anderson & Kumar, 2023). Research conducted by platform users \nhas demonstrated significant reductions in configuration errors and deployment times that represent real relief for \nnetwork operations teams (Lopez et al., 2023; Zhang & Liu, 2023). Open source IBN projects have also \ncontributed meaningfully to the advancement of intent-based networking technologies (Johnson et al., 2023; \nBrown & Lee, 2023). The OpenDaylight NetIDE project provides a framework for developing intent-based \nnetwork applications, while ONAP offers comprehensive network automation capabilities that include intentbased service orchestration (Linux Foundation, 2022; Patel et al., 2023). These projects have facilitated research \nand development while providing platforms for academic and industrial experimentation (Roberts & Kim, 2023;",
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "q090",
+    "question": "In the eIDPS evaluation, which cyberattacks were simulated and which tools were used to generate the malicious traffic?",
+    "ground_truth": "Six attacks: SYN Scan, OS Fingerprint, Brute Force SSH, Botnet ARES, and two DoS attacks (Slowloris and GoldenEye); malicious traffic was generated with tools such as hping3 and Metasploit.",
+    "source": "eIDPS_A_Comprehensive_Comparative_Analysis_of_Packet-Level_and_Flow-Level_Intrusion_Detection_and_Prevention (1)",
+    "topic": "QoS",
+    "page": 5,
+    "chunk_id": "2429b7f82ccf-25",
+    "chunk_text": "with two virtual cores and eight gigabytes of RAM were\nlinked together via an internal network. In order to mimic\nsix cyberattacks, SYN Scan, OS Fingerprint, Brute Force\nSSH, Botnet ARES, and two DoS cyberattacks (Slowloris and\nGoldenEye), malicious traffic was created using tools such as\nhping3 and Metasploit.\nA. Experiment Scenario\nThe main difference between eIDPS and Zhang’s solution is\nthat the former classifies traffic on a packet level and the latter\nstores an entire flow and then classifies it as malicious or benign. Performance metrics of the evaluation process included\nCPU usage, latency, accuracy, precision, recall and F1-score.\nRegarding comparing the two solutions, the evaluation metrics\nreported in Jørgensen’s work on eBPF/XDP performance\noptimization [8] were utilized for fair benchmarking.\nB. AI metrics\nThe criteria chosen for comparing the AI models are the\nmodel’s accuracy, precision, recall, and F1-score. Table II",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What tools were used to create malicious traffic in the experiment to mimic six cyberattacks?",
+      "ground_truth": "malicious traffic was created using tools such as hping3 and Metasploit."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q091",
+    "question": "In the ablation study of the hybrid HRSNN (RNN + SNN) intrusion detection model, what happens when SMOTE or RFE is removed?",
+    "ground_truth": "Without SMOTE the model becomes very sensitive to class imbalance, leading to more false negatives; without RFE redundant features are kept, increasing training time and slightly lowering accuracy.",
+    "source": "frai-8-1651516",
+    "topic": "Ref",
+    "page": 12,
+    "chunk_id": "fbe121b79961-67",
+    "chunk_text": "• Without SMOTE: Data was trained on class imbalanced data.\n • Without RFE: All features were retained; no recursive elimination \nwas performed.\n • Proposed Hybrid HRSNN (RNN + SNN + SMOTE+RFE): \nFull pipeline.\nTable  7 is the summarized comparative ablation study \nperformance. The noted observations from these results are:\n • When SMOTE is eliminated, the model is very sensitive to class \nimbalance, and hence more false negatives are encouraged.\n • When RFE was excluded, redundant features were included, \nwhich increased the training time but lowered the \naccuracy slightly.\n • A procedure based on RNN only improves the feature \nrepresentation but is limited in temporal adaptability, while that \nusing SNN only caters to time-based processing but has issues \nwith spatial feature complexity.\n • The Hybrid RNN + SNN with full preprocessing consistently \nattained the highest detection accuracy and F1-score while \nunderpinning computational efficiency.",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What happens to the model's performance when SMOTE is eliminated?",
+      "ground_truth": "When SMOTE is eliminated, the model is very sensitive to class imbalance, and hence more false negatives are encouraged."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q092",
+    "question": "When should organizations begin post-quantum cryptography migration, and why is waiting for Q-Day an error?",
+    "ground_truth": "Organizations should begin PQC migration now: with Q-Day estimated at 2030 ± 5 years and migration taking 2-5 years (plus 1-3 years of supply-chain coordination), migration must start in 2025-2028 to finish before 2030-2035; legacy constraints and long data confidentiality requirements also make waiting a strategic error.",
+    "source": "harvest-now-decrypt-later-pqc-threat-model",
+    "topic": "Quantum Security",
+    "page": 59,
+    "chunk_id": "f8a2d1c8b385-155",
+    "chunk_text": "• Migration must begin immediately to enable orderly transition\n17.2 Why Waiting for Q-Day Is a Critical Error\nSeveral factors make waiting for Q-Day appearance a strategic error:\n1. Cryptographic Transition Duration: Moving entire cryptographic infrastructure to PQC\nrequires 2-5 years for most organizations\n2. Supply Chain Coordination: Vendors, cloud providers, and partners must coordinate\ntransition (adds 1-3 years)\n3. Legacy System Constraints: Some systems are difficult to upgrade and require extended\ntransition periods\n4. Data Confidentiality Requirements: Data encrypted today remains sensitive throughout\ncryptographic transition period\nTimeline Analysis: - Q-Day estimate: 2030 ± 5 years (accounting for uncertainty) - Migration\nduration: 2-5 years after decision - Required migration start: 2025-2028 (to complete before\n2030-2035) - Current date: 2024-2025\nImplication: Organizations should begin PQC migration now. Waiting until Q-Day appears",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What is the recommended start date for organizations to begin PQC migration according to the passage?",
+      "ground_truth": "Organizations should begin PQC migration now. Waiting until Q-Day appears is a strategic error, and the required migration start is 2025-2028 (to complete before 2030-2035)."
+    },
+    "review_note": "edited"
+  },
+  {
+    "id": "q093",
+    "question": "In xOffense, how does the Task Orchestrator plan a penetration test and retrieve relevant penetration knowledge?",
+    "ground_truth": "It decomposes the pentest objective into a Task Coordination Graph (TCG) of tasks with dependencies, and queries the Knowledge Repository, a vector database, through a RAG mechanism (taken from Langchain-Chatchat) using the initial task description, the current task instruction or recent task results.",
+    "source": "xOffense - An AI-driven autonomous penetration testing framework with offensive knowledge-enhanced LLMs and multi agent systems",
+    "topic": "Survey",
+    "page": 6,
+    "chunk_id": "45671b116f3f-36",
+    "chunk_text": "The operational workflow of xOffense, illustrated in Figure\n1, initiates when a user submits a pentest objective, such as\n“Identify vulnerabilities on IP 192.168.X.X and retrieve rootlevel flags.” This task description serves as the Initial Context,\nwhich is passed to the Task Orchestrator for comprehensive\nplan generation. The orchestrator constructs a Task Coordination Graph (TCG), decomposing the penetration objective into\na structured sequence of tasks with clearly defined dependencies. To enhance contextual accuracy, it queries the Knowledge\nRepository a vector-based database via a Retrieval-Augmented\nGeneration (RAG) mechanism, which is taken from LangchainChatchat [30], retrieving relevant penetration knowledge based\non inputs such as the initial task description, the current task’s\ninstruction, or recent task results.\nEach task within the TCG is processed through an iterative\nand adaptive loop involving Command Synthesis, Execution,",
+    "reviewed": true,
+    "keep": true,
+    "original": {
+      "question": "What mechanism does the Task Orchestrator use to query the Knowledge Repository for relevant penetration knowledge?",
+      "ground_truth": "The orchestrator constructs a Task Coordination Graph (TCG) and queries the Knowledge Repository via a Retrieval-Augmented Generation (RAG) mechanism, which is taken from LangchainChatchat [30]."
+    },
+    "review_note": "edited"
+  }
+]

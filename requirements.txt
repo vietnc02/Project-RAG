@@ -1,0 +1,11 @@
+langchain>=1.4
+langchain-community
+langchain-ollama
+langchain-chroma
+langchain-text-splitters
+langgraph>=1.2
+pymupdf
+numpy
+pandas
+tabulate
+tqdm
