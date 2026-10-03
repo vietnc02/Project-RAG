@@ -1,3 +1,0 @@
-﻿system,n,faithfulness,faithfulness_ci95,answer_relevancy,answer_relevancy_ci95,hallucination_rate,hallucination_rate_ci95,answer_correctness,answer_correctness_ci95,refusal_rate,refusal_rate_ci95,retrieval_hit,retrieval_hit_ci95,latency_s,latency_s_ci95,llm_calls,llm_calls_ci95,claim_halluc_rate,halluc_rate_among_answered
-langchain_rag,86,0.8945,"[0.844, 0.939]",0.7577,"[0.704, 0.802]",0.2791,"[0.186, 0.372]",0.8605,"[0.779, 0.930]",0.0814,"[0.035, 0.140]",0.9651,"[0.919, 1.000]",10.8164,"[10.395, 11.299]",1.0,"[1.000, 1.000]",0.0978,0.3038
-langgraph_selfrag,86,0.9231,"[0.891, 0.953]",0.7028,"[0.636, 0.762]",0.2558,"[0.163, 0.349]",0.8256,"[0.744, 0.907]",0.1395,"[0.070, 0.221]",0.8837,"[0.814, 0.942]",29.6978,"[28.109, 31.563]",8.1047,"[7.605, 8.709]",0.0765,0.2973

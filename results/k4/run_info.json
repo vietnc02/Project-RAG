@@ -1,0 +1,57 @@
+{
+  "run": "k4",
+  "started": "2026-10-03T02:48:47",
+  "argv": [
+    "--run",
+    "k4"
+  ],
+  "top_k": 4,
+  "num_ctx": 4096,
+  "self_rag": {
+    "max_query_rewrites": 2,
+    "max_regenerations": 2
+  },
+  "testset": {
+    "testset.json": "f8d689f1150b1d96",
+    "multihop.json": "0df8ee1bb89c5f69",
+    "unanswerable.json": "f99f6edc31e56765"
+  },
+  "n_by_type": {
+    "single": 86,
+    "multihop": 35,
+    "unanswerable": 23
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.35.0",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  },
+  "note": "Toàn bộ câu trả lời và điểm chạy trên Ollama 0.35.0. Latency của LangChain RAG ở câu single-hop và ngoài corpus được đo lại sau đó khi GPU không bị chia sẻ (số đo cũ lưu ở latency_s_shared_gpu)."
+}

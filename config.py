@@ -8,14 +8,21 @@ from pathlib import Path
 PROJECT_DIR = Path(__file__).resolve().parent
 PAPERS_DIR = Path(os.getenv("PAPERS_DIR", PROJECT_DIR / "papers"))
 
-# Dữ liệu nặng (vector DB, chunk) để ngoài thư mục project
-DATA_DIR = Path(os.getenv("DATA_DIR", r"D:\RAG_env\data"))
-CHROMA_DIR = DATA_DIR / "chroma"
+# Dữ liệu đi kèm repo (clone về là chạy được, không cần build lại):
+#   data/chunks.jsonl   văn bản 6.649 chunk          data/chroma.zip  vector DB Chroma (nén)
+#   data/MANIFEST.json  sha256, tham số chunking, version thư viện / Ollama / model
+# Lần chạy đầu, chroma.zip tự giải nén ra data/chroma/ (thư mục này không commit, xem .gitignore).
+DATA_DIR = Path(os.getenv("DATA_DIR", PROJECT_DIR / "data"))
 CHUNKS_FILE = DATA_DIR / "chunks.jsonl"
+CHROMA_DIR = DATA_DIR / "chroma"
+CHROMA_SNAPSHOT = DATA_DIR / "chroma.zip"
+MANIFEST_FILE = DATA_DIR / "MANIFEST.json"
 COLLECTION = os.getenv("COLLECTION", "papers")
 
 RESULTS_DIR = Path(os.getenv("RESULTS_DIR", PROJECT_DIR / "results"))
-TESTSET_FILE = PROJECT_DIR / "testset" / "testset.json"
+TESTSET_FILE = PROJECT_DIR / "testset" / "testset.json"        # single-hop
+TESTSET_FILES = [TESTSET_FILE, PROJECT_DIR / "testset" / "multihop.json",
+                 PROJECT_DIR / "testset" / "unanswerable.json"]
 
 # ---- Server local (Ollama) ----
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")

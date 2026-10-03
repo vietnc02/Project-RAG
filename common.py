@@ -41,11 +41,36 @@ def get_llm(model: str | None = None, json_mode: bool = False):
         seed=config.SEED,
         num_ctx=config.NUM_CTX,
         format="json" if json_mode else None,
+        # JSON mode đôi khi lặp vô hạn (không tự dừng); đầu ra hợp lệ của các bước chấm chỉ vài trăm token
+        num_predict=1024 if json_mode else None,
     )
 
 
+def sha256(path) -> str:
+    import hashlib
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def restore_chroma():
+    """Giải nén data/chroma.zip -> data/chroma/ (kiểm tra sha256 với MANIFEST.json)."""
+    import json
+    import zipfile
+    want = json.loads(config.MANIFEST_FILE.read_text(encoding="utf-8"))["files"]["chroma.zip"]
+    if sha256(config.CHROMA_SNAPSHOT) != want:
+        raise SystemExit(f"{config.CHROMA_SNAPSHOT} không khớp sha256 trong {config.MANIFEST_FILE}")
+    with zipfile.ZipFile(config.CHROMA_SNAPSHOT) as z:
+        z.extractall(config.DATA_DIR)
+    print(f"Đã giải nén Chroma -> {config.CHROMA_DIR}")
+
+
 @lru_cache
-def get_vectorstore():
+def get_vectorstore(auto_restore: bool = True):
+    if auto_restore and not config.CHROMA_DIR.exists() and config.CHROMA_SNAPSHOT.exists():
+        restore_chroma()  # lần chạy đầu sau khi clone repo
     return Chroma(
         collection_name=config.COLLECTION,
         embedding_function=get_embeddings(),
@@ -54,8 +79,9 @@ def get_vectorstore():
     )
 
 
-def get_retriever(k: int = config.TOP_K):
-    return get_vectorstore().as_retriever(search_kwargs={"k": k})
+def get_retriever(k: int | None = None):
+    # đọc config.TOP_K lúc gọi (không phải lúc import) để evaluate.py --top-k ghi đè được
+    return get_vectorstore().as_retriever(search_kwargs={"k": k or config.TOP_K})
 
 
 def format_docs(docs: list[Document]) -> str:
@@ -84,3 +110,35 @@ def is_refusal(answer: str) -> bool:
 
 def docs_to_contexts(docs: list[Document]) -> list[dict]:
     return [{"text": d.page_content, **d.metadata} for d in docs]
+
+
+def env_info() -> dict:
+    """Version thư viện + Ollama + digest model, ghi kèm mỗi lần chạy để tái lập kết quả."""
+    import json
+    import platform
+    import urllib.request
+    from importlib.metadata import PackageNotFoundError, version
+
+    pkgs = {}
+    for name in ("langchain", "langchain-core", "langgraph", "langchain-ollama", "langchain-chroma",
+                 "langchain-text-splitters", "chromadb", "ollama", "pymupdf"):
+        try:
+            pkgs[name] = version(name)
+        except PackageNotFoundError:
+            pkgs[name] = None
+
+    def get(path):
+        try:
+            with urllib.request.urlopen(config.OLLAMA_URL + path, timeout=5) as r:
+                return json.load(r)
+        except Exception:
+            return {}
+
+    tags = {m["name"]: m for m in get("/api/tags").get("models", [])}
+    models = {}
+    for role, name in (("llm", config.LLM_MODEL), ("judge", config.JUDGE_MODEL), ("embedding", config.EMBED_MODEL)):
+        m = tags.get(name) or tags.get(f"{name}:latest") or {}
+        models[role] = {"name": name, "digest": m.get("digest", "")[:12],
+                        "quantization": m.get("details", {}).get("quantization_level")}
+    return {"python": platform.python_version(), "packages": pkgs,
+            "ollama_server": get("/api/version").get("version"), "models": models}

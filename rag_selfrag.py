@@ -1,6 +1,6 @@
 """Hệ thống B: Self-RAG bằng LangGraph.
 
-Luồng (dựa trên Asai et al., 2023 "Self-RAG" + LangGraph self-RAG pattern):
+Luồng (approximate / prompt-based Self-RAG, Self-RAG gốc: Asai et al., 2023; dựng theo mẫu Self-RAG của LangGraph):
 
     retrieve -> grade_documents --(có tài liệu liên quan)--> generate -> grade_generation
                      |                                                     |
@@ -9,6 +9,11 @@ Luồng (dựa trên Asai et al., 2023 "Self-RAG" + LangGraph self-RAG pattern):
               transform_query -> retrieve                 không useful     -> transform_query
                      |
              (hết lượt) -> abstain (từ chối trả lời)
+
+Prompt ISSUP định nghĩa rõ "supported = suy ra trực tiếp được từ tài liệu, KHÔNG cần đủ mọi chi tiết" và có
+few-shot (ví dụ ngoài lĩnh vực của corpus, không lấy từ testset), vì model 7B dễ nhầm "thiếu chi tiết" thành
+"không có căn cứ". answer() trả thêm `retrieved_contexts` (full top-k trước khi lọc) để evaluate.py chấm
+faithfulness của 2 hệ trên cùng một context.
 
     python rag_selfrag.py "What is a network tarpit?"
 """
@@ -21,6 +26,7 @@ from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import END, START, StateGraph
+from ollama import ResponseError
 
 import config
 from common import (GENERATE_PROMPT, REFUSAL_TEXT, docs_to_contexts, format_docs, get_llm,
@@ -30,7 +36,8 @@ from common import (GENERATE_PROMPT, REFUSAL_TEXT, docs_to_contexts, format_docs
 class State(TypedDict, total=False):
     question: str          # câu hỏi gốc
     query: str             # truy vấn hiện tại (có thể đã được viết lại)
-    documents: list[Document]
+    documents: list[Document]   # tài liệu sau khi lọc (đưa vào generate)
+    retrieved: list[Document]   # full top-k của lần truy xuất gần nhất (trước khi lọc)
     generation: str
     feedback: str          # lý do lần sinh trước bị loại
     rewrites: int
@@ -48,10 +55,32 @@ GRADE_DOC = ChatPromptTemplate.from_messages([
     ("human", "Document:\n{document}\n\nQuestion: {question}"),
 ])
 
+# ISSUP: few-shot để model 7B chấm "có bịa không" thay vì "có đủ ý không" (tránh false negative).
+# Ví dụ cố ý lấy ngoài lĩnh vực của corpus để không "học" trên testset.
+_ISSUP_FACTS = ("The Hubble Space Telescope was launched in 1990 aboard the Space Shuttle Discovery. "
+                "It orbits Earth at an altitude of about 540 km and observes in the ultraviolet, visible "
+                "and near-infrared spectra.")
+_ISSUP_SHOTS = [
+    ("Hubble was launched in 1990.", "yes",
+     "Directly stated; omitting the orbit and spectra is fine."),
+    ("Hubble observes ultraviolet, visible and near-infrared light from a low orbit of roughly 540 km.", "yes",
+     "Paraphrase of the facts."),
+    ("Hubble was launched in 1990 aboard Discovery and has a 2.4-metre primary mirror.", "no",
+     "The mirror size is not mentioned in the facts."),
+    ("Hubble was launched in 1993 to observe X-rays.", "no",
+     "Contradicts the launch year and the observed spectra."),
+]
 GRADE_HALLUCINATION = ChatPromptTemplate.from_messages([
-    ("system", "You assess whether an answer is fully grounded in / supported by a set of facts. "
-               "Answer 'yes' only if every statement in the answer is supported by the facts. "
-               'Respond with JSON: {{"score": "yes" or "no", "reason": "<short reason>"}}.'),
+    ("system",
+     "You check whether an ANSWER is grounded in a set of FACTS (retrieved documents).\n"
+     "Definition: the answer is grounded ('yes') if every statement in it can be directly inferred from "
+     "the facts. The answer does NOT need to contain every detail of the facts, nor to fully answer the "
+     "question: missing details are fine. Paraphrases and summaries are fine.\n"
+     "Answer 'no' only if the answer states something that is absent from the facts or contradicts them "
+     "(e.g. invented numbers, names, methods, causes).\n"
+     'Respond with JSON: {{"score": "yes" or "no", "reason": "<short reason>"}}.\n\n'
+     "Examples (facts: " + _ISSUP_FACTS + ")\n"
+     + "\n".join(f'Answer: {a}\n-> {{{{"score": "{y}", "reason": "{r}"}}}}' for a, y, r in _ISSUP_SHOTS)),
     ("human", "Facts:\n{documents}\n\nAnswer: {generation}"),
 ])
 
@@ -81,7 +110,10 @@ STRICT_GENERATE = ChatPromptTemplate.from_messages([
 
 
 def _yes(prompt, **kw) -> tuple[bool, str]:
-    raw = (prompt | get_llm(json_mode=True) | StrOutputParser()).invoke(kw)
+    try:
+        raw = (prompt | get_llm(json_mode=True) | StrOutputParser()).invoke(kw)
+    except ResponseError:  # Ollama huỷ do lặp token (hay gặp ở JSON mode) -> coi như không trả lời "yes"
+        raw = ""
     try:
         d = json.loads(raw)
     except json.JSONDecodeError:
@@ -97,7 +129,8 @@ def _step(state: State, name: str, calls: int = 0) -> dict:
 # ---------------- Nodes ----------------
 def retrieve(state: State) -> dict:
     query = state.get("query") or state["question"]
-    return {"documents": get_retriever().invoke(query), "query": query, **_step(state, "retrieve")}
+    docs = get_retriever().invoke(query)
+    return {"documents": docs, "retrieved": docs, "query": query, **_step(state, "retrieve")}
 
 
 def grade_documents(state: State) -> dict:
@@ -196,7 +229,9 @@ def answer(question: str) -> dict:
                          "llm_calls": 0, "trace": []}, {"recursion_limit": 60})
     return {
         "answer": out["generation"],
-        "contexts": docs_to_contexts(out.get("documents", [])),
+        "contexts": docs_to_contexts(out.get("documents", [])),            # đã lọc, đưa vào generate
+        "retrieved_contexts": docs_to_contexts(out.get("retrieved", [])),  # full top-k trước khi lọc
+        "final_query": out.get("query", question),
         "latency_s": round(time.perf_counter() - t0, 2),
         "llm_calls": out["llm_calls"],
         "trace": out["trace"],
