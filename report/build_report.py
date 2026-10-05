@@ -1,9 +1,11 @@
-"""Báo cáo nội dung 1: LangChain RAG vs LangGraph Self-RAG -> report/Bao_cao_Y1.docx
+"""Báo cáo nội dung 1: LangChain RAG vs LangGraph Self-RAG -> report/Bao_cao_Y1.docx (+ .pdf nếu có Word)
 
     python report/make_figures.py && python report/build_report.py
 """
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 from docx import Document
@@ -94,8 +96,15 @@ compat.append(cs)
 
 # ---------------- helpers ----------------
 def rich(para, text, size=None, italic=False, color=None):
-    for tok in re.split(r"(\*\*[^*]+\*\*|_[^_ ][^_]*_)", text):
+    """**đậm**, _nghiêng_ (chỉ khi `_` không nằm giữa từ, để "Q4_K_M" giữ nguyên), `code` (font Consolas)."""
+    for tok in re.split(r"(`[^`]+`|\*\*[^*]+\*\*|(?<!\w)_[^_ ][^_]*_(?!\w))", text):
         if not tok:
+            continue
+        if tok.startswith("`") and tok.endswith("`") and len(tok) > 2:
+            r = para.add_run(tok[1:-1]); r.font.name = "Consolas"
+            r._r.get_or_add_rPr().get_or_add_rFonts().set(qn("w:hAnsi"), "Consolas")
+            if size:
+                r.font.size = Pt(size - 1)
             continue
         if tok.startswith("**"):
             r = para.add_run(tok[2:-2]); r.bold = True
@@ -561,3 +570,12 @@ if R8:
 
 doc.save(OUT)
 print("saved", OUT)
+
+# Xuất PDF bằng Microsoft Word (nếu máy có Word); không có thì chỉ có .docx
+if sys.platform == "win32":
+    pdf = OUT.with_suffix(".pdf")
+    ps = (f"$w = New-Object -ComObject Word.Application; $w.Visible = $false; "
+          f"$d = $w.Documents.Open('{OUT}'); $d.Fields.Update() | Out-Null; "
+          f"$d.ExportAsFixedFormat('{pdf}', 17); $d.Close($false); $w.Quit()")
+    r = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True)
+    print("saved", pdf) if r.returncode == 0 and pdf.exists() else print("không xuất được PDF:", r.stderr[:300])
