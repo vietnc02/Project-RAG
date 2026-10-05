@@ -13,3 +13,4 @@ desktop.ini
 
 # Chroma giải nén từ data/chroma.zip lúc chạy (sqlite bị ghi lại mỗi lần mở)
 data/chroma/
+data/kg/chroma/

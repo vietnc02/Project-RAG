@@ -1,4 +1,4 @@
-"""Cấu hình chung cho toàn bộ pipeline (ý 1: LangChain RAG vs LangGraph Self-RAG).
+"""Cấu hình chung cho toàn bộ pipeline (ý 1: LangChain RAG vs LangGraph Self-RAG; ý 2: GraphRAG vs Vector RAG).
 
 Mọi giá trị đều có thể ghi đè bằng biến môi trường cùng tên.
 """
@@ -42,5 +42,28 @@ DEDUP_IDENTICAL_FILES = True  # bỏ qua file PDF trùng byte-by-byte
 # ---- Self-RAG ----
 MAX_QUERY_REWRITES = int(os.getenv("MAX_QUERY_REWRITES", 2))
 MAX_REGENERATIONS = int(os.getenv("MAX_REGENERATIONS", 2))
+
+# ---- Ý 2-3: Knowledge Graph / GraphRAG (30 bài chủ đề quantum) ----
+# 23 bài Quantum Security + Quantum ML trong papers/ + 7 bài bổ sung trong papers_y2/ (tách riêng: dữ liệu ý 1 không đổi)
+# data/kg/papers.json      : 30 bài, xếp theo thứ tự sao cho k bài đầu (k = 10, 20, 30) giữ tỉ lệ chủ đề
+# data/kg/chunks_y2.jsonl  : chunk của 7 bài bổ sung (cùng cách chia chunk với ý 1)
+# data/kg/chroma.zip       : Chroma riêng của ý 2 (collection kg30 = chunk của đúng 30 bài), tự giải nén ra data/kg/chroma/
+# data/kg/extractions.jsonl: entity/relation LLM trích từ từng chunk (cache, dùng chung cho mọi k)
+# data/kg/k<k>/            : KG đã gộp (graph.json) + vector entity/relation (vectors.npz)
+PAPERS_Y2_DIR = PROJECT_DIR / "papers_y2"
+KG_DIR = DATA_DIR / "kg"
+KG_PAPERS_FILE = KG_DIR / "papers.json"
+KG_CHUNKS_Y2 = KG_DIR / "chunks_y2.jsonl"
+KG_CHROMA_DIR = KG_DIR / "chroma"
+KG_CHROMA_SNAPSHOT = KG_DIR / "chroma.zip"
+KG_MANIFEST = KG_DIR / "MANIFEST.json"
+KG_COLLECTION = "kg30"
+KG_EXTRACTIONS = KG_DIR / "extractions.jsonl"
+KG_K = int(os.getenv("KG_K", 30))           # số bài dùng cho KG / GraphRAG
+# Bước trích xuất KG: đưa toàn bộ layer của LLM lên GPU. Mặc định Ollama ước tính dư bộ nhớ và đẩy ~18% model
+# sang CPU trên GPU 6GB (chậm hơn 1,5 lần dù VRAM còn trống). Đặt -1 để Ollama tự chia (máy ít VRAM hơn).
+KG_NUM_GPU = int(os.getenv("KG_NUM_GPU", 99))
+KG_SEED_ENTITIES = int(os.getenv("KG_SEED_ENTITIES", 8))   # số entity khớp với câu hỏi
+KG_MAX_RELATIONS = int(os.getenv("KG_MAX_RELATIONS", 12))  # số quan hệ đưa vào context
 
 SEED = 42

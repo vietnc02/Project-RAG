@@ -1,0 +1,652 @@
+{
+  "run": "kg30",
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.35.1",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  },
+  "top_k": 4,
+  "graphrag": {
+    "seed_entities": 8,
+    "max_relations": 12
+  },
+  "kg": {
+    "papers": 30,
+    "chunks": 2528,
+    "chunks_skipped": 10,
+    "chunks_error": 0,
+    "raw_entity_mentions": 16824,
+    "raw_relation_mentions": 10544,
+    "entities": 8352,
+    "relations": 9337,
+    "entities_in_2plus_papers": 1044,
+    "relations_in_2plus_papers": 224,
+    "isolated_entities": 1842,
+    "avg_degree": 2.236,
+    "components": 2195,
+    "largest_component": 5526,
+    "entity_types": {
+      "CONCEPT": 2303,
+      "SYSTEM": 1507,
+      "ALGORITHM": 1335,
+      "METRIC": 949,
+      "DEFENSE": 613,
+      "ATTACK": 432,
+      "ORGANIZATION": 384,
+      "DATASET": 272,
+      "HARDWARE": 226,
+      "PROTOCOL": 215,
+      "STANDARD": 116
+    }
+  },
+  "types": {
+    "all": {
+      "n": 62,
+      "main": {
+        "vec": {
+          "context_precision": [
+            0.6169354838709677,
+            0.5483870967741935,
+            0.677520161290322
+          ],
+          "faithfulness": [
+            0.890867019884877,
+            0.8509421332635617,
+            0.9256558248299319
+          ],
+          "answer_relevancy": [
+            0.7433639947820366,
+            0.677165294745738,
+            0.8008805449446351
+          ],
+          "hallucination": [
+            0.43548387096774194,
+            0.3064516129032258,
+            0.5645161290322581
+          ],
+          "answer_correctness": [
+            0.8548387096774194,
+            0.7580645161290323,
+            0.9354838709677419
+          ]
+        },
+        "gr": {
+          "context_precision": [
+            0.4879032258064516,
+            0.4274193548387097,
+            0.5483870967741935
+          ],
+          "faithfulness": [
+            0.846771928468357,
+            0.8065987360853433,
+            0.8860550337559266
+          ],
+          "answer_relevancy": [
+            0.7404069231407526,
+            0.6745748073657448,
+            0.7979537183704712
+          ],
+          "hallucination": [
+            0.532258064516129,
+            0.4032258064516129,
+            0.6612903225806451
+          ],
+          "answer_correctness": [
+            0.8225806451612904,
+            0.7258064516129032,
+            0.9193548387096774
+          ]
+        }
+      },
+      "extra": {
+        "vec": {
+          "context_ap": 0.7912186379928314,
+          "source_precision": 0.6854838709677419,
+          "retrieval_hit": 0.7580645161290323,
+          "gold_chunk_recall": 0.6854838709677419,
+          "context_recall": 0.8047112833403155,
+          "kg_relation_precision": null,
+          "faithfulness_text": 0.8908670198848769,
+          "hallucination_text": 0.43548387096774194,
+          "refusal": 0.0967741935483871,
+          "latency_s": 10.861774193548388
+        },
+        "gr": {
+          "context_ap": 0.6241039426523296,
+          "source_precision": 0.5846774193548387,
+          "retrieval_hit": 0.5161290322580645,
+          "gold_chunk_recall": 0.3870967741935484,
+          "context_recall": 0.6917353256062934,
+          "kg_relation_precision": 0.32123655913978494,
+          "faithfulness_text": 0.7798501597608738,
+          "hallucination_text": 0.5967741935483871,
+          "refusal": 0.0967741935483871,
+          "latency_s": 15.185000000000002
+        }
+      },
+      "paired": {
+        "context_precision": {
+          "delta": -0.12903225806451613,
+          "lo": -0.2056451612903226,
+          "hi": -0.04838709677419355,
+          "n": 62,
+          "p": 0.0016
+        },
+        "faithfulness": {
+          "delta": -0.03028866558278323,
+          "lo": -0.07720234014351662,
+          "hi": 0.018052996839761526,
+          "n": 51,
+          "p": 0.22
+        },
+        "answer_relevancy": {
+          "delta": -0.0029570716412840826,
+          "lo": -0.08813611886431387,
+          "hi": 0.08090486653892823,
+          "n": 62,
+          "p": 0.9496
+        },
+        "hallucination": {
+          "delta": 0.0967741935483871,
+          "lo": -0.04838709677419355,
+          "hi": 0.22580645161290322,
+          "n": 62,
+          "p": 0.222
+        },
+        "answer_correctness": {
+          "delta": -0.03225806451612903,
+          "lo": -0.14516129032258066,
+          "hi": 0.08064516129032258,
+          "n": 62,
+          "p": 0.6812
+        }
+      }
+    },
+    "single": {
+      "n": 27,
+      "main": {
+        "vec": {
+          "context_precision": [
+            0.49074074074074076,
+            0.39814814814814814,
+            0.5833333333333334
+          ],
+          "faithfulness": [
+            0.9453333333333334,
+            0.8933000000000001,
+            0.9853333333333333
+          ],
+          "answer_relevancy": [
+            0.7670935520656683,
+            0.6738534635771307,
+            0.8413533925440082
+          ],
+          "hallucination": [
+            0.18518518518518517,
+            0.07407407407407407,
+            0.3333333333333333
+          ],
+          "answer_correctness": [
+            0.8518518518518519,
+            0.7037037037037037,
+            0.9629629629629629
+          ]
+        },
+        "gr": {
+          "context_precision": [
+            0.4351851851851852,
+            0.35185185185185186,
+            0.5185185185185185
+          ],
+          "faithfulness": [
+            0.9035714285714286,
+            0.8462655279503106,
+            0.9550724637681158
+          ],
+          "answer_relevancy": [
+            0.7043464140980693,
+            0.5827889785758089,
+            0.8111121332426433
+          ],
+          "hallucination": [
+            0.3333333333333333,
+            0.14814814814814814,
+            0.5185185185185185
+          ],
+          "answer_correctness": [
+            0.7407407407407407,
+            0.5555555555555556,
+            0.8888888888888888
+          ]
+        }
+      },
+      "extra": {
+        "vec": {
+          "context_ap": 0.7078189300411523,
+          "source_precision": 0.6851851851851852,
+          "retrieval_hit": 0.9259259259259259,
+          "gold_chunk_recall": 0.7777777777777778,
+          "context_recall": 0.8283950617283949,
+          "kg_relation_precision": null,
+          "faithfulness_text": 0.9453333333333334,
+          "hallucination_text": 0.18518518518518517,
+          "refusal": 0.07407407407407407,
+          "latency_s": 10.76962962962963
+        },
+        "gr": {
+          "context_ap": 0.6368312757201647,
+          "source_precision": 0.5370370370370371,
+          "retrieval_hit": 0.7777777777777778,
+          "gold_chunk_recall": 0.4444444444444444,
+          "context_recall": 0.7460317460317462,
+          "kg_relation_precision": 0.20987654320987653,
+          "faithfulness_text": 0.8974637681159422,
+          "hallucination_text": 0.3333333333333333,
+          "refusal": 0.14814814814814814,
+          "latency_s": 14.788148148148148
+        }
+      },
+      "paired": {
+        "context_precision": {
+          "delta": -0.05555555555555555,
+          "lo": -0.17615740740740735,
+          "hi": 0.08333333333333333,
+          "n": 27,
+          "p": 0.46
+        },
+        "faithfulness": {
+          "delta": -0.02732683982683982,
+          "lo": -0.09859307359307361,
+          "hi": 0.05,
+          "n": 22,
+          "p": 0.4684
+        },
+        "answer_relevancy": {
+          "delta": -0.06274713796759904,
+          "lo": -0.1864333055174729,
+          "hi": 0.05709738995239338,
+          "n": 27,
+          "p": 0.3012
+        },
+        "hallucination": {
+          "delta": 0.14814814814814814,
+          "lo": -0.07407407407407407,
+          "hi": 0.37037037037037035,
+          "n": 27,
+          "p": 0.2444
+        },
+        "answer_correctness": {
+          "delta": -0.1111111111111111,
+          "lo": -0.25925925925925924,
+          "hi": 0.037037037037037035,
+          "n": 27,
+          "p": 0.2312
+        }
+      }
+    },
+    "multihop": {
+      "n": 35,
+      "main": {
+        "vec": {
+          "context_precision": [
+            0.7142857142857143,
+            0.65,
+            0.7785714285714286
+          ],
+          "faithfulness": [
+            0.8469425735554769,
+            0.7974824481074482,
+            0.8935816692268305
+          ],
+          "answer_relevancy": [
+            0.7250583363060923,
+            0.630981185414231,
+            0.8013053739260074
+          ],
+          "hallucination": [
+            0.6285714285714286,
+            0.45714285714285713,
+            0.7714285714285715
+          ],
+          "answer_correctness": [
+            0.8571428571428571,
+            0.7142857142857143,
+            0.9714285714285714
+          ]
+        },
+        "gr": {
+          "context_precision": [
+            0.5285714285714286,
+            0.45,
+            0.6071428571428571
+          ],
+          "faithfulness": [
+            0.8071843980934891,
+            0.7590399121080939,
+            0.8568891293891293
+          ],
+          "answer_relevancy": [
+            0.7682250301165369,
+            0.6958809920073111,
+            0.8195627305118223
+          ],
+          "hallucination": [
+            0.6857142857142857,
+            0.5428571428571428,
+            0.8285714285714286
+          ],
+          "answer_correctness": [
+            0.8857142857142857,
+            0.7714285714285715,
+            0.9714285714285714
+          ]
+        }
+      },
+      "extra": {
+        "vec": {
+          "context_ap": 0.8555555555555555,
+          "source_precision": 0.6857142857142857,
+          "retrieval_hit": 0.6285714285714286,
+          "gold_chunk_recall": 0.6142857142857143,
+          "context_recall": 0.7864409400123685,
+          "kg_relation_precision": null,
+          "faithfulness_text": 0.8469425735554769,
+          "hallucination_text": 0.6285714285714286,
+          "refusal": 0.11428571428571428,
+          "latency_s": 10.932857142857143
+        },
+        "gr": {
+          "context_ap": 0.6142857142857143,
+          "source_precision": 0.6214285714285714,
+          "retrieval_hit": 0.3142857142857143,
+          "gold_chunk_recall": 0.34285714285714286,
+          "context_recall": 0.6498495155638013,
+          "kg_relation_precision": 0.40714285714285714,
+          "faithfulness_text": 0.6978770387861298,
+          "hallucination_text": 0.8,
+          "refusal": 0.05714285714285714,
+          "latency_s": 15.491142857142858
+        }
+      },
+      "paired": {
+        "context_precision": {
+          "delta": -0.18571428571428572,
+          "lo": -0.2714285714285714,
+          "hi": -0.1,
+          "n": 35,
+          "p": 0.0
+        },
+        "faithfulness": {
+          "delta": -0.03253556788039546,
+          "lo": -0.09446279295417227,
+          "hi": 0.030785543479508994,
+          "n": 29,
+          "p": 0.3112
+        },
+        "answer_relevancy": {
+          "delta": 0.04316669381044458,
+          "lo": -0.07095348807641146,
+          "hi": 0.16140260083707444,
+          "n": 35,
+          "p": 0.466
+        },
+        "hallucination": {
+          "delta": 0.05714285714285714,
+          "lo": -0.11428571428571428,
+          "hi": 0.22857142857142856,
+          "n": 35,
+          "p": 0.6104
+        },
+        "answer_correctness": {
+          "delta": 0.02857142857142857,
+          "lo": -0.11428571428571428,
+          "hi": 0.17142857142857143,
+          "n": 35,
+          "p": 0.854
+        }
+      }
+    },
+    "unanswerable": {
+      "n": 23,
+      "main": {
+        "vec": {
+          "context_precision": [
+            NaN,
+            NaN,
+            NaN
+          ],
+          "faithfulness": [
+            NaN,
+            NaN,
+            NaN
+          ],
+          "answer_relevancy": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hallucination": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "answer_correctness": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "gr": {
+          "context_precision": [
+            NaN,
+            NaN,
+            NaN
+          ],
+          "faithfulness": [
+            NaN,
+            NaN,
+            NaN
+          ],
+          "answer_relevancy": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hallucination": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "answer_correctness": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "extra": {
+        "vec": {
+          "context_ap": null,
+          "source_precision": null,
+          "retrieval_hit": null,
+          "gold_chunk_recall": null,
+          "context_recall": null,
+          "kg_relation_precision": null,
+          "faithfulness_text": null,
+          "hallucination_text": 0.0,
+          "refusal": 1.0,
+          "latency_s": 7.888260869565219
+        },
+        "gr": {
+          "context_ap": null,
+          "source_precision": null,
+          "retrieval_hit": null,
+          "gold_chunk_recall": null,
+          "context_recall": null,
+          "kg_relation_precision": null,
+          "faithfulness_text": null,
+          "hallucination_text": 0.0,
+          "refusal": 1.0,
+          "latency_s": 11.91
+        }
+      },
+      "paired": {
+        "context_precision": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "hallucination": null,
+        "answer_correctness": null
+      }
+    }
+  },
+  "hub": {
+    "threshold": 50,
+    "with": {
+      "n": 41,
+      "gold_chunk_recall": 0.4146341463414634
+    },
+    "without": {
+      "n": 21,
+      "gold_chunk_recall": 0.3333333333333333
+    }
+  },
+  "chunks_per_entity": {
+    "median": 1.0,
+    "p99": 17.0,
+    "max": 133
+  },
+  "hub_examples": [
+    {
+      "name": "PQC",
+      "chunks": 133
+    },
+    {
+      "name": "Shor’s algorithm",
+      "chunks": 125
+    },
+    {
+      "name": "quantum computer",
+      "chunks": 120
+    },
+    {
+      "name": "Kyber",
+      "chunks": 119
+    },
+    {
+      "name": "Quantum Machine Learning",
+      "chunks": 105
+    }
+  ],
+  "cross_topic": {
+    "entities_both_topics": 297,
+    "relations_both_topics": 30
+  },
+  "top_entities": [
+    {
+      "name": "quantum computer",
+      "papers": 19,
+      "chunks": 120
+    },
+    {
+      "name": "RSA",
+      "papers": 16,
+      "chunks": 92
+    },
+    {
+      "name": "quantum computing",
+      "papers": 16,
+      "chunks": 51
+    },
+    {
+      "name": "Shor’s algorithm",
+      "papers": 15,
+      "chunks": 125
+    },
+    {
+      "name": "Post-Quantum Cryptography",
+      "papers": 15,
+      "chunks": 103
+    },
+    {
+      "name": "qubit",
+      "papers": 15,
+      "chunks": 81
+    },
+    {
+      "name": "Quantum Key Distribution",
+      "papers": 14,
+      "chunks": 98
+    },
+    {
+      "name": "quantum algorithm",
+      "papers": 14,
+      "chunks": 58
+    },
+    {
+      "name": "error correction",
+      "papers": 14,
+      "chunks": 23
+    },
+    {
+      "name": "NIST",
+      "papers": 13,
+      "chunks": 76
+    }
+  ],
+  "papers_per_entity": {
+    "1": 7308,
+    "3": 238,
+    "2": 570,
+    "5": 153,
+    "4": 83
+  },
+  "corpus": {
+    "Quantum Security": 21,
+    "Quantum Machine Learning": 9
+  },
+  "corpus_added": {
+    "Quantum Machine Learning": 3,
+    "Quantum Security": 4
+  },
+  "corpus_chunks": {
+    "Quantum Security": 1817,
+    "Quantum Machine Learning": 711
+  },
+  "testset": {
+    "single_reused": 21,
+    "single_new": 6,
+    "single_new_generated": 7,
+    "multihop_reused": 9,
+    "multihop_new": 26,
+    "multihop_new_generated": 46,
+    "unanswerable": 23,
+    "single": 27
+  }
+}

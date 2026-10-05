@@ -3,6 +3,10 @@
     python generate_testset.py --per-paper 1     # single-hop -> testset/testset.json
     python generate_testset.py --multihop 60     # multi-hop  -> testset/multihop_raw.json
     python generate_testset.py --multihop 40 --append --seed 7   # sinh thêm, không lặp cặp bài đã có
+    python generate_testset.py --kg                 # ý 2: single-hop cho các bài chưa có câu (7 bài bổ sung)
+                                                    #      -> testset/singlehop_kg_raw.json
+    python generate_testset.py --multihop 30 --kg   # ý 2: multi-hop chỉ trong 30 bài dựng KG
+                                                    #      -> testset/multihop_kg_raw.json
 
 Multi-hop: ghép 1 chunk của bài A với chunk gần nghĩa nhất của một bài B khác, yêu cầu LLM đặt câu hỏi
 cần thông tin của CẢ HAI bài; sau đó LLM kiểm tra lại từng đoạn riêng lẻ, chỉ giữ câu mà không đoạn nào
@@ -72,16 +76,18 @@ def good_chunk(c: dict) -> bool:
     return letters > 0.65 and not re.search(r"acknowledg|copyright ©|all rights reserved", t, re.I)
 
 
-def make_multihop(by_paper: dict, n: int, out, existing: list[dict] = ()) -> list[dict]:
-    """Sinh thêm n câu; `existing` = câu đã có (lượt trước) -> không dùng lại cặp bài / chunk đã dùng."""
+def make_multihop(by_paper: dict, n: int, out, existing: list[dict] = (), avoid: list[dict] = (),
+                  id_prefix: str = "m", search_filter: dict | None = None) -> list[dict]:
+    """Sinh thêm n câu; `existing` = câu đã có (lượt trước) -> không dùng lại cặp bài / chunk đã dùng.
+    `avoid` = câu ở file khác cũng không được lặp cặp bài / chunk; `search_filter` giới hạn bài B (Chroma filter)."""
     from common import get_vectorstore
     vs = get_vectorstore()
     gen = MULTIHOP_PROMPT | get_llm(json_mode=True) | StrOutputParser()
     alone = ALONE_PROMPT | get_llm(json_mode=True) | StrOutputParser()
     items, target = list(existing), len(existing) + n
     used_b = defaultdict(int)
-    used_pairs = {frozenset(t["sources"]) for t in items}
-    used_chunks = {c for t in items for c in t["chunk_ids"]}
+    used_pairs = {frozenset(t["sources"]) for t in (*items, *avoid)}
+    used_chunks = {c for t in (*items, *avoid) for c in t["chunk_ids"]}
     for t in items:
         used_b[t["sources"][1]] += 1
     for title in tqdm(random.sample(sorted(by_paper), len(by_paper)), desc="Sinh câu multi-hop"):
@@ -92,7 +98,7 @@ def make_multihop(by_paper: dict, n: int, out, existing: list[dict] = ()) -> lis
             continue
         a = random.choice(free)
         # chunk gần nghĩa nhất thuộc bài khác (mỗi bài làm B tối đa 2 lần, không lặp cặp bài đã có)
-        cand = [d for d in vs.similarity_search(a["text"], k=30)
+        cand = [d for d in vs.similarity_search(a["text"], k=30, filter=search_filter)
                 if d.metadata["source"] != title and used_b[d.metadata["source"]] < 2
                 and frozenset((title, d.metadata["source"])) not in used_pairs
                 and d.metadata["chunk_id"] not in used_chunks and good_chunk({"text": d.page_content})]
@@ -121,7 +127,7 @@ def make_multihop(by_paper: dict, n: int, out, existing: list[dict] = ()) -> lis
         used_b[b.metadata["source"]] += 1
         used_pairs.add(frozenset((title, b.metadata["source"])))
         items.append({
-            "id": f"m{len(items) + 1:03d}", "type": "multihop",
+            "id": f"{id_prefix}{len(items) + 1:03d}", "type": "multihop",
             "question": d["question"].strip(), "ground_truth": d["ground_truth"].strip(),
             "sources": [title, b.metadata["source"]], "topic": a["topic"],
             "chunk_ids": [a["chunk_id"], b.metadata["chunk_id"]], "chunk_texts": [a["text"], b.page_content],
@@ -137,27 +143,46 @@ def main():
     ap.add_argument("--max", type=int, default=0, help="giới hạn tổng số câu (0 = không)")
     ap.add_argument("--multihop", type=int, default=0, help="sinh N câu multi-hop -> testset/multihop_raw.json")
     ap.add_argument("--append", action="store_true", help="multi-hop: sinh thêm vào multihop_raw.json đã có")
+    ap.add_argument("--kg", action="store_true",
+                    help="ý 2: chỉ dùng 30 bài dựng KG (data/kg/papers.json, Chroma riêng của ý 2) -> "
+                         "testset/singlehop_kg_raw.json hoặc multihop_kg_raw.json")
     ap.add_argument("--seed", type=int, default=config.SEED)
     args = ap.parse_args()
     random.seed(args.seed)
 
     by_paper = defaultdict(list)
-    with open(config.CHUNKS_FILE, encoding="utf-8") as f:
-        for line in f:
-            c = json.loads(line)
-            if good_chunk(c):
-                by_paper[c["source"]].append(c)
+    if args.kg:  # ý 2: 30 bài (gồm 7 bài bổ sung trong papers_y2/), similarity_search trên Chroma riêng của ý 2
+        from kg_build import load_chunks, load_papers, use_kg_store
+        use_kg_store()
+        papers_kg = set(load_papers())
+        rows = [c for c in load_chunks() if c["source"] in papers_kg]
+    else:
+        with open(config.CHUNKS_FILE, encoding="utf-8") as f:
+            rows = [json.loads(line) for line in f]
+    for c in rows:
+        if good_chunk(c):
+            by_paper[c["source"]].append(c)
 
     if args.multihop:
-        out = config.TESTSET_FILE.parent / "multihop_raw.json"
+        name, avoid, kw = "multihop", [], {}
+        if args.kg:  # ý 2: cả 2 bài đều thuộc 30 bài dựng KG, không lặp cặp bài của testset/multihop.json
+            papers = load_papers()
+            avoid = json.loads((config.TESTSET_FILE.parent / "multihop.json").read_text(encoding="utf-8"))
+            name, kw = "multihop_kg", {"id_prefix": "g", "search_filter": {"source": {"$in": papers}}}
+        out = config.TESTSET_FILE.parent / f"{name}_raw.json"
         existing = json.loads(out.read_text(encoding="utf-8")) if args.append and out.exists() else []
-        items = make_multihop(by_paper, args.multihop, out, existing)
-        print(f"Đã sinh {len(items)} câu multi-hop -> {out}. Duyệt tay rồi lưu thành testset/multihop.json")
+        items = make_multihop(by_paper, args.multihop, out, existing, avoid, **kw)
+        print(f"Đã sinh {len(items)} câu multi-hop -> {out}. Duyệt tay rồi lưu thành testset/{name}.json")
         return
 
     chain = PROMPT | get_llm(json_mode=True) | StrOutputParser()
     items = []
     papers = sorted(by_paper)
+    out, prefix = config.TESTSET_FILE, "q"
+    if args.kg:  # ý 2: chỉ các bài chưa có câu single-hop ở ý 1; không ghi đè testset.json của ý 1
+        have = {t["source"] for t in json.loads(config.TESTSET_FILE.read_text(encoding="utf-8"))}
+        papers = [s for s in papers if s not in have]
+        out, prefix = config.TESTSET_FILE.parent / "singlehop_kg_raw.json", "s"
     for title in tqdm(papers, desc="Sinh câu hỏi"):
         cands = random.sample(by_paper[title], len(by_paper[title]))
         made = 0
@@ -173,7 +198,7 @@ def main():
             if re.search(r"\bthis (paper|study|passage|work)\b|\bthe authors\b", d["question"], re.I):
                 continue
             items.append({
-                "id": f"q{len(items) + 1:03d}",
+                "id": f"{prefix}{len(items) + 1:03d}",
                 "question": d["question"].strip(),
                 "ground_truth": d["ground_truth"].strip(),
                 "source": title, "topic": c["topic"], "page": c["page"],
@@ -184,10 +209,10 @@ def main():
         if args.max and len(items) >= args.max:
             break
 
-    config.TESTSET_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(config.TESTSET_FILE, "w", encoding="utf-8") as f:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
-    print(f"Đã sinh {len(items)} câu hỏi từ {len(papers)} bài -> {config.TESTSET_FILE}")
+    print(f"Đã sinh {len(items)} câu hỏi từ {len(papers)} bài -> {out}")
     print("Hãy duyệt tay file này (sửa / đặt keep=false / reviewed=true) trước khi chạy evaluate.py")
 
 

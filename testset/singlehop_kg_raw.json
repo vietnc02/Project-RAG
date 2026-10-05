@@ -1,0 +1,86 @@
+[
+  {
+    "id": "s001",
+    "question": "What is the term used for the approach that utilizes parametrized random circuits of varying depth in quantum simulation?",
+    "ground_truth": "\"hardware efficient ansatz\"",
+    "source": "Barren plateaus in quantum neural network training landscapes",
+    "topic": "Quantum Machine Learning",
+    "page": 1,
+    "chunk_id": "6f6b475fe2dd-3",
+    "chunk_text": "While the precise formulation of these methods and\ntheir domains of applicability diﬀer considerably, they\ntypically tend to rely upon the optimization of some parameterized unitary circuit with respect to an objective\nfunction that is typically a simple sum of Pauli operators\nor ﬁdelity with respect to some state. This framework\nis reminiscent of the methodology of classical neural networks [23, 24]. As with any non-linear optimization, the\nchoice of both the parameterization and the initial state\nis important.\nIn quantum simulation, there is often a\nchoice inspired by physical domain knowledge [3, 17, 25–\n29]. However, in all domains of applicability, there have\nbeen implementations that utilize parametrized random\ncircuits of varying depth [7, 13, 21, 23, 30]. Within quantum simulation that approach has been referred to as a\n“hardware eﬃcient ansatz” [13].\nWhen little structure is known about the problem or\nx\nf(x)\nU(θ)\nε\n<f>",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s002",
+    "question": "What are the three types of decoy states mentioned in the paper for the Vacuum+Weak decoy state approach?",
+    "ground_truth": "The three types of decoy states mentioned are the vacuum, a weak decoy state with µdecoy ≪1 and a signal state with µ = O(1).",
+    "source": "Decoy State Quantum Key Distribution",
+    "topic": "Quantum Security",
+    "page": 1,
+    "chunk_id": "3c616c5ddb91-5",
+    "chunk_text": "(i.e., their photon number distributions).\nBy measuring the yields and QBER of decoy states, we\nwill show that Alice and Bob can obtain reliable bounds\nto Ωand e1, thus allowing them to surpass all prior art\nresults substantially [13]. Here, we give for the ﬁrst time\na rigorous analysis of the security of decoy state QKD.\nMoreover, we show that the decoy state idea can be combined with the prior art GLLP [6] analysis.\nPreliminary versions of our result in this paper have\nappeared in [14, 15], where we presented not only the\ngeneral theory, but also proposed the idea of using only a\nfew decoy states (for example, three states—the vacuum,\na weak decoy state with µdecoy ≪1 and a signal state\nwith µ = O(1). We call this a Vacuum+Weak decoy state",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s003",
+    "question": "What is the quantum Fourier transform of a simple periodic signal |r : MP : P⟩ according to equation (34)?",
+    "ground_truth": "QFTMP |r : MP : P⟩= GRADr MP |0 : MP : M⟩",
+    "source": "How to factor 2048 bit RSA integers with less than a million noisy qubits",
+    "topic": "Quantum Security",
+    "page": 10,
+    "chunk_id": "6a430815085b-32",
+    "chunk_text": "simple periodic signals. The state |ψ′\n2⟩isn’t a simple periodic signal; it’s a superposition of such\nsignals. In [MS22] it was shown that period finding works on these states, as long as the contents\nof R are randomized. For completeness I’ll reproduce a similar argument here, and conjecture that\nthis randomized analysis applies to the actual values of R that appear when factoring.\nThe modulo-MP quantum Fourier transform of a simple periodic signal |r : MP : P⟩is a superposition with non-zero amplitudes at multiples of MP/P = M. The non-zero amplitudes all\nhave equal magnitude, but their phases depend on r:\nQFTMP |r : MP : P⟩= GRADr\nMP |0 : MP : M⟩\n(34)\nBecause the QFT of every simple periodic signal only has non-zero amplitudes at multiples of\nM, the QFT of any superposition of simple periodic signals can also only have non-zero amplitudes\nat multiples of M. No new frequency peaks can appear. However, there is still the possibility for",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s004",
+    "question": "What is the probability that a good (c, d) pair is generated according to the algorithm described in the passage?",
+    "ground_truth": "Each good (c, d) pair is generated with probability at least 1/(20q2).",
+    "source": "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer",
+    "topic": "Quantum Security",
+    "page": 23,
+    "chunk_id": "96ba03bbfa27-81",
+    "chunk_text": "FACTORING WITH A QUANTUM COMPUTER\n23\nalgorithm for factoring. If we knew the remainder of r modulo all prime powers dividing\np −1, we could use the Chinese remainder theorem to recover r in polynomial time. We\nwill only be able to prove that we can ﬁnd this remainder for primes larger than 18, but\nwith a little extra work we will still be able to recover r.\nRecall that each good (c, d) pair is generated with probability at least 1/(20q2), and\nthat at least a twelfth of the possible c’s are in a good (c, d) pair. From equation (6.19),\nit follows that these c’s are mapped from c/q to c′/(p −1) by rounding to the nearest\nintegral multiple of 1/(p −1). Further, the good c’s are exactly those in which c/q is\nclose to c′/(p −1). Thus, each good c corresponds with exactly one c′. We would like\nto show that for any prime power pαi\ni\ndividing p −1, a random good c′ is unlikely to\ncontain pi. If we are willing to accept a large constant for our algorithm, we can just",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s005",
+    "question": "What is the current status of quantum computing technology according to the article?",
+    "ground_truth": "Because quantum computing technology is so diçerent from the information technology we use now, we have only a very limited ability to glimpse its future applications, or to project when these applications will come to fruition.",
+    "source": "Quantum Computing in the NISQ era and beyond",
+    "topic": "Quantum Machine Learning",
+    "page": 1,
+    "chunk_id": "cf64a00c519e-1",
+    "chunk_text": "quantum gates and, eventually, fully fault-tolerant quantum computing.\n1\nIntroduction\nNow is an opportune time for a fruitful discussion among researchers, entrepreneurs, managers, and investors who share an interest in quantum computing. There has been a recent\nsurge of investment by both large public companies and startup companies, a trend that\nhas surprised many quantumists working in academia. While we have long recognized the\ncommercial potential of quantum technology, this ramping up of industrial activity has\nhappened sooner and more suddenly than most of us expected.\nIn this article I assess the current status and future potential of quantum computing.\nBecause quantum computing technology is so diﬀerent from the information technology\nwe use now, we have only a very limited ability to glimpse its future applications, or\nto project when these applications will come to fruition.\nWhile this uncertainty fuels",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s006",
+    "question": "What fraction of the correctly received bits should Alice and Bob use for publicly comparing to test for eavesdropping?",
+    "ground_truth": "The bit positions used in this comparison should be a random subset (say one third) of the correctly received bits.",
+    "source": "Quantum Cryptography - Public Key Distribution and Coin Tossing",
+    "topic": "Quantum Security",
+    "page": 4,
+    "chunk_id": "6c936dc191cb-19",
+    "chunk_text": "Alice and Bob can therefore test for eaves­\ndropping by publicly comparing some of the bits on \nwhich they think they should agree, though of course \nthis sacrifices the secrecy of these bits. \nThe bit \npositions used in this comparison should be a random \nsubset (say one third) of the correctly received \nbits, so that eavesdropping on more than a few pho­\ntons is unlikely to escape detection. \nIf all the \ncomparisons agree, Alice and Bob can conclude that \nthe quantum transmission has been free of signifi­\ncant eavesdropping; and those of the remaining bits \nthat were sent and received with the same basis also \nagree, and can safely be used as a one time pad for \nsubsequent secure communications over the public \nchannel. \nWhen this one-time pad is used up, the \nprotocol is repeated to send a new body of random \ninformation over the quantum channel. \nThe following example illustrates the above proto­\ncol. \n0 \n0 \n0 \n0 \n0 \n0 \nD \nR \nR \nR \nR \nR \nD \nD \nR \nD \nD \nD \nR \n\"I. \n+-+ i t",
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "s007",
+    "question": "What method has been proposed to speed up the convergence of the local parameter updates in variational quantum algorithms?",
+    "ground_truth": "A variation of this method using Anderson acceleration (a method that adds a linear combination of prior steps to each new update step) to speed up convergence has been proposed [100].",
+    "source": "Variational quantum algorithms",
+    "topic": "Quantum Machine Learning",
+    "page": 7,
+    "chunk_id": "44b1cee70529-38",
+    "chunk_text": "to make local parameter updates [85, 100]. Performing\nsuch local updates sequentially over all parameters, or\nsubsets of parameters, and iterating over all parameters\none then has an optimization method that is gradientfree and which does not depend on hyper-parameters.\nAdditionally, a variation of this method using Anderson\nacceleration (a method that adds a linear combination of\nprior steps to each new update step) to speed up convergence has been proposed [100].\n3.\nConvergence analysis\nThe cost landscapes of VQAs are generally non-convex\nand can be complicated [101], making it diﬃcult to obtain general guarantees about the computational expense\nof the optimizations. However, for simpliﬁed landscapes,\nSGD convergence guarantees have been derived which\nare similar to those provided in the machine learning literature [97, 102]. Furthermore, within a convex region\nabout a minimum, SGD methods using gradients calculated via the parameter-shift rule have been shown to",
+    "reviewed": false,
+    "keep": true
+  }
+]

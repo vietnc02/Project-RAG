@@ -1,7 +1,12 @@
-# Ý 1 — LangChain RAG thuần vs LangGraph Self-RAG (server local)
+# Đồ án RAG trên bộ bài báo khoa học (server local)
+
+- **Ý 1** — LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate
+  (báo cáo `report/Bao_cao_Y1.pdf`)
+- **Ý 2** — GraphRAG (Knowledge Graph từ 30 bài chủ đề quantum) vs Vector RAG thuần: retrieval precision + generation quality
+  (báo cáo `report/Bao_cao_Y2.pdf`, xem [phần Ý 2](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum))
 
 ## Chạy nhanh (sau khi clone repo)
-Repo đã có sẵn dữ liệu (chunks + Chroma), không cần build lại.
+Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cần build lại.
 1. Cài [Ollama](https://ollama.com) 0.35.x và tải 3 model:
    ```powershell
    ollama pull qwen2.5:7b; ollama pull llama3.1:8b; ollama pull nomic-embed-text
@@ -11,7 +16,9 @@ Repo đã có sẵn dữ liệu (chunks + Chroma), không cần build lại.
    ```powershell
    python rag_langchain.py "What is a network tarpit?"   # hệ A
    python rag_selfrag.py   "What is a network tarpit?"   # hệ B (in ra trace)
-   python evaluate.py                                    # chạy lại toàn bộ đánh giá
+   python evaluate.py                                    # chạy lại toàn bộ đánh giá ý 1
+   python rag_graphrag.py  "Which signature schemes did NIST select for standardization?"   # GraphRAG (ý 2)
+   python evaluate_graphrag.py --run kg30                # chạy lại đánh giá ý 2
    ```
    Lần chạy đầu, `data/chroma.zip` tự giải nén ra `data/chroma/` (có kiểm tra sha256).
 
@@ -47,6 +54,8 @@ python ingest.py --reset         # build lại từ đầu từ PDF trong papers
 python ingest.py --snapshot      # (sau khi build lại) cập nhật chroma.zip + MANIFEST.json
 ```
 
+# Ý 1 — LangChain RAG thuần vs LangGraph Self-RAG
+
 ## Quy trình
 ```powershell
 python ingest.py --reset                 # 1. (tuỳ chọn) build lại Chroma từ PDF
@@ -65,13 +74,13 @@ python evaluate.py --run k8 --top-k 8 --testset testset/testset.json testset/mul
 Judge mặc định là `llama3.1:8b` (khác họ với LLM sinh câu trả lời để tránh tự chấm bài mình).
 Đổi judge: `$env:JUDGE_MODEL='<model>'; python evaluate.py --run <tên mới>`.
 
-## Hai hệ thống (dùng CHUNG retriever, top-k, prompt sinh câu trả lời, LLM)
+## Hai hệ thống ý 1 (dùng CHUNG retriever, top-k, prompt sinh câu trả lời, LLM)
 - **A. LangChain RAG** (`rag_langchain.py`): retrieve top-k → generate. 1 lần gọi LLM.
 - **B. LangGraph Self-RAG** (`rag_selfrag.py`): retrieve → chấm độ liên quan từng tài liệu →
   generate → tự kiểm tra *grounded* (hallucination, prompt có few-shot) → tự kiểm tra *useful* →
   nếu sai thì sinh lại (prompt chặt hơn) / viết lại truy vấn / từ chối trả lời.
 
-## Bộ câu hỏi
+## Bộ câu hỏi ý 1
 | File | Loại | Số câu | Mục đích |
 |---|---|---|---|
 | `testset/testset.json` | single-hop: hỏi sự kiện trong 1 đoạn | 86 (sinh 93, duyệt tay) | trường hợp cơ bản |
@@ -92,3 +101,77 @@ Chỉ số phụ chỉ để giải thích: `*_used` (chấm trên tài liệu �
 retrieval_hit, claim_halluc_rate, latency_s, llm_calls.
 
 Kết quả: `results/<run>/summary.md`, `summary.csv` (kèm CI 95% bootstrap), `per_question.csv`, `run_info.json`.
+
+# Ý 2 — GraphRAG vs Vector RAG (30 bài chủ đề quantum)
+
+Dựng Knowledge Graph (KG) từ 30 bài báo bằng LLM local, so sánh **GraphRAG** (truy xuất qua KG) với **Vector RAG**
+(LangChain RAG của ý 1, embedding chunk) trên cùng 30 bài. Hai hệ dùng chung chunk, chung 4 đoạn văn mỗi câu, chung
+prompt + LLM: khác biệt chỉ ở cách truy xuất. Báo cáo: `report/Bao_cao_Y2.pdf`.
+
+**30 bài = một chủ đề chính (quantum)**, gồm 2 nhánh gần nhau để các bài có thực thể / khái niệm chung tạo quan hệ:
+23 bài Quantum Security + Quantum Machine Learning có trong `papers/` và 7 bài bổ sung (truy cập mở trên arXiv, bài gốc
+của các khái niệm mà 23 bài kia nhắc nhiều nhất: Shor, BB84, decoy-state QKD, RSA-2048, barren plateau, VQA, NISQ),
+xem `papers_y2/SOURCES.md`. **Dữ liệu ý 1 không đổi**: 7 bài nằm trong `papers_y2/` (ngoài `papers/`), chunk của chúng
+trong `data/kg/chunks_y2.jsonl`, và Vector RAG của ý 2 dùng Chroma riêng `data/kg/chroma.zip` (collection `kg30`).
+
+## Quy trình
+```powershell
+python kg_build.py --ingest              # 1. chia chunk 7 bài trong papers_y2/ -> data/kg/chunks_y2.jsonl
+python kg_build.py --select              # 2. chọn 30 bài -> data/kg/papers.json
+python kg_build.py --store               # 3. Chroma riêng của ý 2 -> data/kg/chroma.zip + MANIFEST.json
+python kg_build.py --extract --k 30      # 4. LLM trích entity/quan hệ từng chunk -> data/kg/extractions.jsonl
+python kg_build.py --build --k 30        # 5. gộp entity + embed -> data/kg/k30/graph.json, vectors.npz
+python rag_graphrag.py "câu hỏi"         #    thử GraphRAG
+python generate_testset.py --kg                          # 6a. single-hop cho bài chưa có câu -> testset/singlehop_kg_raw.json
+python generate_testset.py --multihop 30 --kg            # 6b. multi-hop trong 30 bài (+ --append --seed 7/11/13/17/19)
+python testset/review_singlehop_kg.py                    #     kết quả duyệt tay -> testset/singlehop_kg.json
+python testset/review_multihop_kg.py                     #     kết quả duyệt tay -> testset/multihop_kg.json
+python evaluate_graphrag.py --run kg30                   # 7. đánh giá -> results/kg30/
+python report/make_figures_y2.py; python report/build_report_y2.py   # 8. báo cáo -> report/Bao_cao_Y2.docx/.pdf
+```
+Các bước 1–6 đã chạy sẵn, kết quả có trong repo. `--k 10` / `--k 20` dựng KG trên 10 / 20 bài đầu (ý 3), không phải
+trích xuất lại.
+
+## Dữ liệu ý 2 (có trong repo)
+| File | Nội dung |
+|---|---|
+| `papers_y2/` | 7 PDF bổ sung + `SOURCES.md` (nguồn arXiv, lý do chọn) |
+| `data/kg/chunks_y2.jsonl` | chunk của 7 bài bổ sung (cùng cách chia chunk với ý 1) |
+| `data/kg/chroma.zip` | Chroma của ý 2: chunk của đúng 30 bài (23 bài chép nguyên vector từ ý 1 + 7 bài mới); tự giải nén ra `data/kg/chroma/`, kiểm tra sha256 với `data/kg/MANIFEST.json` |
+| `data/kg/papers.json` | 30 bài (Quantum Security 21, Quantum ML 9), thứ tự phân tầng theo chủ đề để k bài đầu giữ tỉ lệ chủ đề |
+| `data/kg/extractions.jsonl` | entity + quan hệ do qwen2.5:7b trích từ từng chunk |
+| `data/kg/k30/graph.json`, `vectors.npz` | KG đã gộp (mỗi entity/quan hệ giữ chunk nguồn) + vector entity/quan hệ |
+
+Bước trích xuất đặt toàn bộ LLM lên GPU (`KG_NUM_GPU = 99` trong `config.py`): mặc định Ollama chỉ đưa ~82% model
+lên GPU 6 GB và chạy phần còn lại trên CPU (chậm hơn 1,5 lần). Máy ít VRAM hơn: `$env:KG_NUM_GPU='-1'`.
+
+## Hai hệ thống ý 2
+- **Vector RAG** (`rag_langchain.py`, Chroma của ý 2 qua `kg_build.use_kg_store()` trong `evaluate_graphrag.py`):
+  lấy 4 chunk gần câu hỏi nhất theo cosine.
+- **GraphRAG** (`rag_graphrag.py`, local search, không gọi thêm LLM): khớp câu hỏi với entity (cosine + tên xuất hiện
+  nguyên văn) → 8 entity hạt giống → mở rộng 1 bước, lấy 12 quan hệ → chọn 4 chunk có nhiều entity/quan hệ đã chọn.
+  Context = mô tả entity + quan hệ + 4 đoạn văn.
+
+## Bộ câu hỏi ý 2 (85 câu, mọi câu có đáp án đều thuộc 30 bài)
+| Loại | Số câu | Nguồn |
+|---|---|---|
+| single-hop | 27 | 21 câu của ý 1 + 6 câu mới cho bài chưa có câu (`testset/singlehop_kg.json`: sinh 7, duyệt tay) |
+| multi-hop | 35 | 9 câu của ý 1 + 26 câu mới trong 30 bài (`testset/multihop_kg.json`, duyệt tay) |
+| ngoài corpus | 23 | câu của ý 1 (đã kiểm tra lại từ khoá đáp án không có trong 7 bài bổ sung) |
+
+## Chỉ số và kết quả (`results/kg30/summary.md`)
+Retrieval precision = context precision (RAGAS): tỉ lệ đoạn (trong 4 đoạn) giúp suy ra đáp án chuẩn. Generation
+quality: faithfulness, answer relevancy, hallucination rate (như ý 1, chấm trên đúng context đưa vào LLM) + answer
+correctness.
+
+| 62 câu có đáp án | Vector RAG | GraphRAG | GraphRAG − Vector (CI 95%) |
+|---|---|---|---|
+| Retrieval precision ↑ | 0,62 | 0,49 | −0,13 [−0,21; −0,05] (có ý nghĩa) |
+| Faithfulness ↑ | 0,89 | 0,85 | −0,03 (không ý nghĩa) |
+| Answer relevancy ↑ | 0,74 | 0,74 | −0,00 (không ý nghĩa) |
+| Hallucination rate ↓ | 44% | 53% | +10 điểm % (không ý nghĩa) |
+| Answer correctness ↑ | 85% | 82% | −3 điểm % (không ý nghĩa) |
+
+GraphRAG truy xuất kém hơn chủ yếu ở câu multi-hop (retrieval precision 0,53 so với 0,71); generation quality không khác
+biệt có ý nghĩa (ở câu multi-hop answer correctness 89% so với 86%); câu ngoài corpus cả hai hệ từ chối đúng 23/23.
+Phân tích nguyên nhân và đối chiếu tài liệu (Han et al. 2025, GraphRAG-Bench, HybridRAG) trong báo cáo.
