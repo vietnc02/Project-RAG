@@ -4,6 +4,8 @@
   (báo cáo `report/Bao_cao_Y1.pdf`)
 - **Ý 2** — GraphRAG (Knowledge Graph từ 30 bài chủ đề quantum) vs Vector RAG thuần: retrieval precision + generation quality
   (báo cáo `report/Bao_cao_Y2.pdf`, xem [phần Ý 2](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum))
+- **Ý 3** — KG từ k = 10, 20, 30 bài: chất lượng KG (entity coverage, relation completeness) + chất lượng câu trả lời,
+  k bài có đủ để KG hoạt động tốt không (báo cáo `report/Bao_cao_Y3.pdf`, xem [phần Ý 3](#ý-3--kg-từ-k--10-20-30-bài))
 
 ## Chạy nhanh (sau khi clone repo)
 Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cần build lại.
@@ -19,6 +21,8 @@ Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cầ
    python evaluate.py                                    # chạy lại toàn bộ đánh giá ý 1
    python rag_graphrag.py  "Which signature schemes did NIST select for standardization?"   # GraphRAG (ý 2)
    python evaluate_graphrag.py --run kg30                # chạy lại đánh giá ý 2
+   python kg_quality.py --all                            # chất lượng KG10 / KG20 / KG30 (ý 3, không cần LLM)
+   python evaluate_kg_scale.py                           # chạy lại đánh giá câu trả lời ý 3
    ```
    Lần chạy đầu, `data/chroma.zip` tự giải nén ra `data/chroma/` (có kiểm tra sha256).
 
@@ -175,3 +179,59 @@ correctness.
 GraphRAG truy xuất kém hơn chủ yếu ở câu multi-hop (retrieval precision 0,53 so với 0,71); generation quality không khác
 biệt có ý nghĩa (ở câu multi-hop answer correctness 89% so với 86%); câu ngoài corpus cả hai hệ từ chối đúng 23/23.
 Phân tích nguyên nhân và đối chiếu tài liệu (Han et al. 2025, GraphRAG-Bench, HybridRAG) trong báo cáo.
+
+# Ý 3 — KG từ k = 10, 20, 30 bài
+
+Dựng KG từ **10, 20 và 30 bài đầu** của `data/kg/papers.json` (30 bài chủ đề quantum của ý 2, thứ tự phân tầng theo
+chủ đề cố định từ ý 2), đo **chất lượng KG** (entity coverage, relation completeness) và **chất lượng câu trả lời** của
+GraphRAG (ý 2) trên từng KG. Ba KG dùng chung cache trích xuất của ý 2 nên **lồng nhau** (KG10 ⊂ KG20 ⊂ KG30): khác
+biệt chỉ đến từ số bài. Báo cáo: `report/Bao_cao_Y3.pdf`. Ý 3 chỉ thêm file mới, không sửa mã / dữ liệu của ý 1, ý 2.
+
+## Quy trình
+```powershell
+python kg_build.py --build --k 10        # 1. KG10 -> data/kg/k10/ (gộp lại từ data/kg/extractions.jsonl, không trích lại)
+python kg_build.py --build --k 20        #    KG20 -> data/kg/k20/   (KG30 = data/kg/k30/ của ý 2)
+python kg_quality.py --gold              # 2. judge trích thực thể / quan hệ chuẩn của 62 câu -> testset/kg_gold_raw.json
+python testset/review_kg_gold.py         #    kết quả duyệt tay -> testset/kg_gold.json
+python kg_quality.py --all               # 3. chất lượng KG -> results/kg_scale/kg_quality.md (tất định, không gọi LLM)
+python evaluate_kg_scale.py              # 4. GraphRAG với KG10/20/30 trên 85 câu của ý 2 -> results/kg_scale/summary.md
+python report/make_figures_y3.py; python report/build_report_y3.py   # 5. báo cáo -> report/Bao_cao_Y3.docx/.pdf
+```
+Các bước 1–4 đã chạy sẵn, kết quả có trong repo. Kết quả GraphRAG với KG30 lấy lại từ `results/kg30/` của ý 2 (cùng mã,
+KG, câu hỏi, môi trường).
+
+## Dữ liệu ý 3 (có trong repo)
+| File | Nội dung |
+|---|---|
+| `data/kg/k10/`, `data/kg/k20/` | KG10 (3.274 entity, 3.252 quan hệ), KG20 (5.702 / 6.160): `graph.json` + `vectors.npz` |
+| `testset/kg_gold.json` | bộ chuẩn: 62 câu, 353 thực thể, 263 quan hệ (bản tự động `kg_gold_raw.json`: 503 / 415; duyệt tay trong `review_kg_gold.py`) |
+| `results/kg_scale/` | chất lượng KG (`kg_quality.md`, `kg_coverage*.csv`, `kg_growth.csv`, `kg_relation_audit.csv`) + câu trả lời theo k (`k10/`, `k20/`, `k30/`, `summary.md`) |
+
+## Cách đo
+- **Entity coverage**: tỉ lệ thực thể chuẩn có trong KG, khớp theo tên sau chuẩn hoá (cùng quy tắc gộp entity của
+  `kg_build.py`); bản `_lenient` (cận trên) tính thêm entity có tên chứa trọn cụm từ chuẩn. Không dùng LLM để khớp
+  (đã thử llama3.1:8b, qwen2.5:7b: nhận nhầm khái niệm rộng / hẹp hơn).
+- **Relation completeness**: tỉ lệ quan hệ chuẩn có cạnh trực tiếp trong KG nối 2 thực thể đã khớp; kiểm tra tay 40
+  cạnh KG30: 36 cạnh nói đúng quan hệ chuẩn.
+- **Câu trả lời**: 5 chỉ số của ý 2, xem theo 3 tập: *trong phạm vi KG* (bài nguồn thuộc k bài: 15 / 37 / 62 câu),
+  *tập cố định* S10 (15 câu về 10 bài đầu) và S20 (37 câu về 20 bài đầu) so sánh ghép cặp, *toàn bộ 62 câu*.
+
+## Kết quả
+| | KG10 | KG20 | KG30 |
+|---|---|---|---|
+| Entity coverage (câu trong phạm vi KG) | 91% | 90% | 89% |
+| Relation completeness (câu trong phạm vi KG) | 39% | 37% | 42% |
+| Entity coverage / relation completeness (toàn bộ 62 câu) | 64% / 20% | 77% / 31% | 89% / 42% |
+| Answer correctness (câu trong phạm vi KG) | 87% | 86% | 82% |
+| Answer correctness (toàn bộ 62 câu) | 55% | 76% | 82% |
+| Câu ngoài corpus từ chối đúng | 23/23 | 23/23 | 23/23 |
+
+- Với câu hỏi về chính các bài trong KG, **10 bài đã đủ**: trên tập cố định S10 / S20 không chênh lệch nào giữa các k
+  có ý nghĩa thống kê.
+- Điểm yếu chung là **quan hệ** (~40% quan hệ cần thiết có trong KG), do mô hình trích xuất 7B chứ không do số bài.
+- KG **chưa bão hoà**: mỗi bài thêm vào vẫn mang ~250–300 entity mới; trên toàn bộ 62 câu KG10 kém KG30 có ý nghĩa
+  (−27 điểm %), KG20 thì không (−6,5 điểm %). Câu ngoài phạm vi KG vẫn được trả lời đúng 45% (KG10) / 60% (KG20), chủ
+  yếu nhờ kiến thức sẵn có của mô hình (claim không có trong context).
+
+Đối chiếu tài liệu trong báo cáo: Han et al. 2025, GraphRAG-Bench (thử nghiệm theo cỡ corpus), KGGen / MINE,
+Zhu et al., Joren et al. (sufficient context, ICLR 2025), định luật Heaps.
