@@ -1,0 +1,786 @@
+{"k": 10, "gold": "5G", "strict": [], "lenient_only": ["5g technology"], "n_lenient": 1}
+{"k": 10, "gold": "5G network slicing", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "6G network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "6G resource allocation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "AES", "strict": ["aes"], "lenient_only": ["aes encryption", "aes-192", "aes-256"], "n_lenient": 4}
+{"k": 10, "gold": "ARM Cortex-M4", "strict": ["arm cortex-m4"], "lenient_only": ["arm cortex-m4 microcontroller", "hardware arm cortex-m4"], "n_lenient": 3}
+{"k": 10, "gold": "Amazon Web Services (AWS)", "strict": [], "lenient_only": ["aws braket", "aws toolkit"], "n_lenient": 2}
+{"k": 10, "gold": "Anderson acceleration", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Artix-7 FPGA", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Ascella", "strict": ["ascella"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "BB84", "strict": ["bb84"], "lenient_only": ["bb84 / b92", "bb84 qkd", "bb84 qkd system", "bb84 with detector asymmetry"], "n_lenient": 5}
+{"k": 10, "gold": "Boolean masking", "strict": ["boolean masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "BoringSSL", "strict": ["boringssl"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Botan", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Bouncy Castle", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "CPAPKE.Enc", "strict": ["cpapke.enc"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "CRYSTALS-Dilithium", "strict": ["crystals-dilithium"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "CRYSTALS-Kyber", "strict": ["crystals-kyber"], "lenient_only": ["crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "lattice-based key encapsulation (crystals-kyber)"], "n_lenient": 4}
+{"k": 10, "gold": "Chrome", "strict": ["chrome"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Classic McEliece", "strict": ["classic mceliece"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Cloudflare", "strict": ["cloudflare"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Crypto++", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Cryptographic Time Paradox", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "DARPA quantum network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "DDKA-QKDN", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "DGA botnet", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Diffie-Hellman", "strict": ["diffie-hellman"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Dilithium", "strict": ["dilithium"], "lenient_only": ["crystals-dilithium", "dilithium signature"], "n_lenient": 3}
+{"k": 10, "gold": "ECC-256", "strict": ["ecc-256"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "ECDSA", "strict": ["elliptic curve digital signature"], "lenient_only": ["ecdsa signature"], "n_lenient": 2}
+{"k": 10, "gold": "EQGAN", "strict": ["evolutionary quantum generative adversarial network"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Elliptic Curve Cryptography (ECC)", "strict": ["elliptic curve cryptography"], "lenient_only": ["ecc public key", "ecc-256", "ecc-p256", "rsa/ecc"], "n_lenient": 5}
+{"k": 10, "gold": "FALCON", "strict": ["falcon"], "lenient_only": ["falcon post-quantum signature", "falcon signature"], "n_lenient": 3}
+{"k": 10, "gold": "FIPS 203", "strict": ["fips 203"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "FIPS 204", "strict": ["fips 204"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "FIPS 205", "strict": ["fips 205"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "FISMA", "strict": ["u.s. federal information security modernization act"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "FORS", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "FPGA", "strict": ["fpga"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Faraday effect", "strict": ["faraday effect"], "lenient_only": ["faraday-effect based polarization rotation"], "n_lenient": 2}
+{"k": 10, "gold": "Fock-space encoding", "strict": ["fock-space encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "FrodoKEM", "strict": ["frodokem"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "GDPR", "strict": ["general data protection regulation"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Gaussian mixture model", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Gibbs state", "strict": [], "lenient_only": ["quantum gibbs state"], "n_lenient": 1}
+{"k": 10, "gold": "Grover's algorithm", "strict": ["grover'"], "lenient_only": ["grover's search"], "n_lenient": 2}
+{"k": 10, "gold": "Hamiltonian", "strict": ["hamiltonian"], "lenient_only": ["continuous-time hamiltonian dynamic", "cost hamiltonian", "hamiltonian (𝐻(𝜆))", "hamiltonian h", "hamiltonian quantum generative adversarial network", "mixer hamiltonian \\", "mixer hamiltonian 𝐻𝑀", "parametrized hamiltonian learning", "problem hamiltonian \\", "problem hamiltonian 𝐻𝐶", "quantum hamiltonian", "quantum hamiltonian generative adversarial network", "travis-cummings hamiltonian"], "n_lenient": 14}
+{"k": 10, "gold": "Harvest-Now, Decrypt-Later (HNDL)", "strict": ["harvest now decrypt later", "harvest now, decrypt later", "hndl", "store/harvest now, decrypt later"], "lenient_only": ["hndl actor", "hndl attack", "hndl attack model", "hndl model", "hndl tactic", "hndl-type threat", "“store (harvest) now, decrypt later”"], "n_lenient": 11}
+{"k": 10, "gold": "IBM", "strict": ["ibm"], "lenient_only": ["ibm jakarta", "ibm q", "ibm q system one", "ibm quantum", "ibm quantum device", "ibm quantum platform", "ibm quantum runtime", "ibm researcher", "ibm runtime", "ibm superconducting quantum processor", "ibm torino", "ibm torino machine", "ibm torino quantum processor", "ibm's qiskit", "ibm-based demonstration"], "n_lenient": 16}
+{"k": 10, "gold": "ISACA", "strict": ["isaca"], "lenient_only": ["isaca 2025 poll", "isaca 2025 report", "isaca's poll"], "n_lenient": 4}
+{"k": 10, "gold": "Internet of Things (IoT)", "strict": ["internet of thing"], "lenient_only": ["blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "extreme iot environment", "fog and cloud iot", "industrial internet of thing", "industrial iot", "industrial iot application", "iot challenge", "iot context", "iot device", "iot environment", "iot infrastructure", "iot microcontroller", "iot network", "iot node", "iot security", "post-quantum blockchain-based iot", "resource-constrained iot device", "social iot"], "n_lenient": 22}
+{"k": 10, "gold": "Internet of Vehicles and Things (IoVT)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Kyber", "strict": ["kyber"], "lenient_only": ["crysalis-kyber", "crystals-kyber", "crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "first-order masked kyber implementation", "higher-order masked kyber implementation", "kyber cryptosystem", "kyber public key", "kyber's first-order masking", "kyber's public key", "kyber's re-encryption phase", "kyber-1024", "kyber-512", "kyber-512 noise value", "kyber-768", "kyber-90", "kyber.decap", "kyber.encap", "lattice-based key encapsulation (crystals-kyber)", "second-order masked kyber implementation", "third-order masked kyber implementation"], "n_lenient": 22}
+{"k": 10, "gold": "Kyber-512", "strict": ["kyber-512"], "lenient_only": ["kyber-512 noise value"], "n_lenient": 2}
+{"k": 10, "gold": "LMS", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Lagrange interpolation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Learning With Errors (LWE)", "strict": ["learning with error", "learning-with-error"], "lenient_only": ["lp-lwe", "lwe problem", "m-lwe problem", "module learning with error", "module-lwe", "ring-lwe"], "n_lenient": 8}
+{"k": 10, "gold": "Libsodium", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "ML-DSA", "strict": ["crystals-dilithium"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "ML-KEM", "strict": ["module-lattice-based kem"], "lenient_only": ["crystals-kyber (now standardized as ml-kem)"], "n_lenient": 2}
+{"k": 10, "gold": "MNIST", "strict": ["mnist"], "lenient_only": ["fashion-mnist", "medical mnist x-ray", "mnist digit"], "n_lenient": 4}
+{"k": 10, "gold": "MbedTLS", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Microsoft", "strict": ["microsoft"], "lenient_only": ["microsoft azure quantum"], "n_lenient": 2}
+{"k": 10, "gold": "Module-LWE", "strict": ["module-lwe"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Monero", "strict": ["monero"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "NISQ", "strict": ["noisy intermediate scale quantum", "noisy intermediate-scale quantum"], "lenient_only": ["nisq device", "nisq era", "nisq hardware", "nisq-era hardware", "noisy intermediate-scale quantum (nisq) device", "noisy intermediate-scale quantum (nisq) hardware"], "n_lenient": 8}
+{"k": 10, "gold": "NIST", "strict": ["national institute of standards and technology"], "lenient_only": ["nist choice", "nist competition", "nist csf", "nist digital signature standard", "nist guidance", "nist post-quantum cryptography project", "nist pqc guideline", "nist pqc project", "nist pqc standard", "nist pqc standardization project", "nist process", "nist security level category", "nist sp 800-208", "nist sp 800-xxx", "nist standard", "nist standard post-quantum signature", "nist standardization process", "nist's 2024 pqc", "nist's pqc", "nist's pqc standard", "nist, 2024", "post-quantum nist standard signature", "pqc finalists of nist"], "n_lenient": 24}
+{"k": 10, "gold": "NIST PQC finalists", "strict": [], "lenient_only": ["pqc finalists of nist"], "n_lenient": 1}
+{"k": 10, "gold": "NSL-KDD", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Nash equilibrium", "strict": ["nash equilibrium"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Number Theoretic Transform (NTT)", "strict": ["inverse number theoretic transform", "ntt", "number theoretic transform", "number-theoretic transform"], "lenient_only": ["ntt linear matrix", "ntt operation"], "n_lenient": 6}
+{"k": 10, "gold": "OpenSSL", "strict": ["openssl"], "lenient_only": ["openssl 3.0+", "openssl library"], "n_lenient": 3}
+{"k": 10, "gold": "Q-Day", "strict": ["computers capable of breaking encryption"], "lenient_only": ["post-q-day phase"], "n_lenient": 2}
+{"k": 10, "gold": "QKD network", "strict": ["qkd network"], "lenient_only": ["end-to-end qkd network"], "n_lenient": 2}
+{"k": 10, "gold": "Quantum Boltzmann Machine (QBM)", "strict": ["quantum boltzmann machine"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Quantum Fourier Transform (QFT)", "strict": ["quantum fourier transform"], "lenient_only": ["inverse qft", "manual inverse qft", "quantum fourier transform (qft)-based quantum phase estimation (qpe) routine"], "n_lenient": 4}
+{"k": 10, "gold": "Quantum Gaussian Mixture Model (QGMM)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Quantum IoT", "strict": [], "lenient_only": ["post-quantum blockchain-based iot"], "n_lenient": 1}
+{"k": 10, "gold": "Quantum Random Number Generation (QRNG)", "strict": ["quantum random number generator"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "RSA", "strict": ["rivest-shamir-adleman"], "lenient_only": ["1024-bit rsa", "2048-bit rsa", "rsa modulus", "rsa-2048", "rsa-4096", "rsa/ecc"], "n_lenient": 7}
+{"k": 10, "gold": "RSA-2048", "strict": ["rsa-2048"], "lenient_only": ["2048-bit rsa"], "n_lenient": 2}
+{"k": 10, "gold": "Ring-LWE", "strict": ["ring-lwe"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "SABER", "strict": ["saber"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "SIDH", "strict": ["supersingular isogeny difﬁe-hellman"], "lenient_only": ["commutative sidh"], "n_lenient": 2}
+{"k": 10, "gold": "SIKE", "strict": ["supersingular isogeny key encapsulation"], "lenient_only": ["sike incident"], "n_lenient": 2}
+{"k": 10, "gold": "SPHINCS+ (SLH-DSA)", "strict": ["sphincs+"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Shor's algorithm", "strict": ["shor'"], "lenient_only": ["calderbank-shor-steane (css) code", "shor's factoring", "shor's order-finding", "shor-like circuit", "shor-preskill proof", "shor-preskill security proof"], "n_lenient": 7}
+{"k": 10, "gold": "Smart City", "strict": ["smart city"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Smart Home", "strict": ["smart home"], "lenient_only": ["centralized smart home network", "smart home shard overlay network"], "n_lenient": 3}
+{"k": 10, "gold": "TLS 1.3", "strict": ["tls 1.3"], "lenient_only": ["post-quantum tls 1.3", "tls 1.3 hybrid handshake"], "n_lenient": 3}
+{"k": 10, "gold": "TVLA", "strict": ["test vector leakage assessment"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "Toffoli gate", "strict": ["toffoli gate"], "lenient_only": ["ccnot or toffoli gate", "toffoli gate implementation"], "n_lenient": 3}
+{"k": 10, "gold": "Tokyo QKD network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "Trieste QKD network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "VPN", "strict": ["vpn"], "lenient_only": ["major vpn vendor", "vpn solution", "vpn tunnel", "vpn/appliance vendor"], "n_lenient": 5}
+{"k": 10, "gold": "WOTS+", "strict": ["wots+"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "X25519", "strict": ["x25519"], "lenient_only": ["x25519 ecdh"], "n_lenient": 2}
+{"k": 10, "gold": "adversarial attack", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "adversarial perturbation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "amplitude encoding", "strict": ["amplitude encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "angle encoding", "strict": ["angle encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "anomaly detection", "strict": [], "lenient_only": ["anomaly detection in financial transaction", "machine learning-based anomaly detection"], "n_lenient": 2}
+{"k": 10, "gold": "arithmetic masking", "strict": ["arithmetic masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "attenuated laser", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "authentication", "strict": ["authentication"], "lenient_only": ["anonymous authentication", "authentication failure", "forward-secure ephemeral key exchange and authentication", "mutual authentication", "proof-of-authentication", "public-key authentication", "quantum-defended blockchain-assisted conditional privacy-preserving data authentication", "two-factor authentication"], "n_lenient": 9}
+{"k": 10, "gold": "auxiliary point information", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "banking archive", "strict": ["banking archive"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "blockchain", "strict": ["blockchain"], "lenient_only": ["asynchronous post-quantum blockchain", "blockchain architecture", "blockchain network", "blockchain node", "blockchain participant", "blockchain signature", "blockchain siot system", "blockchain transaction", "blockchain-aided vehicular network", "blockchain-based cooperative d2d-assisted fc", "blockchain-based identity management", "blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "consortium blockchain", "distributed storage blockchain", "ethereum blockchain", "helium blockchain", "komodo's blockchain", "lightweight blockchain", "main blockchain", "permissioned blockchain", "permissioned public blockchain", "permissionless blockchain", "permissionless public blockchain", "post-quantum blockchain", "post-quantum blockchain security", "post-quantum blockchain-based iot", "private blockchain"], "n_lenient": 36}
+{"k": 10, "gold": "botnet detection", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "certificate transparency log", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "circuit depth", "strict": ["circuit depth"], "lenient_only": ["low-depth variational quantum circuit", "shorter circuit depth"], "n_lenient": 3}
+{"k": 10, "gold": "classical computer", "strict": ["classical computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "classical optimizer", "strict": ["classical optimizer"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "clustering", "strict": [], "lenient_only": ["quantum k-means clustering"], "n_lenient": 1}
+{"k": 10, "gold": "coherence time", "strict": ["coherence time"], "lenient_only": ["finite coherence time", "physical qubit coherence time", "qubit coherence time"], "n_lenient": 4}
+{"k": 10, "gold": "computational complexity", "strict": ["computational complexity"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "continuous-variable QKD (CV-QKD)", "strict": ["continuous-variable qkd", "local-oscillator exploit"], "lenient_only": ["measurement-device-independent cv-qkd"], "n_lenient": 3}
+{"k": 10, "gold": "correlation power analysis (CPA)", "strict": ["correlation power analysis", "cpa", "selected plaintext attack"], "lenient_only": ["conventional cpa attack", "cpa attack", "cpa result", "modified leakage model for cpa", "non-pro cpa", "random ciphertext cpa attack"], "n_lenient": 9}
+{"k": 10, "gold": "cryptographically relevant quantum computer (CRQC)", "strict": ["crqc", "cryptanalytically relevant quantum computer", "cryptographically relevant quantum computer"], "lenient_only": ["crqc threat"], "n_lenient": 4}
+{"k": 10, "gold": "cryptopp-pqc", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "cyber-physical system (CPS)", "strict": ["cyber-physical system"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "cyberattack detection", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "cybercriminal", "strict": ["cybercriminal"], "lenient_only": ["cybercriminal group"], "n_lenient": 2}
+{"k": 10, "gold": "dark count", "strict": ["dark count"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "data re-uploading", "strict": [], "lenient_only": ["data re-uploading strategy"], "n_lenient": 1}
+{"k": 10, "gold": "decoherence", "strict": ["decoherence"], "lenient_only": ["decoherence error", "noise and decoherence", "qubit decoherence"], "n_lenient": 4}
+{"k": 10, "gold": "decoy-state QKD", "strict": ["decoy-state qkd"], "lenient_only": ["decoy-state mdi-qkd", "decoy-state qkd transmitter"], "n_lenient": 3}
+{"k": 10, "gold": "decoy-state method", "strict": ["decoy-state"], "lenient_only": ["decoy state", "decoy-state countermeasure", "decoy-state defense", "decoy-state intensity", "decoy-state mdi-qkd", "decoy-state pulse", "decoy-state qkd", "decoy-state qkd transmitter"], "n_lenient": 9}
+{"k": 10, "gold": "density estimation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "digital signature", "strict": ["digital signature"], "lenient_only": ["elliptic curve digital signature", "nist digital signature standard"], "n_lenient": 3}
+{"k": 10, "gold": "discrete logarithm", "strict": ["discrete logarithm"], "lenient_only": ["discrete logarithm problem", "elliptic curve discrete logarithm", "elliptic curve discrete logarithm problem"], "n_lenient": 4}
+{"k": 10, "gold": "discrete-variable QKD (DV-QKD)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "discriminator", "strict": ["discriminator"], "lenient_only": ["classical discriminator", "classical generator with quantum discriminator", "discriminator function d", "discriminator function 𝐷", "discriminator network", "discriminator parameters φ", "five-stage discriminator", "quantum discriminator", "quantum generator with classical discriminator"], "n_lenient": 10}
+{"k": 10, "gold": "drug discovery", "strict": ["drug discovery"], "lenient_only": ["drug discovery and molecular design", "early-stage drug discovery"], "n_lenient": 3}
+{"k": 10, "gold": "eavesdropping", "strict": ["eavesdropping"], "lenient_only": ["eavesdropping detection"], "n_lenient": 2}
+{"k": 10, "gold": "eavesdropping detection", "strict": ["eavesdropping detection"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "edge node authentication", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "elliptic curve discrete logarithm", "strict": ["elliptic curve discrete logarithm"], "lenient_only": ["elliptic curve discrete logarithm problem"], "n_lenient": 2}
+{"k": 10, "gold": "enhanced mobile broadband (eMBB)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "entanglement", "strict": ["entanglement"], "lenient_only": ["bound entanglement", "cz entanglement gate", "entanglement between distant qubit", "entanglement distillation", "entanglement entropy", "entanglement preparation", "large-scale, on-chip entanglement", "multi-qubit entanglement", "quantum entanglement", "reversereconciliation entanglement-based (eb)"], "n_lenient": 11}
+{"k": 10, "gold": "fault-tolerant quantum computation", "strict": ["fault-tolerant quantum computation"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "fitness evaluation", "strict": ["fitness evaluation"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "fragmentation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "gate error rate", "strict": ["gate error rate"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "gate fidelity", "strict": ["gate fidelity"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "generator", "strict": ["generator"], "lenient_only": ["backdoored random number generator", "classical generator with quantum discriminator", "generator network", "generator parameters θ", "generator's distribution", "parameterized quantum generator", "pseudo-random number generator", "quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator", "random number generator", "stabilizer generator"], "n_lenient": 14}
+{"k": 10, "gold": "good (c, d) pair", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "government intelligence", "strict": ["government intelligence"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "graceful degradation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "gradient-free optimization", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "handover", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "handshake overhead", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "hardware efficient ansatz", "strict": ["hardware efficient ansatz"], "lenient_only": ["hardware-efficient ansatz"], "n_lenient": 2}
+{"k": 10, "gold": "hash function", "strict": ["hash function"], "lenient_only": ["hash function transition", "hash functions such as sha"], "n_lenient": 3}
+{"k": 10, "gold": "hash-based signature", "strict": ["hash-based signature"], "lenient_only": ["hash-based xmss signature"], "n_lenient": 2}
+{"k": 10, "gold": "higher-order masking", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "hybrid key exchange", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "hypertree", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "information technology", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "information-theoretic security", "strict": ["information-theoretic security"], "lenient_only": ["information-theoretic security guarantee"], "n_lenient": 2}
+{"k": 10, "gold": "integer factorization", "strict": ["integer factorization"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "intellectual property", "strict": ["intellectual property"], "lenient_only": ["critical intellectual property"], "n_lenient": 2}
+{"k": 10, "gold": "inter-domain trust relationship", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "intercept-resend attack", "strict": [], "lenient_only": ["intercept-resend (ir) attack"], "n_lenient": 1}
+{"k": 10, "gold": "jamming attack", "strict": ["jamming attack"], "lenient_only": ["classical jamming attack", "jamming / dos attack"], "n_lenient": 3}
+{"k": 10, "gold": "key derivation function (KDF)", "strict": ["key derivation function"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "key management system", "strict": ["key management system"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "key rate", "strict": ["key rate"], "lenient_only": ["finite-size key rate", "key rate r", "raw key generation rate", "secret key rate", "secret-key rate", "secure key rate"], "n_lenient": 7}
+{"k": 10, "gold": "key storage", "strict": [], "lenient_only": ["on-chain lattice key storage"], "n_lenient": 1}
+{"k": 10, "gold": "lattice attack", "strict": ["lattice attack"], "lenient_only": ["hybrid lattice-reduction attack", "trail-and-error lattice attack", "trial-and-error lattice attack"], "n_lenient": 4}
+{"k": 10, "gold": "lattice-based cryptography", "strict": ["lattice-based cryptography"], "lenient_only": ["lattice-based post-quantum cryptography"], "n_lenient": 2}
+{"k": 10, "gold": "legacy system", "strict": ["legacy system"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "linear optical circuit", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "local parameter-update optimizer", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "machine learning", "strict": ["machine learning", "machine learning framework"], "lenient_only": [], "n_lenient": 2}
+{"k": 10, "gold": "machine-to-machine (M2M)", "strict": [], "lenient_only": ["machine-to-machine (m2m) communication"], "n_lenient": 1}
+{"k": 10, "gold": "malware detection", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "man-in-the-middle attack", "strict": ["man-in-the-middle attack"], "lenient_only": ["man-in-the-middle (mim) attack"], "n_lenient": 2}
+{"k": 10, "gold": "medical record", "strict": ["medical record"], "lenient_only": ["medical record transaction"], "n_lenient": 2}
+{"k": 10, "gold": "minimax game", "strict": ["minimax game"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "multivariate quadratic (MQ) cryptography", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "multivariate signature scheme", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "nation-state actor", "strict": ["nation-state actor"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "network-layer routing information", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "nitrogen-vacancy (NV) center", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "noisy qubit", "strict": ["noisy qubit"], "lenient_only": ["noisy physical qubit"], "n_lenient": 2}
+{"k": 10, "gold": "one-time pad", "strict": ["one-time pad"], "lenient_only": ["one-time-pad encryption"], "n_lenient": 2}
+{"k": 10, "gold": "parameter-shift rule", "strict": ["parameter-shift rule"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "parameterized quantum circuit", "strict": ["parameterized quantum circuit"], "lenient_only": ["parameterized quantum circuit 𝑈𝐺", "random parameterized quantum circuit"], "n_lenient": 3}
+{"k": 10, "gold": "parametrized random circuit", "strict": ["parametrized random circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "personalized medicine", "strict": ["personalized medicine"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "photonic QGAN", "strict": ["photonic qgan"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "plaintext-checking oracle", "strict": [], "lenient_only": ["plaintext-checking (pc) oracle-based sca"], "n_lenient": 1}
+{"k": 10, "gold": "polarized photon", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "polynomial multiplication", "strict": ["polynomial multiplication"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "post-quantum cryptography (PQC)", "strict": ["parameterized quantum circuit", "post-quantum cryptography", "post-quantum cryptosystem", "pqc"], "lenient_only": ["initial pqc pilots by 2025-26", "internet engineering task force pqc working group", "lattice-based post-quantum cryptography", "nist post-quantum cryptography project", "nist pqc guideline", "nist pqc project", "nist pqc standard", "nist pqc standardization project", "nist's 2024 pqc", "nist's pqc", "nist's pqc standard", "post-quantum cryptography standard", "post-quantum cryptography standardization initiative", "pqc attestation report", "pqc candidate", "pqc compliance", "pqc deployment", "pqc deployment strategy", "pqc finalists of nist", "pqc implementation", "pqc initiative", "pqc kem", "pqc migration", "pqc migration plan", "pqc standard", "pqc standardization", "pqc support", "pqc-based certificate", "pqc-compliant vendor", "supply chain pqc compliance"], "n_lenient": 35}
+{"k": 10, "gold": "post-quantum cryptography (PQC) migration", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "power analysis", "strict": [], "lenient_only": ["correlation power analysis", "power analysis attack", "power analysis side-channel attack", "power and electromagnetic analysis"], "n_lenient": 4}
+{"k": 10, "gold": "power trace", "strict": ["power trace"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "pre-shared key", "strict": ["pre-shared key"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "precision of quantum state manipulation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "probability amplitude", "strict": [], "lenient_only": ["complex probability amplitude"], "n_lenient": 1}
+{"k": 10, "gold": "public-key cryptography", "strict": ["public-key cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "public-key encryption", "strict": ["public-key encryption"], "lenient_only": ["lattice-based public key encryption", "post-quantum public key encryption (pke)/kem"], "n_lenient": 3}
+{"k": 10, "gold": "quantum algorithm", "strict": ["quantum"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum bit error rate (QBER)", "strict": ["qber", "quantum bit error rate", "quantum bit-error rate"], "lenient_only": ["modified qber", "real-time qber monitoring"], "n_lenient": 5}
+{"k": 10, "gold": "quantum channel", "strict": ["quantum channel"], "lenient_only": ["arbitrarily varying classical-quantum wiretap channel", "compound and arbitrarily varying quantum channel", "quantum channel / free-space link"], "n_lenient": 4}
+{"k": 10, "gold": "quantum circuit", "strict": ["quantum circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum circuit model", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "quantum computer", "strict": ["quantum computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum computing", "strict": ["quantum computing"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum convolutional neural network (QCNN)", "strict": ["quantum convolutional neural network"], "lenient_only": ["qea-qcnn"], "n_lenient": 2}
+{"k": 10, "gold": "quantum cryptography", "strict": ["quantum cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum embedding", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "quantum error correction (QEC)", "strict": ["quantum error correction"], "lenient_only": ["5-qubit quantum error correction code", "flag-based qec", "knill-laflamme quantum error-correction criteria", "qec code", "qec cycle", "quantum error correction code", "quantum error-correction code", "quantum error-correction machinery", "steane qec", "surface-code-like qec", "three-qubit quantum error correction code"], "n_lenient": 12}
+{"k": 10, "gold": "quantum feature map", "strict": ["quantum feature map"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum feature space", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "quantum generative adversarial network (QGAN)", "strict": ["quantum generative adversarial network"], "lenient_only": ["conditional qgan", "conventional qgan", "evolutionary quantum generative adversarial network", "hamiltonian quantum generative adversarial network", "hybrid qgan", "ill-qgan", "photonic qgan", "quantum conditional generative adversarial network", "quantum hamiltonian generative adversarial network", "standard qgan", "unrolled qgan model"], "n_lenient": 12}
+{"k": 10, "gold": "quantum generator", "strict": ["quantum generator"], "lenient_only": ["classical generator with quantum discriminator", "parameterized quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator"], "n_lenient": 6}
+{"k": 10, "gold": "quantum key distribution (QKD)", "strict": ["quantum key distribution"], "lenient_only": ["bb84 qkd", "bb84 qkd system", "bkm07 semi-quantum key distribution", "continuous-variable qkd", "decoy-state mdi-qkd", "decoy-state qkd", "decoy-state qkd transmitter", "device-independent (di) qkd", "device-independent qkd", "end-to-end qkd network", "free-space qkd", "mdi-qkd", "mdi-qkd architecture", "measurement-device-independent cv-qkd", "qkd boxe", "qkd channel", "qkd deployment", "qkd device", "qkd network", "qkd security analyse", "qkd standard", "qkd system", "real key state ρqkd", "security paradigms in qkd system", "semi-quantum qkd", "single-photon qkd", "three-stage multi-photon quantum key distribution (qkd)", "three-stage qkd", "three-state quantum key distribution (qkd)", "twin-field qkd"], "n_lenient": 31}
+{"k": 10, "gold": "quantum machine learning (QML)", "strict": ["quantum machine learning"], "lenient_only": ["frameworks for blind qml", "key qml", "qml theoretical proposal"], "n_lenient": 4}
+{"k": 10, "gold": "quantum neural network (QNN)", "strict": ["quantum neural network"], "lenient_only": ["deep qnn", "h-qnn", "qnn state"], "n_lenient": 4}
+{"k": 10, "gold": "quantum parallelism", "strict": ["quantum parallelism"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum physics", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "quantum public key distribution", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "quantum secure direct communication (QSDC)", "strict": ["quantum secure direct communication"], "lenient_only": ["quantum-secure direct communication", "three-stage qsdc"], "n_lenient": 3}
+{"k": 10, "gold": "quantum simulation", "strict": ["quantum simulation"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "quantum support vector machine (QSVM)", "strict": ["quantum support vector machine"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "qubit", "strict": ["qubit"], "lenient_only": ["#qubit", "1,024 qubit", "3-qubit repetition code", "5-qubit code", "5-qubit perfect code", "5-qubit quantum error correction code", "64 qubit", "7-qubit color code", "7-qubit steane code", "9-qubit code", "98 qubit next-generation system", "9−qubit error correction code", "ancilla qubit", "ancillary qubit", "auxiliary logical qubit", "auxiliary qubit", "bare qubit-cavity coupling strength", "charging energy of the transmon qubit", "data qubit", "entanglement between distant qubit", "error-corrected logical qubit", "josephson energy of the transmon qubit", "logical qubit", "logical qubit stability", "logical-qubit coherence", "multi-qubit entanglement", "natural qubit", "noisy physical qubit", "noisy qubit", "number of qubits times the number of layer"], "n_lenient": 76}
+{"k": 10, "gold": "qubit connectivity", "strict": ["qubit connectivity"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "rectilinear basis", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "ring signature", "strict": ["ring signature"], "lenient_only": ["lattice-based one-time linkable ring signature", "post-quantum ring signature", "ring/group signature"], "n_lenient": 4}
+{"k": 10, "gold": "secret sharing", "strict": ["secret sharing"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "shared key K", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "shortest vector problem (SVP)", "strict": ["shortest non-zero vector"], "lenient_only": ["hermite-svp", "shortest independent vector problem"], "n_lenient": 3}
+{"k": 10, "gold": "shuffling countermeasure", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "side-channel attack", "strict": ["side-channel attack"], "lenient_only": ["power analysis side-channel attack", "power side-channel attack", "power-side channel attack", "side-channel-assisted chosen-ciphertext attack"], "n_lenient": 5}
+{"k": 10, "gold": "side-channel leakage", "strict": ["side-channel leakage"], "lenient_only": ["side-channel leakage in re-encryption"], "n_lenient": 2}
+{"k": 10, "gold": "signal state", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "signalling congestion", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "single photon", "strict": [], "lenient_only": ["single photon detector", "single photon source", "single-photon", "single-photon avalanche diode", "single-photon avalanche diode (spad) array", "single-photon detector", "single-photon qkd", "single-photon source", "single-photon yield"], "n_lenient": 9}
+{"k": 10, "gold": "software-defined networking (SDN)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "startup", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "stochastic approximation", "strict": ["stochastic approximation"], "lenient_only": ["simultaneous perturbation stochastic approximation"], "n_lenient": 2}
+{"k": 10, "gold": "subscriber authentication vector", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "superconducting qubit", "strict": ["superconducting qubit"], "lenient_only": ["superconducting-based qubit system"], "n_lenient": 2}
+{"k": 10, "gold": "superposition", "strict": ["superposition"], "lenient_only": ["initial uniform superposition state", "quantum superposition", "state superposition", "uniform superposition"], "n_lenient": 5}
+{"k": 10, "gold": "symmetric cipher", "strict": [], "lenient_only": ["classical symmetric cipher"], "n_lenient": 1}
+{"k": 10, "gold": "system of quadratic equations", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "threshold secret sharing", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "transistor", "strict": [], "lenient_only": ["modern digital transistor"], "n_lenient": 1}
+{"k": 10, "gold": "transverse field", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "trapped ion", "strict": ["trapped ion"], "lenient_only": ["fault-tolerant trapped-ion implementation", "trapped ion quantum computer", "trapped ion system", "trapped-ion", "trapped-ion experiment", "trapped-ion implementation", "trapped-ion system"], "n_lenient": 8}
+{"k": 10, "gold": "trojan gate attack", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "two-step attack", "strict": ["two-step attack"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "vacuum state", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "variational quantum algorithm (VQA)", "strict": ["variational quantum"], "lenient_only": ["low-depth variational quantum circuit", "meta-vqa", "variational quantum circuit", "variational quantum classification", "variational quantum eigensolver", "variational quantum layer"], "n_lenient": 7}
+{"k": 10, "gold": "variational quantum circuit", "strict": ["variational quantum circuit"], "lenient_only": ["low-depth variational quantum circuit"], "n_lenient": 2}
+{"k": 10, "gold": "variational quantum classifier (VQC)", "strict": ["variational quantum circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 10, "gold": "weak decoy state", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "wolfSSL", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 10, "gold": "yield", "strict": [], "lenient_only": ["single-photon yield"], "n_lenient": 1}
+{"k": 20, "gold": "5G", "strict": [], "lenient_only": ["5g technology"], "n_lenient": 1}
+{"k": 20, "gold": "5G network slicing", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "6G network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "6G resource allocation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "AES", "strict": ["advanced encryption standard"], "lenient_only": ["aes encryption", "aes-128", "aes-192", "aes-256", "aes-256 encryption", "aes-512"], "n_lenient": 7}
+{"k": 20, "gold": "ARM Cortex-M4", "strict": ["arm cortex-m4"], "lenient_only": ["arm cortex-m4 microcontroller", "hardware arm cortex-m4"], "n_lenient": 3}
+{"k": 20, "gold": "Amazon Web Services (AWS)", "strict": ["amazon web service"], "lenient_only": ["aws braket", "aws toolkit"], "n_lenient": 3}
+{"k": 20, "gold": "Anderson acceleration", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Artix-7 FPGA", "strict": [], "lenient_only": ["artix-7 xc7a100t fpga"], "n_lenient": 1}
+{"k": 20, "gold": "Ascella", "strict": ["ascella"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "BB84", "strict": ["bb84"], "lenient_only": ["bb84 / b92", "bb84 qkd", "bb84 qkd system", "bb84 with detector asymmetry", "qkd protocol bb84"], "n_lenient": 6}
+{"k": 20, "gold": "Boolean masking", "strict": ["boolean masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "BoringSSL", "strict": ["boringssl"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Botan", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Bouncy Castle", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "CPAPKE.Enc", "strict": ["cpapke.enc"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "CRYSTALS-Dilithium", "strict": ["crystals-dilithium"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "CRYSTALS-Kyber", "strict": ["crystals-kyber"], "lenient_only": ["crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "lattice-based key encapsulation (crystals-kyber)"], "n_lenient": 4}
+{"k": 20, "gold": "Chrome", "strict": ["chrome"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Classic McEliece", "strict": ["classic mceliece"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Cloudflare", "strict": ["cloudflare"], "lenient_only": ["cloudflare data center", "cloudflare tunnel", "cloudflare's experimental deployment of pqc"], "n_lenient": 4}
+{"k": 20, "gold": "Crypto++", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Cryptographic Time Paradox", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "DARPA quantum network", "strict": ["darpa quantum network"], "lenient_only": ["darpa quantum network key management"], "n_lenient": 2}
+{"k": 20, "gold": "DDKA-QKDN", "strict": ["ddka-qkdn"], "lenient_only": ["nkp ddka-qkdn", "nkp's ddka-qkdn", "nkps ddka-qkdn"], "n_lenient": 4}
+{"k": 20, "gold": "DGA botnet", "strict": ["dga botnet"], "lenient_only": ["dga botnet dataset", "dga-driven botnet activity", "domain generation algorithm (dga) botnet"], "n_lenient": 4}
+{"k": 20, "gold": "Diffie-Hellman", "strict": ["diffie-hellman"], "lenient_only": ["commutative supersingular isogeny diffie-hellman", "diffie-hellman (dh)-established", "diffie-hellman assumption", "diffie-hellman key exchange", "elliptic curve diffie-hellman", "supersingular isogeny diffie-hellman", "x25519 elliptic curve diffie-hellman"], "n_lenient": 8}
+{"k": 20, "gold": "Dilithium", "strict": ["dilithium"], "lenient_only": ["crystals-dilithium", "dilithium signature", "low-latency dilithium pipeline"], "n_lenient": 4}
+{"k": 20, "gold": "ECC-256", "strict": ["ecc-256"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "ECDSA", "strict": ["elliptic curve digital signature"], "lenient_only": ["ecdsa signature"], "n_lenient": 2}
+{"k": 20, "gold": "EQGAN", "strict": ["evolutionary quantum generative adversarial network"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Elliptic Curve Cryptography (ECC)", "strict": ["elliptic curve cryptography"], "lenient_only": ["ecc public key", "ecc-256", "ecc-based encryption", "ecc-p256", "rsa/ecc"], "n_lenient": 6}
+{"k": 20, "gold": "FALCON", "strict": ["falcon"], "lenient_only": ["falcon post-quantum signature", "falcon signature", "falcon-512"], "n_lenient": 4}
+{"k": 20, "gold": "FIPS 203", "strict": ["fips 203"], "lenient_only": ["nist fips 203"], "n_lenient": 2}
+{"k": 20, "gold": "FIPS 204", "strict": ["fips 204"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "FIPS 205", "strict": ["fips 205"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "FISMA", "strict": ["u.s. federal information security modernization act"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "FORS", "strict": ["forest of random subset"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "FPGA", "strict": ["field-programmable gate array"], "lenient_only": ["artix-7 xc7a100t fpga", "fpga implementation", "fpga/asic"], "n_lenient": 4}
+{"k": 20, "gold": "Faraday effect", "strict": ["faraday effect"], "lenient_only": ["faraday-effect based polarization rotation"], "n_lenient": 2}
+{"k": 20, "gold": "Fock-space encoding", "strict": ["fock-space encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "FrodoKEM", "strict": ["frodokem"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "GDPR", "strict": ["general data protection regulation"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Gaussian mixture model", "strict": ["gaussian mixture model"], "lenient_only": ["quantum gaussian mixture model"], "n_lenient": 2}
+{"k": 20, "gold": "Gibbs state", "strict": ["gibbs state"], "lenient_only": ["quantum gibbs state", "thermal gibbs state"], "n_lenient": 3}
+{"k": 20, "gold": "Grover's algorithm", "strict": ["grover'"], "lenient_only": ["grover's algorithm for unstructured search", "grover's quantum", "grover's search"], "n_lenient": 4}
+{"k": 20, "gold": "Hamiltonian", "strict": ["hamiltonian"], "lenient_only": ["continuous-time hamiltonian dynamic", "cost hamiltonian", "hamiltonian (𝐻(𝜆))", "hamiltonian h", "hamiltonian operator", "hamiltonian quantum generative adversarial network", "hamiltonian system", "interaction hamiltonian", "mixer hamiltonian \\", "mixer hamiltonian 𝐻𝑀", "parametrized hamiltonian learning", "problem hamiltonian \\", "problem hamiltonian 𝐻𝐶", "quantum hamiltonian", "quantum hamiltonian generative adversarial network", "travis-cummings hamiltonian"], "n_lenient": 17}
+{"k": 20, "gold": "Harvest-Now, Decrypt-Later (HNDL)", "strict": ["harvest now decrypt later", "harvest now, decrypt later", "hndl", "store/harvest now, decrypt later"], "lenient_only": ["hndl actor", "hndl attack", "hndl attack model", "hndl model", "hndl tactic", "hndl-type threat", "“store (harvest) now, decrypt later”"], "n_lenient": 11}
+{"k": 20, "gold": "IBM", "strict": ["ibm"], "lenient_only": ["ibm jakarta", "ibm kyoto", "ibm osaka", "ibm q", "ibm q system one", "ibm qiskit", "ibm quantum", "ibm quantum device", "ibm quantum platform", "ibm quantum runtime", "ibm researcher", "ibm runtime", "ibm superconducting quantum processor", "ibm torino", "ibm torino machine", "ibm torino quantum processor", "ibm's platform", "ibm's qiskit", "ibm's quantum hardware", "ibm-based demonstration"], "n_lenient": 21}
+{"k": 20, "gold": "ISACA", "strict": ["isaca"], "lenient_only": ["isaca 2025 poll", "isaca 2025 report", "isaca's poll"], "n_lenient": 4}
+{"k": 20, "gold": "Internet of Things (IoT)", "strict": ["internet of thing"], "lenient_only": ["blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "embedded iot device", "extreme iot environment", "fog and cloud iot", "industrial internet of thing", "industrial iot", "industrial iot application", "internet of things (iot) ecosystem", "iot and embedded device", "iot challenge", "iot context", "iot device", "iot environment", "iot gateway", "iot infrastructure", "iot microcontroller", "iot network", "iot node", "iot security", "iot/edge device", "post-quantum blockchain-based iot", "quantum internet-of-thing", "resource-constrained iot device", "social iot", "suitability for iot application"], "n_lenient": 29}
+{"k": 20, "gold": "Internet of Vehicles and Things (IoVT)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Kyber", "strict": ["kyber", "lattice", "lattice-based encryption"], "lenient_only": ["crysalis-kyber", "crystals-kyber", "crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "first-order masked kyber implementation", "higher-order masked kyber implementation", "kyber cryptosystem", "kyber public key", "kyber's first-order masking", "kyber's public key", "kyber's re-encryption phase", "kyber-1024", "kyber-512", "kyber-512 noise value", "kyber-768", "kyber-90", "kyber.decap", "kyber.encap", "lattice-based cryptography (e.g., kyber, ntru)", "lattice-based key encapsulation (crystals-kyber)", "second-order masked kyber implementation", "third-order masked kyber implementation"], "n_lenient": 25}
+{"k": 20, "gold": "Kyber-512", "strict": ["kyber-512"], "lenient_only": ["kyber-512 noise value"], "n_lenient": 2}
+{"k": 20, "gold": "LMS", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Lagrange interpolation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Learning With Errors (LWE)", "strict": ["learning with error", "learning-with-error"], "lenient_only": ["learning with errors problem", "lp-lwe", "lwe instance", "lwe problem", "m-lwe problem", "module learning with error", "module-lwe", "ring-lwe", "ring-lwe problem"], "n_lenient": 11}
+{"k": 20, "gold": "Libsodium", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "ML-DSA", "strict": ["crystals-dilithium", "ml-dsa", "module-lattice digital signature"], "lenient_only": ["ml-dsa server"], "n_lenient": 4}
+{"k": 20, "gold": "ML-KEM", "strict": ["ml-kem", "module-lattice key encapsulation", "module-lattice-based kem"], "lenient_only": ["crystals-kyber (now standardized as ml-kem)", "ml-kem-512"], "n_lenient": 5}
+{"k": 20, "gold": "MNIST", "strict": ["mnist"], "lenient_only": ["fashion mnist dataset", "fashion-mnist", "medical mnist x-ray", "mnist dataset", "mnist digit"], "n_lenient": 6}
+{"k": 20, "gold": "MbedTLS", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "Microsoft", "strict": ["microsoft"], "lenient_only": ["microsoft azure", "microsoft azure quantum"], "n_lenient": 3}
+{"k": 20, "gold": "Module-LWE", "strict": ["module-lwe"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Monero", "strict": ["monero"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "NISQ", "strict": ["nisq", "noisy intermediate scale quantum", "noisy intermediate-scale quantum"], "lenient_only": ["nisq device", "nisq era", "nisq hardware", "nisq system", "nisq technology", "nisq-era device", "nisq-era hardware", "noisy intermediate-scale quantum (nisq) device", "noisy intermediate-scale quantum (nisq) hardware"], "n_lenient": 12}
+{"k": 20, "gold": "NIST", "strict": ["national institute of standards and technology"], "lenient_only": ["nist additional digital signature candidate", "nist choice", "nist competition", "nist csf", "nist digital signature standard", "nist fips 203", "nist fips approval", "nist guidance", "nist interagency report (nist ir) 8528", "nist manager", "nist post-quantum cryptography project", "nist post-quantum standardization process", "nist pqc guideline", "nist pqc project", "nist pqc standard", "nist pqc standardization project", "nist process", "nist quantum network manager", "nist security level", "nist security level category", "nist sp 800-208", "nist sp 800-xxx", "nist standard", "nist standard post-quantum signature", "nist standardization process", "nist's 2024 pqc", "nist's additional digital signature process", "nist's fifo multiplexing manager", "nist's pqc", "nist's pqc standard"], "n_lenient": 35}
+{"k": 20, "gold": "NIST PQC finalists", "strict": [], "lenient_only": ["pqc finalists of nist"], "n_lenient": 1}
+{"k": 20, "gold": "NSL-KDD", "strict": ["nsl-kdd"], "lenient_only": ["nsl-kdd dataset"], "n_lenient": 2}
+{"k": 20, "gold": "Nash equilibrium", "strict": ["nash equilibrium"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Number Theoretic Transform (NTT)", "strict": ["inverse number theoretic transform", "ntt", "number theoretic transform", "number-theoretic transform"], "lenient_only": ["ntt linear matrix", "ntt operation", "ntt-based polynomial multiplication"], "n_lenient": 7}
+{"k": 20, "gold": "OpenSSL", "strict": ["openssl"], "lenient_only": ["openssl 3.0+", "openssl library"], "n_lenient": 3}
+{"k": 20, "gold": "Q-Day", "strict": ["computers capable of breaking encryption"], "lenient_only": ["post-q-day phase"], "n_lenient": 2}
+{"k": 20, "gold": "QKD network", "strict": ["quantum key distribution network"], "lenient_only": ["end-to-end qkd network", "qkd network architecture", "qkd network as a service", "qkd network fundamental", "qkd network structure", "secoqc qkd network", "swissquantum qkd network", "tokyo qkd network"], "n_lenient": 9}
+{"k": 20, "gold": "Quantum Boltzmann Machine (QBM)", "strict": ["quantum boltzmann machine"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Quantum Fourier Transform (QFT)", "strict": ["quantum fourier transform"], "lenient_only": ["inverse qft", "manual inverse qft", "quantum fourier transform (qft)-based quantum phase estimation (qpe) routine", "quantum fourier transform aq"], "n_lenient": 5}
+{"k": 20, "gold": "Quantum Gaussian Mixture Model (QGMM)", "strict": ["quantum gaussian mixture model"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Quantum IoT", "strict": [], "lenient_only": ["post-quantum blockchain-based iot"], "n_lenient": 1}
+{"k": 20, "gold": "Quantum Random Number Generation (QRNG)", "strict": ["qrng", "quantum random number generation", "quantum random number generator"], "lenient_only": ["continuous-variable source-independent qrng", "qrng output", "semi-device-independent qrngs (semi-di qrngs)", "source-independent qrng"], "n_lenient": 7}
+{"k": 20, "gold": "RSA", "strict": ["rivest-shamir-adleman"], "lenient_only": ["1024-bit rsa", "2048-bit rsa", "qmlfd-rsa", "rsa encryption", "rsa key", "rsa modulus", "rsa public key cryptosystem", "rsa security", "rsa-2048", "rsa-4096", "rsa-crt", "rsa/ecc"], "n_lenient": 13}
+{"k": 20, "gold": "RSA-2048", "strict": ["rsa-2048"], "lenient_only": ["2048-bit rsa"], "n_lenient": 2}
+{"k": 20, "gold": "Ring-LWE", "strict": ["ring-lwe"], "lenient_only": ["ring-lwe problem"], "n_lenient": 2}
+{"k": 20, "gold": "SABER", "strict": ["saber"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "SIDH", "strict": ["sidh", "supersingular isogeny diffie-hellman", "supersingular isogeny difﬁe-hellman"], "lenient_only": ["commutative sidh", "sidh/sike"], "n_lenient": 5}
+{"k": 20, "gold": "SIKE", "strict": ["supersingular isogeny key encapsulation"], "lenient_only": ["sidh/sike", "sike incident"], "n_lenient": 3}
+{"k": 20, "gold": "SPHINCS+ (SLH-DSA)", "strict": ["sphincs+", "stateless hash-based incredibly conservative signature"], "lenient_only": [], "n_lenient": 2}
+{"k": 20, "gold": "Shor's algorithm", "strict": ["shor'"], "lenient_only": ["calderbank-shor-steane (css) code", "quantum error correction codes (e.g., shor's code, surface codes)", "shor", "shor algorithm for integer factorization", "shor code", "shor's factoring", "shor's order-finding", "shor-like circuit", "shor-preskill proof", "shor-preskill security proof"], "n_lenient": 11}
+{"k": 20, "gold": "Smart City", "strict": ["smart city"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Smart Home", "strict": ["smart home"], "lenient_only": ["centralized smart home network", "smart home shard overlay network"], "n_lenient": 3}
+{"k": 20, "gold": "TLS 1.3", "strict": ["tls 1.3"], "lenient_only": ["post-quantum tls 1.3", "tls 1.3 hybrid", "tls 1.3 hybrid handshake", "tls 1.3 session"], "n_lenient": 5}
+{"k": 20, "gold": "TVLA", "strict": ["test vector leakage assessment"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Toffoli gate", "strict": ["toffoli gate"], "lenient_only": ["ccnot or toffoli gate", "toffoli gate implementation"], "n_lenient": 3}
+{"k": 20, "gold": "Tokyo QKD network", "strict": ["tokyo qkd network"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "Trieste QKD network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "VPN", "strict": ["virtual private network"], "lenient_only": ["major vpn vendor", "vpn computer", "vpn solution", "vpn tunnel", "vpn/appliance vendor"], "n_lenient": 6}
+{"k": 20, "gold": "WOTS+", "strict": ["wots+"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "X25519", "strict": ["x25519"], "lenient_only": ["x25519 ecdh", "x25519 elliptic curve diffie-hellman"], "n_lenient": 3}
+{"k": 20, "gold": "adversarial attack", "strict": ["adversarial attack"], "lenient_only": ["gradient-free adversarial attack", "quantum adversarial attacks and defence"], "n_lenient": 3}
+{"k": 20, "gold": "adversarial perturbation", "strict": ["adversarial perturbation"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "amplitude encoding", "strict": ["amplitude encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "angle encoding", "strict": ["angle encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "anomaly detection", "strict": ["anomaly detection"], "lenient_only": ["anomaly detection in financial transaction", "anomaly detection system", "intrusion and anomaly detection", "machine learning-based anomaly detection", "machine-learning-based anomaly detection", "quantum deep learning-based anomaly detection", "quantum-enhanced anomaly detection"], "n_lenient": 8}
+{"k": 20, "gold": "arithmetic masking", "strict": ["arithmetic masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "attenuated laser", "strict": [], "lenient_only": ["highly attenuated laser"], "n_lenient": 1}
+{"k": 20, "gold": "authentication", "strict": ["authentication"], "lenient_only": ["anonymous authentication", "authentication failure", "forward-secure ephemeral key exchange and authentication", "message authentication code", "mutual authentication", "privacy-preserving user authentication", "proof-of-authentication", "public-key authentication", "quantum-defended blockchain-assisted conditional privacy-preserving data authentication", "tls1.2 psk authentication", "two-factor authentication", "wallet authentication"], "n_lenient": 13}
+{"k": 20, "gold": "auxiliary point information", "strict": ["auxiliary point information"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "banking archive", "strict": ["banking archive"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "blockchain", "strict": ["blockchain"], "lenient_only": ["asynchronous post-quantum blockchain", "blockchain architecture", "blockchain ecosystem", "blockchain environment", "blockchain network", "blockchain node", "blockchain participant", "blockchain platform", "blockchain security infrastructure", "blockchain signature", "blockchain siot system", "blockchain system", "blockchain technology", "blockchain transaction", "blockchain-aided vehicular network", "blockchain-based cooperative d2d-assisted fc", "blockchain-based federated learning", "blockchain-based identity management", "blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "consortium blockchain", "distributed storage blockchain", "ethereum blockchain", "helium blockchain", "komodo's blockchain", "lightweight blockchain", "main blockchain", "permissioned blockchain"], "n_lenient": 47}
+{"k": 20, "gold": "botnet detection", "strict": ["botnet detection"], "lenient_only": ["malware and botnet detection"], "n_lenient": 2}
+{"k": 20, "gold": "certificate transparency log", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "circuit depth", "strict": ["circuit depth"], "lenient_only": ["low-depth variational quantum circuit", "shorter circuit depth"], "n_lenient": 3}
+{"k": 20, "gold": "classical computer", "strict": ["classical computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "classical optimizer", "strict": ["classical optimizer"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "clustering", "strict": ["clustering"], "lenient_only": ["quantum k-means clustering"], "n_lenient": 2}
+{"k": 20, "gold": "coherence time", "strict": ["coherence time"], "lenient_only": ["finite coherence time", "physical qubit coherence time", "qubit coherence time"], "n_lenient": 4}
+{"k": 20, "gold": "computational complexity", "strict": ["computational complexity"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "continuous-variable QKD (CV-QKD)", "strict": ["continuous-variable qkd", "cv-qkd", "local-oscillator exploit"], "lenient_only": ["high-rate discretely modulated cv-qkd", "measurement-device-independent cv-qkd"], "n_lenient": 5}
+{"k": 20, "gold": "correlation power analysis (CPA)", "strict": ["correlation power analysis", "cpa", "selected plaintext attack"], "lenient_only": ["conventional cpa attack", "cpa attack", "cpa result", "modified leakage model for cpa", "non-pro cpa", "random ciphertext cpa attack"], "n_lenient": 9}
+{"k": 20, "gold": "cryptographically relevant quantum computer (CRQC)", "strict": ["crqc", "cryptanalytically relevant quantum computer", "cryptographically relevant quantum computer"], "lenient_only": ["crqc threat"], "n_lenient": 4}
+{"k": 20, "gold": "cryptopp-pqc", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "cyber-physical system (CPS)", "strict": ["cyber-physical system"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "cyberattack detection", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "cybercriminal", "strict": ["cybercriminal"], "lenient_only": ["cybercriminal group"], "n_lenient": 2}
+{"k": 20, "gold": "dark count", "strict": ["dark count"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "data re-uploading", "strict": ["data re-uploading"], "lenient_only": ["data re-uploading strategy"], "n_lenient": 2}
+{"k": 20, "gold": "decoherence", "strict": ["decoherence"], "lenient_only": ["decoherence error", "decoherence tolerance", "limited scalability due to qubit decoherence, gate fidelity, and error rate", "noise and decoherence", "qubit decoherence"], "n_lenient": 6}
+{"k": 20, "gold": "decoy-state QKD", "strict": ["decoy-state qkd"], "lenient_only": ["decoy state qkd", "decoy-state mdi-qkd", "decoy-state qkd transmitter"], "n_lenient": 4}
+{"k": 20, "gold": "decoy-state method", "strict": ["decoy-state"], "lenient_only": ["decoy state", "decoy state qkd", "decoy state quantum key distribution", "decoy-state countermeasure", "decoy-state defense", "decoy-state intensity", "decoy-state mdi-qkd", "decoy-state pulse", "decoy-state qkd", "decoy-state qkd transmitter", "weak decoy state"], "n_lenient": 12}
+{"k": 20, "gold": "density estimation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "digital signature", "strict": ["digital signature", "digital signature framework"], "lenient_only": ["digital signature system", "elliptic curve digital signature", "module-lattice digital signature", "nist additional digital signature candidate", "nist digital signature standard", "nist's additional digital signature process", "post-quantum digital signature", "quantum-resistant digital signature"], "n_lenient": 10}
+{"k": 20, "gold": "discrete logarithm", "strict": ["discrete logarithm"], "lenient_only": ["discrete logarithm problem", "elliptic curve discrete logarithm", "elliptic curve discrete logarithm problem", "finding discrete logarithm", "polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer"], "n_lenient": 6}
+{"k": 20, "gold": "discrete-variable QKD (DV-QKD)", "strict": ["discrete-variable qkd"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "discriminator", "strict": ["discriminator"], "lenient_only": ["classical discriminator", "classical generator with quantum discriminator", "discriminator function", "discriminator function d", "discriminator function 𝐷", "discriminator network", "discriminator parameters φ", "five-stage discriminator", "input to the discriminator", "quantum discriminator", "quantum generator with classical discriminator"], "n_lenient": 12}
+{"k": 20, "gold": "drug discovery", "strict": ["drug discovery"], "lenient_only": ["drug discovery and molecular design", "early-stage drug discovery"], "n_lenient": 3}
+{"k": 20, "gold": "eavesdropping", "strict": ["eavesdropping"], "lenient_only": ["eavesdropping attack", "eavesdropping detection", "eavesdropping detection capability", "quantum eavesdropping attack"], "n_lenient": 5}
+{"k": 20, "gold": "eavesdropping detection", "strict": ["eavesdropping detection"], "lenient_only": ["eavesdropping detection capability"], "n_lenient": 2}
+{"k": 20, "gold": "edge node authentication", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "elliptic curve discrete logarithm", "strict": ["elliptic curve discrete logarithm"], "lenient_only": ["elliptic curve discrete logarithm problem"], "n_lenient": 2}
+{"k": 20, "gold": "enhanced mobile broadband (eMBB)", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "entanglement", "strict": ["entanglement"], "lenient_only": ["bound entanglement", "cz entanglement gate", "entanglement between distant qubit", "entanglement distillation", "entanglement distribution", "entanglement entropy", "entanglement frontier", "entanglement preparation", "entanglement purification", "entanglement swapping", "entanglement-based epr pair", "large-scale entanglement", "large-scale, on-chip entanglement", "multi-qubit entanglement", "quantum entanglement", "reversereconciliation entanglement-based (eb)"], "n_lenient": 17}
+{"k": 20, "gold": "fault-tolerant quantum computation", "strict": ["fault-tolerant quantum computation"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "fitness evaluation", "strict": ["fitness evaluation"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "fragmentation", "strict": [], "lenient_only": ["handshake fragmentation", "request-based fragmentation"], "n_lenient": 2}
+{"k": 20, "gold": "gate error rate", "strict": ["gate error rate"], "lenient_only": ["limited scalability due to qubit decoherence, gate fidelity, and error rate"], "n_lenient": 2}
+{"k": 20, "gold": "gate fidelity", "strict": ["gate fidelity"], "lenient_only": ["limited scalability due to qubit decoherence, gate fidelity, and error rate", "quantum gate fidelity"], "n_lenient": 3}
+{"k": 20, "gold": "generator", "strict": ["generator"], "lenient_only": ["backdoored random number generator", "classical generator with quantum discriminator", "classical pseudo-random generator", "generator function", "generator matrix g", "generator network", "generator parameters θ", "generator's distribution", "input to the generator", "parameterized quantum generator", "pseudo-random number generator", "quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator", "random number generator", "random permutation generator", "stabilizer generator", "true random number generator"], "n_lenient": 20}
+{"k": 20, "gold": "good (c, d) pair", "strict": ["good (c, d) pair"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "government intelligence", "strict": ["government intelligence"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "graceful degradation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "gradient-free optimization", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "handover", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "handshake overhead", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "hardware efficient ansatz", "strict": ["hardware efficient ansatz"], "lenient_only": ["hardware-efficient ansatz"], "n_lenient": 2}
+{"k": 20, "gold": "hash function", "strict": ["hash function"], "lenient_only": ["collision resistance of cryptographic hash function", "collision-resistant hash function", "cryptographic hash function", "hash function transition", "hash functions such as sha", "tweakable hash function"], "n_lenient": 7}
+{"k": 20, "gold": "hash-based signature", "strict": ["hash-based signature"], "lenient_only": ["hash-based xmss signature", "stateless hash-based incredibly conservative signature"], "n_lenient": 3}
+{"k": 20, "gold": "higher-order masking", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "hybrid key exchange", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "hypertree", "strict": ["hypertree"], "lenient_only": ["hypertree construction"], "n_lenient": 2}
+{"k": 20, "gold": "information technology", "strict": [], "lenient_only": ["korea institute of science and technology information"], "n_lenient": 1}
+{"k": 20, "gold": "information-theoretic security", "strict": ["information-theoretic security"], "lenient_only": ["information-theoretic security guarantee"], "n_lenient": 2}
+{"k": 20, "gold": "integer factorization", "strict": ["integer factorization"], "lenient_only": ["classical integer factorization", "integer factorization problem", "shor algorithm for integer factorization"], "n_lenient": 4}
+{"k": 20, "gold": "intellectual property", "strict": ["intellectual property"], "lenient_only": ["critical intellectual property"], "n_lenient": 2}
+{"k": 20, "gold": "inter-domain trust relationship", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "intercept-resend attack", "strict": ["intercept-resend attack"], "lenient_only": ["intercept-resend (ir) attack"], "n_lenient": 2}
+{"k": 20, "gold": "jamming attack", "strict": ["jamming attack"], "lenient_only": ["classical jamming attack", "jamming / dos attack"], "n_lenient": 3}
+{"k": 20, "gold": "key derivation function (KDF)", "strict": ["key derivation function"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "key management system", "strict": ["key management system"], "lenient_only": ["cisco key management system"], "n_lenient": 2}
+{"k": 20, "gold": "key rate", "strict": ["key rate"], "lenient_only": ["application key rate", "finite-size key rate", "key generation rate", "key rate r", "key rates r1, r2, ..., rn", "raw key generation rate", "secret key rate", "secret-key rate", "secure key generation rate", "secure key rate"], "n_lenient": 11}
+{"k": 20, "gold": "key storage", "strict": ["key storage"], "lenient_only": ["decryption key storage", "dedicated key storages k1, k2, ..., kn", "encryption key storage", "global key storage", "global key storage threshold", "key storage layer", "on-chain lattice key storage", "persistent key storage s", "quantum key storage", "secure key storage", "session-based key storage"], "n_lenient": 12}
+{"k": 20, "gold": "lattice attack", "strict": ["lattice attack"], "lenient_only": ["hybrid lattice-reduction attack", "trail-and-error lattice attack", "trial-and-error lattice attack"], "n_lenient": 4}
+{"k": 20, "gold": "lattice-based cryptography", "strict": ["lattice-based cryptography"], "lenient_only": ["lattice-based cryptography (e.g., kyber, ntru)", "lattice-based post-quantum cryptography"], "n_lenient": 3}
+{"k": 20, "gold": "legacy system", "strict": ["legacy system"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "linear optical circuit", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "local parameter-update optimizer", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "machine learning", "strict": ["machine learning", "machine learning framework"], "lenient_only": [], "n_lenient": 2}
+{"k": 20, "gold": "machine-to-machine (M2M)", "strict": [], "lenient_only": ["machine-to-machine (m2m) communication"], "n_lenient": 1}
+{"k": 20, "gold": "malware detection", "strict": ["malware detection"], "lenient_only": ["binary malware detection", "malware and botnet detection"], "n_lenient": 3}
+{"k": 20, "gold": "man-in-the-middle attack", "strict": ["man-in-the-middle attack"], "lenient_only": ["man-in-the-middle (mim) attack"], "n_lenient": 2}
+{"k": 20, "gold": "medical record", "strict": ["medical record"], "lenient_only": ["medical record transaction"], "n_lenient": 2}
+{"k": 20, "gold": "minimax game", "strict": ["minimax game"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "multivariate quadratic (MQ) cryptography", "strict": ["multivariate quadratic (mq) cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "multivariate signature scheme", "strict": ["multivariate signature"], "lenient_only": ["mayo multivariate signature", "multivariate-based signature"], "n_lenient": 3}
+{"k": 20, "gold": "nation-state actor", "strict": ["nation-state actor"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "network-layer routing information", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "nitrogen-vacancy (NV) center", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "noisy qubit", "strict": ["noisy qubit"], "lenient_only": ["noisy physical qubit"], "n_lenient": 2}
+{"k": 20, "gold": "one-time pad", "strict": ["one-time pad"], "lenient_only": ["one-time-pad", "one-time-pad encryption"], "n_lenient": 3}
+{"k": 20, "gold": "parameter-shift rule", "strict": ["parameter-shift rule"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "parameterized quantum circuit", "strict": ["parameterized quantum circuit"], "lenient_only": ["parameterized quantum circuit 𝑈𝐺", "random parameterized quantum circuit"], "n_lenient": 3}
+{"k": 20, "gold": "parametrized random circuit", "strict": ["parametrized random circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "personalized medicine", "strict": ["personalized medicine"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "photonic QGAN", "strict": ["photonic qgan"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "plaintext-checking oracle", "strict": [], "lenient_only": ["plaintext-checking (pc) oracle-based sca"], "n_lenient": 1}
+{"k": 20, "gold": "polarized photon", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "polynomial multiplication", "strict": ["polynomial multiplication"], "lenient_only": ["ntt-based polynomial multiplication"], "n_lenient": 2}
+{"k": 20, "gold": "post-quantum cryptography (PQC)", "strict": ["parameterized quantum circuit", "post quantum cryptography", "post-quantum cryptography", "post-quantum cryptosystem", "pqc"], "lenient_only": ["awesome-pqc", "cloudflare's experimental deployment of pqc", "initial pqc pilots by 2025-26", "internet engineering task force pqc working group", "lattice-based post-quantum cryptography", "lightweight pqc", "nist post-quantum cryptography project", "nist pqc guideline", "nist pqc project", "nist pqc standard", "nist pqc standardization project", "nist's 2024 pqc", "nist's pqc", "nist's pqc standard", "post-quantum cryptography standard", "post-quantum cryptography standardization initiative", "postquantum cryptographic (pqc) solution", "pqc algorithmic", "pqc algorithmic family", "pqc attestation report", "pqc candidate", "pqc compliance", "pqc deployment", "pqc deployment strategy", "pqc family", "pqc finalists of nist", "pqc hybridization", "pqc implementation", "pqc initiative", "pqc kem"], "n_lenient": 47}
+{"k": 20, "gold": "post-quantum cryptography (PQC) migration", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "power analysis", "strict": ["power analysis"], "lenient_only": ["correlation power analysis", "power analysis attack", "power analysis side-channel attack", "power and electromagnetic analysis"], "n_lenient": 5}
+{"k": 20, "gold": "power trace", "strict": ["power trace"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "pre-shared key", "strict": ["pre-shared key"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "precision of quantum state manipulation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "probability amplitude", "strict": ["probability amplitude"], "lenient_only": ["complex probability amplitude"], "n_lenient": 2}
+{"k": 20, "gold": "public-key cryptography", "strict": ["public-key cryptography"], "lenient_only": ["public key cryptography"], "n_lenient": 2}
+{"k": 20, "gold": "public-key encryption", "strict": ["public-key encryption"], "lenient_only": ["lattice-based public key encryption", "post-quantum public key encryption (pke)/kem"], "n_lenient": 3}
+{"k": 20, "gold": "quantum algorithm", "strict": ["quantum"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum bit error rate (QBER)", "strict": ["qber", "quantum bit error rate", "quantum bit-error rate"], "lenient_only": ["modified qber", "qber eµ", "real-time qber monitoring"], "n_lenient": 6}
+{"k": 20, "gold": "quantum channel", "strict": ["quantum channel"], "lenient_only": ["arbitrarily varying classical-quantum wiretap channel", "compound and arbitrarily varying quantum channel", "noisy quantum channel", "quantum channel / free-space link", "quantum tunneling channel", "quantum tunneling secure channel", "secure quantum channel"], "n_lenient": 8}
+{"k": 20, "gold": "quantum circuit", "strict": ["quantum circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum circuit model", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "quantum computer", "strict": ["quantum computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum computing", "strict": ["quantum computing"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum convolutional neural network (QCNN)", "strict": ["qcnn", "quantum convoluted neural network", "quantum convolutional neural network"], "lenient_only": ["hybrid quantum-classical convolutional neural network", "qcnn network", "qea-qcnn"], "n_lenient": 6}
+{"k": 20, "gold": "quantum cryptography", "strict": ["quantum cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum embedding", "strict": ["quantum embedding"], "lenient_only": ["instantaneous quantum polynomial (iqp) embedding", "quantum-enhanced embedding"], "n_lenient": 3}
+{"k": 20, "gold": "quantum error correction (QEC)", "strict": ["quantum error correction"], "lenient_only": ["5-qubit quantum error correction code", "flag-based qec", "knill-laflamme quantum error-correction criteria", "qec code", "qec cycle", "quantum error correction code", "quantum error correction codes (e.g., shor's code, surface codes)", "quantum error-correction code", "quantum error-correction machinery", "steane qec", "surface-code-like qec", "three-qubit quantum error correction code"], "n_lenient": 13}
+{"k": 20, "gold": "quantum feature map", "strict": ["quantum feature map"], "lenient_only": ["quantum-inspired feature map"], "n_lenient": 2}
+{"k": 20, "gold": "quantum feature space", "strict": ["quantum feature space"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum generative adversarial network (QGAN)", "strict": ["quantum generative adversarial network"], "lenient_only": ["conditional qgan", "conventional qgan", "evolutionary quantum generative adversarial network", "hamiltonian quantum generative adversarial network", "hybrid qgan", "ill-qgan", "photonic qgan", "quantum conditional generative adversarial network", "quantum hamiltonian generative adversarial network", "standard qgan", "unrolled qgan model"], "n_lenient": 12}
+{"k": 20, "gold": "quantum generator", "strict": ["quantum generator"], "lenient_only": ["classical generator with quantum discriminator", "parameterized quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator"], "n_lenient": 6}
+{"k": 20, "gold": "quantum key distribution (QKD)", "strict": ["point-to-point", "qkd", "quantum key distribution", "quantum key distribution (qkd)", "quantum key distribution network", "risk in quantum key distribution"], "lenient_only": ["bb84 qkd", "bb84 qkd system", "bkm07 semi-quantum key distribution", "continuous-variable qkd", "cv-qkd", "decoy state qkd", "decoy state quantum key distribution", "decoy-state mdi-qkd", "decoy-state qkd", "decoy-state qkd transmitter", "device-independent (di) qkd", "device-independent qkd", "discrete-variable qkd", "effective tf-qkd", "end-to-end qkd network", "etsi gs qkd 004", "etsi gs qkd 014", "etsi qkd 004", "etsi qkd 004 interface specification", "etsi qkd 004 key session establishment logic", "etsi qkd 014", "etsi qkd 014 standard", "etsi qkd 020", "etsi qkd 020 standard", "fiber-based qkd system", "free-space qkd", "high-rate discretely modulated cv-qkd", "local qkd node", "logical qkd link", "mdi-qkd architecture"], "n_lenient": 93}
+{"k": 20, "gold": "quantum machine learning (QML)", "strict": ["quantum machine learning"], "lenient_only": ["frameworks for blind qml", "kernal-based qml", "key qml", "qml classifier", "qml model", "qml pipeline", "qml systems for cybersecurity", "qml theoretical proposal", "qml-based detection", "qml-id"], "n_lenient": 11}
+{"k": 20, "gold": "quantum neural network (QNN)", "strict": ["quantum neural network"], "lenient_only": ["coherence issues in qnn", "deep qnn", "h-qnn", "qnn state", "qnn-qrl"], "n_lenient": 6}
+{"k": 20, "gold": "quantum parallelism", "strict": ["quantum parallelism"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "quantum physics", "strict": ["quantum physic"], "lenient_only": ["many-body quantum physic", "quantum physics problem"], "n_lenient": 3}
+{"k": 20, "gold": "quantum public key distribution", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "quantum secure direct communication (QSDC)", "strict": ["quantum secure direct communication"], "lenient_only": ["quantum-secure direct communication", "three-stage qsdc"], "n_lenient": 3}
+{"k": 20, "gold": "quantum simulation", "strict": ["quantum simulation"], "lenient_only": ["quantum computer simulation"], "n_lenient": 2}
+{"k": 20, "gold": "quantum support vector machine (QSVM)", "strict": ["quantum support vector machine"], "lenient_only": ["hardware limitations in qsvm"], "n_lenient": 2}
+{"k": 20, "gold": "qubit", "strict": ["quantum bit", "qubit", "superposition of 0 and 1, can exist in multiple state"], "lenient_only": ["#qubit", "1,024 qubit", "172-qubit device", "3-qubit repetition code", "5-qubit code", "5-qubit perfect code", "5-qubit quantum error correction code", "50-qubit device", "64 qubit", "7-qubit color code", "7-qubit steane code", "9-qubit code", "98 qubit next-generation system", "9−qubit error correction code", "advanced qubit technology", "ancilla qubit", "ancillary qubit", "auxiliary logical qubit", "auxiliary qubit", "bare qubit-cavity coupling strength", "charging energy of the transmon qubit", "crosstalk between qubit", "data qubit", "entanglement between distant qubit", "error-corrected logical qubit", "error-corrected qubit", "josephson energy of the transmon qubit", "large-scale qubit system", "limited qubit lifetime", "limited scalability due to qubit decoherence, gate fidelity, and error rate"], "n_lenient": 96}
+{"k": 20, "gold": "qubit connectivity", "strict": ["qubit connectivity"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "rectilinear basis", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "ring signature", "strict": ["ring signature"], "lenient_only": ["lattice-based one-time linkable ring signature", "post-quantum ring signature", "ring/group signature"], "n_lenient": 4}
+{"k": 20, "gold": "secret sharing", "strict": ["secret sharing"], "lenient_only": ["quantum secret sharing"], "n_lenient": 2}
+{"k": 20, "gold": "shared key K", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "shortest vector problem (SVP)", "strict": ["shortest non-zero vector", "shortest vector problem"], "lenient_only": ["hermite-svp", "shortest independent vector problem"], "n_lenient": 4}
+{"k": 20, "gold": "shuffling countermeasure", "strict": ["shuffling countermeasure"], "lenient_only": ["hardware-friendly shuffling countermeasure"], "n_lenient": 2}
+{"k": 20, "gold": "side-channel attack", "strict": ["side-channel attack"], "lenient_only": ["power analysis side-channel attack", "power side-channel attack", "power-side channel attack", "side channel attack mitigation", "side-channel-assisted chosen-ciphertext attack"], "n_lenient": 6}
+{"k": 20, "gold": "side-channel leakage", "strict": ["side-channel leakage"], "lenient_only": ["side-channel leakage in re-encryption", "side-channel leakage point"], "n_lenient": 3}
+{"k": 20, "gold": "signal state", "strict": ["signal state"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "signalling congestion", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "single photon", "strict": [], "lenient_only": ["single photon detector", "single photon pulse", "single photon source", "single-photon", "single-photon avalanche diode", "single-photon avalanche diode (spad) array", "single-photon detector", "single-photon qkd", "single-photon signal", "single-photon source", "single-photon yield"], "n_lenient": 11}
+{"k": 20, "gold": "software-defined networking (SDN)", "strict": ["software-defined networking"], "lenient_only": ["centralized sdn controller", "kms-to-sdn agent interface", "sdn agent"], "n_lenient": 4}
+{"k": 20, "gold": "startup", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "stochastic approximation", "strict": ["stochastic approximation"], "lenient_only": ["simultaneous perturbation stochastic approximation"], "n_lenient": 2}
+{"k": 20, "gold": "subscriber authentication vector", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "superconducting qubit", "strict": ["superconducting qubit"], "lenient_only": ["quantum processors (e.g., superconducting qubits, trapped ions, topological qubits)", "superconducting-based qubit system"], "n_lenient": 3}
+{"k": 20, "gold": "superposition", "strict": ["superposition"], "lenient_only": ["initial uniform superposition state", "quantum superposition", "qubits represented by physical systems (e.g., superposition of quantum states)", "state superposition", "superposition of 0 and 1, can exist in multiple state", "superposition of state", "superposition state", "uniform superposition"], "n_lenient": 9}
+{"k": 20, "gold": "symmetric cipher", "strict": [], "lenient_only": ["classical symmetric cipher"], "n_lenient": 1}
+{"k": 20, "gold": "system of quadratic equations", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "threshold secret sharing", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "transistor", "strict": [], "lenient_only": ["modern digital transistor"], "n_lenient": 1}
+{"k": 20, "gold": "transverse field", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "trapped ion", "strict": ["trapped ion"], "lenient_only": ["fault-tolerant trapped-ion implementation", "quantum processors (e.g., superconducting qubits, trapped ions, topological qubits)", "trapped ion quantum computer", "trapped ion system", "trapped-ion", "trapped-ion experiment", "trapped-ion implementation", "trapped-ion quantum computing", "trapped-ion qubit", "trapped-ion system"], "n_lenient": 11}
+{"k": 20, "gold": "trojan gate attack", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "two-step attack", "strict": ["two-step attack"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "vacuum state", "strict": ["vacuum state"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "variational quantum algorithm (VQA)", "strict": ["variational quantum"], "lenient_only": ["encrypted variational quantum circuit", "low-depth variational quantum circuit", "meta-vqa", "quantum variational", "quantum variational circuit", "variational quantum circuit", "variational quantum classification", "variational quantum classifier", "variational quantum classiﬁer", "variational quantum computing", "variational quantum eigen solver", "variational quantum eigensolver", "variational quantum layer"], "n_lenient": 14}
+{"k": 20, "gold": "variational quantum circuit", "strict": ["variational quantum circuit"], "lenient_only": ["encrypted variational quantum circuit", "low-depth variational quantum circuit", "quantum variational circuit"], "n_lenient": 4}
+{"k": 20, "gold": "variational quantum classifier (VQC)", "strict": ["quantum circuit", "variational quantum circuit", "variational quantum classifier", "variational quantum classiﬁer", "vqc"], "lenient_only": ["unencrypted vqc"], "n_lenient": 6}
+{"k": 20, "gold": "weak decoy state", "strict": ["weak decoy state"], "lenient_only": [], "n_lenient": 1}
+{"k": 20, "gold": "wolfSSL", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 20, "gold": "yield", "strict": [], "lenient_only": ["single-photon yield", "yield qµ"], "n_lenient": 2}
+{"k": 30, "gold": "5G", "strict": ["5th generation"], "lenient_only": ["5g network", "5g network operator", "5g specific dataset", "5g technology", "5g-empowered iot system", "5g-enabled iot application", "5g-enabled iot deployment", "5g-enabled iot system"], "n_lenient": 9}
+{"k": 30, "gold": "5G network slicing", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "6G network", "strict": ["6g network"], "lenient_only": ["6g core network"], "n_lenient": 2}
+{"k": 30, "gold": "6G resource allocation", "strict": [], "lenient_only": ["qml-based 6g resource allocation"], "n_lenient": 1}
+{"k": 30, "gold": "AES", "strict": ["advanced encryption standard"], "lenient_only": ["aes competition", "aes encryption", "aes-128", "aes-128-gcm", "aes-192", "aes-256", "aes-256 encryption", "aes-512", "customized aes and rsa combined"], "n_lenient": 10}
+{"k": 30, "gold": "ARM Cortex-M4", "strict": ["arm cortex-m4"], "lenient_only": ["arm cortex-m4 microcontroller", "hardware arm cortex-m4", "microcontrollers (e.g., arm cortex-m4)"], "n_lenient": 4}
+{"k": 30, "gold": "Amazon Web Services (AWS)", "strict": ["amazon web service"], "lenient_only": ["aws braket", "aws cloudhsm", "aws key management service post-quantum cryptography", "aws kms", "aws toolkit"], "n_lenient": 6}
+{"k": 30, "gold": "Anderson acceleration", "strict": ["anderson acceleration"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Artix-7 FPGA", "strict": ["artix-7 fpga"], "lenient_only": ["artix-7 xc7a100t fpga"], "n_lenient": 2}
+{"k": 30, "gold": "Ascella", "strict": ["ascella"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "BB84", "strict": ["bb84"], "lenient_only": ["bb84 / b92", "bb84 qkd", "bb84 qkd system", "bb84 with detector asymmetry", "qkd protocol bb84"], "n_lenient": 6}
+{"k": 30, "gold": "Boolean masking", "strict": ["boolean masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "BoringSSL", "strict": ["boringssl"], "lenient_only": ["boringssl fork"], "n_lenient": 2}
+{"k": 30, "gold": "Botan", "strict": ["botan"], "lenient_only": ["botan 3.x"], "n_lenient": 2}
+{"k": 30, "gold": "Bouncy Castle", "strict": ["bouncy castle"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "CPAPKE.Enc", "strict": ["cpapke.enc"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "CRYSTALS-Dilithium", "strict": ["crystals-dilithium"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "CRYSTALS-Kyber", "strict": ["crystals-kyber"], "lenient_only": ["crystal-kyber", "crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "lattice-based key encapsulation (crystals-kyber)"], "n_lenient": 5}
+{"k": 30, "gold": "Chrome", "strict": ["chrome"], "lenient_only": ["chrome 116 beta", "chrome security team", "chrome/chromium", "google chrome"], "n_lenient": 5}
+{"k": 30, "gold": "Classic McEliece", "strict": ["classic mceliece"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Cloudflare", "strict": ["cloudflare"], "lenient_only": ["cloudflare data center", "cloudflare tunnel", "cloudflare's experimental deployment of pqc", "cloudflare's post-quantum tls"], "n_lenient": 5}
+{"k": 30, "gold": "Crypto++", "strict": ["crypto++"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Cryptographic Time Paradox", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "DARPA quantum network", "strict": ["darpa quantum network"], "lenient_only": ["darpa quantum network key management"], "n_lenient": 2}
+{"k": 30, "gold": "DDKA-QKDN", "strict": ["ddka-qkdn"], "lenient_only": ["nkp ddka-qkdn", "nkp's ddka-qkdn", "nkps ddka-qkdn"], "n_lenient": 4}
+{"k": 30, "gold": "DGA botnet", "strict": ["dga botnet"], "lenient_only": ["dga botnet dataset", "dga-driven botnet activity", "domain generation algorithm (dga) botnet"], "n_lenient": 4}
+{"k": 30, "gold": "Diffie-Hellman", "strict": ["diffie-hellman"], "lenient_only": ["classical elliptic curve diffie-hellman", "commutative supersingular isogeny diffie-hellman", "diffie-hellman (dh)-established", "diffie-hellman assumption", "diffie-hellman key exchange", "elliptic curve diffie-hellman", "ellipticcurve diffie-hellman", "ephemeral diffie-hellman over cose", "supersingular isogeny diffie-hellman", "triple diffie-hellman", "whitfield diffie and martin hellman", "x25519 elliptic curve diffie-hellman"], "n_lenient": 13}
+{"k": 30, "gold": "Dilithium", "strict": ["dilithium", "module-lwe signature", "multiple level"], "lenient_only": ["crystals-dilithium", "dilithium signature", "dilithium-3", "dilithium-5", "dilithium-ii", "low-latency dilithium pipeline"], "n_lenient": 9}
+{"k": 30, "gold": "ECC-256", "strict": ["ecc-256"], "lenient_only": ["ecc p-256"], "n_lenient": 2}
+{"k": 30, "gold": "ECDSA", "strict": ["elliptic curve digital signature"], "lenient_only": ["ecdsa p-256", "ecdsa p-256 via secure enclave", "ecdsa signature"], "n_lenient": 4}
+{"k": 30, "gold": "EQGAN", "strict": ["evolutionary quantum generative adversarial network"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Elliptic Curve Cryptography (ECC)", "strict": ["ecc", "elliptic curve cryptography", "elliptic-curve cryptography", "p-256"], "lenient_only": ["ecc key", "ecc p-256", "ecc public key", "ecc-256", "ecc-based encryption", "ecc-coap", "ecc-p256", "elliptic curve cryptography defined over a finite field of size p bit", "error-correction efficiency ecc", "rsa/ecc", "rsa/ecc-encrypted data"], "n_lenient": 15}
+{"k": 30, "gold": "FALCON", "strict": ["ntru lattice signature"], "lenient_only": ["falcon post-quantum signature", "falcon signature", "falcon-1024", "falcon-512", "falcon-m"], "n_lenient": 6}
+{"k": 30, "gold": "FIPS 203", "strict": ["fips 203"], "lenient_only": ["module-lattice-based key-encapsulation mechanism (nist fips 203)", "nist fips 203", "nist fips 203/204/205", "nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)"], "n_lenient": 5}
+{"k": 30, "gold": "FIPS 204", "strict": ["fips 204"], "lenient_only": ["module-lattice-based digital signature algorithm (nist fips 204)", "nist fips 203/204/205"], "n_lenient": 3}
+{"k": 30, "gold": "FIPS 205", "strict": ["fips 205"], "lenient_only": ["nist fips 203/204/205", "nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)", "stateless hash-based digital signature algorithm (nist fips 205)"], "n_lenient": 4}
+{"k": 30, "gold": "FISMA", "strict": ["u.s. federal information security modernization act"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "FORS", "strict": ["forest of random subset"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "FPGA", "strict": ["field-programmable gate array"], "lenient_only": ["artix-7 fpga", "artix-7 xc7a100t fpga", "fpga implementation", "fpga-based edge platforms (e.g., xilinx zynq)", "fpga-based platform", "fpga/asic"], "n_lenient": 7}
+{"k": 30, "gold": "Faraday effect", "strict": ["faraday effect"], "lenient_only": ["faraday-effect based polarization rotation"], "n_lenient": 2}
+{"k": 30, "gold": "Fock-space encoding", "strict": ["fock-space encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "FrodoKEM", "strict": ["frodokem"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "GDPR", "strict": ["general data protection regulation"], "lenient_only": ["gdpr confidentiality obligation"], "n_lenient": 2}
+{"k": 30, "gold": "Gaussian mixture model", "strict": ["gaussian mixture model"], "lenient_only": ["quantum gaussian mixture model"], "n_lenient": 2}
+{"k": 30, "gold": "Gibbs state", "strict": ["gibbs state"], "lenient_only": ["quantum gibbs state", "thermal gibbs state"], "n_lenient": 3}
+{"k": 30, "gold": "Grover's algorithm", "strict": ["grover'"], "lenient_only": ["grover's algorithm for unstructured search", "grover's quantum", "grover's quantum search algorithm for preimage search of function f (grover(f))", "grover's search", "grover-based vulnerability"], "n_lenient": 6}
+{"k": 30, "gold": "Hamiltonian", "strict": ["h<sub>p</sub> or h<sub>m</sub>"], "lenient_only": ["continuous-time hamiltonian dynamic", "cost hamiltonian", "frustration-free hamiltonian h", "hamiltonian (𝐻(𝜆))", "hamiltonian averaging", "hamiltonian h", "hamiltonian hg", "hamiltonian hm", "hamiltonian operator", "hamiltonian quantum generative adversarial network", "hamiltonian simulation", "hamiltonian system", "hamiltonian variational ansatz", "interaction hamiltonian", "local hamiltonian", "local spin hamiltonian", "mixer hamiltonian (h<sub>m</sub>)", "mixer hamiltonian \\", "mixer hamiltonian hm", "mixer hamiltonian 𝐻𝑀", "modular hamiltonian", "non-hermitian hamiltonian", "parametrized hamiltonian learning", "problem hamiltonian (h<sub>p</sub>)", "problem hamiltonian \\", "problem hamiltonian 𝐻𝐶", "quantum chemistry hamiltonian", "quantum hamiltonian", "quantum hamiltonian generative adversarial network", "quantum hamiltonian hp"], "n_lenient": 34}
+{"k": 30, "gold": "Harvest-Now, Decrypt-Later (HNDL)", "strict": ["harvest now decrypt later", "harvest now, decrypt later", "harvest-now, decrypt-later", "harvest-now-decrypt-later", "hndl", "store/harvest now, decrypt later"], "lenient_only": ["formal time-dependent hndl threat model", "harvest now, decrypt later attack", "harvest now, decrypt later attack model", "harvest-now, decrypt-later (hndl) adversary", "harvest-now, decrypt-later attack", "harvest-now, decrypt-later threat", "harvest-now-decrypt-later (hndl) attack", "harvest-now-decrypt-later attack", "hndl actor", "hndl adversarial model", "hndl adversary", "hndl analysis", "hndl assumption", "hndl attack", "hndl attack lifecycle", "hndl attack model", "hndl attack vector", "hndl compromise", "hndl model", "hndl paradigm", "hndl phenomenon", "hndl risk", "hndl tactic", "hndl temporal risk", "hndl threat", "hndl threat model", "hndl vulnerability window", "hndl-type threat", "risk(hndl", "“store (harvest) now, decrypt later”"], "n_lenient": 36}
+{"k": 30, "gold": "IBM", "strict": ["ibm"], "lenient_only": ["ibm cloud", "ibm jakarta", "ibm kyoto", "ibm osaka", "ibm q", "ibm q system one", "ibm qiskit", "ibm quantum", "ibm quantum device", "ibm quantum platform", "ibm quantum runtime", "ibm quantum safe", "ibm quantum safe explorer", "ibm researcher", "ibm runtime", "ibm superconducting quantum processor", "ibm torino", "ibm torino machine", "ibm torino quantum processor", "ibm z16 mainframe", "ibm's platform", "ibm's qiskit", "ibm's quantum hardware", "ibm's superconducting quantum processor", "ibm-based demonstration"], "n_lenient": 26}
+{"k": 30, "gold": "ISACA", "strict": ["isaca"], "lenient_only": ["isaca 2025 poll", "isaca 2025 report", "isaca's poll"], "n_lenient": 4}
+{"k": 30, "gold": "Internet of Things (IoT)", "strict": ["internet of thing"], "lenient_only": ["5g-empowered iot system", "5g-enabled iot application", "5g-enabled iot deployment", "5g-enabled iot system", "agricultural iot device", "blockchain-based iot data transmission", "blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "embedded iot device", "extreme iot environment", "fog and cloud iot", "industrial internet of thing", "industrial iot", "industrial iot application", "internet of medical thing", "internet of things (iot) device", "internet of things (iot) ecosystem", "iot and embedded device", "iot application", "iot challenge", "iot context", "iot deployment", "iot device", "iot ecosystem", "iot environment", "iot gateway", "iot infrastructure", "iot microcontroller"], "n_lenient": 49}
+{"k": 30, "gold": "Internet of Vehicles and Things (IoVT)", "strict": ["iovt"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Kyber", "strict": ["all security level", "kyber", "lattice", "lattice-based encryption", "ml-kem"], "lenient_only": ["crysalis-kyber", "crystal-kyber", "crystals-kyber", "crystals-kyber (now standardized as ml-kem)", "crystals-kyber specification", "first-order masked kyber implementation", "higher-order masked kyber implementation", "hybrid x25519 + kyber-1024", "kyber cryptosystem", "kyber kem", "kyber keyshare", "kyber public key", "kyber's first-order masking", "kyber's public key", "kyber's re-encryption phase", "kyber-1024", "kyber-512", "kyber-512 noise value", "kyber-768", "kyber-768 hybrid with x25519", "kyber-90", "kyber.decap", "kyber.encap", "lattice-based cryptography (e.g., kyber, ntru)", "lattice-based key encapsulation (crystals-kyber)", "second-order masked kyber implementation", "third-order masked kyber implementation", "three-ratchet system with kyber-768"], "n_lenient": 33}
+{"k": 30, "gold": "Kyber-512", "strict": ["kyber-512"], "lenient_only": ["kyber-512 noise value"], "n_lenient": 2}
+{"k": 30, "gold": "LMS", "strict": ["leighton-micali signature"], "lenient_only": ["lms/xmss"], "n_lenient": 2}
+{"k": 30, "gold": "Lagrange interpolation", "strict": ["lagrange interpolation"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Learning With Errors (LWE)", "strict": ["learning with error", "learning-with-error", "lwe"], "lenient_only": ["learning with errors problem", "lp-lwe", "lwe based quantum resistance", "lwe instance", "lwe problem", "m-lwe problem", "module learning with error", "module-lwe kem", "module-lwe signature", "ring-lwe", "ring-lwe problem"], "n_lenient": 14}
+{"k": 30, "gold": "Libsodium", "strict": ["libsodium"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "ML-DSA", "strict": ["crystals-dilithium", "dilithium", "ml-dsa", "module-lattice digital signature", "module-lattice-based digital signature"], "lenient_only": ["ml-dsa algorithm family", "ml-dsa server", "ml-dsa-65", "nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)", "nist's finalized pqc algorithms (mlkem, ml-dsa, slh-dsa)"], "n_lenient": 10}
+{"k": 30, "gold": "ML-KEM", "strict": ["ml-kem", "module-lattice key encapsulation", "module-lattice-based kem", "module-lattice-based key-encapsulation"], "lenient_only": ["crystals-kyber (now standardized as ml-kem)", "ml-kem algorithm family", "ml-kem-512", "ml-kem-768", "nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)", "optimized ml-kem"], "n_lenient": 10}
+{"k": 30, "gold": "MNIST", "strict": ["classical data"], "lenient_only": ["fashion mnist dataset", "fashion-mnist", "high-resolution mnist image", "medical mnist x-ray", "mnist dataset", "mnist digit"], "n_lenient": 7}
+{"k": 30, "gold": "MbedTLS", "strict": ["mbedtl"], "lenient_only": ["arm mbedtl"], "n_lenient": 2}
+{"k": 30, "gold": "Microsoft", "strict": ["microsoft"], "lenient_only": ["microsoft azure", "microsoft azure quantum"], "n_lenient": 3}
+{"k": 30, "gold": "Module-LWE", "strict": ["module learning with error"], "lenient_only": ["module-lwe kem", "module-lwe signature"], "n_lenient": 3}
+{"k": 30, "gold": "Monero", "strict": ["monero"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "NISQ", "strict": ["near-term intermediate scale quantum", "nisq", "noisy intermediate scale quantum", "noisy intermediate-scale quantum"], "lenient_only": ["near-term intermediate scale quantum (nisq) processor", "nisq computer", "nisq device", "nisq era", "nisq hardware", "nisq system", "nisq technology", "nisq-era device", "nisq-era hardware", "noisy intermediate-scale quantum (nisq) computer", "noisy intermediate-scale quantum (nisq) device", "noisy intermediate-scale quantum (nisq) hardware", "physical nisq qpu"], "n_lenient": 17}
+{"k": 30, "gold": "NIST", "strict": ["national institute of standards and technology"], "lenient_only": ["module-lattice-based digital signature algorithm (nist fips 204)", "module-lattice-based key-encapsulation mechanism (nist fips 203)", "nist 2022 press release", "nist additional digital signature candidate", "nist choice", "nist competition", "nist csf", "nist digital signature standard", "nist finalist", "nist fips 203", "nist fips 203/204/205", "nist fips approval", "nist guidance", "nist interagency report (nist ir) 8528", "nist manager", "nist post-quantum", "nist post-quantum cryptography project", "nist post-quantum standardization process", "nist pqc finalist", "nist pqc guideline", "nist pqc migration timeline", "nist pqc project", "nist pqc standard", "nist pqc standardization process", "nist pqc standardization project", "nist pqc standardization timeline", "nist process", "nist quantum network manager", "nist security category", "nist security level"], "n_lenient": 53}
+{"k": 30, "gold": "NIST PQC finalists", "strict": ["nist pqc finalist"], "lenient_only": ["pqc finalists of nist"], "n_lenient": 2}
+{"k": 30, "gold": "NSL-KDD", "strict": ["nsl-kdd"], "lenient_only": ["nsl-kdd dataset"], "n_lenient": 2}
+{"k": 30, "gold": "Nash equilibrium", "strict": ["nash equilibrium"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Number Theoretic Transform (NTT)", "strict": ["inverse number theoretic transform", "ntt", "number theoretic transform", "number-theoretic transform"], "lenient_only": ["inverse ntt", "ntt core", "ntt layer", "ntt linear matrix", "ntt operation", "ntt-based polynomial multiplication", "number theoretic transform (ntt)-based polynomial multiplication", "number theoretic transform unit"], "n_lenient": 12}
+{"k": 30, "gold": "OpenSSL", "strict": ["openssl"], "lenient_only": ["openssl 3.0+", "openssl 3.x", "openssl foundation", "openssl library"], "n_lenient": 5}
+{"k": 30, "gold": "Q-Day", "strict": ["computers capable of breaking encryption"], "lenient_only": ["post-q-day phase", "q-day scenario", "q-day uncertainty"], "n_lenient": 4}
+{"k": 30, "gold": "QKD network", "strict": ["quantum key distribution network"], "lenient_only": ["end-to-end qkd network", "qkd network architecture", "qkd network as a service", "qkd network fundamental", "qkd network structure", "secoqc qkd network", "swissquantum qkd network", "tokyo qkd network"], "n_lenient": 9}
+{"k": 30, "gold": "Quantum Boltzmann Machine (QBM)", "strict": ["quantum boltzmann machine"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Quantum Fourier Transform (QFT)", "strict": ["quantum fourier transform"], "lenient_only": ["inverse qft", "manual inverse qft", "modulo-mp quantum fourier transform", "quantum fourier transform (qft)-based quantum phase estimation (qpe) routine", "quantum fourier transform aq"], "n_lenient": 6}
+{"k": 30, "gold": "Quantum Gaussian Mixture Model (QGMM)", "strict": ["quantum gaussian mixture model"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Quantum IoT", "strict": [], "lenient_only": ["post-quantum blockchain-based iot"], "n_lenient": 1}
+{"k": 30, "gold": "Quantum Random Number Generation (QRNG)", "strict": ["qrng", "quantum random number generation", "quantum random number generator"], "lenient_only": ["continuous-variable source-independent qrng", "qrng output", "semi-device-independent qrngs (semi-di qrngs)", "source-independent qrng"], "n_lenient": 7}
+{"k": 30, "gold": "RSA", "strict": ["rivest-shamir-adleman"], "lenient_only": ["1024 bit rsa implementation", "1024-bit rsa", "2048 bit rsa integer", "2048-bit rsa", "customized aes and rsa combined", "equation (4)-rsa breaking time", "expected time to break rsa modulus", "factoring 2048 bit rsa integer", "factoring a 2048-bit rsa modulus", "factoring rsa-2048", "large-scale factoring of rsa-2048", "lightweight rsa communication", "qmlfd-rsa", "rivest-shamir-adleman (rsa)", "rsa cryptosystem", "rsa encryption", "rsa factoring", "rsa integer", "rsa integer n", "rsa key", "rsa moduli", "rsa modulus", "rsa private key", "rsa public key", "rsa public key cryptosystem", "rsa security", "rsa-2048", "rsa-2048 factoring", "rsa-4096", "rsa-crt"], "n_lenient": 36}
+{"k": 30, "gold": "RSA-2048", "strict": ["rsa-2048"], "lenient_only": ["2048 bit rsa integer", "2048-bit rsa", "factoring 2048 bit rsa integer", "factoring a 2048-bit rsa modulus", "factoring rsa-2048", "large-scale factoring of rsa-2048", "rsa-2048 factoring"], "n_lenient": 8}
+{"k": 30, "gold": "Ring-LWE", "strict": ["ring-lwe"], "lenient_only": ["ring-lwe problem"], "n_lenient": 2}
+{"k": 30, "gold": "SABER", "strict": ["saber"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "SIDH", "strict": ["sidh", "supersingular isogeny diffie-hellman", "supersingular isogeny difﬁe-hellman"], "lenient_only": ["commutative sidh", "extended sidh variant", "ntruencrypt-sidh", "sidh/sike"], "n_lenient": 7}
+{"k": 30, "gold": "SIKE", "strict": ["supersingular isogeny key encapsulation"], "lenient_only": ["sidh/sike", "sike incident", "sike kem"], "n_lenient": 4}
+{"k": 30, "gold": "SPHINCS+ (SLH-DSA)", "strict": ["sphincs+", "stateless hash-based incredibly conservative signature"], "lenient_only": ["nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)", "nist's finalized pqc algorithms (mlkem, ml-dsa, slh-dsa)", "slh-dsa algorithm family"], "n_lenient": 5}
+{"k": 30, "gold": "Shor's algorithm", "strict": ["shor'"], "lenient_only": ["calderbank-shor-steane (css) code", "quantum error correction codes (e.g., shor's code, surface codes)", "shor", "shor algorithm for integer factorization", "shor code", "shor's error correction", "shor's factoring", "shor's order-finding", "shor's original", "shor's quantum algorithm for integer factorization of n (shor(n))", "shor-like circuit", "shor-preskill proof", "shor-preskill security proof", "shor-style period finding"], "n_lenient": 15}
+{"k": 30, "gold": "Smart City", "strict": ["smart city"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Smart Home", "strict": ["smart home"], "lenient_only": ["centralized smart home network", "smart home shard overlay network"], "n_lenient": 3}
+{"k": 30, "gold": "TLS 1.3", "strict": ["tls 1.3"], "lenient_only": ["post-quantum tls 1.3", "tls 1.3 hybrid", "tls 1.3 hybrid handshake", "tls 1.3 session"], "n_lenient": 5}
+{"k": 30, "gold": "TVLA", "strict": ["test vector leakage assessment"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Toffoli gate", "strict": ["toffoli gate"], "lenient_only": ["ccnot or toffoli gate", "toffoli gate implementation"], "n_lenient": 3}
+{"k": 30, "gold": "Tokyo QKD network", "strict": ["tokyo qkd network"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "Trieste QKD network", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "VPN", "strict": ["virtual private network"], "lenient_only": ["internal vpn", "major vpn vendor", "vpn computer", "vpn data", "vpn solution", "vpn tunnel", "vpn/appliance vendor"], "n_lenient": 8}
+{"k": 30, "gold": "WOTS+", "strict": ["wots+"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "X25519", "strict": ["x25519"], "lenient_only": ["hybrid x25519 + kyber-1024", "kyber-768 hybrid with x25519", "x25519 ecdh", "x25519 elliptic curve diffie-hellman", "x25519-only", "x25519/xchacha"], "n_lenient": 7}
+{"k": 30, "gold": "adversarial attack", "strict": ["adversarial attack"], "lenient_only": ["classical adversarial attack", "gradient-free adversarial attack", "policy-targeted quantum adversarial attack", "quantum adversarial attack", "quantum adversarial attacks and defence", "white-box adversarial perturbation attack"], "n_lenient": 7}
+{"k": 30, "gold": "adversarial perturbation", "strict": ["adversarial perturbation"], "lenient_only": ["adversarial perturbations in quantum deep learning", "white-box adversarial perturbation attack"], "n_lenient": 3}
+{"k": 30, "gold": "amplitude encoding", "strict": ["amplitude encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "angle encoding", "strict": ["angle encoding"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "anomaly detection", "strict": ["anomaly detection"], "lenient_only": ["anomaly detection in financial transaction", "anomaly detection system", "intrusion and anomaly detection", "lstm based anomaly detection", "machine learning-based anomaly detection", "machine-learning-based anomaly detection", "quantum deep learning-based anomaly detection", "quantum-enhanced anomaly detection"], "n_lenient": 9}
+{"k": 30, "gold": "arithmetic masking", "strict": ["arithmetic masking"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "attenuated laser", "strict": [], "lenient_only": ["highly attenuated laser"], "n_lenient": 1}
+{"k": 30, "gold": "authentication", "strict": ["authentication"], "lenient_only": ["anonymous authentication", "authentication exchange", "authentication failure", "authentication of the initial message", "authentication server", "biometric-based authentication", "forward-secure ephemeral key exchange and authentication", "hash-based authentication", "lightweight authentication and encryption", "message authentication code", "multi-factor authentication", "multifactor mutual authentication", "mutual authentication", "ntru-based authentication and encryption", "one-time pad (otp)-based authentication", "password authentication", "privacy-preserving user authentication", "proof-of-authentication", "public-key authentication", "quantum-defended blockchain-assisted conditional privacy-preserving data authentication", "subscriber authentication vector", "tls1.2 psk authentication", "two-factor authentication", "user authentication", "wallet authentication", "wegman-carter authentication tags [wci]"], "n_lenient": 27}
+{"k": 30, "gold": "auxiliary point information", "strict": ["auxiliary point information"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "banking archive", "strict": ["banking archive"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "blockchain", "strict": ["blockchain"], "lenient_only": ["asynchronous post-quantum blockchain", "blockchain architecture", "blockchain ecosystem", "blockchain environment", "blockchain network", "blockchain node", "blockchain participant", "blockchain platform", "blockchain security infrastructure", "blockchain signature", "blockchain siot system", "blockchain system", "blockchain technology", "blockchain transaction", "blockchain-aided vehicular network", "blockchain-based cooperative d2d-assisted fc", "blockchain-based federated learning", "blockchain-based identity management", "blockchain-based iot data transmission", "blockchain-iot", "blockchain-iot application", "blockchain-iot ecosystem", "blockchain-iot system", "consortium blockchain", "distributed storage blockchain", "ethereum blockchain", "helium blockchain", "komodo's blockchain", "lightweight blockchain", "main blockchain"], "n_lenient": 49}
+{"k": 30, "gold": "botnet detection", "strict": ["botnet detection"], "lenient_only": ["malware and botnet detection"], "n_lenient": 2}
+{"k": 30, "gold": "certificate transparency log", "strict": ["certificate transparency log"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "circuit depth", "strict": ["circuit depth"], "lenient_only": ["logarithmic circuit depth", "low-depth variational quantum circuit", "quantum circuit depth", "shallow circuit depth", "shallow depth circuit", "shorter circuit depth"], "n_lenient": 7}
+{"k": 30, "gold": "classical computer", "strict": ["classical computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "classical optimizer", "strict": ["classical optimizer"], "lenient_only": ["classical adam optimizer"], "n_lenient": 2}
+{"k": 30, "gold": "clustering", "strict": ["clustering"], "lenient_only": ["quantum k-means clustering"], "n_lenient": 2}
+{"k": 30, "gold": "coherence time", "strict": ["coherence time"], "lenient_only": ["finite coherence time", "physical qubit coherence time", "qubit coherence time"], "n_lenient": 4}
+{"k": 30, "gold": "computational complexity", "strict": ["computational complexity"], "lenient_only": ["computational complexity theory"], "n_lenient": 2}
+{"k": 30, "gold": "continuous-variable QKD (CV-QKD)", "strict": ["continuous-variable qkd", "cv-qkd", "local-oscillator exploit"], "lenient_only": ["high-rate discretely modulated cv-qkd", "measurement-device-independent cv-qkd"], "n_lenient": 5}
+{"k": 30, "gold": "correlation power analysis (CPA)", "strict": ["correlation power analysis", "cpa", "selected plaintext attack"], "lenient_only": ["conventional cpa attack", "cpa attack", "cpa result", "modified leakage model for cpa", "non-pro cpa", "random ciphertext cpa attack"], "n_lenient": 9}
+{"k": 30, "gold": "cryptographically relevant quantum computer (CRQC)", "strict": ["crqc", "cryptanalytically relevant quantum computer", "cryptographically relevant quantum computer"], "lenient_only": ["crqc threat"], "n_lenient": 4}
+{"k": 30, "gold": "cryptopp-pqc", "strict": ["cryptopp-pqc"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "cyber-physical system (CPS)", "strict": ["cyber-physical system"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "cyberattack detection", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "cybercriminal", "strict": ["cybercriminal"], "lenient_only": ["cybercriminal group"], "n_lenient": 2}
+{"k": 30, "gold": "dark count", "strict": ["dark count"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "data re-uploading", "strict": ["data re-uploading"], "lenient_only": ["data re-uploading strategy"], "n_lenient": 2}
+{"k": 30, "gold": "decoherence", "strict": ["decoherence"], "lenient_only": ["decoherence error", "decoherence tolerance", "limited scalability due to qubit decoherence, gate fidelity, and error rate", "noise and decoherence", "quantum decoherence", "quantum decoherence control", "qubit decoherence"], "n_lenient": 8}
+{"k": 30, "gold": "decoy-state QKD", "strict": ["decoy-state qkd"], "lenient_only": ["decoy state qkd", "decoy-state mdi-qkd", "decoy-state qkd transmitter"], "n_lenient": 4}
+{"k": 30, "gold": "decoy-state method", "strict": ["decoy-state"], "lenient_only": ["decoy state", "decoy state qkd", "decoy state quantum key distribution", "decoy-state countermeasure", "decoy-state defense", "decoy-state intensity", "decoy-state mdi-qkd", "decoy-state pulse", "decoy-state qkd", "decoy-state qkd transmitter", "weak decoy state"], "n_lenient": 12}
+{"k": 30, "gold": "density estimation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "digital signature", "strict": ["digital signature", "digital signature framework"], "lenient_only": ["digital signature system", "elliptic curve digital signature", "module-lattice digital signature", "module-lattice-based digital signature", "module-lattice-based digital signature algorithm (nist fips 204)", "nist additional digital signature candidate", "nist digital signature standard", "nist's additional digital signature process", "post-quantum digital signature", "quantum-resistant digital signature", "stateless hash-based digital signature algorithm (nist fips 205)"], "n_lenient": 13}
+{"k": 30, "gold": "discrete logarithm", "strict": ["discrete logarithm"], "lenient_only": ["discrete logarithm hardness", "discrete logarithm problem", "discrete logarithm problem over elliptic curve", "elliptic curve discrete logarithm", "elliptic curve discrete logarithm problem", "finding discrete logarithm", "polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer", "short discrete logarithm"], "n_lenient": 9}
+{"k": 30, "gold": "discrete-variable QKD (DV-QKD)", "strict": ["discrete-variable qkd"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "discriminator", "strict": ["discriminator"], "lenient_only": ["classical discriminator", "classical generator with quantum discriminator", "discriminator function", "discriminator function d", "discriminator function 𝐷", "discriminator network", "discriminator parameters φ", "five-stage discriminator", "input to the discriminator", "quantum discriminator", "quantum generator with classical discriminator"], "n_lenient": 12}
+{"k": 30, "gold": "drug discovery", "strict": ["drug discovery"], "lenient_only": ["drug discovery and molecular design", "early-stage drug discovery"], "n_lenient": 3}
+{"k": 30, "gold": "eavesdropping", "strict": ["eavesdropping"], "lenient_only": ["active eavesdropping", "eavesdropping attack", "eavesdropping detection", "eavesdropping detection capability", "network eavesdropping", "quantum eavesdropping", "quantum eavesdropping attack"], "n_lenient": 8}
+{"k": 30, "gold": "eavesdropping detection", "strict": ["eavesdropping detection"], "lenient_only": ["eavesdropping detection capability"], "n_lenient": 2}
+{"k": 30, "gold": "edge node authentication", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "elliptic curve discrete logarithm", "strict": ["elliptic curve discrete logarithm"], "lenient_only": ["discrete logarithm problem over elliptic curve", "elliptic curve discrete logarithm problem"], "n_lenient": 3}
+{"k": 30, "gold": "enhanced mobile broadband (eMBB)", "strict": ["enhanced mobile broadband"], "lenient_only": ["embb slice"], "n_lenient": 2}
+{"k": 30, "gold": "entanglement", "strict": ["entanglement"], "lenient_only": ["bound entanglement", "cz entanglement gate", "entanglement between distant qubit", "entanglement distillation", "entanglement distribution", "entanglement entropy", "entanglement fidelity", "entanglement frontier", "entanglement preparation", "entanglement purification", "entanglement spectroscopy", "entanglement spectrum", "entanglement swapping", "entanglement-based epr pair", "large-scale entanglement", "large-scale, on-chip entanglement", "multi-qubit entanglement", "quantum entanglement", "reversereconciliation entanglement-based (eb)", "separability-entanglement classiﬁcation"], "n_lenient": 21}
+{"k": 30, "gold": "fault-tolerant quantum computation", "strict": ["fault-tolerant quantum computation"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "fitness evaluation", "strict": ["fitness evaluation"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "fragmentation", "strict": ["fragmentation"], "lenient_only": ["handshake fragmentation", "request-based fragmentation"], "n_lenient": 3}
+{"k": 30, "gold": "gate error rate", "strict": ["gate error rate"], "lenient_only": ["limited scalability due to qubit decoherence, gate fidelity, and error rate", "uniform gate error rate"], "n_lenient": 3}
+{"k": 30, "gold": "gate fidelity", "strict": ["gate fidelity"], "lenient_only": ["average gate fidelity", "gate fidelity issue", "limited scalability due to qubit decoherence, gate fidelity, and error rate", "quantum gate fidelity"], "n_lenient": 5}
+{"k": 30, "gold": "generator", "strict": ["generator"], "lenient_only": ["backdoored random number generator", "classical generator with quantum discriminator", "classical pseudo-random generator", "generator function", "generator matrix g", "generator network", "generator parameters θ", "generator's distribution", "input to the generator", "multiplicative generator gp modulo p", "parameterized quantum generator", "pseudo-random number generator", "quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator", "random generator", "random number generator", "random permutation generator", "stabilizer generator", "true random number generator"], "n_lenient": 22}
+{"k": 30, "gold": "good (c, d) pair", "strict": ["good (c, d) pair"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "government intelligence", "strict": ["government intelligence"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "graceful degradation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "gradient-free optimization", "strict": ["gradient-free optimization"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "handover", "strict": ["handover"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "handshake overhead", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "hardware efficient ansatz", "strict": ["hardware efficient ansatz"], "lenient_only": ["hardware-efficient ansatz", "layered hardware efficient ansatz"], "n_lenient": 3}
+{"k": 30, "gold": "hash function", "strict": ["hash function"], "lenient_only": ["collision resistance of cryptographic hash function", "collision-resistant hash function", "cryptographic hash function", "hash function transition", "hash functions such as sha", "one-way hash function", "tweakable hash function"], "n_lenient": 8}
+{"k": 30, "gold": "hash-based signature", "strict": ["hash-based signature"], "lenient_only": ["hash-based xmss signature", "stateful hash-based signature", "stateless hash-based digital signature algorithm (nist fips 205)", "stateless hash-based incredibly conservative signature"], "n_lenient": 5}
+{"k": 30, "gold": "higher-order masking", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "hybrid key exchange", "strict": ["hybrid key exchange"], "lenient_only": ["hybrid key-exchange"], "n_lenient": 2}
+{"k": 30, "gold": "hypertree", "strict": ["hypertree"], "lenient_only": ["hypertree construction"], "n_lenient": 2}
+{"k": 30, "gold": "information technology", "strict": [], "lenient_only": ["korea institute of science and technology information"], "n_lenient": 1}
+{"k": 30, "gold": "information-theoretic security", "strict": ["information-theoretic security"], "lenient_only": ["information-theoretic security guarantee", "provable information-theoretic security"], "n_lenient": 3}
+{"k": 30, "gold": "integer factorization", "strict": ["integer factorization"], "lenient_only": ["classical integer factorization", "integer factorization problem", "shor algorithm for integer factorization", "shor's quantum algorithm for integer factorization of n (shor(n))"], "n_lenient": 5}
+{"k": 30, "gold": "intellectual property", "strict": ["intellectual property"], "lenient_only": ["critical intellectual property"], "n_lenient": 2}
+{"k": 30, "gold": "inter-domain trust relationship", "strict": ["inter-domain trust relationship"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "intercept-resend attack", "strict": ["intercept-resend attack"], "lenient_only": ["intercept-resend (ir) attack"], "n_lenient": 2}
+{"k": 30, "gold": "jamming attack", "strict": ["jamming attack"], "lenient_only": ["classical jamming attack", "jamming / dos attack"], "n_lenient": 3}
+{"k": 30, "gold": "key derivation function (KDF)", "strict": ["key derivation function"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "key management system", "strict": ["key management system"], "lenient_only": ["cisco key management system"], "n_lenient": 2}
+{"k": 30, "gold": "key rate", "strict": ["key rate"], "lenient_only": ["application key rate", "finite-size key rate", "key generation rate", "key rate r", "key rates r1, r2, ..., rn", "raw key generation rate", "secret key rate", "secret-key rate", "secure key generation rate", "secure key rate"], "n_lenient": 11}
+{"k": 30, "gold": "key storage", "strict": ["key storage"], "lenient_only": ["compromised key storage", "decryption key storage", "dedicated key storages k1, k2, ..., kn", "encryption key storage", "global key storage", "global key storage threshold", "key storage layer", "on-chain lattice key storage", "persistent key storage s", "quantum key storage", "secure key storage", "session-based key storage", "software-based key storage"], "n_lenient": 14}
+{"k": 30, "gold": "lattice attack", "strict": ["lattice attack"], "lenient_only": ["hybrid lattice-reduction attack", "lattice-based attack", "trail-and-error lattice attack", "trial-and-error lattice attack"], "n_lenient": 5}
+{"k": 30, "gold": "lattice-based cryptography", "strict": ["lattice-based cryptography"], "lenient_only": ["lattice-based cryptography (e.g., kyber, ntru)", "lattice-based post-quantum cryptography"], "n_lenient": 3}
+{"k": 30, "gold": "legacy system", "strict": ["legacy system"], "lenient_only": ["interconnected legacy system"], "n_lenient": 2}
+{"k": 30, "gold": "linear optical circuit", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "local parameter-update optimizer", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "machine learning", "strict": ["machine learning", "machine learning framework"], "lenient_only": [], "n_lenient": 2}
+{"k": 30, "gold": "machine-to-machine (M2M)", "strict": [], "lenient_only": ["machine-to-machine (m2m) communication"], "n_lenient": 1}
+{"k": 30, "gold": "malware detection", "strict": ["malware detection"], "lenient_only": ["binary malware detection", "malware and botnet detection"], "n_lenient": 3}
+{"k": 30, "gold": "man-in-the-middle attack", "strict": ["man-in-the-middle attack"], "lenient_only": ["man-in-the-middle (mim) attack"], "n_lenient": 2}
+{"k": 30, "gold": "medical record", "strict": ["medical record"], "lenient_only": ["medical record system", "medical record transaction"], "n_lenient": 3}
+{"k": 30, "gold": "minimax game", "strict": ["minimax game"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "multivariate quadratic (MQ) cryptography", "strict": ["multivariate quadratic (mq) cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "multivariate signature scheme", "strict": ["multivariate signature"], "lenient_only": ["mayo multivariate signature", "multivariate-based signature"], "n_lenient": 3}
+{"k": 30, "gold": "nation-state actor", "strict": ["nation-state actor"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "network-layer routing information", "strict": ["network-layer routing information"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "nitrogen-vacancy (NV) center", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "noisy qubit", "strict": ["noisy qubit"], "lenient_only": ["20 million noisy qubit", "noisy physical qubit"], "n_lenient": 3}
+{"k": 30, "gold": "one-time pad", "strict": ["one-time pad"], "lenient_only": ["one-time pad (otp)-based authentication", "one-time-pad", "one-time-pad encryption"], "n_lenient": 4}
+{"k": 30, "gold": "parameter-shift rule", "strict": ["parameter-shift rule"], "lenient_only": ["parameter shift rule", "sgd methods using gradients calculated via the parameter-shift rule"], "n_lenient": 3}
+{"k": 30, "gold": "parameterized quantum circuit", "strict": ["parameterized quantum circuit"], "lenient_only": ["deep parameterized quantum circuit", "parameterized quantum circuit 𝑈𝐺", "random parameterized quantum circuit"], "n_lenient": 4}
+{"k": 30, "gold": "parametrized random circuit", "strict": ["parametrized random circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "personalized medicine", "strict": ["personalized medicine"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "photonic QGAN", "strict": ["photonic qgan"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "plaintext-checking oracle", "strict": [], "lenient_only": ["plaintext-checking (pc) oracle-based sca"], "n_lenient": 1}
+{"k": 30, "gold": "polarized photon", "strict": ["polarized photon"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "polynomial multiplication", "strict": ["polynomial multiplication"], "lenient_only": ["matrix-vector and vector-vector polynomial multiplication", "ntt-based polynomial multiplication", "number theoretic transform (ntt)-based polynomial multiplication"], "n_lenient": 4}
+{"k": 30, "gold": "post-quantum cryptography (PQC)", "strict": ["deep parameterized quantum circuit", "parameterized quantum circuit", "post quantum cryptography", "post-quantum cryptography", "post-quantum cryptosystem", "pqc"], "lenient_only": ["awesome-pqc", "aws key management service post-quantum cryptography", "classical chain with pqc leaf", "cloudflare's experimental deployment of pqc", "code-based pqc", "cryptopp-pqc", "delayed pqc adoption", "dhs's post-quantum cryptography roadmap", "early pqc deployment", "enterprise-scale pqc migration", "hybrid pqc + qkd", "initial pqc pilots by 2025-26", "internet engineering task force pqc working group", "lattice-based post-quantum cryptography", "lattice-based pqc", "lightweight pqc", "nist post-quantum cryptography project", "nist pqc finalist", "nist pqc guideline", "nist pqc migration timeline", "nist pqc project", "nist pqc standard", "nist pqc standardization process", "nist pqc standardization project", "nist pqc standardization timeline", "nist's 2024 pqc", "nist's finalized post-quantum cryptography standards (fips 203-205: ml-kem, ml-dsa, slh-dsa)", "nist's finalized pqc algorithms (mlkem, ml-dsa, slh-dsa)", "nist's pqc", "nist's pqc standard"], "n_lenient": 95}
+{"k": 30, "gold": "post-quantum cryptography (PQC) migration", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "power analysis", "strict": ["power analysis"], "lenient_only": ["correlation power analysis", "power analysis attack", "power analysis side-channel attack", "power and electromagnetic analysis"], "n_lenient": 5}
+{"k": 30, "gold": "power trace", "strict": ["power trace"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "pre-shared key", "strict": ["pre-shared key"], "lenient_only": ["pre-shared symmetric key"], "n_lenient": 2}
+{"k": 30, "gold": "precision of quantum state manipulation", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "probability amplitude", "strict": ["probability amplitude"], "lenient_only": ["complex probability amplitude"], "n_lenient": 2}
+{"k": 30, "gold": "public-key cryptography", "strict": ["public-key cryptography"], "lenient_only": ["classical public-key cryptography", "multivariate public key cryptography", "post-quantum public key cryptography", "public key cryptography", "public key cryptography tool", "public-key cryptography system", "traditional public key cryptography"], "n_lenient": 8}
+{"k": 30, "gold": "public-key encryption", "strict": ["public-key encryption"], "lenient_only": ["lattice-based public key encryption", "post-quantum public key encryption (pke)/kem", "public key encryption"], "n_lenient": 4}
+{"k": 30, "gold": "quantum algorithm", "strict": ["quantum"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum bit error rate (QBER)", "strict": ["qber", "quantum bit error rate", "quantum bit-error rate"], "lenient_only": ["modified qber", "qber eµ", "real-time qber monitoring"], "n_lenient": 6}
+{"k": 30, "gold": "quantum channel", "strict": ["quantum channel"], "lenient_only": ["arbitrarily varying classical-quantum wiretap channel", "compound and arbitrarily varying quantum channel", "noisy quantum channel", "quantum channel / free-space link", "quantum channel transmission", "quantum communication channel", "quantum tunneling channel", "quantum tunneling secure channel", "secure quantum channel"], "n_lenient": 10}
+{"k": 30, "gold": "quantum circuit", "strict": ["quantum circuit"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum circuit model", "strict": ["quantum circuit model"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum computer", "strict": ["quantum computer"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum computing", "strict": ["quantum computing"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum convolutional neural network (QCNN)", "strict": ["qcnn", "quantum convoluted neural network", "quantum convolutional network", "quantum convolutional neural network"], "lenient_only": ["baseline qcnn", "hybrid quantum-classical convolutional neural network", "localized qcnn architecture", "logical qcnn circuit", "parameter-shift optimization for localized qcnn", "parametrized qcnn", "proposed qcnn", "proposed scalable qcnn", "qcnn architecture", "qcnn network", "qcnn ttn", "qea-qcnn", "quantum circuit diagram of the proposed qcnn", "scalable qcnn", "standard qcnn", "unmitigated qcnn"], "n_lenient": 20}
+{"k": 30, "gold": "quantum cryptography", "strict": ["quantum cryptography"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum embedding", "strict": ["quantum embedding"], "lenient_only": ["instantaneous quantum polynomial (iqp) embedding", "quantum-enhanced embedding"], "n_lenient": 3}
+{"k": 30, "gold": "quantum error correction (QEC)", "strict": ["quantum error correction"], "lenient_only": ["5-qubit quantum error correction code", "flag-based qec", "knill-laflamme quantum error-correction criteria", "qec code", "qec cycle", "quantum error correction code", "quantum error correction codes (e.g., shor's code, surface codes)", "quantum error-correction code", "quantum error-correction machinery", "steane qec", "surface-code-like qec", "three-qubit quantum error correction code"], "n_lenient": 13}
+{"k": 30, "gold": "quantum feature map", "strict": ["quantum feature map"], "lenient_only": ["quantum non-linear feature map", "quantum-inspired feature map"], "n_lenient": 3}
+{"k": 30, "gold": "quantum feature space", "strict": ["quantum feature space"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum generative adversarial network (QGAN)", "strict": ["quantum generative adversarial network"], "lenient_only": ["conditional qgan", "conventional qgan", "evolutionary quantum generative adversarial network", "hamiltonian quantum generative adversarial network", "hybrid qgan", "ill-qgan", "photonic qgan", "quantum conditional generative adversarial network", "quantum hamiltonian generative adversarial network", "standard qgan", "unrolled qgan model"], "n_lenient": 12}
+{"k": 30, "gold": "quantum generator", "strict": ["quantum generator"], "lenient_only": ["classical generator with quantum discriminator", "parameterized quantum generator", "quantum generator circuit", "quantum generator with classical discriminator", "quantum random number generator"], "n_lenient": 6}
+{"k": 30, "gold": "quantum key distribution (QKD)", "strict": ["point-to-point", "qkd", "quantum key distribution", "quantum key distribution (qkd)", "quantum key distribution network", "risk in quantum key distribution"], "lenient_only": ["bb84 qkd", "bb84 qkd system", "bkm07 semi-quantum key distribution", "continuous-variable qkd", "cv-qkd", "decoy state qkd", "decoy state quantum key distribution", "decoy-state mdi-qkd", "decoy-state qkd", "decoy-state qkd transmitter", "device-independent (di) qkd", "device-independent qkd", "discrete-variable qkd", "effective tf-qkd", "end-to-end qkd network", "etsi gs qkd 004", "etsi gs qkd 014", "etsi isg-qkd", "etsi qkd 004", "etsi qkd 004 interface specification", "etsi qkd 004 key session establishment logic", "etsi qkd 014", "etsi qkd 014 standard", "etsi qkd 020", "etsi qkd 020 standard", "fiber-based qkd system", "free-space qkd", "high-rate discretely modulated cv-qkd", "hybrid pqc + qkd", "iso/iec 23837: information security - security requirements, test and evaluation methods for quantum key distribution"], "n_lenient": 99}
+{"k": 30, "gold": "quantum machine learning (QML)", "strict": ["quantum machine learning"], "lenient_only": ["federated qml", "frameworks for blind qml", "kernal-based qml", "key qml", "qml classifier", "qml model", "qml pipeline", "qml prediction", "qml systems for cybersecurity", "qml theoretical proposal", "qml-based 6g application", "qml-based 6g resource allocation", "qml-based app deployment", "qml-based classifier", "qml-based detection", "qml-based learning model", "qml-based model", "qml-id"], "n_lenient": 19}
+{"k": 30, "gold": "quantum neural network (QNN)", "strict": ["quantum neural network"], "lenient_only": ["coherence issues in qnn", "deep qnn", "h-qnn", "perceptron-based qnn", "qnn state", "qnn-qrl"], "n_lenient": 7}
+{"k": 30, "gold": "quantum parallelism", "strict": ["quantum parallelism"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum physics", "strict": ["quantum physic"], "lenient_only": ["many-body quantum physic", "quantum many-body physic", "quantum physics problem"], "n_lenient": 4}
+{"k": 30, "gold": "quantum public key distribution", "strict": ["quantum public key distribution"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "quantum secure direct communication (QSDC)", "strict": ["quantum secure direct communication"], "lenient_only": ["quantum-secure direct communication", "three-stage qsdc"], "n_lenient": 3}
+{"k": 30, "gold": "quantum simulation", "strict": ["quantum simulation"], "lenient_only": ["dynamical quantum simulation", "quantum computer simulation", "quantum simulation of many-body system", "variational quantum simulation"], "n_lenient": 5}
+{"k": 30, "gold": "quantum support vector machine (QSVM)", "strict": ["quantum support vector machine"], "lenient_only": ["hardware limitations in qsvm"], "n_lenient": 2}
+{"k": 30, "gold": "qubit", "strict": ["quantum bit", "qubit", "superposition of 0 and 1, can exist in multiple state"], "lenient_only": ["#qubit", "1,024 qubit", "172-qubit device", "20 million noisy qubit", "3-qubit repetition code", "5-qubit code", "5-qubit perfect code", "5-qubit quantum error correction code", "50-qubit device", "64 qubit", "7-qubit color code", "7-qubit steane code", "9-qubit code", "98 qubit next-generation system", "9−qubit error correction code", "advanced qubit technology", "ancilla qubit", "ancillary qubit", "auxiliary logical qubit", "auxiliary qubit", "bare qubit-cavity coupling strength", "charging energy of the transmon qubit", "cold logical qubit", "crosstalk between qubit", "data qubit", "entanglement between distant qubit", "error-corrected logical qubit", "error-corrected qubit", "josephson energy of the transmon qubit", "large-scale qubit system"], "n_lenient": 120}
+{"k": 30, "gold": "qubit connectivity", "strict": ["qubit connectivity"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "rectilinear basis", "strict": ["rectilinear basis"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "ring signature", "strict": ["ring signature"], "lenient_only": ["lattice-based one-time linkable ring signature", "post-quantum ring signature", "ring/group signature"], "n_lenient": 4}
+{"k": 30, "gold": "secret sharing", "strict": ["secret sharing"], "lenient_only": ["(k, n)-threshold secret sharing", "additive secret sharing", "elliptic curve secret sharing", "multigroup secret sharing", "quantum secret sharing", "shamir's (t, n) threshold secret sharing", "shamir's secret sharing", "threshold secret sharing", "threshold-based secret sharing"], "n_lenient": 10}
+{"k": 30, "gold": "shared key K", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "shortest vector problem (SVP)", "strict": ["shortest non-zero vector", "shortest vector problem", "svp"], "lenient_only": ["hermite-svp", "shortest independent vector problem"], "n_lenient": 5}
+{"k": 30, "gold": "shuffling countermeasure", "strict": ["shuffling countermeasure"], "lenient_only": ["hardware-friendly shuffling countermeasure"], "n_lenient": 2}
+{"k": 30, "gold": "side-channel attack", "strict": ["side-channel attack"], "lenient_only": ["power analysis side-channel attack", "power side-channel attack", "power-side channel attack", "side channel attack mitigation", "side-channel-assisted chosen-ciphertext attack"], "n_lenient": 6}
+{"k": 30, "gold": "side-channel leakage", "strict": ["side-channel leakage"], "lenient_only": ["side-channel leakage in re-encryption", "side-channel leakage point"], "n_lenient": 3}
+{"k": 30, "gold": "signal state", "strict": ["signal state"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "signalling congestion", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "single photon", "strict": ["single photon"], "lenient_only": ["single photon detector", "single photon pulse", "single photon source", "single-photon", "single-photon avalanche diode", "single-photon avalanche diode (spad) array", "single-photon detector", "single-photon qkd", "single-photon signal", "single-photon source", "single-photon transmitters and detector", "single-photon yield"], "n_lenient": 13}
+{"k": 30, "gold": "software-defined networking (SDN)", "strict": ["sdn", "software defined networking", "software-defined networking"], "lenient_only": ["centralized sdn controller", "kms-to-sdn agent interface", "sdn agent"], "n_lenient": 6}
+{"k": 30, "gold": "startup", "strict": ["startup"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "stochastic approximation", "strict": ["stochastic approximation"], "lenient_only": ["simultaneous perturbation stochastic approximation"], "n_lenient": 2}
+{"k": 30, "gold": "subscriber authentication vector", "strict": ["subscriber authentication vector"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "superconducting qubit", "strict": ["superconducting qubit"], "lenient_only": ["quantum processors (e.g., superconducting qubits, trapped ions, topological qubits)", "superconducting qubit coherence", "superconducting-based qubit system"], "n_lenient": 4}
+{"k": 30, "gold": "superposition", "strict": ["superposition"], "lenient_only": ["initial uniform superposition state", "quantum superposition", "quantum superposition state space ρ", "qubits represented by physical systems (e.g., superposition of quantum states)", "state superposition", "superposition mask", "superposition masking", "superposition of 0 and 1, can exist in multiple state", "superposition of all the exponent", "superposition of state", "superposition qubit", "superposition state", "uniform superposition"], "n_lenient": 14}
+{"k": 30, "gold": "symmetric cipher", "strict": [], "lenient_only": ["classical symmetric cipher", "expected time to break symmetric cipher"], "n_lenient": 2}
+{"k": 30, "gold": "system of quadratic equations", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "threshold secret sharing", "strict": ["threshold secret sharing"], "lenient_only": ["(k, n)-threshold secret sharing", "shamir's (t, n) threshold secret sharing", "threshold-based secret sharing"], "n_lenient": 4}
+{"k": 30, "gold": "transistor", "strict": [], "lenient_only": ["modern digital transistor"], "n_lenient": 1}
+{"k": 30, "gold": "transverse field", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "trapped ion", "strict": ["trapped ion"], "lenient_only": ["fault-tolerant trapped-ion implementation", "quantum processors (e.g., superconducting qubits, trapped ions, topological qubits)", "trapped ion quantum computer", "trapped ion system", "trapped-ion", "trapped-ion experiment", "trapped-ion implementation", "trapped-ion quantum computing", "trapped-ion qubit", "trapped-ion system"], "n_lenient": 11}
+{"k": 30, "gold": "trojan gate attack", "strict": [], "lenient_only": [], "n_lenient": 0}
+{"k": 30, "gold": "two-step attack", "strict": ["two-step attack"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "vacuum state", "strict": ["vacuum state"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "variational quantum algorithm (VQA)", "strict": ["variational quantum"], "lenient_only": ["deep variational quantum eigensolver", "encrypted variational quantum circuit", "low-depth variational quantum circuit", "meta-vqa", "metric-aware vqa", "quantum variational", "quantum variational circuit", "quantum variational energy estimation", "variational algorithm for quantum singular value decomposition", "variational quantum circuit", "variational quantum classification", "variational quantum classifier", "variational quantum classiﬁer", "variational quantum compiling", "variational quantum computing", "variational quantum eigen solver", "variational quantum eigensolver", "variational quantum eigensolver implementation", "variational quantum error corrector", "variational quantum layer", "variational quantum simulation", "variational quantum state", "variational quantum state diagonalization", "variational-state quantum metrology", "vqa application"], "n_lenient": 26}
+{"k": 30, "gold": "variational quantum circuit", "strict": ["variational quantum circuit"], "lenient_only": ["encrypted variational quantum circuit", "low-depth variational quantum circuit", "quantum variational circuit"], "n_lenient": 4}
+{"k": 30, "gold": "variational quantum classifier (VQC)", "strict": ["quantum circuit", "variational quantum circuit", "variational quantum classifier", "variational quantum classiﬁer", "vqc"], "lenient_only": ["unencrypted vqc"], "n_lenient": 6}
+{"k": 30, "gold": "weak decoy state", "strict": ["weak decoy state"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "wolfSSL", "strict": ["wolfssl"], "lenient_only": [], "n_lenient": 1}
+{"k": 30, "gold": "yield", "strict": [], "lenient_only": ["single-photon yield", "yield qµ"], "n_lenient": 2}

@@ -1,0 +1,78 @@
+{
+  "k": 10,
+  "started": "2026-10-06T15:52:41",
+  "top_k": 4,
+  "num_ctx": 4096,
+  "kg": {
+    "papers": 10,
+    "chunks": 854,
+    "chunks_skipped": 0,
+    "chunks_error": 0,
+    "raw_entity_mentions": 5644,
+    "raw_relation_mentions": 3513,
+    "entities": 3274,
+    "relations": 3252,
+    "entities_in_2plus_papers": 264,
+    "relations_in_2plus_papers": 25,
+    "isolated_entities": 678,
+    "avg_degree": 1.987,
+    "components": 854,
+    "largest_component": 2121,
+    "entity_types": {
+      "CONCEPT": 871,
+      "SYSTEM": 593,
+      "ALGORITHM": 516,
+      "METRIC": 407,
+      "DEFENSE": 221,
+      "ATTACK": 190,
+      "ORGANIZATION": 173,
+      "DATASET": 101,
+      "HARDWARE": 95,
+      "PROTOCOL": 72,
+      "STANDARD": 35
+    }
+  },
+  "graphrag": {
+    "seed_entities": 8,
+    "max_relations": 12
+  },
+  "testset": {
+    "testset.json": "f8d689f1150b1d96",
+    "singlehop_kg.json": "bd56d7e78dd32897",
+    "multihop.json": "0df8ee1bb89c5f69",
+    "multihop_kg.json": "258e467516aad4dc",
+    "unanswerable.json": "f99f6edc31e56765"
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.35.1",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  }
+}

@@ -1,0 +1,790 @@
+﻿k,id,gold_key,a,b,relation,endpoints,direct,hop2,edge_descriptions,endpoints_lenient,direct_lenient,hop2_lenient
+10,q001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+10,q001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm computes discrete logarithms in polynomial time,1,0,1,,1,0,1
+10,q001,public-key cryptography -- shor',Shor's algorithm,public-key cryptography,Shor's algorithm undermines the security of current public-key cryptosystems,1,0,0,,1,0,0
+10,q005,libsodium -- nist pqc finalist,Libsodium,NIST PQC finalists,Libsodium 1.0.x does not support any NIST PQC finalist algorithm,0,0,0,,0,0,0
+10,q006,linear optical circuit -- photonic qgan,photonic QGAN,linear optical circuit,the photonic QGAN uses linear optical circuits,0,0,0,,0,0,0
+10,q006,fock-space encoding -- photonic qgan,photonic QGAN,Fock-space encoding,the photonic QGAN uses Fock-space encoding,1,1,1,Used in the photonic QGAN.,1,1,1
+10,q006,ascella -- photonic qgan,photonic QGAN,Ascella,the photonic QGAN is implemented on Quandela's Ascella photonic processor,1,1,1,Implemented on the Ascella photonic processor.,1,1,1
+10,q007,quantum feature map -- quantum support vector machine,quantum support vector machine (QSVM),quantum feature map,"QSVM uses a quantum circuit, the quantum feature map",1,1,1,QSVM uses the quantum feature map to embed data.,1,1,1
+10,q007,quantum feature map -- quantum feature space,quantum feature map,quantum feature space,the quantum feature map embeds data into a quantum feature space (Hilbert space),0,0,0,,0,0,0
+10,q015,correlation power analysis -- kyber-512,correlation power analysis (CPA),Kyber-512,applying the CPA attack twice recovered about 60% of the Kyber-512 secret key,1,0,1,,1,1,1
+10,q015,correlation power analysis -- power trace,correlation power analysis (CPA),power trace,the CPA attack used about 1619 power traces,1,1,1,CPA computations are independently executed with different power traces.,1,1,1
+10,q015,plaintext-checking oracle -- side-channel attack,side-channel attack,plaintext-checking oracle,the side-channel attack on Kyber uses an imperfect plaintext-checking oracle,0,0,0,,1,1,1
+10,q017,post-quantum cryptography -- vpn,VPN,post-quantum cryptography (PQC),VPN products advertise being quantum-safe by integrating PQC,1,1,1,PQC can be deployed in VPNs.,1,1,1
+10,q017,amazon web service -- post-quantum cryptography,Amazon Web Services (AWS),post-quantum cryptography (PQC),AWS released tools for experimenting with PQC,0,0,0,,1,1,1
+10,q017,ibm -- post-quantum cryptography,IBM,post-quantum cryptography (PQC),IBM released tools for experimenting with PQC,1,0,1,,1,0,1
+10,q017,microsoft -- post-quantum cryptography,Microsoft,post-quantum cryptography (PQC),Microsoft released tools for experimenting with PQC,1,0,0,,1,0,1
+10,q022,mnist -- quantum convolutional neural network,quantum convolutional neural network (QCNN),MNIST,the scalable QCNN achieves 98.7% accuracy on MNIST with 45 parameters,1,0,0,,1,0,0
+10,q044,"harvest-now, decrypt-later -- network-layer routing information","Harvest-Now, Decrypt-Later (HNDL)",network-layer routing information,HNDL harvested ciphertext includes network-layer routing information,0,0,0,,0,0,0
+10,q044,"harvest-now, decrypt-later -- subscriber authentication vector","Harvest-Now, Decrypt-Later (HNDL)",subscriber authentication vector,HNDL harvested ciphertext includes subscriber authentication vectors,0,0,0,,0,0,0
+10,q044,"harvest-now, decrypt-later -- inter-domain trust relationship","Harvest-Now, Decrypt-Later (HNDL)",inter-domain trust relationship,HNDL harvested ciphertext includes inter-domain trust relationships,0,0,0,,0,0,0
+10,q044,certificate transparency log -- inter-domain trust relationship,inter-domain trust relationship,certificate transparency log,inter-domain trust relationships persist in certificate transparency logs,0,0,0,,0,0,0
+10,q049,cpapke.enc -- crystals-kyber,CRYSTALS-Kyber,CPAPKE.Enc,Kyber encapsulation uses the CPAPKE.Enc function,1,1,1,CPAPKE.Enc is modified to improve security by using a hash of the message and public key.,1,1,1
+10,q049,key derivation function -- shared key k,key derivation function (KDF),shared key K,the shared key K is derived with a key derivation function,0,0,0,,0,0,0
+10,q049,cpapke.enc -- shared key k,CPAPKE.Enc,shared key K,the hash of the CPAPKE.Enc output is an input for deriving K,0,0,0,,0,0,0
+10,q057,qubit -- superposition,qubit,superposition,a qubit is in a superposition state alpha|0> + beta|1>,1,1,1,Qubits exist in a superposition of both states simultaneously.,1,1,1
+10,q057,probability amplitude -- superposition,superposition,probability amplitude,alpha and beta are complex probability amplitudes with |alpha|^2 + |beta|^2 = 1,0,0,0,,1,0,0
+10,q061,auxiliary point information -- sike,SIKE,auxiliary point information,the July 2022 attack on SIKE exploited auxiliary point information in the specification,0,0,0,,0,0,0
+10,q061,auxiliary point information -- sidh,SIDH,auxiliary point information,"the July 2022 attack on SIDH exploited auxiliary point information, enabling classical key recovery",0,0,0,,0,0,0
+10,q062,blockchain -- ring signature,ring signature,blockchain,ring signatures obscure the sender's information in blockchain-IoT transactions,1,0,0,,1,1,1
+10,q062,monero -- ring signature,ring signature,Monero,ring signatures are used in Monero,1,1,1,Ring signatures are used to obscure the information of the sender in Monero.,1,1,1
+10,q063,nitrogen-vacancy (nv) center -- qubit,nitrogen-vacancy (NV) center,qubit,NV centers encode qubits in the spin of a lattice defect,0,0,0,,0,0,0
+10,q063,coherence time -- nitrogen-vacancy (nv) center,nitrogen-vacancy (NV) center,coherence time,NV centers offer long coherence times,0,0,0,,0,0,0
+10,q064,faraday effect -- jamming attack,Faraday effect,jamming attack,the 2019 jamming attack exploited the Faraday effect,1,1,1,Exploited to disrupt QKD through jamming. || The Faraday effect is used in the jamming attack.,1,1,1
+10,q064,jamming attack -- quantum key distribution,jamming attack,quantum key distribution (QKD),the jamming attack disrupts QKD and halts key exchange,1,1,1,A jamming attack can disrupt quantum key distribution protocols.,1,1,1
+10,q064,jamming attack -- quantum bit error rate,jamming attack,quantum bit error rate (QBER),the jamming attack increases the QBER,1,1,1,The jamming attack induces a quantum bit-error rate.,1,1,1
+10,q065,ddka-qkdn -- qkd network,DDKA-QKDN,QKD network,DDKA-QKDN dynamically allocates key resources in QKD networks,0,0,0,,0,0,0
+10,q065,ddka-qkdn -- software-defined networking,DDKA-QKDN,software-defined networking (SDN),DDKA-QKDN is realized using SDN technology,0,0,0,,0,0,0
+10,q065,ddka-qkdn -- quantum iot,DDKA-QKDN,Quantum IoT,DDKA-QKDN allocates keys per application request in Quantum IoT scenarios,0,0,0,,0,0,0
+10,q066,quantum circuit model -- trojan gate attack,trojan gate attack,quantum circuit model,the trojan gate attack inserts subcircuits into the quantum circuit model,0,0,0,,0,0,0
+10,q066,6g resource allocation -- quantum circuit model,quantum circuit model,6G resource allocation,the quantum circuit model is used for 6G resource allocation,0,0,0,,0,0,0
+10,q066,adversarial perturbation -- trojan gate attack,trojan gate attack,adversarial perturbation,the trojan gate attack inserts adversarial perturbations as subcircuits,0,0,0,,0,0,0
+10,q066,adversarial perturbation -- decoherence,decoherence,adversarial perturbation,natural noise and decoherence mask the adversarial perturbations,0,0,0,,0,0,0
+10,q067,anomaly detection -- quantum neural network,quantum neural network (QNN),anomaly detection,the QNN achieved 96% accuracy in anomaly detection,0,0,0,,1,0,0
+10,q067,anomaly detection -- quantum support vector machine,quantum support vector machine (QSVM),anomaly detection,the QSVM achieved 93% accuracy in anomaly detection,0,0,0,,1,0,0
+10,q068,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects anyone attempting to access the key exchange,1,0,0,,1,1,1
+10,q068,computational complexity -- quantum key distribution,quantum key distribution (QKD),computational complexity,"QKD relies on physics, not on the computational complexity of mathematical problems",1,0,0,,1,0,0
+10,q082,quantum computer -- rsa-2048,quantum computer,RSA-2048,quantum computers capable of breaking RSA-2048 may be a decade away,1,1,1,A quantum computer could break RSA-2048.,1,1,1
+10,q082,ecc-256 -- quantum computer,quantum computer,ECC-256,quantum computers capable of breaking ECC-256 may be a decade away,1,0,0,,1,0,0
+10,q082,"gdpr -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",GDPR,decrypted harvested data could violate regulations such as GDPR,1,0,0,,1,1,1
+10,q082,"fisma -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",FISMA,decrypted harvested data could violate regulations such as FISMA,1,0,0,,1,1,1
+10,q092,post-quantum cryptography (pqc) migration -- q-day,post-quantum cryptography (PQC) migration,Q-Day,PQC migration takes 2-5 years and must finish before Q-Day (2030 +- 5 years),0,0,0,,0,0,0
+10,q092,legacy system -- post-quantum cryptography (pqc) migration,legacy system,post-quantum cryptography (PQC) migration,legacy constraints make waiting to migrate a strategic error,0,0,0,,0,0,0
+10,s001,hardware efficient ansatz -- variational quantum circuit,hardware efficient ansatz,variational quantum circuit,the hardware efficient ansatz is a parameterization of variational quantum circuits,1,0,0,,1,0,1
+10,s001,hardware efficient ansatz -- quantum simulation,hardware efficient ansatz,quantum simulation,in quantum simulation the approach is called hardware efficient ansatz,1,0,0,,1,0,0
+10,s001,hardware efficient ansatz -- parametrized random circuit,hardware efficient ansatz,parametrized random circuit,the hardware efficient ansatz is a parametrized random circuit of varying depth,1,0,0,,1,0,0
+10,s002,decoy-state -- vacuum state,decoy-state method,vacuum state,the Vacuum+Weak decoy method uses the vacuum state,0,0,0,,0,0,0
+10,s002,decoy-state -- weak decoy state,decoy-state method,weak decoy state,the Vacuum+Weak decoy method uses a weak decoy state with mean photon number << 1,0,0,0,,0,0,0
+10,s002,decoy-state -- signal state,decoy-state method,signal state,the Vacuum+Weak decoy method uses a signal state with mean photon number O(1),0,0,0,,0,0,0
+10,s002,weak decoy state -- yield,weak decoy state,yield,measuring the yields of decoy states bounds the single-photon parameters,0,0,0,,0,0,0
+10,s002,quantum bit error rate -- weak decoy state,weak decoy state,quantum bit error rate (QBER),measuring the QBER of decoy states bounds the single-photon error rate,0,0,0,,0,0,0
+10,s004,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's quantum algorithm computes discrete logarithms,1,0,1,,1,0,1
+10,s004,"good (c, d) pair -- shor'",Shor's algorithm,"good (c, d) pair","each good (c, d) pair is generated with probability at least 1/(20q^2)",0,0,0,,0,0,0
+10,s005,information technology -- quantum computing,quantum computing,information technology,quantum computing is so different from today's information technology that its applications are hard to foresee,0,0,0,,0,0,0
+10,s005,quantum computing -- startup,startup,quantum computing,a surge of investment in quantum computing by large companies and startups came sooner than expected,0,0,0,,0,0,0
+10,s006,bb84 -- quantum public key distribution,BB84,quantum public key distribution,BB84 is a protocol for quantum public key distribution,0,0,0,,0,0,0
+10,s006,bb84 -- polarized photon,BB84,polarized photon,BB84 encodes bits in polarized photons,0,0,0,,0,0,0
+10,s006,bb84 -- eavesdropping,BB84,eavesdropping,Alice and Bob publicly compare a random subset of bits to detect eavesdropping,1,0,0,,1,0,1
+10,s006,bb84 -- one-time pad,BB84,one-time pad,the remaining bits are used as a one-time pad,1,0,0,,1,0,0
+10,s007,local parameter-update optimizer -- variational quantum,local parameter-update optimizer,variational quantum algorithm (VQA),local parameter-update optimizers optimize VQA parameters sequentially,0,0,0,,0,0,0
+10,s007,gradient-free optimization -- local parameter-update optimizer,local parameter-update optimizer,gradient-free optimization,local parameter updates give a gradient-free method without hyper-parameters,0,0,0,,0,0,0
+10,s007,anderson acceleration -- local parameter-update optimizer,Anderson acceleration,local parameter-update optimizer,a variant with Anderson acceleration speeds up convergence,0,0,0,,0,0,0
+10,m001,"harvest-now, decrypt-later -- isaca",ISACA,"Harvest-Now, Decrypt-Later (HNDL)",an ISACA survey found 56% of security professionals concerned about HNDL,1,0,1,,1,0,1
+10,m001,"cybercriminal -- harvest-now, decrypt-later",cybercriminal,"Harvest-Now, Decrypt-Later (HNDL)",profit-motivated cybercriminals have less incentive for HNDL,1,0,0,,1,0,1
+10,m001,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",nation-state actors are already conducting HNDL campaigns,1,0,0,,1,1,1
+10,m001,"harvest-now, decrypt-later -- medical record",medical record,"Harvest-Now, Decrypt-Later (HNDL)",medical records are prime HNDL targets,1,1,1,HNDL poses a risk to medical records.,1,1,1
+10,m001,"government intelligence -- harvest-now, decrypt-later",government intelligence,"Harvest-Now, Decrypt-Later (HNDL)",government intelligence is a prime HNDL target,1,0,0,,1,0,0
+10,m001,"banking archive -- harvest-now, decrypt-later",banking archive,"Harvest-Now, Decrypt-Later (HNDL)",banking archives are prime HNDL targets,1,0,0,,1,0,0
+10,m001,"harvest-now, decrypt-later -- intellectual property",intellectual property,"Harvest-Now, Decrypt-Later (HNDL)",intellectual property is a prime HNDL target,1,1,1,HNDL poses a risk to intellectual property.,1,1,1
+10,m003,quantum key distribution -- quantum random number generation,Quantum Random Number Generation (QRNG),quantum key distribution (QKD),QRNG produces the true random numbers QKD needs for key setting and growth,1,0,0,,1,0,0
+10,m003,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects eavesdroppers,1,0,0,,1,1,1
+10,m003,one-time pad -- quantum key distribution,quantum key distribution (QKD),one-time pad,QKD combined with a one-time pad provides information-theoretic security,1,0,0,,1,0,0
+10,m003,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD with one-time pad or symmetric ciphers provides information-theoretic security,1,1,1,QKD offers the promise of information-theoretic security.,1,1,1
+10,m005,crystals-dilithium -- wolfssl,wolfSSL,CRYSTALS-Dilithium,wolfSSL integrates Dilithium into its TLS stack,0,0,0,,0,0,0
+10,m005,bouncy castle -- crystals-dilithium,Bouncy Castle,CRYSTALS-Dilithium,Bouncy Castle integrates Dilithium into its TLS stack,0,0,0,,0,0,0
+10,m005,crystals-dilithium -- openssl,OpenSSL,CRYSTALS-Dilithium,OpenSSL plans to integrate Dilithium,1,0,0,,1,0,0
+10,m005,kyber -- openssl,OpenSSL,Kyber,OpenSSL plans to integrate Kyber,1,0,1,,1,0,1
+10,m005,cloudflare -- crystals-dilithium,Cloudflare,CRYSTALS-Dilithium,Cloudflare adopted Dilithium early,1,0,0,,1,0,0
+10,m005,amazon web service -- crystals-dilithium,Amazon Web Services (AWS),CRYSTALS-Dilithium,AWS adopted Dilithium early,0,0,0,,1,0,0
+10,m005,crystals-dilithium -- ibm,IBM,CRYSTALS-Dilithium,IBM adopted Dilithium early,1,0,0,,1,0,0
+10,m027,cryptographically relevant quantum computer -- rsa-2048,cryptographically relevant quantum computer (CRQC),RSA-2048,CRQCs able to break RSA-2048 could emerge within the next decade,1,1,1,CRQC can break RSA-2048. || CRQC capable of breaking RSA-2048.,1,1,1
+10,m027,cryptographically relevant quantum computer -- integer factorization,cryptographically relevant quantum computer (CRQC),integer factorization,integer factorization is efficiently solvable on a CRQC,1,1,1,CRQC can solve integer factorization efficiently.,1,1,1
+10,m027,cryptographically relevant quantum computer -- elliptic curve discrete logarithm,cryptographically relevant quantum computer (CRQC),elliptic curve discrete logarithm,elliptic curve discrete logarithms are efficiently solvable on a CRQC,1,1,1,CRQC can solve elliptic curve discrete logarithms efficiently.,1,1,1
+10,m027,nist -- post-quantum cryptography,NIST,post-quantum cryptography (PQC),NIST standardized a first set of PQC algorithms,1,1,1,NIST has published guidelines for migration to PQC. || NIST initiated a process to establish a new PQC standard. || NIST is progressing toward defining standardized PQC algorithms. || NIST recommends using PQC algorithms. || NIST selected its first cohort of PQC algorithms for standardization.,1,1,1
+10,m027,crystals-kyber -- nist,NIST,CRYSTALS-Kyber,NIST standardized the lattice-based KEM CRYSTALS-Kyber,1,1,1,NIST announced CRYSTALS-Kyber as the new standard. || NIST chose CRYSTALS-Kyber as a PQC candidate. || NIST tested Kyber extensively.,1,1,1
+10,m037,gaussian mixture model -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),Gaussian mixture model,QGMMs are quantum extensions of Gaussian mixture models,0,0,0,,0,0,0
+10,m037,density estimation -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),density estimation,QGMMs are used for density estimation,0,0,0,,0,0,0
+10,m037,clustering -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),clustering,QGMMs are used for clustering,0,0,0,,0,0,0
+10,m037,gibbs state -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Gibbs state,QBMs describe the target distribution as a quantum thermal (Gibbs) state,0,0,0,,1,1,1
+10,m037,hamiltonian -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Hamiltonian,the QBM Gibbs state is of a parameterized Hamiltonian,1,0,0,,1,1,1
+10,m037,quantum boltzmann machine -- transverse field,Quantum Boltzmann Machine (QBM),transverse field,QBMs add transverse-field quantum fluctuations,0,0,0,,0,0,0
+10,m043,chrome -- hybrid key exchange,hybrid key exchange,Chrome,Google deployed hybrid X25519+Kyber key agreement in Chrome,0,0,0,,0,0,0
+10,m043,hybrid key exchange -- x25519,hybrid key exchange,X25519,the hybrid key agreement combines X25519,0,0,0,,0,0,0
+10,m043,hybrid key exchange -- kyber,hybrid key exchange,Kyber,the hybrid key agreement combines Kyber,0,0,0,,0,0,0
+10,m043,boringssl -- chrome,Chrome,BoringSSL,Chrome's hybrid key agreement is implemented with BoringSSL,1,0,0,,1,0,0
+10,m043,graceful degradation -- hybrid key exchange,hybrid key exchange,graceful degradation,hybrid deployments fall back to classical algorithms via graceful degradation,0,0,0,,0,0,0
+10,m046,drug discovery -- quantum machine learning,quantum machine learning (QML),drug discovery,QML is promising for drug discovery,1,0,0,,1,0,0
+10,m046,personalized medicine -- quantum machine learning,quantum machine learning (QML),personalized medicine,QML is promising for personalized medicine,1,0,1,,1,0,1
+10,m046,malware detection -- quantum neural network,quantum neural network (QNN),malware detection,QNN-based frameworks are used for malware detection,0,0,0,,0,0,0
+10,m046,botnet detection -- quantum neural network,quantum neural network (QNN),botnet detection,QNN-based frameworks are used for botnet detection,0,0,0,,0,0,0
+10,m046,nisq -- quantum neural network,NISQ,quantum neural network (QNN),current NISQ hardware constrains QNN-based frameworks,1,0,1,,1,0,1
+10,m064,5g network slicing -- post-quantum cryptography,post-quantum cryptography (PQC),5G network slicing,large PQC keys and signatures cause problems for 5G network slices,0,0,0,,0,0,0
+10,m064,enhanced mobile broadband -- post-quantum cryptography,post-quantum cryptography (PQC),enhanced mobile broadband (eMBB),PQC per-packet size increase adds aggregate bandwidth in eMBB slices,0,0,0,,0,0,0
+10,m064,fragmentation -- post-quantum cryptography,post-quantum cryptography (PQC),fragmentation,larger PQC messages cause fragmentation,0,0,0,,0,0,0
+10,m064,handover -- signalling congestion,handover,signalling congestion,repeated PQC handshakes during handovers worsen signalling congestion,0,0,0,,0,0,0
+10,m064,handshake overhead -- hash-based signature,hash-based signature,handshake overhead,hash-based signatures cause 245%-890% handshake overhead,0,0,0,,0,0,0
+10,m068,ml-kem -- module-lwe,Module-LWE,ML-KEM,Module-LWE underlies ML-KEM,1,0,1,,1,0,1
+10,m068,ml-dsa -- module-lwe,Module-LWE,ML-DSA,Module-LWE underlies ML-DSA,1,0,0,,1,0,0
+10,m068,learning with error -- module-lwe,Learning With Errors (LWE),Module-LWE,Module-LWE refines LWE with ring/module structure,1,0,1,,1,1,1
+10,m068,learning with error -- ring-lwe,Learning With Errors (LWE),Ring-LWE,Ring-LWE is a ring variant of LWE used for efficiency,1,1,1,Ring-LWE is a variation of LWE.,1,1,1
+10,m068,lattice-based cryptography -- learning with error,Learning With Errors (LWE),lattice-based cryptography,LWE is a basic hard problem of lattice-based cryptography,1,0,1,,1,0,1
+10,m068,learning with error -- shortest vector problem,Learning With Errors (LWE),shortest vector problem (SVP),LWE together with SVP is believed resistant to quantum algorithms,1,0,1,,1,0,1
+10,m068,ml-kem -- nist,NIST,ML-KEM,NIST standardized ML-KEM,1,0,1,,1,0,1
+10,m068,ml-dsa -- nist,NIST,ML-DSA,NIST standardized ML-DSA,1,1,1,NIST standardized CRYSTALS-Dilithium.,1,1,1
+10,g001,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends. || Shor’s algorithm can break RSA. || Threatens RSA.,1,1,1
+10,g001,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm can break ECC. || Threatens ECC.,1,1,1
+10,g001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+10,g001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm efficiently computes discrete logarithms,1,0,1,,1,0,1
+10,g001,grover' -- symmetric cipher,Grover's algorithm,symmetric cipher,"Grover's quadratic speed-up halves symmetric-cipher security, countered by doubling key sizes",0,0,0,,1,0,0
+10,g001,aes -- grover',Grover's algorithm,AES,under Grover's algorithm AES-128 has 64-bit security,1,0,0,,1,0,0
+10,g001,noisy qubit -- rsa-2048,RSA-2048,noisy qubit,RSA-2048 could be broken with fewer than a million noisy qubits,1,0,1,,1,0,1
+10,g002,kyber -- rsa,Kyber,RSA,Kyber outperforms RSA in key exchange speed,1,0,1,,1,0,1
+10,g002,kyber -- learning with error,Kyber,Learning With Errors (LWE),Kyber's security depends on the LWE problem,1,1,1,Kyber mechanism addresses potential weaknesses in Learning with Errors schemes.,1,1,1
+10,g002,kyber -- lattice-based cryptography,Kyber,lattice-based cryptography,Kyber is a lattice-based scheme,1,0,1,,1,1,1
+10,g002,kyber -- openssl,Kyber,OpenSSL,Kyber was integrated into OpenSSL prototypes,1,0,1,,1,0,1
+10,g002,kyber -- tls 1.3,Kyber,TLS 1.3,Kyber was tested in TLS 1.3 handshakes,1,0,1,,1,1,1
+10,g003,5g -- smart city,Smart City,5G,Smart Cities require the higher throughput that 5G provides,0,0,0,,1,0,0
+10,g003,5g -- internet of vehicles and thing,Internet of Vehicles and Things (IoVT),5G,IoVT requires the higher throughput that 5G provides,0,0,0,,0,0,0
+10,g003,internet of thing -- smart home,Smart Home,Internet of Things (IoT),Smart Homes are traditional IoT applications needing minimal wireless capabilities,1,0,1,,1,0,1
+10,g005,amplitude encoding -- qubit,amplitude encoding,qubit,amplitude encoding requires a prohibitively large number of qubits,1,0,1,,1,0,1
+10,g005,data re-uploading -- quantum circuit,data re-uploading,quantum circuit,data re-uploading improves data representation within quantum circuits,0,0,0,,1,1,1
+10,g005,botnet detection -- quantum embedding,quantum embedding,botnet detection,a hybrid model with quantum embeddings achieved up to 94.7% accuracy for botnet detection,0,0,0,,0,0,0
+10,g007,multivariate quadratic (mq) cryptography -- system of quadratic equation,multivariate quadratic (MQ) cryptography,system of quadratic equations,MQ cryptography relies on solving systems of quadratic equations over finite fields (NP-hard),0,0,0,,0,0,0
+10,g007,digital signature -- multivariate quadratic (mq) cryptography,multivariate quadratic (MQ) cryptography,digital signature,MQ schemes are mainly used for digital signatures,0,0,0,,0,0,0
+10,g007,multivariate quadratic (mq) cryptography -- public-key encryption,multivariate quadratic (MQ) cryptography,public-key encryption,MQ schemes are used for public-key encryption,0,0,0,,0,0,0
+10,g007,edge node authentication -- multivariate signature,multivariate signature scheme,edge node authentication,the scheme's parallelism allows effective edge node authentication,0,0,0,,0,0,0
+10,g011,kyber -- side-channel leakage,Kyber,side-channel leakage,three side-channel leakage points were reported in Kyber's decryption,1,1,1,Kyber is vulnerable to side-channel leakage during decryption.,1,1,1
+10,g011,kyber -- side-channel attack,Kyber,side-channel attack,side-channel attacks were completed on Kyber hardware implementations,1,1,1,Kyber mechanism guards against side-channel attacks.,1,1,1
+10,g011,machine learning -- power analysis,machine learning,power analysis,researchers used machine learning to exploit a power-consumption side channel,0,0,0,,1,0,1
+10,g011,kyber -- power analysis,power analysis,Kyber,the power side channel was exploited against a Kyber implementation,0,0,0,,1,1,1
+10,g015,elliptic curve cryptography -- kyber,Kyber,Elliptic Curve Cryptography (ECC),Kyber's public key (~800 bytes) is larger than an ECC public key,1,0,1,,1,0,1
+10,g015,classic mceliece -- kyber,Kyber,Classic McEliece,Kyber's public key is much smaller than Classic McEliece's (>1 MB),1,1,1,Kyber is more efﬁcient than Classic McEliece.,1,1,1
+10,g015,dilithium -- ecdsa,Dilithium,ECDSA,Dilithium signatures are a few kilobytes versus 64 bytes for ECDSA,1,0,1,,1,0,1
+10,g015,internet of thing -- kyber,Kyber,Internet of Things (IoT),Kyber is considered feasible for a common IoT setup,1,0,0,,1,0,1
+10,g015,kyber -- rsa,Kyber,RSA,Kyber operations are comparable to or faster than RSA,1,0,1,,1,0,1
+10,g015,dilithium -- falcon,FALCON,Dilithium,FALCON is more memory-efficient than Dilithium,1,1,1,Dilithium outperforms FALCON in terms of signature size and speed. || FALCON offers the fastest validation speed while Dilithium provides the fastest signing operation. || NIST has presented Dilithium and FALCON as postquantum signature standards.,1,1,1
+10,g016,quantum key distribution -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum key distribution (QKD),QSDC transmits messages directly whereas QKD establishes shared keys,1,0,0,,1,0,1
+10,g016,quantum channel -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum channel,QSDC transmits messages directly over a quantum channel,1,0,0,,1,0,1
+10,g016,darpa quantum network -- quantum key distribution,DARPA quantum network,quantum key distribution (QKD),the DARPA network is a practical intercity QKD network,0,0,0,,0,0,0
+10,g016,quantum key distribution -- tokyo qkd network,Tokyo QKD network,quantum key distribution (QKD),the Tokyo network is a practical intercity QKD network,0,0,0,,0,0,0
+10,g016,quantum key distribution -- trieste qkd network,Trieste QKD network,quantum key distribution (QKD),the Trieste network is a practical intercity QKD network,0,0,0,,0,0,0
+10,g019,key storage -- qkd network,QKD network,key storage,the key storages of a QKD network must stay consistent for the service to work,0,0,0,,1,0,0
+10,g019,key rate -- key storage,key storage,key rate,key storage decouples generation from consumption to cope with limited QKD key rates,0,0,0,,1,0,0
+10,g019,authentication -- quantum key distribution,quantum key distribution (QKD),authentication,QKD has no built-in authentication,1,0,0,,1,0,0
+10,g019,man-in-the-middle attack -- quantum key distribution,quantum key distribution (QKD),man-in-the-middle attack,without authentication a man-in-the-middle could impersonate a QKD endpoint,1,1,1,An adversary can launch a man-in-the-middle attack on a QKD session.,1,1,1
+10,g019,pre-shared key -- quantum key distribution,quantum key distribution (QKD),pre-shared key,QKD links are bootstrapped with a pre-shared key or classical signature,1,1,1,Pre-shared keys are used to bootstrap QKD links. || QKD can be used instead of pre-shared keys for encryption.,1,1,1
+10,g019,key management system -- quantum key distribution,quantum key distribution (QKD),key management system,QKD may need integration with classical key management systems,1,1,1,Custom key management systems are needed for QKD.,1,1,1
+10,g021,kyber -- two-step attack,two-step attack,Kyber,the two-step attack recovers Kyber's secret key,1,1,1,An improved attack on Kyber. || Proposed attack targets Kyber. || The attack increases time taken for Kyber at high security levels. || The attack is performed on Kyber. || The attack targets Kyber.,1,1,1
+10,g021,correlation power analysis -- two-step attack,two-step attack,correlation power analysis (CPA),the two-step attack starts with CPA,1,1,1,The attack includes non-profiled CPA. || The two-step attack uses CPA.,1,1,1
+10,g021,lattice attack -- two-step attack,two-step attack,lattice attack,the two-step attack follows CPA with a lattice attack,1,0,1,,1,1,1
+10,g021,power trace -- two-step attack,two-step attack,power trace,the two-step attack needs at most 15 power traces,1,1,1,The attack requires a total number of power traces.,1,1,1
+10,g021,arm cortex-m4 -- two-step attack,two-step attack,ARM Cortex-M4,the two-step attack is run on an ARM Cortex-M4 board,1,0,1,,1,0,1
+10,g021,kyber -- shuffling countermeasure,shuffling countermeasure,Kyber,the shuffling countermeasure protects Kyber,0,0,0,,0,0,0
+10,g021,fpga -- shuffling countermeasure,shuffling countermeasure,FPGA,the shuffling countermeasure is implemented on FPGA with 8.7% efficiency loss,0,0,0,,0,0,0
+10,g021,shuffling countermeasure -- tvla,shuffling countermeasure,TVLA,the shuffling countermeasure is verified with TVLA,0,0,0,,0,0,0
+10,g026,higher-order masking -- kyber,higher-order masking,Kyber,higher-order masking protects Kyber implementations,0,0,0,,0,0,0
+10,g026,higher-order masking -- side-channel attack,higher-order masking,side-channel attack,masking is a countermeasure against side-channel attacks,0,0,0,,0,0,0
+10,g026,arithmetic masking -- higher-order masking,higher-order masking,arithmetic masking,shares can be combined by arithmetic addition (arithmetic masking),0,0,0,,0,0,0
+10,g026,boolean masking -- higher-order masking,higher-order masking,Boolean masking,shares can be combined by XOR (Boolean masking),0,0,0,,0,0,0
+10,g026,lagrange interpolation -- threshold secret sharing,threshold secret sharing,Lagrange interpolation,t or more participants reconstruct the secret by Lagrange interpolation,0,0,0,,0,0,0
+10,g027,gate error rate -- trapped ion,trapped ion,gate error rate,trapped ions have the best reported gate error rates (1e-7 / 1e-5),1,0,1,,1,1,1
+10,g027,gate error rate -- transistor,transistor,gate error rate,digital transistors reach error rates of 1e-23,0,0,0,,1,0,0
+10,g027,fault-tolerant quantum computation -- quantum error correction,fault-tolerant quantum computation,quantum error correction (QEC),fault-tolerant computation depends on effective QEC,1,0,0,,1,0,0
+10,g027,quantum error correction -- toffoli gate,quantum error correction (QEC),Toffoli gate,QEC was demonstrated with a Toffoli gate,1,1,1,The QEC protocol showcases the effectiveness of the correction mechanism for the Toffoli gate.,1,1,1
+10,g027,superconducting qubit -- toffoli gate,Toffoli gate,superconducting qubit,the Toffoli gate was implemented on superconducting qubits,1,0,0,,1,0,0
+10,g027,coherence time -- quantum error correction,quantum error correction (QEC),coherence time,the QEC demonstration was limited by coherence times,1,0,1,,1,0,1
+10,g028,kyber -- mbedtl,MbedTLS,Kyber,MbedTLS intends to add Kyber soon,0,0,0,,0,0,0
+10,g028,dilithium -- mbedtl,MbedTLS,Dilithium,MbedTLS intends to add Dilithium later,0,0,0,,0,0,0
+10,g028,lms -- mbedtl,MbedTLS,LMS,MbedTLS supports LMS signatures,0,0,0,,0,0,0
+10,g028,internet of thing -- mbedtl,MbedTLS,Internet of Things (IoT),MbedTLS runs on millions of IoT devices,0,0,0,,0,0,0
+10,g028,crypto++ -- cryptopp-pqc,Crypto++,cryptopp-pqc,cryptopp-pqc is a third-party fork of Crypto++,0,0,0,,0,0,0
+10,g028,cryptopp-pqc -- kyber,cryptopp-pqc,Kyber,cryptopp-pqc adds CRYSTALS-Kyber,0,0,0,,0,0,0
+10,g028,cryptopp-pqc -- dilithium,cryptopp-pqc,Dilithium,cryptopp-pqc adds CRYSTALS-Dilithium,0,0,0,,0,0,0
+10,g028,cryptopp-pqc -- saber,cryptopp-pqc,SABER,cryptopp-pqc adds SABER,0,0,0,,0,0,0
+10,g028,cryptopp-pqc -- frodokem,cryptopp-pqc,FrodoKEM,cryptopp-pqc adds FrodoKEM,0,0,0,,0,0,0
+10,g030,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",HNDL is the primary behavior of nation-states before Q-Day,1,0,0,,1,1,1
+10,g030,"harvest-now, decrypt-later -- q-day","Harvest-Now, Decrypt-Later (HNDL)",Q-Day,HNDL actors collect data now to decrypt after Q-Day,1,0,0,,1,0,0
+10,g030,"harvest-now, decrypt-later -- rsa","Harvest-Now, Decrypt-Later (HNDL)",RSA,harvested data is decrypted once quantum computers break RSA,1,0,1,,1,0,1
+10,g030,"elliptic curve cryptography -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",Elliptic Curve Cryptography (ECC),harvested data is decrypted once quantum computers break ECC,1,0,1,,1,0,1
+10,g030,cryptographic time paradox -- cryptographically relevant quantum computer,Cryptographic Time Paradox,cryptographically relevant quantum computer (CRQC),encrypted data becomes readable the moment a CRQC is built,0,0,0,,0,0,0
+10,g030,cryptographic time paradox -- rsa,Cryptographic Time Paradox,RSA,RSA-encrypted data is safe only until a working CRQC exists,0,0,0,,0,0,0
+10,g030,cryptographic time paradox -- post-quantum cryptography,Cryptographic Time Paradox,post-quantum cryptography (PQC),the paradox means PQC readiness is needed by 2035,0,0,0,,0,0,0
+10,g034,quantum cryptography -- quantum physic,quantum cryptography,quantum physics,quantum cryptography relies on principles of quantum physics,0,0,0,,0,0,0
+10,g034,continuous-variable qkd -- quantum key distribution,quantum key distribution (QKD),continuous-variable QKD (CV-QKD),CV protocols are one category of QKD protocols,1,0,1,,1,0,1
+10,g034,discrete-variable qkd -- quantum key distribution,quantum key distribution (QKD),discrete-variable QKD (DV-QKD),DV protocols are one category of QKD protocols,0,0,0,,0,0,0
+10,g034,discrete-variable qkd -- single photon,discrete-variable QKD (DV-QKD),single photon,DV protocols use discrete outcomes such as single-photon polarization,0,0,0,,0,0,0
+10,g034,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD keys are information-theoretically secure,1,1,1,QKD offers the promise of information-theoretic security.,1,1,1
+10,g035,entanglement -- shor',Shor's algorithm,entanglement,Shor's algorithm uses entanglement,1,0,1,,1,1,1
+10,g035,quantum parallelism -- shor',Shor's algorithm,quantum parallelism,Shor's algorithm exploits quantum parallelism,1,0,0,,1,0,0
+10,g035,quantum fourier transform -- shor',Shor's algorithm,Quantum Fourier Transform (QFT),the QFT is at the core of Shor's algorithm,1,1,1,At the core of Shor’s algorithm is the Quantum Fourier Transform. || QFT is a fundamental component in Shor’s algorithm. || Shor’s algorithm is a different algorithm from the Quantum Fourier Transform Algorithm. || Shor’s algorithm uses QFT to infer the period r.,1,1,1
+10,g035,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm factors large integers in polynomial time,1,1,1,Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+10,g035,integer factorization -- rsa,RSA,integer factorization,RSA's security rests on the difficulty of factoring large numbers,1,1,1,RSA’s security relies on integer factorization.,1,1,1
+10,g035,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends. || Shor’s algorithm can break RSA. || Threatens RSA.,1,1,1
+10,g035,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm can break ECC. || Threatens ECC.,1,1,1
+10,g037,hash function -- sphincs+,SPHINCS+ (SLH-DSA),hash function,SPHINCS+ security relies solely on the collision resistance of hash functions,1,0,0,,1,0,1
+10,g037,sphincs+ -- wots+,SPHINCS+ (SLH-DSA),WOTS+,SPHINCS+ uses WOTS+ to sign individual nodes,1,1,1,WOTS+ plays the role of an OTS in SPHINCS+.,1,1,1
+10,g037,for -- sphincs+,SPHINCS+ (SLH-DSA),FORS,SPHINCS+ uses FORS few-time signatures at the leaves,0,0,0,,0,0,0
+10,g037,hypertree -- sphincs+,SPHINCS+ (SLH-DSA),hypertree,SPHINCS+ links its trees in a hypertree for stateless operation,0,0,0,,0,0,0
+10,g037,nist -- sphincs+,NIST,SPHINCS+ (SLH-DSA),NIST selected SPHINCS+,1,1,1,Approved by NIST as a standard. || NIST standardized SPHINCS+.,1,1,1
+10,g037,fips 203 -- kyber,FIPS 203,Kyber,FIPS 203 is ML-KEM (Kyber),1,0,0,,1,0,0
+10,g037,dilithium -- fips 204,FIPS 204,Dilithium,FIPS 204 is ML-DSA (Dilithium),1,0,0,,1,0,0
+10,g037,fips 205 -- sphincs+,FIPS 205,SPHINCS+ (SLH-DSA),FIPS 205 is SLH-DSA (SPHINCS+),1,0,0,,1,0,0
+10,g039,attenuated laser -- quantum key distribution,quantum key distribution (QKD),attenuated laser,"attenuated lasers sometimes emit multi-photon signals, making practical QKD insecure",0,0,0,,0,0,0
+10,g039,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML algorithms can be leveraged for eavesdropping detection,1,0,1,,1,0,1
+10,g039,eavesdropping detection -- quantum support vector machine,quantum support vector machine (QSVM),eavesdropping detection,QSVM can be used for eavesdropping detection,1,0,0,,1,0,0
+10,g039,eavesdropping detection -- quantum convolutional neural network,quantum convolutional neural network (QCNN),eavesdropping detection,QCNN can be used for eavesdropping detection,1,0,0,,1,0,0
+10,g040,kyber -- number theoretic transform,Number Theoretic Transform (NTT),Kyber,the NTT-optimized accelerator speeds up Kyber by up to 34.16x,1,1,1,NTT is used in the Kyber system.,1,1,1
+10,g040,dilithium -- number theoretic transform,Number Theoretic Transform (NTT),Dilithium,the NTT-optimized accelerator speeds up Dilithium by 9.6x,1,1,1,Dilithium algorithms have yielded speedups for NTT operations.,1,1,1
+10,g040,artix-7 fpga -- number theoretic transform,Number Theoretic Transform (NTT),Artix-7 FPGA,the NTT accelerator is implemented on an Artix-7 FPGA,0,0,0,,0,0,0
+10,g040,number theoretic transform -- polynomial multiplication,Number Theoretic Transform (NTT),polynomial multiplication,the NTT reduces polynomial multiplication from O(N^2) to O(N log N),1,0,1,,1,0,1
+10,g040,kyber -- polynomial multiplication,polynomial multiplication,Kyber,polynomial multiplication dominates Kyber encryption and decryption,1,1,1,Kyber implementations have demonstrated speedups for polynomial multiplication.,1,1,1
+10,g042,quantum generative adversarial network -- quantum generator,quantum generative adversarial network (QGAN),quantum generator,a QGAN has a parameterized quantum generator,1,0,0,,1,1,1
+10,g042,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,a QGAN has a quantum or classical discriminator,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+10,g042,minimax game -- quantum generative adversarial network,quantum generative adversarial network (QGAN),minimax game,QGAN training is a two-player minimax game,1,0,1,,1,0,1
+10,g042,quantum generative adversarial network -- variational quantum,quantum generative adversarial network (QGAN),variational quantum algorithm (VQA),a QGAN is usually built as a variational quantum algorithm,1,0,1,,1,1,1
+10,g042,eqgan -- quantum generative adversarial network,EQGAN,quantum generative adversarial network (QGAN),EQGAN improves QGAN training,1,0,0,,1,0,1
+10,g042,eqgan -- fitness evaluation,EQGAN,fitness evaluation,EQGAN uses fitness evaluation to select generator configurations,1,1,1,Fitness evaluation improves the performance of EQGAN.,1,1,1
+10,g043,classical computer -- quantum,quantum algorithm,classical computer,quantum algorithms solve problems believed hard for classical computers,1,0,1,,1,0,1
+10,g043,integer factorization -- quantum,quantum algorithm,integer factorization,factoring large integers is the best-known such problem,1,0,1,,1,0,1
+10,g043,precision of quantum state manipulation -- quantum computer,precision of quantum state manipulation,quantum computer,"if precision grows polynomially with input size, quantum computers are more powerful",0,0,0,,0,0,0
+10,g044,nisq -- variational quantum,variational quantum algorithm (VQA),NISQ,VQAs are the leading strategy for NISQ devices,1,0,0,,1,1,1
+10,g044,qubit connectivity -- variational quantum,variational quantum algorithm (VQA),qubit connectivity,VQAs account for limited qubit connectivity,1,0,0,,1,0,1
+10,g044,circuit depth -- variational quantum,variational quantum algorithm (VQA),circuit depth,VQAs account for errors that limit circuit depth,1,0,0,,1,0,1
+10,g044,gate fidelity -- nisq,gate fidelity,NISQ,more accurate gates extend the power of NISQ technology,1,0,0,,1,0,0
+10,g044,gate fidelity -- quantum error correction,gate fidelity,quantum error correction (QEC),more accurate gates lower the overhead of later QEC,1,0,0,,1,0,0
+10,g045,bb84 -- intercept-resend attack,intercept-resend attack,BB84,measuring and resending all photons induces errors in 1/4 of BB84 bits,0,0,0,,1,0,0
+10,g045,intercept-resend attack -- rectilinear basis,intercept-resend attack,rectilinear basis,the eavesdropper measures all photons in the rectilinear basis,0,0,0,,0,0,0
+10,g045,decoy-state qkd -- yield,decoy-state QKD,yield,decoy-state QKD analyses the yield,0,0,0,,1,0,0
+10,g045,dark count -- yield,yield,dark count,the yield combines signal-photon detection and background events such as dark counts,0,0,0,,1,0,0
+10,g046,quantum key distribution -- quantum machine learning,quantum machine learning (QML),quantum key distribution (QKD),research on QML for QKD has increased since 2010,1,1,1,Integrated ML with quantum key distribution protocols.,1,1,1
+10,g046,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML is used for eavesdropping detection in QKD,1,0,1,,1,0,1
+10,g046,6g network -- quantum machine learning,quantum machine learning (QML),6G network,QML is studied for 6G network intelligence,0,0,0,,0,0,0
+10,g046,adversarial attack -- quantum machine learning,quantum machine learning (QML),adversarial attack,QML-based applications face adversarial threats,0,0,0,,0,0,0
+10,g048,parameterized quantum circuit -- variational quantum classifier,variational quantum classifier (VQC),parameterized quantum circuit,VQCs combine parameterised quantum circuits with classical optimisers,1,0,1,,1,0,1
+10,g048,classical optimizer -- variational quantum classifier,variational quantum classifier (VQC),classical optimizer,VQCs use classical optimisers in hybrid feedback loops,1,0,0,,1,0,0
+10,g048,cyberattack detection -- variational quantum classifier,variational quantum classifier (VQC),cyberattack detection,VQCs are used for cyberattack detection,0,0,0,,0,0,0
+10,g048,nsl-kdd -- variational quantum classifier,variational quantum classifier (VQC),NSL-KDD,VQCs were used for cyberattack detection on NSL-KDD,0,0,0,,0,0,0
+10,g048,dga botnet -- variational quantum classifier,variational quantum classifier (VQC),DGA botnet,VQCs were used for DGA botnet classification,0,0,0,,0,0,0
+10,g048,quantum generative adversarial network -- variational quantum circuit,variational quantum circuit,quantum generative adversarial network (QGAN),variational quantum circuits are the most common QGAN architecture,1,1,1,VQCs are components of QGANs.,1,1,1
+10,g050,generator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),generator,the QGAN generator is trained to make fake data classified as real,1,1,1,QGANs use a generator to produce fake data.,1,1,1
+10,g050,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,the QGAN discriminator is trained to distinguish real from generated data,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+10,g050,nash equilibrium -- quantum generative adversarial network,quantum generative adversarial network (QGAN),Nash equilibrium,QGAN training proceeds until a Nash equilibrium,1,0,0,,1,0,0
+10,g050,parameter-shift rule -- quantum generative adversarial network,quantum generative adversarial network (QGAN),parameter-shift rule,QGAN gradients are estimated with the parameter-shift rule,1,1,1,Gradients are typically estimated using the parameter-shift rule in QGANs.,1,1,1
+10,g050,quantum generative adversarial network -- stochastic approximation,quantum generative adversarial network (QGAN),stochastic approximation,QGAN gradients may be estimated by stochastic approximation,1,1,1,Gradients are typically estimated using stochastic approximation in QGANs.,1,1,1
+20,q001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+20,q001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm computes discrete logarithms in polynomial time,1,0,1,,1,0,1
+20,q001,public-key cryptography -- shor',Shor's algorithm,public-key cryptography,Shor's algorithm undermines the security of current public-key cryptosystems,1,0,1,,1,0,1
+20,q005,libsodium -- nist pqc finalist,Libsodium,NIST PQC finalists,Libsodium 1.0.x does not support any NIST PQC finalist algorithm,0,0,0,,0,0,0
+20,q006,linear optical circuit -- photonic qgan,photonic QGAN,linear optical circuit,the photonic QGAN uses linear optical circuits,0,0,0,,0,0,0
+20,q006,fock-space encoding -- photonic qgan,photonic QGAN,Fock-space encoding,the photonic QGAN uses Fock-space encoding,1,1,1,Used in the photonic QGAN.,1,1,1
+20,q006,ascella -- photonic qgan,photonic QGAN,Ascella,the photonic QGAN is implemented on Quandela's Ascella photonic processor,1,1,1,Implemented on the Ascella photonic processor.,1,1,1
+20,q007,quantum feature map -- quantum support vector machine,quantum support vector machine (QSVM),quantum feature map,"QSVM uses a quantum circuit, the quantum feature map",1,1,1,QSVM uses the quantum feature map to embed data.,1,1,1
+20,q007,quantum feature map -- quantum feature space,quantum feature map,quantum feature space,the quantum feature map embeds data into a quantum feature space (Hilbert space),1,0,0,,1,0,0
+20,q015,correlation power analysis -- kyber-512,correlation power analysis (CPA),Kyber-512,applying the CPA attack twice recovered about 60% of the Kyber-512 secret key,1,0,1,,1,1,1
+20,q015,correlation power analysis -- power trace,correlation power analysis (CPA),power trace,the CPA attack used about 1619 power traces,1,1,1,CPA computations are independently executed with different power traces.,1,1,1
+20,q015,plaintext-checking oracle -- side-channel attack,side-channel attack,plaintext-checking oracle,the side-channel attack on Kyber uses an imperfect plaintext-checking oracle,0,0,0,,1,1,1
+20,q017,post-quantum cryptography -- vpn,VPN,post-quantum cryptography (PQC),VPN products advertise being quantum-safe by integrating PQC,1,1,1,PQC can be deployed in VPNs. || PQC requires integration into VPNs.,1,1,1
+20,q017,amazon web service -- post-quantum cryptography,Amazon Web Services (AWS),post-quantum cryptography (PQC),AWS released tools for experimenting with PQC,1,1,1,AWS is expected to play a leading role in early PQC adoption.,1,1,1
+20,q017,ibm -- post-quantum cryptography,IBM,post-quantum cryptography (PQC),IBM released tools for experimenting with PQC,1,0,1,,1,0,1
+20,q017,microsoft -- post-quantum cryptography,Microsoft,post-quantum cryptography (PQC),Microsoft released tools for experimenting with PQC,1,0,0,,1,0,1
+20,q022,mnist -- quantum convolutional neural network,quantum convolutional neural network (QCNN),MNIST,the scalable QCNN achieves 98.7% accuracy on MNIST with 45 parameters,1,0,1,,1,0,1
+20,q044,"harvest-now, decrypt-later -- network-layer routing information","Harvest-Now, Decrypt-Later (HNDL)",network-layer routing information,HNDL harvested ciphertext includes network-layer routing information,0,0,0,,0,0,0
+20,q044,"harvest-now, decrypt-later -- subscriber authentication vector","Harvest-Now, Decrypt-Later (HNDL)",subscriber authentication vector,HNDL harvested ciphertext includes subscriber authentication vectors,0,0,0,,0,0,0
+20,q044,"harvest-now, decrypt-later -- inter-domain trust relationship","Harvest-Now, Decrypt-Later (HNDL)",inter-domain trust relationship,HNDL harvested ciphertext includes inter-domain trust relationships,0,0,0,,0,0,0
+20,q044,certificate transparency log -- inter-domain trust relationship,inter-domain trust relationship,certificate transparency log,inter-domain trust relationships persist in certificate transparency logs,0,0,0,,0,0,0
+20,q049,cpapke.enc -- crystals-kyber,CRYSTALS-Kyber,CPAPKE.Enc,Kyber encapsulation uses the CPAPKE.Enc function,1,1,1,CPAPKE.Enc is modified to improve security by using a hash of the message and public key.,1,1,1
+20,q049,key derivation function -- shared key k,key derivation function (KDF),shared key K,the shared key K is derived with a key derivation function,0,0,0,,0,0,0
+20,q049,cpapke.enc -- shared key k,CPAPKE.Enc,shared key K,the hash of the CPAPKE.Enc output is an input for deriving K,0,0,0,,0,0,0
+20,q057,qubit -- superposition,qubit,superposition,a qubit is in a superposition state alpha|0> + beta|1>,1,1,1,Qubits can exist in a superposition of states. || Qubits exist in a superposition of both states simultaneously. || Qubits exist in a superposition of|0⟩ and|1⟩ states. || Qubits exploit superposition to be in multiple states simultaneously.,1,1,1
+20,q057,probability amplitude -- superposition,superposition,probability amplitude,alpha and beta are complex probability amplitudes with |alpha|^2 + |beta|^2 = 1,1,0,0,,1,0,0
+20,q061,auxiliary point information -- sike,SIKE,auxiliary point information,the July 2022 attack on SIKE exploited auxiliary point information in the specification,1,0,1,,1,0,1
+20,q061,auxiliary point information -- sidh,SIDH,auxiliary point information,"the July 2022 attack on SIDH exploited auxiliary point information, enabling classical key recovery",1,0,0,,1,0,0
+20,q062,blockchain -- ring signature,ring signature,blockchain,ring signatures obscure the sender's information in blockchain-IoT transactions,1,0,0,,1,1,1
+20,q062,monero -- ring signature,ring signature,Monero,ring signatures are used in Monero,1,1,1,Ring signatures are used to obscure the information of the sender in Monero.,1,1,1
+20,q063,nitrogen-vacancy (nv) center -- qubit,nitrogen-vacancy (NV) center,qubit,NV centers encode qubits in the spin of a lattice defect,0,0,0,,0,0,0
+20,q063,coherence time -- nitrogen-vacancy (nv) center,nitrogen-vacancy (NV) center,coherence time,NV centers offer long coherence times,0,0,0,,0,0,0
+20,q064,faraday effect -- jamming attack,Faraday effect,jamming attack,the 2019 jamming attack exploited the Faraday effect,1,1,1,Exploited to disrupt QKD through jamming. || The Faraday effect is used in the jamming attack.,1,1,1
+20,q064,jamming attack -- quantum key distribution,jamming attack,quantum key distribution (QKD),the jamming attack disrupts QKD and halts key exchange,1,1,1,A jamming attack can disrupt quantum key distribution protocols.,1,1,1
+20,q064,jamming attack -- quantum bit error rate,jamming attack,quantum bit error rate (QBER),the jamming attack increases the QBER,1,1,1,The jamming attack induces a quantum bit-error rate.,1,1,1
+20,q065,ddka-qkdn -- qkd network,DDKA-QKDN,QKD network,DDKA-QKDN dynamically allocates key resources in QKD networks,1,0,0,,1,0,1
+20,q065,ddka-qkdn -- software-defined networking,DDKA-QKDN,software-defined networking (SDN),DDKA-QKDN is realized using SDN technology,1,0,0,,1,0,0
+20,q065,ddka-qkdn -- quantum iot,DDKA-QKDN,Quantum IoT,DDKA-QKDN allocates keys per application request in Quantum IoT scenarios,0,0,0,,1,0,0
+20,q066,quantum circuit model -- trojan gate attack,trojan gate attack,quantum circuit model,the trojan gate attack inserts subcircuits into the quantum circuit model,0,0,0,,0,0,0
+20,q066,6g resource allocation -- quantum circuit model,quantum circuit model,6G resource allocation,the quantum circuit model is used for 6G resource allocation,0,0,0,,0,0,0
+20,q066,adversarial perturbation -- trojan gate attack,trojan gate attack,adversarial perturbation,the trojan gate attack inserts adversarial perturbations as subcircuits,0,0,0,,0,0,0
+20,q066,adversarial perturbation -- decoherence,decoherence,adversarial perturbation,natural noise and decoherence mask the adversarial perturbations,1,0,0,,1,0,0
+20,q067,anomaly detection -- quantum neural network,quantum neural network (QNN),anomaly detection,the QNN achieved 96% accuracy in anomaly detection,1,0,1,,1,0,1
+20,q067,anomaly detection -- quantum support vector machine,quantum support vector machine (QSVM),anomaly detection,the QSVM achieved 93% accuracy in anomaly detection,1,0,1,,1,1,1
+20,q068,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects anyone attempting to access the key exchange,1,1,1,Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts.,1,1,1
+20,q068,computational complexity -- quantum key distribution,quantum key distribution (QKD),computational complexity,"QKD relies on physics, not on the computational complexity of mathematical problems",1,0,0,,1,0,0
+20,q082,quantum computer -- rsa-2048,quantum computer,RSA-2048,quantum computers capable of breaking RSA-2048 may be a decade away,1,1,1,A quantum computer could break RSA-2048.,1,1,1
+20,q082,ecc-256 -- quantum computer,quantum computer,ECC-256,quantum computers capable of breaking ECC-256 may be a decade away,1,0,1,,1,0,1
+20,q082,"gdpr -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",GDPR,decrypted harvested data could violate regulations such as GDPR,1,0,0,,1,1,1
+20,q082,"fisma -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",FISMA,decrypted harvested data could violate regulations such as FISMA,1,0,0,,1,1,1
+20,q092,post-quantum cryptography (pqc) migration -- q-day,post-quantum cryptography (PQC) migration,Q-Day,PQC migration takes 2-5 years and must finish before Q-Day (2030 +- 5 years),0,0,0,,0,0,0
+20,q092,legacy system -- post-quantum cryptography (pqc) migration,legacy system,post-quantum cryptography (PQC) migration,legacy constraints make waiting to migrate a strategic error,0,0,0,,0,0,0
+20,s001,hardware efficient ansatz -- variational quantum circuit,hardware efficient ansatz,variational quantum circuit,the hardware efficient ansatz is a parameterization of variational quantum circuits,1,0,0,,1,0,1
+20,s001,hardware efficient ansatz -- quantum simulation,hardware efficient ansatz,quantum simulation,in quantum simulation the approach is called hardware efficient ansatz,1,0,0,,1,0,0
+20,s001,hardware efficient ansatz -- parametrized random circuit,hardware efficient ansatz,parametrized random circuit,the hardware efficient ansatz is a parametrized random circuit of varying depth,1,0,0,,1,0,0
+20,s002,decoy-state -- vacuum state,decoy-state method,vacuum state,the Vacuum+Weak decoy method uses the vacuum state,1,0,0,,1,1,1
+20,s002,decoy-state -- weak decoy state,decoy-state method,weak decoy state,the Vacuum+Weak decoy method uses a weak decoy state with mean photon number << 1,1,0,0,,1,1,1
+20,s002,decoy-state -- signal state,decoy-state method,signal state,the Vacuum+Weak decoy method uses a signal state with mean photon number O(1),1,0,0,,1,1,1
+20,s002,weak decoy state -- yield,weak decoy state,yield,measuring the yields of decoy states bounds the single-photon parameters,0,0,0,,1,0,0
+20,s002,quantum bit error rate -- weak decoy state,weak decoy state,quantum bit error rate (QBER),measuring the QBER of decoy states bounds the single-photon error rate,1,0,1,,1,0,1
+20,s004,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's quantum algorithm computes discrete logarithms,1,0,1,,1,0,1
+20,s004,"good (c, d) pair -- shor'",Shor's algorithm,"good (c, d) pair","each good (c, d) pair is generated with probability at least 1/(20q^2)",1,0,0,,1,0,0
+20,s005,information technology -- quantum computing,quantum computing,information technology,quantum computing is so different from today's information technology that its applications are hard to foresee,0,0,0,,1,0,0
+20,s005,quantum computing -- startup,startup,quantum computing,a surge of investment in quantum computing by large companies and startups came sooner than expected,0,0,0,,0,0,0
+20,s006,bb84 -- quantum public key distribution,BB84,quantum public key distribution,BB84 is a protocol for quantum public key distribution,0,0,0,,0,0,0
+20,s006,bb84 -- polarized photon,BB84,polarized photon,BB84 encodes bits in polarized photons,0,0,0,,0,0,0
+20,s006,bb84 -- eavesdropping,BB84,eavesdropping,Alice and Bob publicly compare a random subset of bits to detect eavesdropping,1,1,1,BB84 protocol addresses eavesdropping.,1,1,1
+20,s006,bb84 -- one-time pad,BB84,one-time pad,the remaining bits are used as a one-time pad,1,0,0,,1,0,0
+20,s007,local parameter-update optimizer -- variational quantum,local parameter-update optimizer,variational quantum algorithm (VQA),local parameter-update optimizers optimize VQA parameters sequentially,0,0,0,,0,0,0
+20,s007,gradient-free optimization -- local parameter-update optimizer,local parameter-update optimizer,gradient-free optimization,local parameter updates give a gradient-free method without hyper-parameters,0,0,0,,0,0,0
+20,s007,anderson acceleration -- local parameter-update optimizer,Anderson acceleration,local parameter-update optimizer,a variant with Anderson acceleration speeds up convergence,0,0,0,,0,0,0
+20,m001,"harvest-now, decrypt-later -- isaca",ISACA,"Harvest-Now, Decrypt-Later (HNDL)",an ISACA survey found 56% of security professionals concerned about HNDL,1,0,1,,1,0,1
+20,m001,"cybercriminal -- harvest-now, decrypt-later",cybercriminal,"Harvest-Now, Decrypt-Later (HNDL)",profit-motivated cybercriminals have less incentive for HNDL,1,0,0,,1,0,1
+20,m001,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",nation-state actors are already conducting HNDL campaigns,1,0,0,,1,1,1
+20,m001,"harvest-now, decrypt-later -- medical record",medical record,"Harvest-Now, Decrypt-Later (HNDL)",medical records are prime HNDL targets,1,1,1,HNDL poses a risk to medical records.,1,1,1
+20,m001,"government intelligence -- harvest-now, decrypt-later",government intelligence,"Harvest-Now, Decrypt-Later (HNDL)",government intelligence is a prime HNDL target,1,0,0,,1,0,0
+20,m001,"banking archive -- harvest-now, decrypt-later",banking archive,"Harvest-Now, Decrypt-Later (HNDL)",banking archives are prime HNDL targets,1,0,0,,1,0,0
+20,m001,"harvest-now, decrypt-later -- intellectual property",intellectual property,"Harvest-Now, Decrypt-Later (HNDL)",intellectual property is a prime HNDL target,1,1,1,HNDL poses a risk to intellectual property.,1,1,1
+20,m003,quantum key distribution -- quantum random number generation,Quantum Random Number Generation (QRNG),quantum key distribution (QKD),QRNG produces the true random numbers QKD needs for key setting and growth,1,1,1,QRNG is used for quantum key generation.,1,1,1
+20,m003,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects eavesdroppers,1,1,1,Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts.,1,1,1
+20,m003,one-time pad -- quantum key distribution,quantum key distribution (QKD),one-time pad,QKD combined with a one-time pad provides information-theoretic security,1,0,1,,1,0,1
+20,m003,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD with one-time pad or symmetric ciphers provides information-theoretic security,1,1,1,QKD offers the promise of information-theoretic security.,1,1,1
+20,m005,crystals-dilithium -- wolfssl,wolfSSL,CRYSTALS-Dilithium,wolfSSL integrates Dilithium into its TLS stack,0,0,0,,0,0,0
+20,m005,bouncy castle -- crystals-dilithium,Bouncy Castle,CRYSTALS-Dilithium,Bouncy Castle integrates Dilithium into its TLS stack,0,0,0,,0,0,0
+20,m005,crystals-dilithium -- openssl,OpenSSL,CRYSTALS-Dilithium,OpenSSL plans to integrate Dilithium,1,0,0,,1,0,0
+20,m005,kyber -- openssl,OpenSSL,Kyber,OpenSSL plans to integrate Kyber,1,0,1,,1,0,1
+20,m005,cloudflare -- crystals-dilithium,Cloudflare,CRYSTALS-Dilithium,Cloudflare adopted Dilithium early,1,0,0,,1,0,0
+20,m005,amazon web service -- crystals-dilithium,Amazon Web Services (AWS),CRYSTALS-Dilithium,AWS adopted Dilithium early,1,0,0,,1,0,0
+20,m005,crystals-dilithium -- ibm,IBM,CRYSTALS-Dilithium,IBM adopted Dilithium early,1,0,0,,1,0,0
+20,m027,cryptographically relevant quantum computer -- rsa-2048,cryptographically relevant quantum computer (CRQC),RSA-2048,CRQCs able to break RSA-2048 could emerge within the next decade,1,1,1,CRQC can break RSA-2048. || CRQC capable of breaking RSA-2048.,1,1,1
+20,m027,cryptographically relevant quantum computer -- integer factorization,cryptographically relevant quantum computer (CRQC),integer factorization,integer factorization is efficiently solvable on a CRQC,1,1,1,CRQC can solve integer factorization efficiently.,1,1,1
+20,m027,cryptographically relevant quantum computer -- elliptic curve discrete logarithm,cryptographically relevant quantum computer (CRQC),elliptic curve discrete logarithm,elliptic curve discrete logarithms are efficiently solvable on a CRQC,1,1,1,CRQC can solve elliptic curve discrete logarithms efficiently.,1,1,1
+20,m027,nist -- post-quantum cryptography,NIST,post-quantum cryptography (PQC),NIST standardized a first set of PQC algorithms,1,1,1,NIST has published guidelines for migration to PQC. || NIST initiated a process to establish a new PQC standard. || NIST is progressing toward defining standardized PQC algorithms. || NIST recommends using PQC algorithms. || NIST selected its first cohort of PQC algorithms for standardization.,1,1,1
+20,m027,crystals-kyber -- nist,NIST,CRYSTALS-Kyber,NIST standardized the lattice-based KEM CRYSTALS-Kyber,1,1,1,NIST announced CRYSTALS-Kyber as the new standard. || NIST chose CRYSTALS-Kyber as a PQC candidate. || NIST tested Kyber extensively.,1,1,1
+20,m037,gaussian mixture model -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),Gaussian mixture model,QGMMs are quantum extensions of Gaussian mixture models,1,1,1,QGMMS are quantum extensions of classical Gaussian mixture models.,1,1,1
+20,m037,density estimation -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),density estimation,QGMMs are used for density estimation,0,0,0,,0,0,0
+20,m037,clustering -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),clustering,QGMMs are used for clustering,1,0,0,,1,0,0
+20,m037,gibbs state -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Gibbs state,QBMs describe the target distribution as a quantum thermal (Gibbs) state,1,0,0,,1,1,1
+20,m037,hamiltonian -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Hamiltonian,the QBM Gibbs state is of a parameterized Hamiltonian,1,0,0,,1,1,1
+20,m037,quantum boltzmann machine -- transverse field,Quantum Boltzmann Machine (QBM),transverse field,QBMs add transverse-field quantum fluctuations,0,0,0,,0,0,0
+20,m043,chrome -- hybrid key exchange,hybrid key exchange,Chrome,Google deployed hybrid X25519+Kyber key agreement in Chrome,0,0,0,,0,0,0
+20,m043,hybrid key exchange -- x25519,hybrid key exchange,X25519,the hybrid key agreement combines X25519,0,0,0,,0,0,0
+20,m043,hybrid key exchange -- kyber,hybrid key exchange,Kyber,the hybrid key agreement combines Kyber,0,0,0,,0,0,0
+20,m043,boringssl -- chrome,Chrome,BoringSSL,Chrome's hybrid key agreement is implemented with BoringSSL,1,0,0,,1,0,0
+20,m043,graceful degradation -- hybrid key exchange,hybrid key exchange,graceful degradation,hybrid deployments fall back to classical algorithms via graceful degradation,0,0,0,,0,0,0
+20,m046,drug discovery -- quantum machine learning,quantum machine learning (QML),drug discovery,QML is promising for drug discovery,1,1,1,QML holds promise for drug discovery.,1,1,1
+20,m046,personalized medicine -- quantum machine learning,quantum machine learning (QML),personalized medicine,QML is promising for personalized medicine,1,1,1,QML holds promise for personalized medicine.,1,1,1
+20,m046,malware detection -- quantum neural network,quantum neural network (QNN),malware detection,QNN-based frameworks are used for malware detection,1,0,1,,1,0,1
+20,m046,botnet detection -- quantum neural network,quantum neural network (QNN),botnet detection,QNN-based frameworks are used for botnet detection,1,0,0,,1,0,0
+20,m046,nisq -- quantum neural network,NISQ,quantum neural network (QNN),current NISQ hardware constrains QNN-based frameworks,1,0,1,,1,0,1
+20,m064,5g network slicing -- post-quantum cryptography,post-quantum cryptography (PQC),5G network slicing,large PQC keys and signatures cause problems for 5G network slices,0,0,0,,0,0,0
+20,m064,enhanced mobile broadband -- post-quantum cryptography,post-quantum cryptography (PQC),enhanced mobile broadband (eMBB),PQC per-packet size increase adds aggregate bandwidth in eMBB slices,0,0,0,,0,0,0
+20,m064,fragmentation -- post-quantum cryptography,post-quantum cryptography (PQC),fragmentation,larger PQC messages cause fragmentation,0,0,0,,1,0,1
+20,m064,handover -- signalling congestion,handover,signalling congestion,repeated PQC handshakes during handovers worsen signalling congestion,0,0,0,,0,0,0
+20,m064,handshake overhead -- hash-based signature,hash-based signature,handshake overhead,hash-based signatures cause 245%-890% handshake overhead,0,0,0,,0,0,0
+20,m068,ml-kem -- module-lwe,Module-LWE,ML-KEM,Module-LWE underlies ML-KEM,1,0,1,,1,0,1
+20,m068,ml-dsa -- module-lwe,Module-LWE,ML-DSA,Module-LWE underlies ML-DSA,1,0,1,,1,0,1
+20,m068,learning with error -- module-lwe,Learning With Errors (LWE),Module-LWE,Module-LWE refines LWE with ring/module structure,1,0,1,,1,1,1
+20,m068,learning with error -- ring-lwe,Learning With Errors (LWE),Ring-LWE,Ring-LWE is a ring variant of LWE used for efficiency,1,1,1,Ring-LWE is a variant of LWE. || Ring-LWE is a variation of LWE.,1,1,1
+20,m068,lattice-based cryptography -- learning with error,Learning With Errors (LWE),lattice-based cryptography,LWE is a basic hard problem of lattice-based cryptography,1,1,1,Lattice-based cryptography relies on LWE.,1,1,1
+20,m068,learning with error -- shortest vector problem,Learning With Errors (LWE),shortest vector problem (SVP),LWE together with SVP is believed resistant to quantum algorithms,1,0,1,,1,0,1
+20,m068,ml-kem -- nist,NIST,ML-KEM,NIST standardized ML-KEM,1,0,1,,1,1,1
+20,m068,ml-dsa -- nist,NIST,ML-DSA,NIST standardized ML-DSA,1,1,1,NIST has endorsed ML-DSA for widespread adoption. || NIST standardized CRYSTALS-Dilithium.,1,1,1
+20,g001,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Algorithm endangers RSA security. || Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends. || Shor’s algorithm breaks RSA. || Shor’s algorithm can break RSA.,1,1,1
+20,g001,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,Breaks ECC. || Quantum computers enable Shor’s algorithm to break ECC’s security. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm breaks ECC. || Shor’s algorithm can break ECC.,1,1,1
+20,g001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+20,g001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm efficiently computes discrete logarithms,1,0,1,,1,0,1
+20,g001,grover' -- symmetric cipher,Grover's algorithm,symmetric cipher,"Grover's quadratic speed-up halves symmetric-cipher security, countered by doubling key sizes",0,0,0,,1,0,0
+20,g001,aes -- grover',Grover's algorithm,AES,under Grover's algorithm AES-128 has 64-bit security,1,1,1,Grover's algorithm can break AES. || Grover's algorithm offers a speedup for AES. || Grover’s algorithm can potentially break some symmetric keys like AES. || Grover’s algorithm necessitates increased key sizes for AES. || Grover’s algorithm poses a threat to AES.,1,1,1
+20,g001,noisy qubit -- rsa-2048,RSA-2048,noisy qubit,RSA-2048 could be broken with fewer than a million noisy qubits,1,0,1,,1,0,1
+20,g002,kyber -- rsa,Kyber,RSA,Kyber outperforms RSA in key exchange speed,1,0,1,,1,1,1
+20,g002,kyber -- learning with error,Kyber,Learning With Errors (LWE),Kyber's security depends on the LWE problem,1,1,1,Kyber mechanism addresses potential weaknesses in Learning with Errors schemes. || Kyber relies on the quantum-resistant LWE problem.,1,1,1
+20,g002,kyber -- lattice-based cryptography,Kyber,lattice-based cryptography,Kyber is a lattice-based scheme,1,1,1,Kyber leverages LWE for its quantum resistance.,1,1,1
+20,g002,kyber -- openssl,Kyber,OpenSSL,Kyber was integrated into OpenSSL prototypes,1,0,1,,1,0,1
+20,g002,kyber -- tls 1.3,Kyber,TLS 1.3,Kyber was tested in TLS 1.3 handshakes,1,0,1,,1,1,1
+20,g003,5g -- smart city,Smart City,5G,Smart Cities require the higher throughput that 5G provides,0,0,0,,1,0,0
+20,g003,5g -- internet of vehicles and thing,Internet of Vehicles and Things (IoVT),5G,IoVT requires the higher throughput that 5G provides,0,0,0,,0,0,0
+20,g003,internet of thing -- smart home,Smart Home,Internet of Things (IoT),Smart Homes are traditional IoT applications needing minimal wireless capabilities,1,0,1,,1,0,1
+20,g005,amplitude encoding -- qubit,amplitude encoding,qubit,amplitude encoding requires a prohibitively large number of qubits,1,0,1,,1,0,1
+20,g005,data re-uploading -- quantum circuit,data re-uploading,quantum circuit,data re-uploading improves data representation within quantum circuits,1,0,1,,1,1,1
+20,g005,botnet detection -- quantum embedding,quantum embedding,botnet detection,a hybrid model with quantum embeddings achieved up to 94.7% accuracy for botnet detection,1,0,0,,1,0,0
+20,g007,multivariate quadratic (mq) cryptography -- system of quadratic equation,multivariate quadratic (MQ) cryptography,system of quadratic equations,MQ cryptography relies on solving systems of quadratic equations over finite fields (NP-hard),0,0,0,,0,0,0
+20,g007,digital signature -- multivariate quadratic (mq) cryptography,multivariate quadratic (MQ) cryptography,digital signature,MQ schemes are mainly used for digital signatures,1,1,1,MQ-based schemes are used in digital signatures.,1,1,1
+20,g007,multivariate quadratic (mq) cryptography -- public-key encryption,multivariate quadratic (MQ) cryptography,public-key encryption,MQ schemes are used for public-key encryption,1,1,1,MQ-based schemes are used in public-key encryption.,1,1,1
+20,g007,edge node authentication -- multivariate signature,multivariate signature scheme,edge node authentication,the scheme's parallelism allows effective edge node authentication,0,0,0,,0,0,0
+20,g011,kyber -- side-channel leakage,Kyber,side-channel leakage,three side-channel leakage points were reported in Kyber's decryption,1,1,1,Kyber is vulnerable to side-channel leakage during decryption.,1,1,1
+20,g011,kyber -- side-channel attack,Kyber,side-channel attack,side-channel attacks were completed on Kyber hardware implementations,1,1,1,Kyber mechanism guards against side-channel attacks. || SCAs can exploit leakage points in Kyber.,1,1,1
+20,g011,machine learning -- power analysis,machine learning,power analysis,researchers used machine learning to exploit a power-consumption side channel,1,0,0,,1,0,1
+20,g011,kyber -- power analysis,power analysis,Kyber,the power side channel was exploited against a Kyber implementation,1,0,0,,1,1,1
+20,g015,elliptic curve cryptography -- kyber,Kyber,Elliptic Curve Cryptography (ECC),Kyber's public key (~800 bytes) is larger than an ECC public key,1,0,1,,1,1,1
+20,g015,classic mceliece -- kyber,Kyber,Classic McEliece,Kyber's public key is much smaller than Classic McEliece's (>1 MB),1,1,1,Kyber is more efﬁcient than Classic McEliece.,1,1,1
+20,g015,dilithium -- ecdsa,Dilithium,ECDSA,Dilithium signatures are a few kilobytes versus 64 bytes for ECDSA,1,0,1,,1,0,1
+20,g015,internet of thing -- kyber,Kyber,Internet of Things (IoT),Kyber is considered feasible for a common IoT setup,1,0,1,,1,1,1
+20,g015,kyber -- rsa,Kyber,RSA,Kyber operations are comparable to or faster than RSA,1,0,1,,1,1,1
+20,g015,dilithium -- falcon,FALCON,Dilithium,FALCON is more memory-efficient than Dilithium,1,1,1,Dilithium outperforms FALCON in terms of signature size and speed. || FALCON offers the fastest validation speed while Dilithium provides the fastest signing operation. || NIST has presented Dilithium and FALCON as postquantum signature standards.,1,1,1
+20,g016,quantum key distribution -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum key distribution (QKD),QSDC transmits messages directly whereas QKD establishes shared keys,1,1,1,"QKD and QSDC are branches of QC protocols. || QSDC provides a comprehensive, confidential, and near-instantaneous solution compared to QKD. || Quantum Secure Direct Communication is an advanced QKDP.",1,1,1
+20,g016,quantum channel -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum channel,QSDC transmits messages directly over a quantum channel,1,0,1,,1,0,1
+20,g016,darpa quantum network -- quantum key distribution,DARPA quantum network,quantum key distribution (QKD),the DARPA network is a practical intercity QKD network,1,0,0,,1,1,1
+20,g016,quantum key distribution -- tokyo qkd network,Tokyo QKD network,quantum key distribution (QKD),the Tokyo network is a practical intercity QKD network,1,0,1,,1,1,1
+20,g016,quantum key distribution -- trieste qkd network,Trieste QKD network,quantum key distribution (QKD),the Trieste network is a practical intercity QKD network,0,0,0,,0,0,0
+20,g019,key storage -- qkd network,QKD network,key storage,the key storages of a QKD network must stay consistent for the service to work,1,1,1,Maintains synchronization of keys.,1,1,1
+20,g019,key rate -- key storage,key storage,key rate,key storage decouples generation from consumption to cope with limited QKD key rates,1,0,0,,1,0,1
+20,g019,authentication -- quantum key distribution,quantum key distribution (QKD),authentication,QKD has no built-in authentication,1,0,1,,1,1,1
+20,g019,man-in-the-middle attack -- quantum key distribution,quantum key distribution (QKD),man-in-the-middle attack,without authentication a man-in-the-middle could impersonate a QKD endpoint,1,1,1,An adversary can launch a man-in-the-middle attack on a QKD session.,1,1,1
+20,g019,pre-shared key -- quantum key distribution,quantum key distribution (QKD),pre-shared key,QKD links are bootstrapped with a pre-shared key or classical signature,1,1,1,Pre-shared keys are used to bootstrap QKD links. || QKD can be used instead of pre-shared keys for encryption.,1,1,1
+20,g019,key management system -- quantum key distribution,quantum key distribution (QKD),key management system,QKD may need integration with classical key management systems,1,1,1,Custom key management systems are needed for QKD. || Key management systems are fundamental components of QKD networks. || QKD supplies generated keys to KMS.,1,1,1
+20,g021,kyber -- two-step attack,two-step attack,Kyber,the two-step attack recovers Kyber's secret key,1,1,1,An improved attack on Kyber. || Proposed attack targets Kyber. || The attack increases time taken for Kyber at high security levels. || The attack is performed on Kyber. || The attack targets Kyber.,1,1,1
+20,g021,correlation power analysis -- two-step attack,two-step attack,correlation power analysis (CPA),the two-step attack starts with CPA,1,1,1,The attack includes non-profiled CPA. || The two-step attack uses CPA.,1,1,1
+20,g021,lattice attack -- two-step attack,two-step attack,lattice attack,the two-step attack follows CPA with a lattice attack,1,0,1,,1,1,1
+20,g021,power trace -- two-step attack,two-step attack,power trace,the two-step attack needs at most 15 power traces,1,1,1,The attack requires a total number of power traces.,1,1,1
+20,g021,arm cortex-m4 -- two-step attack,two-step attack,ARM Cortex-M4,the two-step attack is run on an ARM Cortex-M4 board,1,0,1,,1,0,1
+20,g021,kyber -- shuffling countermeasure,shuffling countermeasure,Kyber,the shuffling countermeasure protects Kyber,1,1,1,Applied to the Kyber decryption procedure. || Countermeasure for Kyber against side-channel attacks. || Proposed countermeasure for Kyber's hardware implementation. || Shuffling countermeasure is for Kyber. || Shuffling countermeasure is proposed for Kyber.,1,1,1
+20,g021,fpga -- shuffling countermeasure,shuffling countermeasure,FPGA,the shuffling countermeasure is implemented on FPGA with 8.7% efficiency loss,1,0,0,,1,1,1
+20,g021,shuffling countermeasure -- tvla,shuffling countermeasure,TVLA,the shuffling countermeasure is verified with TVLA,1,0,0,,1,0,0
+20,g026,higher-order masking -- kyber,higher-order masking,Kyber,higher-order masking protects Kyber implementations,0,0,0,,0,0,0
+20,g026,higher-order masking -- side-channel attack,higher-order masking,side-channel attack,masking is a countermeasure against side-channel attacks,0,0,0,,0,0,0
+20,g026,arithmetic masking -- higher-order masking,higher-order masking,arithmetic masking,shares can be combined by arithmetic addition (arithmetic masking),0,0,0,,0,0,0
+20,g026,boolean masking -- higher-order masking,higher-order masking,Boolean masking,shares can be combined by XOR (Boolean masking),0,0,0,,0,0,0
+20,g026,lagrange interpolation -- threshold secret sharing,threshold secret sharing,Lagrange interpolation,t or more participants reconstruct the secret by Lagrange interpolation,0,0,0,,0,0,0
+20,g027,gate error rate -- trapped ion,trapped ion,gate error rate,trapped ions have the best reported gate error rates (1e-7 / 1e-5),1,0,1,,1,1,1
+20,g027,gate error rate -- transistor,transistor,gate error rate,digital transistors reach error rates of 1e-23,0,0,0,,1,0,0
+20,g027,fault-tolerant quantum computation -- quantum error correction,fault-tolerant quantum computation,quantum error correction (QEC),fault-tolerant computation depends on effective QEC,1,0,0,,1,0,0
+20,g027,quantum error correction -- toffoli gate,quantum error correction (QEC),Toffoli gate,QEC was demonstrated with a Toffoli gate,1,1,1,The QEC protocol showcases the effectiveness of the correction mechanism for the Toffoli gate.,1,1,1
+20,g027,superconducting qubit -- toffoli gate,Toffoli gate,superconducting qubit,the Toffoli gate was implemented on superconducting qubits,1,0,0,,1,0,0
+20,g027,coherence time -- quantum error correction,quantum error correction (QEC),coherence time,the QEC demonstration was limited by coherence times,1,0,1,,1,0,1
+20,g028,kyber -- mbedtl,MbedTLS,Kyber,MbedTLS intends to add Kyber soon,0,0,0,,0,0,0
+20,g028,dilithium -- mbedtl,MbedTLS,Dilithium,MbedTLS intends to add Dilithium later,0,0,0,,0,0,0
+20,g028,lms -- mbedtl,MbedTLS,LMS,MbedTLS supports LMS signatures,0,0,0,,0,0,0
+20,g028,internet of thing -- mbedtl,MbedTLS,Internet of Things (IoT),MbedTLS runs on millions of IoT devices,0,0,0,,0,0,0
+20,g028,crypto++ -- cryptopp-pqc,Crypto++,cryptopp-pqc,cryptopp-pqc is a third-party fork of Crypto++,0,0,0,,0,0,0
+20,g028,cryptopp-pqc -- kyber,cryptopp-pqc,Kyber,cryptopp-pqc adds CRYSTALS-Kyber,0,0,0,,0,0,0
+20,g028,cryptopp-pqc -- dilithium,cryptopp-pqc,Dilithium,cryptopp-pqc adds CRYSTALS-Dilithium,0,0,0,,0,0,0
+20,g028,cryptopp-pqc -- saber,cryptopp-pqc,SABER,cryptopp-pqc adds SABER,0,0,0,,0,0,0
+20,g028,cryptopp-pqc -- frodokem,cryptopp-pqc,FrodoKEM,cryptopp-pqc adds FrodoKEM,0,0,0,,0,0,0
+20,g030,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",HNDL is the primary behavior of nation-states before Q-Day,1,0,0,,1,1,1
+20,g030,"harvest-now, decrypt-later -- q-day","Harvest-Now, Decrypt-Later (HNDL)",Q-Day,HNDL actors collect data now to decrypt after Q-Day,1,0,0,,1,0,0
+20,g030,"harvest-now, decrypt-later -- rsa","Harvest-Now, Decrypt-Later (HNDL)",RSA,harvested data is decrypted once quantum computers break RSA,1,0,1,,1,0,1
+20,g030,"elliptic curve cryptography -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",Elliptic Curve Cryptography (ECC),harvested data is decrypted once quantum computers break ECC,1,0,1,,1,0,1
+20,g030,cryptographic time paradox -- cryptographically relevant quantum computer,Cryptographic Time Paradox,cryptographically relevant quantum computer (CRQC),encrypted data becomes readable the moment a CRQC is built,0,0,0,,0,0,0
+20,g030,cryptographic time paradox -- rsa,Cryptographic Time Paradox,RSA,RSA-encrypted data is safe only until a working CRQC exists,0,0,0,,0,0,0
+20,g030,cryptographic time paradox -- post-quantum cryptography,Cryptographic Time Paradox,post-quantum cryptography (PQC),the paradox means PQC readiness is needed by 2035,0,0,0,,0,0,0
+20,g034,quantum cryptography -- quantum physic,quantum cryptography,quantum physics,quantum cryptography relies on principles of quantum physics,1,0,0,,1,0,0
+20,g034,continuous-variable qkd -- quantum key distribution,quantum key distribution (QKD),continuous-variable QKD (CV-QKD),CV protocols are one category of QKD protocols,1,1,1,CV-QKD is a protocol for QKD. || Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD. || QKD protocols include CV-QKD.,1,1,1
+20,g034,discrete-variable qkd -- quantum key distribution,quantum key distribution (QKD),discrete-variable QKD (DV-QKD),DV protocols are one category of QKD protocols,1,1,1,Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD.,1,1,1
+20,g034,discrete-variable qkd -- single photon,discrete-variable QKD (DV-QKD),single photon,DV protocols use discrete outcomes such as single-photon polarization,0,0,0,,1,0,1
+20,g034,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD keys are information-theoretically secure,1,1,1,QKD offers the promise of information-theoretic security.,1,1,1
+20,g035,entanglement -- shor',Shor's algorithm,entanglement,Shor's algorithm uses entanglement,1,0,1,,1,1,1
+20,g035,quantum parallelism -- shor',Shor's algorithm,quantum parallelism,Shor's algorithm exploits quantum parallelism,1,0,1,,1,0,1
+20,g035,quantum fourier transform -- shor',Shor's algorithm,Quantum Fourier Transform (QFT),the QFT is at the core of Shor's algorithm,1,1,1,At the core of Shor’s algorithm is the Quantum Fourier Transform. || QFT is a fundamental component in Shor’s algorithm. || Quantum Fourier Transform (QFT) is the quantum component of Shor’s algorithm. || Shor’s algorithm is a different algorithm from the Quantum Fourier Transform Algorithm. || Shor’s algorithm uses QFT to infer the period r.,1,1,1
+20,g035,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm factors large integers in polynomial time,1,1,1,Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+20,g035,integer factorization -- rsa,RSA,integer factorization,RSA's security rests on the difficulty of factoring large numbers,1,1,1,RSA’s security relies on integer factorization.,1,1,1
+20,g035,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Algorithm endangers RSA security. || Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends. || Shor’s algorithm breaks RSA. || Shor’s algorithm can break RSA.,1,1,1
+20,g035,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,Breaks ECC. || Quantum computers enable Shor’s algorithm to break ECC’s security. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm breaks ECC. || Shor’s algorithm can break ECC.,1,1,1
+20,g037,hash function -- sphincs+,SPHINCS+ (SLH-DSA),hash function,SPHINCS+ security relies solely on the collision resistance of hash functions,1,0,1,,1,1,1
+20,g037,sphincs+ -- wots+,SPHINCS+ (SLH-DSA),WOTS+,SPHINCS+ uses WOTS+ to sign individual nodes,1,1,1,WOTS+ plays the role of an OTS in SPHINCS+. || WOTS+ used for signing individual nodes in SLH-DSA.,1,1,1
+20,g037,for -- sphincs+,SPHINCS+ (SLH-DSA),FORS,SPHINCS+ uses FORS few-time signatures at the leaves,1,1,1,FORS enables efficient few-time signatures in SLH-DSA. || FORS is a component of SPHINCS+. || SPHINCS+ uses FORS for stronger message security. || SPHINCS+ uses the FORS technique.,1,1,1
+20,g037,hypertree -- sphincs+,SPHINCS+ (SLH-DSA),hypertree,SPHINCS+ links its trees in a hypertree for stateless operation,1,1,1,SPHINCS+ composes hypertrees.,1,1,1
+20,g037,nist -- sphincs+,NIST,SPHINCS+ (SLH-DSA),NIST selected SPHINCS+,1,1,1,Approved by NIST as a standard. || NIST has endorsed SLH-DSA as a signature family. || NIST standardized SPHINCS+.,1,1,1
+20,g037,fips 203 -- kyber,FIPS 203,Kyber,FIPS 203 is ML-KEM (Kyber),1,0,0,,1,1,1
+20,g037,dilithium -- fips 204,FIPS 204,Dilithium,FIPS 204 is ML-DSA (Dilithium),1,0,0,,1,0,0
+20,g037,fips 205 -- sphincs+,FIPS 205,SPHINCS+ (SLH-DSA),FIPS 205 is SLH-DSA (SPHINCS+),1,1,1,SLH-DSA standardized as FIPS 205.,1,1,1
+20,g039,attenuated laser -- quantum key distribution,quantum key distribution (QKD),attenuated laser,"attenuated lasers sometimes emit multi-photon signals, making practical QKD insecure",0,0,0,,1,1,1
+20,g039,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML algorithms can be leveraged for eavesdropping detection,1,1,1,QML algorithms are used for eavesdropping detection.,1,1,1
+20,g039,eavesdropping detection -- quantum support vector machine,quantum support vector machine (QSVM),eavesdropping detection,QSVM can be used for eavesdropping detection,1,0,1,,1,0,1
+20,g039,eavesdropping detection -- quantum convolutional neural network,quantum convolutional neural network (QCNN),eavesdropping detection,QCNN can be used for eavesdropping detection,1,0,1,,1,0,1
+20,g040,kyber -- number theoretic transform,Number Theoretic Transform (NTT),Kyber,the NTT-optimized accelerator speeds up Kyber by up to 34.16x,1,1,1,NTT is used in the Kyber system.,1,1,1
+20,g040,dilithium -- number theoretic transform,Number Theoretic Transform (NTT),Dilithium,the NTT-optimized accelerator speeds up Dilithium by 9.6x,1,1,1,Dilithium algorithms have yielded speedups for NTT operations.,1,1,1
+20,g040,artix-7 fpga -- number theoretic transform,Number Theoretic Transform (NTT),Artix-7 FPGA,the NTT accelerator is implemented on an Artix-7 FPGA,0,0,0,,1,0,0
+20,g040,number theoretic transform -- polynomial multiplication,Number Theoretic Transform (NTT),polynomial multiplication,the NTT reduces polynomial multiplication from O(N^2) to O(N log N),1,1,1,NTT is used in polynomial multiplications.,1,1,1
+20,g040,kyber -- polynomial multiplication,polynomial multiplication,Kyber,polynomial multiplication dominates Kyber encryption and decryption,1,1,1,Kyber implementations have demonstrated speedups for polynomial multiplication.,1,1,1
+20,g042,quantum generative adversarial network -- quantum generator,quantum generative adversarial network (QGAN),quantum generator,a QGAN has a parameterized quantum generator,1,0,0,,1,1,1
+20,g042,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,a QGAN has a quantum or classical discriminator,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+20,g042,minimax game -- quantum generative adversarial network,quantum generative adversarial network (QGAN),minimax game,QGAN training is a two-player minimax game,1,0,1,,1,0,1
+20,g042,quantum generative adversarial network -- variational quantum,quantum generative adversarial network (QGAN),variational quantum algorithm (VQA),a QGAN is usually built as a variational quantum algorithm,1,0,1,,1,1,1
+20,g042,eqgan -- quantum generative adversarial network,EQGAN,quantum generative adversarial network (QGAN),EQGAN improves QGAN training,1,0,0,,1,0,1
+20,g042,eqgan -- fitness evaluation,EQGAN,fitness evaluation,EQGAN uses fitness evaluation to select generator configurations,1,1,1,Fitness evaluation improves the performance of EQGAN.,1,1,1
+20,g043,classical computer -- quantum,quantum algorithm,classical computer,quantum algorithms solve problems believed hard for classical computers,1,1,1,Quantum algorithms could solve problems that classical computers find hard.,1,1,1
+20,g043,integer factorization -- quantum,quantum algorithm,integer factorization,factoring large integers is the best-known such problem,1,0,1,,1,0,1
+20,g043,precision of quantum state manipulation -- quantum computer,precision of quantum state manipulation,quantum computer,"if precision grows polynomially with input size, quantum computers are more powerful",0,0,0,,0,0,0
+20,g044,nisq -- variational quantum,variational quantum algorithm (VQA),NISQ,VQAs are the leading strategy for NISQ devices,1,0,0,,1,0,1
+20,g044,qubit connectivity -- variational quantum,variational quantum algorithm (VQA),qubit connectivity,VQAs account for limited qubit connectivity,1,0,0,,1,0,1
+20,g044,circuit depth -- variational quantum,variational quantum algorithm (VQA),circuit depth,VQAs account for errors that limit circuit depth,1,0,0,,1,0,1
+20,g044,gate fidelity -- nisq,gate fidelity,NISQ,more accurate gates extend the power of NISQ technology,1,0,1,,1,0,1
+20,g044,gate fidelity -- quantum error correction,gate fidelity,quantum error correction (QEC),more accurate gates lower the overhead of later QEC,1,0,1,,1,0,1
+20,g045,bb84 -- intercept-resend attack,intercept-resend attack,BB84,measuring and resending all photons induces errors in 1/4 of BB84 bits,1,1,1,BB84 is insecure due to intercept-resend attack.,1,1,1
+20,g045,intercept-resend attack -- rectilinear basis,intercept-resend attack,rectilinear basis,the eavesdropper measures all photons in the rectilinear basis,0,0,0,,0,0,0
+20,g045,decoy-state qkd -- yield,decoy-state QKD,yield,decoy-state QKD analyses the yield,0,0,0,,1,0,0
+20,g045,dark count -- yield,yield,dark count,the yield combines signal-photon detection and background events such as dark counts,0,0,0,,1,0,0
+20,g046,quantum key distribution -- quantum machine learning,quantum machine learning (QML),quantum key distribution (QKD),research on QML for QKD has increased since 2010,1,1,1,Advancements in QML enhance the security of QKD protocols. || Integrated ML with quantum key distribution protocols. || QML algorithms are used for detection in QKD. || QML algorithms improve the key generation of QKD. || QML can significantly enhance the performance of QKD.,1,1,1
+20,g046,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML is used for eavesdropping detection in QKD,1,1,1,QML algorithms are used for eavesdropping detection.,1,1,1
+20,g046,6g network -- quantum machine learning,quantum machine learning (QML),6G network,QML is studied for 6G network intelligence,0,0,0,,0,0,0
+20,g046,adversarial attack -- quantum machine learning,quantum machine learning (QML),adversarial attack,QML-based applications face adversarial threats,1,1,1,QML can simulate realistic attack traces for adversarial attacks.,1,1,1
+20,g048,parameterized quantum circuit -- variational quantum classifier,variational quantum classifier (VQC),parameterized quantum circuit,VQCs combine parameterised quantum circuits with classical optimisers,1,1,1,A quantum circuit might generate low-dimensional latent representations.,1,1,1
+20,g048,classical optimizer -- variational quantum classifier,variational quantum classifier (VQC),classical optimizer,VQCs use classical optimisers in hybrid feedback loops,1,0,1,,1,0,1
+20,g048,cyberattack detection -- variational quantum classifier,variational quantum classifier (VQC),cyberattack detection,VQCs are used for cyberattack detection,0,0,0,,0,0,0
+20,g048,nsl-kdd -- variational quantum classifier,variational quantum classifier (VQC),NSL-KDD,VQCs were used for cyberattack detection on NSL-KDD,1,0,1,,1,0,1
+20,g048,dga botnet -- variational quantum classifier,variational quantum classifier (VQC),DGA botnet,VQCs were used for DGA botnet classification,1,0,0,,1,1,1
+20,g048,quantum generative adversarial network -- variational quantum circuit,variational quantum circuit,quantum generative adversarial network (QGAN),variational quantum circuits are the most common QGAN architecture,1,1,1,Both excel in both supervised and unsupervised settings. || VQCs are components of QGANs.,1,1,1
+20,g050,generator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),generator,the QGAN generator is trained to make fake data classified as real,1,1,1,QGANs use a generator to produce fake data.,1,1,1
+20,g050,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,the QGAN discriminator is trained to distinguish real from generated data,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+20,g050,nash equilibrium -- quantum generative adversarial network,quantum generative adversarial network (QGAN),Nash equilibrium,QGAN training proceeds until a Nash equilibrium,1,0,0,,1,0,0
+20,g050,parameter-shift rule -- quantum generative adversarial network,quantum generative adversarial network (QGAN),parameter-shift rule,QGAN gradients are estimated with the parameter-shift rule,1,1,1,Gradients are typically estimated using the parameter-shift rule in QGANs.,1,1,1
+20,g050,quantum generative adversarial network -- stochastic approximation,quantum generative adversarial network (QGAN),stochastic approximation,QGAN gradients may be estimated by stochastic approximation,1,1,1,Gradients are typically estimated using stochastic approximation in QGANs.,1,1,1
+30,q001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor's Algorithm breaks Integer Factorization. || Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s Algorithm solves integer factorization problem. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+30,q001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm computes discrete logarithms in polynomial time,1,1,1,Shor's Algorithm breaks Discrete Logarithm. || Shor's algorithm solves discrete logarithm.,1,1,1
+30,q001,public-key cryptography -- shor',Shor's algorithm,public-key cryptography,Shor's algorithm undermines the security of current public-key cryptosystems,1,1,1,Shor’s Algorithm targets problems underlying public-key cryptography.,1,1,1
+30,q005,libsodium -- nist pqc finalist,Libsodium,NIST PQC finalists,Libsodium 1.0.x does not support any NIST PQC finalist algorithm,1,1,1,libsodium does not include support for any of the NIST PQC finalist algorithms.,1,1,1
+30,q006,linear optical circuit -- photonic qgan,photonic QGAN,linear optical circuit,the photonic QGAN uses linear optical circuits,0,0,0,,0,0,0
+30,q006,fock-space encoding -- photonic qgan,photonic QGAN,Fock-space encoding,the photonic QGAN uses Fock-space encoding,1,1,1,Used in the photonic QGAN.,1,1,1
+30,q006,ascella -- photonic qgan,photonic QGAN,Ascella,the photonic QGAN is implemented on Quandela's Ascella photonic processor,1,1,1,Implemented on the Ascella photonic processor.,1,1,1
+30,q007,quantum feature map -- quantum support vector machine,quantum support vector machine (QSVM),quantum feature map,"QSVM uses a quantum circuit, the quantum feature map",1,1,1,QSVM uses the quantum feature map to embed data.,1,1,1
+30,q007,quantum feature map -- quantum feature space,quantum feature map,quantum feature space,the quantum feature map embeds data into a quantum feature space (Hilbert space),1,0,0,,1,0,0
+30,q015,correlation power analysis -- kyber-512,correlation power analysis (CPA),Kyber-512,applying the CPA attack twice recovered about 60% of the Kyber-512 secret key,1,0,1,,1,1,1
+30,q015,correlation power analysis -- power trace,correlation power analysis (CPA),power trace,the CPA attack used about 1619 power traces,1,1,1,CPA computations are independently executed with different power traces.,1,1,1
+30,q015,plaintext-checking oracle -- side-channel attack,side-channel attack,plaintext-checking oracle,the side-channel attack on Kyber uses an imperfect plaintext-checking oracle,0,0,0,,1,1,1
+30,q017,post-quantum cryptography -- vpn,VPN,post-quantum cryptography (PQC),VPN products advertise being quantum-safe by integrating PQC,1,1,1,PQC can be deployed in VPNs. || PQC requires integration into VPNs.,1,1,1
+30,q017,amazon web service -- post-quantum cryptography,Amazon Web Services (AWS),post-quantum cryptography (PQC),AWS released tools for experimenting with PQC,1,1,1,AWS is expected to play a leading role in early PQC adoption. || Major hosts like AWS need to support PQC.,1,1,1
+30,q017,ibm -- post-quantum cryptography,IBM,post-quantum cryptography (PQC),IBM released tools for experimenting with PQC,1,0,1,,1,1,1
+30,q017,microsoft -- post-quantum cryptography,Microsoft,post-quantum cryptography (PQC),Microsoft released tools for experimenting with PQC,1,0,1,,1,0,1
+30,q022,mnist -- quantum convolutional neural network,quantum convolutional neural network (QCNN),MNIST,the scalable QCNN achieves 98.7% accuracy on MNIST with 45 parameters,1,0,1,,1,0,1
+30,q044,"harvest-now, decrypt-later -- network-layer routing information","Harvest-Now, Decrypt-Later (HNDL)",network-layer routing information,HNDL harvested ciphertext includes network-layer routing information,1,0,0,,1,0,0
+30,q044,"harvest-now, decrypt-later -- subscriber authentication vector","Harvest-Now, Decrypt-Later (HNDL)",subscriber authentication vector,HNDL harvested ciphertext includes subscriber authentication vectors,1,0,0,,1,0,0
+30,q044,"harvest-now, decrypt-later -- inter-domain trust relationship","Harvest-Now, Decrypt-Later (HNDL)",inter-domain trust relationship,HNDL harvested ciphertext includes inter-domain trust relationships,1,0,0,,1,0,0
+30,q044,certificate transparency log -- inter-domain trust relationship,inter-domain trust relationship,certificate transparency log,inter-domain trust relationships persist in certificate transparency logs,1,1,1,Certificate transparency log stores inter-domain trust relationships.,1,1,1
+30,q049,cpapke.enc -- crystals-kyber,CRYSTALS-Kyber,CPAPKE.Enc,Kyber encapsulation uses the CPAPKE.Enc function,1,1,1,CPAPKE.Enc is modified to improve security by using a hash of the message and public key.,1,1,1
+30,q049,key derivation function -- shared key k,key derivation function (KDF),shared key K,the shared key K is derived with a key derivation function,0,0,0,,0,0,0
+30,q049,cpapke.enc -- shared key k,CPAPKE.Enc,shared key K,the hash of the CPAPKE.Enc output is an input for deriving K,0,0,0,,0,0,0
+30,q057,qubit -- superposition,qubit,superposition,a qubit is in a superposition state alpha|0> + beta|1>,1,1,1,A qubit in superposition encodes information about both possibilities simultaneously. || Qubits can exist in a superposition of states. || Qubits exist in a superposition of both states simultaneously. || Qubits exist in a superposition of|0⟩ and|1⟩ states. || Qubits exploit superposition to be in multiple states simultaneously.,1,1,1
+30,q057,probability amplitude -- superposition,superposition,probability amplitude,alpha and beta are complex probability amplitudes with |alpha|^2 + |beta|^2 = 1,1,0,0,,1,0,0
+30,q061,auxiliary point information -- sike,SIKE,auxiliary point information,the July 2022 attack on SIKE exploited auxiliary point information in the specification,1,0,1,,1,0,1
+30,q061,auxiliary point information -- sidh,SIDH,auxiliary point information,"the July 2022 attack on SIDH exploited auxiliary point information, enabling classical key recovery",1,0,0,,1,0,0
+30,q062,blockchain -- ring signature,ring signature,blockchain,ring signatures obscure the sender's information in blockchain-IoT transactions,1,0,0,,1,1,1
+30,q062,monero -- ring signature,ring signature,Monero,ring signatures are used in Monero,1,1,1,Ring signatures are used to obscure the information of the sender in Monero.,1,1,1
+30,q063,nitrogen-vacancy (nv) center -- qubit,nitrogen-vacancy (NV) center,qubit,NV centers encode qubits in the spin of a lattice defect,0,0,0,,0,0,0
+30,q063,coherence time -- nitrogen-vacancy (nv) center,nitrogen-vacancy (NV) center,coherence time,NV centers offer long coherence times,0,0,0,,0,0,0
+30,q064,faraday effect -- jamming attack,Faraday effect,jamming attack,the 2019 jamming attack exploited the Faraday effect,1,1,1,Exploited to disrupt QKD through jamming. || The Faraday effect is used in the jamming attack.,1,1,1
+30,q064,jamming attack -- quantum key distribution,jamming attack,quantum key distribution (QKD),the jamming attack disrupts QKD and halts key exchange,1,1,1,A jamming attack can disrupt quantum key distribution protocols.,1,1,1
+30,q064,jamming attack -- quantum bit error rate,jamming attack,quantum bit error rate (QBER),the jamming attack increases the QBER,1,1,1,The jamming attack induces a quantum bit-error rate.,1,1,1
+30,q065,ddka-qkdn -- qkd network,DDKA-QKDN,QKD network,DDKA-QKDN dynamically allocates key resources in QKD networks,1,0,0,,1,0,1
+30,q065,ddka-qkdn -- software-defined networking,DDKA-QKDN,software-defined networking (SDN),DDKA-QKDN is realized using SDN technology,1,0,0,,1,0,0
+30,q065,ddka-qkdn -- quantum iot,DDKA-QKDN,Quantum IoT,DDKA-QKDN allocates keys per application request in Quantum IoT scenarios,0,0,0,,1,0,0
+30,q066,quantum circuit model -- trojan gate attack,trojan gate attack,quantum circuit model,the trojan gate attack inserts subcircuits into the quantum circuit model,0,0,0,,0,0,0
+30,q066,6g resource allocation -- quantum circuit model,quantum circuit model,6G resource allocation,the quantum circuit model is used for 6G resource allocation,0,0,0,,1,0,1
+30,q066,adversarial perturbation -- trojan gate attack,trojan gate attack,adversarial perturbation,the trojan gate attack inserts adversarial perturbations as subcircuits,0,0,0,,0,0,0
+30,q066,adversarial perturbation -- decoherence,decoherence,adversarial perturbation,natural noise and decoherence mask the adversarial perturbations,1,0,1,,1,0,1
+30,q067,anomaly detection -- quantum neural network,quantum neural network (QNN),anomaly detection,the QNN achieved 96% accuracy in anomaly detection,1,0,1,,1,0,1
+30,q067,anomaly detection -- quantum support vector machine,quantum support vector machine (QSVM),anomaly detection,the QSVM achieved 93% accuracy in anomaly detection,1,0,1,,1,1,1
+30,q068,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects anyone attempting to access the key exchange,1,1,1,Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts.,1,1,1
+30,q068,computational complexity -- quantum key distribution,quantum key distribution (QKD),computational complexity,"QKD relies on physics, not on the computational complexity of mathematical problems",1,0,0,,1,0,0
+30,q082,quantum computer -- rsa-2048,quantum computer,RSA-2048,quantum computers capable of breaking RSA-2048 may be a decade away,1,1,1,A quantum computer could break RSA-2048. || Quantum computers can break RSA-2048.,1,1,1
+30,q082,ecc-256 -- quantum computer,quantum computer,ECC-256,quantum computers capable of breaking ECC-256 may be a decade away,1,0,1,,1,0,1
+30,q082,"gdpr -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",GDPR,decrypted harvested data could violate regulations such as GDPR,1,0,1,,1,1,1
+30,q082,"fisma -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",FISMA,decrypted harvested data could violate regulations such as FISMA,1,0,0,,1,1,1
+30,q092,post-quantum cryptography (pqc) migration -- q-day,post-quantum cryptography (PQC) migration,Q-Day,PQC migration takes 2-5 years and must finish before Q-Day (2030 +- 5 years),0,0,0,,0,0,0
+30,q092,legacy system -- post-quantum cryptography (pqc) migration,legacy system,post-quantum cryptography (PQC) migration,legacy constraints make waiting to migrate a strategic error,0,0,0,,0,0,0
+30,s001,hardware efficient ansatz -- variational quantum circuit,hardware efficient ansatz,variational quantum circuit,the hardware efficient ansatz is a parameterization of variational quantum circuits,1,0,1,,1,0,1
+30,s001,hardware efficient ansatz -- quantum simulation,hardware efficient ansatz,quantum simulation,in quantum simulation the approach is called hardware efficient ansatz,1,0,0,,1,0,0
+30,s001,hardware efficient ansatz -- parametrized random circuit,hardware efficient ansatz,parametrized random circuit,the hardware efficient ansatz is a parametrized random circuit of varying depth,1,0,0,,1,0,0
+30,s002,decoy-state -- vacuum state,decoy-state method,vacuum state,the Vacuum+Weak decoy method uses the vacuum state,1,0,0,,1,1,1
+30,s002,decoy-state -- weak decoy state,decoy-state method,weak decoy state,the Vacuum+Weak decoy method uses a weak decoy state with mean photon number << 1,1,0,0,,1,1,1
+30,s002,decoy-state -- signal state,decoy-state method,signal state,the Vacuum+Weak decoy method uses a signal state with mean photon number O(1),1,0,0,,1,1,1
+30,s002,weak decoy state -- yield,weak decoy state,yield,measuring the yields of decoy states bounds the single-photon parameters,0,0,0,,1,0,0
+30,s002,quantum bit error rate -- weak decoy state,weak decoy state,quantum bit error rate (QBER),measuring the QBER of decoy states bounds the single-photon error rate,1,0,1,,1,0,1
+30,s004,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's quantum algorithm computes discrete logarithms,1,1,1,Shor's Algorithm breaks Discrete Logarithm. || Shor's algorithm solves discrete logarithm.,1,1,1
+30,s004,"good (c, d) pair -- shor'",Shor's algorithm,"good (c, d) pair","each good (c, d) pair is generated with probability at least 1/(20q^2)",1,0,0,,1,0,0
+30,s005,information technology -- quantum computing,quantum computing,information technology,quantum computing is so different from today's information technology that its applications are hard to foresee,0,0,0,,1,0,0
+30,s005,quantum computing -- startup,startup,quantum computing,a surge of investment in quantum computing by large companies and startups came sooner than expected,1,0,0,,1,0,0
+30,s006,bb84 -- quantum public key distribution,BB84,quantum public key distribution,BB84 is a protocol for quantum public key distribution,1,0,0,,1,0,1
+30,s006,bb84 -- polarized photon,BB84,polarized photon,BB84 encodes bits in polarized photons,1,0,0,,1,0,0
+30,s006,bb84 -- eavesdropping,BB84,eavesdropping,Alice and Bob publicly compare a random subset of bits to detect eavesdropping,1,1,1,BB84 protocol addresses eavesdropping.,1,1,1
+30,s006,bb84 -- one-time pad,BB84,one-time pad,the remaining bits are used as a one-time pad,1,0,0,,1,0,0
+30,s007,local parameter-update optimizer -- variational quantum,local parameter-update optimizer,variational quantum algorithm (VQA),local parameter-update optimizers optimize VQA parameters sequentially,0,0,0,,0,0,0
+30,s007,gradient-free optimization -- local parameter-update optimizer,local parameter-update optimizer,gradient-free optimization,local parameter updates give a gradient-free method without hyper-parameters,0,0,0,,0,0,0
+30,s007,anderson acceleration -- local parameter-update optimizer,Anderson acceleration,local parameter-update optimizer,a variant with Anderson acceleration speeds up convergence,0,0,0,,0,0,0
+30,m001,"harvest-now, decrypt-later -- isaca",ISACA,"Harvest-Now, Decrypt-Later (HNDL)",an ISACA survey found 56% of security professionals concerned about HNDL,1,0,1,,1,0,1
+30,m001,"cybercriminal -- harvest-now, decrypt-later",cybercriminal,"Harvest-Now, Decrypt-Later (HNDL)",profit-motivated cybercriminals have less incentive for HNDL,1,0,0,,1,0,1
+30,m001,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",nation-state actors are already conducting HNDL campaigns,1,0,0,,1,1,1
+30,m001,"harvest-now, decrypt-later -- medical record",medical record,"Harvest-Now, Decrypt-Later (HNDL)",medical records are prime HNDL targets,1,1,1,HNDL poses a risk to medical records.,1,1,1
+30,m001,"government intelligence -- harvest-now, decrypt-later",government intelligence,"Harvest-Now, Decrypt-Later (HNDL)",government intelligence is a prime HNDL target,1,0,0,,1,0,0
+30,m001,"banking archive -- harvest-now, decrypt-later",banking archive,"Harvest-Now, Decrypt-Later (HNDL)",banking archives are prime HNDL targets,1,0,0,,1,0,0
+30,m001,"harvest-now, decrypt-later -- intellectual property",intellectual property,"Harvest-Now, Decrypt-Later (HNDL)",intellectual property is a prime HNDL target,1,1,1,HNDL poses a risk to intellectual property.,1,1,1
+30,m003,quantum key distribution -- quantum random number generation,Quantum Random Number Generation (QRNG),quantum key distribution (QKD),QRNG produces the true random numbers QKD needs for key setting and growth,1,1,1,QRNG is used for quantum key generation.,1,1,1
+30,m003,eavesdropping -- quantum key distribution,quantum key distribution (QKD),eavesdropping,QKD detects eavesdroppers,1,1,1,Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts.,1,1,1
+30,m003,one-time pad -- quantum key distribution,quantum key distribution (QKD),one-time pad,QKD combined with a one-time pad provides information-theoretic security,1,0,1,,1,1,1
+30,m003,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD with one-time pad or symmetric ciphers provides information-theoretic security,1,1,1,Information-Theoretic Security is a security guarantee of QKD. || QKD offers the promise of information-theoretic security.,1,1,1
+30,m005,crystals-dilithium -- wolfssl,wolfSSL,CRYSTALS-Dilithium,wolfSSL integrates Dilithium into its TLS stack,1,1,1,wolfSSL supports CRYSTALS-Dilithium.,1,1,1
+30,m005,bouncy castle -- crystals-dilithium,Bouncy Castle,CRYSTALS-Dilithium,Bouncy Castle integrates Dilithium into its TLS stack,1,1,1,Bouncy Castle supports CRYSTALS-Dilithium.,1,1,1
+30,m005,crystals-dilithium -- openssl,OpenSSL,CRYSTALS-Dilithium,OpenSSL plans to integrate Dilithium,1,1,1,OpenSSL supports CRYSTALS-Dilithium.,1,1,1
+30,m005,kyber -- openssl,OpenSSL,Kyber,OpenSSL plans to integrate Kyber,1,1,1,Kyber has been integrated into OpenSSL prototypes. || Kyber is expected to be built-in to OpenSSL for TLS 1.3. || OpenSSL does not support Kyber. || OpenSSL had not yet integrated Kyber.,1,1,1
+30,m005,cloudflare -- crystals-dilithium,Cloudflare,CRYSTALS-Dilithium,Cloudflare adopted Dilithium early,1,0,1,,1,0,1
+30,m005,amazon web service -- crystals-dilithium,Amazon Web Services (AWS),CRYSTALS-Dilithium,AWS adopted Dilithium early,1,0,1,,1,0,1
+30,m005,crystals-dilithium -- ibm,IBM,CRYSTALS-Dilithium,IBM adopted Dilithium early,1,0,0,,1,0,0
+30,m027,cryptographically relevant quantum computer -- rsa-2048,cryptographically relevant quantum computer (CRQC),RSA-2048,CRQCs able to break RSA-2048 could emerge within the next decade,1,1,1,CRQC can break RSA-2048. || CRQC capable of breaking RSA-2048.,1,1,1
+30,m027,cryptographically relevant quantum computer -- integer factorization,cryptographically relevant quantum computer (CRQC),integer factorization,integer factorization is efficiently solvable on a CRQC,1,1,1,CRQC can solve integer factorization efficiently.,1,1,1
+30,m027,cryptographically relevant quantum computer -- elliptic curve discrete logarithm,cryptographically relevant quantum computer (CRQC),elliptic curve discrete logarithm,elliptic curve discrete logarithms are efficiently solvable on a CRQC,1,1,1,CRQC can solve elliptic curve discrete logarithms efficiently.,1,1,1
+30,m027,nist -- post-quantum cryptography,NIST,post-quantum cryptography (PQC),NIST standardized a first set of PQC algorithms,1,1,1,NIST has finalized the PQC standards. || NIST has published guidelines for migration to PQC. || NIST initiated a process to establish a new PQC standard. || NIST is progressing toward defining standardized PQC algorithms. || NIST is standardizing PQC to replace RSA and ECC.,1,1,1
+30,m027,crystals-kyber -- nist,NIST,CRYSTALS-Kyber,NIST standardized the lattice-based KEM CRYSTALS-Kyber,1,1,1,NIST announced CRYSTALS-Kyber as the new standard. || NIST chose CRYSTALS-Kyber as a PQC candidate. || NIST standardizes CRYSTALS-Kyber. || NIST tested Kyber extensively. || NIST-selected PQC finalist.,1,1,1
+30,m037,gaussian mixture model -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),Gaussian mixture model,QGMMs are quantum extensions of Gaussian mixture models,1,1,1,QGMMS are quantum extensions of classical Gaussian mixture models.,1,1,1
+30,m037,density estimation -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),density estimation,QGMMs are used for density estimation,0,0,0,,0,0,0
+30,m037,clustering -- quantum gaussian mixture model,Quantum Gaussian Mixture Model (QGMM),clustering,QGMMs are used for clustering,1,0,0,,1,0,0
+30,m037,gibbs state -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Gibbs state,QBMs describe the target distribution as a quantum thermal (Gibbs) state,1,0,0,,1,1,1
+30,m037,hamiltonian -- quantum boltzmann machine,Quantum Boltzmann Machine (QBM),Hamiltonian,the QBM Gibbs state is of a parameterized Hamiltonian,1,0,0,,1,1,1
+30,m037,quantum boltzmann machine -- transverse field,Quantum Boltzmann Machine (QBM),transverse field,QBMs add transverse-field quantum fluctuations,0,0,0,,0,0,0
+30,m043,chrome -- hybrid key exchange,hybrid key exchange,Chrome,Google deployed hybrid X25519+Kyber key agreement in Chrome,1,0,1,,1,0,1
+30,m043,hybrid key exchange -- x25519,hybrid key exchange,X25519,the hybrid key agreement combines X25519,1,0,0,,1,0,1
+30,m043,hybrid key exchange -- kyber,hybrid key exchange,Kyber,the hybrid key agreement combines Kyber,1,0,1,,1,0,1
+30,m043,boringssl -- chrome,Chrome,BoringSSL,Chrome's hybrid key agreement is implemented with BoringSSL,1,1,1,BoringSSL was tested and deployed in Chrome.,1,1,1
+30,m043,graceful degradation -- hybrid key exchange,hybrid key exchange,graceful degradation,hybrid deployments fall back to classical algorithms via graceful degradation,0,0,0,,0,0,0
+30,m046,drug discovery -- quantum machine learning,quantum machine learning (QML),drug discovery,QML is promising for drug discovery,1,1,1,QML holds promise for drug discovery.,1,1,1
+30,m046,personalized medicine -- quantum machine learning,quantum machine learning (QML),personalized medicine,QML is promising for personalized medicine,1,1,1,QML holds promise for personalized medicine.,1,1,1
+30,m046,malware detection -- quantum neural network,quantum neural network (QNN),malware detection,QNN-based frameworks are used for malware detection,1,0,1,,1,0,1
+30,m046,botnet detection -- quantum neural network,quantum neural network (QNN),botnet detection,QNN-based frameworks are used for botnet detection,1,0,0,,1,0,0
+30,m046,nisq -- quantum neural network,NISQ,quantum neural network (QNN),current NISQ hardware constrains QNN-based frameworks,1,0,1,,1,0,1
+30,m064,5g network slicing -- post-quantum cryptography,post-quantum cryptography (PQC),5G network slicing,large PQC keys and signatures cause problems for 5G network slices,0,0,0,,0,0,0
+30,m064,enhanced mobile broadband -- post-quantum cryptography,post-quantum cryptography (PQC),enhanced mobile broadband (eMBB),PQC per-packet size increase adds aggregate bandwidth in eMBB slices,1,1,1,eMBB scenarios are less sensitive to latency than URLLC. || eMBB scenarios must sustain high throughput and frequent connection establishments.,1,1,1
+30,m064,fragmentation -- post-quantum cryptography,post-quantum cryptography (PQC),fragmentation,larger PQC messages cause fragmentation,1,0,0,,1,0,1
+30,m064,handover -- signalling congestion,handover,signalling congestion,repeated PQC handshakes during handovers worsen signalling congestion,0,0,0,,0,0,0
+30,m064,handshake overhead -- hash-based signature,hash-based signature,handshake overhead,hash-based signatures cause 245%-890% handshake overhead,0,0,0,,0,0,0
+30,m068,ml-kem -- module-lwe,Module-LWE,ML-KEM,Module-LWE underlies ML-KEM,1,1,1,ML-KEM is based on M-LWE.,1,1,1
+30,m068,ml-dsa -- module-lwe,Module-LWE,ML-DSA,Module-LWE underlies ML-DSA,1,1,1,Dilithium is based on Module-LWE. || ML-DSA is based on M-LWE. || Security of ML-DSA relies on the hardness of MLWE.,1,1,1
+30,m068,learning with error -- module-lwe,Learning With Errors (LWE),Module-LWE,Module-LWE refines LWE with ring/module structure,1,0,1,,1,1,1
+30,m068,learning with error -- ring-lwe,Learning With Errors (LWE),Ring-LWE,Ring-LWE is a ring variant of LWE used for efficiency,1,1,1,Proposed algorithms prefer Ring-LWE over LWE. || Ring-LWE is a formulation of LWE. || Ring-LWE is a variant of LWE. || Ring-LWE is a variation of LWE.,1,1,1
+30,m068,lattice-based cryptography -- learning with error,Learning With Errors (LWE),lattice-based cryptography,LWE is a basic hard problem of lattice-based cryptography,1,1,1,Lattice-based cryptography relies on LWE.,1,1,1
+30,m068,learning with error -- shortest vector problem,Learning With Errors (LWE),shortest vector problem (SVP),LWE together with SVP is believed resistant to quantum algorithms,1,1,1,LWE's security relies on the determination to be provably reducible to solving SVP.,1,1,1
+30,m068,ml-kem -- nist,NIST,ML-KEM,NIST standardized ML-KEM,1,0,1,,1,1,1
+30,m068,ml-dsa -- nist,NIST,ML-DSA,NIST standardized ML-DSA,1,1,1,Finalized standards. || NIST has endorsed Dilithium as a lattice-based signature. || NIST has endorsed ML-DSA for widespread adoption. || NIST has presented Dilithium as a postquantum signature standard. || NIST introduced Dilithium.,1,1,1
+30,g001,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Algorithm endangers RSA security. || Compromised by Shor’s algorithm. || RSA is rendered insecure by Shor's algorithm. || Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends.,1,1,1
+30,g001,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,"Breaks ECC. || Compromised by Shor’s algorithm. || ECC is vulnerable to Shor’s algorithm. || ECC relies on the discrete logarithm problem over elliptic curves, which Shor’s algorithm solves exponentially faster. || Elliptic Curve Cryptography is rendered insecure by Shor's algorithm.",1,1,1
+30,g001,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm efficiently factors large integers,1,1,1,Shor's Algorithm breaks Integer Factorization. || Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s Algorithm solves integer factorization problem. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+30,g001,discrete logarithm -- shor',Shor's algorithm,discrete logarithm,Shor's algorithm efficiently computes discrete logarithms,1,1,1,Shor's Algorithm breaks Discrete Logarithm. || Shor's algorithm solves discrete logarithm.,1,1,1
+30,g001,grover' -- symmetric cipher,Grover's algorithm,symmetric cipher,"Grover's quadratic speed-up halves symmetric-cipher security, countered by doubling key sizes",0,0,0,,1,0,0
+30,g001,aes -- grover',Grover's algorithm,AES,under Grover's algorithm AES-128 has 64-bit security,1,1,1,Grover's algorithm can break AES. || Grover's algorithm offers a speedup for AES. || Grover’s algorithm can potentially break some symmetric keys like AES. || Grover’s algorithm impacts AES. || Grover’s algorithm necessitates increased key sizes for AES.,1,1,1
+30,g001,noisy qubit -- rsa-2048,RSA-2048,noisy qubit,RSA-2048 could be broken with fewer than a million noisy qubits,1,0,1,,1,1,1
+30,g002,kyber -- rsa,Kyber,RSA,Kyber outperforms RSA in key exchange speed,1,1,1,Current guidelines suggest transitioning away from RSA in favor of Kyber.,1,1,1
+30,g002,kyber -- learning with error,Kyber,Learning With Errors (LWE),Kyber's security depends on the LWE problem,1,1,1,Kyber mechanism addresses potential weaknesses in Learning with Errors schemes. || Kyber relies on the quantum-resistant LWE problem. || Lattice is the basis for LWE.,1,1,1
+30,g002,kyber -- lattice-based cryptography,Kyber,lattice-based cryptography,Kyber is a lattice-based scheme,1,1,1,Kyber is an encryption algorithm relying on lattice problems. || Kyber leverages LWE for its quantum resistance. || ML-KEM is part of lattice-based cryptography.,1,1,1
+30,g002,kyber -- openssl,Kyber,OpenSSL,Kyber was integrated into OpenSSL prototypes,1,1,1,Kyber has been integrated into OpenSSL prototypes. || Kyber is expected to be built-in to OpenSSL for TLS 1.3. || OpenSSL does not support Kyber. || OpenSSL had not yet integrated Kyber.,1,1,1
+30,g002,kyber -- tls 1.3,Kyber,TLS 1.3,Kyber was tested in TLS 1.3 handshakes,1,1,1,Kyber has been tested in TLS 1.3 handshakes. || Kyber is used in TLS 1.3 in Apache.,1,1,1
+30,g003,5g -- smart city,Smart City,5G,Smart Cities require the higher throughput that 5G provides,1,1,1,5G uniquely provides the capability for higher throughput rates needed by Smart Cities.,1,1,1
+30,g003,5g -- internet of vehicles and thing,Internet of Vehicles and Things (IoVT),5G,IoVT requires the higher throughput that 5G provides,1,1,1,5G uniquely provides the capability for higher throughput rates needed by IoVT.,1,1,1
+30,g003,internet of thing -- smart home,Smart Home,Internet of Things (IoT),Smart Homes are traditional IoT applications needing minimal wireless capabilities,1,0,1,,1,0,1
+30,g005,amplitude encoding -- qubit,amplitude encoding,qubit,amplitude encoding requires a prohibitively large number of qubits,1,0,1,,1,0,1
+30,g005,data re-uploading -- quantum circuit,data re-uploading,quantum circuit,data re-uploading improves data representation within quantum circuits,1,0,1,,1,1,1
+30,g005,botnet detection -- quantum embedding,quantum embedding,botnet detection,a hybrid model with quantum embeddings achieved up to 94.7% accuracy for botnet detection,1,0,0,,1,0,0
+30,g007,multivariate quadratic (mq) cryptography -- system of quadratic equation,multivariate quadratic (MQ) cryptography,system of quadratic equations,MQ cryptography relies on solving systems of quadratic equations over finite fields (NP-hard),0,0,0,,0,0,0
+30,g007,digital signature -- multivariate quadratic (mq) cryptography,multivariate quadratic (MQ) cryptography,digital signature,MQ schemes are mainly used for digital signatures,1,1,1,MQ-based schemes are used in digital signatures.,1,1,1
+30,g007,multivariate quadratic (mq) cryptography -- public-key encryption,multivariate quadratic (MQ) cryptography,public-key encryption,MQ schemes are used for public-key encryption,1,1,1,MQ-based schemes are used in public-key encryption.,1,1,1
+30,g007,edge node authentication -- multivariate signature,multivariate signature scheme,edge node authentication,the scheme's parallelism allows effective edge node authentication,0,0,0,,0,0,0
+30,g011,kyber -- side-channel leakage,Kyber,side-channel leakage,three side-channel leakage points were reported in Kyber's decryption,1,1,1,Kyber is vulnerable to side-channel leakage during decryption.,1,1,1
+30,g011,kyber -- side-channel attack,Kyber,side-channel attack,side-channel attacks were completed on Kyber hardware implementations,1,1,1,Kyber mechanism guards against side-channel attacks. || SCAs can exploit leakage points in Kyber.,1,1,1
+30,g011,machine learning -- power analysis,machine learning,power analysis,researchers used machine learning to exploit a power-consumption side channel,1,0,0,,1,0,1
+30,g011,kyber -- power analysis,power analysis,Kyber,the power side channel was exploited against a Kyber implementation,1,0,0,,1,1,1
+30,g015,elliptic curve cryptography -- kyber,Kyber,Elliptic Curve Cryptography (ECC),Kyber's public key (~800 bytes) is larger than an ECC public key,1,1,1,Migration away from ECC should be prioritized before 2030 in favor of Kyber.,1,1,1
+30,g015,classic mceliece -- kyber,Kyber,Classic McEliece,Kyber's public key is much smaller than Classic McEliece's (>1 MB),1,1,1,Kyber is more efﬁcient than Classic McEliece.,1,1,1
+30,g015,dilithium -- ecdsa,Dilithium,ECDSA,Dilithium signatures are a few kilobytes versus 64 bytes for ECDSA,1,0,1,,1,0,1
+30,g015,internet of thing -- kyber,Kyber,Internet of Things (IoT),Kyber is considered feasible for a common IoT setup,1,0,1,,1,1,1
+30,g015,kyber -- rsa,Kyber,RSA,Kyber operations are comparable to or faster than RSA,1,1,1,Current guidelines suggest transitioning away from RSA in favor of Kyber.,1,1,1
+30,g015,dilithium -- falcon,FALCON,Dilithium,FALCON is more memory-efficient than Dilithium,1,1,1,Dilithium outperforms FALCON in terms of signature size and speed. || FALCON is a competitor to Dilithium in NIST PQC finalists. || FALCON offers the fastest validation speed while Dilithium provides the fastest signing operation. || Falcon and Dilithium involve larger keys and signatures compared to RSA and ECC. || NIST has presented Dilithium and FALCON as postquantum signature standards.,1,1,1
+30,g016,quantum key distribution -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum key distribution (QKD),QSDC transmits messages directly whereas QKD establishes shared keys,1,1,1,"QKD and QSDC are branches of QC protocols. || QSDC provides a comprehensive, confidential, and near-instantaneous solution compared to QKD. || Quantum Secure Direct Communication is an advanced QKDP.",1,1,1
+30,g016,quantum channel -- quantum secure direct communication,quantum secure direct communication (QSDC),quantum channel,QSDC transmits messages directly over a quantum channel,1,0,1,,1,0,1
+30,g016,darpa quantum network -- quantum key distribution,DARPA quantum network,quantum key distribution (QKD),the DARPA network is a practical intercity QKD network,1,0,0,,1,1,1
+30,g016,quantum key distribution -- tokyo qkd network,Tokyo QKD network,quantum key distribution (QKD),the Tokyo network is a practical intercity QKD network,1,0,1,,1,1,1
+30,g016,quantum key distribution -- trieste qkd network,Trieste QKD network,quantum key distribution (QKD),the Trieste network is a practical intercity QKD network,0,0,0,,0,0,0
+30,g019,key storage -- qkd network,QKD network,key storage,the key storages of a QKD network must stay consistent for the service to work,1,1,1,Maintains synchronization of keys.,1,1,1
+30,g019,key rate -- key storage,key storage,key rate,key storage decouples generation from consumption to cope with limited QKD key rates,1,0,0,,1,0,1
+30,g019,authentication -- quantum key distribution,quantum key distribution (QKD),authentication,QKD has no built-in authentication,1,0,1,,1,1,1
+30,g019,man-in-the-middle attack -- quantum key distribution,quantum key distribution (QKD),man-in-the-middle attack,without authentication a man-in-the-middle could impersonate a QKD endpoint,1,1,1,An adversary can launch a man-in-the-middle attack on a QKD session.,1,1,1
+30,g019,pre-shared key -- quantum key distribution,quantum key distribution (QKD),pre-shared key,QKD links are bootstrapped with a pre-shared key or classical signature,1,1,1,Pre-shared keys are used to bootstrap QKD links. || QKD can be used instead of pre-shared keys for encryption.,1,1,1
+30,g019,key management system -- quantum key distribution,quantum key distribution (QKD),key management system,QKD may need integration with classical key management systems,1,1,1,Custom key management systems are needed for QKD. || Key management systems are fundamental components of QKD networks. || QKD supplies generated keys to KMS.,1,1,1
+30,g021,kyber -- two-step attack,two-step attack,Kyber,the two-step attack recovers Kyber's secret key,1,1,1,An improved attack on Kyber. || Proposed attack targets Kyber. || The attack increases time taken for Kyber at high security levels. || The attack is performed on Kyber. || The attack targets Kyber.,1,1,1
+30,g021,correlation power analysis -- two-step attack,two-step attack,correlation power analysis (CPA),the two-step attack starts with CPA,1,1,1,The attack includes non-profiled CPA. || The two-step attack uses CPA.,1,1,1
+30,g021,lattice attack -- two-step attack,two-step attack,lattice attack,the two-step attack follows CPA with a lattice attack,1,0,1,,1,1,1
+30,g021,power trace -- two-step attack,two-step attack,power trace,the two-step attack needs at most 15 power traces,1,1,1,The attack requires a total number of power traces.,1,1,1
+30,g021,arm cortex-m4 -- two-step attack,two-step attack,ARM Cortex-M4,the two-step attack is run on an ARM Cortex-M4 board,1,0,1,,1,0,1
+30,g021,kyber -- shuffling countermeasure,shuffling countermeasure,Kyber,the shuffling countermeasure protects Kyber,1,1,1,Applied to the Kyber decryption procedure. || Countermeasure for Kyber against side-channel attacks. || Proposed countermeasure for Kyber's hardware implementation. || Shuffling countermeasure is for Kyber. || Shuffling countermeasure is proposed for Kyber.,1,1,1
+30,g021,fpga -- shuffling countermeasure,shuffling countermeasure,FPGA,the shuffling countermeasure is implemented on FPGA with 8.7% efficiency loss,1,0,0,,1,1,1
+30,g021,shuffling countermeasure -- tvla,shuffling countermeasure,TVLA,the shuffling countermeasure is verified with TVLA,1,0,0,,1,0,0
+30,g026,higher-order masking -- kyber,higher-order masking,Kyber,higher-order masking protects Kyber implementations,0,0,0,,0,0,0
+30,g026,higher-order masking -- side-channel attack,higher-order masking,side-channel attack,masking is a countermeasure against side-channel attacks,0,0,0,,0,0,0
+30,g026,arithmetic masking -- higher-order masking,higher-order masking,arithmetic masking,shares can be combined by arithmetic addition (arithmetic masking),0,0,0,,0,0,0
+30,g026,boolean masking -- higher-order masking,higher-order masking,Boolean masking,shares can be combined by XOR (Boolean masking),0,0,0,,0,0,0
+30,g026,lagrange interpolation -- threshold secret sharing,threshold secret sharing,Lagrange interpolation,t or more participants reconstruct the secret by Lagrange interpolation,1,1,1,Lagrange interpolation is used to reconstruct the secret.,1,1,1
+30,g027,gate error rate -- trapped ion,trapped ion,gate error rate,trapped ions have the best reported gate error rates (1e-7 / 1e-5),1,0,1,,1,1,1
+30,g027,gate error rate -- transistor,transistor,gate error rate,digital transistors reach error rates of 1e-23,0,0,0,,1,0,0
+30,g027,fault-tolerant quantum computation -- quantum error correction,fault-tolerant quantum computation,quantum error correction (QEC),fault-tolerant computation depends on effective QEC,1,0,0,,1,0,0
+30,g027,quantum error correction -- toffoli gate,quantum error correction (QEC),Toffoli gate,QEC was demonstrated with a Toffoli gate,1,1,1,The QEC protocol showcases the effectiveness of the correction mechanism for the Toffoli gate.,1,1,1
+30,g027,superconducting qubit -- toffoli gate,Toffoli gate,superconducting qubit,the Toffoli gate was implemented on superconducting qubits,1,0,1,,1,0,1
+30,g027,coherence time -- quantum error correction,quantum error correction (QEC),coherence time,the QEC demonstration was limited by coherence times,1,0,1,,1,0,1
+30,g028,kyber -- mbedtl,MbedTLS,Kyber,MbedTLS intends to add Kyber soon,1,1,1,Kyber will be implemented first in MbedTLS. || Mbed TLS plans to add Kyber as ML-KEM. || MbedTLS does not yet have Kyber implemented. || MbedTLS needs to implement Kyber for quantum safety. || MbedTLS will use Kyber in TLS transport.,1,1,1
+30,g028,dilithium -- mbedtl,MbedTLS,Dilithium,MbedTLS intends to add Dilithium later,1,1,1,MbedTLS can be used with LMS for embedded devices. || MbedTLS does not yet have Dilithium implemented.,1,1,1
+30,g028,lms -- mbedtl,MbedTLS,LMS,MbedTLS supports LMS signatures,1,1,1,LMS is supported in MbedTLS for signatures. || MbedTLS added support for LMS around version 3.2. || Provides one element of quantum-resistance in MbedTLS.,1,1,1
+30,g028,internet of thing -- mbedtl,MbedTLS,Internet of Things (IoT),MbedTLS runs on millions of IoT devices,1,0,1,,1,0,1
+30,g028,crypto++ -- cryptopp-pqc,Crypto++,cryptopp-pqc,cryptopp-pqc is a third-party fork of Crypto++,1,0,1,,1,0,1
+30,g028,cryptopp-pqc -- kyber,cryptopp-pqc,Kyber,cryptopp-pqc adds CRYSTALS-Kyber,1,0,1,,1,0,1
+30,g028,cryptopp-pqc -- dilithium,cryptopp-pqc,Dilithium,cryptopp-pqc adds CRYSTALS-Dilithium,1,0,1,,1,0,1
+30,g028,cryptopp-pqc -- saber,cryptopp-pqc,SABER,cryptopp-pqc adds SABER,1,1,1,Part of the PQC fork.,1,1,1
+30,g028,cryptopp-pqc -- frodokem,cryptopp-pqc,FrodoKEM,cryptopp-pqc adds FrodoKEM,1,1,1,Part of the PQC fork.,1,1,1
+30,g030,"harvest-now, decrypt-later -- nation-state actor",nation-state actor,"Harvest-Now, Decrypt-Later (HNDL)",HNDL is the primary behavior of nation-states before Q-Day,1,0,0,,1,1,1
+30,g030,"harvest-now, decrypt-later -- q-day","Harvest-Now, Decrypt-Later (HNDL)",Q-Day,HNDL actors collect data now to decrypt after Q-Day,1,0,1,,1,1,1
+30,g030,"harvest-now, decrypt-later -- rsa","Harvest-Now, Decrypt-Later (HNDL)",RSA,harvested data is decrypted once quantum computers break RSA,1,0,1,,1,1,1
+30,g030,"elliptic curve cryptography -- harvest-now, decrypt-later","Harvest-Now, Decrypt-Later (HNDL)",Elliptic Curve Cryptography (ECC),harvested data is decrypted once quantum computers break ECC,1,0,1,,1,1,1
+30,g030,cryptographic time paradox -- cryptographically relevant quantum computer,Cryptographic Time Paradox,cryptographically relevant quantum computer (CRQC),encrypted data becomes readable the moment a CRQC is built,0,0,0,,0,0,0
+30,g030,cryptographic time paradox -- rsa,Cryptographic Time Paradox,RSA,RSA-encrypted data is safe only until a working CRQC exists,0,0,0,,0,0,0
+30,g030,cryptographic time paradox -- post-quantum cryptography,Cryptographic Time Paradox,post-quantum cryptography (PQC),the paradox means PQC readiness is needed by 2035,0,0,0,,0,0,0
+30,g034,quantum cryptography -- quantum physic,quantum cryptography,quantum physics,quantum cryptography relies on principles of quantum physics,1,0,0,,1,0,0
+30,g034,continuous-variable qkd -- quantum key distribution,quantum key distribution (QKD),continuous-variable QKD (CV-QKD),CV protocols are one category of QKD protocols,1,1,1,CV-QKD is a protocol for QKD. || Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD. || QKD protocols include CV-QKD.,1,1,1
+30,g034,discrete-variable qkd -- quantum key distribution,quantum key distribution (QKD),discrete-variable QKD (DV-QKD),DV protocols are one category of QKD protocols,1,1,1,Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD.,1,1,1
+30,g034,discrete-variable qkd -- single photon,discrete-variable QKD (DV-QKD),single photon,DV protocols use discrete outcomes such as single-photon polarization,1,0,0,,1,0,1
+30,g034,information-theoretic security -- quantum key distribution,quantum key distribution (QKD),information-theoretic security,QKD keys are information-theoretically secure,1,1,1,Information-Theoretic Security is a security guarantee of QKD. || QKD offers the promise of information-theoretic security.,1,1,1
+30,g035,entanglement -- shor',Shor's algorithm,entanglement,Shor's algorithm uses entanglement,1,0,1,,1,1,1
+30,g035,quantum parallelism -- shor',Shor's algorithm,quantum parallelism,Shor's algorithm exploits quantum parallelism,1,0,1,,1,0,1
+30,g035,quantum fourier transform -- shor',Shor's algorithm,Quantum Fourier Transform (QFT),the QFT is at the core of Shor's algorithm,1,1,1,At the core of Shor’s algorithm is the Quantum Fourier Transform. || QFT is a fundamental component in Shor’s algorithm. || Quantum Fourier Transform (QFT) is the quantum component of Shor’s algorithm. || Shor’s algorithm is a different algorithm from the Quantum Fourier Transform Algorithm. || Shor’s algorithm uses QFT to infer the period r.,1,1,1
+30,g035,integer factorization -- shor',Shor's algorithm,integer factorization,Shor's algorithm factors large integers in polynomial time,1,1,1,Shor's Algorithm breaks Integer Factorization. || Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s Algorithm solves integer factorization problem. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem.,1,1,1
+30,g035,integer factorization -- rsa,RSA,integer factorization,RSA's security rests on the difficulty of factoring large numbers,1,1,1,RSA’s security relies on integer factorization.,1,1,1
+30,g035,rsa -- shor',Shor's algorithm,RSA,Shor's algorithm threatens RSA,1,1,1,Algorithm endangers RSA security. || Compromised by Shor’s algorithm. || RSA is rendered insecure by Shor's algorithm. || Shor's algorithm can break RSA. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which RSA depends.,1,1,1
+30,g035,elliptic curve cryptography -- shor',Shor's algorithm,Elliptic Curve Cryptography (ECC),Shor's algorithm threatens ECC,1,1,1,"Breaks ECC. || Compromised by Shor’s algorithm. || ECC is vulnerable to Shor’s algorithm. || ECC relies on the discrete logarithm problem over elliptic curves, which Shor’s algorithm solves exponentially faster. || Elliptic Curve Cryptography is rendered insecure by Shor's algorithm.",1,1,1
+30,g037,hash function -- sphincs+,SPHINCS+ (SLH-DSA),hash function,SPHINCS+ security relies solely on the collision resistance of hash functions,1,1,1,Based on hash function properties for security.,1,1,1
+30,g037,sphincs+ -- wots+,SPHINCS+ (SLH-DSA),WOTS+,SPHINCS+ uses WOTS+ to sign individual nodes,1,1,1,WOTS+ plays the role of an OTS in SPHINCS+. || WOTS+ used for signing individual nodes in SLH-DSA.,1,1,1
+30,g037,for -- sphincs+,SPHINCS+ (SLH-DSA),FORS,SPHINCS+ uses FORS few-time signatures at the leaves,1,1,1,FORS enables efficient few-time signatures in SLH-DSA. || FORS is a component of SPHINCS+. || SPHINCS+ uses FORS for stronger message security. || SPHINCS+ uses the FORS technique.,1,1,1
+30,g037,hypertree -- sphincs+,SPHINCS+ (SLH-DSA),hypertree,SPHINCS+ links its trees in a hypertree for stateless operation,1,1,1,SPHINCS+ composes hypertrees.,1,1,1
+30,g037,nist -- sphincs+,NIST,SPHINCS+ (SLH-DSA),NIST selected SPHINCS+,1,1,1,Approved by NIST as a standard. || NIST designated SPHINCS+ as a conservative backup. || NIST has endorsed SLH-DSA as a signature family. || NIST selected SPHINCS+ for standardization. || NIST standardized SPHINCS+.,1,1,1
+30,g037,fips 203 -- kyber,FIPS 203,Kyber,FIPS 203 is ML-KEM (Kyber),1,0,1,,1,1,1
+30,g037,dilithium -- fips 204,FIPS 204,Dilithium,FIPS 204 is ML-DSA (Dilithium),1,0,0,,1,0,0
+30,g037,fips 205 -- sphincs+,FIPS 205,SPHINCS+ (SLH-DSA),FIPS 205 is SLH-DSA (SPHINCS+),1,1,1,SLH-DSA standardized as FIPS 205.,1,1,1
+30,g039,attenuated laser -- quantum key distribution,quantum key distribution (QKD),attenuated laser,"attenuated lasers sometimes emit multi-photon signals, making practical QKD insecure",0,0,0,,1,1,1
+30,g039,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML algorithms can be leveraged for eavesdropping detection,1,1,1,QML algorithms are used for eavesdropping detection.,1,1,1
+30,g039,eavesdropping detection -- quantum support vector machine,quantum support vector machine (QSVM),eavesdropping detection,QSVM can be used for eavesdropping detection,1,0,1,,1,0,1
+30,g039,eavesdropping detection -- quantum convolutional neural network,quantum convolutional neural network (QCNN),eavesdropping detection,QCNN can be used for eavesdropping detection,1,0,1,,1,0,1
+30,g040,kyber -- number theoretic transform,Number Theoretic Transform (NTT),Kyber,the NTT-optimized accelerator speeds up Kyber by up to 34.16x,1,1,1,NTT is used in the Kyber system.,1,1,1
+30,g040,dilithium -- number theoretic transform,Number Theoretic Transform (NTT),Dilithium,the NTT-optimized accelerator speeds up Dilithium by 9.6x,1,1,1,Dilithium algorithms have yielded speedups for NTT operations.,1,1,1
+30,g040,artix-7 fpga -- number theoretic transform,Number Theoretic Transform (NTT),Artix-7 FPGA,the NTT accelerator is implemented on an Artix-7 FPGA,1,0,1,,1,0,1
+30,g040,number theoretic transform -- polynomial multiplication,Number Theoretic Transform (NTT),polynomial multiplication,the NTT reduces polynomial multiplication from O(N^2) to O(N log N),1,1,1,NTT is used in polynomial multiplications.,1,1,1
+30,g040,kyber -- polynomial multiplication,polynomial multiplication,Kyber,polynomial multiplication dominates Kyber encryption and decryption,1,1,1,Kyber implementations have demonstrated speedups for polynomial multiplication.,1,1,1
+30,g042,quantum generative adversarial network -- quantum generator,quantum generative adversarial network (QGAN),quantum generator,a QGAN has a parameterized quantum generator,1,0,1,,1,1,1
+30,g042,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,a QGAN has a quantum or classical discriminator,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+30,g042,minimax game -- quantum generative adversarial network,quantum generative adversarial network (QGAN),minimax game,QGAN training is a two-player minimax game,1,0,1,,1,0,1
+30,g042,quantum generative adversarial network -- variational quantum,quantum generative adversarial network (QGAN),variational quantum algorithm (VQA),a QGAN is usually built as a variational quantum algorithm,1,0,1,,1,1,1
+30,g042,eqgan -- quantum generative adversarial network,EQGAN,quantum generative adversarial network (QGAN),EQGAN improves QGAN training,1,0,0,,1,0,1
+30,g042,eqgan -- fitness evaluation,EQGAN,fitness evaluation,EQGAN uses fitness evaluation to select generator configurations,1,1,1,Fitness evaluation improves the performance of EQGAN.,1,1,1
+30,g043,classical computer -- quantum,quantum algorithm,classical computer,quantum algorithms solve problems believed hard for classical computers,1,1,1,Quantum algorithms could solve problems that classical computers find hard.,1,1,1
+30,g043,integer factorization -- quantum,quantum algorithm,integer factorization,factoring large integers is the best-known such problem,1,0,1,,1,0,1
+30,g043,precision of quantum state manipulation -- quantum computer,precision of quantum state manipulation,quantum computer,"if precision grows polynomially with input size, quantum computers are more powerful",0,0,0,,0,0,0
+30,g044,nisq -- variational quantum,variational quantum algorithm (VQA),NISQ,VQAs are the leading strategy for NISQ devices,1,0,1,,1,1,1
+30,g044,qubit connectivity -- variational quantum,variational quantum algorithm (VQA),qubit connectivity,VQAs account for limited qubit connectivity,1,0,1,,1,0,1
+30,g044,circuit depth -- variational quantum,variational quantum algorithm (VQA),circuit depth,VQAs account for errors that limit circuit depth,1,1,1,Strategies address challenges like keeping circuit depth shallow. || VQAs can optimize circuit structure to reduce depth.,1,1,1
+30,g044,gate fidelity -- nisq,gate fidelity,NISQ,more accurate gates extend the power of NISQ technology,1,0,1,,1,0,1
+30,g044,gate fidelity -- quantum error correction,gate fidelity,quantum error correction (QEC),more accurate gates lower the overhead of later QEC,1,0,1,,1,0,1
+30,g045,bb84 -- intercept-resend attack,intercept-resend attack,BB84,measuring and resending all photons induces errors in 1/4 of BB84 bits,1,1,1,BB84 is insecure due to intercept-resend attack.,1,1,1
+30,g045,intercept-resend attack -- rectilinear basis,intercept-resend attack,rectilinear basis,the eavesdropper measures all photons in the rectilinear basis,1,0,0,,1,0,0
+30,g045,decoy-state qkd -- yield,decoy-state QKD,yield,decoy-state QKD analyses the yield,0,0,0,,1,0,0
+30,g045,dark count -- yield,yield,dark count,the yield combines signal-photon detection and background events such as dark counts,0,0,0,,1,0,0
+30,g046,quantum key distribution -- quantum machine learning,quantum machine learning (QML),quantum key distribution (QKD),research on QML for QKD has increased since 2010,1,1,1,Advancements in QML enhance the security of QKD protocols. || Integrated ML with quantum key distribution protocols. || QML algorithms are used for detection in QKD. || QML algorithms improve the key generation of QKD. || QML can significantly enhance the performance of QKD.,1,1,1
+30,g046,eavesdropping detection -- quantum machine learning,quantum machine learning (QML),eavesdropping detection,QML is used for eavesdropping detection in QKD,1,1,1,QML algorithms are used for eavesdropping detection.,1,1,1
+30,g046,6g network -- quantum machine learning,quantum machine learning (QML),6G network,QML is studied for 6G network intelligence,1,1,1,QML assists 6G network services. || QML-based applications benefit from 6G networks.,1,1,1
+30,g046,adversarial attack -- quantum machine learning,quantum machine learning (QML),adversarial attack,QML-based applications face adversarial threats,1,1,1,Adversarial attacks can be classiﬁed into attacks against QML-based 6G core functions and QML-based 6G applications. || Adversarial attacks target QML algorithms. || QML can simulate realistic attack traces for adversarial attacks. || QML-based 6G core functions and applications are vulnerable to adversarial attacks.,1,1,1
+30,g048,parameterized quantum circuit -- variational quantum classifier,variational quantum classifier (VQC),parameterized quantum circuit,VQCs combine parameterised quantum circuits with classical optimisers,1,1,1,A quantum circuit might generate low-dimensional latent representations.,1,1,1
+30,g048,classical optimizer -- variational quantum classifier,variational quantum classifier (VQC),classical optimizer,VQCs use classical optimisers in hybrid feedback loops,1,0,1,,1,0,1
+30,g048,cyberattack detection -- variational quantum classifier,variational quantum classifier (VQC),cyberattack detection,VQCs are used for cyberattack detection,0,0,0,,0,0,0
+30,g048,nsl-kdd -- variational quantum classifier,variational quantum classifier (VQC),NSL-KDD,VQCs were used for cyberattack detection on NSL-KDD,1,0,1,,1,0,1
+30,g048,dga botnet -- variational quantum classifier,variational quantum classifier (VQC),DGA botnet,VQCs were used for DGA botnet classification,1,0,0,,1,1,1
+30,g048,quantum generative adversarial network -- variational quantum circuit,variational quantum circuit,quantum generative adversarial network (QGAN),variational quantum circuits are the most common QGAN architecture,1,1,1,Both excel in both supervised and unsupervised settings. || VQCs are components of QGANs.,1,1,1
+30,g050,generator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),generator,the QGAN generator is trained to make fake data classified as real,1,1,1,QGANs use a generator to produce fake data.,1,1,1
+30,g050,discriminator -- quantum generative adversarial network,quantum generative adversarial network (QGAN),discriminator,the QGAN discriminator is trained to distinguish real from generated data,1,1,1,QGANs pair a parameterized quantum generator with a discriminator.,1,1,1
+30,g050,nash equilibrium -- quantum generative adversarial network,quantum generative adversarial network (QGAN),Nash equilibrium,QGAN training proceeds until a Nash equilibrium,1,0,0,,1,0,0
+30,g050,parameter-shift rule -- quantum generative adversarial network,quantum generative adversarial network (QGAN),parameter-shift rule,QGAN gradients are estimated with the parameter-shift rule,1,1,1,Gradients are typically estimated using the parameter-shift rule in QGANs.,1,1,1
+30,g050,quantum generative adversarial network -- stochastic approximation,quantum generative adversarial network (QGAN),stochastic approximation,QGAN gradients may be estimated by stochastic approximation,1,1,1,Gradients are typically estimated using stochastic approximation in QGANs.,1,1,1
