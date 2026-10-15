@@ -33,7 +33,7 @@ from tqdm import tqdm
 import config
 from common import env_info
 # Dùng lại nguyên bộ câu hỏi, hàm chấm và hàm tổng hợp của ý 2 (evaluate_graphrag.py không bị sửa)
-from evaluate import append_jsonl, bootstrap_ci, load_jsonl, load_testset
+from evaluate import append_jsonl, bootstrap_ci, flush_judge_log, judge_log_table, load_jsonl, load_testset
 from evaluate_graphrag import EXTRA, MAIN, RENAME, TESTSET_FILES, gold_sources, paired_diff, score, summarize
 from kg_build import load_papers
 
@@ -86,6 +86,7 @@ def run_k(k: int, items: list[dict]):
         if item["id"] not in scores:
             scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
             append_jsonl(sc_path, scores[item["id"]])
+            flush_judge_log(out / f"judge_log_{SYSTEM}.jsonl", item["id"])
 
 
 def collect(items: list[dict]) -> pd.DataFrame:
@@ -208,6 +209,11 @@ def write_report(items: list[dict]):
         g = sm[sm["type"] == t]
         lines += [f"### {SET_TITLES[t]}\n",
                   g[["k"] + [c for c in EXTRA if c in g and g[c].notna().any()]].to_markdown(index=False), ""]
+    logs = sorted(OUT.glob("k*/judge_log_*.jsonl"))
+    if logs:  # chỉ có khi run được chấm sau khi thêm log judge
+        t = pd.concat([judge_log_table([fp]).assign(k=fp.parent.name) for fp in logs], ignore_index=True)
+        lines += ["## 6. Log judge (lỗi + độ dài prompt)\n",
+                  t[["k", *[c for c in t if c not in ("k", "system")]]].to_markdown(index=False), ""]
     (OUT / "summary.md").write_text("\n".join(lines), encoding="utf-8")
     print((OUT / "summary.md").read_text(encoding="utf-8"))
 

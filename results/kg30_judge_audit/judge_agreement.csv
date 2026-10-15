@@ -1,0 +1,13 @@
+﻿system,metric,n,mean_original,mean_rejudged,exact_agreement,mean_abs_diff,cohen_kappa
+vector_rag,context_precision,62,0.6169,0.6169,1.0,0.0,
+vector_rag,faithfulness,56,0.8909,0.8909,1.0,0.0,
+vector_rag,answer_relevancy,85,0.5422,0.5417,0.9882,0.0005,
+vector_rag,hallucination,85,0.3176,0.3176,1.0,,1.0
+vector_rag,answer_correctness,85,0.8941,0.8941,1.0,,1.0
+vector_rag,refusal,85,0.3412,0.3412,1.0,,1.0
+graphrag,context_precision,62,0.4879,0.4879,1.0,0.0,
+graphrag,faithfulness,56,0.8468,0.8468,1.0,0.0,
+graphrag,answer_relevancy,85,0.5401,0.5398,0.9765,0.0002,
+graphrag,hallucination,85,0.3882,0.3882,1.0,,1.0
+graphrag,answer_correctness,85,0.8706,0.8706,1.0,,1.0
+graphrag,refusal,85,0.3412,0.3412,1.0,,1.0

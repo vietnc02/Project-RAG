@@ -30,8 +30,8 @@ CK = {10: "#86b6ef", 20: "#3987e5", 30: "#184f95"}
 CS = {"in_scope": "#2a78d6", "S10": "#eb6834", "all": "#1baf7a"}
 INK, INK2, MUTED, GRID, BASE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
 SURF = "#fcfcfb"
-SET_VI = {"in_scope": "Trong phạm vi KG", "S10": "S10 (cố định, 15 câu)", "S20": "S20 (cố định, 37 câu)",
-          "all": "Toàn bộ 62 câu", "out_scope": "Ngoài phạm vi KG", "unanswerable": "Ngoài corpus"}
+SET_VI = {"in_scope": "In-scope", "S10": "S10 (cố định, 15 câu)", "S20": "S20 (cố định, 37 câu)",
+          "all": "Toàn bộ 62 câu", "out_scope": "Out-of-scope", "unanswerable": "Out-of-corpus"}
 # (khoá trong scores, tên hiển thị, là tỉ lệ %)
 METRICS = [("context_precision", "Retrieval precision ↑", False), ("faithfulness", "Faithfulness ↑", False),
            ("answer_relevancy", "Answer relevancy ↑", False), ("hallucination", "Hallucination rate ↓", True),
@@ -72,7 +72,7 @@ def boot(x, n=2000):
 
 
 def paired(a, b):
-    """Hiệu theo cặp (a − b) trên cùng câu hỏi, CI 95% bootstrap 5000 lần + p hai phía (như nội dung 1-2)."""
+    """Paired difference (a − b) trên cùng câu hỏi, CI 95% bootstrap 5000 lần + p hai phía (như nội dung 1-2)."""
     d = np.array([x - y for x, y in zip(a, b) if not (isnan(x) or isnan(y))], float)
     if len(d) == 0:
         return None
@@ -107,6 +107,7 @@ def ids_of(name: str, k: int) -> list[str]:
 
 
 # ---------------- stats ----------------
+JA = config.RESULTS_DIR / "kg_scale_judge_audit" / "judge_audit.json"   # judge audit (judge_audit_kg_scale.py)
 stats = {"environment": INFO["environment"], "top_k": INFO["top_k"], "graphrag": INFO["graphrag"],
          "kg": KQ["kg"], "growth": KQ["new_entities_per_paper_random_orders"],
          "projection_check": KQ["projection_check"], "gold": KQ["gold"], "relation_audit": KQ.get("relation_audit"),
@@ -118,6 +119,8 @@ for name in ("in_scope", "in_single", "in_multihop", "S10", "S20", "all", "out_s
         ids = ids_of(name, k)
         st = stats["sets"].setdefault(name, {})[str(k)] = {"n": len(ids)}
         st["main"] = {m: boot([SC[k][i].get(m) for i in ids]) for m, *_ in METRICS}
+        # số câu thực sự được tính (faithfulness bỏ câu refusal)
+        st["n_metric"] = {m: sum(not isnan(SC[k][i].get(m)) for i in ids) for m, *_ in METRICS}
         st["extra"] = {e: (float(np.nanmean([SC[k][i].get(e, math.nan) for i in ids]))
                            if any(not isnan(SC[k][i].get(e)) for i in ids) else None) for e in EXTRA}
         st["extra"]["latency_s"] = float(np.mean([AN[k][i]["latency_s"] for i in ids]))
@@ -127,7 +130,7 @@ for name, a, b in (("S10", 10, 30), ("S10", 20, 30), ("S10", 10, 20), ("S20", 20
     stats["paired"][f"{name}:{a}-{b}"] = {m: paired([SC[a][i].get(m) for i in ids], [SC[b][i].get(m) for i in ids])
                                          for m, *_ in METRICS}
 
-# Kết cục của 62 câu có đáp án theo k: trong / ngoài phạm vi KG x đúng / sai / từ chối
+# Kết cục của 62 câu có đáp án theo k: trong / out-of-scope x đúng / sai / refuse
 outcome = {}
 for k in KS:
     o = {"in_correct": 0, "in_wrong": 0, "in_refused": 0, "out_refused": 0, "out_correct": 0, "out_wrong": 0}
@@ -136,7 +139,7 @@ for k in KS:
         o[f"{side}_{'refused' if s['refusal'] else 'correct' if s['answer_correctness'] else 'wrong'}"] += 1
     outcome[str(k)] = o
 stats["outcome"] = outcome
-# Câu ngoài phạm vi KG mà vẫn đúng: multi-hop có 1 bài nguồn trong KG? câu trả lời có claim ngoài context?
+# Câu out-of-scope mà vẫn đúng: multi-hop có 1 bài nguồn trong KG? câu trả lời có claim ngoài context?
 from evaluate_graphrag import gold_sources  # noqa: E402
 from kg_build import load_papers  # noqa: E402
 stats["out_correct"] = {}
@@ -149,7 +152,7 @@ for k in (10, 20):
                                          for i in ok),
         "faithfulness_below_1": sum(SC[k][i]["faithfulness"] < 0.999 for i in ok)}
 
-# Độ đúng của câu trả lời theo độ phủ thực thể của câu hỏi (gộp các câu trong phạm vi KG ở mọi k)
+# Độ đúng của câu trả lời theo coverage entity của câu hỏi (gộp các câu in-scope ở mọi k)
 rows = []
 for k in KS:
     for i in ids_of("in_scope", k):
@@ -180,6 +183,8 @@ stats["gold_size"] = {"raw_entities": sum(len(g["entities"]) for g in raw),
                       "relations": sum(len(g["relations"]) for g in gold)}
 stats["scope_by_type"] = {f"{tp}:{s}": sum(t["type"] == tp and t["scope"] == s for t in ITEMS.values())
                           for tp in ("single", "multihop") for s in (10, 20, 30)}
+if JA.exists():
+    stats["judge_audit"] = json.loads(JA.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats_y3.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
@@ -198,27 +203,27 @@ rnd = GROWTH[GROWTH.order != "papers.json"].groupby("k")
 ref = GROWTH[GROWTH.order == "papers.json"].set_index("k")
 ax = axes[0]
 for col, lab, c, dy, va in (("entities", "Entity", "#2a78d6", -10, "top"),
-                            ("relations", "Quan hệ", "#eb6834", 10, "bottom")):
+                            ("relations", "Relation", "#eb6834", 10, "bottom")):
     ax.fill_between(rnd[col].min().index, rnd[col].min(), rnd[col].max(), color=c, alpha=0.15, lw=0)
     ax.plot(ref.index, ref[col], color=c, lw=2, label=lab)
     for k in KS:   # số liệu của KG dựng thật (đường cong là phép chiếu từ KG30, lệch < 0,3%)
         ax.plot(k, ref.loc[k, col], "o", ms=8, color=c, mec=SURF, mew=2)
         ax.annotate(f"{KQ['kg'][str(k)][col]:,}".replace(",", "."), (k, ref.loc[k, col]),
                     textcoords="offset points", xytext=(6, dy), ha="left", va=va, fontsize=8.5, color=INK2)
-ax.set_title("(a) Số entity và quan hệ theo số bài")
+ax.set_title("(a) Số entity và relation theo số bài")
 ax.set_xlabel("Số bài báo trong KG (k)")
 ax.legend(frameon=False, loc="upper left")
 grid(ax)
 ax = axes[1]
 for col, lab, c in (("entities_2plus_share", "Entity ở ≥ 2 bài", "#2a78d6"),
-                    ("relations_2plus_share", "Quan hệ ở ≥ 2 bài", "#eb6834")):
+                    ("relations_2plus_share", "Relation ở ≥ 2 bài", "#eb6834")):
     ax.fill_between(rnd[col].min().index, rnd[col].min() * 100, rnd[col].max() * 100, color=c, alpha=0.15, lw=0)
     ax.plot(ref.index, ref[col] * 100, color=c, lw=2, label=lab)
     for k in KS:
         ax.plot(k, ref.loc[k, col] * 100, "o", ms=8, color=c, mec=SURF, mew=2)
 ax.set_title("(b) Liên kết giữa các bài")
 ax.set_xlabel("Số bài báo trong KG (k)")
-ax.set_ylabel("% entity / quan hệ")
+ax.set_ylabel("% entity / relation")
 ax.legend(frameon=False, loc="upper left")
 grid(ax)
 fig.text(0.5, -0.04, "Đường: thứ tự bài trong papers.json; vùng nhạt: min–max trên 20 thứ tự bài ngẫu nhiên",
@@ -228,7 +233,7 @@ save(fig, "y3_fig1_growth.png")
 
 # Hình 2: entity coverage và relation completeness
 fig, axes = plt.subplots(1, 2, figsize=(11, 3.8), sharey=True)
-sets = [("in_scope", "Trong phạm vi KG"), ("S10", "S10 (10 bài đầu)"), ("all", "Toàn bộ 62 câu")]
+sets = [("in_scope", "In-scope"), ("S10", "S10 (10 bài đầu)"), ("all", "Toàn bộ 62 câu")]
 for ax, (col, title) in zip(axes, (("entity_coverage", "(a) Entity coverage"),
                                    ("relation_completeness", "(b) Relation completeness"))):
     w = 0.26
@@ -248,15 +253,15 @@ for ax, (col, title) in zip(axes, (("entity_coverage", "(a) Entity coverage"),
     grid(ax)
 axes[0].set_ylabel("%")
 axes[1].legend(frameon=False, ncol=3, loc="upper right")
-fig.text(0.5, -0.03, "Thanh lỗi: khoảng tin cậy 95% (bootstrap trên các thực thể / quan hệ chuẩn)", ha="center",
+fig.text(0.5, -0.03, "Thanh lỗi: CI 95% (bootstrap trên các entity / gold relation)", ha="center",
          fontsize=8.5, color=MUTED)
 fig.tight_layout()
 save(fig, "y3_fig2_coverage.png")
 
-# Hình 3: năm chỉ số câu trả lời theo k (trong phạm vi KG, S10 cố định, toàn bộ 62 câu)
+# Hình 3: năm chỉ số câu trả lời theo k (in-scope, S10 cố định, toàn bộ 62 câu)
 fig, axes = plt.subplots(1, 5, figsize=(15, 3.5))
 for ax, (m, title, as_pct) in zip(axes, METRICS):
-    for j, (s, lab) in enumerate((("in_scope", "Trong phạm vi KG"), ("S10", "S10 cố định"), ("all", "Toàn bộ 62 câu"))):
+    for j, (s, lab) in enumerate((("in_scope", "In-scope"), ("S10", "S10 cố định"), ("all", "Toàn bộ 62 câu"))):
         v = [stats["sets"][s][str(k)]["main"][m] for k in KS]
         f = 100 if as_pct else 1
         xs = np.array(KS) + (j - 1) * 0.7
@@ -274,9 +279,9 @@ save(fig, "y3_fig3_answer.png")
 
 # Hình 4: kết cục của 62 câu có đáp án theo k
 fig, ax = plt.subplots(figsize=(9, 3.2))
-parts = [("in_correct", "Trong phạm vi: đúng", "#2a78d6"), ("in_wrong", "Trong phạm vi: sai", "#86b6ef"),
-         ("in_refused", "Trong phạm vi: từ chối", "#cde2fb"), ("out_refused", "Ngoài phạm vi: từ chối", "#d9d8d1"),
-         ("out_correct", "Ngoài phạm vi: vẫn đúng", "#1baf7a"), ("out_wrong", "Ngoài phạm vi: sai", "#eb6834")]
+parts = [("in_correct", "In-scope: đúng", "#2a78d6"), ("in_wrong", "In-scope: sai", "#86b6ef"),
+         ("in_refused", "In-scope: refuse", "#cde2fb"), ("out_refused", "Out-of-scope: refuse", "#d9d8d1"),
+         ("out_correct", "Out-of-scope: vẫn đúng", "#1baf7a"), ("out_wrong", "Out-of-scope: sai", "#eb6834")]
 for yi, k in enumerate(KS):
     left = 0
     for key, lab, c in parts:
@@ -298,12 +303,12 @@ grid(ax, "x")
 fig.tight_layout()
 save(fig, "y3_fig4_outcome.png")
 
-# Hình 5: độ đúng câu trả lời theo độ phủ thực thể / quan hệ của câu hỏi
+# Hình 5: độ đúng câu trả lời theo coverage entity / relation của câu hỏi
 fig, axes = plt.subplots(1, 2, figsize=(9, 3.2), sharey=True)
 for ax, (key, labs, title) in zip(axes, (
-        ("coverage_vs_answer", (("full", "Đủ mọi thực thể"), ("partial", "Thiếu ≥ 1 thực thể")),
+        ("coverage_vs_answer", (("full", "Đủ mọi entity"), ("partial", "Thiếu ≥ 1 entity")),
          "(a) Theo entity coverage của câu"),
-        ("relation_vs_answer", (("rel_ge_50", "≥ 50% quan hệ"), ("rel_lt_50", "< 50% quan hệ")),
+        ("relation_vs_answer", (("rel_ge_50", "≥ 50% relation"), ("rel_lt_50", "< 50% relation")),
          "(b) Theo relation completeness của câu"))):
     for j, (lab_key, lab) in enumerate(labs):
         d = stats[key][lab_key]
@@ -318,7 +323,7 @@ for ax, (key, labs, title) in zip(axes, (
     ax.set_ylim(0, 105)
     grid(ax)
 axes[0].set_ylabel("Answer correctness (%)")
-fig.text(0.5, -0.04, "Gộp các câu trong phạm vi KG ở cả ba k (một câu được tính ở mỗi KG chứa nó)", ha="center",
+fig.text(0.5, -0.04, "Gộp các câu in-scope ở cả ba k (một câu được tính ở mỗi KG chứa nó)", ha="center",
          fontsize=8.5, color=MUTED)
 fig.tight_layout()
 save(fig, "y3_fig5_cov_answer.png")

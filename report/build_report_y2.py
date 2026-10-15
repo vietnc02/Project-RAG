@@ -240,7 +240,7 @@ def num(x, d=3):
 
 def ci(v, as_pct=False):
     m, lo, hi = v
-    if m != m:  # NaN: không có claim (mọi câu đều từ chối)
+    if m != m:  # NaN: không có claim (mọi câu đều refuse)
         return "– (không có claim)"
     return f"{pct(m)} [{pct(lo)}; {pct(hi)}]" if as_pct else f"{num(m)} [{num(lo)}; {num(hi)}]"
 
@@ -251,7 +251,7 @@ def pv(p):
 
 SYSN = {"vec": "Vector RAG", "gr": "GraphRAG"}
 TYPE_VI = {"all": "Tất cả câu có đáp án", "single": "Single-hop", "multihop": "Multi-hop",
-           "unanswerable": "Ngoài corpus"}
+           "unanswerable": "Out-of-corpus"}
 T = S["types"]
 KG = S["kg"]
 ENV = S["environment"]
@@ -276,24 +276,50 @@ def dp(qt, k):
     return T[qt]["paired"][k]
 
 
+def dci(qt, k, as_pct=False):
+    """Chênh lệch GraphRAG − Vector RAG kèm CI 95%, vd. "+2,9 điểm % [−11,4; +17,1]"."""
+    d = dp(qt, k)
+    if as_pct:
+        f = lambda v: f"{v * 100:+.1f}".replace(".", ",").replace("-", "−")
+        return f"{f(d['delta'])} điểm % [{f(d['lo'])}; {f(d['hi'])}]"
+    f = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")
+    return f"{f(d['delta'])} [{f(d['lo'])}; {f(d['hi'])}]"
+
+
 MAIN = [("context_precision", "Retrieval precision ↑", False), ("faithfulness", "Faithfulness ↑", False),
         ("answer_relevancy", "Answer relevancy ↑", False), ("hallucination", "Hallucination rate ↓", True),
         ("answer_correctness", "Answer correctness ↑", True)]
 
 
 def ci2(v, as_pct=False):
-    """Giá trị trung bình, xuống dòng rồi khoảng tin cậy (bảng nhiều cột)."""
+    """Giá trị trung bình, xuống dòng rồi CI (bảng nhiều cột)."""
     return ci(v, as_pct).replace(" [", "\n[")
+
+
+def nm(qt, s, k):
+    return T[qt]["n_metric"][s][k]
 
 
 def main_table(caption, types):
     rows = []
     for qt in types:
         for s in ("vec", "gr"):
-            rows.append([f"{TYPE_VI[qt]} (n = {T[qt]['n']})" if s == "vec" else "", SYSN[s],
-                         *[ci2(m(qt, s, k), as_pct) for k, _, as_pct in MAIN]])
+            cells = []
+            for k, _, as_pct in MAIN:
+                c = ci2(m(qt, s, k), as_pct)
+                if nm(qt, s, k) != T[qt]["n"]:  # chỉ số không tính trên đủ n câu (faithfulness: bỏ câu refusal)
+                    c += f"\n(n = {nm(qt, s, k)})"
+                cells.append(c)
+            rows.append([f"{TYPE_VI[qt]} (n = {T[qt]['n']})" if s == "vec" else "", SYSN[s], *cells])
     table(caption, ["Loại câu hỏi", "Hệ thống", *[n for _, n, _ in MAIN]], rows,
           [2.0, 2.2, 2.3, 2.3, 2.3, 2.45, 2.45], font=9, center_from=2)
+    a = types[0]
+    p(f"n ở cột đầu là số câu hỏi. Faithfulness chỉ tính trên câu trả lời có claim (bỏ câu refusal), nên n nhỏ hơn và "
+      f"khác nhau giữa hai hệ (ghi trong ô, ví dụ {TYPE_VI[a].lower()}: Vector RAG refuse {nm(a, 'vec', 'refusal')} câu, "
+      f"GraphRAG {nm(a, 'gr', 'refusal')} câu). Hallucination rate, answer relevancy, answer correctness và retrieval "
+      "precision tính trên đủ n câu: câu refusal có hallucination = 0, answer relevancy = 0, answer correctness = 0. "
+      "Vì vậy faithfulness và hallucination rate không suy ra được từ nhau (khác mẫu số).", size=10, italic=True,
+      indent=False)
 
 
 def paired_table(caption, types):
@@ -304,7 +330,8 @@ def paired_table(caption, types):
             d = dp(qt, k)
             dv = f"{d['delta'] * 100:+.1f} điểm %".replace(".", ",") if as_pct else f"{d['delta']:+.3f}".replace(".", ",")
             sig = d["lo"] > 0 or d["hi"] < 0
-            cells.append(f"{'**' if sig else ''}{dv}{'**' if sig else ''} ({pv(d['p'])})")
+            cells.append(f"{'**' if sig else ''}{dv}{'**' if sig else ''} ({pv(d['p'])})"
+                         + (f"\n(n = {d['n']} cặp)" if d["n"] != T[qt]["n"] else ""))
         rows.append([TYPE_VI[qt], *cells])
     table(caption, ["Loại câu hỏi", *[f"Δ {n[:-2]}" for _, n, _ in MAIN]], rows,
           [2.6, 2.7, 2.7, 2.7, 2.7, 2.6], font=9, center_from=1)
@@ -329,17 +356,17 @@ page_break()
 h("1. MỤC TIÊU VÀ PHẠM VI", 1)
 p("Nội dung 2 xây dựng **Knowledge Graph (KG)** từ 30 bài báo khoa học bằng mô hình ngôn ngữ chạy cục bộ, sau đó so "
   "sánh hai hệ thống hỏi đáp trên cùng 30 bài: **GraphRAG** (truy xuất qua KG) và **Vector RAG thuần** (truy xuất theo "
-  "embedding đoạn văn). Hai nhóm chỉ số so sánh là **retrieval precision** (độ chính xác của phần truy xuất) và "
+  "embedding passage). Hai nhóm chỉ số so sánh là **retrieval precision** (độ chính xác của phần truy xuất) và "
   "**generation quality** (faithfulness, answer relevancy, hallucination rate như nội dung 1, cộng thêm answer "
   "correctness).")
 p("30 bài thuộc một chủ đề chính là **quantum**, gồm hai nhánh gần nhau: Quantum Security và Quantum Machine Learning, "
-  "để các bài có thực thể và khái niệm chung tạo quan hệ trong KG. Vector RAG chính là hệ LangChain RAG của nội dung 1 "
-  "(embedding chunk), chạy trên đúng 30 bài này. Hai hệ dùng chung chunk, chung số đoạn văn đưa vào mô hình (4), chung "
+  "để các bài có entity và khái niệm chung tạo relation trong KG. Vector RAG chính là hệ LangChain RAG của nội dung 1 "
+  "(embedding chunk), chạy trên đúng 30 bài này. Hai hệ dùng chung chunk, chung số passage đưa vào mô hình (4), chung "
   "prompt và mô hình sinh câu trả lời; khác biệt duy nhất là cách truy xuất. KG được dựng sao cho dùng lại được cho nội "
   "dung 3 (KG từ k = 10, 20, 30 bài).")
 
 # ================= 2. MÔI TRƯỜNG =================
-h("2. MÔI TRƯỜNG VÀ KHẢ NĂNG TÁI LẬP", 1)
+h("2. MÔI TRƯỜNG VÀ REPRODUCIBILITY", 1)
 pk, md = ENV["packages"], ENV["models"]
 table("Môi trường thực nghiệm", ["Thành phần", "Version / cấu hình"],
       [["Python", ENV["python"]],
@@ -349,8 +376,8 @@ table("Môi trường thực nghiệm", ["Thành phần", "Version / cấu hình
        ["Ollama server", ENV["ollama_server"]],
        ["LLM trích xuất KG và sinh câu trả lời",
         f"{md['llm']['name']} ({md['llm']['quantization']}, digest {md['llm']['digest']})"],
-       ["Mô hình chấm điểm (judge)", f"{md['judge']['name']} ({md['judge']['quantization']}, digest {md['judge']['digest']})"],
-       ["Mô hình nhúng", f"{md['embedding']['name']} ({md['embedding']['quantization']}, digest {md['embedding']['digest']})"],
+       ["Judge",f"{md['judge']['name']} ({md['judge']['quantization']}, digest {md['judge']['digest']})"],
+       ["Embedding model", f"{md['embedding']['name']} ({md['embedding']['quantization']}, digest {md['embedding']['digest']})"],
        ["Phần cứng", "CPU i3-12100F, RAM 16 GB, GPU GTX 1660 Ti 6 GB"]],
       [6.0, 10.0], font=11)
 p(f"Các mô hình chạy với temperature = 0 và seed cố định, như nội dung 1. Ở bước trích xuất KG, toàn bộ mô hình được "
@@ -360,7 +387,7 @@ p(f"Các mô hình chạy với temperature = 0 và seed cố định, như nộ
 p("Repository chứa đủ dữ liệu để chạy lại mà không cần dựng lại: `papers_y2/` (7 bài bổ sung, nguồn trong "
   "`SOURCES.md`), `data/kg/chunks_y2.jsonl` (chunk của 7 bài bổ sung), `data/kg/chroma.zip` (vector DB của 30 bài, tự "
   "giải nén, kiểm tra sha256 với `data/kg/MANIFEST.json`), `data/kg/papers.json` (30 bài và thứ tự), "
-  "`data/kg/extractions.jsonl` (entity, quan hệ trích từ từng chunk), `data/kg/k30/` (KG đã gộp và vector), bộ câu hỏi "
+  "`data/kg/extractions.jsonl` (entity, relation trích từ từng chunk), `data/kg/k30/` (KG đã gộp và vector), bộ câu hỏi "
   "trong `testset/` và kết quả trong `results/kg30/` (kèm version môi trường trong `run_info.json`). Dữ liệu của nội "
   "dung 1 (`papers/`, `data/chunks.jsonl`, `data/chroma.zip`) không thay đổi. Chạy lại đánh giá bằng "
   "`python evaluate_graphrag.py --run kg30`.")
@@ -372,12 +399,12 @@ table("30 bài báo dùng để dựng KG", ["Chủ đề", "Số bài", "Trong 
       [[tp, str(cp[tp]), str(ca.get(tp, 0)), dot(cc[tp])] for tp in ("Quantum Security", "Quantum Machine Learning")]
       + [["Tổng", str(sum(cp.values())), str(sum(ca.values())), dot(sum(cc.values()))]],
       [6.0, 2.5, 4.0, 2.5], font=11, center_from=1)
-p("**Cách chọn.** Để KG có quan hệ giữa các bài, 30 bài cần thuộc một chủ đề chính hoặc hai chủ đề gần nhau, không chọn "
+p("**Cách chọn.** Để KG có relation giữa các bài, 30 bài cần thuộc một chủ đề chính hoặc hai chủ đề gần nhau, không chọn "
   "ngẫu nhiên. Gom nhóm 95 bài của corpus theo nội dung (độ tương đồng thuật ngữ TF-IDF) cho thấy nhóm **quantum** "
   "(Quantum Security và Quantum Machine Learning) gắn kết nhất, với các khái niệm chung như thuật toán Shor, QKD, "
   "post-quantum cryptography, qubit, NISQ, variational quantum circuit. Một phương án ghép hai chủ đề an ninh khác nhau "
-  "(Quantum Security và Deception) đã được kiểm tra và loại: hai nhóm chỉ chung những thực thể chung chung (\"accuracy\", "
-  "\"attack\", \"AI\"...) và không có quan hệ nào nối khái niệm riêng của hai nhóm.")
+  "(Quantum Security và Deception) đã được kiểm tra và loại: hai nhóm chỉ chung những entity chung chung (\"accuracy\", "
+  "\"attack\", \"AI\"...) và không có relation nào nối khái niệm riêng của hai nhóm.")
 p("Corpus chỉ có 23 bài thuộc nhóm quantum (17 Quantum Security, 6 Quantum Machine Learning) và không có chủ đề thứ ba "
   "nào đủ gần (độ tương đồng thuật ngữ với nhóm quantum thấp hơn khoảng 10 lần so với giữa các bài quantum). Vì vậy bổ "
   "sung 7 bài truy cập mở trên arXiv, là bài gốc của những khái niệm mà 23 bài kia nhắc tới nhiều nhất, để đủ 30 bài "
@@ -401,32 +428,32 @@ p("Văn bản của 7 bài được trích và chia chunk đúng như nội dung
   "chồng lấn 150). Để dữ liệu nội dung 1 không đổi, 7 bài nằm trong thư mục riêng `papers_y2/`, chunk của chúng lưu "
   "trong `data/kg/chunks_y2.jsonl`, và Vector RAG của nội dung 2 dùng một vector DB riêng chứa đúng chunk của 30 bài "
   "(vector của 23 bài cũ được chép nguyên từ vector DB của nội dung 1, 7 bài mới được nhúng bằng cùng mô hình).")
-p("30 bài được xếp theo thứ tự phân tầng theo chủ đề (seed 42) để k bài đầu tiên (k = 10, 20, 30) giữ tỉ lệ chủ đề như "
+p("30 bài được xếp theo thứ tự stratified theo chủ đề (seed 42) để k bài đầu tiên (k = 10, 20, 30) giữ tỉ lệ chủ đề như "
   "30 bài; nội dung 3 dựng KG trên k bài đầu mà không phải trích xuất lại.")
 
 # ================= 4. DỰNG KG =================
 h("4. XÂY DỰNG KNOWLEDGE GRAPH", 1)
 figure("y2_fig1_pipeline.png", "Dựng KG (a) và hai hệ thống: Vector RAG (b), GraphRAG (c)", width=16)
 p("KG được dựng theo hướng của Microsoft GraphRAG và LightRAG nhưng tự cài đặt (`kg_build.py`) để kiểm soát từng bước:")
-bullets([("Trích xuất: ", "mỗi chunk là một lần gọi qwen2.5:7b, ra danh sách entity (tên, loại, mô tả một câu) và quan hệ "
+bullets([("Trích xuất: ", "mỗi chunk là một lần gọi qwen2.5:7b, ra danh sách entity (tên, loại, mô tả một câu) và relation "
           "giữa hai entity (mô tả một câu). Có 11 loại entity: ALGORITHM, PROTOCOL, ATTACK, DEFENSE, SYSTEM, CONCEPT, "
-          "METRIC, DATASET, ORGANIZATION, STANDARD, HARDWARE. Prompt giới hạn tối đa 12 entity và 12 quan hệ mỗi chunk, "
+          "METRIC, DATASET, ORGANIZATION, STANDARD, HARDWARE. Prompt giới hạn tối đa 12 entity và 12 relation mỗi chunk, "
           "bỏ tác giả, số trích dẫn, hình, bảng; có một ví dụ minh hoạ lấy ngoài chủ đề của 30 bài. Đầu ra dạng dòng "
-          "`E|...`, `R|...` thay vì JSON để giảm khoảng 40% số token sinh ra. Chỉ giữ quan hệ giữa hai entity đã liệt kê."),
+          "`E|...`, `R|...` thay vì JSON để giảm khoảng 40% số token sinh ra. Chỉ giữ relation giữa hai entity đã liệt kê."),
          ("Gộp entity: ", "chuẩn hoá tên (chữ thường, bỏ số nhiều, bỏ hậu tố chung như \"algorithm\", \"scheme\"); gộp "
           "\"Tên đầy đủ (VIẾT TẮT)\" với \"VIẾT TẮT\" đứng riêng khi viết tắt chỉ ứng với một tên đầy đủ. Mỗi entity và "
-          "quan hệ giữ danh sách chunk nguồn để truy ngược về văn bản."),
-         ("Nhúng: ", "mỗi entity (\"tên (loại): mô tả\") và quan hệ (\"A - B: mô tả\") được nhúng bằng nomic-embed-text, "
+          "relation giữ danh sách chunk nguồn để truy ngược về văn bản."),
+         ("Nhúng: ", "mỗi entity (\"tên (loại): mô tả\") và relation (\"A - B: mô tả\") được nhúng bằng nomic-embed-text, "
           "dùng để khớp câu hỏi với KG khi truy vấn.")])
 table("Knowledge Graph từ 30 bài", ["Chỉ số", "Giá trị"],
       [["Chunk đã xử lý", f"{dot(KG['chunks'])} (bỏ qua {KG['chunks_skipped']} chunk không có nội dung, {KG['chunks_error']} lỗi)"],
-       ["Entity / quan hệ được trích (trước khi gộp)", f"{dot(KG['raw_entity_mentions'])} / {dot(KG['raw_relation_mentions'])}"],
-       ["Entity / quan hệ sau khi gộp", f"**{dot(KG['entities'])} / {dot(KG['relations'])}**"],
+       ["Entity / relation được trích (trước khi gộp)", f"{dot(KG['raw_entity_mentions'])} / {dot(KG['raw_relation_mentions'])}"],
+       ["Entity / relation sau khi gộp", f"**{dot(KG['entities'])} / {dot(KG['relations'])}**"],
        ["Entity xuất hiện ở ≥ 2 bài", f"{dot(KG['entities_in_2plus_papers'])} ({pct(KG['entities_in_2plus_papers'] / KG['entities'])})"],
-       ["Quan hệ xuất hiện ở ≥ 2 bài", dot(KG["relations_in_2plus_papers"])],
-       ["Thành phần liên thông lớn nhất", f"{dot(KG['largest_component'])} entity ({pct(KG['largest_component'] / KG['entities'])})"],
-       ["Entity không có quan hệ nào", f"{dot(KG['isolated_entities'])} ({pct(KG['isolated_entities'] / KG['entities'])})"],
-       ["Bậc trung bình", num(KG["avg_degree"], 2)]],
+       ["Relation xuất hiện ở ≥ 2 bài", dot(KG["relations_in_2plus_papers"])],
+       ["Largest connected component", f"{dot(KG['largest_component'])} entity ({pct(KG['largest_component'] / KG['entities'])})"],
+       ["Entity không có relation nào", f"{dot(KG['isolated_entities'])} ({pct(KG['isolated_entities'] / KG['entities'])})"],
+       ["Average degree", num(KG["avg_degree"], 2)]],
       [7.5, 8.5], font=11)
 figure("y2_fig2_kg.png", "Entity theo loại (a) và theo số bài báo chứa entity (b)", width=16)
 te = S["top_entities"]
@@ -434,8 +461,8 @@ ct = S["cross_topic"]
 p("Các entity nối nhiều bài nhất là " + ", ".join(f"{e['name']} ({e['papers']} bài)" for e in te[:6]) +
   f": KG liên kết được các bài qua những khái niệm trung tâm của chủ đề quantum. Giữa hai nhánh có {dot(ct['entities_both_topics'])} "
   "entity xuất hiện ở cả bài Quantum Security lẫn bài Quantum Machine Learning (ví dụ thuật toán Shor, qubit, NISQ, "
-  "variational quantum circuit). Tuy vậy KG còn thưa (bậc trung bình "
-  f"{num(KG['avg_degree'], 1)}), {pct(KG['isolated_entities'] / KG['entities'], 0)} entity không có quan hệ nào và bước gộp "
+  "variational quantum circuit). Tuy vậy KG còn thưa (average degree "
+  f"{num(KG['avg_degree'], 1)}), {pct(KG['isolated_entities'] / KG['entities'], 0)} entity không có relation nào và bước gộp "
   "dựa trên chuẩn hoá tên còn bỏ sót biến thể, ví dụ \"barren plateau\" và \"barren plateaus\", \"Shor’s algorithm\" và "
   "\"Shor algorithm\", \"RSA-2048\", \"RSA2048\" và \"2048 bit RSA integer\" vẫn là các entity khác nhau.")
 
@@ -445,11 +472,11 @@ bullets([("Vector RAG: ", "hệ LangChain RAG của nội dung 1 (`rag_langchain
           "hỏi nhất theo cosine trong vector DB chứa đúng chunk của 30 bài; 1 lần gọi LLM."),
          ("GraphRAG (rag_graphrag.py): ", "truy xuất qua KG theo kiểu local search, không cần gọi LLM: (1) khớp entity: "
           f"cosine giữa câu hỏi và vector entity, cộng thêm điểm khi tên hoặc viết tắt của entity xuất hiện nguyên văn "
-          f"trong câu hỏi, lấy {S['graphrag']['seed_entities']} entity hạt giống; (2) mở rộng một bước: các quan hệ nối "
-          f"với entity hạt giống và vài quan hệ gần câu hỏi nhất trong toàn KG, xếp theo cosine, lấy "
-          f"{S['graphrag']['max_relations']} quan hệ; (3) chọn văn bản: mỗi chunk được cộng điểm của các entity và quan "
-          "hệ đã chọn có nguồn tại chunk đó, lấy 4 chunk điểm cao nhất. Context đưa vào LLM gồm mô tả entity, mô tả "
-          "quan hệ và 4 đoạn văn; 1 lần gọi LLM.")])
+          f"trong câu hỏi, lấy {S['graphrag']['seed_entities']} seed entity; (2) mở rộng một bước: các relation nối "
+          f"với seed entity và vài relation gần câu hỏi nhất trong toàn KG, xếp theo cosine, lấy "
+          f"{S['graphrag']['max_relations']} relation; (3) chọn văn bản: mỗi chunk được cộng điểm của các entity và "
+          "relation đã chọn có nguồn tại chunk đó, lấy 4 chunk điểm cao nhất. Context đưa vào LLM gồm mô tả entity, mô tả "
+          "relation và 4 passage; 1 lần gọi LLM.")])
 p("Hai hệ dùng cùng prompt sinh câu trả lời của nội dung 1 (chỉ trả lời dựa trên context, trả lời một câu cố định khi "
   "context không có thông tin) và cùng mô hình qwen2.5:7b.")
 
@@ -462,68 +489,70 @@ table("Bộ câu hỏi nội dung 2 (mọi câu có đáp án đều thuộc 30 
        ["Multi-hop", str(NMH), f"{TS['multihop_reused']} câu của nội dung 1 có cả hai bài nguồn thuộc 30 bài + "
                                f"{TS['multihop_new']} câu mới sinh trong 30 bài ({TS['multihop_new_generated']} câu sinh "
                                "tự động, duyệt tay)"],
-       ["Ngoài corpus", str(TS["unanswerable"]), "Câu ngoài corpus của nội dung 1 (đúng = từ chối trả lời)"],
+       ["Out-of-corpus", str(TS["unanswerable"]), "Câu out-of-corpus của nội dung 1 (đúng = refuse)"],
        ["Tổng", str(NQ), ""]],
       [2.6, 1.6, 11.8], font=10.5)
 p("Câu hỏi được sinh bằng đúng quy trình của nội dung 1. Single-hop: LLM đặt một câu hỏi và đáp án từ một đoạn ngẫu "
   "nhiên của mỗi bài chưa có câu hỏi. Multi-hop: ghép một đoạn của bài A với đoạn gần nghĩa nhất của bài B, LLM đặt câu "
   "hỏi cần cả hai bài, loại câu mà một đoạn đã trả lời đủ, không lặp lại cặp bài đã có. Mỗi câu được duyệt tay bằng "
-  f"cách đối chiếu với đoạn gốc: giữ {TS['single_new']}/{TS['single_new_generated']} câu single-hop và "
-  f"{TS['multihop_new']}/{TS['multihop_new_generated']} câu multi-hop, viết lại câu hỏi cho tự đứng được và đáp án chuẩn "
-  "cho đúng với đoạn gốc; lý do loại từng câu (hỏi ký hiệu công thức, ghép hai ý không liên quan, đoạn gốc chỉ là danh "
+  f"cách đối chiếu với gold chunk: giữ {TS['single_new']}/{TS['single_new_generated']} câu single-hop và "
+  f"{TS['multihop_new']}/{TS['multihop_new_generated']} câu multi-hop, viết lại câu hỏi cho tự đứng được và ground truth "
+  "cho đúng với gold chunk; lý do loại từng câu (hỏi ký hiệu công thức, ghép hai ý không liên quan, gold chunk chỉ là danh "
   "mục tài liệu tham khảo, một đoạn đã trả lời đủ...) được lưu trong `testset/review_singlehop_kg.py` và "
-  "`testset/review_multihop_kg.py`. Với câu ngoài corpus, các từ khoá của đáp án được kiểm tra lại là không xuất hiện "
+  "`testset/review_multihop_kg.py`. Với câu out-of-corpus, các từ khoá của đáp án được kiểm tra lại là không xuất hiện "
   "trong văn bản của 7 bài bổ sung.")
 
 # ================= 7. ĐÁNH GIÁ =================
 h("7. PHƯƠNG PHÁP ĐÁNH GIÁ", 1)
 table("Chỉ số so sánh", ["Nhóm", "Chỉ số", "Cách tính"],
       [["Retrieval precision", "Retrieval precision ↑", "Context precision theo RAGAS: judge xét từng đoạn trong 4 đoạn mỗi hệ lấy ra có giúp suy "
-                                 "ra đáp án chuẩn không; điểm = số đoạn hữu ích / 4. Không tính câu ngoài corpus."],
+                                 "ra ground truth không; điểm = số đoạn hữu ích / 4. Không tính câu out-of-corpus."],
        ["Generation quality", "Faithfulness ↑", "Như nội dung 1: số claim của câu trả lời suy ra được từ context / tổng số claim. Context là "
-                          "đúng phần đưa vào LLM của mỗi hệ (GraphRAG: mô tả KG + 4 đoạn văn)."],
-       ["", "Answer relevancy ↑", "Như nội dung 1: cosine trung bình giữa câu hỏi và 3 câu hỏi sinh ngược từ câu trả lời; "
-                              "câu từ chối = 0."],
+                          "đúng phần đưa vào LLM của mỗi hệ (GraphRAG: mô tả KG + 4 passage)."],
+       ["", "Answer relevancy ↑", "Như nội dung 1: cosine trung bình giữa câu hỏi và 3 reverse-generated question từ câu trả lời; "
+                              "câu refusal = 0."],
        ["", "Hallucination rate ↓", "Như nội dung 1: tỉ lệ câu trả lời có ít nhất một claim không được context hỗ trợ."],
-       ["", "Answer correctness ↑", "Judge so câu trả lời với đáp án chuẩn (đúng / sai); câu ngoài corpus: đúng = từ chối."]],
+       ["", "Answer correctness ↑", "Judge so câu trả lời với ground truth (đúng / sai); câu out-of-corpus: đúng = refusal."]],
       [3.2, 3.6, 9.2], font=10.5)
-bullets([("Thống kê: ", "khoảng tin cậy 95% bằng bootstrap (2000 lần); chênh lệch giữa hai hệ tính theo cặp trên cùng câu "
+bullets([("Thống kê: ", "CI 95% bằng bootstrap (2000 lần); paired difference giữa hai hệ tính trên cùng câu "
           "hỏi (bootstrap 5000 lần), cách làm giống nội dung 1."),
-         ("Chỉ số phụ (chỉ để giải thích): ", "tỉ lệ lấy được đoạn gốc (đoạn dùng để sinh câu hỏi), tỉ lệ có đủ bài nguồn, "
-          "tỉ lệ đoạn thuộc bài nguồn, context recall, tỉ lệ quan hệ KG hữu ích, faithfulness chỉ tính trên đoạn văn.")])
+         ("Secondary metric (chỉ để giải thích): ", "tỉ lệ lấy được gold chunk (đoạn dùng để sinh câu hỏi), tỉ lệ có đủ bài nguồn, "
+          "tỉ lệ đoạn thuộc bài nguồn, context recall, tỉ lệ relation KG hữu ích, faithfulness chỉ tính trên passage.")])
 
 # ================= 8. KẾT QUẢ =================
 h("8. KẾT QUẢ", 1)
 h("8.1. Retrieval precision và generation quality", 2)
-main_table("Năm chỉ số chính: giá trị trung bình [khoảng tin cậy 95%]", ["all", "single", "multihop"])
+main_table("Năm chỉ số chính: giá trị trung bình [CI 95%]", ["all", "single", "multihop"])
 figure("y2_fig3_main.png", "Năm chỉ số chính theo loại câu hỏi", width=16.5)
-paired_table("Chênh lệch theo cặp GraphRAG − Vector RAG (in đậm: khoảng tin cậy 95% không chứa 0)",
+paired_table("Paired difference GraphRAG − Vector RAG (in đậm: CI 95% không chứa 0)",
              ["all", "single", "multihop"])
-figure("y2_fig4_paired.png", "Chênh lệch theo cặp trên cùng câu hỏi", width=16.5)
+figure("y2_fig4_paired.png", "Paired difference trên cùng câu hỏi", width=16.5)
 a_, s_, mh = "all", "single", "multihop"
-p(f"**Retrieval precision:** GraphRAG thấp hơn Vector RAG có ý nghĩa thống kê trên toàn bộ câu có đáp án "
+p(f"**Retrieval precision:** GraphRAG thấp hơn Vector RAG có statistical significance trên toàn bộ câu có đáp án "
   f"({num(m(a_, 'gr', 'context_precision')[0], 2)} so với {num(m(a_, 'vec', 'context_precision')[0], 2)}, {pv(dp(a_, 'context_precision')['p'])}). "
   f"Khác biệt đến từ câu multi-hop ({num(m(mh, 'gr', 'context_precision')[0], 2)} so với "
-  f"{num(m(mh, 'vec', 'context_precision')[0], 2)}, {pv(dp(mh, 'context_precision')['p'])}); ở câu single-hop hai hệ gần "
-  f"bằng nhau ({num(m(s_, 'gr', 'context_precision')[0], 2)} so với {num(m(s_, 'vec', 'context_precision')[0], 2)}, "
-  f"{pv(dp(s_, 'context_precision')['p'])}).")
-p(f"**Generation quality:** trên toàn bộ câu có đáp án, không chênh lệch nào có ý nghĩa thống kê: faithfulness "
+  f"{num(m(mh, 'vec', 'context_precision')[0], 2)}, {pv(dp(mh, 'context_precision')['p'])}); ở câu single-hop không đủ bằng "
+  f"chứng để phân biệt hai hệ ({num(m(s_, 'gr', 'context_precision')[0], 2)} so với {num(m(s_, 'vec', 'context_precision')[0], 2)}, "
+  f"chênh lệch {dci(s_, 'context_precision')}, {pv(dp(s_, 'context_precision')['p'])}).")
+p(f"**Generation quality:** trên toàn bộ câu có đáp án, không paired difference nào có statistical significance: faithfulness "
   f"{num(m(a_, 'gr', 'faithfulness')[0], 2)} so với {num(m(a_, 'vec', 'faithfulness')[0], 2)} "
   f"({pv(dp(a_, 'faithfulness')['p'])}), answer relevancy {num(m(a_, 'gr', 'answer_relevancy')[0], 2)} so với "
   f"{num(m(a_, 'vec', 'answer_relevancy')[0], 2)} ({pv(dp(a_, 'answer_relevancy')['p'])}), hallucination rate "
   f"{pct(m(a_, 'gr', 'hallucination')[0], 0)} so với {pct(m(a_, 'vec', 'hallucination')[0], 0)} "
   f"({pv(dp(a_, 'hallucination')['p'])}), answer correctness {pct(m(a_, 'gr', 'answer_correctness')[0], 0)} so với "
-  f"{pct(m(a_, 'vec', 'answer_correctness')[0], 0)} ({pv(dp(a_, 'answer_correctness')['p'])}). Ở câu single-hop GraphRAG thấp "
-  f"hơn trên cả bốn chỉ số (answer correctness {pct(m(s_, 'gr', 'answer_correctness')[0], 0)} so với "
-  f"{pct(m(s_, 'vec', 'answer_correctness')[0], 0)}); ở câu multi-hop, dù truy xuất kém hơn rõ, answer relevancy và answer "
-  f"correctness của GraphRAG lại nhỉnh hơn ({num(m(mh, 'gr', 'answer_relevancy')[0], 2)} so với "
+  f"{pct(m(a_, 'vec', 'answer_correctness')[0], 0)} ({pv(dp(a_, 'answer_correctness')['p'])}). Các CI này rộng (answer correctness "
+  f"{dci(a_, 'answer_correctness', True)}), nên kết quả có nghĩa là không đủ bằng chứng để phân biệt hai hệ, không có nghĩa "
+  f"là hai hệ như nhau. Ở câu single-hop, giá trị trung bình của GraphRAG thấp hơn trên cả bốn chỉ số (answer correctness "
+  f"{pct(m(s_, 'gr', 'answer_correctness')[0], 0)} so với {pct(m(s_, 'vec', 'answer_correctness')[0], 0)}, chênh lệch "
+  f"{dci(s_, 'answer_correctness', True)}); ở câu multi-hop, dù truy xuất kém hơn rõ, giá trị trung bình answer relevancy "
+  f"và answer correctness của GraphRAG lại cao hơn ({num(m(mh, 'gr', 'answer_relevancy')[0], 2)} so với "
   f"{num(m(mh, 'vec', 'answer_relevancy')[0], 2)}; {pct(m(mh, 'gr', 'answer_correctness')[0], 0)} so với "
-  f"{pct(m(mh, 'vec', 'answer_correctness')[0], 0)}), cả hai đều không có ý nghĩa thống kê.")
+  f"{pct(m(mh, 'vec', 'answer_correctness')[0], 0)}). Không chênh lệch nào trong số này có statistical significance.")
 
-h("8.2. Câu hỏi ngoài corpus", 2)
+h("8.2. Câu hỏi out-of-corpus", 2)
 u = T["unanswerable"]
-p(f"Cả hai hệ đều từ chối đúng {u['n']}/{u['n']} câu ngoài corpus (hallucination rate 0%). Phần mô tả KG đưa thêm vào "
-  "context không làm GraphRAG trả lời bịa ở những câu này: prompt dùng chung đã chỉ dẫn từ chối rõ ràng và qwen2.5:7b "
+p(f"Cả hai hệ đều refuse đúng {u['n']}/{u['n']} câu out-of-corpus (hallucination rate 0%). Phần mô tả KG đưa thêm vào "
+  "context không làm GraphRAG trả lời bịa ở những câu này: prompt dùng chung đã chỉ dẫn refuse rõ ràng và qwen2.5:7b "
   "tuân thủ tốt, như đã thấy ở nội dung 1.")
 
 h("8.3. Vì sao GraphRAG truy xuất kém hơn", 2)
@@ -531,30 +560,81 @@ figure("y2_fig5_retrieval.png", "Chỉ số chẩn đoán phần truy xuất", w
 hb = S["hub"]
 cpe = S["chunks_per_entity"]
 hx = S["hub_examples"]
-p(f"**Chọn đoạn văn qua entity kém chính xác hơn embedding:** GraphRAG chỉ lấy được đoạn gốc của câu hỏi ở "
+p(f"**Chọn passage qua entity kém chính xác hơn embedding:** GraphRAG chỉ lấy được gold chunk của câu hỏi ở "
   f"{pct(x(s_, 'gr', 'gold_chunk_recall'), 0)} câu single-hop (Vector RAG {pct(x(s_, 'vec', 'gold_chunk_recall'), 0)}) và có "
   f"đủ cả hai bài nguồn ở {pct(x(mh, 'gr', 'retrieval_hit'), 0)} câu multi-hop (Vector RAG {pct(x(mh, 'vec', 'retrieval_hit'), 0)}). "
   f"Tỉ lệ đoạn thuộc bài nguồn của GraphRAG là {pct(x(a_, 'gr', 'source_precision'), 0)} (Vector RAG "
   f"{pct(x(a_, 'vec', 'source_precision'), 0)}): đoạn được chọn thường cùng chủ đề nhưng không chứa đúng thông tin cần thiết. "
-  "Điểm của một chunk chỉ phụ thuộc vào việc nó có chứa entity/quan hệ đã chọn hay không, không xét nội dung còn lại "
+  "Điểm của một chunk chỉ phụ thuộc vào việc nó có chứa entity/relation đã chọn hay không, không xét nội dung còn lại "
   "của đoạn; trong khi đó các khái niệm trung tâm của chủ đề xuất hiện ở rất nhiều đoạn (" +
   ", ".join(f"\"{e['name']}\" {e['chunks']} chunk" for e in hx[:4]) + f"; trung vị chỉ {num(cpe['median'], 0)} chunk mỗi "
-  f"entity), nên nhiều đoạn có điểm gần nhau. Kiểm tra giả thuyết \"entity quá chung lấn át\": ở các câu có entity hạt "
-  f"giống gắn với ≥ {hb['threshold']} chunk ({hb['with']['n']}/{hb['with']['n'] + hb['without']['n']} câu), tỉ lệ lấy được "
-  f"đoạn gốc là {pct(hb['with']['gold_chunk_recall'], 0)}, so với {pct(hb['without']['gold_chunk_recall'], 0)} ở các câu "
+  f"entity), nên nhiều đoạn có điểm gần nhau. Kiểm tra giả thuyết \"entity quá chung lấn át\": ở các câu có seed "
+  f"entity gắn với ≥ {hb['threshold']} chunk ({hb['with']['n']}/{hb['with']['n'] + hb['without']['n']} câu), tỉ lệ lấy được "
+  f"gold chunk là {pct(hb['with']['gold_chunk_recall'], 0)}, so với {pct(hb['without']['gold_chunk_recall'], 0)} ở các câu "
   "còn lại, tức là giả thuyết này không được dữ liệu ủng hộ; nguyên nhân nhiều khả năng nằm ở cách chấm điểm đoạn theo sự có mặt của "
   "entity chứ không theo độ liên quan của nội dung.")
-p(f"**Mô tả KG nhiễu:** chỉ {pct(x(a_, 'gr', 'kg_relation_precision'), 0)} quan hệ KG đưa vào context được judge đánh giá "
-  f"là hữu ích. Nếu chỉ chấm trên đoạn văn (bỏ phần mô tả KG), faithfulness của GraphRAG giảm từ "
+p(f"**Mô tả KG nhiễu:** chỉ {pct(x(a_, 'gr', 'kg_relation_precision'), 0)} relation KG đưa vào context được judge đánh giá "
+  f"là hữu ích. Nếu chỉ chấm trên passage (bỏ phần mô tả KG), faithfulness của GraphRAG giảm từ "
   f"{num(m(a_, 'gr', 'faithfulness')[0], 2)} xuống {num(x(a_, 'gr', 'faithfulness_text'), 2)} và hallucination rate tăng "
   f"từ {pct(m(a_, 'gr', 'hallucination')[0], 0)} lên {pct(x(a_, 'gr', 'hallucination_text'), 0)} (ở câu multi-hop: "
   f"{pct(m(mh, 'gr', 'hallucination')[0], 0)} lên {pct(x(mh, 'gr', 'hallucination_text'), 0)}): một phần câu trả lời dựa "
   "trên mô tả do mô hình 7B trích ra thay vì văn bản gốc. Đây có thể là một phần lý do vì sao ở câu multi-hop GraphRAG truy xuất "
-  "kém hơn nhưng answer correctness không kém: phần mô tả KG có thể bù một phần thông tin mà đoạn văn thiếu.")
-p(f"**Context recall** (tỉ lệ ý của đáp án chuẩn có trong context) của GraphRAG cũng thấp hơn "
+  "kém hơn nhưng answer correctness không thấp hơn có statistical significance: phần mô tả KG có thể bù một phần thông tin mà "
+  "passage thiếu.")
+p(f"**Context recall** (tỉ lệ ý của ground truth có trong context) của GraphRAG cũng thấp hơn "
   f"({pct(x(a_, 'gr', 'context_recall'), 0)} so với {pct(x(a_, 'vec', 'context_recall'), 0)}) dù context có thêm mô tả KG. "
   f"GraphRAG chậm hơn ({num(x(a_, 'gr', 'latency_s'), 1)} so với {num(x(a_, 'vec', 'latency_s'), 1)} giây mỗi câu) vì "
   "context dài hơn; bản thân bước truy xuất trên KG không gọi LLM.")
+
+JA = S.get("judge_audit")
+if JA:
+    h("8.4. Judge audit: judge_failures, truncate và sensitivity analysis", 2)
+    uf = JA["judge_failure_list"]
+    uf_pass = [f for f in uf if f["step"] == "passages"]
+    uf_kg = [f for f in uf if f["step"] == "kg_relations"]
+    nf = {k: sum(f["failure"] == k for f in uf) for k in ("json_error", "ollama_error", "missing_verdicts")}
+    p("Hàm judge ban đầu bỏ qua judge failure: khi judge trả JSON hỏng hoặc Ollama huỷ lần sinh, bước chấm đó coi như "
+      "không có verdict, và claim / passage thiếu verdict bị tính là \"không được hỗ trợ\" / \"không hữu ích\". Để kiểm "
+      "tra, mọi câu trả lời của nội dung 2 được re-judge với judge log cho từng judge call (status, số verdict thiếu, "
+      f"`prompt_eval_count`), tổng {dot(JA['calls'])} judge call; câu trả lời giữ nguyên. Judge failure = judge call không "
+      "trả đủ verdict hợp lệ, gồm ba loại: `json_error` (JSON hỏng), `ollama_error` (Ollama huỷ lần sinh) và "
+      "`missing_verdicts` (JSON hợp lệ nhưng thiếu verdict).")
+    bullets([
+        ("Truncate: ", f"không có prompt nào bị truncate. Prompt dài nhất {dot(JA['prompt_tokens_max'])} token, num_ctx = "
+         f"{dot(JA['num_ctx'])}. Thử trực tiếp cho thấy Ollama truncate prompt dài hơn num_ctx mà không báo lỗi, chỉ giữ "
+         f"đúng {dot(JA['num_ctx'] // 2 + 2)} token, nên từ nay mọi judge call đều được kiểm tra dấu hiệu này qua "
+         "`prompt_eval_count`."),
+        ("judge_failures: ", f"{JA['judge_failures']} judge call ({nf['json_error']} json_error, {nf['ollama_error']} "
+         f"ollama_error do lặp token, {nf['missing_verdicts']} missing_verdicts), tổng {JA['verdicts_missing']} verdict bị "
+         f"tính là \"không\". Tất cả nằm ở prompt chấm độ hữu ích: {len(uf_pass)} câu ở bước chấm 4 passage "
+         "(retrieval precision: "
+         + ", ".join(f"{f['id']} {SYSN['vec' if f['system'] == 'vector_rag' else 'gr']}" for f in uf_pass)
+         + f") và {len(uf_kg)} câu ở bước chấm relation của KG (secondary metric). Các prompt tách claim, verify claim, "
+           "reverse-generated question và answer correctness không có judge failure."),
+        ("Reproducibility: ", f"re-judge trên Ollama {JA['ollama_rejudge']} (gốc {JA['ollama_original']}, cùng digest "
+         "model) cho điểm giống hệt bản gốc ở retrieval precision, faithfulness, hallucination và answer correctness của "
+         "cả hai hệ (answer relevancy lệch dưới 0,001); điểm gốc ở các câu bị judge failure bằng đúng điểm khi gặp judge "
+         "failure, nên nhiều khả năng lần chấm gốc (Bảng 7) cũng gặp các judge failure này. "
+         "Riêng ollama_error không hoàn toàn tất định: một lần chạy thử trên 3 câu gặp lỗi này ở một câu khác (q006), "
+         "lần chạy đầy đủ thì không."),
+    ])
+    sens = {(r["set"], r["type"]): r for r in JA["sensitivity"]}
+    rows = []
+    for st, lab in (("all questions", "Đủ câu"), ("excluding judge failures", "Bỏ câu có judge failure")):
+        for qt in ("all", "single", "multihop"):
+            r = sens[(st, qt)]
+            f = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")
+            rows.append([lab if qt == "all" else "", TYPE_VI[qt], str(r["n"]),
+                         f"{'**' if r['significant'] else ''}{f(r['diff'])} [{f(r['lo'])}; {f(r['hi'])}]"
+                         f"{'**' if r['significant'] else ''}"])
+    table("Sensitivity analysis: retrieval precision GraphRAG − Vector RAG khi bỏ các câu có judge failure (in đậm: "
+          "có statistical significance)",
+          ["Tập câu", "Loại câu hỏi", "Số câu", "Paired difference [CI 95%]"], rows, [3.6, 4.2, 1.8, 6.4],
+          font=10.5, center_from=2)
+    p("Bỏ các câu có judge failure ở bước chấm passage, kết luận về retrieval precision không đổi: GraphRAG vẫn thấp hơn "
+      "Vector RAG có statistical significance trên toàn bộ câu có đáp án và ở câu multi-hop, còn ở câu single-hop vẫn không "
+      "đủ bằng chứng để phân biệt. Judge failure làm điểm của câu bị lỗi thấp đi (cả 4 passage bị tính là không hữu ích), "
+      "nhưng rơi vào cả hai hệ và không đủ nhiều để thay đổi kết luận.")
 
 # ================= 9. THẢO LUẬN =================
 h("9. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)
@@ -566,36 +646,40 @@ p("**Phù hợp với các nghiên cứu về câu hỏi sự kiện.** GraphRAG
   "nhận GraphRAG đưa thêm thông tin liên quan nhưng dư thừa làm nhiễu context. Bộ câu hỏi của nội dung 2 gồm câu sự kiện "
   "cụ thể, nên kết quả GraphRAG không tốt hơn Vector RAG là phù hợp với các nghiên cứu này.")
 p("**Khác biệt ở câu multi-hop.** Han và cộng sự [2] thấy GraphRAG nhỉnh hơn ở câu multi-hop (F1 64,60% so với 63,88% "
-  "trên HotPotQA). Ở đây, với câu multi-hop, GraphRAG có answer correctness tương đương (nhỉnh hơn nhưng không có ý nghĩa "
-  "thống kê) nhưng retrieval precision kém hơn rõ. Có ba khác biệt về điều kiện: (1) họ dựng KG bằng GPT-4o-mini và vẫn "
+  f"trên HotPotQA). Ở đây, với câu multi-hop, không đủ bằng chứng để phân biệt answer correctness của hai hệ (GraphRAG "
+  f"− Vector RAG: {dci(mh, 'answer_correctness', True)}), còn retrieval precision của GraphRAG kém hơn rõ. Có ba khác "
+  "biệt về điều kiện: (1) họ dựng KG bằng GPT-4o-mini và vẫn "
   "chỉ khoảng 65% entity của đáp án có trong KG, còn ở đây KG được dựng bằng mô hình cục bộ 7B nên thiếu và trùng lặp "
-  f"nhiều hơn; (2) KG ở đây thưa (bậc trung bình {num(KG['avg_degree'], 1)}), trong khi [3] cho thấy đồ thị thưa đi kèm "
+  f"nhiều hơn; (2) KG ở đây thưa (average degree {num(KG['avg_degree'], 1)}), trong khi [3] cho thấy đồ thị thưa đi kèm "
   "truy xuất kém (MS-GraphRAG 1,82, HippoRAG2 13,31); (3) câu multi-hop của HotPotQA là câu \"bắc cầu\" qua entity, còn "
   "câu multi-hop ở đây được tạo bằng cách ghép hai đoạn gần nhau theo embedding, cách tạo này có lợi cho truy xuất theo "
   "vector.")
 p("**So với bài HybridRAG trong corpus [4].** Bài này báo cáo GraphRAG có context precision cao hơn VectorRAG "
   "(0,96 so với 0,84) nhưng context recall thấp hơn (0,85 so với 1,0). Context precision ở đó được tính trên các bộ ba "
-  "(triple) của KG, còn ở đây tính trên đoạn văn; nếu tính trên quan hệ KG thì tỉ lệ hữu ích ở đây chỉ "
+  "(triple) của KG, còn ở đây tính trên passage; nếu tính trên relation KG thì tỉ lệ hữu ích ở đây chỉ "
   f"{pct(x(a_, 'gr', 'kg_relation_precision'), 0)}. KG của [4] được dựng bằng mô hình lớn trên transcript tài chính có cấu "
   "trúc hỏi-đáp. Chiều context recall thấp hơn của GraphRAG thì giống với kết quả ở đây.")
 bullets([("Mô hình dựng KG: ", "chất lượng KG phụ thuộc mạnh vào mô hình trích xuất; với GPU 6 GB chỉ dùng được mô hình "
           "7–8B lượng tử hoá. Bước gộp entity chỉ dựa trên chuẩn hoá tên, chưa dùng embedding hay LLM để gộp các biến thể."),
-         ("Cách chọn đoạn văn: ", "cách cộng điểm theo entity/quan hệ là một lựa chọn cài đặt; chưa thử các biến thể khác "
+         ("Cách chọn passage: ", "cách cộng điểm theo entity/relation là một lựa chọn cài đặt; chưa thử các biến thể khác "
           "(xếp hạng lại theo embedding, giảm trọng số entity phổ biến) để tránh điều chỉnh theo chính bộ câu hỏi đánh giá."),
-         ("Bộ câu hỏi: ", f"{T['single']['n']} câu single-hop và {T['multihop']['n']} câu multi-hop nên khoảng tin cậy còn rộng; "
+         ("Bộ câu hỏi: ", f"{T['single']['n']} câu single-hop và {T['multihop']['n']} câu multi-hop nên CI còn rộng; "
           "chưa có câu hỏi tổng quát (ví dụ \"các bài đề cập những hướng tấn công Kyber nào\"), là loại câu GraphRAG "
           "được thiết kế để trả lời."),
-         ("Mô hình chấm điểm: ", "llama3.1:8b có nhiễu khi chấm; chưa có đánh giá của con người để đối chứng. Kết luận chỉ "
-          "dựa trên các chênh lệch có ý nghĩa thống kê.")])
+         ("Judge: ", "llama3.1:8b có nhiễu khi chấm và có judge failure (mục 8.4); chưa có đánh giá của con người "
+          "để đối chứng. Kết luận chỉ dựa trên các chênh lệch có statistical significance.")])
 
 # ================= 10. KẾT LUẬN =================
 h("10. KẾT LUẬN", 1)
-p(f"KG dựng từ 30 bài bằng qwen2.5:7b gồm {dot(KG['entities'])} entity và {dot(KG['relations'])} quan hệ, "
-  f"{dot(KG['entities_in_2plus_papers'])} entity liên kết từ hai bài trở lên. Trên {T['all']['n']} câu có đáp án, GraphRAG "
-  f"có retrieval precision thấp hơn Vector RAG có ý nghĩa thống kê ({num(m(a_, 'gr', 'context_precision')[0], 2)} so với "
-  f"{num(m(a_, 'vec', 'context_precision')[0], 2)}), chủ yếu ở câu multi-hop; generation quality không khác biệt có ý nghĩa thống kê "
-  f"(thấp hơn ở câu single-hop, tương đương ở câu multi-hop); cả hai hệ đều từ chối đúng toàn bộ {u['n']} câu ngoài corpus. Với câu hỏi sự kiện và KG dựng bằng "
-  "mô hình cục bộ 7B, truy xuất qua KG chưa thay thế được truy xuất theo embedding đoạn văn. Hướng có cơ sở từ tài liệu "
+p(f"KG dựng từ 30 bài bằng qwen2.5:7b gồm {dot(KG['entities'])} entity và {dot(KG['relations'])} relation, "
+  f"{dot(KG['entities_in_2plus_papers'])} entity liên kết từ hai bài trở lên. Trên {T['all']['n']} câu có đáp án, với cài "
+  f"đặt local search ở đây và KG dựng bằng mô hình 7B, GraphRAG có retrieval precision thấp hơn Vector RAG, có statistical "
+  f"significance ({num(m(a_, 'gr', 'context_precision')[0], 2)} so với {num(m(a_, 'vec', 'context_precision')[0], 2)}), chủ yếu ở câu "
+  "multi-hop. Về generation quality, không đủ bằng chứng để phân biệt hai hệ (không paired difference nào có statistical significance, "
+  f"CI còn rộng, ví dụ answer correctness {dci(a_, 'answer_correctness', True)}), cả ở câu single-hop lẫn "
+  f"multi-hop; cả hai hệ đều refuse đúng toàn bộ {u['n']} câu out-of-corpus. Các kết luận này chỉ áp dụng cho câu hỏi sự "
+  "kiện, cài đặt local search tự viết (không phải Microsoft GraphRAG) và KG dựng bằng mô hình cục bộ 7B (qwen2.5:7b): "
+  "trong điều kiện đó, truy xuất qua KG chưa thay thế được truy xuất theo embedding passage. Hướng có cơ sở từ tài liệu "
   "là kết hợp hai cách truy xuất (HybridRAG [4]; Han và cộng sự [2] báo cáo tăng 6,4 điểm khi ghép context của RAG và "
   "GraphRAG) và đánh giá thêm trên câu hỏi tổng quát.")
 

@@ -125,6 +125,24 @@
           ]
         }
       },
+      "n_metric": {
+        "vec": {
+          "context_precision": 62,
+          "faithfulness": 56,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62,
+          "refusal": 6
+        },
+        "gr": {
+          "context_precision": 62,
+          "faithfulness": 56,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62,
+          "refusal": 6
+        }
+      },
       "extra": {
         "vec": {
           "context_ap": 0.7912186379928314,
@@ -245,6 +263,24 @@
             0.5555555555555556,
             0.8888888888888888
           ]
+        }
+      },
+      "n_metric": {
+        "vec": {
+          "context_precision": 27,
+          "faithfulness": 25,
+          "answer_relevancy": 27,
+          "hallucination": 27,
+          "answer_correctness": 27,
+          "refusal": 2
+        },
+        "gr": {
+          "context_precision": 27,
+          "faithfulness": 23,
+          "answer_relevancy": 27,
+          "hallucination": 27,
+          "answer_correctness": 27,
+          "refusal": 4
         }
       },
       "extra": {
@@ -369,6 +405,24 @@
           ]
         }
       },
+      "n_metric": {
+        "vec": {
+          "context_precision": 35,
+          "faithfulness": 31,
+          "answer_relevancy": 35,
+          "hallucination": 35,
+          "answer_correctness": 35,
+          "refusal": 4
+        },
+        "gr": {
+          "context_precision": 35,
+          "faithfulness": 33,
+          "answer_relevancy": 35,
+          "hallucination": 35,
+          "answer_correctness": 35,
+          "refusal": 2
+        }
+      },
       "extra": {
         "vec": {
           "context_ap": 0.8555555555555555,
@@ -489,6 +543,24 @@
             1.0,
             1.0
           ]
+        }
+      },
+      "n_metric": {
+        "vec": {
+          "context_precision": 0,
+          "faithfulness": 0,
+          "answer_relevancy": 23,
+          "hallucination": 23,
+          "answer_correctness": 23,
+          "refusal": 23
+        },
+        "gr": {
+          "context_precision": 0,
+          "faithfulness": 0,
+          "answer_relevancy": 23,
+          "hallucination": 23,
+          "answer_correctness": 23,
+          "refusal": 23
         }
       },
       "extra": {
@@ -648,5 +720,262 @@
     "multihop_new_generated": 46,
     "unanswerable": 23,
     "single": 27
+  },
+  "judge_audit": {
+    "ollama_original": "0.35.1",
+    "ollama_rejudge": "0.40.4",
+    "calls": 938,
+    "judge_failures": 7,
+    "json_error": 1,
+    "ollama_error": 5,
+    "output_cut": 1,
+    "calls_missing_verdicts": 7,
+    "verdicts_missing": 49,
+    "truncated": 0,
+    "prompt_tokens_max": 2163,
+    "num_ctx": 4096,
+    "agreement": [
+      {
+        "system": "vector_rag",
+        "metric": "context_precision",
+        "n": 62,
+        "mean_original": 0.6169,
+        "mean_rejudged": 0.6169,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "vector_rag",
+        "metric": "faithfulness",
+        "n": 56,
+        "mean_original": 0.8909,
+        "mean_rejudged": 0.8909,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "vector_rag",
+        "metric": "answer_relevancy",
+        "n": 85,
+        "mean_original": 0.5422,
+        "mean_rejudged": 0.5417,
+        "exact_agreement": 0.9882,
+        "mean_abs_diff": 0.0005,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "vector_rag",
+        "metric": "hallucination",
+        "n": 85,
+        "mean_original": 0.3176,
+        "mean_rejudged": 0.3176,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "system": "vector_rag",
+        "metric": "answer_correctness",
+        "n": 85,
+        "mean_original": 0.8941,
+        "mean_rejudged": 0.8941,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "system": "vector_rag",
+        "metric": "refusal",
+        "n": 85,
+        "mean_original": 0.3412,
+        "mean_rejudged": 0.3412,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "system": "graphrag",
+        "metric": "context_precision",
+        "n": 62,
+        "mean_original": 0.4879,
+        "mean_rejudged": 0.4879,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "graphrag",
+        "metric": "faithfulness",
+        "n": 56,
+        "mean_original": 0.8468,
+        "mean_rejudged": 0.8468,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "graphrag",
+        "metric": "answer_relevancy",
+        "n": 85,
+        "mean_original": 0.5401,
+        "mean_rejudged": 0.5398,
+        "exact_agreement": 0.9765,
+        "mean_abs_diff": 0.0002,
+        "cohen_kappa": NaN
+      },
+      {
+        "system": "graphrag",
+        "metric": "hallucination",
+        "n": 85,
+        "mean_original": 0.3882,
+        "mean_rejudged": 0.3882,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "system": "graphrag",
+        "metric": "answer_correctness",
+        "n": 85,
+        "mean_original": 0.8706,
+        "mean_rejudged": 0.8706,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "system": "graphrag",
+        "metric": "refusal",
+        "n": 85,
+        "mean_original": 0.3412,
+        "mean_rejudged": 0.3412,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      }
+    ],
+    "judge_failure_list": [
+      {
+        "system": "vector_rag",
+        "id": "q044",
+        "step": "passages",
+        "failure": "json_error",
+        "missing": 4,
+        "expected": 4,
+        "error": ""
+      },
+      {
+        "system": "vector_rag",
+        "id": "q092",
+        "step": "passages",
+        "failure": "missing_verdicts",
+        "missing": 1,
+        "expected": 4,
+        "error": ""
+      },
+      {
+        "system": "graphrag",
+        "id": "q015",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "system": "graphrag",
+        "id": "q061",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "system": "graphrag",
+        "id": "s002",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "system": "graphrag",
+        "id": "g026",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "system": "graphrag",
+        "id": "g043",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      }
+    ],
+    "sensitivity": [
+      {
+        "set": "all questions",
+        "type": "all",
+        "n": 62,
+        "diff": -0.129,
+        "lo": -0.2056,
+        "hi": -0.0484,
+        "significant": true
+      },
+      {
+        "set": "all questions",
+        "type": "single",
+        "n": 27,
+        "diff": -0.0556,
+        "lo": -0.1852,
+        "hi": 0.0741,
+        "significant": false
+      },
+      {
+        "set": "all questions",
+        "type": "multihop",
+        "n": 35,
+        "diff": -0.1857,
+        "lo": -0.2786,
+        "hi": -0.0929,
+        "significant": true
+      },
+      {
+        "set": "excluding judge failures",
+        "type": "all",
+        "n": 58,
+        "diff": -0.1379,
+        "lo": -0.2112,
+        "hi": -0.0647,
+        "significant": true
+      },
+      {
+        "set": "excluding judge failures",
+        "type": "single",
+        "n": 24,
+        "diff": -0.0833,
+        "lo": -0.2083,
+        "hi": 0.0417,
+        "significant": false
+      },
+      {
+        "set": "excluding judge failures",
+        "type": "multihop",
+        "n": 34,
+        "diff": -0.1765,
+        "lo": -0.2721,
+        "hi": -0.0882,
+        "significant": true
+      }
+    ]
   }
 }

@@ -33,7 +33,7 @@ SURF = "#fcfcfb"
 NAMES = {"lc": "LangChain RAG", "sr": "LangGraph Self-RAG"}
 SYS = {"lc": "langchain_rag", "sr": "langgraph_selfrag"}
 TYPES = ["single", "multihop", "unanswerable"]
-TYPE_VI = {"single": "Single-hop", "multihop": "Multi-hop", "unanswerable": "Ngoài corpus"}
+TYPE_VI = {"single": "Single-hop", "multihop": "Multi-hop", "unanswerable": "Out-of-corpus"}
 METRICS = [("faithfulness", "Faithfulness", "↑", False),
            ("answer_relevancy", "Answer relevancy", "↑", False),
            ("hallucination", "Hallucination rate", "↓", True)]
@@ -104,9 +104,11 @@ for run, R in RUNS.items():
         ids = ids_of(run, qt)
         if not ids:
             continue
-        ts = rs["types"][qt] = {"n": len(ids), "main": {}, "extra": {}, "paired": {}}
+        ts = rs["types"][qt] = {"n": len(ids), "main": {}, "n_metric": {}, "extra": {}, "paired": {}}
         for s in SYS:
             ts["main"][s] = {m: boot([S[s][i][m] for i in ids]) for m, *_ in METRICS}
+            # số câu thực sự được tính (faithfulness bỏ câu refusal, hallucination thì không)
+            ts["n_metric"][s] = {m: sum(not isnan(S[s][i].get(m)) for i in ids) for m, *_ in METRICS}
             answered = [i for i in ids if not S[s][i]["refusal"]]
             nc = sum(S[s][i]["n_claims"] for i in ids)
             ts["extra"][s] = {
@@ -125,7 +127,7 @@ for run, R in RUNS.items():
                 "latency_s": float(np.mean([A[s][i]["latency_s"] for i in ids])),
                 "llm_calls": float(np.mean([A[s][i]["llm_calls"] for i in ids])),
             }
-        # chênh lệch theo cặp (Self-RAG − LangChain RAG) trên cùng câu hỏi
+        # paired difference (Self-RAG − LangChain RAG) trên cùng câu hỏi
         for m, *_ in METRICS:
             d = np.array([S["sr"][i][m] - S["lc"][i][m] for i in ids
                           if not (isnan(S["sr"][i][m]) or isnan(S["lc"][i][m]))], float)
@@ -150,7 +152,7 @@ for run, R in RUNS.items():
                               "regenerations": sum(A["sr"][i].get("regenerations", 0) > 0 for i in ids),
                               "docs_kept": float(np.mean([len(A["sr"][i]["contexts"]) for i in ids]))}
 
-    # abstain đúng/sai: câu ngoài corpus phải từ chối; câu có đáp án (single + multi-hop) không được từ chối
+    # abstain đúng/sai: câu out-of-corpus phải refuse; câu có đáp án (single + multi-hop) không được refuse
     ab = rs["abstention"] = {}
     for s in SYS:
         unans = [i for i in R["ids"] if TS[i]["type"] == "unanswerable"]
@@ -225,7 +227,7 @@ box(ax, *P["gen"], 1.5, 0.8, "generate", fc=fcs, ec=C["sr"])
 box(ax, *P["gg"], 2.4, 0.9, "grade_generation (LLM chấm)\n1) grounded? 2) useful?", fc=fcs, ec=C["sr"])
 box(ax, *P["tq"], 1.9, 0.8, "transform_query\n(viết lại truy vấn)", fc=fcs, ec=C["sr"])
 box(ax, *P["regen"], 1.3, 0.8, "regenerate\n(chặt hơn)", fc=fcs, ec=C["sr"])
-box(ax, *P["abs"], 1.9, 0.8, "abstain\n(từ chối trả lời)")
+box(ax, *P["abs"], 1.9, 0.8, "abstain\n(refuse trả lời)")
 box(ax, *P["end"], 1.6, 0.8, "Câu trả lời")
 arrow(ax, 1.45, 4.6, 1.95, 4.6)
 arrow(ax, 3.65, 4.6, 4.15, 4.6)
@@ -259,7 +261,7 @@ save(fig, "fig2_testset.png")
 # Fig 3 - three metrics by question type (run k4)
 def fig_main(run, name):
     rs = stats["runs"][run]["types"]
-    types = [t for t in ("single", "multihop") if t in rs]  # câu ngoài corpus: không có claim -> trình bày bằng bảng
+    types = [t for t in ("single", "multihop") if t in rs]  # câu out-of-corpus: không có claim -> trình bày bằng bảng
     fig, axes = plt.subplots(len(types), 3, figsize=(10, 2.6 * len(types)), squeeze=False)
     for r, qt in enumerate(types):
         for c_, (m, title, arrow_, pct) in enumerate(METRICS):
@@ -276,7 +278,7 @@ def fig_main(run, name):
                         ha="center", va="center", fontsize=9.5, fontweight="bold", color=INK)
             grid(ax)
     fig.suptitle(f"Ba chỉ số theo loại câu hỏi, top-k = {stats['runs'][run]['top_k']} "
-                 "(thanh lỗi = khoảng tin cậy 95% bootstrap)", x=0.01, ha="left", fontsize=11, fontweight="bold",
+                 "(thanh lỗi = CI 95% bootstrap)", x=0.01, ha="left", fontsize=11, fontweight="bold",
                  color=INK)
     fig.tight_layout()
     save(fig, name)
@@ -305,8 +307,8 @@ for ax, (m, title, arrow_, pct) in zip(axes, METRICS):
     ax.set_title(f"{title} {arrow_}", fontsize=10)
     ax.set_xlabel("Δ điểm %" if pct else "Δ điểm", fontsize=8.5)
     grid(ax, "x")
-fig.suptitle("Chênh lệch theo cặp Self-RAG − LangChain RAG trên cùng câu hỏi "
-             "(cam = khoảng tin cậy 95% không chứa 0)", x=0.01, ha="left", fontsize=11, fontweight="bold", color=INK)
+fig.suptitle("Paired difference Self-RAG − LangChain RAG trên cùng câu hỏi "
+             "(cam = CI 95% không chứa 0)", x=0.01, ha="left", fontsize=11, fontweight="bold", color=INK)
 fig.tight_layout()
 save(fig, "fig4_paired.png")
 
@@ -367,8 +369,8 @@ if "k4" in RUNS:
     types = [t for t in TYPES if t in rs]
     fig, axes = plt.subplots(1, 3, figsize=(11, 3.2))
     x = np.arange(len(types)); w = 0.36
-    for ax, (key, title, pct) in zip(axes, [("refusal_rate", "Tỉ lệ từ chối trả lời", True),
-                                            ("answer_correctness", "Đúng so với đáp án chuẩn*", True),
+    for ax, (key, title, pct) in zip(axes, [("refusal_rate", "Refusal rate trả lời", True),
+                                            ("answer_correctness", "Đúng so với ground truth*", True),
                                             ("latency_s", "Thời gian (giây / câu)", False)]):
         for k, s in enumerate(SYS):
             v = [rs[t]["extra"][s][key] * (100 if pct else 1) for t in types]
@@ -379,12 +381,12 @@ if "k4" in RUNS:
         ax.set_title(title, loc="left"); grid(ax)
         ax.set_ylim(0, 110 if pct else None)
     axes[0].legend(frameon=False, fontsize=8, loc="upper left")
-    fig.text(0.01, -0.03, "* Câu ngoài corpus: đúng = từ chối trả lời.", fontsize=8, color=INK2)
+    fig.text(0.01, -0.03, "* Câu out-of-corpus: đúng = refusal trả lời.", fontsize=8, color=INK2)
     fig.tight_layout()
     save(fig, "fig7_secondary.png")
 
     # Fig 8 - Self-RAG behaviour (run k4)
-    lab = {"useful": "Qua kiểm tra (grounded & useful)", "abstain": "Abstain (từ chối)",
+    lab = {"useful": "Qua kiểm tra (grounded & useful)", "abstain": "Abstain (refuse)",
            "not_useful": "Hết lượt, chưa useful", "refusal": "Model tự trả lời 'không tìm thấy'"}
     fig, axes = plt.subplots(1, len(types), figsize=(11, 2.6), sharex=True)
     for ax, qt in zip(np.atleast_1d(axes), types):

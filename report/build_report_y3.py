@@ -240,7 +240,7 @@ def num(x, d=3):
 
 def ci(v, as_pct=False):
     m, lo, hi = v
-    if m != m:  # NaN: không có claim (mọi câu đều từ chối)
+    if m != m:  # NaN: không có claim (mọi câu đều refuse)
         return "– (không có claim)"
     return f"{pct(m)} [{pct(lo)}; {pct(hi)}]" if as_pct else f"{num(m)} [{num(lo)}; {num(hi)}]"
 
@@ -264,6 +264,19 @@ def _pct(x, d=0):
     return f"{x * 100:.{d}f}%".replace(".", ",")
 
 
+def _ci_txt(s):
+    """"[0.310, 0.441]" -> "31–44%"."""
+    lo, hi = map(float, s.strip("[]").split(","))
+    return f"{lo * 100:.0f}–{hi * 100:.0f}%"
+
+
+def _dci(key, metric="answer_correctness"):
+    """Paired difference (điểm %) kèm CI 95%, vd. "+6,7 điểm % [−13,3; +26,7]"."""
+    d = _S["paired"][key][metric]
+    f = lambda v: f"{v * 100:+.1f}".replace(".", ",").replace("-", "−")
+    return f"{f(d['delta'])} điểm % [{f(d['lo'])}; {f(d['hi'])}]"
+
+
 _o, _oc = _S["outcome"], _S["out_correct"]
 _cov = {(c["set"], c["k"]): c for c in _S["coverage"]}
 _out_ok = {k: _o[k]["out_correct"] for k in ("10", "20")}
@@ -271,8 +284,10 @@ _out_n = {k: _S["sets"]["out_scope"][k]["n"] for k in ("10", "20")}
 
 # ---- Diễn giải kết quả (số liệu lấy từ stats_y3.json) ----
 RESULT_IN_SCOPE = (
-    "Không có xu hướng rõ theo k: KG10 trả lời câu hỏi về 10 bài của nó tốt ngang KG30 trả lời câu hỏi về 30 bài. Tỉ lệ "
-    f"lấy được đoạn gốc giảm khi KG lớn hơn ({_pct(_x('in_scope', '10', 'gold_chunk_recall'))} / "
+    "Không thấy xu hướng rõ theo k: answer correctness của KG10 trên câu hỏi về 10 bài của nó không thấp hơn của KG30 trên "
+    "câu hỏi về 30 bài (hai tập câu hỏi khác nhau nên đây chỉ là so sánh mô tả; paired comparison ở fixed set bên "
+    "dưới). Tỉ lệ "
+    f"lấy được gold chunk giảm khi KG lớn hơn ({_pct(_x('in_scope', '10', 'gold_chunk_recall'))} / "
     f"{_pct(_x('in_scope', '20', 'gold_chunk_recall'))} / {_pct(_x('in_scope', '30', 'gold_chunk_recall'))}) vì có thêm "
     "nhiều đoạn cạnh tranh cùng chứa các khái niệm trung tâm, nhưng retrieval precision và answer correctness không "
     "giảm theo.")
@@ -280,18 +295,21 @@ RESULT_FIXED = (
     "Trên cùng 15 câu về 10 bài đầu, answer correctness của KG10 / KG20 / KG30 là "
     f"{_pct(_m('S10', '10', 'answer_correctness'))} / {_pct(_m('S10', '20', 'answer_correctness'))} / "
     f"{_pct(_m('S10', '30', 'answer_correctness'))}; trên 37 câu về 20 bài đầu, KG20 và KG30 đạt "
-    f"{_pct(_m('S20', '20', 'answer_correctness'))} và {_pct(_m('S20', '30', 'answer_correctness'))}. Thêm bài vào KG "
-    "không làm câu trả lời về các bài đã có tốt lên (dù entity coverage và relation completeness trên S10 tăng nhẹ, mục 5.2), "
-    "và cũng không làm kém đi do nhiễu từ các bài mới. S10 chỉ có 15 câu nên chỉ phát hiện được chênh lệch lớn; với S20 "
-    "(37 câu) các chênh lệch đều dưới 3 điểm %.")
+    f"{_pct(_m('S20', '20', 'answer_correctness'))} và {_pct(_m('S20', '30', 'answer_correctness'))}. Không phát hiện "
+    "khác biệt có statistical significance giữa các k trên S10 và S20 (dù entity coverage và relation completeness trên S10 tăng "
+    "nhẹ, mục 5.2). Tuy nhiên năng lực kiểm định thấp: S10 chỉ có 15 câu, CI 95% của chênh lệch answer "
+    f"correctness KG10 − KG30 là {_dci('S10:10-30')}, tức là dữ liệu vẫn phù hợp với chênh lệch cỡ 10–20 điểm % theo cả "
+    f"hai chiều; S20 (37 câu) hẹp hơn (KG20 − KG30: {_dci('S20:20-30')}) nhưng vẫn chỉ là một tập nhỏ. "
+    "Vì vậy kết quả này không chứng minh được thêm bài là vô ích, chỉ cho thấy không có chênh lệch lớn.")
 RESULT_ALL = (
     f"Answer correctness tăng theo k: {_pct(_m('all', '10', 'answer_correctness'))} → "
     f"{_pct(_m('all', '20', 'answer_correctness'))} → {_pct(_m('all', '30', 'answer_correctness'))}. KG10 kém KG30 rõ "
-    "rệt (answer correctness, answer relevancy và faithfulness đều thấp hơn có ý nghĩa thống kê), còn KG20 chỉ kém KG30 ở "
-    "answer relevancy; answer correctness của KG20 thấp hơn KG30 khoảng 6 điểm % nhưng không có ý nghĩa thống kê. Phần "
-    "lớn chênh lệch đến từ câu về bài chưa có trong KG, không phải từ chất lượng trả lời các câu trong phạm vi.")
+    "rệt (answer correctness và answer relevancy thấp hơn có statistical significance; faithfulness cũng thấp hơn có "
+    "statistical significance theo điểm gốc, nhưng kết luận này không vững trước judge audit ở mục 6.3), còn KG20 chỉ kém KG30 ở "
+    "answer relevancy; answer correctness của KG20 thấp hơn KG30 khoảng 6 điểm % nhưng không có statistical significance. Phần "
+    "lớn chênh lệch đến từ câu về bài chưa có trong KG, không phải từ chất lượng trả lời các câu in-scope.")
 RESULT_OUTCOME = (
-    f"Với câu ngoài phạm vi KG, GraphRAG từ chối {_o['10']['out_refused']}/{_out_n['10']} câu (KG10) và "
+    f"Với câu out-of-scope, GraphRAG refuse {_o['10']['out_refused']}/{_out_n['10']} câu (KG10) và "
     f"{_o['20']['out_refused']}/{_out_n['20']} câu (KG20), nhưng vẫn trả lời đúng {_out_ok['10']}/{_out_n['10']} "
     f"({_pct(_out_ok['10'] / _out_n['10'])}) và {_out_ok['20']}/{_out_n['20']} ({_pct(_out_ok['20'] / _out_n['20'])}) câu. "
     f"Trong các câu \"đúng\" này, {_oc['10']['multihop_one_source_in_kg']}/{_oc['10']['n']} (KG10) và "
@@ -302,68 +320,76 @@ RESULT_OUTCOME = (
     "(KG20) câu có faithfulness dưới 1, tức là câu trả lời chứa thông tin không có trong context: đó là kiến thức sẵn có của "
     "mô hình chứ không phải do KG cung cấp, nên không thể coi là KG nhỏ \"đủ\" cho các câu này.")
 RESULT_COV = (
-    "Câu thiếu thực thể vẫn được trả lời đúng như câu đủ thực thể, vì GraphRAG còn khớp entity theo embedding và đưa "
-    "đoạn văn vào context; còn câu có đủ quan hệ trong KG được trả lời đúng nhiều hơn khoảng 17 điểm % (khoảng tin cậy "
-    "chỉ chồng nhau rất ít). Đây là so sánh mô tả (một câu được tính ở mỗi KG chứa nó, không độc lập), nhưng phù hợp "
-    "với nhận xét ở mục 5.2: thiếu quan hệ, không phải thiếu thực thể, là điểm yếu chính của KG.")
+    "Không thấy chênh lệch giữa câu thiếu entity và câu đủ entity, có thể vì GraphRAG còn khớp entity theo embedding và "
+    "đưa passage vào context; còn câu có đủ relation trong KG có tỉ lệ đúng cao hơn khoảng 17 điểm % (CI chỉ chồng nhau "
+    "rất ít, nhưng CI chồng nhau không phải phép kiểm định). Đây là so sánh mô tả (một câu được tính ở mỗi KG chứa nó, không độc lập), nhưng phù hợp "
+    "với nhận xét ở mục 5.2: thiếu relation, không phải thiếu entity, là điểm yếu chính của KG.")
 
 DISCUSSION = [
-    "**Với câu hỏi về chính các bài trong KG, 10 bài là đủ; KG không \"cần\" thêm bài để hoạt động.** Entity coverage trong "
-    f"phạm vi KG giữ khoảng {_pct(_cov[('in_scope', 10)]['entity_coverage'])} ở cả ba k, và câu trả lời về 10 bài đầu "
-    "không tốt hơn khi KG có thêm 10 hay 20 bài khác. Kết quả này phù hợp với phần thử nghiệm theo cỡ corpus của "
+    "**Với câu hỏi về chính các bài trong KG, không phát hiện khác biệt giữa k = 10, 20, 30 (năng lực kiểm định "
+    "thấp).** Entity coverage "
+    f"in-scope giữ khoảng {_pct(_cov[('in_scope', 10)]['entity_coverage'])} ở cả ba k, và không phát hiện câu trả lời về "
+    "10 bài đầu tốt hơn khi KG có thêm 10 hay 20 bài khác; với 15 câu, chỉ chênh lệch lớn (khoảng 20 điểm % trở lên) mới "
+    "phát hiện được. Kết quả này phù hợp với phần thử nghiệm theo cỡ corpus của "
     "GraphRAG-Bench [3]: khi corpus tăng từ khoảng 56 nghìn lên 1,13 triệu token, độ chính xác của GraphRAG (HippoRAG2) ở "
     "câu hỏi tra cứu sự kiện gần như không đổi (60,14%, 59,99%, 59,19%). Corpus của nội dung 3 (khoảng 0,2 đến 0,6 triệu "
     "token) nằm trong khoảng đó; khác biệt là [3] dùng HippoRAG2 còn ở đây là local search tự cài đặt, nên chỉ so được xu "
     "hướng.",
-    "**Điểm nghẽn là bước trích xuất, không phải số bài.** Relation completeness chỉ khoảng 40% ở mọi k. Các nghiên cứu "
+    "**Điểm nghẽn là bước trích xuất, không phải số bài.** Relation completeness chỉ khoảng 40% ở mọi k (khoảng 33–37% "
+    "sau hiệu chỉnh theo audit). Các nghiên cứu "
     "khác cũng thấy KG do LLM trích ra thiếu nhiều thông tin: trên benchmark MINE [4], KG do Microsoft GraphRAG trích "
     "chỉ giữ được 47,8% số sự kiện của văn bản (KGGen 66,1%, OpenIE 29,8%), và các tác giả nêu đúng hai vấn đề gặp ở đây là "
-    "đồ thị thưa và entity trùng lặp; Han và cộng sự [2] thấy chỉ khoảng 65,8% (HotpotQA) và 65,5% (NQ) thực thể của "
+    "đồ thị thưa và entity trùng lặp; Han và cộng sự [2] thấy chỉ khoảng 65,8% (HotpotQA) và 65,5% (NQ) entity của "
     "đáp án có trong KG, đồng thời đổi mô hình dựng KG từ GPT-4o-mini sang GPT-4o làm độ chính xác QA tăng từ 71,17% lên "
     "75,08%. Zhu và cộng sự [5] kết luận LLM \"phù hợp làm trợ lý suy luận hơn là bộ trích xuất thông tin few-shot\". "
-    "Entity coverage ở đây (khoảng 90%) cao hơn con số 65% của [2] nhưng không so trực tiếp được: bộ chuẩn ở đây là các "
-    "thuật ngữ kỹ thuật trung tâm của câu hỏi, lặp lại nhiều trong các bài cùng chủ đề, còn [2] đo thực thể của đáp án "
-    "trên dữ liệu mở. Mật độ đồ thị cũng tương tự [3]: bậc trung bình của MS-GraphRAG là 1,48 và 1,82, ở đây 2,0 đến 2,2, "
+    "Entity coverage ở đây (khoảng 90%) cao hơn con số 65% của [2] nhưng không so trực tiếp được: gold set ở đây là các "
+    "thuật ngữ kỹ thuật trung tâm của câu hỏi, lặp lại nhiều trong các bài cùng chủ đề, còn [2] đo entity của đáp án "
+    "trên dữ liệu mở. Mật độ đồ thị cũng tương tự [3]: average degree của MS-GraphRAG là 1,48 và 1,82, ở đây 2,0 đến 2,2, "
     "trong khi [3] cho thấy đồ thị dày hơn (HippoRAG2, 8,75 và 13,31) truy xuất tốt hơn.",
-    "**Với câu hỏi về cả chủ đề, KG chỉ trả lời tốt những gì nó chứa, và 30 bài vẫn chưa bão hoà.** Mỗi bài thêm vào vẫn "
+    "**Với câu hỏi về cả chủ đề, KG chỉ trả lời tốt những gì nó chứa, và 30 bài vẫn chưa đạt saturation.** Mỗi bài thêm vào vẫn "
     f"mang theo khoảng {num(S['growth']['21-30'], 0)} entity mới (bài 21–30, so với {num(S['growth']['2-10'], 0)} ở bài "
     "2–10). Số entity tăng gần tuyến tính theo số bài (số mũ ước lượng khoảng 0,95 trên 20 thứ tự bài ngẫu nhiên), đúng "
-    "với giai đoạn đầu của định luật Heaps [7, 8]: số từ (ở đây là thực thể) khác nhau tiếp tục tăng khi corpus lớn lên, "
-    "chỉ chậm dần chứ không dừng. Vì vậy \"k bài có đủ không\" phụ thuộc vào phạm vi câu hỏi: KG20 đã trả lời được phần lớn "
-    "câu hỏi của 30 bài (answer correctness kém KG30 khoảng 6 điểm %, không có ý nghĩa thống kê), còn KG10 thì không.",
-    "**Mô hình vẫn trả lời khi KG thiếu thông tin.** Câu ngoài phạm vi KG được trả lời đúng "
+    "với giai đoạn đầu của định luật Heaps [7, 8]: số từ (ở đây là entity) khác nhau tiếp tục tăng khi corpus lớn lên, "
+    "chỉ chậm dần chứ không dừng. Vì vậy \"k bài có đủ không\" phụ thuộc vào phạm vi câu hỏi: trên toàn bộ câu hỏi của 30 "
+    f"bài, KG10 kém KG30 có statistical significance ({_dci('all:10-30')}), còn với KG20 thì không đủ bằng chứng để phân biệt với "
+    f"KG30 ({_dci('all:20-30')}; CI vẫn chứa mức kém tới khoảng 16 điểm %).",
+    "**Mô hình vẫn trả lời khi KG thiếu thông tin.** Câu out-of-scope được trả lời đúng "
     f"{_pct(_out_ok['10'] / _out_n['10'])} (KG10) và {_pct(_out_ok['20'] / _out_n['20'])} (KG20), chủ yếu nhờ kiến thức "
     "sẵn có của mô hình. Joren và cộng sự [6] báo cáo hiện tượng tương tự ở các LLM lớn: khi context không đủ, mô hình vẫn "
     "trả lời đúng 35–62% số câu, trong đó có loại câu multi-hop chỉ có một phần thông tin trong context. Tỉ lệ ở đây nằm "
-    "trong khoảng đó. Ngược lại, cả ba KG đều từ chối đúng toàn bộ câu ngoài corpus: khi câu hỏi hoàn toàn khác chủ đề, "
-    "prompt từ chối hoạt động tốt; khi câu hỏi cùng chủ đề nhưng KG thiếu bài nguồn, mô hình dễ trả lời bằng kiến thức "
+    "trong khoảng đó. Ngược lại, cả ba KG đều refuse đúng toàn bộ câu out-of-corpus: khi câu hỏi hoàn toàn khác chủ đề, "
+    "prompt refuse hoạt động tốt; khi câu hỏi cùng chủ đề nhưng KG thiếu bài nguồn, mô hình dễ trả lời bằng kiến thức "
     "riêng. Điều này cần lưu ý khi dùng KG nhỏ: answer correctness có thể che khuất việc KG không chứa câu trả lời.",
 ]
 LIMITS = [
-    ("Bộ câu hỏi: ", "dùng lại 85 câu của nội dung 2; tập cố định S10 chỉ có 15 câu nên chỉ phát hiện được chênh lệch "
+    ("Bộ câu hỏi: ", "dùng lại 85 câu của nội dung 2; fixed set S10 chỉ có 15 câu nên chỉ phát hiện được chênh lệch "
      "lớn. Chưa có câu hỏi tổng quát (tóm tắt nhiều bài), là loại câu mà KG lớn có thể có lợi hơn."),
-    ("Thứ tự bài: ", "ba KG dùng một thứ tự bài cố định (phân tầng theo chủ đề); đường cong tăng trưởng có kiểm tra trên "
+    ("Thứ tự bài: ", "ba KG dùng một thứ tự bài cố định (stratified theo chủ đề); đường cong tăng trưởng có kiểm tra trên "
      "20 thứ tự ngẫu nhiên nhưng chất lượng câu trả lời chỉ đo với một thứ tự."),
-    ("Bộ chuẩn và cách khớp: ", "bộ chuẩn chỉ gồm thực thể / quan hệ mà câu hỏi cần, không phải toàn bộ kiến thức trong "
-     "30 bài; khớp theo tên chuẩn hoá có thể bỏ sót biến thể (bản lenient cho cận trên). Phép khớp quan hệ được kiểm tra "
-     f"tay trên {_S['relation_audit']['n']} cạnh ({_S['relation_audit']['correct']} đúng)."),
+    ("Gold set và cách khớp: ", "gold set chỉ gồm entity / relation mà câu hỏi cần, không phải toàn bộ kiến thức trong "
+     "30 bài; khớp theo tên chuẩn hoá có thể bỏ sót biến thể (bản lenient cho upper bound). Phép khớp relation được kiểm tra "
+     f"tay trên {_S['relation_audit']['n']} edge ({_S['relation_audit']['correct']} đúng)."),
     ("KG30: ", "kết quả câu trả lời với KG30 lấy lại từ nội dung 2 (cùng mã, KG, câu hỏi và môi trường), không chạy lại "
      "cùng đợt với KG10, KG20."),
     ("Không so với Vector RAG theo k: ", "GraphRAG-Bench [3] thấy vector RAG giảm khi corpus lớn lên; nội dung 3 chỉ đo "
      "GraphRAG nên chưa kiểm tra được điều này trên dữ liệu ở đây."),
 ]
 CONCLUSION = (
-    f"Với KG dựng bằng qwen2.5:7b, KG từ 10 bài đã chứa khoảng {_pct(_cov[('in_scope', 10)]['entity_coverage'])} thực thể "
-    "cần cho câu hỏi về chính 10 bài đó và GraphRAG trả lời các câu này tốt ngang KG30 "
-    f"({_pct(_m('in_scope', '10', 'answer_correctness'))} so với {_pct(_m('in_scope', '30', 'answer_correctness'))}); "
-    "thêm bài không cải thiện câu trả lời về các bài đã có. Điểm yếu chung của cả ba KG là quan hệ: chỉ khoảng 40% quan "
-    "hệ cần thiết có trong KG, do giới hạn của mô hình trích xuất 7B chứ không do số bài. KG chưa bão hoà ở 30 bài (mỗi "
+    f"Với KG dựng bằng qwen2.5:7b, KG từ 10 bài đã chứa khoảng {_pct(_cov[('in_scope', 10)]['entity_coverage'])} entity "
+    "cần cho câu hỏi về chính 10 bài đó; trên fixed set S10 / S20 không phát hiện khác biệt về câu trả lời giữa các k, "
+    "nhưng năng lực kiểm định thấp (S10 chỉ 15 câu, CI của chênh lệch answer correctness KG10 − KG30 là "
+    f"{_dci('S10:10-30')}), nên chỉ loại trừ được các chênh lệch lớn. Điểm yếu chung của cả ba KG là relation: chỉ khoảng 40% "
+    "relation cần thiết có edge trong KG (sau hiệu chỉnh theo audit, KG30: "
+    f"{_pct(_cov[('in_scope', 30)]['relation_completeness_adj'])}, CI 95% "
+    f"{_ci_txt(_cov[('in_scope', 30)]['relation_completeness_adj_ci95'])}), do giới hạn của mô hình trích xuất 7B chứ không do số bài. KG chưa đạt saturation ở 30 bài (mỗi "
     "bài vẫn thêm khoảng 250 entity mới), nên KG chỉ trả lời tốt phạm vi tài liệu nó chứa: trên toàn bộ câu hỏi của 30 "
     f"bài, answer correctness là {_pct(_m('all', '10', 'answer_correctness'))} / {_pct(_m('all', '20', 'answer_correctness'))} / "
-    f"{_pct(_m('all', '30', 'answer_correctness'))} với k = 10 / 20 / 30, trong đó KG20 không kém KG30 có ý nghĩa thống kê. "
-    "Trả lời câu hỏi của đề tài: k bài là đủ để KG hoạt động tốt trên chính k bài đó (k = 10 đã đủ), nhưng muốn hỏi về cả "
-    "chủ đề thì KG phải chứa các bài liên quan (ở đây khoảng 20–30 bài), và muốn KG tốt hơn thì cần mô hình trích xuất "
-    "quan hệ tốt hơn trước khi cần thêm bài.")
+    f"{_pct(_m('all', '30', 'answer_correctness'))} với k = 10 / 20 / 30; KG10 kém KG30 có statistical significance, còn KG20 và "
+    "KG30 thì không đủ bằng chứng để phân biệt. "
+    "Trả lời câu hỏi của đề tài (với cài đặt local search và KG dựng bằng mô hình 7B): với câu hỏi về chính các bài "
+    "trong KG, không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp, nên chỉ loại trừ được chênh lệch lớn. "
+    "Muốn hỏi về cả chủ đề thì KG phải chứa các bài liên quan (ở đây khoảng 20–30 bài), và muốn KG tốt hơn thì cần mô "
+    "hình trích xuất relation tốt hơn trước khi cần thêm bài.")
 
 
 K = (10, 20, 30)
@@ -413,7 +439,7 @@ def cvci(set_name, k, col):
 MAIN = [("context_precision", "Retrieval precision ↑", False), ("faithfulness", "Faithfulness ↑", False),
         ("answer_relevancy", "Answer relevancy ↑", False), ("hallucination", "Hallucination rate ↓", True),
         ("answer_correctness", "Answer correctness ↑", True)]
-SET_VI = {"in_scope": "Trong phạm vi KG", "S10": "S10 (cố định)", "S20": "S20 (cố định)", "all": "Toàn bộ 62 câu"}
+SET_VI = {"in_scope": "In-scope", "S10": "S10 (cố định)", "S20": "S20 (cố định)", "all": "Toàn bộ 62 câu"}
 
 
 def ci2(v, as_pct=False):
@@ -430,10 +456,15 @@ def answer_table(caption, sets):
         for k in K:
             if str(k) not in SETS[s]:
                 continue
+            nmet = SETS[s][str(k)].get("n_metric", {})
             rows.append([f"{SET_VI[s]}" if k == min(int(x) for x in SETS[s]) else "", f"KG{k} (n = {nn(s, k)})",
-                         *[ci2(mm(s, k, m), as_pct) for m, _, as_pct in MAIN]])
+                         *[ci2(mm(s, k, m), as_pct) + (f"\n(n = {nmet[m]})" if nmet.get(m, nn(s, k)) != nn(s, k) else "")
+                           for m, _, as_pct in MAIN]])
     table(caption, ["Tập câu hỏi", "KG", *[n for _, n, _ in MAIN]], rows,
           [2.1, 2.1, 2.35, 2.35, 2.35, 2.35, 2.4], font=9, center_from=2)
+    p("n ở cột KG là số câu hỏi. Faithfulness chỉ tính trên câu trả lời có claim (bỏ câu refusal), n ghi trong ô; các "
+      "chỉ số khác tính trên đủ n câu (câu refusal có hallucination = 0, answer relevancy = 0, answer correctness = 0).",
+      size=10, italic=True, indent=False)
 
 
 COMPARE = [("S10:10-30", "S10: KG10 − KG30"), ("S10:20-30", "S10: KG20 − KG30"), ("S10:10-20", "S10: KG10 − KG20"),
@@ -457,7 +488,7 @@ def paired_table(caption):
 
 
 def sig_list(keys):
-    """Các chênh lệch có ý nghĩa thống kê trong danh sách so sánh."""
+    """Các chênh lệch có statistical significance trong danh sách so sánh."""
     out = []
     for key, lab in COMPARE:
         if key not in keys:
@@ -488,16 +519,16 @@ page_break()
 h("1. MỤC TIÊU VÀ PHẠM VI", 1)
 p("Nội dung 3 thử nghiệm Knowledge Graph (KG) dựng từ **k = 10, 20 và 30 bài báo** để trả lời câu hỏi: k bài báo có đủ "
   "để KG hoạt động tốt không. Hai nhóm chỉ số được đo với mỗi k:")
-bullets([("Chất lượng KG: ", "**entity coverage** (tỉ lệ thực thể cần để trả lời câu hỏi có trong KG) và **relation "
-          "completeness** (tỉ lệ quan hệ giữa các thực thể đó có trong KG), kèm các chỉ số cấu trúc của đồ thị."),
+bullets([("Chất lượng KG: ", "**entity coverage** (tỉ lệ entity cần để trả lời câu hỏi có trong KG) và **relation "
+          "completeness** (tỉ lệ relation giữa các entity đó có trong KG), kèm các chỉ số cấu trúc của đồ thị."),
          ("Chất lượng câu trả lời: ", "hệ GraphRAG của nội dung 2 chạy trên từng KG, chấm bằng đúng năm chỉ số của nội "
           "dung 2: retrieval precision, faithfulness, answer relevancy, hallucination rate, answer correctness.")])
 p("Ba KG được dựng **lồng nhau**: KG10 từ 10 bài đầu, KG20 từ 20 bài đầu, KG30 từ cả 30 bài chủ đề quantum của nội dung "
-  "2, theo thứ tự bài đã cố định trước ở nội dung 2. Cả ba dùng chung một lần trích xuất entity/quan hệ cho từng chunk, "
+  "2, theo thứ tự bài đã cố định trước ở nội dung 2. Cả ba dùng chung một lần trích xuất entity/relation cho từng chunk, "
   "cùng cách gộp entity, cùng hệ GraphRAG, cùng prompt và mô hình; khác biệt giữa các k chỉ đến từ số bài báo có trong KG.")
 
 # ================= 2. MÔI TRƯỜNG =================
-h("2. MÔI TRƯỜNG VÀ KHẢ NĂNG TÁI LẬP", 1)
+h("2. MÔI TRƯỜNG VÀ REPRODUCIBILITY", 1)
 pk, md = ENV["packages"], ENV["models"]
 table("Môi trường thực nghiệm (như nội dung 2)", ["Thành phần", "Version / cấu hình"],
       [["Python", ENV["python"]],
@@ -506,13 +537,13 @@ table("Môi trường thực nghiệm (như nội dung 2)", ["Thành phần", "V
        ["Ollama server", ENV["ollama_server"]],
        ["LLM trích xuất KG và sinh câu trả lời",
         f"{md['llm']['name']} ({md['llm']['quantization']}, digest {md['llm']['digest']})"],
-       ["Mô hình chấm điểm (judge)", f"{md['judge']['name']} ({md['judge']['quantization']}, digest {md['judge']['digest']})"],
-       ["Mô hình nhúng", f"{md['embedding']['name']} ({md['embedding']['quantization']}, digest {md['embedding']['digest']})"],
+       ["Judge",f"{md['judge']['name']} ({md['judge']['quantization']}, digest {md['judge']['digest']})"],
+       ["Embedding model", f"{md['embedding']['name']} ({md['embedding']['quantization']}, digest {md['embedding']['digest']})"],
        ["Phần cứng", "CPU i3-12100F, RAM 16 GB, GPU GTX 1660 Ti 6 GB"]],
       [6.0, 10.0], font=11)
 p("Mã và dữ liệu của nội dung 3 chỉ được thêm mới, không sửa file nào của nội dung 1 và 2: `kg_quality.py` (chất "
   "lượng KG), `evaluate_kg_scale.py` (chất lượng câu trả lời theo k), `data/kg/k10/` và `data/kg/k20/` (KG10, KG20 dựng "
-  "bằng lệnh có sẵn `python kg_build.py --build --k 10` / `--k 20`; KG30 là KG của nội dung 2), bộ chuẩn đánh giá KG "
+  "bằng lệnh có sẵn `python kg_build.py --build --k 10` / `--k 20`; KG30 là KG của nội dung 2), gold set đánh giá KG "
   "`testset/kg_gold.json` (kèm bản trích tự động `kg_gold_raw.json` và kết quả duyệt tay `review_kg_gold.py`), kết quả "
   "trong `results/kg_scale/`. Chạy lại: `python kg_quality.py --all` và `python evaluate_kg_scale.py`. Kết quả GraphRAG "
   "với KG30 lấy lại từ `results/kg30/` của nội dung 2 (cùng mã, cùng KG, cùng câu hỏi).")
@@ -525,10 +556,10 @@ table("Số bài và chunk của ba KG", ["KG", "Quantum Security", "Quantum ML"
       [[f"KG{k}", str(pb[str(k)]["Quantum Security"]), str(pb[str(k)]["Quantum Machine Learning"]),
         str(pb[str(k)]["added_for_y2"]), dot(KGS[str(k)]["chunks"])] for k in K],
       [2.5, 3.3, 3.0, 4.0, 3.2], font=11, center_from=1)
-p("Thứ tự 30 bài trong `data/kg/papers.json` được xếp ở nội dung 2 theo cách phân tầng theo chủ đề (seed 42), trước "
+p("Thứ tự 30 bài trong `data/kg/papers.json` được xếp ở nội dung 2 theo cách stratified theo chủ đề (seed 42), trước "
   "khi có kết quả nào, để k bài đầu giữ tỉ lệ hai nhánh Quantum Security / Quantum Machine Learning như 30 bài. Bước "
   "trích xuất (một lần gọi qwen2.5:7b cho mỗi chunk) đã được lưu theo chunk ở nội dung 2, nên KG10 và KG20 chỉ là gộp "
-  "lại các kết quả trích xuất của chunk thuộc 10 hoặc 20 bài đầu rồi nhúng entity/quan hệ; không trích xuất lại. Nhờ vậy "
+  "lại các kết quả trích xuất của chunk thuộc 10 hoặc 20 bài đầu rồi nhúng entity/relation; không trích xuất lại. Nhờ vậy "
   "KG10 ⊂ KG20 ⊂ KG30 (trừ vài tên viết tắt được gộp khác đi khi tập bài thay đổi).")
 
 h("3.2. Bộ câu hỏi và ba cách nhìn", 2)
@@ -539,82 +570,87 @@ table("85 câu hỏi của nội dung 2 chia theo phạm vi (bài nguồn nằm 
        ["Bài nguồn trong 20 bài đầu (có bài 11–20)", str(SBT["single:20"]), str(SBT["multihop:20"]), str(sc["20"]),
         "KG20, KG30"],
        ["Có bài nguồn trong bài 21–30", str(SBT["single:30"]), str(SBT["multihop:30"]), str(sc["30"]), "KG30"],
-       ["Ngoài corpus (đúng = từ chối)", "", "", str(sc["0"]), "–"]],
+       ["Out-of-corpus (đúng = refusal)", "", "", str(sc["0"]), "–"]],
       [5.6, 2.2, 2.2, 1.6, 4.4], font=10.5, center_from=1)
 p("Dùng lại nguyên 85 câu của nội dung 2 (đã duyệt tay), không sinh câu mới. Câu multi-hop thuộc phạm vi của KG k khi "
   "cả hai bài nguồn nằm trong k bài đầu. Kết quả được xem theo ba cách:")
-bullets([("Trong phạm vi KG: ", f"mỗi KG được hỏi về chính các bài nó chứa ({nn('in_scope', 10)} / {nn('in_scope', 20)} / "
+bullets([("In-scope: ", f"mỗi KG được hỏi về chính các bài nó chứa ({nn('in_scope', 10)} / {nn('in_scope', 20)} / "
           f"{nn('in_scope', 30)} câu với k = 10 / 20 / 30). Trả lời câu hỏi \"KG dựng từ k bài có hoạt động tốt trên k bài "
           "đó không\"; tập câu khác nhau giữa các k nên chỉ so sánh mức độ."),
-         ("Tập cố định S10 / S20: ", f"cùng {nn('S10', 10)} câu về 10 bài đầu (S10) hoặc {nn('S20', 20)} câu về 20 bài đầu "
-          "(S20), hỏi cả ba KG. Bài nguồn đã có trong mọi KG được so, nên chênh lệch chỉ do KG có thêm bài khác; so sánh "
-          "theo cặp trên cùng câu hỏi."),
+         ("Fixed set S10 / S20: ", f"cùng {nn('S10', 10)} câu về 10 bài đầu (S10) hoặc {nn('S20', 20)} câu về 20 bài đầu "
+          "(S20), hỏi cả ba KG. Bài nguồn đã có trong mọi KG được so, nên chênh lệch chỉ do KG có thêm bài khác; paired "
+          "comparison trên cùng câu hỏi."),
          ("Toàn bộ 62 câu: ", "hỏi mọi câu có đáp án của 30 bài, kể cả câu về bài chưa có trong KG. Cho biết KG k bài trả "
-          "lời được bao nhiêu câu hỏi về cả chủ đề; với câu ngoài phạm vi KG, hành vi đúng là từ chối.")])
+          "lời được bao nhiêu câu hỏi về cả chủ đề; với câu out-of-scope, hành vi đúng là refuse.")])
 
 # ================= 4. ĐO CHẤT LƯỢNG KG =================
 h("4. ĐO CHẤT LƯỢNG KG", 1)
-h("4.1. Bộ chuẩn thực thể và quan hệ", 2)
-p("Entity coverage và relation completeness cần một bộ chuẩn: những thực thể và quan hệ mà KG phải có. Bộ chuẩn được "
-  "lập từ 62 câu có đáp án: với mỗi câu, liệt kê các **thực thể kỹ thuật cần để trả lời** (thuật toán, giao thức, tấn "
-  "công, thư viện, chuẩn, khái niệm...) và các **quan hệ giữa chúng mà đáp án chuẩn nêu ra**. Mô hình judge llama3.1:8b "
-  "(khác mô hình dựng KG) trích bản đầu từ câu hỏi và đáp án chuẩn, sau đó duyệt tay từng câu "
+h("4.1. Gold set entity và relation", 2)
+p("Entity coverage và relation completeness cần một gold set: những entity và relation mà KG phải có. Gold set được "
+  "lập từ 62 câu có đáp án: với mỗi câu, liệt kê các **entity kỹ thuật cần để trả lời** (thuật toán, giao thức, tấn "
+  "công, thư viện, chuẩn, khái niệm...) và các **relation giữa chúng mà ground truth nêu ra**. Mô hình judge llama3.1:8b "
+  "(khác mô hình dựng KG) trích bản đầu từ câu hỏi và ground truth, sau đó duyệt tay từng câu "
   "(`testset/review_kg_gold.py`): bỏ từ chung chung (\"data\", \"participants\"), con số (\"60%\", \"1619\"), tên người "
-  "(\"Alice\", \"Akleylek et al.\"), quan hệ suy diễn hoặc nối tới con số; viết tên thông dụng dạng \"Tên đầy đủ "
-  "(VIẾT TẮT)\"; mọi quan hệ phải nối hai thực thể có trong danh sách của câu.")
-table("Kích thước bộ chuẩn (62 câu có đáp án)", ["", "Bản trích tự động", "Sau khi duyệt tay", "Khác nhau (gộp theo tên)"],
-      [["Thực thể", dot(GS["raw_entities"]), dot(GS["entities"]), dot(S["gold"]["entities"])],
-       ["Quan hệ", dot(GS["raw_relations"]), dot(GS["relations"]), dot(S["gold"]["relations"])]],
+  "(\"Alice\", \"Akleylek et al.\"), relation suy diễn hoặc nối tới con số; viết tên thông dụng dạng \"Tên đầy đủ "
+  "(VIẾT TẮT)\"; mọi relation phải nối hai entity có trong danh sách của câu.")
+table("Kích thước gold set (62 câu có đáp án)", ["", "Bản trích tự động", "Sau khi duyệt tay", "Khác nhau (gộp theo tên)"],
+      [["Entity", dot(GS["raw_entities"]), dot(GS["entities"]), dot(S["gold"]["entities"])],
+       ["Relation", dot(GS["raw_relations"]), dot(GS["relations"]), dot(S["gold"]["relations"])]],
       [3.0, 4.0, 4.0, 5.0], font=11, center_from=1)
 
 h("4.2. Cách khớp với KG", 2)
-p("**Entity coverage** = số thực thể chuẩn có trong KG / tổng số thực thể chuẩn. Một thực thể chuẩn được coi là có trong "
+p("**Entity coverage** = số gold entity có trong KG / tổng số gold entity. Một gold entity được coi là có trong "
   "KG khi tên của nó, sau khi chuẩn hoá, trùng tên, viết tắt hoặc khoá của một entity trong KG. Chuẩn hoá dùng đúng quy "
   "tắc gộp entity khi dựng KG (chữ thường, bỏ số nhiều, bỏ hậu tố chung như \"algorithm\", tách \"Tên đầy đủ (VIẾT TẮT)\"), "
-  "nên \"Kyber\", \"CRYSTALS-Kyber\" là hai thực thể khác nhau ở cả KG lẫn bộ chuẩn. Chỉ số phụ _lenient_ (cận trên) "
-  "tính thêm entity có tên chứa trọn cụm từ của thực thể chuẩn, ví dụ \"Faraday effect\" khớp \"faraday-effect based "
+  "nên \"Kyber\", \"CRYSTALS-Kyber\" là hai entity khác nhau ở cả KG lẫn gold set. Secondary metric _lenient_ (upper bound) "
+  "tính thêm entity có tên chứa trọn cụm từ của gold entity, ví dụ \"Faraday effect\" khớp \"faraday-effect based "
   "polarization rotation\" nhưng cũng khớp cả biến thể hẹp hơn như \"Dilithium\" với \"dilithium-3\".")
-p("Việc khớp không dùng LLM. Phương án dùng judge xác nhận \"cùng khái niệm\" giữa thực thể chuẩn và các entity ứng viên "
+p("Việc khớp không dùng LLM. Phương án dùng judge xác nhận \"cùng khái niệm\" giữa gold entity và các entity ứng viên "
   "đã được thử với cả llama3.1:8b và qwen2.5:7b và bị loại vì không ổn định: llama3.1:8b nhận \"Bouncy Castle\" là "
   "\"adiabatic quantum computing\", \"BoringSSL\" là \"oraclize\"; qwen2.5:7b nhận \"Dilithium\" là \"dilithium-3\", "
   "\"FPGA\" là \"artix-7 fpga\". Khớp theo tên chuẩn hoá chặt hơn nhưng tất định và kiểm tra lại được.")
-p("**Relation completeness** = số quan hệ chuẩn có **cạnh trực tiếp** trong KG nối hai entity đã khớp với hai đầu của "
-  "quan hệ / tổng số quan hệ chuẩn. Chỉ số phụ: cả hai đầu có trong KG (dù không nối nhau), nối nhau trong tối đa 2 bước, "
-  "và bản lenient. Để kiểm tra phép khớp \"có cạnh\" có thật sự đúng quan hệ, "
-  f"{AU['n']} quan hệ chuẩn có cạnh trong KG30 được chọn ngẫu nhiên (seed 42) và đọc tay mô tả cạnh: "
-  f"**{AU['correct']}/{AU['n']} ({pct(AU['correct'] / AU['n'], 0)})** cạnh nói đúng quan hệ chuẩn; các cạnh sai nói một "
-  "quan hệ khác giữa cùng hai thực thể (ví dụ đáp án chuẩn \"OpenSSL dự định tích hợp Dilithium\", cạnh lại ghi "
-  "\"OpenSSL hỗ trợ Dilithium\"); chi tiết trong `results/kg_scale/kg_relation_audit.csv`.")
-p("Mỗi thực thể / quan hệ chuẩn tính một lần trong một tập câu hỏi (gộp theo tên chuẩn hoá); khoảng tin cậy 95% bằng "
-  "bootstrap trên các thực thể / quan hệ. Chỉ số cấu trúc (không cần bộ chuẩn): tỉ lệ entity và quan hệ xuất hiện ở ≥ 2 "
-  "bài (liên kết giữa các bài), bậc trung bình, thành phần liên thông lớn nhất, entity không có quan hệ, số entity mới "
+p("**Relation completeness** = số gold relation có **edge trực tiếp** trong KG nối hai entity đã khớp với hai đầu của "
+  "relation / tổng số gold relation. Secondary metric: cả hai đầu có trong KG (dù không nối nhau), nối nhau trong tối đa 2 bước, "
+  "và bản lenient. Để kiểm tra phép khớp \"có edge\" có thật sự đúng relation, "
+  f"{AU['n']} gold relation có edge trong KG30 được chọn ngẫu nhiên (seed 42) và đọc tay mô tả edge: "
+  f"**{AU['correct']}/{AU['n']} ({pct(AU['correct'] / AU['n'], 0)})** edge nói đúng gold relation; các edge sai nói một "
+  "relation khác giữa cùng hai entity (ví dụ ground truth \"OpenSSL dự định tích hợp Dilithium\", edge lại ghi "
+  "\"OpenSSL hỗ trợ Dilithium\"); chi tiết trong `results/kg_scale/kg_relation_audit.csv`. Vì vậy relation completeness "
+  "(đếm mọi edge khớp) hơi cao hơn thực tế; báo cáo thêm **relation completeness hiệu chỉnh** = relation completeness × "
+  f"{pct(AU['precision'], 0)}, với CI 95% bootstrap gộp hai nguồn sai số: lấy mẫu lại các gold relation và, độc "
+  f"lập, lấy mẫu lại {AU['n']} edge đã audit (tỉ lệ đúng {pct(AU['precision'], 0)}, CI "
+  f"{pct(AU['precision_ci95'][0], 0)}–{pct(AU['precision_ci95'][1], 0)}). Hai giả định: tỉ lệ kiểm tra trên KG30 áp dụng "
+  "cho KG10, KG20; và chỉ hiệu chỉnh edge khớp sai, không tính relation có trong KG nhưng phép khớp tên bỏ sót.")
+p("Mỗi entity / gold relation tính một lần trong một tập câu hỏi (gộp theo tên chuẩn hoá); CI 95% bằng "
+  "bootstrap trên các entity / relation. Chỉ số cấu trúc (không cần gold set): tỉ lệ entity và relation xuất hiện ở ≥ 2 "
+  "bài (liên kết giữa các bài), average degree, largest connected component, entity không có relation, số entity mới "
   "khi thêm một bài.")
 
 # ================= 5. KẾT QUẢ: CHẤT LƯỢNG KG =================
 h("5. KẾT QUẢ: CHẤT LƯỢNG KG", 1)
-h("5.1. Cấu trúc và độ bão hoà", 2)
-rows = [["Entity / quan hệ", *[f"{dot(KGS[str(k)]['entities'])} / {dot(KGS[str(k)]['relations'])}" for k in K]],
+h("5.1. Cấu trúc và saturation", 2)
+rows = [["Entity / relation", *[f"{dot(KGS[str(k)]['entities'])} / {dot(KGS[str(k)]['relations'])}" for k in K]],
         ["Entity trung bình mỗi bài", *[num(KGS[str(k)]["entities_per_paper"], 0) for k in K]],
         ["Entity xuất hiện ở ≥ 2 bài", *[f"{dot(KGS[str(k)]['entities_in_2plus_papers'])} "
                                          f"({pct(KGS[str(k)]['entities_2plus_share'])})" for k in K]],
-        ["Quan hệ xuất hiện ở ≥ 2 bài", *[f"{dot(KGS[str(k)]['relations_in_2plus_papers'])} "
+        ["Relation xuất hiện ở ≥ 2 bài", *[f"{dot(KGS[str(k)]['relations_in_2plus_papers'])} "
                                           f"({pct(KGS[str(k)]['relations_2plus_share'])})" for k in K]],
-        ["Bậc trung bình", *[num(KGS[str(k)]["avg_degree"], 2) for k in K]],
-        ["Thành phần liên thông lớn nhất", *[pct(KGS[str(k)]["largest_component_share"]) for k in K]],
-        ["Entity không có quan hệ", *[pct(KGS[str(k)]["isolated_share"]) for k in K]]]
+        ["Average degree", *[num(KGS[str(k)]["avg_degree"], 2) for k in K]],
+        ["Largest connected component", *[pct(KGS[str(k)]["largest_component_share"]) for k in K]],
+        ["Entity không có relation", *[pct(KGS[str(k)]["isolated_share"]) for k in K]]]
 table("Cấu trúc ba KG", ["Chỉ số", "KG10", "KG20", "KG30"], rows, [5.5, 3.5, 3.5, 3.5], font=10.5, center_from=1)
-figure("y3_fig1_growth.png", "Tăng trưởng KG theo số bài: số entity, quan hệ (a) và liên kết giữa các bài (b)", width=16.5)
+figure("y3_fig1_growth.png", "Tăng trưởng KG theo số bài: số entity, relation (a) và liên kết giữa các bài (b)", width=16.5)
 gr = S["growth"]
-p(f"**KG chưa bão hoà ở 30 bài.** Số entity và quan hệ tăng gần tuyến tính theo số bài: trung bình mỗi bài thêm vào "
+p(f"**KG chưa đạt saturation ở 30 bài.** Số entity và relation tăng gần tuyến tính theo số bài: trung bình mỗi bài thêm vào "
   f"mang theo {num(gr['2-10'], 0)} entity mới (bài 2–10), {num(gr['11-20'], 0)} (bài 11–20) và {num(gr['21-30'], 0)} "
   f"(bài 21–30), tính trên 20 thứ tự bài ngẫu nhiên. Số entity mới chỉ giảm khoảng {pct(1 - gr['21-30'] / gr['2-10'], 0)}, "
   "tức là phần lớn entity của mỗi bài là riêng của bài đó. Đường cong được tính bằng cách chiếu KG30 xuống k bài đầu "
   "(một entity có mặt khi nó có nguồn trong k bài); so với KG dựng thật ở k = 10, 20 phép chiếu lệch dưới 0,3%.")
 p(f"**Liên kết giữa các bài tăng nhưng vẫn thấp.** Tỉ lệ entity xuất hiện ở ≥ 2 bài tăng từ "
-  f"{pct(KGS['10']['entities_2plus_share'])} (KG10) lên {pct(KGS['30']['entities_2plus_share'])} (KG30), tỉ lệ quan hệ "
+  f"{pct(KGS['10']['entities_2plus_share'])} (KG10) lên {pct(KGS['30']['entities_2plus_share'])} (KG30), tỉ lệ relation "
   f"xuất hiện ở ≥ 2 bài từ {pct(KGS['10']['relations_2plus_share'])} lên {pct(KGS['30']['relations_2plus_share'])}: thêm "
-  "bài cùng chủ đề làm tăng số khái niệm chung, nhưng gần như mọi quan hệ chỉ được trích từ một bài. Bậc trung bình tăng "
-  f"nhẹ ({num(KGS['10']['avg_degree'], 2)} → {num(KGS['30']['avg_degree'], 2)}), thành phần liên thông lớn nhất giữ ở "
+  "bài cùng chủ đề làm tăng số khái niệm chung, nhưng gần như mọi relation chỉ được trích từ một bài. Average degree tăng "
+  f"nhẹ ({num(KGS['10']['avg_degree'], 2)} → {num(KGS['30']['avg_degree'], 2)}), largest connected component giữ ở "
   "khoảng 65% entity ở cả ba k.")
 
 h("5.2. Entity coverage và relation completeness", 2)
@@ -626,72 +662,131 @@ for s in ("in_scope", "S10", "S20", "all"):
         rows.append([SET_VI[s] if k == min(kk for ss, kk in COV if ss == s) else "", f"KG{k}",
                      f"{cv(s, k, 'n_questions')} / {cv(s, k, 'n_gold_entities')} / {cv(s, k, 'n_gold_relations')}",
                      cvci(s, k, "entity_coverage").replace(" [", "\n["), cvci(s, k, "relation_completeness").replace(" [", "\n["),
+                     cvci(s, k, "relation_completeness_adj").replace(" [", "\n["),
                      pct(cv(s, k, "entity_coverage_lenient")), pct(cv(s, k, "relation_completeness_lenient")),
                      pct(cv(s, k, "relation_completeness_2hop"))])
-table("Entity coverage và relation completeness [khoảng tin cậy 95%]",
-      ["Tập câu hỏi", "KG", "Câu / thực thể / quan hệ chuẩn", "Entity coverage", "Relation completeness",
-       "Entity cov. (lenient)", "Relation compl. (lenient)", "Nối trong ≤ 2 bước"],
-      rows, [2.2, 1.3, 2.4, 2.4, 2.4, 1.8, 1.8, 1.7], font=9, center_from=2)
+table("Entity coverage và relation completeness [CI 95%]",
+      ["Tập câu hỏi", "KG", "Câu / entity / gold relation", "Entity coverage", "Relation compl.",
+       "Relation compl. hiệu chỉnh", "Entity cov. (lenient)", "Relation compl. (lenient)", "Nối trong ≤ 2 bước"],
+      rows, [1.75, 1.35, 1.8, 2.05, 2.05, 2.05, 1.65, 1.65, 1.65], font=8.5, center_from=2)
+p(f"Relation completeness hiệu chỉnh = relation completeness × {pct(AU['precision'], 0)} (tỉ lệ edge khớp nói đúng "
+  f"gold relation theo audit, mục 4); CI gộp cả sai số của tỉ lệ audit "
+  f"({pct(AU['precision_ci95'][0], 0)}–{pct(AU['precision_ci95'][1], 0)}).", size=10, italic=True, indent=False)
 figure("y3_fig2_coverage.png", "Entity coverage (a) và relation completeness (b) theo k", width=16.5)
-p(f"**Trong phạm vi KG, entity coverage gần như không đổi theo k** ({pct(cv('in_scope', 10, 'entity_coverage'), 0)}, "
+p(f"**In-scope, entity coverage chênh nhau ít giữa các k, CI chồng nhau** ({pct(cv('in_scope', 10, 'entity_coverage'), 0)}, "
   f"{pct(cv('in_scope', 20, 'entity_coverage'), 0)}, {pct(cv('in_scope', 30, 'entity_coverage'), 0)} với k = 10, 20, 30): "
-  "với câu hỏi về các bài đã có trong KG, KG10 đã chứa phần lớn thực thể cần thiết như KG30. Khoảng 10% thực thể chuẩn còn "
+  "với câu hỏi về các bài đã có trong KG, KG10 đã chứa phần lớn entity cần thiết như KG30. Khoảng 10% gold entity còn "
   "thiếu là cụm từ nhiều chữ mà KG ghi dưới dạng dài hơn (\"higher-order masking\", \"5G network slicing\") hoặc không "
   "được trích thành entity (\"handshake overhead\", \"graceful degradation\", \"Cryptographic Time Paradox\"); bản lenient "
   f"đạt khoảng {pct(cv('in_scope', 30, 'entity_coverage_lenient'), 0)}.")
 p(f"**Relation completeness thấp hơn nhiều** ({pct(cv('in_scope', 10, 'relation_completeness'), 0)}, "
-  f"{pct(cv('in_scope', 20, 'relation_completeness'), 0)}, {pct(cv('in_scope', 30, 'relation_completeness'), 0)}): dù "
-  f"cả hai đầu của quan hệ có trong KG ở khoảng {pct(cv('in_scope', 30, 'relation_endpoints_covered'), 0)} quan hệ chuẩn, chỉ "
-  "chưa tới một nửa có cạnh nối trực tiếp. Mô hình 7B trích tối đa 12 quan hệ mỗi chunk và chỉ giữ quan hệ được nêu "
-  "trong cùng đoạn, nên quan hệ mà đáp án chuẩn tổng hợp từ nhiều câu, nhiều đoạn thường bị thiếu. Đây là giới hạn của "
+  f"{pct(cv('in_scope', 20, 'relation_completeness'), 0)}, {pct(cv('in_scope', 30, 'relation_completeness'), 0)}; sau "
+  f"hiệu chỉnh theo audit {pct(cv('in_scope', 10, 'relation_completeness_adj'), 0)}, "
+  f"{pct(cv('in_scope', 20, 'relation_completeness_adj'), 0)}, {pct(cv('in_scope', 30, 'relation_completeness_adj'), 0)}, "
+  f"KG30: {cvci('in_scope', 30, 'relation_completeness_adj')}): dù "
+  f"cả hai đầu của relation có trong KG ở khoảng {pct(cv('in_scope', 30, 'relation_endpoints_covered'), 0)} gold relation, chỉ "
+  "chưa tới một nửa có edge nối trực tiếp. Mô hình 7B trích tối đa 12 relation mỗi chunk và chỉ giữ relation được nêu "
+  "trong cùng đoạn, nên relation mà ground truth tổng hợp từ nhiều câu, nhiều đoạn thường bị thiếu. Đây là giới hạn của "
   "bước trích xuất, không phải của số bài.")
-p(f"**Trên tập cố định S10, thêm bài làm KG đầy đủ hơn một chút:** entity coverage {pct(cv('S10', 10, 'entity_coverage'), 0)} → "
+p(f"**Trên fixed set S10, thêm bài làm KG đầy đủ hơn một chút:** entity coverage {pct(cv('S10', 10, 'entity_coverage'), 0)} → "
   f"{pct(cv('S10', 30, 'entity_coverage'), 0)}, relation completeness {pct(cv('S10', 10, 'relation_completeness'), 0)} → "
   f"{pct(cv('S10', 30, 'relation_completeness'), 0)} (nối trong ≤ 2 bước {pct(cv('S10', 10, 'relation_completeness_2hop'), 0)} → "
-  f"{pct(cv('S10', 30, 'relation_completeness_2hop'), 0)}), vì các bài 11–30 nhắc lại một số thực thể và quan hệ của 10 bài "
-  "đầu. Mức tăng nhỏ và các khoảng tin cậy chồng nhau.")
-p(f"**Trên toàn bộ 62 câu, độ phủ tăng theo k** (entity coverage {pct(cv('all', 10, 'entity_coverage'), 0)} → "
+  f"{pct(cv('S10', 30, 'relation_completeness_2hop'), 0)}), vì các bài 11–30 nhắc lại một số entity và relation của 10 bài "
+  "đầu. Mức tăng nhỏ và các CI chồng nhau.")
+p(f"**Trên toàn bộ 62 câu, coverage tăng theo k** (entity coverage {pct(cv('all', 10, 'entity_coverage'), 0)} → "
   f"{pct(cv('all', 20, 'entity_coverage'), 0)} → {pct(cv('all', 30, 'entity_coverage'), 0)}; relation completeness "
   f"{pct(cv('all', 10, 'relation_completeness'), 0)} → {pct(cv('all', 20, 'relation_completeness'), 0)} → "
-  f"{pct(cv('all', 30, 'relation_completeness'), 0)}). KG10 vẫn có {pct(cv('all', 10, 'entity_coverage'), 0)} thực thể "
+  f"{pct(cv('all', 30, 'relation_completeness'), 0)}). KG10 vẫn có {pct(cv('all', 10, 'entity_coverage'), 0)} entity "
   "chuẩn của cả chủ đề vì các khái niệm trung tâm (Shor, QKD, Kyber, qubit...) đã xuất hiện trong 10 bài đầu, nhưng thiếu "
-  "phần lớn quan hệ và gần như mọi đoạn văn nguồn của câu hỏi về bài khác: tỉ lệ câu có đoạn gốc nằm trong KG là "
+  "phần lớn relation và gần như mọi passage nguồn của câu hỏi về bài khác: tỉ lệ câu có gold chunk nằm trong KG là "
   f"{pct(cv('all', 10, 'gold_chunk_reachable'), 0)} / {pct(cv('all', 20, 'gold_chunk_reachable'), 0)} / "
   f"{pct(cv('all', 30, 'gold_chunk_reachable'), 0)} với KG10 / KG20 / KG30.")
 
 # ================= 6. KẾT QUẢ: CÂU TRẢ LỜI =================
 h("6. KẾT QUẢ: CHẤT LƯỢNG CÂU TRẢ LỜI", 1)
 h("6.1. Năm chỉ số theo k", 2)
-answer_table("Năm chỉ số chính của GraphRAG theo KG: giá trị trung bình [khoảng tin cậy 95%]", ["in_scope", "S10", "all"])
+answer_table("Năm chỉ số chính của GraphRAG theo KG: giá trị trung bình [CI 95%]", ["in_scope", "S10", "all"])
 figure("y3_fig3_answer.png", "Năm chỉ số chính theo k, ba cách nhìn", width=16.5)
-paired_table("Chênh lệch theo cặp trên cùng câu hỏi (in đậm: khoảng tin cậy 95% không chứa 0)")
+paired_table("Paired difference trên cùng câu hỏi (in đậm: CI 95% không chứa 0)")
 fixed_sig = sig_list({"S10:10-30", "S10:20-30", "S10:10-20", "S20:20-30"})
-p(f"**Trong phạm vi KG:** answer correctness {pct(mm('in_scope', 10, 'answer_correctness')[0], 0)} / "
+p(f"**In-scope:** answer correctness {pct(mm('in_scope', 10, 'answer_correctness')[0], 0)} / "
   f"{pct(mm('in_scope', 20, 'answer_correctness')[0], 0)} / {pct(mm('in_scope', 30, 'answer_correctness')[0], 0)}, "
   f"retrieval precision {num(mm('in_scope', 10, 'context_precision')[0], 2)} / "
   f"{num(mm('in_scope', 20, 'context_precision')[0], 2)} / {num(mm('in_scope', 30, 'context_precision')[0], 2)}, "
   f"faithfulness {num(mm('in_scope', 10, 'faithfulness')[0], 2)} / {num(mm('in_scope', 20, 'faithfulness')[0], 2)} / "
   f"{num(mm('in_scope', 30, 'faithfulness')[0], 2)} với KG10 / KG20 / KG30. " + RESULT_IN_SCOPE)
-p("**Tập cố định (cùng câu hỏi):** " + (
-    "có chênh lệch có ý nghĩa thống kê: " + "; ".join(fixed_sig) + ". " if fixed_sig else
-    "không chênh lệch nào giữa các k có ý nghĩa thống kê. ") + RESULT_FIXED)
+p("**Fixed set (cùng câu hỏi):** " + (
+    "có chênh lệch có statistical significance: " + "; ".join(fixed_sig) + ". " if fixed_sig else
+    "không chênh lệch nào giữa các k có statistical significance. ") + RESULT_FIXED)
 p("**Toàn bộ 62 câu:** " + RESULT_ALL)
 o = S["outcome"]
 figure("y3_fig4_outcome.png", "Kết cục của 62 câu có đáp án với mỗi KG", width=15)
 p(RESULT_OUTCOME)
 u = SETS["unanswerable"]
-p(f"**Câu ngoài corpus:** GraphRAG từ chối đúng {pct(xx('unanswerable', 10, 'refusal'), 0)} / "
+p(f"**Câu out-of-corpus:** GraphRAG refuse đúng {pct(xx('unanswerable', 10, 'refusal'), 0)} / "
   f"{pct(xx('unanswerable', 20, 'refusal'), 0)} / {pct(xx('unanswerable', 30, 'refusal'), 0)} trong "
   f"{nn('unanswerable', 10)} câu với KG10 / KG20 / KG30.")
 
 h("6.2. Chất lượng KG và câu trả lời", 2)
-figure("y3_fig5_cov_answer.png", "Answer correctness theo độ phủ thực thể (a) và quan hệ (b) của câu hỏi", width=14)
+figure("y3_fig5_cov_answer.png", "Answer correctness theo coverage entity (a) và relation (b) của câu hỏi", width=14)
 ca, ra = S["coverage_vs_answer"], S["relation_vs_answer"]
-p(f"Gộp các câu trong phạm vi KG ở cả ba k: câu có đủ mọi thực thể chuẩn trong KG được trả lời đúng "
-  f"{pct(ca['full']['answer_correctness'][0], 0)} (n = {ca['full']['n']}), câu thiếu ít nhất một thực thể "
-  f"{pct(ca['partial']['answer_correctness'][0], 0)} (n = {ca['partial']['n']}); câu có ≥ 50% quan hệ chuẩn trong KG "
+p(f"Gộp các câu in-scope ở cả ba k: câu có đủ mọi gold entity trong KG được trả lời đúng "
+  f"{pct(ca['full']['answer_correctness'][0], 0)} (n = {ca['full']['n']}), câu thiếu ít nhất một entity "
+  f"{pct(ca['partial']['answer_correctness'][0], 0)} (n = {ca['partial']['n']}); câu có ≥ 50% gold relation trong KG "
   f"{pct(ra['rel_ge_50']['answer_correctness'][0], 0)} (n = {ra['rel_ge_50']['n']}), dưới 50% "
   f"{pct(ra['rel_lt_50']['answer_correctness'][0], 0)} (n = {ra['rel_lt_50']['n']}). " + RESULT_COV)
+
+JA = S.get("judge_audit")
+if JA:
+    h("6.3. Judge audit: judge_failures, truncate và sensitivity analysis", 2)
+    fl = JA["judge_failure_list"]
+    f_new = [f for f in fl if f["k"] in (10, 20)]
+    f_pass = [f for f in f_new if f["step"] == "passages"]
+    agr = {(r["k"], r["metric"]): r for r in JA["agreement"]}
+    det = {r["k"]: r for r in JA["determinism"]}
+    sens = JA["sensitivity"]
+    robust = [r for r in sens if r["significant_all"] and r["significant_excl"] and r["significant_rejudged"]]
+    fragile = [r for r in sens if r["significant_all"] and not (r["significant_excl"] and r["significant_rejudged"])]
+    new_sig = [r for r in sens if not r["significant_all"] and r["significant_rejudged"]]
+    mname = {"context_precision": "retrieval precision", "faithfulness": "faithfulness", "answer_relevancy":
+             "answer relevancy", "hallucination": "hallucination rate", "answer_correctness": "answer correctness"}
+    fd = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")
+    desc = lambda r, w: (f"{mname[r['metric']]} {r['compare']} ({'62 câu' if r['set'] == 'all' else r['set']}: "
+                         f"{fd(r['diff_' + w])} [{fd(r['lo_' + w])}; {fd(r['hi_' + w])}])")
+    p("Kết quả với KG30 lấy từ nội dung 2, đã qua judge audit (nội dung 2, mục 8.4). Câu trả lời với KG10 và KG20 được "
+      f"re-judge bằng đúng hàm chấm với judge log (`judge_audit_kg_scale.py`), tổng {dot(JA['calls'])} judge call.")
+    bullets([
+        ("Truncate: ", f"không có prompt nào bị truncate (dài nhất {dot(JA['prompt_tokens_max'])} token, num_ctx = "
+         f"{dot(JA['num_ctx'])})."),
+        ("judge_failures: ", f"{JA['judge_failures']} judge call, đều là ollama_error (Ollama huỷ lần sinh vì lặp token), "
+         f"tổng {dot(JA['verdicts_missing'])} verdict bị tính là \"không\". Phần lớn ở bước chấm relation của KG "
+         f"(kg_relation_precision, secondary metric); {len(f_pass)} lần ở bước chấm passage (retrieval precision: "
+         + ", ".join(f"{f['id']} KG{f['k']}" for f in f_pass) + ")."),
+        ("Reproducibility: ", "khác nội dung 2, re-judge KHÔNG cho điểm giống hệt bản gốc (câu trả lời giữ nguyên): faithfulness trùng ở "
+         f"{pct(agr[(10, 'faithfulness')]['exact_agreement'], 0)} (KG10) và {pct(agr[(20, 'faithfulness')]['exact_agreement'], 0)} "
+         f"(KG20) số câu, retrieval precision {pct(agr[(10, 'context_precision')]['exact_agreement'], 0)} / "
+         f"{pct(agr[(20, 'context_precision')]['exact_agreement'], 0)}, còn hallucination và answer correctness gần như "
+         f"trùng (Cohen's κ {num(agr[(10, 'hallucination')]['cohen_kappa'], 2)}–{num(agr[(20, 'answer_correctness')]['cohen_kappa'], 2)}). "
+         f"Faithfulness của KG10 khi re-judge cao hơn ({num(agr[(10, 'faithfulness')]['mean_rejudged'], 3)} so với "
+         f"{num(agr[(10, 'faithfulness')]['mean_original'], 3)}). Phần lớn chênh lệch không do judge failure: chỉ "
+         f"{det[10]['faithfulness_differ_with_failure']}/{det[10]['faithfulness_differ']} (KG10) và "
+         f"{det[20]['faithfulness_differ_with_failure']}/{det[20]['faithfulness_differ']} (KG20) câu khác điểm faithfulness "
+         "có judge failure khi re-judge, và ngay bước đầu judge đã tách ra danh sách claim khác nhau ở "
+         f"{det[10]['claims_compared'] - det[10]['claims_identical']}/{det[10]['claims_compared']} (KG10) và "
+         f"{det[20]['claims_compared'] - det[20]['claims_identical']}/{det[20]['claims_compared']} (KG20) câu. Tức là judge "
+         "không tất định giữa các lần chạy dù cùng temperature 0, seed, Ollama 0.35.1 và digest model (ở nội dung 2 lại "
+         "tái lập y hệt). Nguyên nhân chưa xác định được; một khả năng là Ollama chia model giữa GPU và CPU khác nhau tuỳ "
+         "VRAM còn trống ở mỗi lần chạy, làm sai khác số học nhỏ đổi được đầu ra."),
+    ])
+    p("Sensitivity analysis: mỗi paired difference của mục 6.1 được tính lại theo hai cách, (i) điểm gốc nhưng bỏ các "
+      "câu có judge failure ở một trong hai KG được so, (ii) điểm re-judge trên đủ câu. **Vững** (có statistical "
+      "significance theo cả ba cách): " + "; ".join(desc(r, "all") for r in robust) + ". **Không vững**: "
+      + "; ".join(desc(r, "all") + f", re-judge: {fd(r['diff_rejudged'])} [{fd(r['lo_rejudged'])}; {fd(r['hi_rejudged'])}]"
+                  for r in fragile)
+      + ". Vì vậy kết luận \"KG10 có faithfulness thấp hơn KG30\" không được dùng; các kết luận chính của nội dung 3 dựa "
+        "trên answer correctness, không bị ảnh hưởng."
+      + (" Ngược lại, theo điểm re-judge có thêm " + "; ".join(desc(r, "rejudged") for r in new_sig)
+         + " có statistical significance, cũng là dấu hiệu faithfulness ở đây nhạy với nhiễu của judge." if new_sig else ""))
 
 # ================= 7. THẢO LUẬN =================
 h("7. THẢO LUẬN: K BÀI CÓ ĐỦ KHÔNG?", 1)

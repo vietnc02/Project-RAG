@@ -1,0 +1,13 @@
+﻿system,prompt,calls,judge_failures,json_error,ollama_error,output_cut,calls_missing_verdicts,verdicts_missing,truncated_prompt,prompt_tokens_max,prompt_tokens_median
+vector_rag,correctness,56,0,0,0,0,0,0,0,416,248
+vector_rag,extract_claims,118,0,0,0,0,0,0,0,251,153
+vector_rag,reverse_questions,56,0,0,0,0,0,0,0,236,142
+vector_rag,useful,62,2,1,0,1,2,5,0,1486,1020
+vector_rag,verify_claims,118,0,0,0,0,0,0,0,1465,999
+vector_rag,(tổng),410,2,1,0,1,2,5,0,1486,256
+graphrag,correctness,56,0,0,0,0,0,0,0,361,247
+graphrag,extract_claims,118,0,0,0,0,0,0,0,248,155
+graphrag,reverse_questions,56,0,0,0,0,0,0,0,218,139
+graphrag,useful,124,5,0,5,0,5,44,0,1545,836
+graphrag,verify_claims,174,0,0,0,0,0,0,0,2163,1573
+graphrag,(tổng),528,5,0,5,0,5,44,0,2163,566

@@ -121,7 +121,12 @@
   },
   "relation_audit": {
     "n": 40,
-    "correct": 36
+    "correct": 36,
+    "precision": 0.9,
+    "precision_ci95": [
+      0.8,
+      0.975
+    ]
   },
   "coverage": [
     {
@@ -134,6 +139,8 @@
       "entity_coverage_ci95": "[0.838, 0.959]",
       "relation_completeness": 0.3898,
       "relation_completeness_ci95": "[0.271, 0.508]",
+      "relation_completeness_adj": 0.3508,
+      "relation_completeness_adj_ci95": "[0.238, 0.470]",
       "entity_coverage_lenient": 0.9459,
       "relation_completeness_lenient": 0.5593,
       "relation_completeness_2hop": 0.5593,
@@ -151,6 +158,8 @@
       "entity_coverage_ci95": "[0.862, 0.946]",
       "relation_completeness": 0.3709,
       "relation_completeness_ci95": "[0.291, 0.450]",
+      "relation_completeness_adj": 0.3338,
+      "relation_completeness_adj_ci95": "[0.259, 0.420]",
       "entity_coverage_lenient": 0.9461,
       "relation_completeness_lenient": 0.5695,
       "relation_completeness_2hop": 0.6291,
@@ -168,6 +177,8 @@
       "entity_coverage_ci95": "[0.855, 0.927]",
       "relation_completeness": 0.416,
       "relation_completeness_ci95": "[0.356, 0.476]",
+      "relation_completeness_adj": 0.3744,
+      "relation_completeness_adj_ci95": "[0.310, 0.441]",
       "entity_coverage_lenient": 0.9275,
       "relation_completeness_lenient": 0.56,
       "relation_completeness_2hop": 0.652,
@@ -185,6 +196,8 @@
       "entity_coverage_ci95": "[0.838, 0.959]",
       "relation_completeness": 0.3898,
       "relation_completeness_ci95": "[0.271, 0.508]",
+      "relation_completeness_adj": 0.3508,
+      "relation_completeness_adj_ci95": "[0.238, 0.470]",
       "entity_coverage_lenient": 0.9459,
       "relation_completeness_lenient": 0.5593,
       "relation_completeness_2hop": 0.5593,
@@ -202,6 +215,8 @@
       "entity_coverage_ci95": "[0.865, 0.986]",
       "relation_completeness": 0.4068,
       "relation_completeness_ci95": "[0.288, 0.525]",
+      "relation_completeness_adj": 0.3661,
+      "relation_completeness_adj_ci95": "[0.252, 0.486]",
       "entity_coverage_lenient": 0.9595,
       "relation_completeness_lenient": 0.6102,
       "relation_completeness_2hop": 0.6102,
@@ -219,6 +234,8 @@
       "entity_coverage_ci95": "[0.865, 0.986]",
       "relation_completeness": 0.4407,
       "relation_completeness_ci95": "[0.322, 0.559]",
+      "relation_completeness_adj": 0.3966,
+      "relation_completeness_adj_ci95": "[0.280, 0.517]",
       "entity_coverage_lenient": 0.9595,
       "relation_completeness_lenient": 0.6271,
       "relation_completeness_2hop": 0.6949,
@@ -236,6 +253,8 @@
       "entity_coverage_ci95": "[0.862, 0.946]",
       "relation_completeness": 0.3709,
       "relation_completeness_ci95": "[0.291, 0.450]",
+      "relation_completeness_adj": 0.3338,
+      "relation_completeness_adj_ci95": "[0.259, 0.420]",
       "entity_coverage_lenient": 0.9461,
       "relation_completeness_lenient": 0.5695,
       "relation_completeness_2hop": 0.6291,
@@ -253,6 +272,8 @@
       "entity_coverage_ci95": "[0.874, 0.958]",
       "relation_completeness": 0.4106,
       "relation_completeness_ci95": "[0.331, 0.490]",
+      "relation_completeness_adj": 0.3695,
+      "relation_completeness_adj_ci95": "[0.291, 0.459]",
       "entity_coverage_lenient": 0.9521,
       "relation_completeness_lenient": 0.6093,
       "relation_completeness_2hop": 0.6623,
@@ -270,6 +291,8 @@
       "entity_coverage_ci95": "[0.580, 0.698]",
       "relation_completeness": 0.204,
       "relation_completeness_ci95": "[0.156, 0.256]",
+      "relation_completeness_adj": 0.1836,
+      "relation_completeness_adj_ci95": "[0.137, 0.236]",
       "entity_coverage_lenient": 0.7099,
       "relation_completeness_lenient": 0.288,
       "relation_completeness_2hop": 0.344,
@@ -287,6 +310,8 @@
       "entity_coverage_ci95": "[0.721, 0.824]",
       "relation_completeness": 0.308,
       "relation_completeness_ci95": "[0.252, 0.364]",
+      "relation_completeness_adj": 0.2772,
+      "relation_completeness_adj_ci95": "[0.221, 0.335]",
       "entity_coverage_lenient": 0.8244,
       "relation_completeness_lenient": 0.44,
       "relation_completeness_2hop": 0.508,
@@ -304,6 +329,8 @@
       "entity_coverage_ci95": "[0.855, 0.927]",
       "relation_completeness": 0.416,
       "relation_completeness_ci95": "[0.356, 0.476]",
+      "relation_completeness_adj": 0.3744,
+      "relation_completeness_adj_ci95": "[0.310, 0.441]",
       "entity_coverage_lenient": 0.9275,
       "relation_completeness_lenient": 0.56,
       "relation_completeness_2hop": 0.652,
@@ -342,6 +369,13 @@
             0.6666666666666666,
             1.0
           ]
+        },
+        "n_metric": {
+          "context_precision": 15,
+          "faithfulness": 14,
+          "answer_relevancy": 15,
+          "hallucination": 15,
+          "answer_correctness": 15
         },
         "extra": {
           "gold_chunk_recall": 0.5666666666666667,
@@ -384,6 +418,13 @@
             0.972972972972973
           ]
         },
+        "n_metric": {
+          "context_precision": 37,
+          "faithfulness": 33,
+          "answer_relevancy": 37,
+          "hallucination": 37,
+          "answer_correctness": 37
+        },
         "extra": {
           "gold_chunk_recall": 0.4864864864864865,
           "retrieval_hit": 0.7027027027027027,
@@ -424,6 +465,13 @@
             0.7258064516129032,
             0.9036290322580622
           ]
+        },
+        "n_metric": {
+          "context_precision": 62,
+          "faithfulness": 56,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62
         },
         "extra": {
           "gold_chunk_recall": 0.3870967741935484,
@@ -468,6 +516,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 10,
+          "faithfulness": 9,
+          "answer_relevancy": 10,
+          "hallucination": 10,
+          "answer_correctness": 10
+        },
         "extra": {
           "gold_chunk_recall": 0.7,
           "retrieval_hit": 0.9,
@@ -509,6 +564,13 @@
             0.9444444444444444
           ]
         },
+        "n_metric": {
+          "context_precision": 18,
+          "faithfulness": 15,
+          "answer_relevancy": 18,
+          "hallucination": 18,
+          "answer_correctness": 18
+        },
         "extra": {
           "gold_chunk_recall": 0.6111111111111112,
           "retrieval_hit": 0.7777777777777778,
@@ -549,6 +611,13 @@
             0.5555555555555556,
             0.8888888888888888
           ]
+        },
+        "n_metric": {
+          "context_precision": 27,
+          "faithfulness": 23,
+          "answer_relevancy": 27,
+          "hallucination": 27,
+          "answer_correctness": 27
         },
         "extra": {
           "gold_chunk_recall": 0.4444444444444444,
@@ -593,6 +662,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 5,
+          "faithfulness": 5,
+          "answer_relevancy": 5,
+          "hallucination": 5,
+          "answer_correctness": 5
+        },
         "extra": {
           "gold_chunk_recall": 0.3,
           "retrieval_hit": 0.6,
@@ -634,6 +710,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 19,
+          "faithfulness": 18,
+          "answer_relevancy": 19,
+          "hallucination": 19,
+          "answer_correctness": 19
+        },
         "extra": {
           "gold_chunk_recall": 0.3684210526315789,
           "retrieval_hit": 0.631578947368421,
@@ -674,6 +757,13 @@
             0.7714285714285715,
             0.9714285714285714
           ]
+        },
+        "n_metric": {
+          "context_precision": 35,
+          "faithfulness": 33,
+          "answer_relevancy": 35,
+          "hallucination": 35,
+          "answer_correctness": 35
         },
         "extra": {
           "gold_chunk_recall": 0.34285714285714286,
@@ -718,6 +808,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 15,
+          "faithfulness": 14,
+          "answer_relevancy": 15,
+          "hallucination": 15,
+          "answer_correctness": 15
+        },
         "extra": {
           "gold_chunk_recall": 0.5666666666666667,
           "retrieval_hit": 0.8,
@@ -759,6 +856,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 15,
+          "faithfulness": 13,
+          "answer_relevancy": 15,
+          "hallucination": 15,
+          "answer_correctness": 15
+        },
         "extra": {
           "gold_chunk_recall": 0.5333333333333333,
           "retrieval_hit": 0.8,
@@ -799,6 +903,13 @@
             0.6,
             1.0
           ]
+        },
+        "n_metric": {
+          "context_precision": 15,
+          "faithfulness": 13,
+          "answer_relevancy": 15,
+          "hallucination": 15,
+          "answer_correctness": 15
         },
         "extra": {
           "gold_chunk_recall": 0.4666666666666667,
@@ -843,6 +954,13 @@
             0.972972972972973
           ]
         },
+        "n_metric": {
+          "context_precision": 37,
+          "faithfulness": 33,
+          "answer_relevancy": 37,
+          "hallucination": 37,
+          "answer_correctness": 37
+        },
         "extra": {
           "gold_chunk_recall": 0.4864864864864865,
           "retrieval_hit": 0.7027027027027027,
@@ -883,6 +1001,13 @@
             0.7027027027027027,
             0.9459459459459459
           ]
+        },
+        "n_metric": {
+          "context_precision": 37,
+          "faithfulness": 33,
+          "answer_relevancy": 37,
+          "hallucination": 37,
+          "answer_correctness": 37
         },
         "extra": {
           "gold_chunk_recall": 0.44594594594594594,
@@ -927,6 +1052,13 @@
             0.6774193548387096
           ]
         },
+        "n_metric": {
+          "context_precision": 62,
+          "faithfulness": 39,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62
+        },
         "extra": {
           "gold_chunk_recall": 0.21774193548387097,
           "retrieval_hit": 0.1935483870967742,
@@ -968,6 +1100,13 @@
             0.8548387096774194
           ]
         },
+        "n_metric": {
+          "context_precision": 62,
+          "faithfulness": 48,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62
+        },
         "extra": {
           "gold_chunk_recall": 0.3387096774193548,
           "retrieval_hit": 0.41935483870967744,
@@ -1008,6 +1147,13 @@
             0.7258064516129032,
             0.9193548387096774
           ]
+        },
+        "n_metric": {
+          "context_precision": 62,
+          "faithfulness": 56,
+          "answer_relevancy": 62,
+          "hallucination": 62,
+          "answer_correctness": 62
         },
         "extra": {
           "gold_chunk_recall": 0.3870967741935484,
@@ -1052,6 +1198,13 @@
             0.5957446808510638
           ]
         },
+        "n_metric": {
+          "context_precision": 47,
+          "faithfulness": 25,
+          "answer_relevancy": 47,
+          "hallucination": 47,
+          "answer_correctness": 47
+        },
         "extra": {
           "gold_chunk_recall": 0.10638297872340426,
           "retrieval_hit": 0.0,
@@ -1092,6 +1245,13 @@
             0.4,
             0.8
           ]
+        },
+        "n_metric": {
+          "context_precision": 25,
+          "faithfulness": 15,
+          "answer_relevancy": 25,
+          "hallucination": 25,
+          "answer_correctness": 25
         },
         "extra": {
           "gold_chunk_recall": 0.12,
@@ -1136,6 +1296,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 0,
+          "faithfulness": 0,
+          "answer_relevancy": 23,
+          "hallucination": 23,
+          "answer_correctness": 23
+        },
         "extra": {
           "gold_chunk_recall": null,
           "retrieval_hit": null,
@@ -1177,6 +1344,13 @@
             1.0
           ]
         },
+        "n_metric": {
+          "context_precision": 0,
+          "faithfulness": 0,
+          "answer_relevancy": 23,
+          "hallucination": 23,
+          "answer_correctness": 23
+        },
         "extra": {
           "gold_chunk_recall": null,
           "retrieval_hit": null,
@@ -1217,6 +1391,13 @@
             1.0,
             1.0
           ]
+        },
+        "n_metric": {
+          "context_precision": 0,
+          "faithfulness": 0,
+          "answer_relevancy": 23,
+          "hallucination": 23,
+          "answer_correctness": 23
         },
         "extra": {
           "gold_chunk_recall": null,
@@ -1606,5 +1787,1023 @@
     "multihop:10": 5,
     "multihop:20": 14,
     "multihop:30": 16
+  },
+  "judge_audit": {
+    "calls": 931,
+    "judge_failures": 23,
+    "json_error": 0,
+    "ollama_error": 23,
+    "verdicts_missing": 244,
+    "truncated": 0,
+    "prompt_tokens_max": 2247,
+    "num_ctx": 4096,
+    "judge_failure_list": [
+      {
+        "k": 10,
+        "id": "q001",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "q006",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "q006",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "s006",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "m003",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g005",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g011",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g027",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g028",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g040",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g045",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 10,
+        "id": "g050",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "q001",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "q006",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "q057",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "s002",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "s007",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "m003",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "g001",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "g011",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "g028",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "g040",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 20,
+        "id": "g044",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 30,
+        "id": "q015",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 30,
+        "id": "q061",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 30,
+        "id": "s002",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 30,
+        "id": "g026",
+        "step": "passages",
+        "failure": "ollama_error",
+        "missing": 4,
+        "expected": 4,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      },
+      {
+        "k": 30,
+        "id": "g043",
+        "step": "kg_relations",
+        "failure": "ollama_error",
+        "missing": 12,
+        "expected": 12,
+        "error": "prediction aborted, token repeat limit reached (status code: -1)"
+      }
+    ],
+    "agreement": [
+      {
+        "k": 10,
+        "metric": "context_precision",
+        "n": 62,
+        "mean_original": 0.4516,
+        "mean_rejudged": 0.4315,
+        "exact_agreement": 0.8871,
+        "mean_abs_diff": 0.0363,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 10,
+        "metric": "faithfulness",
+        "n": 39,
+        "mean_original": 0.7238,
+        "mean_rejudged": 0.7715,
+        "exact_agreement": 0.6923,
+        "mean_abs_diff": 0.0618,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 10,
+        "metric": "answer_relevancy",
+        "n": 85,
+        "mean_original": 0.365,
+        "mean_rejudged": 0.3656,
+        "exact_agreement": 0.8118,
+        "mean_abs_diff": 0.0023,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 10,
+        "metric": "hallucination",
+        "n": 85,
+        "mean_original": 0.2941,
+        "mean_rejudged": 0.2824,
+        "exact_agreement": 0.9647,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 0.914
+      },
+      {
+        "k": 10,
+        "metric": "answer_correctness",
+        "n": 85,
+        "mean_original": 0.6706,
+        "mean_rejudged": 0.6588,
+        "exact_agreement": 0.9882,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 0.974
+      },
+      {
+        "k": 10,
+        "metric": "refusal",
+        "n": 85,
+        "mean_original": 0.5412,
+        "mean_rejudged": 0.5412,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "k": 20,
+        "metric": "context_precision",
+        "n": 62,
+        "mean_original": 0.4597,
+        "mean_rejudged": 0.4597,
+        "exact_agreement": 0.871,
+        "mean_abs_diff": 0.0403,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 20,
+        "metric": "faithfulness",
+        "n": 48,
+        "mean_original": 0.8166,
+        "mean_rejudged": 0.8045,
+        "exact_agreement": 0.8542,
+        "mean_abs_diff": 0.0319,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 20,
+        "metric": "answer_relevancy",
+        "n": 85,
+        "mean_original": 0.4607,
+        "mean_rejudged": 0.4608,
+        "exact_agreement": 0.7647,
+        "mean_abs_diff": 0.003,
+        "cohen_kappa": NaN
+      },
+      {
+        "k": 20,
+        "metric": "hallucination",
+        "n": 85,
+        "mean_original": 0.3882,
+        "mean_rejudged": 0.4118,
+        "exact_agreement": 0.9529,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 0.902
+      },
+      {
+        "k": 20,
+        "metric": "answer_correctness",
+        "n": 85,
+        "mean_original": 0.8235,
+        "mean_rejudged": 0.8235,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      },
+      {
+        "k": 20,
+        "metric": "refusal",
+        "n": 85,
+        "mean_original": 0.4353,
+        "mean_rejudged": 0.4353,
+        "exact_agreement": 1.0,
+        "mean_abs_diff": NaN,
+        "cohen_kappa": 1.0
+      }
+    ],
+    "determinism": [
+      {
+        "k": 10,
+        "claims_compared": 39,
+        "claims_identical": 20,
+        "context_precision_differ": 7,
+        "context_precision_differ_with_failure": 3,
+        "faithfulness_differ": 12,
+        "faithfulness_differ_with_failure": 2
+      },
+      {
+        "k": 20,
+        "claims_compared": 48,
+        "claims_identical": 35,
+        "context_precision_differ": 8,
+        "context_precision_differ_with_failure": 2,
+        "faithfulness_differ": 7,
+        "faithfulness_differ_with_failure": 2
+      }
+    ],
+    "sensitivity": [
+      {
+        "set": "S10",
+        "compare": "KG10 − KG30",
+        "metric": "context_precision",
+        "n_all": 15,
+        "diff_all": -0.0167,
+        "lo_all": -0.15,
+        "hi_all": 0.1333,
+        "significant_all": false,
+        "n_excl": 12,
+        "diff_excl": -0.1042,
+        "lo_excl": -0.2083,
+        "hi_excl": 0.0,
+        "significant_excl": false,
+        "diff_rejudged": -0.05,
+        "lo_rejudged": -0.1833,
+        "hi_rejudged": 0.0833,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG30",
+        "metric": "faithfulness",
+        "n_all": 13,
+        "diff_all": 0.0057,
+        "lo_all": -0.098,
+        "hi_all": 0.1066,
+        "significant_all": false,
+        "n_excl": 11,
+        "diff_excl": 0.0219,
+        "lo_excl": -0.103,
+        "hi_excl": 0.1387,
+        "significant_excl": false,
+        "diff_rejudged": 0.082,
+        "lo_rejudged": -0.0438,
+        "hi_rejudged": 0.2042,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG30",
+        "metric": "answer_relevancy",
+        "n_all": 15,
+        "diff_all": 0.0442,
+        "lo_all": -0.0266,
+        "hi_all": 0.1624,
+        "significant_all": false,
+        "n_excl": 12,
+        "diff_excl": -0.0047,
+        "lo_excl": -0.0229,
+        "hi_excl": 0.015,
+        "significant_excl": false,
+        "diff_rejudged": 0.0477,
+        "lo_rejudged": -0.0192,
+        "hi_rejudged": 0.1638,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG30",
+        "metric": "hallucination",
+        "n_all": 15,
+        "diff_all": -0.1333,
+        "lo_all": -0.4667,
+        "hi_all": 0.2,
+        "significant_all": false,
+        "n_excl": 12,
+        "diff_excl": -0.25,
+        "lo_excl": -0.5833,
+        "hi_excl": 0.0833,
+        "significant_excl": false,
+        "diff_rejudged": -0.1333,
+        "lo_rejudged": -0.4667,
+        "hi_rejudged": 0.2017,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG30",
+        "metric": "answer_correctness",
+        "n_all": 15,
+        "diff_all": 0.0667,
+        "lo_all": -0.1333,
+        "hi_all": 0.2667,
+        "significant_all": false,
+        "n_excl": 12,
+        "diff_excl": 0.0,
+        "lo_excl": -0.25,
+        "hi_excl": 0.25,
+        "significant_excl": false,
+        "diff_rejudged": 0.0667,
+        "lo_rejudged": -0.1333,
+        "hi_rejudged": 0.2667,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG20 − KG30",
+        "metric": "context_precision",
+        "n_all": 15,
+        "diff_all": -0.1,
+        "lo_all": -0.2167,
+        "hi_all": 0.0167,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": -0.0769,
+        "lo_excl": -0.2115,
+        "hi_excl": 0.0385,
+        "significant_excl": false,
+        "diff_rejudged": -0.1,
+        "lo_rejudged": -0.2333,
+        "hi_rejudged": 0.0333,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG20 − KG30",
+        "metric": "faithfulness",
+        "n_all": 12,
+        "diff_all": 0.0309,
+        "lo_all": -0.066,
+        "hi_all": 0.1278,
+        "significant_all": false,
+        "n_excl": 10,
+        "diff_excl": 0.0204,
+        "lo_excl": -0.0962,
+        "hi_excl": 0.1308,
+        "significant_excl": false,
+        "diff_rejudged": 0.042,
+        "lo_rejudged": -0.08,
+        "hi_rejudged": 0.1748,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG20 − KG30",
+        "metric": "answer_relevancy",
+        "n_all": 15,
+        "diff_all": -0.0161,
+        "lo_all": -0.1845,
+        "hi_all": 0.1452,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": -0.011,
+        "lo_excl": -0.2057,
+        "hi_excl": 0.1723,
+        "significant_excl": false,
+        "diff_rejudged": -0.0182,
+        "lo_rejudged": -0.1859,
+        "hi_rejudged": 0.1433,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG20 − KG30",
+        "metric": "hallucination",
+        "n_all": 15,
+        "diff_all": 0.0,
+        "lo_all": -0.2667,
+        "hi_all": 0.2667,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": 0.0,
+        "lo_excl": -0.3077,
+        "hi_excl": 0.3077,
+        "significant_excl": false,
+        "diff_rejudged": 0.0,
+        "lo_rejudged": -0.3333,
+        "hi_rejudged": 0.3333,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG20 − KG30",
+        "metric": "answer_correctness",
+        "n_all": 15,
+        "diff_all": 0.0667,
+        "lo_all": 0.0,
+        "hi_all": 0.2,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": 0.0769,
+        "lo_excl": 0.0,
+        "hi_excl": 0.2308,
+        "significant_excl": false,
+        "diff_rejudged": 0.0667,
+        "lo_rejudged": 0.0,
+        "hi_rejudged": 0.2,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "context_precision",
+        "n_all": 15,
+        "diff_all": 0.0833,
+        "lo_all": -0.05,
+        "hi_all": 0.2333,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": 0.0577,
+        "lo_excl": -0.0769,
+        "hi_excl": 0.2115,
+        "significant_excl": false,
+        "diff_rejudged": 0.05,
+        "lo_rejudged": -0.05,
+        "hi_rejudged": 0.15,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "faithfulness",
+        "n_all": 13,
+        "diff_all": 0.0008,
+        "lo_all": -0.1046,
+        "hi_all": 0.1016,
+        "significant_all": false,
+        "n_excl": 11,
+        "diff_excl": -0.0043,
+        "lo_excl": -0.1234,
+        "hi_excl": 0.1126,
+        "significant_excl": false,
+        "diff_rejudged": 0.0668,
+        "lo_rejudged": 0.0099,
+        "hi_rejudged": 0.1331,
+        "significant_rejudged": true
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "answer_relevancy",
+        "n_all": 15,
+        "diff_all": 0.0603,
+        "lo_all": -0.0065,
+        "hi_all": 0.1844,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": 0.0669,
+        "lo_excl": -0.0099,
+        "hi_excl": 0.2082,
+        "significant_excl": false,
+        "diff_rejudged": 0.0658,
+        "lo_rejudged": -0.0032,
+        "hi_rejudged": 0.1891,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "hallucination",
+        "n_all": 15,
+        "diff_all": -0.1333,
+        "lo_all": -0.4,
+        "hi_all": 0.1333,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": -0.1538,
+        "lo_excl": -0.4615,
+        "hi_excl": 0.1538,
+        "significant_excl": false,
+        "diff_rejudged": -0.1333,
+        "lo_rejudged": -0.4,
+        "hi_rejudged": 0.1333,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "answer_correctness",
+        "n_all": 15,
+        "diff_all": 0.0,
+        "lo_all": -0.2,
+        "hi_all": 0.2,
+        "significant_all": false,
+        "n_excl": 13,
+        "diff_excl": 0.0,
+        "lo_excl": -0.2308,
+        "hi_excl": 0.2308,
+        "significant_excl": false,
+        "diff_rejudged": 0.0,
+        "lo_rejudged": -0.2,
+        "hi_rejudged": 0.2,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S20",
+        "compare": "KG20 − KG30",
+        "metric": "context_precision",
+        "n_all": 37,
+        "diff_all": -0.0203,
+        "lo_all": -0.0878,
+        "hi_all": 0.0405,
+        "significant_all": false,
+        "n_excl": 29,
+        "diff_excl": -0.0086,
+        "lo_excl": -0.0776,
+        "hi_excl": 0.0603,
+        "significant_excl": false,
+        "diff_rejudged": -0.0338,
+        "lo_rejudged": -0.1014,
+        "hi_rejudged": 0.0338,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S20",
+        "compare": "KG20 − KG30",
+        "metric": "faithfulness",
+        "n_all": 32,
+        "diff_all": -0.0066,
+        "lo_all": -0.0641,
+        "hi_all": 0.0496,
+        "significant_all": false,
+        "n_excl": 24,
+        "diff_excl": -0.0053,
+        "lo_excl": -0.0683,
+        "hi_excl": 0.0572,
+        "significant_excl": false,
+        "diff_rejudged": -0.0031,
+        "lo_rejudged": -0.0648,
+        "hi_rejudged": 0.0611,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S20",
+        "compare": "KG20 − KG30",
+        "metric": "answer_relevancy",
+        "n_all": 37,
+        "diff_all": -0.0025,
+        "lo_all": -0.0704,
+        "hi_all": 0.0611,
+        "significant_all": false,
+        "n_excl": 29,
+        "diff_excl": -0.0011,
+        "lo_excl": -0.0882,
+        "hi_excl": 0.0817,
+        "significant_excl": false,
+        "diff_rejudged": -0.0038,
+        "lo_rejudged": -0.072,
+        "hi_rejudged": 0.0592,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S20",
+        "compare": "KG20 − KG30",
+        "metric": "hallucination",
+        "n_all": 37,
+        "diff_all": 0.0,
+        "lo_all": -0.1622,
+        "hi_all": 0.1622,
+        "significant_all": false,
+        "n_excl": 29,
+        "diff_excl": 0.0,
+        "lo_excl": -0.2069,
+        "hi_excl": 0.1724,
+        "significant_excl": false,
+        "diff_rejudged": 0.027,
+        "lo_rejudged": -0.1622,
+        "hi_rejudged": 0.1892,
+        "significant_rejudged": false
+      },
+      {
+        "set": "S20",
+        "compare": "KG20 − KG30",
+        "metric": "answer_correctness",
+        "n_all": 37,
+        "diff_all": 0.027,
+        "lo_all": 0.0,
+        "hi_all": 0.0811,
+        "significant_all": false,
+        "n_excl": 29,
+        "diff_excl": 0.0345,
+        "lo_excl": 0.0,
+        "hi_excl": 0.1034,
+        "significant_excl": false,
+        "diff_rejudged": 0.027,
+        "lo_rejudged": 0.0,
+        "hi_rejudged": 0.0811,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "context_precision",
+        "n_all": 62,
+        "diff_all": -0.0363,
+        "lo_all": -0.1129,
+        "hi_all": 0.0363,
+        "significant_all": false,
+        "n_excl": 46,
+        "diff_excl": -0.0598,
+        "lo_excl": -0.1467,
+        "hi_excl": 0.0217,
+        "significant_excl": false,
+        "diff_rejudged": -0.0565,
+        "lo_rejudged": -0.129,
+        "hi_rejudged": 0.0121,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "faithfulness",
+        "n_all": 37,
+        "diff_all": -0.0871,
+        "lo_all": -0.1633,
+        "hi_all": -0.0127,
+        "significant_all": true,
+        "n_excl": 26,
+        "diff_excl": -0.0822,
+        "lo_excl": -0.186,
+        "hi_excl": 0.0118,
+        "significant_excl": false,
+        "diff_rejudged": -0.0378,
+        "lo_rejudged": -0.1152,
+        "hi_rejudged": 0.0368,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "answer_relevancy",
+        "n_all": 62,
+        "diff_all": -0.24,
+        "lo_all": -0.3463,
+        "hi_all": -0.1335,
+        "significant_all": true,
+        "n_excl": 46,
+        "diff_excl": -0.2552,
+        "lo_excl": -0.3787,
+        "hi_excl": -0.1365,
+        "significant_excl": true,
+        "diff_rejudged": -0.2389,
+        "lo_rejudged": -0.3455,
+        "hi_rejudged": -0.1326,
+        "significant_rejudged": true
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "hallucination",
+        "n_all": 62,
+        "diff_all": -0.129,
+        "lo_all": -0.2742,
+        "hi_all": 0.0161,
+        "significant_all": false,
+        "n_excl": 46,
+        "diff_excl": -0.1522,
+        "lo_excl": -0.3261,
+        "hi_excl": 0.0217,
+        "significant_excl": false,
+        "diff_rejudged": -0.1452,
+        "lo_rejudged": -0.2903,
+        "hi_rejudged": 0.0,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "answer_correctness",
+        "n_all": 62,
+        "diff_all": -0.2742,
+        "lo_all": -0.4032,
+        "hi_all": -0.1452,
+        "significant_all": true,
+        "n_excl": 46,
+        "diff_excl": -0.3478,
+        "lo_excl": -0.5,
+        "hi_excl": -0.1957,
+        "significant_excl": true,
+        "diff_rejudged": -0.2903,
+        "lo_rejudged": -0.4194,
+        "hi_rejudged": -0.1613,
+        "significant_rejudged": true
+      },
+      {
+        "set": "all",
+        "compare": "KG20 − KG30",
+        "metric": "context_precision",
+        "n_all": 62,
+        "diff_all": -0.0282,
+        "lo_all": -0.0847,
+        "hi_all": 0.0242,
+        "significant_all": false,
+        "n_excl": 47,
+        "diff_excl": -0.0266,
+        "lo_excl": -0.0851,
+        "hi_excl": 0.0319,
+        "significant_excl": false,
+        "diff_rejudged": -0.0282,
+        "lo_rejudged": -0.0887,
+        "hi_rejudged": 0.0323,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG20 − KG30",
+        "metric": "faithfulness",
+        "n_all": 47,
+        "diff_all": -0.0324,
+        "lo_all": -0.0848,
+        "hi_all": 0.0186,
+        "significant_all": false,
+        "n_excl": 34,
+        "diff_excl": -0.0318,
+        "lo_excl": -0.0925,
+        "hi_excl": 0.0284,
+        "significant_excl": false,
+        "diff_rejudged": -0.0447,
+        "lo_rejudged": -0.0972,
+        "hi_rejudged": 0.01,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG20 − KG30",
+        "metric": "answer_relevancy",
+        "n_all": 62,
+        "diff_all": -0.1088,
+        "lo_all": -0.1926,
+        "hi_all": -0.0341,
+        "significant_all": true,
+        "n_excl": 47,
+        "diff_excl": -0.1271,
+        "lo_excl": -0.2269,
+        "hi_excl": -0.0334,
+        "significant_excl": true,
+        "diff_rejudged": -0.1084,
+        "lo_rejudged": -0.1916,
+        "hi_rejudged": -0.0336,
+        "significant_rejudged": true
+      },
+      {
+        "set": "all",
+        "compare": "KG20 − KG30",
+        "metric": "hallucination",
+        "n_all": 62,
+        "diff_all": 0.0,
+        "lo_all": -0.1452,
+        "hi_all": 0.1452,
+        "significant_all": false,
+        "n_excl": 47,
+        "diff_excl": -0.0213,
+        "lo_excl": -0.1915,
+        "hi_excl": 0.1489,
+        "significant_excl": false,
+        "diff_rejudged": 0.0323,
+        "lo_rejudged": -0.1129,
+        "hi_rejudged": 0.1774,
+        "significant_rejudged": false
+      },
+      {
+        "set": "all",
+        "compare": "KG20 − KG30",
+        "metric": "answer_correctness",
+        "n_all": 62,
+        "diff_all": -0.0645,
+        "lo_all": -0.1613,
+        "hi_all": 0.0161,
+        "significant_all": false,
+        "n_excl": 47,
+        "diff_excl": -0.0638,
+        "lo_excl": -0.1702,
+        "hi_excl": 0.0426,
+        "significant_excl": false,
+        "diff_rejudged": -0.0645,
+        "lo_rejudged": -0.1613,
+        "hi_rejudged": 0.0161,
+        "significant_rejudged": false
+      }
+    ],
+    "flips": [
+      {
+        "set": "S10",
+        "compare": "KG10 − KG20",
+        "metric": "faithfulness",
+        "n_all": 13,
+        "diff_all": 0.0008,
+        "lo_all": -0.1046,
+        "hi_all": 0.1016,
+        "significant_all": false,
+        "n_excl": 11,
+        "diff_excl": -0.0043,
+        "lo_excl": -0.1234,
+        "hi_excl": 0.1126,
+        "significant_excl": false,
+        "diff_rejudged": 0.0668,
+        "lo_rejudged": 0.0099,
+        "hi_rejudged": 0.1331,
+        "significant_rejudged": true
+      },
+      {
+        "set": "all",
+        "compare": "KG10 − KG30",
+        "metric": "faithfulness",
+        "n_all": 37,
+        "diff_all": -0.0871,
+        "lo_all": -0.1633,
+        "hi_all": -0.0127,
+        "significant_all": true,
+        "n_excl": 26,
+        "diff_excl": -0.0822,
+        "lo_excl": -0.186,
+        "hi_excl": 0.0118,
+        "significant_excl": false,
+        "diff_rejudged": -0.0378,
+        "lo_rejudged": -0.1152,
+        "hi_rejudged": 0.0368,
+        "significant_rejudged": false
+      }
+    ]
   }
 }

@@ -83,12 +83,95 @@ CORRECTNESS = ChatPromptTemplate.from_messages([
 ])
 
 
+PROMPT_NAMES = {id(EXTRACT_CLAIMS): "extract_claims", id(VERIFY_CLAIMS): "verify_claims",
+                id(REVERSE_QUESTIONS): "reverse_questions", id(CORRECTNESS): "correctness"}
+
+# ---------------- Log judge ----------------
+# Mỗi lần gọi judge ghi 1 dòng vào JUDGE_LOG (các hàm main ghi ra results/<run>/judge_log_<hệ>.jsonl):
+# Judge failure = lần gọi không trả đủ verdict hợp lệ: status khác "ok" hoặc missing > 0.
+#   status          ok / json_error (JSON hỏng, vd. đầu ra bị cắt ở num_predict) / ollama_error
+#   prompt_tokens   prompt_eval_count của Ollama; done_reason = "length" nghĩa là đầu ra bị cắt ở num_predict
+#   missing         số claim / đoạn văn judge không trả verdict (bị tính là "không hỗ trợ" / "không hữu ích")
+#   truncated       prompt dài hơn num_ctx: Ollama cắt prompt mà KHÔNG báo lỗi, chỉ giữ đúng num_ctx // 2 + 2 token
+#                   (đã thử với Ollama 0.40.4: prompt tới ~3.900 token giữ nguyên, dài hơn 4.096 còn đúng 2.050)
+# Log không đổi cách chấm điểm: lỗi vẫn trả {} như trước.
+JUDGE_LOG: list[dict] = []
+
+
+def is_truncated(prompt_tokens) -> bool:
+    return prompt_tokens is not None and (prompt_tokens == config.NUM_CTX // 2 + 2 or prompt_tokens >= config.NUM_CTX)
+
+
 def judge(prompt, **kw) -> dict:
+    ev = {"prompt": PROMPT_NAMES.get(id(prompt), "other"), "status": "ok"}
     try:
-        raw = (prompt | get_llm(config.JUDGE_MODEL, json_mode=True) | StrOutputParser()).invoke(kw)
-        return json.loads(raw)
-    except (json.JSONDecodeError, ResponseError):  # JSON hỏng / Ollama huỷ do lặp token
+        msg = (prompt | get_llm(config.JUDGE_MODEL, json_mode=True)).invoke(kw)
+        meta = msg.response_metadata
+        ev.update(prompt_tokens=meta.get("prompt_eval_count"), output_tokens=meta.get("eval_count"),
+                  done_reason=meta.get("done_reason"))
+        return json.loads(StrOutputParser().invoke(msg))
+    except json.JSONDecodeError:  # JSON hỏng (thường do đầu ra bị cắt ở num_predict)
+        ev["status"] = "json_error"
         return {}
+    except ResponseError as e:  # Ollama huỷ do lặp token
+        ev.update(status="ollama_error", error=str(e)[:200])
+        return {}
+    finally:
+        ev["truncated"] = is_truncated(ev.get("prompt_tokens"))
+        JUDGE_LOG.append(ev)
+
+
+def note_missing(expected: int, got: int):
+    """Ghi vào lần gọi judge vừa xong: judge trả thiếu verdict (thiếu = tính là "không")."""
+    if JUDGE_LOG:
+        JUDGE_LOG[-1].update(expected=expected, missing=expected - got)
+
+
+def flush_judge_log(path: Path, qid: str):
+    """Ghi các lần gọi judge của một câu hỏi ra file log rồi xoá khỏi bộ nhớ."""
+    with open(path, "a", encoding="utf-8") as f:
+        for ev in JUDGE_LOG:
+            f.write(json.dumps({"id": qid, **ev}, ensure_ascii=False) + "\n")
+    JUDGE_LOG.clear()
+
+
+def judge_log_table(paths) -> pd.DataFrame:
+    """Tổng hợp log judge theo hệ thống + loại prompt."""
+    rows = []
+    for fp in paths:
+        df = pd.DataFrame([json.loads(x) for x in open(fp, encoding="utf-8") if x.strip()])
+        if df.empty:
+            continue
+        for col in ("missing", "prompt_tokens", "done_reason"):
+            if col not in df:
+                df[col] = np.nan
+        for name, g in [*df.groupby("prompt"), ("(tổng)", df)]:
+            rows.append({"system": fp.stem.removeprefix("judge_log_"), "prompt": name, "calls": len(g),
+                         # judge failure: lần gọi không trả đủ verdict hợp lệ (JSON hỏng, Ollama huỷ, thiếu verdict)
+                         "judge_failures": int(((g.status != "ok") | (g.missing.fillna(0) > 0)).sum()),
+                         "json_error": int((g.status == "json_error").sum()),
+                         "ollama_error": int((g.status == "ollama_error").sum()),
+                         "output_cut": int((g.done_reason == "length").sum()),
+                         "calls_missing_verdicts": int((g.missing.fillna(0) > 0).sum()),
+                         "verdicts_missing": int(g.missing.fillna(0).sum()),
+                         "truncated_prompt": int(g.truncated.sum()),
+                         "prompt_tokens_max": int(g.prompt_tokens.max()) if g.prompt_tokens.notna().any() else None,
+                         "prompt_tokens_median": (int(g.prompt_tokens.median()) if g.prompt_tokens.notna().any()
+                                                  else None)})
+    return pd.DataFrame(rows)
+
+
+def judge_log_md(out: Path) -> list[str]:
+    """Mục "Log judge" cho summary.md; rỗng nếu run được chấm trước khi có log (summary cũ giữ nguyên)."""
+    paths = sorted(out.glob("judge_log_*.jsonl"))
+    if not paths:
+        return []
+    t = judge_log_table(paths)
+    return ["## Judge failures và truncate (log judge)\n", t.to_markdown(index=False), "",
+            f"*judge_failures: số lần gọi judge không trả đủ verdict hợp lệ = json_error (JSON hỏng) + ollama_error "
+            f"(Ollama huỷ lần sinh) + lần gọi thiếu verdict; verdicts_missing: số claim / đoạn văn không có verdict (bị "
+            f"tính là \"không\"); output_cut: đầu ra chạm num_predict; truncated_prompt: prompt dài hơn num_ctx = "
+            f"{config.NUM_CTX} bị Ollama cắt. Chỉ gồm các câu được chấm sau khi có log.*\n"]
 
 
 def cosine(a, b) -> float:
@@ -108,6 +191,7 @@ def verify(claims: list[str], contexts: list[dict]) -> int:
     verdicts = judge(VERIFY_CLAIMS, context=ctx, statements=stmts).get("verdicts", [])
     sup = {int(v.get("id", 0)): str(v.get("supported", "")).lower().startswith("y")
            for v in verdicts if isinstance(v, dict) and str(v.get("id", "")).isdigit()}
+    note_missing(len(claims), sum(i + 1 in sup for i in range(len(claims))))
     return sum(sup.get(i + 1, False) for i in range(len(claims)))
 
 
@@ -250,6 +334,7 @@ def write_summary_md(sm: pd.DataFrame, out: Path, info: dict):
     for t in types:
         g = sm[sm["type"] == t]
         lines += [f"### {TITLES[t]}\n", g[[c for c in extra if c in g]].to_markdown(index=False), ""]
+    lines += judge_log_md(out.parent)
     out.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -298,6 +383,7 @@ def main():
             if item["id"] not in scores:
                 scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
                 append_jsonl(sc_path, scores[item["id"]])
+                flush_judge_log(out / f"judge_log_{sys_name}.jsonl", item["id"])
 
         for item in testset:
             a, s = answers[item["id"]], scores[item["id"]]

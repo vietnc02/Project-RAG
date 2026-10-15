@@ -40,8 +40,9 @@ from tqdm import tqdm
 import config
 from common import env_info, is_refusal
 # Dùng lại nguyên prompt judge / hàm chấm của ý 1 (evaluate.py không bị sửa)
-from evaluate import (CORRECTNESS, EXTRACT_CLAIMS, REVERSE_QUESTIONS, TITLES, append_jsonl, bootstrap_ci, cosine,
-                      judge, load_jsonl, load_testset, verify)
+from evaluate import (CORRECTNESS, EXTRACT_CLAIMS, PROMPT_NAMES, REVERSE_QUESTIONS, TITLES, append_jsonl,
+                      bootstrap_ci, cosine, flush_judge_log, judge, judge_log_md, load_jsonl, load_testset,
+                      note_missing, verify)
 from common import get_embeddings
 from kg_build import load_papers, use_kg_store
 
@@ -59,6 +60,7 @@ USEFUL = ChatPromptTemplate.from_messages([
                "with one entry per passage."),
     ("human", "Question: {question}\nReference answer: {reference}\n\nPassages:\n{passages}"),
 ])
+PROMPT_NAMES[id(USEFUL)] = "useful"
 
 
 def extract_claims(question: str, answer: str) -> list[str]:
@@ -93,6 +95,7 @@ def useful_flags(item: dict, texts: list[str]) -> list[int]:
                      passages=passages).get("verdicts", [])
     ok = {int(v.get("id", 0)): str(v.get("useful", "")).lower().startswith("y")
           for v in verdicts if isinstance(v, dict) and str(v.get("id", "")).isdigit()}
+    note_missing(len(texts), sum(i + 1 in ok for i in range(len(texts))))
     return [int(ok.get(i + 1, False)) for i in range(len(texts))]
 
 
@@ -225,6 +228,7 @@ def write_summary_md(sm: pd.DataFrame, diff: pd.DataFrame, out: Path, info: dict
         g = sm[sm["type"] == t]
         lines += [f"### {TITLES[t]}\n",
                   g[["system"] + [c for c in EXTRA if c in g and g[c].notna().any()]].to_markdown(index=False), ""]
+    lines += judge_log_md(out.parent)
     out.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -275,6 +279,7 @@ def main():
             if item["id"] not in scores:
                 scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
                 append_jsonl(sc_path, scores[item["id"]])
+                flush_judge_log(out / f"judge_log_{sys_name}.jsonl", item["id"])
         for item in testset:
             a, s = answers[item["id"]], scores[item["id"]]
             rows.append({"system": sys_name, "id": item["id"], "type": item["type"], "question": item["question"],

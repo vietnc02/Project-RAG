@@ -73,6 +73,18 @@
               ]
             }
           },
+          "n_metric": {
+            "lc": {
+              "faithfulness": 79,
+              "answer_relevancy": 86,
+              "hallucination": 86
+            },
+            "sr": {
+              "faithfulness": 80,
+              "answer_relevancy": 86,
+              "hallucination": 86
+            }
+          },
           "extra": {
             "lc": {
               "faithfulness_used": [
@@ -188,6 +200,18 @@
               ]
             }
           },
+          "n_metric": {
+            "lc": {
+              "faithfulness": 30,
+              "answer_relevancy": 35,
+              "hallucination": 35
+            },
+            "sr": {
+              "faithfulness": 18,
+              "answer_relevancy": 35,
+              "hallucination": 35
+            }
+          },
           "extra": {
             "lc": {
               "faithfulness_used": [
@@ -301,6 +325,18 @@
                 0.0,
                 0.0
               ]
+            }
+          },
+          "n_metric": {
+            "lc": {
+              "faithfulness": 0,
+              "answer_relevancy": 23,
+              "hallucination": 23
+            },
+            "sr": {
+              "faithfulness": 0,
+              "answer_relevancy": 23,
+              "hallucination": 23
             }
           },
           "extra": {
@@ -462,6 +498,18 @@
               ]
             }
           },
+          "n_metric": {
+            "lc": {
+              "faithfulness": 81,
+              "answer_relevancy": 86,
+              "hallucination": 86
+            },
+            "sr": {
+              "faithfulness": 81,
+              "answer_relevancy": 86,
+              "hallucination": 86
+            }
+          },
           "extra": {
             "lc": {
               "faithfulness_used": [
@@ -575,6 +623,18 @@
                 0.22857142857142856,
                 0.5714285714285714
               ]
+            }
+          },
+          "n_metric": {
+            "lc": {
+              "faithfulness": 32,
+              "answer_relevancy": 35,
+              "hallucination": 35
+            },
+            "sr": {
+              "faithfulness": 18,
+              "answer_relevancy": 35,
+              "hallucination": 35
             }
           },
           "extra": {

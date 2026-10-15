@@ -68,10 +68,10 @@ python rag_selfrag.py   "câu hỏi"        #    thử hệ thống B (in ra tra
 python generate_testset.py               # 2a. sinh câu single-hop -> testset/testset.json
 python generate_testset.py --multihop 60 # 2b. sinh câu multi-hop  -> testset/multihop_raw.json
 python generate_testset.py --multihop 40 --append --seed 7   #  sinh thêm, không lặp cặp bài đã có
-#   -> DUYỆT TAY từng câu (đối chiếu đoạn gốc), kết quả duyệt ghi trong:
+#   -> DUYỆT TAY từng câu (đối chiếu gold chunk), kết quả duyệt ghi trong:
 python testset/review_edits.py           #    single-hop -> testset/testset.json
 python testset/review_multihop.py        #    multi-hop  -> testset/multihop.json
-#   -> câu ngoài corpus viết tay: testset/unanswerable.json (có kiểm tra không xuất hiện trong chunks)
+#   -> câu out-of-corpus viết tay: testset/unanswerable.json (có kiểm tra không xuất hiện trong chunks)
 python evaluate.py --run k4                                                    # 3a. top-k = 4
 python evaluate.py --run k8 --top-k 8 --testset testset/testset.json testset/multihop.json  # 3b. retrieval nhiễu
 ```
@@ -82,26 +82,26 @@ Judge mặc định là `llama3.1:8b` (khác họ với LLM sinh câu trả lờ
 - **A. LangChain RAG** (`rag_langchain.py`): retrieve top-k → generate. 1 lần gọi LLM.
 - **B. LangGraph Self-RAG** (`rag_selfrag.py`): retrieve → chấm độ liên quan từng tài liệu →
   generate → tự kiểm tra *grounded* (hallucination, prompt có few-shot) → tự kiểm tra *useful* →
-  nếu sai thì sinh lại (prompt chặt hơn) / viết lại truy vấn / từ chối trả lời.
+  nếu sai thì sinh lại (prompt chặt hơn) / viết lại truy vấn / refuse trả lời.
 
 ## Bộ câu hỏi ý 1
 | File | Loại | Số câu | Mục đích |
 |---|---|---|---|
 | `testset/testset.json` | single-hop: hỏi sự kiện trong 1 đoạn | 86 (sinh 93, duyệt tay) | trường hợp cơ bản |
 | `testset/multihop.json` | multi-hop: cần tổng hợp 2 bài báo | 35 (sinh 71, duyệt tay) | câu hỏi khó, cần truy xuất nhiều nguồn |
-| `testset/unanswerable.json` | ngoài corpus | 23 (viết tay, đã kiểm tra không có trong chunks) | hệ thống phải biết từ chối (abstain) |
+| `testset/unanswerable.json` | out-of-corpus | 23 (viết tay, đã kiểm tra không có trong chunks) | hệ thống phải biết refuse (abstain) |
 | (`--top-k 8`) | retrieval nhiễu | single + multi-hop | context chứa nhiều đoạn không liên quan |
 
 ## Ba chỉ số so sánh (`evaluate.py`, định nghĩa theo RAGAS)
 | Chỉ số | Định nghĩa |
 |---|---|
 | faithfulness ↑ | #claim được context hỗ trợ / #claim |
-| answer_relevancy ↑ | cosine(câu hỏi, 3 câu hỏi sinh ngược từ câu trả lời); 0 nếu né tránh / từ chối |
+| answer_relevancy ↑ | cosine(câu hỏi, 3 reverse-generated question từ câu trả lời); 0 nếu né tránh / refuse |
 | hallucination_rate ↓ | % câu hỏi có câu trả lời chứa ≥ 1 claim không được context hỗ trợ |
 
 Faithfulness / hallucination của **cả 2 hệ** được chấm trên cùng một context: full top-k ban đầu của câu hỏi
 gốc (Self-RAG lọc bớt tài liệu trước khi sinh, nếu chấm trên tài liệu đã lọc thì không công bằng).
-Chỉ số phụ chỉ để giải thích: `*_used` (chấm trên tài liệu đưa vào generate), refusal_rate, answer_correctness,
+Secondary metric chỉ để giải thích: `*_used` (chấm trên tài liệu đưa vào generate), refusal_rate, answer_correctness,
 retrieval_hit, claim_halluc_rate, latency_s, llm_calls.
 
 Kết quả: `results/<run>/summary.md`, `summary.csv` (kèm CI 95% bootstrap), `per_question.csv`, `run_info.json`.
@@ -109,10 +109,10 @@ Kết quả: `results/<run>/summary.md`, `summary.csv` (kèm CI 95% bootstrap), 
 # Ý 2 — GraphRAG vs Vector RAG (30 bài chủ đề quantum)
 
 Dựng Knowledge Graph (KG) từ 30 bài báo bằng LLM local, so sánh **GraphRAG** (truy xuất qua KG) với **Vector RAG**
-(LangChain RAG của ý 1, embedding chunk) trên cùng 30 bài. Hai hệ dùng chung chunk, chung 4 đoạn văn mỗi câu, chung
+(LangChain RAG của ý 1, embedding chunk) trên cùng 30 bài. Hai hệ dùng chung chunk, chung 4 passage mỗi câu, chung
 prompt + LLM: khác biệt chỉ ở cách truy xuất. Báo cáo: `report/Bao_cao_Y2.pdf`.
 
-**30 bài = một chủ đề chính (quantum)**, gồm 2 nhánh gần nhau để các bài có thực thể / khái niệm chung tạo quan hệ:
+**30 bài = một chủ đề chính (quantum)**, gồm 2 nhánh gần nhau để các bài có entity / khái niệm chung tạo relation:
 23 bài Quantum Security + Quantum Machine Learning có trong `papers/` và 7 bài bổ sung (truy cập mở trên arXiv, bài gốc
 của các khái niệm mà 23 bài kia nhắc nhiều nhất: Shor, BB84, decoy-state QKD, RSA-2048, barren plateau, VQA, NISQ),
 xem `papers_y2/SOURCES.md`. **Dữ liệu ý 1 không đổi**: 7 bài nằm trong `papers_y2/` (ngoài `papers/`), chunk của chúng
@@ -123,7 +123,7 @@ trong `data/kg/chunks_y2.jsonl`, và Vector RAG của ý 2 dùng Chroma riêng `
 python kg_build.py --ingest              # 1. chia chunk 7 bài trong papers_y2/ -> data/kg/chunks_y2.jsonl
 python kg_build.py --select              # 2. chọn 30 bài -> data/kg/papers.json
 python kg_build.py --store               # 3. Chroma riêng của ý 2 -> data/kg/chroma.zip + MANIFEST.json
-python kg_build.py --extract --k 30      # 4. LLM trích entity/quan hệ từng chunk -> data/kg/extractions.jsonl
+python kg_build.py --extract --k 30      # 4. LLM trích entity/relation từng chunk -> data/kg/extractions.jsonl
 python kg_build.py --build --k 30        # 5. gộp entity + embed -> data/kg/k30/graph.json, vectors.npz
 python rag_graphrag.py "câu hỏi"         #    thử GraphRAG
 python generate_testset.py --kg                          # 6a. single-hop cho bài chưa có câu -> testset/singlehop_kg_raw.json
@@ -142,9 +142,9 @@ trích xuất lại.
 | `papers_y2/` | 7 PDF bổ sung + `SOURCES.md` (nguồn arXiv, lý do chọn) |
 | `data/kg/chunks_y2.jsonl` | chunk của 7 bài bổ sung (cùng cách chia chunk với ý 1) |
 | `data/kg/chroma.zip` | Chroma của ý 2: chunk của đúng 30 bài (23 bài chép nguyên vector từ ý 1 + 7 bài mới); tự giải nén ra `data/kg/chroma/`, kiểm tra sha256 với `data/kg/MANIFEST.json` |
-| `data/kg/papers.json` | 30 bài (Quantum Security 21, Quantum ML 9), thứ tự phân tầng theo chủ đề để k bài đầu giữ tỉ lệ chủ đề |
-| `data/kg/extractions.jsonl` | entity + quan hệ do qwen2.5:7b trích từ từng chunk |
-| `data/kg/k30/graph.json`, `vectors.npz` | KG đã gộp (mỗi entity/quan hệ giữ chunk nguồn) + vector entity/quan hệ |
+| `data/kg/papers.json` | 30 bài (Quantum Security 21, Quantum ML 9), thứ tự stratified theo chủ đề để k bài đầu giữ tỉ lệ chủ đề |
+| `data/kg/extractions.jsonl` | entity + relation do qwen2.5:7b trích từ từng chunk |
+| `data/kg/k30/graph.json`, `vectors.npz` | KG đã gộp (mỗi entity/relation giữ chunk nguồn) + vector entity/relation |
 
 Bước trích xuất đặt toàn bộ LLM lên GPU (`KG_NUM_GPU = 99` trong `config.py`): mặc định Ollama chỉ đưa ~82% model
 lên GPU 6 GB và chạy phần còn lại trên CPU (chậm hơn 1,5 lần). Máy ít VRAM hơn: `$env:KG_NUM_GPU='-1'`.
@@ -153,36 +153,52 @@ lên GPU 6 GB và chạy phần còn lại trên CPU (chậm hơn 1,5 lần). M�
 - **Vector RAG** (`rag_langchain.py`, Chroma của ý 2 qua `kg_build.use_kg_store()` trong `evaluate_graphrag.py`):
   lấy 4 chunk gần câu hỏi nhất theo cosine.
 - **GraphRAG** (`rag_graphrag.py`, local search, không gọi thêm LLM): khớp câu hỏi với entity (cosine + tên xuất hiện
-  nguyên văn) → 8 entity hạt giống → mở rộng 1 bước, lấy 12 quan hệ → chọn 4 chunk có nhiều entity/quan hệ đã chọn.
-  Context = mô tả entity + quan hệ + 4 đoạn văn.
+  nguyên văn) → 8 seed entity → mở rộng 1 bước, lấy 12 relation → chọn 4 chunk có nhiều entity/relation đã chọn.
+  Context = mô tả entity + relation + 4 passage.
 
 ## Bộ câu hỏi ý 2 (85 câu, mọi câu có đáp án đều thuộc 30 bài)
 | Loại | Số câu | Nguồn |
 |---|---|---|
 | single-hop | 27 | 21 câu của ý 1 + 6 câu mới cho bài chưa có câu (`testset/singlehop_kg.json`: sinh 7, duyệt tay) |
 | multi-hop | 35 | 9 câu của ý 1 + 26 câu mới trong 30 bài (`testset/multihop_kg.json`, duyệt tay) |
-| ngoài corpus | 23 | câu của ý 1 (đã kiểm tra lại từ khoá đáp án không có trong 7 bài bổ sung) |
+| out-of-corpus | 23 | câu của ý 1 (đã kiểm tra lại từ khoá đáp án không có trong 7 bài bổ sung) |
 
 ## Chỉ số và kết quả (`results/kg30/summary.md`)
-Retrieval precision = context precision (RAGAS): tỉ lệ đoạn (trong 4 đoạn) giúp suy ra đáp án chuẩn. Generation
+Retrieval precision = context precision (RAGAS): tỉ lệ đoạn (trong 4 đoạn) giúp suy ra ground truth. Generation
 quality: faithfulness, answer relevancy, hallucination rate (như ý 1, chấm trên đúng context đưa vào LLM) + answer
 correctness.
 
 | 62 câu có đáp án | Vector RAG | GraphRAG | GraphRAG − Vector (CI 95%) |
 |---|---|---|---|
-| Retrieval precision ↑ | 0,62 | 0,49 | −0,13 [−0,21; −0,05] (có ý nghĩa) |
-| Faithfulness ↑ | 0,89 | 0,85 | −0,03 (không ý nghĩa) |
-| Answer relevancy ↑ | 0,74 | 0,74 | −0,00 (không ý nghĩa) |
-| Hallucination rate ↓ | 44% | 53% | +10 điểm % (không ý nghĩa) |
-| Answer correctness ↑ | 85% | 82% | −3 điểm % (không ý nghĩa) |
+| Retrieval precision ↑ | 0,62 | 0,49 | −0,129 [−0,206; −0,048] (statistically significant) |
+| Faithfulness ↑ (n = 56 / 56) | 0,89 | 0,85 | −0,030 [−0,077; +0,018] (không đủ bằng chứng để phân biệt) |
+| Answer relevancy ↑ | 0,74 | 0,74 | −0,003 [−0,088; +0,081] (không đủ bằng chứng để phân biệt) |
+| Hallucination rate ↓ | 44% | 53% | +9,7 điểm % [−4,8; +22,6] (không đủ bằng chứng để phân biệt) |
+| Answer correctness ↑ | 85% | 82% | −3,2 điểm % [−14,5; +8,1] (không đủ bằng chứng để phân biệt) |
 
-GraphRAG truy xuất kém hơn chủ yếu ở câu multi-hop (retrieval precision 0,53 so với 0,71); generation quality không khác
-biệt có ý nghĩa (ở câu multi-hop answer correctness 89% so với 86%); câu ngoài corpus cả hai hệ từ chối đúng 23/23.
+Faithfulness chỉ tính trên câu không refuse (n = 56 mỗi hệ); các chỉ số khác tính trên đủ 62 câu.
+
+Với cài đặt local search ở đây và KG dựng bằng mô hình 7B: GraphRAG truy xuất kém hơn chủ yếu ở câu multi-hop
+(retrieval precision 0,53 so với 0,71); về generation quality không đủ bằng chứng để phân biệt hai hệ (không paired
+difference nào có statistical significance, CI còn rộng); câu out-of-corpus cả hai hệ refuse đúng 23/23.
 Phân tích nguyên nhân và đối chiếu tài liệu (Han et al. 2025, GraphRAG-Bench, HybridRAG) trong báo cáo.
+
+## Judge audit (ý 2)
+```powershell
+python judge_audit.py              # re-judge results/kg30 với judge log -> results/kg30_judge_audit/judge_audit.md
+```
+Mọi judge call giờ được ghi vào `results/<run>/judge_log_*.jsonl`: status, số verdict thiếu, `prompt_eval_count`.
+**Judge failure** = judge call không trả đủ verdict hợp lệ: `json_error` (JSON hỏng), `ollama_error` (Ollama huỷ lần
+sinh) hoặc `missing_verdicts` (thiếu verdict); verdict thiếu bị tính là "không". Ollama **truncate** prompt dài hơn
+`num_ctx` mà không báo lỗi (chỉ giữ đúng num_ctx / 2 + 2 token), nên prompt có độ dài đó được đánh dấu truncated.
+Kết quả re-judge ý 2 (938 judge call): không prompt nào bị truncate (dài nhất 2.163 / 4.096 token); 7 judge_failures
+(1 json_error, 5 ollama_error, 1 missing_verdicts; 49 verdict bị tính là "không"), đều ở prompt chấm độ hữu ích (4 câu ở bước chấm passage); điểm
+re-judge giống hệt điểm gốc; sensitivity analysis: bỏ các câu có judge failure thì retrieval precision GraphRAG −
+Vector RAG vẫn −0,138 [−0,211; −0,065] (có statistical significance).
 
 # Ý 3 — KG từ k = 10, 20, 30 bài
 
-Dựng KG từ **10, 20 và 30 bài đầu** của `data/kg/papers.json` (30 bài chủ đề quantum của ý 2, thứ tự phân tầng theo
+Dựng KG từ **10, 20 và 30 bài đầu** của `data/kg/papers.json` (30 bài chủ đề quantum của ý 2, thứ tự stratified theo
 chủ đề cố định từ ý 2), đo **chất lượng KG** (entity coverage, relation completeness) và **chất lượng câu trả lời** của
 GraphRAG (ý 2) trên từng KG. Ba KG dùng chung cache trích xuất của ý 2 nên **lồng nhau** (KG10 ⊂ KG20 ⊂ KG30): khác
 biệt chỉ đến từ số bài. Báo cáo: `report/Bao_cao_Y3.pdf`. Ý 3 chỉ thêm file mới, không sửa mã / dữ liệu của ý 1, ý 2.
@@ -191,7 +207,7 @@ biệt chỉ đến từ số bài. Báo cáo: `report/Bao_cao_Y3.pdf`. Ý 3 ch�
 ```powershell
 python kg_build.py --build --k 10        # 1. KG10 -> data/kg/k10/ (gộp lại từ data/kg/extractions.jsonl, không trích lại)
 python kg_build.py --build --k 20        #    KG20 -> data/kg/k20/   (KG30 = data/kg/k30/ của ý 2)
-python kg_quality.py --gold              # 2. judge trích thực thể / quan hệ chuẩn của 62 câu -> testset/kg_gold_raw.json
+python kg_quality.py --gold              # 2. judge trích entity / gold relation của 62 câu -> testset/kg_gold_raw.json
 python testset/review_kg_gold.py         #    kết quả duyệt tay -> testset/kg_gold.json
 python kg_quality.py --all               # 3. chất lượng KG -> results/kg_scale/kg_quality.md (tất định, không gọi LLM)
 python evaluate_kg_scale.py              # 4. GraphRAG với KG10/20/30 trên 85 câu của ý 2 -> results/kg_scale/summary.md
@@ -203,35 +219,44 @@ KG, câu hỏi, môi trường).
 ## Dữ liệu ý 3 (có trong repo)
 | File | Nội dung |
 |---|---|
-| `data/kg/k10/`, `data/kg/k20/` | KG10 (3.274 entity, 3.252 quan hệ), KG20 (5.702 / 6.160): `graph.json` + `vectors.npz` |
-| `testset/kg_gold.json` | bộ chuẩn: 62 câu, 353 thực thể, 263 quan hệ (bản tự động `kg_gold_raw.json`: 503 / 415; duyệt tay trong `review_kg_gold.py`) |
+| `data/kg/k10/`, `data/kg/k20/` | KG10 (3.274 entity, 3.252 relation), KG20 (5.702 / 6.160): `graph.json` + `vectors.npz` |
+| `testset/kg_gold.json` | gold set: 62 câu, 353 entity, 263 relation (bản tự động `kg_gold_raw.json`: 503 / 415; duyệt tay trong `review_kg_gold.py`) |
 | `results/kg_scale/` | chất lượng KG (`kg_quality.md`, `kg_coverage*.csv`, `kg_growth.csv`, `kg_relation_audit.csv`) + câu trả lời theo k (`k10/`, `k20/`, `k30/`, `summary.md`) |
 
 ## Cách đo
-- **Entity coverage**: tỉ lệ thực thể chuẩn có trong KG, khớp theo tên sau chuẩn hoá (cùng quy tắc gộp entity của
-  `kg_build.py`); bản `_lenient` (cận trên) tính thêm entity có tên chứa trọn cụm từ chuẩn. Không dùng LLM để khớp
+- **Entity coverage**: tỉ lệ gold entity có trong KG, khớp theo tên sau chuẩn hoá (cùng quy tắc gộp entity của
+  `kg_build.py`); bản `_lenient` (upper bound) tính thêm entity có tên chứa trọn cụm từ chuẩn. Không dùng LLM để khớp
   (đã thử llama3.1:8b, qwen2.5:7b: nhận nhầm khái niệm rộng / hẹp hơn).
-- **Relation completeness**: tỉ lệ quan hệ chuẩn có cạnh trực tiếp trong KG nối 2 thực thể đã khớp; kiểm tra tay 40
-  cạnh KG30: 36 cạnh nói đúng quan hệ chuẩn.
-- **Câu trả lời**: 5 chỉ số của ý 2, xem theo 3 tập: *trong phạm vi KG* (bài nguồn thuộc k bài: 15 / 37 / 62 câu),
-  *tập cố định* S10 (15 câu về 10 bài đầu) và S20 (37 câu về 20 bài đầu) so sánh ghép cặp, *toàn bộ 62 câu*.
+- **Relation completeness**: tỉ lệ gold relation có edge trực tiếp trong KG nối 2 entity đã khớp; audit 40
+  edge KG30: 36 edge nói đúng gold relation. Bản **hiệu chỉnh** = relation completeness × 36/40, CI 95% bootstrap gộp
+  sai số lấy mẫu gold relation và sai số của tỉ lệ audit (`relation_completeness_adj` trong `kg_coverage.csv`).
+- **Câu trả lời**: 5 chỉ số của ý 2, xem theo 3 tập: *in-scope* (bài nguồn thuộc k bài: 15 / 37 / 62 câu),
+  *fixed set* S10 (15 câu về 10 bài đầu) và S20 (37 câu về 20 bài đầu) paired comparison, *toàn bộ 62 câu*.
 
 ## Kết quả
 | | KG10 | KG20 | KG30 |
 |---|---|---|---|
-| Entity coverage (câu trong phạm vi KG) | 91% | 90% | 89% |
-| Relation completeness (câu trong phạm vi KG) | 39% | 37% | 42% |
+| Entity coverage (câu in-scope) | 91% | 90% | 89% |
+| Relation completeness (câu in-scope) | 39% | 37% | 42% |
+| Relation completeness hiệu chỉnh × 0,9 theo audit [CI 95%] | 35% [24; 47] | 33% [26; 42] | 37% [31; 44] |
 | Entity coverage / relation completeness (toàn bộ 62 câu) | 64% / 20% | 77% / 31% | 89% / 42% |
-| Answer correctness (câu trong phạm vi KG) | 87% | 86% | 82% |
+| Answer correctness (câu in-scope) | 87% | 86% | 82% |
 | Answer correctness (toàn bộ 62 câu) | 55% | 76% | 82% |
-| Câu ngoài corpus từ chối đúng | 23/23 | 23/23 | 23/23 |
+| Câu out-of-corpus refuse đúng | 23/23 | 23/23 | 23/23 |
 
-- Với câu hỏi về chính các bài trong KG, **10 bài đã đủ**: trên tập cố định S10 / S20 không chênh lệch nào giữa các k
-  có ý nghĩa thống kê.
-- Điểm yếu chung là **quan hệ** (~40% quan hệ cần thiết có trong KG), do mô hình trích xuất 7B chứ không do số bài.
-- KG **chưa bão hoà**: mỗi bài thêm vào vẫn mang ~250–300 entity mới; trên toàn bộ 62 câu KG10 kém KG30 có ý nghĩa
-  (−27 điểm %), KG20 thì không (−6,5 điểm %). Câu ngoài phạm vi KG vẫn được trả lời đúng 45% (KG10) / 60% (KG20), chủ
+- Với câu hỏi về chính các bài trong KG: **không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp** (S10
+  chỉ 15 câu: chênh lệch answer correctness KG10 − KG30 là +6,7 điểm % [−13,3; +26,7]), nên chỉ loại trừ được chênh
+  lệch lớn.
+- Điểm yếu chung là **relation** (~40% relation cần thiết có trong KG), do mô hình trích xuất 7B chứ không do số bài.
+- KG **chưa đạt saturation**: mỗi bài thêm vào vẫn mang ~250–300 entity mới; trên toàn bộ 62 câu KG10 kém KG30 có statistical
+  significance (answer correctness −27,4 điểm % [−40,3; −14,5]), còn KG20 thì không đủ bằng chứng để phân biệt với KG30 (−6,5 điểm % [−16,1; +1,6]). Câu out-of-scope vẫn được trả lời đúng 45% (KG10) / 60% (KG20), chủ
   yếu nhờ kiến thức sẵn có của mô hình (claim không có trong context).
+
+**Judge audit ý 3** (`python judge_audit_kg_scale.py` -> `results/kg_scale_judge_audit/`): re-judge KG10 / KG20 với
+judge log (931 judge call): 23 judge_failures (đều ollama_error, phần lớn ở bước chấm relation của KG), không prompt
+nào bị truncate. Khác ý 2, re-judge không cho điểm giống hệt (faithfulness trùng 69% / 85% số câu). Sensitivity
+analysis: answer correctness và answer relevancy KG10 − KG30 vững; "faithfulness KG10 < KG30" không vững (mất statistical
+significance khi bỏ câu có judge failure và khi dùng điểm re-judge), nên không dùng làm kết luận.
 
 Đối chiếu tài liệu trong báo cáo: Han et al. 2025, GraphRAG-Bench (thử nghiệm theo cỡ corpus), KGGen / MINE,
 Zhu et al., Joren et al. (sufficient context, ICLR 2025), định luật Heaps.

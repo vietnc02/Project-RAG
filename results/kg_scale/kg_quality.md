@@ -3,19 +3,19 @@
 <!-- main -->
 Bộ chuẩn: 62 câu có đáp án, 262 thực thể, 250 quan hệ (trích từ câu hỏi + đáp án chuẩn, duyệt tay).
 
-| set              |   k |   n_questions |   n_gold_entities |   entity_coverage | entity_coverage_ci95   |   n_gold_relations |   relation_completeness | relation_completeness_ci95   |
-|:-----------------|----:|--------------:|------------------:|------------------:|:-----------------------|-------------------:|------------------------:|:-----------------------------|
-| trong phạm vi KG |  10 |            15 |                74 |            0.9054 | [0.838, 0.959]         |                 59 |                  0.3898 | [0.271, 0.508]               |
-| trong phạm vi KG |  20 |            37 |               167 |            0.9042 | [0.862, 0.946]         |                151 |                  0.3709 | [0.291, 0.450]               |
-| trong phạm vi KG |  30 |            62 |               262 |            0.8931 | [0.855, 0.927]         |                250 |                  0.416  | [0.356, 0.476]               |
-| S10 (10 bài đầu) |  10 |            15 |                74 |            0.9054 | [0.838, 0.959]         |                 59 |                  0.3898 | [0.271, 0.508]               |
-| S10 (10 bài đầu) |  20 |            15 |                74 |            0.9324 | [0.865, 0.986]         |                 59 |                  0.4068 | [0.288, 0.525]               |
-| S10 (10 bài đầu) |  30 |            15 |                74 |            0.9324 | [0.865, 0.986]         |                 59 |                  0.4407 | [0.322, 0.559]               |
-| S20 (20 bài đầu) |  20 |            37 |               167 |            0.9042 | [0.862, 0.946]         |                151 |                  0.3709 | [0.291, 0.450]               |
-| S20 (20 bài đầu) |  30 |            37 |               167 |            0.9162 | [0.874, 0.958]         |                151 |                  0.4106 | [0.331, 0.490]               |
-| toàn bộ 62 câu   |  10 |            62 |               262 |            0.6412 | [0.580, 0.698]         |                250 |                  0.204  | [0.156, 0.256]               |
-| toàn bộ 62 câu   |  20 |            62 |               262 |            0.7748 | [0.721, 0.824]         |                250 |                  0.308  | [0.252, 0.364]               |
-| toàn bộ 62 câu   |  30 |            62 |               262 |            0.8931 | [0.855, 0.927]         |                250 |                  0.416  | [0.356, 0.476]               |
+| set              |   k |   n_questions |   n_gold_entities |   entity_coverage | entity_coverage_ci95   |   n_gold_relations |   relation_completeness | relation_completeness_ci95   |   relation_completeness_adj | relation_completeness_adj_ci95   |
+|:-----------------|----:|--------------:|------------------:|------------------:|:-----------------------|-------------------:|------------------------:|:-----------------------------|----------------------------:|:---------------------------------|
+| trong phạm vi KG |  10 |            15 |                74 |            0.9054 | [0.838, 0.959]         |                 59 |                  0.3898 | [0.271, 0.508]               |                      0.3508 | [0.238, 0.470]                   |
+| trong phạm vi KG |  20 |            37 |               167 |            0.9042 | [0.862, 0.946]         |                151 |                  0.3709 | [0.291, 0.450]               |                      0.3338 | [0.259, 0.420]                   |
+| trong phạm vi KG |  30 |            62 |               262 |            0.8931 | [0.855, 0.927]         |                250 |                  0.416  | [0.356, 0.476]               |                      0.3744 | [0.310, 0.441]                   |
+| S10 (10 bài đầu) |  10 |            15 |                74 |            0.9054 | [0.838, 0.959]         |                 59 |                  0.3898 | [0.271, 0.508]               |                      0.3508 | [0.238, 0.470]                   |
+| S10 (10 bài đầu) |  20 |            15 |                74 |            0.9324 | [0.865, 0.986]         |                 59 |                  0.4068 | [0.288, 0.525]               |                      0.3661 | [0.252, 0.486]                   |
+| S10 (10 bài đầu) |  30 |            15 |                74 |            0.9324 | [0.865, 0.986]         |                 59 |                  0.4407 | [0.322, 0.559]               |                      0.3966 | [0.280, 0.517]                   |
+| S20 (20 bài đầu) |  20 |            37 |               167 |            0.9042 | [0.862, 0.946]         |                151 |                  0.3709 | [0.291, 0.450]               |                      0.3338 | [0.259, 0.420]                   |
+| S20 (20 bài đầu) |  30 |            37 |               167 |            0.9162 | [0.874, 0.958]         |                151 |                  0.4106 | [0.331, 0.490]               |                      0.3695 | [0.291, 0.459]                   |
+| toàn bộ 62 câu   |  10 |            62 |               262 |            0.6412 | [0.580, 0.698]         |                250 |                  0.204  | [0.156, 0.256]               |                      0.1836 | [0.137, 0.236]                   |
+| toàn bộ 62 câu   |  20 |            62 |               262 |            0.7748 | [0.721, 0.824]         |                250 |                  0.308  | [0.252, 0.364]               |                      0.2772 | [0.221, 0.335]                   |
+| toàn bộ 62 câu   |  30 |            62 |               262 |            0.8931 | [0.855, 0.927]         |                250 |                  0.416  | [0.356, 0.476]               |                      0.3744 | [0.310, 0.441]                   |
 
 Cấu trúc KG:
 
@@ -43,7 +43,7 @@ Cấu trúc KG:
 | all      |  20 |                    0.8244 |                          0.44   |                       0.508  |                       0.716  |                           0.4839 |                 0.6694 |
 | all      |  30 |                    0.9275 |                          0.56   |                       0.652  |                       0.84   |                           0.6129 |                 0.9677 |
 
-Kiểm tra tay 40 cạnh KG30 khớp với quan hệ chuẩn (`kg_relation_audit.csv`): 36/40 cạnh nói đúng quan hệ chuẩn (90%).
+Kiểm tra tay 40 cạnh KG30 khớp với quan hệ chuẩn (`kg_relation_audit.csv`): 36/40 cạnh nói đúng quan hệ chuẩn (90%, CI 95% [80%, 98%]).
 
 ## Đường cong tăng trưởng (`kg_growth.csv`)
 
@@ -55,5 +55,6 @@ Kiểm tra phép chiếu KG30 -> k bài (dùng cho đường cong) so với KG d
 
 - **entity coverage**: tỉ lệ thực thể chuẩn có trong KG (trùng tên sau chuẩn hoá, cùng quy tắc gộp entity của `kg_build`). `_lenient` (cận trên): thêm entity có tên chứa trọn cụm từ của thực thể chuẩn.
 - **relation completeness**: tỉ lệ quan hệ chuẩn có cạnh trực tiếp trong KG giữa 2 thực thể đã khớp; `_lenient`: đầu mút khớp lenient; `_2hop`: nối nhau trong <= 2 bước; `relation_endpoints_covered`: cả 2 đầu mút có trong KG.
+- **relation_completeness_adj** (đã hiệu chỉnh): relation completeness × độ chính xác của phép khớp cạnh theo kiểm tra tay (`kg_relation_audit.csv`), loại phần cạnh nối đúng 2 thực thể nhưng nói quan hệ khác. CI 95% bootstrap gộp cả sai số lấy mẫu quan hệ chuẩn lẫn sai số của tỉ lệ kiểm tra tay. Giả định: độ chính xác kiểm tra trên KG30 áp dụng cho KG10 / KG20; chỉ hiệu chỉnh khớp sai (dương tính giả), không hiệu chỉnh quan hệ có trong KG mà phép khớp tên bỏ sót.
 - **gold_chunk_reachable**: tỉ lệ đoạn gốc của câu hỏi có ít nhất 1 entity/quan hệ trong KG (GraphRAG chỉ lấy được đoạn văn qua entity/quan hệ).
 - `*_2plus_share`: tỉ lệ entity / quan hệ xuất hiện ở >= 2 bài (liên kết giữa các bài).

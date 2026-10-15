@@ -1,0 +1,8 @@
+﻿system,id,step,failure,missing,expected,error
+vector_rag,q044,passages,json_error,4,4,
+vector_rag,q092,passages,missing_verdicts,1,4,
+graphrag,q015,passages,ollama_error,4,4,"prediction aborted, token repeat limit reached (status code: -1)"
+graphrag,q061,kg_relations,ollama_error,12,12,"prediction aborted, token repeat limit reached (status code: -1)"
+graphrag,s002,kg_relations,ollama_error,12,12,"prediction aborted, token repeat limit reached (status code: -1)"
+graphrag,g026,passages,ollama_error,4,4,"prediction aborted, token repeat limit reached (status code: -1)"
+graphrag,g043,kg_relations,ollama_error,12,12,"prediction aborted, token repeat limit reached (status code: -1)"

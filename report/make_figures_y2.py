@@ -35,7 +35,7 @@ NAMES = {"vec": "Vector RAG", "gr": "GraphRAG"}
 SYS = {"vec": "vector_rag", "gr": "graphrag"}
 TYPES = ["all", "single", "multihop"]
 TYPE_VI = {"all": "Tất cả câu có đáp án", "single": "Single-hop", "multihop": "Multi-hop",
-           "unanswerable": "Ngoài corpus"}
+           "unanswerable": "Out-of-corpus"}
 # (khoá trong scores, tên hiển thị, chiều tốt, là tỉ lệ %)
 METRICS = [("context_precision", "Retrieval precision", "↑", False),
            ("faithfulness", "Faithfulness", "↑", False),
@@ -100,13 +100,16 @@ stats = {"run": "kg30", "environment": INFO["environment"], "top_k": INFO["top_k
          "kg": G["stats"], "types": {}}
 for qt in [*TYPES, "unanswerable"]:
     ids = ids_of(qt)
-    ts = stats["types"][qt] = {"n": len(ids), "main": {}, "extra": {}, "paired": {}}
+    ts = stats["types"][qt] = {"n": len(ids), "main": {}, "n_metric": {}, "extra": {}, "paired": {}}
     for s in SYS:
         ts["main"][s] = {m: boot([S[s][i].get(m) for i in ids]) for m, *_ in METRICS}
+        # số câu thực sự được tính cho từng chỉ số (faithfulness bỏ câu refusal, hallucination thì không)
+        ts["n_metric"][s] = {m: sum(not isnan(S[s][i].get(m)) for i in ids) for m, *_ in METRICS}
+        ts["n_metric"][s]["refusal"] = sum(S[s][i]["refusal"] for i in ids)
         ts["extra"][s] = {k: (float(np.nanmean([S[s][i].get(k, math.nan) for i in ids]))
                               if any(not isnan(S[s][i].get(k)) for i in ids) else None) for k in EXTRA}
         ts["extra"][s]["latency_s"] = float(np.mean([A[s][i]["latency_s"] for i in ids]))
-    for m, *_ in METRICS:  # chênh lệch theo cặp GraphRAG − Vector RAG trên cùng câu hỏi (như nội dung 1)
+    for m, *_ in METRICS:  # paired difference GraphRAG − Vector RAG trên cùng câu hỏi (như nội dung 1)
         d = np.array([S["gr"][i][m] - S["vec"][i][m] for i in ids
                       if not (isnan(S["gr"][i].get(m)) or isnan(S["vec"][i].get(m)))], float)
         if len(d) == 0 or not d.any() and qt == "unanswerable":
@@ -117,7 +120,7 @@ for qt in [*TYPES, "unanswerable"]:
         ts["paired"][m] = {"delta": float(d.mean()), "lo": float(lo), "hi": float(hi), "n": len(d),
                            "p": float(min(1.0, 2 * min((bs <= 0).mean(), (bs >= 0).mean())))}
 
-# Entity "quá chung" (gắn với >= 50 chunk) trong số entity hạt giống -> tỉ lệ lấy được đoạn gốc
+# Entity "quá chung" (gắn với >= 50 chunk) trong số seed entity -> tỉ lệ lấy được gold chunk
 cnt = {e["name"]: len(e["chunk_ids"]) for e in G["entities"]}
 hub = {True: [], False: []}
 for i in ids_of("all"):
@@ -152,6 +155,10 @@ stats["testset"] = {
     "multihop_new_generated": sum(set(t["sources"]) <= set(PAPERS) for t in raw_mh),
     "unanswerable": sum(TS[i]["type"] == "unanswerable" for i in TS)}
 stats["testset"]["single"] = stats["testset"]["single_reused"] + stats["testset"]["single_new"]
+# Kiểm tra judge (judge_audit.py): judge failure, truncate, reproducibility, sensitivity analysis của retrieval precision
+JA = config.RESULTS_DIR / "kg30_judge_audit" / "judge_audit.json"
+if JA.exists():
+    stats["judge_audit"] = json.loads(JA.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats_y2.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
@@ -181,13 +188,13 @@ def chain(ax, y, labels, color, fill, title):
 
 # Fig 1 - dựng KG + hai hệ
 fig, axes = plt.subplots(3, 1, figsize=(9.5, 5.6))
-chain(axes[0], 0.7, ["30 bài\n2.765 chunk", "LLM trích entity\n+ quan hệ\n(qwen2.5:7b)", "Gộp entity\n(viết tắt, số nhiều)",
-                     "Embed entity\n+ quan hệ\n(nomic)", "Knowledge\nGraph"],
+chain(axes[0], 0.7, ["30 bài\n2.765 chunk", "LLM trích entity\n+ relation\n(qwen2.5:7b)", "Gộp entity\n(viết tắt, số nhiều)",
+                     "Embed entity\n+ relation\n(nomic)", "Knowledge\nGraph"],
       INK2, "#efeee9", "(a) Dựng Knowledge Graph (một lần, kg_build.py)")
 chain(axes[1], 0.7, ["Câu hỏi", "Chroma top-4\n(giới hạn 30 bài)", "Generate\n(qwen2.5:7b)", "Câu trả lời"],
-      C["vec"], "#eaf2fc", "(b) Vector RAG: truy xuất theo embedding đoạn văn")
-chain(axes[2], 0.7, ["Câu hỏi", "Khớp entity\n(embedding\n+ tên)", "Mở rộng\nquan hệ 1 bước", "Chọn 4 chunk\ngắn với entity\n/ quan hệ",
-                     "Generate\n(mô tả KG\n+ 4 đoạn văn)", "Câu trả lời"],
+      C["vec"], "#eaf2fc", "(b) Vector RAG: truy xuất theo embedding passage")
+chain(axes[2], 0.7, ["Câu hỏi", "Khớp entity\n(embedding\n+ tên)", "Mở rộng\nrelation 1 bước", "Chọn 4 chunk\ngắn với entity\n/ relation",
+                     "Generate\n(mô tả KG\n+ 4 passage)", "Câu trả lời"],
       C["gr"], "#fdeee7", "(c) GraphRAG: truy xuất qua Knowledge Graph (local search)")
 fig.tight_layout()
 save(fig, "y2_fig1_pipeline.png")
@@ -239,7 +246,7 @@ axes[0].legend(frameon=False, fontsize=8, loc="upper left", ncol=1)
 fig.tight_layout()
 save(fig, "y2_fig3_main.png")
 
-# Fig 4 - chênh lệch theo cặp (forest): (a) chỉ số thang 0–1, (b) chỉ số tỉ lệ (điểm %)
+# Fig 4 - paired difference (forest): (a) chỉ số thang 0–1, (b) chỉ số tỉ lệ (điểm %)
 fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
 for ax, want_pct, title in ((axes[0], False, "(a) Chỉ số thang 0–1"), (axes[1], True, "(b) Chỉ số tỉ lệ (điểm %)")):
     rows = [(qt, m, name) for m, name, _, pct in METRICS if pct == want_pct for qt in TYPES]
@@ -257,7 +264,7 @@ for ax, want_pct, title in ((axes[0], False, "(a) Chỉ số thang 0–1"), (axe
     ax.set_xlabel("GraphRAG − Vector RAG" + (" (điểm %)" if want_pct else ""))
     ax.set_title(title, loc="left")
     grid(ax, "x")
-fig.suptitle("Chênh lệch theo cặp trên cùng câu hỏi, khoảng tin cậy 95% (cam: không chứa 0)",
+fig.suptitle("Paired difference trên cùng câu hỏi, CI 95% (cam: không chứa 0)",
              x=0.01, ha="left", fontsize=10.5, fontweight="bold", color=INK)
 fig.tight_layout()
 save(fig, "y2_fig4_paired.png")

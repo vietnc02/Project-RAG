@@ -1,0 +1,7 @@
+﻿set,type,n,diff,lo,hi,significant
+all questions,all,62,-0.129,-0.2056,-0.0484,True
+all questions,single,27,-0.0556,-0.1852,0.0741,False
+all questions,multihop,35,-0.1857,-0.2786,-0.0929,True
+excluding judge failures,all,58,-0.1379,-0.2112,-0.0647,True
+excluding judge failures,single,24,-0.0833,-0.2083,0.0417,False
+excluding judge failures,multihop,34,-0.1765,-0.2721,-0.0882,True

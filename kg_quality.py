@@ -295,6 +295,21 @@ def coverage() -> dict:
         m, lo, hi = bootstrap_ci(list(x))
         return round(m, 4), f"[{lo:.3f}, {hi:.3f}]"
 
+    # Kiểm tra tay: 40 quan hệ chuẩn (khác nhau) ngẫu nhiên (seed 42) có cạnh khớp trong KG30, đọc mô tả cạnh xem
+    # có nói đúng quan hệ chuẩn không -> độ chính xác của phép khớp "có cạnh trực tiếp" (kg_relation_audit.csv)
+    audit = OUT / "kg_relation_audit.csv"
+    audit_ok = pd.read_csv(audit)["correct"].to_numpy(dtype=float) if audit.exists() else None
+
+    def ci_adjusted(direct, n=2000):
+        """relation completeness đã hiệu chỉnh = completeness × độ chính xác phép khớp (audit). CI bootstrap gộp hai
+        nguồn sai số: lấy mẫu lại quan hệ chuẩn và (độc lập) lấy mẫu lại các cạnh đã kiểm tra tay."""
+        x = np.asarray(list(direct), dtype=float)
+        rng = np.random.default_rng(config.SEED)
+        rc = rng.choice(x, size=(n, len(x))).mean(axis=1)
+        prec = rng.choice(audit_ok, size=(n, len(audit_ok))).mean(axis=1)
+        lo, hi = np.percentile(rc * prec, [2.5, 97.5])
+        return round(float(x.mean() * audit_ok.mean()), 4), f"[{lo:.3f}, {hi:.3f}]"
+
     summary = []
     scope_of = {t["id"]: t["scope"] for t in items}
     for set_name in ("in_scope", "S10", "S20", "all"):
@@ -311,6 +326,8 @@ def coverage() -> dict:
                    "n_gold_relations": len(r)}
             row["entity_coverage"], row["entity_coverage_ci95"] = ci(e["covered"])
             row["relation_completeness"], row["relation_completeness_ci95"] = ci(r["direct"])
+            if audit_ok is not None:
+                row["relation_completeness_adj"], row["relation_completeness_adj_ci95"] = ci_adjusted(r["direct"])
             row["entity_coverage_lenient"], _ = ci(e["covered_lenient"])
             row["relation_completeness_lenient"], _ = ci(r["direct_lenient"])
             row["relation_completeness_2hop"], _ = ci(r["hop2"])
@@ -320,13 +337,11 @@ def coverage() -> dict:
             summary.append(row)
     sm = pd.DataFrame(summary)
     sm.to_csv(OUT / "kg_coverage.csv", index=False, encoding="utf-8-sig")
-    # Kiểm tra tay: 40 quan hệ chuẩn (khác nhau) ngẫu nhiên (seed 42) có cạnh khớp trong KG30, đọc mô tả cạnh xem
-    # có nói đúng quan hệ chuẩn không -> độ chính xác của phép khớp "có cạnh trực tiếp" (kg_relation_audit.csv)
-    audit = OUT / "kg_relation_audit.csv"
     extra = {}
-    if audit.exists():
-        a = pd.read_csv(audit)
-        extra["relation_audit"] = {"n": len(a), "correct": int(a["correct"].sum())}
+    if audit_ok is not None:
+        _, lo, hi = bootstrap_ci(list(audit_ok))
+        extra["relation_audit"] = {"n": len(audit_ok), "correct": int(audit_ok.sum()),
+                                   "precision": round(float(audit_ok.mean()), 4), "precision_ci95": [lo, hi]}
     return {**extra,"gold": {"questions": len(items), "entities": int(edf[edf.k == KS[-1]].gold_key.nunique()),
                      "relations": int(rdf[rdf.k == KS[-1]].gold_key.nunique())},
             "coverage": sm.to_dict(orient="records")}
@@ -346,7 +361,8 @@ def write_md(q: dict):
         main += [f"Bộ chuẩn: {q['gold']['questions']} câu có đáp án, {q['gold']['entities']} thực thể, "
                  f"{q['gold']['relations']} quan hệ (trích từ câu hỏi + đáp án chuẩn, duyệt tay).\n",
                  sm[["set", "k", "n_questions", "n_gold_entities", "entity_coverage", "entity_coverage_ci95",
-                     "n_gold_relations", "relation_completeness", "relation_completeness_ci95"]]
+                     "n_gold_relations", "relation_completeness", "relation_completeness_ci95",
+                     *[c for c in ("relation_completeness_adj", "relation_completeness_adj_ci95") if c in sm]]]
                  .to_markdown(index=False), ""]
     if "kg" in q:
         st = pd.DataFrame(q["kg"]).T.rename_axis("k").reset_index()
@@ -363,7 +379,9 @@ def write_md(q: dict):
         if "relation_audit" in q:
             a = q["relation_audit"]
             lines += [f"Kiểm tra tay {a['n']} cạnh KG30 khớp với quan hệ chuẩn (`kg_relation_audit.csv`): "
-                      f"{a['correct']}/{a['n']} cạnh nói đúng quan hệ chuẩn ({a['correct'] / a['n']:.0%}).\n"]
+                      f"{a['correct']}/{a['n']} cạnh nói đúng quan hệ chuẩn ({a['correct'] / a['n']:.0%}"
+                      + (f", CI 95% [{a['precision_ci95'][0]:.0%}, {a['precision_ci95'][1]:.0%}]"
+                         if "precision_ci95" in a else "") + ").\n"]
     if "kg" in q:
         lines += ["## Đường cong tăng trưởng (`kg_growth.csv`)\n",
                   f"Số entity mới trung bình mỗi bài thêm vào ({N_ORDERS} thứ tự bài ngẫu nhiên): "
@@ -376,6 +394,11 @@ def write_md(q: dict):
               "- **relation completeness**: tỉ lệ quan hệ chuẩn có cạnh trực tiếp trong KG giữa 2 thực thể đã khớp; "
               "`_lenient`: đầu mút khớp lenient; `_2hop`: nối nhau trong <= 2 bước; `relation_endpoints_covered`: "
               "cả 2 đầu mút có trong KG.",
+              "- **relation_completeness_adj** (đã hiệu chỉnh): relation completeness × độ chính xác của phép khớp "
+              "cạnh theo kiểm tra tay (`kg_relation_audit.csv`), loại phần cạnh nối đúng 2 thực thể nhưng nói quan hệ "
+              "khác. CI 95% bootstrap gộp cả sai số lấy mẫu quan hệ chuẩn lẫn sai số của tỉ lệ kiểm tra tay. Giả định: "
+              "độ chính xác kiểm tra trên KG30 áp dụng cho KG10 / KG20; chỉ hiệu chỉnh khớp sai (dương tính giả), "
+              "không hiệu chỉnh quan hệ có trong KG mà phép khớp tên bỏ sót.",
               "- **gold_chunk_reachable**: tỉ lệ đoạn gốc của câu hỏi có ít nhất 1 entity/quan hệ trong KG "
               "(GraphRAG chỉ lấy được đoạn văn qua entity/quan hệ).",
               "- `*_2plus_share`: tỉ lệ entity / quan hệ xuất hiện ở >= 2 bài (liên kết giữa các bài)."]
