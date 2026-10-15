@@ -1,0 +1,617 @@
+{
+  "n_questions": 85,
+  "n_answerable": 62,
+  "n_unanswerable": 23,
+  "ni_margin": 0.05,
+  "params": {
+    "KG_KEEP": 0.5,
+    "KG_ITEM_CHARS": 110,
+    "SENT_KEEP": 0.5
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.40.4",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  },
+  "modes": {
+    "base": {
+      "context_tokens": 1539.3294117647058,
+      "prompt_tokens": 1630.6823529411765,
+      "kg_chars": 2877.105882352941,
+      "passage_chars": 3706.858823529412,
+      "token_reduction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "token_reduction_min": 0.0,
+      "token_reduction_max": 0.0,
+      "prompt_reduction": 0.0,
+      "latency_s": 14.44541176470588,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 57,
+      "refusal_n": 5,
+      "answer_relevancy_non_refused": 0.8214312151833895,
+      "faithfulness": [
+        0.8639865981971245,
+        0.8254934685197843,
+        0.9020789882631988
+      ],
+      "faithfulness_full": [
+        0.8639865981971245,
+        0.8218829708303392,
+        0.9009460641697483
+      ],
+      "hallucination": [
+        0.46774193548387094,
+        0.3387096774193548,
+        0.5967741935483871
+      ],
+      "answer_correctness": [
+        0.8064516129032258,
+        0.7096774193548387,
+        0.8870967741935484
+      ],
+      "context_recall": [
+        0.6838063817902528,
+        0.6210761416003351,
+        0.7458262637899733
+      ],
+      "answer_relevancy": [
+        0.7551867623460194,
+        0.6951107249936591,
+        0.8096847365661018
+      ],
+      "refusal": [
+        0.08064516129032258,
+        0.016129032258064516,
+        0.16129032258064516
+      ]
+    },
+    "kg": {
+      "context_tokens": 1190.2,
+      "prompt_tokens": 1281.5529411764705,
+      "kg_chars": 1152.4117647058824,
+      "passage_chars": 3706.858823529412,
+      "token_reduction": [
+        0.22537698193048236,
+        0.21689737658486297,
+        0.2340743656018324
+      ],
+      "token_reduction_min": 0.1423705722070845,
+      "token_reduction_max": 0.3107638888888888,
+      "prompt_reduction": 0.21263535169892803,
+      "latency_s": 15.013882352941174,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 52,
+      "refusal_n": 10,
+      "answer_relevancy_non_refused": 0.8098001940269877,
+      "faithfulness": [
+        0.8390109890109891,
+        0.7895997405372404,
+        0.8854494810744808
+      ],
+      "faithfulness_full": [
+        0.8291132478632478,
+        0.7781763202075702,
+        0.8766954746642245
+      ],
+      "hallucination": [
+        0.4838709677419355,
+        0.3548387096774194,
+        0.6129032258064516
+      ],
+      "answer_correctness": [
+        0.7903225806451613,
+        0.6774193548387096,
+        0.8870967741935484
+      ],
+      "context_recall": [
+        0.6898722245496439,
+        0.6210609842666294,
+        0.7542042836196061
+      ],
+      "answer_relevancy": [
+        0.6791872595065058,
+        0.592291004175209,
+        0.7538668563044545
+      ],
+      "refusal": [
+        0.16129032258064516,
+        0.08064516129032258,
+        0.25806451612903225
+      ]
+    },
+    "text": {
+      "context_tokens": 1150.8470588235293,
+      "prompt_tokens": 1242.2,
+      "kg_chars": 2877.105882352941,
+      "passage_chars": 2138.2235294117645,
+      "token_reduction": [
+        0.25326669348716163,
+        0.24555787913472527,
+        0.2603559848800316
+      ],
+      "token_reduction_min": 0.1771300448430492,
+      "token_reduction_max": 0.3587548638132295,
+      "prompt_reduction": 0.2389994811028964,
+      "latency_s": 14.436823529411766,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 55,
+      "refusal_n": 7,
+      "answer_relevancy_non_refused": 0.8311973705215141,
+      "faithfulness": [
+        0.8362554112554111,
+        0.7903463203463204,
+        0.8789415584415582
+      ],
+      "faithfulness_full": [
+        0.8401948051948052,
+        0.8000849567099566,
+        0.8788138528138528
+      ],
+      "hallucination": [
+        0.5645161290322581,
+        0.43548387096774194,
+        0.6935483870967742
+      ],
+      "answer_correctness": [
+        0.7903225806451613,
+        0.6935483870967742,
+        0.8870967741935484
+      ],
+      "context_recall": [
+        0.6639709305031886,
+        0.5995132488479262,
+        0.7256057114928083
+      ],
+      "answer_relevancy": [
+        0.7373525061077947,
+        0.6679864952917693,
+        0.8015150076345989
+      ],
+      "refusal": [
+        0.11290322580645161,
+        0.03225806451612903,
+        0.1935483870967742
+      ]
+    },
+    "both": {
+      "context_tokens": 801.7176470588236,
+      "prompt_tokens": 893.0705882352942,
+      "kg_chars": 1152.4117647058824,
+      "passage_chars": 2138.2235294117645,
+      "token_reduction": [
+        0.4786436754176442,
+        0.4706546372461514,
+        0.487092253984245
+      ],
+      "token_reduction_min": 0.3957680250783699,
+      "token_reduction_max": 0.5989583333333333,
+      "prompt_reduction": 0.4516348328018243,
+      "latency_s": 9.704823529411764,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 52,
+      "refusal_n": 10,
+      "answer_relevancy_non_refused": 0.8266564400479786,
+      "faithfulness": [
+        0.8147255522255523,
+        0.7567245254745252,
+        0.8727728174603173
+      ],
+      "faithfulness_full": [
+        0.8217532467532467,
+        0.7653346133033633,
+        0.8763565080752579
+      ],
+      "hallucination": [
+        0.43548387096774194,
+        0.3064516129032258,
+        0.5483870967741935
+      ],
+      "answer_correctness": [
+        0.8064516129032258,
+        0.7096774193548387,
+        0.9032258064516129
+      ],
+      "context_recall": [
+        0.6471931294511938,
+        0.5838339035516454,
+        0.7067853651724618
+      ],
+      "answer_relevancy": [
+        0.6933247561692724,
+        0.6121843391112879,
+        0.761364302779801
+      ],
+      "refusal": [
+        0.16129032258064516,
+        0.08064516129032258,
+        0.25806451612903225
+      ]
+    }
+  },
+  "paired": {
+    "kg": {
+      "faithfulness": {
+        "delta": -0.029846115423038503,
+        "lo": -0.07877556471306472,
+        "hi": 0.015940413752913652,
+        "n": 52,
+        "p": 0.2028
+      },
+      "faithfulness_full": {
+        "delta": -0.039743856570779654,
+        "lo": -0.0884142766955267,
+        "hi": 0.006596372377622371,
+        "n": 52,
+        "p": 0.0976
+      },
+      "hallucination": {
+        "delta": 0.016129032258064516,
+        "lo": -0.0967741935483871,
+        "hi": 0.14516129032258066,
+        "n": 62,
+        "p": 0.888
+      },
+      "answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.0967741935483871,
+        "hi": 0.06451612903225806,
+        "n": 62,
+        "p": 0.8584
+      },
+      "context_recall": {
+        "delta": 0.0060658427593911456,
+        "lo": -0.025755539263603782,
+        "hi": 0.038948892729134627,
+        "n": 62,
+        "p": 0.736
+      },
+      "answer_relevancy": {
+        "delta": -0.07599950283951358,
+        "lo": -0.14596878904793079,
+        "hi": -0.021430479559587788,
+        "n": 62,
+        "p": 0.0012
+      },
+      "refusal": {
+        "delta": 0.08064516129032258,
+        "lo": 0.016129032258064516,
+        "hi": 0.16129032258064516,
+        "n": 62,
+        "p": 0.0068
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.5442270504287763
+    },
+    "text": {
+      "faithfulness": {
+        "delta": -0.028845851118578396,
+        "lo": -0.0790648064057155,
+        "hi": 0.016459268004722513,
+        "n": 55,
+        "p": 0.2276
+      },
+      "faithfulness_full": {
+        "delta": -0.024906457179184462,
+        "lo": -0.07119101731601732,
+        "hi": 0.020319165682801954,
+        "n": 55,
+        "p": 0.272
+      },
+      "hallucination": {
+        "delta": 0.0967741935483871,
+        "lo": -0.03225806451612903,
+        "hi": 0.22580645161290322,
+        "n": 62,
+        "p": 0.1516
+      },
+      "answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.08064516129032258,
+        "hi": 0.03225806451612903,
+        "n": 62,
+        "p": 0.7812
+      },
+      "context_recall": {
+        "delta": -0.019835451287064185,
+        "lo": -0.054215324326211414,
+        "hi": 0.016503281664571948,
+        "n": 62,
+        "p": 0.2728
+      },
+      "answer_relevancy": {
+        "delta": -0.017834256238224627,
+        "lo": -0.059654525889887955,
+        "hi": 0.01281117640009793,
+        "n": 62,
+        "p": 0.33
+      },
+      "refusal": {
+        "delta": 0.03225806451612903,
+        "lo": 0.0,
+        "hi": 0.08064516129032258,
+        "n": 62,
+        "p": 0.2484
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.538594891206454
+    },
+    "both": {
+      "faithfulness": {
+        "delta": -0.054131552208475285,
+        "lo": -0.10992901863094173,
+        "hi": -0.002936174402520609,
+        "n": 52,
+        "p": 0.0388
+      },
+      "faithfulness_full": {
+        "delta": -0.04710385768078077,
+        "lo": -0.10421120546120549,
+        "hi": 0.00622781065088755,
+        "n": 52,
+        "p": 0.0828
+      },
+      "hallucination": {
+        "delta": -0.03225806451612903,
+        "lo": -0.14516129032258066,
+        "hi": 0.08064516129032258,
+        "n": 62,
+        "p": 0.6504
+      },
+      "answer_correctness": {
+        "delta": 0.0,
+        "lo": -0.0967741935483871,
+        "hi": 0.08064516129032258,
+        "n": 62,
+        "p": 1.0
+      },
+      "context_recall": {
+        "delta": -0.036613252339058794,
+        "lo": -0.07069530268118977,
+        "hi": -0.0034751169529395527,
+        "n": 62,
+        "p": 0.032
+      },
+      "answer_relevancy": {
+        "delta": -0.061862006176746975,
+        "lo": -0.12736141261930572,
+        "hi": -0.011228780470112937,
+        "n": 62,
+        "p": 0.0076
+      },
+      "refusal": {
+        "delta": 0.08064516129032258,
+        "lo": 0.016129032258064516,
+        "hi": 0.16129032258064516,
+        "n": 62,
+        "p": 0.0068
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.42965102266419286
+    }
+  },
+  "faithfulness_answered_all": {
+    "n": 52,
+    "kg": {
+      "delta": -0.029846115423038503,
+      "lo": -0.07877556471306472,
+      "hi": 0.015940413752913652,
+      "n": 52,
+      "p": 0.2028
+    },
+    "text": {
+      "delta": -0.03051003483695793,
+      "lo": -0.08074781788724096,
+      "hi": 0.016017003829503787,
+      "n": 52,
+      "p": 0.1852
+    },
+    "both": {
+      "delta": -0.054131552208475285,
+      "lo": -0.10992901863094173,
+      "hi": -0.002936174402520609,
+      "n": 52,
+      "p": 0.0388
+    }
+  },
+  "hallucination_answered": {
+    "base": 0.5087719298245614,
+    "kg": 0.5769230769230769,
+    "text": 0.6363636363636364,
+    "both": 0.5192307692307693
+  },
+  "n_comparisons": {
+    "total": 21,
+    "significant": 6
+  },
+  "new_refusals": {
+    "kg": [
+      {
+        "id": "g042",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.4545454545454545,
+        "recall_mode": 0.4545454545454545
+      },
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.5555555555555556
+      },
+      {
+        "id": "m027",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.6666666666666666
+      },
+      {
+        "id": "m064",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.625,
+        "recall_mode": 0.625
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.3333333333333333,
+        "recall_mode": 0.5
+      }
+    ],
+    "text": [
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.4444444444444444
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.3333333333333333,
+        "recall_mode": 0.5
+      }
+    ],
+    "both": [
+      {
+        "id": "g042",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.4545454545454545,
+        "recall_mode": 0.4545454545454545
+      },
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.3333333333333333
+      },
+      {
+        "id": "m027",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.6666666666666666
+      },
+      {
+        "id": "m064",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.625,
+        "recall_mode": 0.625
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.3333333333333333,
+        "recall_mode": 0.5
+      }
+    ]
+  },
+  "correct_flips": {
+    "kg": {
+      "wrong_to_right": 3,
+      "right_to_wrong": 4
+    },
+    "text": {
+      "wrong_to_right": 1,
+      "right_to_wrong": 2
+    },
+    "both": {
+      "wrong_to_right": 4,
+      "right_to_wrong": 4
+    }
+  },
+  "judge_log": {
+    "calls": 1333,
+    "judge_failures": 2,
+    "json_error": 1,
+    "ollama_error": 0,
+    "verdicts_missing": 1,
+    "truncated": 0,
+    "prompt_tokens_max": 2228
+  },
+  "example": {
+    "id": "q005",
+    "question": "Does Libsodium support any NIST PQC finalist algorithms as of its latest release in the 1.0.x series?",
+    "kg_base": [
+      "- libsodium (SYSTEM): Cryptographic open-source library.; Popular cryptographic library with a consistent API.; Cryptographic library that does not include support for NIST PQC finalist algorithms.; Library insufficient for quantum readiness ",
+      "- NIST PQC algorithms (ALGORITHM): Suite of algorithms spanning different families of mathematical problems.; Algorithms based on criteria mentioned in previous section.; NIST Post-Quantum Cryptography algorithms.; Standard post-quantum cryptography algor",
+      "- NIST (ORGANIZATION): U.S. government agency standardizing post-quantum cryptography.; Launched a global competition for quantum-resistant public-key cryptographic algorithms.; Kyber has been officially selected by NIST.; Selected Falcon for ",
+      "- PQC (ALGORITHM): Deep PQCs, or those forming 2-designs.; Post-quantum cryptographic algorithms implemented through hybrid systems.; Post-Quantum Cryptography.; Algorithms submitted in various categories for the NIST competition.; PQC sta",
+      "- NIST PQC finalists (ALGORITHM): NIST-selected algorithms for post-quantum cryptography.; NIST's post-quantum cryptography finalist algorithms including Kyber, Dilithium, FALCON, SPHINCS+.; Post-quantum key exchange or signature schemes that are not yet",
+      "- post quantum cryptography (STANDARD): PQC is the new era of cryptography due to quantum computing.; Solution to mitigate risks posed by quantum computing.",
+      "- PQC finalists of NIST (DATASET): NIST's post-quantum cryptography finalists for comparison.",
+      "- post-quantum cryptosystems (ALGORITHM): Innovative solution for resisting quantum attacks.; Cryptosystems designed to resist quantum computing attacks.; New generation of cryptosystems examined in the study.; This article discusses the challenges and potential",
+      "- libsodium -- NIST PQC finalists: libsodium does not include support for any of the NIST PQC finalist algorithms.",
+      "- liboqs -- NIST PQC algorithms: OQS supports many PQC algorithms including Kyber, Dilithium, Falcon, and SPHINCS+.",
+      "- LibreSSL -- NIST PQC finalists: LibreSSL supports some of the NIST PQC finalist algorithms.",
+      "- OpenSSL -- NIST PQC algorithms: OpenSSL has signaled that support for NIST PQC algorithms is forthcoming.; OpenSSL has not included these algorithms in its official release.",
+      "- OpenSSL -- NIST finalists: OpenSSL does not support any NIST finalist algorithms.",
+      "- OpenSSL Foundation -- NIST PQC algorithms: Plans to implement support for these algorithms in OpenSSL.",
+      "- NIST PQC algorithms -- Dilithium: NIST PQC algorithms include Dilithium.",
+      "- libsodium -- PQC: libsodium has not yet embraced PQC.",
+      "- MbedTLS -- NIST PQC algorithms: MbedTLS does not have NIST PQC algorithms implemented.",
+      "- Crypto++ -- NIST PQC finalists: Crypto++ does not include the NIST PQC finalists in its mainline distribution.",
+      "- PQC solutions -- NIST: NIST is leading standardization efforts for PQC algorithms.",
+      "- open-source libraries -- PQC: Libraries support PQC algorithms."
+    ],
+    "kg_both": [
+      "- libsodium (SYSTEM): Cryptographic library that does not include support for NIST PQC finalist algorithms.",
+      "- NIST PQC algorithms (ALGORITHM): Algorithms based on criteria mentioned in previous section.; NIST Post-Quantum Cryptography algorithms.",
+      "- NIST PQC finalists (ALGORITHM): NIST's post-quantum cryptography finalist algorithms including Kyber, Dilithium, FALCON, SPHINCS+.",
+      "- PQC finalists of NIST (DATASET): NIST's post-quantum cryptography finalists for comparison.",
+      "- libsodium -- NIST PQC finalists: libsodium does not include support for any of the NIST PQC finalist algorithms.",
+      "- liboqs -- NIST PQC algorithms: OQS supports many PQC algorithms including Kyber, Dilithium, Falcon, and SPHINCS+.",
+      "- LibreSSL -- NIST PQC finalists: LibreSSL supports some of the NIST PQC finalist algorithms.",
+      "- OpenSSL -- NIST PQC algorithms: OpenSSL has signaled that support for NIST PQC algorithms is forthcoming.",
+      "- OpenSSL -- NIST finalists: OpenSSL does not support any NIST finalist algorithms.",
+      "- NIST PQC algorithms -- Dilithium: NIST PQC algorithms include Dilithium."
+    ],
+    "passage_base": "OpenSSL has not included NIST PQC algorithms in its official\nrelease, but has signaled that support is forthcoming now that\nstandards are finalized [19]. In September 2024, the OpenSSL\nFoundation announced plans to implement the NIST PQC finalists (Kyber, Dilithium, Falcon, SPHINCS+) in a future release,\nstating: “We intend to implement support for these algorithms\nin our providers in a future version of OpenSSL” [19]. This\ncame after NIST published the FIPS draft standards (ML-KEM,\nML-DSA, SLH-DSA), which OpenSSL was awaiting to avoid\nintegrating pre-standard algorithms. As of early 2025, integration is underway (targeting OpenSSL 3.5), but not yet released.\nMeanwhile, since early 2022, the Open Quantum Safe (OQS)\nproject has offered PQC support for OpenSSL 3 via its provider\narchitecture [34]. Maintained by openquantumsafe.org, the OQS\nprovider allowed experimentation with many PQC algorithms\nacross TLS 1.3 and X.509 [19], serving as a “test vehicle” for",
+    "passage_both": "OpenSSL has not included NIST PQC algorithms in its official release, but has signaled that support is forthcoming now that standards are finalized. In September 2024, the OpenSSL Foundation announced plans to implement the NIST PQC finalists (Kyber, Dilithium, Falcon, SPHINCS+) in a future release, stating: “We intend to implement support for these algorithms in our providers in a future version of OpenSSL”. Maintained by openquantumsafe.org, the OQS provider allowed experimentation with many PQC algorithms across TLS 1.3 and X.509, serving as a “test vehicle” for",
+    "tokens_base": 1707,
+    "tokens_both": 893
+  },
+  "gt_claims": {
+    "n": 62,
+    "mean": 6.467741935483871
+  }
+}

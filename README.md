@@ -6,6 +6,8 @@
   (báo cáo `report/Bao_cao_Y2.pdf`, xem [phần Ý 2](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum))
 - **Ý 3** — KG từ k = 10, 20, 30 bài: chất lượng KG (entity coverage, relation completeness) + chất lượng câu trả lời,
   k bài có đủ để KG hoạt động tốt không (báo cáo `report/Bao_cao_Y3.pdf`, xem [phần Ý 3](#ý-3--kg-từ-k--10-20-30-bài))
+- **Ý 4** — Context compression cho GraphRAG (nén KG và passage): token reduction (mục tiêu 19–53%) và faithfulness
+  (báo cáo `report/Bao_cao_Y4.pdf`, xem [phần Ý 4](#ý-4--context-compression-cho-graphrag))
 
 ## Chạy nhanh (sau khi clone repo)
 Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cần build lại.
@@ -23,6 +25,8 @@ Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cầ
    python evaluate_graphrag.py --run kg30                # chạy lại đánh giá ý 2
    python kg_quality.py --all                            # chất lượng KG10 / KG20 / KG30 (ý 3, không cần LLM)
    python evaluate_kg_scale.py                           # chạy lại đánh giá câu trả lời ý 3
+   python compress.py "Which signature schemes did NIST select for standardization?" --mode both   # context nén (ý 4)
+   python evaluate_compression.py                        # chạy lại đánh giá ý 4
    ```
    Lần chạy đầu, `data/chroma.zip` tự giải nén ra `data/chroma/` (có kiểm tra sha256).
 
@@ -260,3 +264,48 @@ significance khi bỏ câu có judge failure và khi dùng điểm re-judge), n�
 
 Đối chiếu tài liệu trong báo cáo: Han et al. 2025, GraphRAG-Bench (thử nghiệm theo cỡ corpus), KGGen / MINE,
 Zhu et al., Joren et al. (sufficient context, ICLR 2025), định luật Heaps.
+
+# Ý 4 — Context compression cho GraphRAG
+
+Nén context mà GraphRAG (ý 2, KG30) đưa vào LLM — mô tả KG + 4 passage — để giảm token, đo **token reduction** (mục
+tiêu 19–53%) và kiểm tra **faithfulness có giữ nguyên không**. Báo cáo: `report/Bao_cao_Y4.pdf`. Ý 4 chỉ thêm file mới.
+
+## Quy trình
+```powershell
+python compress.py --calibrate          # 1. chọn mức nén CHỈ theo độ dài context (không gọi LLM)
+python compress.py "câu hỏi" --mode both  #    xem context nén (base / kg / text / both)
+python evaluate_compression.py          # 2. 4 chế độ x 85 câu: sinh câu trả lời, chấm -> results/compression/
+python report/make_figures_y4.py; python report/build_report_y4.py   # 3. báo cáo -> report/Bao_cao_Y4.docx/.pdf
+```
+
+## Cách nén (`compress.py`) — chỉ xoá bớt (extractive), context nén luôn là tập con của context gốc
+- **Nén KG**: giữ 50% entity / 50% relation gần câu hỏi nhất (cosine embedding); mỗi dòng chỉ giữ mảnh mô tả gần câu
+  hỏi nhất (≤ 110 ký tự, lấy trong phần mô tả context gốc hiển thị).
+- **Nén passage**: bỏ nhiễu (số trích dẫn, URL, email, dòng arXiv), giữ 50% số câu gần câu hỏi nhất mỗi passage.
+- Bốn chế độ: base (không nén), kg, text, both. Cả bốn sinh câu trả lời lại trong cùng môi trường (cả base).
+
+## Cách đo (`evaluate_compression.py`)
+- **Token reduction**: 1 − token context nén / token context gốc, token đếm bằng `prompt_eval_count` (tokenizer qwen2.5:7b).
+- **Faithfulness** trên context đưa vào LLM; "giữ nguyên" kiểm định **non-inferiority**, ngưỡng đặt trước 0,05.
+- **Context recall** (claim của ground truth còn trong context: "thông tin quan trọng"), answer correctness, refusal
+  ở câu có đáp án, answer relevancy; judge log (judge_failures, truncate) như ý 2.
+
+## Kết quả (62 câu có đáp án; nén − gốc, CI 95%)
+| | Nén KG | Nén passage | Nén KG + passage |
+|---|---|---|---|
+| Token reduction | 22,5% | 25,3% | 47,9% |
+| Faithfulness | −0,030 [−0,079; +0,016] | −0,029 [−0,079; +0,016] | −0,054 [−0,110; −0,003] |
+| Context recall | +0,6 điểm % [−2,6; +3,9] | −2,0 điểm % [−5,4; +1,7] | −3,7 điểm % [−7,1; −0,3] |
+| Answer correctness | −1,6 điểm % [−9,7; +6,5] | −1,6 điểm % [−8,1; +3,2] | 0,0 điểm % [−9,7; +8,1] |
+| Refusal (câu có đáp án) | +8,1 điểm % [+1,6; +16,1] | +3,2 điểm % [0,0; +8,1] | +8,1 điểm % [+1,6; +16,1] |
+
+- Token reduction của cả ba mức nằm trong mục tiêu 19–53%.
+- **Không chế độ nào chứng minh được faithfulness giữ nguyên** (non-inferiority, ngưỡng 0,05): nén một phần giảm ~0,03,
+  không có statistical significance nhưng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp, CI ±0,05);
+  nén cả hai giảm 0,054, có statistical significance.
+- Context recall và answer correctness: nén một phần không đủ bằng chứng để phân biệt với context gốc; nén cả hai làm
+  context recall giảm nhẹ. Nén KG làm **refusal ở câu có đáp án tăng gấp đôi** (8% → 16%), chủ yếu câu multi-hop dù
+  thông tin vẫn còn trong context; answer relevancy giảm vì câu refusal được 0 điểm.
+- Judge log: 1.333 judge call, 2 judge_failures, không prompt nào bị truncate.
+
+Đối chiếu tài liệu trong báo cáo: KG-RAG (Soman et al., Bioinformatics 2024), RECOMP (ICLR 2024), LongLLMLingua (ACL 2024).

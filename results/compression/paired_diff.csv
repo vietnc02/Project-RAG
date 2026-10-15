@@ -1,0 +1,22 @@
+﻿mode,metric,n_pairs,diff,ci95,significant
+kg,faithfulness,52,-0.0298,"[-0.079, 0.016]",False
+kg,hallucination,62,0.0161,"[-0.097, 0.145]",False
+kg,answer_correctness,62,-0.0161,"[-0.097, 0.065]",False
+kg,context_recall,62,0.0061,"[-0.026, 0.039]",False
+kg,answer_relevancy,62,-0.076,"[-0.146, -0.021]",True
+kg,faithfulness_full,52,-0.0397,"[-0.088, 0.007]",False
+kg,refusal,62,0.0806,"[0.016, 0.161]",True
+text,faithfulness,55,-0.0288,"[-0.079, 0.016]",False
+text,hallucination,62,0.0968,"[-0.032, 0.226]",False
+text,answer_correctness,62,-0.0161,"[-0.081, 0.032]",False
+text,context_recall,62,-0.0198,"[-0.054, 0.017]",False
+text,answer_relevancy,62,-0.0178,"[-0.060, 0.013]",False
+text,faithfulness_full,55,-0.0249,"[-0.071, 0.020]",False
+text,refusal,62,0.0323,"[0.000, 0.081]",False
+both,faithfulness,52,-0.0541,"[-0.110, -0.003]",True
+both,hallucination,62,-0.0323,"[-0.145, 0.081]",False
+both,answer_correctness,62,0.0,"[-0.097, 0.081]",False
+both,context_recall,62,-0.0366,"[-0.071, -0.003]",True
+both,answer_relevancy,62,-0.0619,"[-0.127, -0.011]",True
+both,faithfulness_full,52,-0.0471,"[-0.104, 0.006]",False
+both,refusal,62,0.0806,"[0.016, 0.161]",True
