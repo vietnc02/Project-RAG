@@ -1,13 +1,53 @@
 # Đồ án RAG trên bộ bài báo khoa học (server local)
 
-- **Ý 1** — LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate
-  (báo cáo `report/Bao_cao_Y1.pdf`)
-- **Ý 2** — GraphRAG (Knowledge Graph từ 30 bài chủ đề quantum) vs Vector RAG thuần: retrieval precision + generation quality
-  (báo cáo `report/Bao_cao_Y2.pdf`, xem [phần Ý 2](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum))
-- **Ý 3** — KG từ k = 10, 20, 30 bài: chất lượng KG (entity coverage, relation completeness) + chất lượng câu trả lời,
-  k bài có đủ để KG hoạt động tốt không (báo cáo `report/Bao_cao_Y3.pdf`, xem [phần Ý 3](#ý-3--kg-từ-k--10-20-30-bài))
-- **Ý 4** — Context compression cho GraphRAG (nén KG và passage): token reduction (mục tiêu 19–53%) và faithfulness
-  (báo cáo `report/Bao_cao_Y4.pdf`, xem [phần Ý 4](#ý-4--context-compression-cho-graphrag))
+So sánh các kiến trúc RAG (RAG thuần, Self-RAG, GraphRAG) trên 95 bài báo khoa học, chạy hoàn toàn cục bộ bằng Ollama
+(LLM `qwen2.5:7b`, judge `llama3.1:8b`, embedding `nomic-embed-text`). Mỗi nội dung có báo cáo PDF riêng trong `report/`.
+
+## Tóm tắt 4 nội dung
+
+| | Câu hỏi | Kết quả chính | Báo cáo |
+|---|---|---|---|
+| **Ý 1** | LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate | Single-hop: không đủ bằng chứng để phân biệt hai hệ. Multi-hop: Self-RAG giảm hallucination rate 71% → 37%, phần lớn nhờ refuse nhiều hơn; đổi lại answer relevancy 0,70 → 0,42 | [Bao_cao_Y1.pdf](report/Bao_cao_Y1.pdf) · [chi tiết](#ý-1--langchain-rag-thuần-vs-langgraph-self-rag) |
+| **Ý 2** | KG từ 30 bài (chủ đề quantum); GraphRAG vs Vector RAG: retrieval precision, generation quality | GraphRAG có retrieval precision thấp hơn (0,49 so với 0,62, statistically significant); generation quality không đủ bằng chứng để phân biệt. Judge audit: kết luận không đổi | [Bao_cao_Y2.pdf](report/Bao_cao_Y2.pdf) · [chi tiết](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) |
+| **Ý 3** | KG từ k = 10, 20, 30 bài: k bài có đủ để KG hoạt động tốt không | Câu hỏi về chính các bài trong KG: không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp. Điểm yếu là relation (~37% sau hiệu chỉnh). Hỏi cả chủ đề: answer correctness 55% / 76% / 82% | [Bao_cao_Y3.pdf](report/Bao_cao_Y3.pdf) · [chi tiết](#ý-3--kg-từ-k--10-20-30-bài) |
+| **Ý 4** | Context compression (nén KG và passage): token reduction 19–53%, giữ nguyên faithfulness | Token reduction 22,5% / 25,3% / 47,9%; chưa chứng minh được faithfulness giữ nguyên (non-inferiority, ngưỡng 0,05); nén KG làm refuse nhiều hơn | [Bao_cao_Y4.pdf](report/Bao_cao_Y4.pdf) · [chi tiết](#ý-4--context-compression-cho-graphrag) |
+
+Mọi chênh lệch được báo kèm CI 95% (bootstrap, paired trên cùng câu hỏi). Judge được audit (judge_failures, truncate)
+ở ý 2 và ý 3.
+
+## Mục lục
+- [Chạy nhanh](#chạy-nhanh-sau-khi-clone-repo) · [Môi trường](#môi-trường) · [Cấu trúc repo](#cấu-trúc-repo) · [Dữ liệu](#dữ-liệu-chunks--chroma-có-trong-repo)
+- [Ý 1](#ý-1--langchain-rag-thuần-vs-langgraph-self-rag) · [Ý 2](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) · [Ý 3](#ý-3--kg-từ-k--10-20-30-bài) · [Ý 4](#ý-4--context-compression-cho-graphrag)
+
+## Cấu trúc repo
+```
+config.py, common.py          cấu hình chung (model, top-k, đường dẫn); LLM, embedding, vector store, prompt sinh câu trả lời
+ingest.py                     PDF -> chunk -> Chroma (data/)
+── Ý 1 ──
+rag_langchain.py              hệ A: LangChain RAG thuần
+rag_selfrag.py                hệ B: LangGraph Self-RAG
+generate_testset.py           sinh câu hỏi (duyệt tay trong testset/review_*.py)
+evaluate.py                   chấm 2 hệ bằng LLM-judge (faithfulness, answer relevancy, hallucination) + judge log
+── Ý 2 ──
+kg_build.py                   dựng Knowledge Graph từ 30 bài (data/kg/)
+rag_graphrag.py               GraphRAG (local search qua KG)
+evaluate_graphrag.py          GraphRAG vs Vector RAG (retrieval precision, generation quality)
+judge_audit.py                re-judge ý 2 với judge log: judge_failures, truncate, sensitivity analysis
+── Ý 3 ──
+kg_quality.py                 chất lượng KG10/20/30: entity coverage, relation completeness (+ bản hiệu chỉnh)
+evaluate_kg_scale.py          GraphRAG trên KG10/20/30
+judge_audit_kg_scale.py       re-judge KG10/KG20, sensitivity analysis
+── Ý 4 ──
+compress.py                   nén context GraphRAG (KG + passage)
+evaluate_compression.py       4 chế độ nén: token reduction, faithfulness (non-inferiority), context recall
+
+data/          chunks, Chroma (chroma.zip), KG (data/kg/k10, k20, k30)
+papers/, papers_y2/           PDF bài báo (papers_y2: 7 bài bổ sung cho ý 2, nguồn trong SOURCES.md)
+testset/       bộ câu hỏi đã duyệt tay (+ bản sinh tự động *_raw.json, kết quả duyệt review_*.py)
+results/       kết quả từng lần chạy: k4, k8 (ý 1) · kg30, kg30_judge_audit (ý 2) · kg_scale,
+               kg_scale_judge_audit (ý 3) · compression (ý 4); mỗi thư mục có summary.md + run_info.json
+report/        báo cáo Bao_cao_Y1..Y4 (.docx/.pdf), make_figures_y*.py (số liệu + hình), build_report_y*.py
+```
 
 ## Chạy nhanh (sau khi clone repo)
 Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cần build lại.
@@ -38,7 +78,7 @@ Repo đã có sẵn dữ liệu (chunks + Chroma + Knowledge Graph), không cầ
 | langgraph | 1.2.12 |
 | langchain-ollama / langchain-chroma | 1.1.0 / 1.1.0 |
 | chromadb | 1.5.9 |
-| Ollama server | 0.35.0; phần cuối run `k8` chạy trên 0.35.1 (Ollama tự cập nhật, digest model không đổi). `http://localhost:11434` |
+| Ollama server | ý 1: 0.35.0 (phần cuối run `k8` trên 0.35.1); ý 2–3: 0.35.1; ý 4 và judge audit: 0.40.4 (digest model không đổi). `http://localhost:11434` |
 | LLM sinh câu trả lời | `qwen2.5:7b` Q4_K_M (digest `845dbda0ea48`) |
 | Judge | `llama3.1:8b` Q4_K_M (digest `46e0c10c039e`) |
 | Embedding | `nomic-embed-text` F16 (digest `0a109f422b47`) |
