@@ -189,6 +189,28 @@ def score(path=LABELS):
              "mean_human": round(float(f.faithfulness_human.mean()), 3),
              "mean_judge": round(float(f.faithfulness_judge.mean()), 3)}
 
+    # Nguồn chênh lệch: chiều lệch (human 0 / judge 1 và ngược lại), tỉ lệ "có" theo loại câu, hệ, vị trí passage
+    u, nr = lab[lab.kind == "useful"], per[per.refusal == 0]
+    r3 = lambda v: round(float(v), 3)
+    direction = {"useful": (u, "human", "judge"), "correct": (per, "correct_human", "correct_judge"),
+                 "hallucination": (nr, "hallucination_human", "hallucination_judge")}
+    breakdown = {
+        "direction": {k: {"judge1_human0": int(((d[j] == 1) & (d[hu] == 0)).sum()),
+                          "judge0_human1": int(((d[j] == 0) & (d[hu] == 1)).sum())}
+                      for k, (d, hu, j) in direction.items()},
+        "correct_by_type": {t: {"human": r3(g.correct_human.mean()), "judge": r3(g.correct_judge.mean()),
+                                "judge1_human0": int(((g.correct_judge == 1) & (g.correct_human == 0)).sum())}
+                            for t, g in per.groupby("type")},
+        "useful_by_system": {s: {"human": r3(g.human.mean()), "judge": r3(g.judge.mean())}
+                             for s, g in u.groupby("system")},
+        "useful_by_index": {int(i) + 1: {"human": r3(g.human.mean()), "judge": r3(g.judge.mean())}
+                            for i, g in u.groupby("index")},
+        "faithfulness_by_system": {s: {"human": r3(g.faithfulness_human.mean()), "judge": r3(g.faithfulness_judge.mean()),
+                                       "judge1_human0": int(((g.hallucination_judge == 1)
+                                                             & (g.hallucination_human == 0)).sum())}
+                                   for s, g in f.groupby("system")},
+    }
+
     # GraphRAG − Vector RAG trên cùng câu hỏi: theo nhãn human judge và theo judge (cùng mẫu)
     diffs = []
     for m in ("context_precision", "faithfulness", "hallucination", "correct"):
@@ -209,7 +231,7 @@ def score(path=LABELS):
     ag.to_csv(OUT / "agreement.csv", index=False, encoding="utf-8-sig")
     diffs.to_csv(OUT / "paired_diff.csv", index=False, encoding="utf-8-sig")
     stats = {"n_answers": len(per), "n_questions": per.id.nunique(), "by_type": per.groupby("type").id.nunique().to_dict(),
-             "agreement": {k: v for k, v in agree.items()}, "faithfulness": faith,
+             "agreement": {k: v for k, v in agree.items()}, "faithfulness": faith, "breakdown": breakdown,
              "paired": diffs.to_dict(orient="records")}
     (OUT / "stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = ["# Human judge so với LLM-judge (ý 2)\n",
@@ -222,7 +244,21 @@ def score(path=LABELS):
              "correctness), κ có thể thấp dù % agreement cao (prevalence paradox), nên đọc κ cùng % agreement.*\n",
              f"Faithfulness (mức câu trả lời, n = {faith['n']}): trung bình human judge {faith['mean_human']}, judge "
              f"{faith['mean_judge']}; sai khác tuyệt đối trung bình {faith['mae']}; tương quan Pearson {faith['pearson']}.\n",
-             "## 2. GraphRAG − Vector RAG trên cùng mẫu: nhãn human judge và nhãn judge\n", diffs.to_markdown(index=False), ""]
+             "## 2. GraphRAG − Vector RAG trên cùng mẫu: nhãn human judge và nhãn judge\n", diffs.to_markdown(index=False), "",
+             "## 3. Nguồn chênh lệch\n",
+             "Chiều lệch (số nhãn / câu trả lời): " + "; ".join(
+                 f"{k}: judge 1 – human 0 = {v['judge1_human0']}, judge 0 – human 1 = {v['judge0_human1']}"
+                 for k, v in breakdown["direction"].items()) + "\n",
+             "Answer correctness theo loại câu: " + "; ".join(
+                 f"{t}: human {v['human']}, judge {v['judge']} ({v['judge1_human0']} câu judge 1 – human 0)"
+                 for t, v in breakdown["correct_by_type"].items()) + "\n",
+             "Passage hữu ích theo hệ: " + "; ".join(f"{s}: human {v['human']}, judge {v['judge']}"
+                                                     for s, v in breakdown["useful_by_system"].items())
+             + "; theo vị trí: " + "; ".join(f"#{i}: human {v['human']}, judge {v['judge']}"
+                                             for i, v in breakdown["useful_by_index"].items()) + "\n",
+             "Faithfulness theo hệ: " + "; ".join(
+                 f"{s}: human {v['human']}, judge {v['judge']} ({v['judge1_human0']} câu judge có ý không được hỗ trợ "
+                 f"– human không)" for s, v in breakdown["faithfulness_by_system"].items()) + "\n"]
     (OUT / "human_judge.md").write_text("\n".join(lines), encoding="utf-8")
     print((OUT / "human_judge.md").read_text(encoding="utf-8"))
 

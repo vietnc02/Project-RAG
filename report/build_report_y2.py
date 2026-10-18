@@ -669,8 +669,52 @@ if HJ:
       f"{pct(a[1]['judge_pos'], 0)} câu trả lời là đúng so với {pct(a[1]['human_pos'], 0)}), còn ở bước verify claim "
       f"judge khắt khe hơn ({pct(a[2]['judge_pos'], 0)} câu trả lời có claim không được hỗ trợ so với "
       f"{pct(a[2]['human_pos'], 0)}; faithfulness trung bình {num(fa['mean_judge'])} so với {num(fa['mean_human'])}, "
-      f"tương quan Pearson {num(fa['pearson'], 2)}, n = {fa['n']}). Như vậy mức tuyệt đối của các metric do judge "
-      "chấm (Bảng 7) không nên đọc như độ chính xác thực của hệ thống; theo nhãn human judge, answer correctness trên mẫu này thấp hơn khoảng một nửa.")
+      f"tương quan Pearson {num(fa['pearson'], 2)}, n = {fa['n']}).")
+    B = HJ["breakdown"]
+    dr, cbt, ubs, ubi, fbs = (B["direction"], B["correct_by_type"], B["useful_by_system"], B["useful_by_index"],
+                              B["faithfulness_by_system"])
+    later = {k: sum(ubi[str(i)][k] for i in (2, 3, 4)) / 3 for k in ("human", "judge")}
+    rows = [["Answer correctness", "Single-hop", pct(cbt["single"]["human"], 0), pct(cbt["single"]["judge"], 0)],
+            ["", "Multi-hop", pct(cbt["multihop"]["human"], 0), pct(cbt["multihop"]["judge"], 0)],
+            ["Passage hữu ích", "GraphRAG", pct(ubs["graphrag"]["human"], 0), pct(ubs["graphrag"]["judge"], 0)],
+            ["", "Vector RAG", pct(ubs["vector_rag"]["human"], 0), pct(ubs["vector_rag"]["judge"], 0)],
+            ["", "Passage xếp hạng 1", pct(ubi["1"]["human"], 0), pct(ubi["1"]["judge"], 0)],
+            ["", "Passage xếp hạng 2–4", pct(later["human"], 0), pct(later["judge"], 0)],
+            ["Faithfulness", "GraphRAG", num(fbs["graphrag"]["human"]), num(fbs["graphrag"]["judge"])],
+            ["", "Vector RAG", num(fbs["vector_rag"]["human"]), num(fbs["vector_rag"]["judge"])]]
+    table("Nguồn chênh lệch giữa human judge và judge: tỉ lệ \"có\" (faithfulness: trung bình) theo loại câu, hệ "
+          "thống và vị trí passage", ["Nhãn", "Nhóm", "Human judge", "Judge"], rows, [4.2, 4.6, 3.0, 3.0],
+          font=10.5, center_from=2)
+    p("Phân tích các nhãn bị lệch cho thấy ba nguyên nhân, mỗi nguyên nhân gắn với một prompt của judge:")
+    bullets([
+        ("Answer correctness, judge chỉ cần đúng chủ đề: ",
+         f"{dr['correct']['judge1_human0']} trên {dr['correct']['judge1_human0'] + dr['correct']['judge0_human1']} câu "
+         f"trả lời bị lệch là judge chấm đúng còn human judge chấm sai, trong đó {cbt['multihop']['judge1_human0']} câu "
+         "multi-hop. Ground truth của câu multi-hop ghép từ hai đoạn văn và thường gồm 4–6 ý; câu trả lời hay chỉ nêu "
+         "được phần đầu. Prompt chỉ yêu cầu \"conveys the key facts of the reference without contradicting it\", và "
+         "judge 8B chấm 1 khi câu trả lời cùng chủ đề, dùng cùng thuật ngữ mà không đối chiếu từng ý; có câu ghi khoá "
+         "công khai Kyber khoảng 1088 byte trong khi ground truth ghi khoảng 800 byte vẫn được chấm đúng. Human judge "
+         "chỉ chấm đúng khi câu trả lời nêu đủ các ý chính, nên ở câu multi-hop hai bên lệch nhiều nhất "
+         f"({pct(cbt['multihop']['human'], 0)} so với {pct(cbt['multihop']['judge'], 0)})."),
+        ("Passage hữu ích, judge gần như không phân biệt: ",
+         f"{dr['useful']['judge1_human0']} passage judge chấm hữu ích mà human judge không, chiều ngược lại chỉ "
+         f"{dr['useful']['judge0_human1']}. Tỉ lệ judge chấm hữu ích bằng nhau ở hai hệ "
+         f"({pct(ubs['graphrag']['judge'], 1)}) và gần như không đổi theo vị trí xếp hạng, trong khi human judge thấy "
+         "passage xếp hạng 1 hữu ích nhiều hơn hẳn các passage sau và GraphRAG kém hơn Vector RAG. Dù prompt dặn passage "
+         "chỉ cùng chủ đề thì là \"no\", judge vẫn thiên về \"yes\" khi phải chấm 4 passage dài trong một lần gọi."),
+        ("Verify claim, judge khắt khe với context dài: ",
+         f"ngược với hai prompt trên, ở bước verify claim judge chấm {dr['hallucination']['judge1_human0']} câu trả lời "
+         f"có claim không được hỗ trợ mà human judge thấy đủ, không có trường hợp ngược lại; "
+         f"{fbs['graphrag']['judge1_human0']} câu trong số đó là của GraphRAG. Context của GraphRAG gồm cả mô tả KG lẫn "
+         "4 passage nên dài hơn, còn prompt yêu cầu judge là \"strict fact checker\" và chỉ trả lời \"yes\" khi claim "
+         "\"directly inferred\" từ context; claim diễn đạt lại ý hoặc dựa trên một dòng mô tả KG ngắn dễ bị chấm "
+         "\"no\". Vì vậy faithfulness của GraphRAG bị judge chấm thấp hơn nhiều so với human judge "
+         f"({num(fbs['graphrag']['judge'])} so với {num(fbs['graphrag']['human'])}), còn ở Vector RAG chênh lệch nhỏ."),
+    ])
+    p("Như vậy mức tuyệt đối của các metric do judge chấm (Bảng 7) không nên đọc như độ chính xác thực của hệ thống; "
+      "theo nhãn human judge, answer correctness trên mẫu này thấp hơn khoảng một nửa. Paired difference giữa hai hệ do "
+      "cùng một judge chấm bù trừ được một phần sai lệch chung, nhưng không hết khi sai lệch khác nhau giữa hai hệ, như ở "
+      "faithfulness của GraphRAG.")
     MET = {"context_precision": "Retrieval precision", "faithfulness": "Faithfulness",
            "hallucination": "Hallucination rate", "correct": "Answer correctness"}
     f3 = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")

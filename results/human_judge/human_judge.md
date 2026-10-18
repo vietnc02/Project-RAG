@@ -26,3 +26,13 @@ Faithfulness (mức câu trả lời, n = 32): trung bình human judge 0.962, ju
 | hallucination     | judge |        18 |      0.556 |        0.389 |  0.167 | [-0.111, 0.444] | False         |
 | correct           | human |        18 |      0.333 |        0.5   | -0.167 | [-0.389, 0.056] | False         |
 | correct           | judge |        18 |      0.833 |        0.833 |  0     | [-0.222, 0.222] | False         |
+
+## 3. Nguồn chênh lệch
+
+Chiều lệch (số nhãn / câu trả lời): useful: judge 1 – human 0 = 54, judge 0 – human 1 = 9; correct: judge 1 – human 0 = 16, judge 0 – human 1 = 1; hallucination: judge 1 – human 0 = 12, judge 0 – human 1 = 0
+
+Answer correctness theo loại câu: multihop: human 0.222, judge 0.944 (13 câu judge 1 – human 0); single: human 0.611, judge 0.722 (3 câu judge 1 – human 0)
+
+Passage hữu ích theo hệ: graphrag: human 0.153, judge 0.514; vector_rag: human 0.25, judge 0.514; theo vị trí: #1: human 0.389, judge 0.611; #2: human 0.167, judge 0.444; #3: human 0.083, judge 0.528; #4: human 0.167, judge 0.472
+
+Faithfulness theo hệ: graphrag: human 0.991, judge 0.838 (9 câu judge có ý không được hỗ trợ – human không); vector_rag: human 0.933, judge 0.899 (3 câu judge có ý không được hỗ trợ – human không)

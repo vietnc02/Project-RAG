@@ -1042,6 +1042,74 @@
       "mean_human": 0.962,
       "mean_judge": 0.869
     },
+    "breakdown": {
+      "direction": {
+        "useful": {
+          "judge1_human0": 54,
+          "judge0_human1": 9
+        },
+        "correct": {
+          "judge1_human0": 16,
+          "judge0_human1": 1
+        },
+        "hallucination": {
+          "judge1_human0": 12,
+          "judge0_human1": 0
+        }
+      },
+      "correct_by_type": {
+        "multihop": {
+          "human": 0.222,
+          "judge": 0.944,
+          "judge1_human0": 13
+        },
+        "single": {
+          "human": 0.611,
+          "judge": 0.722,
+          "judge1_human0": 3
+        }
+      },
+      "useful_by_system": {
+        "graphrag": {
+          "human": 0.153,
+          "judge": 0.514
+        },
+        "vector_rag": {
+          "human": 0.25,
+          "judge": 0.514
+        }
+      },
+      "useful_by_index": {
+        "1": {
+          "human": 0.389,
+          "judge": 0.611
+        },
+        "2": {
+          "human": 0.167,
+          "judge": 0.444
+        },
+        "3": {
+          "human": 0.083,
+          "judge": 0.528
+        },
+        "4": {
+          "human": 0.167,
+          "judge": 0.472
+        }
+      },
+      "faithfulness_by_system": {
+        "graphrag": {
+          "human": 0.991,
+          "judge": 0.838,
+          "judge1_human0": 9
+        },
+        "vector_rag": {
+          "human": 0.933,
+          "judge": 0.899,
+          "judge1_human0": 3
+        }
+      }
+    },
     "paired": [
       {
         "metric": "context_precision",
