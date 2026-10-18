@@ -1,0 +1,171 @@
+{
+  "n_answers": 36,
+  "n_questions": 18,
+  "by_type": {
+    "multihop": 9,
+    "single": 9
+  },
+  "agreement": {
+    "Passage hữu ích (retrieval precision)": {
+      "n_labels": 144,
+      "n_answers": 36,
+      "human_pos": 0.201,
+      "judge_pos": 0.514,
+      "agreement": 0.562,
+      "agreement_ci95": [
+        0.465,
+        0.66
+      ],
+      "kappa": 0.139,
+      "kappa_ci95": [
+        0.002,
+        0.289
+      ]
+    },
+    "Câu trả lời đúng (answer correctness)": {
+      "n_labels": 36,
+      "n_answers": 36,
+      "human_pos": 0.417,
+      "judge_pos": 0.833,
+      "agreement": 0.528,
+      "agreement_ci95": [
+        0.361,
+        0.694
+      ],
+      "kappa": 0.15,
+      "kappa_ci95": [
+        -0.056,
+        0.369
+      ]
+    },
+    "Có ý không được hỗ trợ (hallucination)": {
+      "n_labels": 32,
+      "n_answers": 32,
+      "human_pos": 0.156,
+      "judge_pos": 0.531,
+      "agreement": 0.625,
+      "agreement_ci95": [
+        0.469,
+        0.781
+      ],
+      "kappa": 0.281,
+      "kappa_ci95": [
+        0.077,
+        0.548
+      ]
+    }
+  },
+  "faithfulness": {
+    "n": 32,
+    "mae": 0.102,
+    "pearson": 0.431,
+    "mean_human": 0.962,
+    "mean_judge": 0.869
+  },
+  "paired": [
+    {
+      "metric": "context_precision",
+      "who": "human",
+      "n_pairs": 18,
+      "graphrag": 0.153,
+      "vector_rag": 0.25,
+      "diff": -0.097,
+      "ci95": [
+        -0.208,
+        0.014
+      ],
+      "significant": false
+    },
+    {
+      "metric": "context_precision",
+      "who": "judge",
+      "n_pairs": 18,
+      "graphrag": 0.514,
+      "vector_rag": 0.514,
+      "diff": 0.0,
+      "ci95": [
+        -0.153,
+        0.153
+      ],
+      "significant": false
+    },
+    {
+      "metric": "faithfulness",
+      "who": "human",
+      "n_pairs": 15,
+      "graphrag": 0.99,
+      "vector_rag": 0.928,
+      "diff": 0.062,
+      "ci95": [
+        0.01,
+        0.138
+      ],
+      "significant": true
+    },
+    {
+      "metric": "faithfulness",
+      "who": "judge",
+      "n_pairs": 15,
+      "graphrag": 0.844,
+      "vector_rag": 0.893,
+      "diff": -0.049,
+      "ci95": [
+        -0.145,
+        0.056
+      ],
+      "significant": false
+    },
+    {
+      "metric": "hallucination",
+      "who": "human",
+      "n_pairs": 18,
+      "graphrag": 0.056,
+      "vector_rag": 0.222,
+      "diff": -0.167,
+      "ci95": [
+        -0.333,
+        0.0
+      ],
+      "significant": false
+    },
+    {
+      "metric": "hallucination",
+      "who": "judge",
+      "n_pairs": 18,
+      "graphrag": 0.556,
+      "vector_rag": 0.389,
+      "diff": 0.167,
+      "ci95": [
+        -0.111,
+        0.444
+      ],
+      "significant": false
+    },
+    {
+      "metric": "correct",
+      "who": "human",
+      "n_pairs": 18,
+      "graphrag": 0.333,
+      "vector_rag": 0.5,
+      "diff": -0.167,
+      "ci95": [
+        -0.389,
+        0.056
+      ],
+      "significant": false
+    },
+    {
+      "metric": "correct",
+      "who": "judge",
+      "n_pairs": 18,
+      "graphrag": 0.833,
+      "vector_rag": 0.833,
+      "diff": 0.0,
+      "ci95": [
+        -0.222,
+        0.222
+      ],
+      "significant": false
+    }
+  ]
+}

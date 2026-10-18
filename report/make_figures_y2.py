@@ -159,6 +159,10 @@ stats["testset"]["single"] = stats["testset"]["single_reused"] + stats["testset"
 JA = config.RESULTS_DIR / "kg30_judge_audit" / "judge_audit.json"
 if JA.exists():
     stats["judge_audit"] = json.loads(JA.read_text(encoding="utf-8"))
+# Human judge một mẫu stratified (human_judge.py --score): agreement với judge, paired difference trên nhãn human judge
+HJ = config.RESULTS_DIR / "human_judge" / "stats.json"
+if HJ.exists():
+    stats["human_judge"] = json.loads(HJ.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats_y2.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 

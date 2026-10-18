@@ -636,6 +636,62 @@ if JA:
       "đủ bằng chứng để phân biệt. Judge failure làm điểm của câu bị lỗi thấp đi (cả 4 passage bị tính là không hữu ích), "
       "nhưng rơi vào cả hai hệ và không đủ nhiều để thay đổi kết luận.")
 
+HJ = S.get("human_judge")
+HJ_SEED = json.loads((ROOT / "testset" / "human_judge" / "key.json").read_text(encoding="utf-8"))["seed"]
+if HJ:
+    h("8.5. Đối chiếu với human judge", 2)
+    bt = HJ["by_type"]
+    p(f"Để kiểm tra độ tin cậy của judge, một mẫu stratified gồm {HJ['n_questions']} câu hỏi ({bt['single']} single-hop, "
+      f"{bt['multihop']} multi-hop, chọn ngẫu nhiên với seed {HJ_SEED}) được "
+      f"chấm tay; mỗi câu hỏi chấm câu trả lời của cả hai hệ, tổng {HJ['n_answers']} câu trả lời. Phiếu chấm xáo trộn thứ "
+      "tự, không ghi tên hệ thống và không hiện điểm của judge. Human judge gán đúng ba loại nhãn mà judge gán, trên đúng "
+      "dữ liệu judge đã chấm: passage có giúp suy ra ground truth không (retrieval precision), từng claim do judge tách "
+      "từ câu trả lời có được context hỗ trợ không (faithfulness, hallucination), và câu trả lời có đúng so với ground "
+      "truth không (answer correctness). Nhãn được so với điểm judge gốc (Bảng 7) bằng % agreement và Cohen's κ, CI 95% "
+      "bootstrap theo câu trả lời.")
+    lv = lambda k: ("rất thấp" if k < 0.2 else "thấp" if k < 0.4 else "trung bình" if k < 0.6 else "khá" if k < 0.8
+                    else "gần như hoàn toàn")
+    rows = []
+    for lab, r in HJ["agreement"].items():
+        rows.append([lab, str(r["n_labels"]), pct(r["human_pos"], 0), pct(r["judge_pos"], 0),
+                     f"{pct(r['agreement'], 0)}\n[{pct(r['agreement_ci95'][0], 0)}; {pct(r['agreement_ci95'][1], 0)}]",
+                     f"{num(r['kappa'], 2)}\n[{num(r['kappa_ci95'][0], 2)}; {num(r['kappa_ci95'][1], 2)}]".replace("-", "−"),
+                     lv(r["kappa"])])
+    table("Agreement giữa human judge và judge (llama3.1:8b) trên mẫu stratified",
+          ["Nhãn", "Số nhãn", "Tỉ lệ \"có\": human", "Tỉ lệ \"có\": judge", "% agreement [CI 95%]", "Cohen's κ [CI 95%]",
+           "Mức (Landis & Koch)"], rows, [3.6, 1.4, 1.8, 1.8, 2.6, 2.6, 2.2], font=10, center_from=1)
+    a = list(HJ["agreement"].values())
+    fa = HJ["faithfulness"]
+    p(f"Agreement giữa human judge và judge thấp: κ từ {num(min(r['kappa'] for r in a), 2)} đến "
+      f"{num(max(r['kappa'] for r in a), 2)}, tức mức rất thấp đến thấp theo Landis & Koch. Sai lệch có hướng rõ và "
+      "ngược chiều nhau giữa các prompt: ở bước chấm passage và answer correctness, judge dễ dãi hơn (tính "
+      f"{pct(a[0]['judge_pos'], 0)} passage là hữu ích so với {pct(a[0]['human_pos'], 0)} của human judge; "
+      f"{pct(a[1]['judge_pos'], 0)} câu trả lời là đúng so với {pct(a[1]['human_pos'], 0)}), còn ở bước verify claim "
+      f"judge khắt khe hơn ({pct(a[2]['judge_pos'], 0)} câu trả lời có claim không được hỗ trợ so với "
+      f"{pct(a[2]['human_pos'], 0)}; faithfulness trung bình {num(fa['mean_judge'])} so với {num(fa['mean_human'])}, "
+      f"tương quan Pearson {num(fa['pearson'], 2)}, n = {fa['n']}). Như vậy mức tuyệt đối của các metric do judge "
+      "chấm (Bảng 7) không nên đọc như độ chính xác thực của hệ thống; theo nhãn human judge, answer correctness trên mẫu này thấp hơn khoảng một nửa.")
+    MET = {"context_precision": "Retrieval precision", "faithfulness": "Faithfulness",
+           "hallucination": "Hallucination rate", "correct": "Answer correctness"}
+    f3 = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")
+    rows = []
+    for r in HJ["paired"]:
+        d = f"{f3(r['diff'])} [{f3(r['ci95'][0])}; {f3(r['ci95'][1])}]"
+        rows.append([MET[r["metric"]] if r["who"] == "human" else "", "Human judge" if r["who"] == "human" else "Judge",
+                     str(r["n_pairs"]), num(r["graphrag"]), num(r["vector_rag"]),
+                     f"**{d}**" if r["significant"] else d])
+    table("GraphRAG − Vector RAG trên cùng mẫu, tính bằng nhãn human judge và nhãn judge (in đậm: có statistical "
+          "significance)", ["Metric", "Người chấm", "Số cặp", "GraphRAG", "Vector RAG", "Paired difference [CI 95%]"],
+          rows, [3.2, 2.3, 1.2, 2.2, 2.2, 4.9], font=10, center_from=2)
+    pr = {(r["metric"], r["who"]): r for r in HJ["paired"]}
+    cp, ff = pr[("context_precision", "human")], pr[("faithfulness", "human")]
+    p(f"Trên mẫu này, nhãn human judge cho cùng hướng với kết luận chính về retrieval precision (GraphRAG thấp hơn: "
+      f"{f3(cp['diff'])} [{f3(cp['ci95'][0])}; {f3(cp['ci95'][1])}], n = {cp['n_pairs']} cặp, chưa có statistical "
+      "significance do mẫu nhỏ), còn ở answer correctness và hallucination rate vẫn không đủ bằng chứng để phân biệt hai "
+      "hệ. Khác biệt duy nhất có statistical significance theo nhãn human judge là faithfulness: GraphRAG cao hơn "
+      f"({f3(ff['diff'])} [{f3(ff['ci95'][0])}; {f3(ff['ci95'][1])}], n = {ff['n_pairs']} cặp), trong khi judge không "
+      "phát hiện khác biệt này; vì mẫu nhỏ và đây là một trong nhiều so sánh, kết quả này chỉ mang tính gợi ý.")
+
 # ================= 9. THẢO LUẬN =================
 h("9. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)
 p("**Phù hợp với các nghiên cứu về câu hỏi sự kiện.** GraphRAG gốc của Microsoft [1] được thiết kế cho câu hỏi tổng quát "
@@ -666,8 +722,8 @@ bullets([("Mô hình dựng KG: ", "chất lượng KG phụ thuộc mạnh vào
          ("Bộ câu hỏi: ", f"{T['single']['n']} câu single-hop và {T['multihop']['n']} câu multi-hop nên CI còn rộng; "
           "chưa có câu hỏi tổng quát (ví dụ \"các bài đề cập những hướng tấn công Kyber nào\"), là loại câu GraphRAG "
           "được thiết kế để trả lời."),
-         ("Judge: ", "llama3.1:8b có nhiễu khi chấm và có judge failure (mục 8.4); chưa có đánh giá của con người "
-          "để đối chứng. Kết luận chỉ dựa trên các chênh lệch có statistical significance.")])
+         ("Judge: ", "llama3.1:8b có nhiễu khi chấm, có judge failure (mục 8.4) và agreement với human judge thấp "
+          "(mục 8.5). Kết luận chỉ dựa trên các chênh lệch có statistical significance.")])
 
 # ================= 10. KẾT LUẬN =================
 h("10. KẾT LUẬN", 1)

@@ -1,0 +1,4 @@
+﻿nhãn,n_labels,n_answers,human_pos,judge_pos,agreement,agreement_ci95,kappa,kappa_ci95,mức (Landis & Koch)
+Passage hữu ích (retrieval precision),144,36,0.201,0.514,0.562,"[0.465, 0.66]",0.139,"[0.002, 0.289]",rất thấp
+Câu trả lời đúng (answer correctness),36,36,0.417,0.833,0.528,"[0.361, 0.694]",0.15,"[-0.056, 0.369]",rất thấp
+Có ý không được hỗ trợ (hallucination),32,32,0.156,0.531,0.625,"[0.469, 0.781]",0.281,"[0.077, 0.548]",thấp

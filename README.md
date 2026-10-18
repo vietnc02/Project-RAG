@@ -8,7 +8,7 @@ So sánh các kiến trúc RAG (RAG thuần, Self-RAG, GraphRAG) trên 95 bài b
 | | Câu hỏi | Kết quả chính | Báo cáo |
 |---|---|---|---|
 | **Ý 1** | LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate | Single-hop: không đủ bằng chứng để phân biệt hai hệ. Multi-hop: Self-RAG giảm hallucination rate 71% → 37%, phần lớn nhờ refuse nhiều hơn; đổi lại answer relevancy 0,70 → 0,42 | [Bao_cao_Y1.pdf](report/Bao_cao_Y1.pdf) · [chi tiết](#ý-1--langchain-rag-thuần-vs-langgraph-self-rag) |
-| **Ý 2** | KG từ 30 bài (chủ đề quantum); GraphRAG vs Vector RAG: retrieval precision, generation quality | GraphRAG có retrieval precision thấp hơn (0,49 so với 0,62, statistically significant); generation quality không đủ bằng chứng để phân biệt. Judge audit: kết luận không đổi | [Bao_cao_Y2.pdf](report/Bao_cao_Y2.pdf) · [chi tiết](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) |
+| **Ý 2** | KG từ 30 bài (chủ đề quantum); GraphRAG vs Vector RAG: retrieval precision, generation quality | GraphRAG có retrieval precision thấp hơn (0,49 so với 0,62, statistically significant); generation quality không đủ bằng chứng để phân biệt. Judge audit: kết luận không đổi; agreement với human judge thấp (κ 0,14–0,28) | [Bao_cao_Y2.pdf](report/Bao_cao_Y2.pdf) · [chi tiết](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) |
 | **Ý 3** | KG từ k = 10, 20, 30 bài: k bài có đủ để KG hoạt động tốt không | Câu hỏi về chính các bài trong KG: không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp. Điểm yếu là relation (~37% sau hiệu chỉnh). Hỏi cả chủ đề: answer correctness 55% / 76% / 82% | [Bao_cao_Y3.pdf](report/Bao_cao_Y3.pdf) · [chi tiết](#ý-3--kg-từ-k--10-20-30-bài) |
 | **Ý 4** | Context compression (nén KG và passage): token reduction 19–53%, giữ nguyên faithfulness | Token reduction 22,5% / 25,3% / 47,9%; chưa chứng minh được faithfulness giữ nguyên (non-inferiority, ngưỡng 0,05); nén KG làm refuse nhiều hơn | [Bao_cao_Y4.pdf](report/Bao_cao_Y4.pdf) · [chi tiết](#ý-4--context-compression-cho-graphrag) |
 
@@ -33,6 +33,7 @@ kg_build.py                   dựng Knowledge Graph từ 30 bài (data/kg/)
 rag_graphrag.py               GraphRAG (local search qua KG)
 evaluate_graphrag.py          GraphRAG vs Vector RAG (retrieval precision, generation quality)
 judge_audit.py                re-judge ý 2 với judge log: judge_failures, truncate, sensitivity analysis
+human_judge.py                phiếu chấm tay (human_judge_template.html) + agreement human judge ↔ judge (Cohen's κ)
 ── Ý 3 ──
 kg_quality.py                 chất lượng KG10/20/30: entity coverage, relation completeness (+ bản hiệu chỉnh)
 evaluate_kg_scale.py          GraphRAG trên KG10/20/30
@@ -44,7 +45,7 @@ evaluate_compression.py       4 chế độ nén: token reduction, faithfulness 
 data/          chunks, Chroma (chroma.zip), KG (data/kg/k10, k20, k30)
 papers/, papers_y2/           PDF bài báo (papers_y2: 7 bài bổ sung cho ý 2, nguồn trong SOURCES.md)
 testset/       bộ câu hỏi đã duyệt tay (+ bản sinh tự động *_raw.json, kết quả duyệt review_*.py)
-results/       kết quả từng lần chạy: k4, k8 (ý 1) · kg30, kg30_judge_audit (ý 2) · kg_scale,
+results/       kết quả từng lần chạy: k4, k8 (ý 1) · kg30, kg30_judge_audit, human_judge (ý 2) · kg_scale,
                kg_scale_judge_audit (ý 3) · compression (ý 4); mỗi thư mục có summary.md + run_info.json
 report/        báo cáo Bao_cao_Y1..Y4 (.docx/.pdf), make_figures_y*.py (số liệu + hình), build_report_y*.py
 ```
@@ -230,6 +231,8 @@ Phân tích nguyên nhân và đối chiếu tài liệu (Han et al. 2025, Graph
 ## Judge audit (ý 2)
 ```powershell
 python judge_audit.py              # re-judge results/kg30 với judge log -> results/kg30_judge_audit/judge_audit.md
+python human_judge.py --make       # phiếu chấm tay testset/human_judge/phieu_cham.html (36 câu trả lời, stratified)
+python human_judge.py --score      # sau khi chấm: human_labels.json -> results/human_judge/ (Cohen's κ, % agreement)
 ```
 Mọi judge call giờ được ghi vào `results/<run>/judge_log_*.jsonl`: status, số verdict thiếu, `prompt_eval_count`.
 **Judge failure** = judge call không trả đủ verdict hợp lệ: `json_error` (JSON hỏng), `ollama_error` (Ollama huỷ lần
@@ -239,6 +242,11 @@ Kết quả re-judge ý 2 (938 judge call): không prompt nào bị truncate (d�
 (1 json_error, 5 ollama_error, 1 missing_verdicts; 49 verdict bị tính là "không"), đều ở prompt chấm độ hữu ích (4 câu ở bước chấm passage); điểm
 re-judge giống hệt điểm gốc; sensitivity analysis: bỏ các câu có judge failure thì retrieval precision GraphRAG −
 Vector RAG vẫn −0,138 [−0,211; −0,065] (có statistical significance).
+
+**Human judge** (18 câu hỏi stratified × 2 hệ = 36 câu trả lời, phiếu chấm mù): agreement với judge thấp — Cohen's κ
+0,14 (passage hữu ích), 0,15 (answer correctness), 0,28 (hallucination). Judge dễ dãi hơn ở bước chấm passage và
+answer correctness (83% câu đúng so với 42% của human judge) nhưng khắt khe hơn ở bước verify claim (faithfulness 0,869
+so với 0,962). Chi tiết: `results/human_judge/human_judge.md`, báo cáo Y2 mục 8.5.
 
 # Ý 3 — KG từ k = 10, 20, 30 bài
 
