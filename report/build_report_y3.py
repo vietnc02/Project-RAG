@@ -304,10 +304,11 @@ RESULT_FIXED = (
 RESULT_ALL = (
     f"Answer correctness tăng theo k: {_pct(_m('all', '10', 'answer_correctness'))} → "
     f"{_pct(_m('all', '20', 'answer_correctness'))} → {_pct(_m('all', '30', 'answer_correctness'))}. KG10 kém KG30 rõ "
-    "rệt (answer correctness và answer relevancy thấp hơn có statistical significance; faithfulness cũng thấp hơn có "
-    "statistical significance theo điểm gốc, nhưng kết luận này không vững trước judge audit ở mục 6.3), còn KG20 chỉ kém KG30 ở "
-    "answer relevancy; answer correctness của KG20 thấp hơn KG30 khoảng 6 điểm % nhưng không có statistical significance. Phần "
-    "lớn chênh lệch đến từ câu về bài chưa có trong KG, không phải từ chất lượng trả lời các câu in-scope.")
+    "rệt (answer correctness và answer relevancy thấp hơn có statistical significance sau hiệu chỉnh Holm; faithfulness "
+    "thấp hơn với CI không chứa 0 nhưng không qua hiệu chỉnh Holm và cũng không vững trước judge audit ở mục 6.3). KG20 "
+    "có answer relevancy thấp hơn KG30 với CI không chứa 0 nhưng không qua hiệu chỉnh Holm (gợi ý); answer correctness "
+    "của KG20 thấp hơn KG30 khoảng 6 điểm % nhưng không có statistical significance. Phần lớn chênh lệch đến từ câu về "
+    "bài chưa có trong KG, không phải từ chất lượng trả lời các câu in-scope.")
 RESULT_OUTCOME = (
     f"Với câu out-of-scope, GraphRAG refuse {_o['10']['out_refused']}/{_out_n['10']} câu (KG10) và "
     f"{_o['20']['out_refused']}/{_out_n['20']} câu (KG20), nhưng vẫn trả lời đúng {_out_ok['10']}/{_out_n['10']} "
@@ -340,7 +341,8 @@ DISCUSSION = [
     "khác cũng thấy KG do LLM trích ra thiếu nhiều thông tin: trên benchmark MINE [4], KG do Microsoft GraphRAG trích "
     "chỉ giữ được 47,8% số sự kiện của văn bản (KGGen 66,1%, OpenIE 29,8%), và các tác giả nêu đúng hai vấn đề gặp ở đây là "
     "đồ thị thưa và entity trùng lặp; Han và cộng sự [2] thấy chỉ khoảng 65,8% (HotpotQA) và 65,5% (NQ) entity của "
-    "đáp án có trong KG, đồng thời đổi mô hình dựng KG từ GPT-4o-mini sang GPT-4o làm độ chính xác QA tăng từ 71,17% lên "
+    "đáp án có trong KG, đồng thời đổi mô hình dựng KG từ GPT-4o-mini sang GPT-4o làm độ chính xác QA (MultiHop-RAG, "
+    "Llama 3.1-70B) tăng từ 71,17% lên "
     "75,08%. Zhu và cộng sự [5] kết luận LLM \"phù hợp làm trợ lý suy luận hơn là bộ trích xuất thông tin few-shot\". "
     "Entity coverage ở đây (khoảng 90%) cao hơn con số 65% của [2] nhưng không so trực tiếp được: gold set ở đây là các "
     "thuật ngữ kỹ thuật trung tâm của câu hỏi, lặp lại nhiều trong các bài cùng chủ đề, còn [2] đo entity của đáp án "
@@ -386,8 +388,9 @@ CONCLUSION = (
     f"bài, answer correctness là {_pct(_m('all', '10', 'answer_correctness'))} / {_pct(_m('all', '20', 'answer_correctness'))} / "
     f"{_pct(_m('all', '30', 'answer_correctness'))} với k = 10 / 20 / 30; KG10 kém KG30 có statistical significance, còn KG20 và "
     "KG30 thì không đủ bằng chứng để phân biệt. "
-    "Trả lời câu hỏi của đề tài (với cài đặt local search và KG dựng bằng mô hình 7B): với câu hỏi về chính các bài "
-    "trong KG, không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp, nên chỉ loại trừ được chênh lệch lớn. "
+    "Trả lời câu hỏi của đề tài (với cài đặt local search và KG dựng bằng mô hình 7B), theo tiêu chí non-inferiority "
+    "δ = 10 điểm % ở mục 7: với câu hỏi về 20 bài đầu, KG20 đủ; với câu hỏi về 10 bài đầu, KG10 chưa kết luận được vì "
+    "chỉ có 15 câu; với câu hỏi về cả 30 bài, KG10 không đủ và KG20 chưa kết luận được. "
     "Muốn hỏi về cả chủ đề thì KG phải chứa các bài liên quan (ở đây khoảng 20–30 bài), và muốn KG tốt hơn thì cần mô "
     "hình trích xuất relation tốt hơn trước khi cần thêm bài.")
 
@@ -424,7 +427,8 @@ def pdiff(key, metric):
 
 
 def sig(d):
-    return d is not None and (d["lo"] > 0 or d["hi"] < 0)
+    """Có statistical significance sau hiệu chỉnh Holm cho cả bảng paired difference."""
+    return d is not None and d["significant_holm"]
 
 
 def cv(set_name, k, col):
@@ -481,7 +485,7 @@ def paired_table(caption):
                 cells.append("–")
                 continue
             b = "**" if sig(d) else ""
-            cells.append(f"{b}{dval(d, as_pct)}{b} ({pv(d['p'])})")
+            cells.append(f"{b}{dval(d, as_pct)}{b}\n({pv(d['p'])}; Holm {pv(d['p_holm']).replace('p ', '', 1)})")
         rows.append([f"{lab} (n = {pdiff(key, 'answer_correctness')['n']})", *cells])
     table(caption, ["So sánh", *[f"Δ {n[:-2]}" for _, n, _ in MAIN]], rows,
           [3.2, 2.6, 2.6, 2.6, 2.6, 2.4], font=9, center_from=1)
@@ -582,6 +586,9 @@ bullets([("In-scope: ", f"mỗi KG được hỏi về chính các bài nó ch�
           "comparison trên cùng câu hỏi."),
          ("Toàn bộ 62 câu: ", "hỏi mọi câu có đáp án của 30 bài, kể cả câu về bài chưa có trong KG. Cho biết KG k bài trả "
           "lời được bao nhiêu câu hỏi về cả chủ đề; với câu out-of-scope, hành vi đúng là refuse.")])
+p("Thống kê như nội dung 1–2: CI 95% bằng bootstrap (seed cố định cho từng lần bootstrap), paired difference trên cùng "
+  "câu hỏi. Bảng paired difference ở mục 6.1 là một họ so sánh (các cặp k × 5 chỉ số) và p được hiệu chỉnh đa so sánh "
+  "theo Holm; chỉ chênh lệch qua được hiệu chỉnh mới được gọi là có statistical significance.")
 
 # ================= 4. ĐO CHẤT LƯỢNG KG =================
 h("4. ĐO CHẤT LƯỢNG KG", 1)
@@ -707,7 +714,8 @@ h("6. KẾT QUẢ: CHẤT LƯỢNG CÂU TRẢ LỜI", 1)
 h("6.1. Năm chỉ số theo k", 2)
 answer_table("Năm chỉ số chính của GraphRAG theo KG: giá trị trung bình [CI 95%]", ["in_scope", "S10", "all"])
 figure("y3_fig3_answer.png", "Năm chỉ số chính theo k, ba cách nhìn", width=16.5)
-paired_table("Paired difference trên cùng câu hỏi (in đậm: CI 95% không chứa 0)")
+paired_table(f"Paired difference trên cùng câu hỏi (in đậm: còn statistical significance sau hiệu chỉnh Holm cho "
+             f"{S['holm_family']} so sánh của bảng)")
 fixed_sig = sig_list({"S10:10-30", "S10:20-30", "S10:10-20", "S20:20-30"})
 p(f"**In-scope:** answer correctness {pct(mm('in_scope', 10, 'answer_correctness')[0], 0)} / "
   f"{pct(mm('in_scope', 20, 'answer_correctness')[0], 0)} / {pct(mm('in_scope', 30, 'answer_correctness')[0], 0)}, "
@@ -722,6 +730,27 @@ p("**Toàn bộ 62 câu:** " + RESULT_ALL)
 o = S["outcome"]
 figure("y3_fig4_outcome.png", "Kết cục của 62 câu có đáp án với mỗi KG", width=15)
 p(RESULT_OUTCOME)
+TI = S["tiers"]
+TIER_VI = {"all": "Mọi bài nguồn trong KG", "some": "Một trong hai bài nguồn (multi-hop)", "none": "Không bài nguồn nào"}
+rows = []
+for k in K:
+    for tier in ("all", "some", "none"):
+        t = TI[str(k)].get(tier)
+        if not t:
+            continue
+        rows.append([f"KG{k}" if tier == "all" else "", TIER_VI[tier], str(t["n"]), str(t["grounded_correct"]),
+                     str(t["correct_unsupported"]), str(t["wrong"]), str(t["refused_wrongly"]),
+                     pct((t["grounded_correct"] + t["correct_unsupported"]) / t["n"], 0)])
+table("Kết cục của 62 câu có đáp án theo số bài nguồn nằm trong KG (số câu)",
+      ["KG", "Bài nguồn trong KG", "Số câu", "Đúng, có căn cứ", "Đúng, có claim không được hỗ trợ", "Sai", "Refuse",
+       "Tỉ lệ đúng"], rows, [1.4, 4.4, 1.4, 1.7, 2.3, 1.0, 1.6, 2.2], font=9.5, center_from=2)
+t10n, t10s, t20s = TI["10"]["none"], TI["10"]["some"], TI["20"]["some"]
+p("Tách theo số bài nguồn nằm trong KG cho thấy rõ hơn phần đóng góp của KG: ở câu không có bài nguồn nào trong KG10, "
+  f"{t10n['grounded_correct'] + t10n['correct_unsupported']}/{t10n['n']} câu vẫn được trả lời đúng, trong đó "
+  f"{t10n['correct_unsupported']} câu có claim không được context hỗ trợ; ở câu multi-hop chỉ có một bài nguồn trong KG, "
+  f"phần lớn câu đúng cũng có claim không được hỗ trợ ({t10s['correct_unsupported']}/{t10s['n']} với KG10, "
+  f"{t20s['correct_unsupported']}/{t20s['n']} với KG20). Vì vậy chỉ tầng \"mọi bài nguồn trong KG\" phản ánh KG có "
+  "hoạt động tốt không; hai tầng còn lại đo việc mô hình bù bằng kiến thức có sẵn và khả năng refuse khi KG thiếu.")
 u = SETS["unanswerable"]
 p(f"**Câu out-of-corpus:** GraphRAG refuse đúng {pct(xx('unanswerable', 10, 'refusal'), 0)} / "
   f"{pct(xx('unanswerable', 20, 'refusal'), 0)} / {pct(xx('unanswerable', 30, 'refusal'), 0)} trong "
@@ -790,6 +819,26 @@ if JA:
 
 # ================= 7. THẢO LUẬN =================
 h("7. THẢO LUẬN: K BÀI CÓ ĐỦ KHÔNG?", 1)
+SU = S["sufficiency"]
+VERDICT_VI = {"enough": "Đủ", "not_enough": "Không đủ", "inconclusive": "Chưa kết luận được"}
+SCOPE_VI = {"S10:10-30": ("Câu về 10 bài đầu (S10)", "KG10 − KG30"), "S20:20-30": ("Câu về 20 bài đầu (S20)", "KG20 − KG30"),
+            "all:10-30": ("Toàn bộ 62 câu", "KG10 − KG30"), "all:20-30": ("Toàn bộ 62 câu", "KG20 − KG30")}
+dl = num(SU["delta"] * 100, 0)
+p(f"Để trả lời \"k bài có đủ không\" bằng có / không, cần một tiêu chí cụ thể. Ở đây dùng tiêu chí non-inferiority cho "
+  f"answer correctness so với KG30 trên cùng câu hỏi, biên δ = {dl} điểm % (một câu trên mười): KG_k **đủ** nếu cận "
+  f"dưới CI 95% của chênh lệch KG_k − KG30 lớn hơn −{dl} điểm %, **không đủ** nếu cận trên nhỏ hơn −{dl} điểm %, còn "
+  "lại là **chưa kết luận được**. Tiêu chí này được đặt khi rà soát lại báo cáo, sau khi đã có kết quả, nên chỉ dùng để "
+  "phân loại các kết quả hiện có, không phải kiểm định đặt trước.")
+table(f"KG_k có đủ không theo tiêu chí non-inferiority (δ = {dl} điểm %, answer correctness)",
+      ["Phạm vi câu hỏi", "So sánh", "Số câu", "Chênh lệch [CI 95%]", "Kết luận"],
+      [[SCOPE_VI[r["key"]][0], SCOPE_VI[r["key"]][1], str(r["n"]), _dci(r["key"]), VERDICT_VI[r["verdict"]]]
+       for r in SU["rows"]], [4.6, 2.6, 1.6, 4.6, 2.6], font=10.5, center_from=2)
+vd = {r["key"]: r["verdict"] for r in SU["rows"]}
+p(f"Theo tiêu chí này: với câu hỏi về 20 bài đầu, KG20 **{VERDICT_VI[vd['S20:20-30']].lower()}**; với câu hỏi về 10 bài "
+  f"đầu, KG10 **{VERDICT_VI[vd['S10:10-30']].lower()}** vì S10 chỉ có {nn('S10', 10)} câu và CI quá rộng; với câu hỏi về "
+  f"cả 30 bài, KG10 **{VERDICT_VI[vd['all:10-30']].lower()}** và KG20 **{VERDICT_VI[vd['all:20-30']].lower()}**. Answer "
+  "correctness ở đây do judge chấm, mà judge chấm dễ dãi hơn human judge (nội dung 2, mục 8.5), nên mức tuyệt đối có "
+  "thể cao hơn thực tế; phép so sánh giữa các k dùng cùng judge.")
 for para in DISCUSSION:
     p(para)
 bullets(LIMITS)
@@ -801,7 +850,8 @@ p(CONCLUSION)
 h("TÀI LIỆU THAM KHẢO", 1)
 for ref in ["[1] D. Edge et al., \"From Local to Global: A Graph RAG Approach to Query-Focused Summarization\", "
             "arXiv:2404.16130, 2024.",
-            "[2] H. Han et al., \"RAG vs. GraphRAG: A Systematic Evaluation and Key Insights\", arXiv:2502.11371, 2025.",
+            "[2] H. Han et al., \"RAG vs. GraphRAG: A Systematic Evaluation and Key Insights\", arXiv:2502.11371v3, 2026 "
+            "(kết quả đổi mô hình dựng KG GPT-4o-mini sang GPT-4o: Bảng 5 của v3, Llama 3.1-70B, MultiHop-RAG).",
             "[3] \"When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation\" "
             "(GraphRAG-Bench), arXiv:2506.05690, ICLR 2026 (phụ lục G.5: thử nghiệm theo cỡ corpus).",
             "[4] B. Mo, K. Yu, J. Kazdan, J. Cabezas, P. Mpala, L. Yu, C. Cundy, C. Kanatsoulis, S. Koyejo, \"KGGen: "

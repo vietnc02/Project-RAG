@@ -298,9 +298,12 @@ def paired_table(caption, types, run):
                 continue
             f = 100 if as_pct else 1
             dv = f"{p['delta'] * f:+.1f} điểm %".replace(".", ",") if as_pct else f"{p['delta']:+.3f}".replace(".", ",")
-            cells.append(f"{dv} ({pv(p['p'])})")
+            cell = f"{dv} ({pv(p['p'])}; Holm {pv(p['p_holm']).replace('p ', '', 1)})"
+            cells.append(f"**{cell}**" if p["significant_holm"] else cell)
         rows.append([TYPE_VI[qt], *cells])
-    table(caption, ["Loại câu hỏi", "Δ Faithfulness", "Δ Answer relevancy", "Δ Hallucination rate"], rows,
+    fam = run[types[0]]["paired"]["hallucination"]["family_size"]
+    table(f"{caption} (in đậm: còn statistical significance sau hiệu chỉnh Holm cho {fam} so sánh của bảng)",
+          ["Loại câu hỏi", "Δ Faithfulness", "Δ Answer relevancy", "Δ Hallucination rate"], rows,
           [3.0, 4.3, 4.3, 4.4], font=10.5, center_from=1)
 
 
@@ -312,6 +315,7 @@ doc.add_paragraph()
 p("NỘI DUNG 1", align=WD_ALIGN_PARAGRAPH.CENTER, size=14, color=GREY)
 t = p("So sánh LangChain RAG thuần và LangGraph Self-RAG", align=WD_ALIGN_PARAGRAPH.CENTER, size=22, color=BLUE)
 t.runs[0].bold = True
+p("(Self-RAG xấp xỉ bằng prompt trên mô hình 7B)", align=WD_ALIGN_PARAGRAPH.CENTER, size=14, color=GREY)
 p("Faithfulness, answer relevancy và hallucination rate trên bộ bài báo khoa học",
   align=WD_ALIGN_PARAGRAPH.CENTER, size=14, italic=True)
 for _ in range(10):
@@ -387,6 +391,14 @@ p("Mô hình 7B dễ chấm bước kiểm tra căn cứ (ISSUP) theo kiểu \"c
   "suy ra trực tiếp được từ tài liệu, **không cần chứa đủ mọi chi tiết**; chỉ chấm \"không\" khi có thông tin không có "
   "trong tài liệu hoặc mâu thuẫn với tài liệu. Prompt kèm 4 ví dụ few-shot (2 có căn cứ, 2 không), lấy ngoài lĩnh vực "
   "của corpus để không trùng với bộ câu hỏi đánh giá.")
+p("Prompt ISSUP được viết lại sau vòng chạy đầu tiên trên chính 86 câu single-hop của bộ đánh giá (không có tập dev "
+  "riêng). Ở vòng đó, với prompt ISSUP ban đầu (chỉ yêu cầu \"mọi ý được tài liệu hỗ trợ\", không có định nghĩa và "
+  "few-shot), Self-RAG refuse 11/86 câu, trong đó 4 câu do bước ISSUP liên tục chấm \"không có căn cứ\" (7 câu còn "
+  "lại do bước chấm độ liên quan không giữ được tài liệu nào), và 10 câu phải sinh lại câu trả lời. Vì vậy ở câu "
+  "single-hop, hệ B có thể được lợi nhẹ so với hệ A do prompt được chỉnh sau khi xem hành vi trên cùng bộ câu hỏi; "
+  "dù vậy, ở câu single-hop vẫn không đủ bằng chứng để phân biệt hai hệ (mục 7.1). Câu multi-hop và out-of-corpus được "
+  "đưa vào bộ đánh giá trong cùng đợt cập nhật với prompt mới, không có ở vòng chạy đầu. Các vòng chạy được lưu trong "
+  "lịch sử git của repository.")
 
 # ================= 5. BỘ CÂU HỎI =================
 h("5. BỘ CÂU HỎI ĐÁNH GIÁ", 1)
@@ -423,8 +435,11 @@ bullets([("Chấm trên cùng tài liệu: ", "Self-RAG lọc bớt tài liệu 
           "của cả hai hệ được chấm trên full top-k ban đầu của câu hỏi gốc."),
          ("Câu out-of-corpus: ", "hành vi đúng là refuse, nên chỉ số cần xem là hallucination rate; answer relevancy "
           "của câu refusal bằng 0 theo định nghĩa nên không dùng để đánh giá loại câu này."),
-         ("Thống kê: ", "mỗi chỉ số có CI 95% (bootstrap 2000 lần). Paired difference giữa hai hệ được kiểm định "
-          "trên cùng câu hỏi (bootstrap); hallucination dùng thêm kiểm định McNemar."),
+         ("Thống kê: ", "mỗi chỉ số có CI 95% (bootstrap 2000 lần, seed cố định cho từng lần bootstrap nên cùng dữ liệu "
+          "luôn cho cùng CI). Paired difference giữa hai hệ được kiểm định trên cùng câu hỏi (bootstrap 5000 lần); "
+          "hallucination dùng thêm kiểm định McNemar. Mỗi bảng paired difference là một họ so sánh (2 loại câu × 3 chỉ "
+          "số) và p được hiệu chỉnh đa so sánh theo Holm; chỉ chênh lệch qua được hiệu chỉnh mới được gọi là có "
+          "statistical significance, chênh lệch có CI 95% không chứa 0 nhưng không qua hiệu chỉnh được ghi là gợi ý."),
          ("Secondary metric: ", "refusal rate, độ đúng so với ground truth, retrieval hit, thời gian và số lần gọi LLM, "
           "chỉ dùng để giải thích kết quả.")])
 
@@ -448,9 +463,13 @@ p(f"**Single-hop:** không đủ bằng chứng để phân biệt hai hệ trê
   "nên vòng tự đánh giá có ít việc để cải thiện.")
 p(f"**Multi-hop:** Self-RAG có hallucination rate thấp hơn rõ rệt ({pct(m('multihop', 'sr', 'hallucination')[0])} so với "
   f"{pct(m('multihop', 'lc', 'hallucination')[0])}, {pv(pm['hallucination']['p'])}; McNemar: {mm['only_lc']} câu chỉ RAG thuần "
-  f"bị hallucination, {mm['only_sr']} câu chỉ Self-RAG, {pv(mm['p'])}) và faithfulness cao hơn "
-  f"({num(m('multihop', 'sr', 'faithfulness')[0])} so với {num(m('multihop', 'lc', 'faithfulness')[0])}, "
-  f"{pv(pm['faithfulness']['p'])}, tính trên {pm['faithfulness']['n']} câu cả hai hệ cùng trả lời). Ngược lại answer "
+  f"bị hallucination, {mm['only_sr']} câu chỉ Self-RAG, {pv(mm['p'])}) và faithfulness "
+  + ("cao hơn" if pm['faithfulness']['significant_holm'] else "có xu hướng cao hơn")
+  + f" ({num(m('multihop', 'sr', 'faithfulness')[0])} so với {num(m('multihop', 'lc', 'faithfulness')[0])}, "
+  f"{pv(pm['faithfulness']['p'])}"
+  + ("" if pm['faithfulness']['significant_holm'] else
+     f", sau hiệu chỉnh Holm {pv(pm['faithfulness']['p_holm']).replace('p ', 'p_Holm ', 1)}, nên chỉ là gợi ý")
+  + f", tính trên {pm['faithfulness']['n']} câu cả hai hệ cùng trả lời, mục 7.5). Ngược lại answer "
   f"relevancy thấp hơn rõ rệt ({num(m('multihop', 'sr', 'answer_relevancy')[0])} so với "
   f"{num(m('multihop', 'lc', 'answer_relevancy')[0])}, {pv(pm['answer_relevancy']['p'])}) vì Self-RAG refuse "
   f"{pct(x('multihop', 'sr', 'refusal_rate'), 0)} số câu (RAG thuần {pct(x('multihop', 'lc', 'refusal_rate'), 0)}).")
@@ -542,6 +561,66 @@ p(f"**Chi phí:** Self-RAG gọi LLM trung bình {num(x('single', 'sr', 'llm_cal
   f"{num(x('multihop', 'sr', 'llm_calls'), 1)} lần ở câu multi-hop (RAG thuần: 1 lần); thời gian mỗi câu là "
   f"{num(x('single', 'sr', 'latency_s'), 1)} giây so với {num(x('single', 'lc', 'latency_s'), 1)} giây ở câu single-hop.")
 
+h("7.5. Tách hallucination khỏi refusal", 2)
+p("Hallucination rate ở các bảng trên tính trên mọi câu hỏi và câu refusal được tính là không hallucination, nên một hệ "
+  "chỉ cần refuse nhiều hơn là hallucination rate đã giảm. Để tách hai hiệu ứng, mỗi câu có đáp án được xếp vào một "
+  "trong bốn nhóm kết cục từ các nhãn đã có (refusal, độ đúng so với ground truth, hallucination): đúng và mọi claim có "
+  "căn cứ; đúng nhưng có claim không được tài liệu hỗ trợ (thường là phần mô hình bổ sung bằng kiến thức có sẵn); sai; "
+  "refuse oan. Câu out-of-corpus chỉ có hai kết cục (refuse đúng hoặc vẫn trả lời) và cả hai hệ đều refuse đúng toàn "
+  "bộ (mục 7.2). Từ đó tính coverage (tỉ lệ câu có đáp án được trả lời), hallucination rate và độ đúng chỉ trên câu "
+  "được trả lời.")
+rows = []
+for r in S["runs"]:
+    RT = S["runs"][r]["types"]
+    for qt in ("single", "multihop"):
+        for s_ in ("lc", "sr"):
+            o = RT[qt]["outcomes"][s_]
+            c = o["counts"]
+            rows.append([f"top-k = {S['runs'][r]['top_k']}, {TYPE_VI[qt].lower()}" if s_ == "lc" else "", SYSN[s_],
+                         str(c["grounded_correct"]), str(c["correct_unsupported"]), str(c["wrong"]),
+                         str(c["refused_wrongly"]), pct(o["coverage"], 0), pct(o["halluc_answered"], 0),
+                         pct(o["correct_answered"], 0)])
+table("Nhóm kết cục của câu có đáp án (số câu) và các tỉ lệ tính trên câu được trả lời",
+      ["Điều kiện", "Hệ thống", "Đúng, có căn cứ", "Đúng, có claim không được hỗ trợ", "Sai", "Refuse oan",
+       "Coverage", "Hallucination (câu có trả lời)", "Độ đúng (câu có trả lời)"],
+      rows, [2.1, 2.2, 1.3, 1.7, 1.0, 1.4, 2.0, 2.5, 1.8], font=9.5, center_from=2)
+figure("fig10_risk_coverage.png", "Risk–coverage: coverage là tỉ lệ câu có đáp án được trả lời, risk là tỉ lệ câu trả "
+       "lời sai hoặc có claim không được hỗ trợ trong số câu được trả lời (góc dưới phải là tốt nhất)")
+o4 = {s_: T4["multihop"]["outcomes"][s_] for s_ in ("lc", "sr")}
+
+
+def rk(o):
+    return (o["counts"]["correct_unsupported"] + o["counts"]["wrong"]) / o["n_answered"]
+
+
+p(f"**Multi-hop, top-k = 4:** Self-RAG refuse oan {o4['sr']['counts']['refused_wrongly']}/{o4['sr']['n_answerable']} câu "
+  f"(RAG thuần {o4['lc']['counts']['refused_wrongly']}). Trên các câu được trả lời, hallucination rate là "
+  f"{pct(o4['sr']['halluc_answered'], 0)} so với {pct(o4['lc']['halluc_answered'], 0)} của RAG thuần và độ đúng gần "
+  f"như nhau ({pct(o4['sr']['correct_answered'], 0)} so với {pct(o4['lc']['correct_answered'], 0)}); số câu đúng và mọi "
+  f"claim có căn cứ là {o4['sr']['counts']['grounded_correct']} so với {o4['lc']['counts']['grounded_correct']}. Như vậy "
+  f"mức giảm hallucination rate {num(-T4['multihop']['paired']['hallucination']['delta'] * 100, 1)} điểm % ở mục 7.1 chủ "
+  "yếu đến từ việc refuse: vòng tự kiểm tra không tạo thêm câu trả lời đúng và có căn cứ, mà bỏ bớt câu trả lời, trong "
+  "đó có cả câu trả lời đúng.")
+if R8:
+    o8 = {s_: R8["types"]["multihop"]["outcomes"][s_] for s_ in ("lc", "sr")}
+    p(f"**Multi-hop, top-k = 8:** RAG thuần vừa trả lời được nhiều câu hơn (coverage {pct(o8['lc']['coverage'], 0)} so "
+      f"với {pct(o8['sr']['coverage'], 0)}) vừa có risk thấp hơn ({pct(rk(o8['lc']), 0)} so với {pct(rk(o8['sr']), 0)}), "
+      "tức là ở điều kiện này Self-RAG không có lợi thế. Ở câu single-hop, bốn điểm của hai hệ nằm sát nhau. Đây là mô "
+      "tả, không kiểm định: tập câu được trả lời của hai hệ khác nhau, và mỗi hệ chỉ có một điểm trên đường risk–coverage "
+      "ở mỗi điều kiện (không có ngưỡng để quét).")
+es, em = x("single", "lc", "claim_halluc_rate"), x("multihop", "lc", "claim_halluc_rate")
+ks, km = x("single", "lc", "claims_per_answer"), x("multihop", "lc", "claims_per_answer")
+p(f"**Hallucination ở mức claim:** mỗi câu trả lời của RAG thuần có trung bình {num(ks, 1)} claim ở câu single-hop và "
+  f"{num(km, 1)} claim ở câu multi-hop; tỉ lệ claim không được hỗ trợ là {pct(es)} và {pct(em)}. Nếu các claim lỗi độc "
+  f"lập, xác suất một câu trả lời single-hop có ít nhất một claim lỗi là 1 − (1 − {num(es, 3)})^{num(ks, 1)} ≈ "
+  f"{pct(1 - (1 - es) ** ks, 0)}, gần với hallucination rate quan sát trên câu có trả lời "
+  f"({pct(T4['single']['outcomes']['lc']['halluc_answered'], 0)}). Hallucination rate theo câu vì vậy khuếch đại tỉ lệ "
+  "claim lỗi: con số khoảng 30% ở câu single-hop tương ứng với khoảng một claim trên mười không được judge xác nhận, "
+  "không phải 30% câu trả lời bị bịa. Ngoài ra, đối chiếu với human judge ở nội dung 2 (cùng judge và cùng prompt "
+  "verify claim) cho thấy judge chấm nhiều câu trả lời có claim không được hỗ trợ hơn hẳn người chấm (53% so với 16%), "
+  "nên mức tuyệt đối của hallucination rate ở đây có thể cao hơn thực tế; so sánh giữa hai hệ dùng cùng judge nên ít "
+  "bị ảnh hưởng hơn.")
+
 # ================= 8. THẢO LUẬN =================
 h("8. THẢO LUẬN VÀ HẠN CHẾ", 1)
 bullets([("Self-RAG có ích ở đâu: ", "lợi thế của Self-RAG chỉ xuất hiện khi tài liệu truy xuất không đủ để trả lời "
@@ -556,8 +635,9 @@ bullets([("Self-RAG có ích ở đâu: ", "lợi thế của Self-RAG chỉ xu�
          ("Giới hạn của cách cài đặt: ", "các bước tự đánh giá dùng mô hình 7B với prompt, không phải mô hình được huấn "
           "luyện riêng như Self-RAG gốc. Kết quả phản ánh cách cài đặt này, không phải giới hạn của phương pháp Self-RAG "
           "nói chung."),
-         ("Judge: ", "llama3.1:8b có nhiễu khi chấm từng claim; chưa có đánh giá của con người để đối chứng. "
-          "Kết luận chỉ dựa trên các chênh lệch có statistical significance."),
+         ("Judge: ", "llama3.1:8b có nhiễu khi chấm từng claim; ở nội dung 2, cùng prompt verify claim chấm khắt khe "
+          "hơn human judge (mục 7.5). Kết luận chỉ dựa trên các chênh lệch có statistical significance sau hiệu chỉnh "
+          "Holm."),
          ("Cỡ bộ câu hỏi: ", f"{TS['multihop']['kept']} câu multi-hop và {TS['unanswerable']['kept']} câu out-of-corpus nên "
           "CI còn rộng; các chênh lệch nhỏ (dưới khoảng 15 điểm %) chưa phát hiện được."),
          ("Phần cứng: ", "GPU 6 GB chỉ chạy được mô hình 7–8B lượng tử hoá; mỗi lần đánh giá đầy đủ mất nhiều giờ.")])
@@ -565,14 +645,18 @@ bullets([("Self-RAG có ích ở đâu: ", "lợi thế của Self-RAG chỉ xu�
 # ================= 9. KẾT LUẬN =================
 h("9. KẾT LUẬN", 1)
 p(f"Trên {NQ} câu hỏi, với top-k = 4: ở câu hỏi một đoạn, không đủ bằng chứng để phân biệt LangChain RAG và LangGraph "
-  f"Self-RAG trên cả ba chỉ số. Ở câu hỏi tổng hợp hai bài, Self-RAG giảm hallucination rate từ "
-  f"{pct(m('multihop', 'lc', 'hallucination')[0], 0)} xuống {pct(m('multihop', 'sr', 'hallucination')[0], 0)}, phần lớn "
-  "nhờ refuse nhiều hơn (câu refusal có hallucination = 0; chỉ tính câu có trả lời, mức giảm nhỏ hơn nhiều, mục 7.4), "
-  f"và tăng faithfulness trên các câu cả hai hệ cùng trả lời, nhưng answer relevancy giảm từ "
+  f"Self-RAG (bản xấp xỉ bằng prompt trên mô hình 7B) trên cả ba chỉ số. Ở câu hỏi tổng hợp hai bài, Self-RAG giảm "
+  f"hallucination rate từ {pct(m('multihop', 'lc', 'hallucination')[0], 0)} xuống "
+  f"{pct(m('multihop', 'sr', 'hallucination')[0], 0)}, nhưng mức giảm này chủ yếu do refuse nhiều hơn: chỉ tính câu có "
+  f"trả lời, hallucination rate là {pct(o4['sr']['halluc_answered'], 0)} so với {pct(o4['lc']['halluc_answered'], 0)}, "
+  f"và số câu đúng, mọi claim có căn cứ không tăng ({o4['sr']['counts']['grounded_correct']} so với "
+  f"{o4['lc']['counts']['grounded_correct']}, mục 7.5). Faithfulness trên các câu cả hai hệ cùng trả lời có xu hướng "
+  "cao hơn ở Self-RAG nhưng không qua hiệu chỉnh đa so sánh. Answer relevancy giảm từ "
   f"{num(m('multihop', 'lc', 'answer_relevancy')[0], 2)} xuống {num(m('multihop', 'sr', 'answer_relevancy')[0], 2)} và "
   "độ đúng so với ground truth giảm, cũng do refuse nhiều hơn. Ở câu hỏi out-of-corpus, cả hai hệ đều refuse "
-  "đúng toàn bộ. Self-RAG phù hợp khi ưu tiên tránh câu trả lời không có căn cứ hơn là trả lời được nhiều câu, "
-  "với chi phí tính toán cao hơn.")
+  "đúng toàn bộ. Trong cài đặt này, vòng tự kiểm tra của Self-RAG chủ yếu hoạt động như một cơ chế refuse: nó chỉ "
+  "phù hợp khi ưu tiên trả lời ít câu hơn là trả lời được nhiều câu, với chi phí tính toán cao hơn; chưa rõ nó có tốt "
+  "hơn một quy tắc refuse đơn giản ở cùng coverage hay không.")
 if R8:
     T8 = R8["types"]
     p(f"Khi tăng top-k lên 8 (nhiều đoạn không liên quan), ở câu một đoạn Self-RAG có xu hướng ít hallucination hơn "
@@ -580,7 +664,8 @@ if R8:
       "nhưng chưa có statistical significance; ở câu tổng hợp, RAG thuần cải thiện nhờ có đủ tài liệu hơn nên chênh lệch "
       f"hallucination rate thu hẹp ({pct(m('multihop', 'lc', 'hallucination', T8)[0], 0)} so với "
       f"{pct(m('multihop', 'sr', 'hallucination', T8)[0], 0)}, không có statistical significance), trong khi answer relevancy của "
-      "Self-RAG vẫn thấp hơn rõ rệt.")
+      "Self-RAG vẫn thấp hơn rõ rệt; trên đường risk–coverage, RAG thuần với top-k = 8 vừa trả lời nhiều câu hơn vừa có "
+      "risk thấp hơn Self-RAG.")
 
 doc.save(OUT)
 print("saved", OUT)

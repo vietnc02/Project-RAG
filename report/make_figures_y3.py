@@ -20,6 +20,9 @@ sys.path.insert(0, str(ROOT))
 import config  # noqa: E402
 from evaluate import load_jsonl  # noqa: E402
 from evaluate_kg_scale import KS, OUT as RUN, load_items  # noqa: E402
+from stat_utils import boot, holm, isnan, outcome as outcome_of, paired_boot  # noqa: E402
+from evaluate_graphrag import gold_sources  # noqa: E402
+from kg_build import load_papers  # noqa: E402
 
 OUT = ROOT / "report" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -45,7 +48,6 @@ plt.rcParams.update({
     "axes.titleweight": "bold", "figure.facecolor": SURF, "axes.facecolor": SURF,
     "axes.spines.top": False, "axes.spines.right": False, "savefig.dpi": 200,
 })
-rng = np.random.default_rng(config.SEED)
 
 
 def save(fig, name):
@@ -58,28 +60,9 @@ def grid(ax, axis="y"):
     ax.set_axisbelow(True)
 
 
-def isnan(x):
-    return x is None or (isinstance(x, float) and math.isnan(x))
-
-
-def boot(x, n=2000):
-    x = np.asarray([v for v in x if not isnan(v)], float)
-    if len(x) == 0:
-        return [math.nan] * 3
-    means = rng.choice(x, size=(n, len(x))).mean(1)
-    lo, hi = np.percentile(means, [2.5, 97.5])
-    return [float(x.mean()), float(lo), float(hi)]
-
-
 def paired(a, b):
     """Paired difference (a − b) trên cùng câu hỏi, CI 95% bootstrap 5000 lần + p hai phía (như nội dung 1-2)."""
-    d = np.array([x - y for x, y in zip(a, b) if not (isnan(x) or isnan(y))], float)
-    if len(d) == 0:
-        return None
-    bs = rng.choice(d, size=(5000, len(d))).mean(1)
-    lo, hi = np.percentile(bs, [2.5, 97.5])
-    p = 1.0 if not d.any() else float(min(1.0, 2 * min((bs <= 0).mean(), (bs >= 0).mean())))
-    return {"delta": float(d.mean()), "lo": float(lo), "hi": float(hi), "n": len(d), "p": p}
+    return paired_boot([x - y for x, y in zip(a, b) if not (isnan(x) or isnan(y))])
 
 
 # ---------------- load ----------------
@@ -129,6 +112,32 @@ for name, a, b in (("S10", 10, 30), ("S10", 20, 30), ("S10", 10, 20), ("S20", 20
     ids = ids_of(name, a)
     stats["paired"][f"{name}:{a}-{b}"] = {m: paired([SC[a][i].get(m) for i in ids], [SC[b][i].get(m) for i in ids])
                                          for m, *_ in METRICS}
+# hiệu chỉnh Holm: họ so sánh = mọi paired difference của Bảng 8 (các cặp k × 5 chỉ số)
+stats["holm_family"] = holm([e for d in stats["paired"].values() for e in d.values()])
+
+# "KG_k có đủ không": tiêu chí non-inferiority cho answer correctness so với KG30 trên cùng câu, biên DELTA.
+# Đủ: cận dưới CI 95% của KG_k − KG30 > −DELTA; không đủ: cận trên < −DELTA; còn lại: chưa kết luận được.
+DELTA = 0.10
+stats["sufficiency"] = {"delta": DELTA, "rows": []}
+for key in ("S10:10-30", "S20:20-30", "all:10-30", "all:20-30"):
+    e = stats["paired"][key]["answer_correctness"]
+    verdict = "enough" if e["lo"] > -DELTA else "not_enough" if e["hi"] < -DELTA else "inconclusive"
+    stats["sufficiency"]["rows"].append({"key": key, **e, "verdict": verdict})
+
+# Kết cục theo số bài nguồn của câu hỏi nằm trong KG_k: cả hai / một (chỉ câu multi-hop) / không bài nào
+first_k = {k: set(load_papers(k)) for k in KS}
+stats["tiers"] = {}
+for k in KS:
+    for i in ids_of("all", k):
+        src = gold_sources(ITEMS[i])
+        n_in = sum(x in first_k[k] for x in src)
+        tier = "all" if n_in == len(src) else "some" if n_in else "none"
+        t = stats["tiers"].setdefault(str(k), {}).setdefault(tier, {"n": 0, "grounded_correct": 0,
+                                                                      "correct_unsupported": 0, "wrong": 0,
+                                                                      "refused_wrongly": 0})
+        sc = SC[k][i]
+        t["n"] += 1
+        t[outcome_of(True, sc["refusal"], sc["answer_correctness"], sc["hallucination"])] += 1
 
 # Kết cục của 62 câu có đáp án theo k: trong / out-of-scope x đúng / sai / refuse
 outcome = {}
@@ -140,8 +149,6 @@ for k in KS:
     outcome[str(k)] = o
 stats["outcome"] = outcome
 # Câu out-of-scope mà vẫn đúng: multi-hop có 1 bài nguồn trong KG? câu trả lời có claim ngoài context?
-from evaluate_graphrag import gold_sources  # noqa: E402
-from kg_build import load_papers  # noqa: E402
 stats["out_correct"] = {}
 for k in (10, 20):
     first = set(load_papers(k))

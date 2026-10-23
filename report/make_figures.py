@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import config  # noqa: E402
 from evaluate import load_jsonl  # noqa: E402
+from stat_utils import boot, holm, isnan, outcomes, paired_boot  # noqa: E402
 
 OUT = ROOT / "report" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -44,7 +45,6 @@ plt.rcParams.update({
     "axes.titleweight": "bold", "figure.facecolor": SURF, "axes.facecolor": SURF,
     "axes.spines.top": False, "axes.spines.right": False, "savefig.dpi": 200,
 })
-rng = np.random.default_rng(config.SEED)
 
 
 def save(fig, name):
@@ -57,17 +57,6 @@ def grid(ax, axis="y"):
     ax.set_axisbelow(True)
 
 
-def isnan(x):
-    return isinstance(x, float) and math.isnan(x)
-
-
-def boot(x, n=2000):
-    x = np.asarray([v for v in x if not isnan(v)], float)
-    if len(x) == 0:
-        return [math.nan] * 3
-    means = rng.choice(x, size=(n, len(x))).mean(1)
-    lo, hi = np.percentile(means, [2.5, 97.5])
-    return [float(x.mean()), float(lo), float(hi)]
 
 
 # ---------------- load ----------------
@@ -120,6 +109,7 @@ for run, R in RUNS.items():
                 "ar_among_answered": (float(np.mean([S[s][i]["answer_relevancy"] for i in answered]))
                                       if answered else math.nan),
                 "n_answered": len(answered),
+                "claims_per_answer": (float(np.mean([S[s][i]["n_claims"] for i in answered])) if answered else math.nan),
                 "refusal_rate": float(np.mean([S[s][i]["refusal"] for i in ids])),
                 "answer_correctness": float(np.mean([S[s][i]["answer_correctness"] for i in ids])),
                 "retrieval_hit": (float(np.nanmean([S[s][i]["retrieval_hit"] for i in ids]))
@@ -131,13 +121,10 @@ for run, R in RUNS.items():
         for m, *_ in METRICS:
             d = np.array([S["sr"][i][m] - S["lc"][i][m] for i in ids
                           if not (isnan(S["sr"][i][m]) or isnan(S["lc"][i][m]))], float)
-            if len(d) == 0:
-                ts["paired"][m] = None
-                continue
-            bs = rng.choice(d, size=(5000, len(d))).mean(1)
-            lo, hi = np.percentile(bs, [2.5, 97.5])
-            ts["paired"][m] = {"delta": float(d.mean()), "lo": float(lo), "hi": float(hi), "n": len(d),
-                               "p": float(min(1.0, 2 * min((bs <= 0).mean(), (bs >= 0).mean())))}
+            ts["paired"][m] = paired_boot(d)
+        # nhóm kết cục: tách hallucination khỏi refusal (hallucination / correctness trên câu có trả lời)
+        ts["outcomes"] = {s: outcomes([(qt != "unanswerable", S[s][i]["refusal"], S[s][i]["answer_correctness"],
+                                        S[s][i]["hallucination"]) for i in ids]) for s in SYS}
         h = Counter((S["lc"][i]["hallucination"], S["sr"][i]["hallucination"]) for i in ids)
         b_, c_ = h[(1, 0)], h[(0, 1)]
         ts["mcnemar"] = {"both": h[(1, 1)], "only_lc": b_, "only_sr": c_, "neither": h[(0, 0)],
@@ -151,6 +138,9 @@ for run, R in RUNS.items():
                               "rewrites": sum(A["sr"][i].get("rewrites", 0) > 0 for i in ids),
                               "regenerations": sum(A["sr"][i].get("regenerations", 0) > 0 for i in ids),
                               "docs_kept": float(np.mean([len(A["sr"][i]["contexts"]) for i in ids]))}
+
+    # hiệu chỉnh Holm: họ so sánh = mọi paired difference của lần chạy này (một bảng trong báo cáo)
+    rs["holm_family"] = holm([ts["paired"][m] for ts in rs["types"].values() for m, *_ in METRICS])
 
     # abstain đúng/sai: câu out-of-corpus phải refuse; câu có đáp án (single + multi-hop) không được refuse
     ab = rs["abstention"] = {}
@@ -415,6 +405,33 @@ ax.set_xlim(0, 52); ax.set_xlabel("Số bài báo"); grid(ax, "x")
 NP, NC = sum(v["papers"] for v in stats["corpus"].values()), sum(v["chunks"] for v in stats["corpus"].values())
 ax.set_title(f"Corpus: {NP} bài báo, {NC:,} chunk theo chủ đề".replace(",", "."), loc="left")
 save(fig, "fig9_corpus.png")
+
+# Fig 10 - risk–coverage: coverage = tỉ lệ câu có đáp án được trả lời; risk = tỉ lệ câu trả lời sai hoặc có claim
+# không được hỗ trợ (trong số câu được trả lời). So hai hệ ở hai điều kiện top-k.
+def risk(o):
+    c = o["counts"]
+    return (c["correct_unsupported"] + c["wrong"]) / o["n_answered"] if o["n_answered"] else math.nan
+
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.9), sharey=True)
+for ax, qt in zip(axes, ("single", "multihop")):
+    for s in SYS:
+        pts = [(stats["runs"][r]["types"][qt]["outcomes"][s], r) for r in stats["runs"] if qt in stats["runs"][r]["types"]]
+        xs = [o["coverage"] * 100 for o, _ in pts]
+        ys = [risk(o) * 100 for o, _ in pts]
+        ax.plot(xs, ys, color=C[s], lw=1.2, zorder=1)
+        for (o, r), xx, yy in zip(pts, xs, ys):
+            ax.scatter(xx, yy, s=70, color=C[s], marker="o" if r == "k4" else "s", zorder=2, edgecolor=SURF, lw=1.2)
+    ax.set_title(TYPE_VI[qt], loc="left")
+    ax.set_xlim(40, 100); ax.set_ylim(0, 100)
+    ax.set_xlabel("Coverage: % câu có đáp án được trả lời"); grid(ax, "y"); grid(ax, "x")
+axes[0].set_ylabel("Risk: % câu trả lời sai\nhoặc có claim không được hỗ trợ")
+axes[1].legend(handles=[*[plt.Line2D([], [], color=C[s], lw=1.2, label=NAMES[s]) for s in SYS],
+                        *[plt.Line2D([], [], color=INK2, marker=mk, ls="", label=f"top-k = {stats['runs'][r]['top_k']}")
+                          for r, mk in (("k4", "o"), ("k8", "s")) if r in stats["runs"]]],
+               frameon=False, fontsize=8.5, loc="lower right")
+fig.tight_layout()
+save(fig, "fig10_risk_coverage.png")
 
 print(json.dumps({r: {qt: {s: {m: round(v[0], 3) for m, v in d["main"][s].items()} for s in SYS}
                       for qt, d in stats["runs"][r]["types"].items()} for r in stats["runs"]}, indent=1))

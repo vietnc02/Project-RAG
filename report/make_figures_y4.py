@@ -20,6 +20,7 @@ import compress  # noqa: E402
 import config  # noqa: E402
 from evaluate import judge_log_table, load_jsonl  # noqa: E402
 from evaluate_compression import NI_MARGIN, load_items  # noqa: E402
+from stat_utils import boot, holm, paired_boot  # noqa: E402
 
 RUN = config.RESULTS_DIR / "compression"
 OUT = ROOT / "report" / "figures"
@@ -37,7 +38,6 @@ plt.rcParams.update({
     "axes.titleweight": "bold", "figure.facecolor": SURF, "axes.facecolor": SURF,
     "axes.spines.top": False, "axes.spines.right": False, "savefig.dpi": 200,
 })
-rng = np.random.default_rng(config.SEED)
 
 
 def save(fig, name):
@@ -45,26 +45,9 @@ def save(fig, name):
     plt.close(fig)
 
 
-def isnan(x):
-    return x is None or (isinstance(x, float) and math.isnan(x))
-
-
-def boot(x, n=2000):
-    x = np.asarray([v for v in x if not isnan(v)], float)
-    if len(x) == 0:
-        return [math.nan] * 3
-    means = rng.choice(x, size=(n, len(x))).mean(1)
-    lo, hi = np.percentile(means, [2.5, 97.5])
-    return [float(x.mean()), float(lo), float(hi)]
-
-
 def paired(df, metric, mode):
     p = df.pivot(index="id", columns="mode", values=metric)[["base", mode]].dropna()
-    d = (p[mode] - p["base"]).to_numpy(float)
-    bs = np.random.default_rng(config.SEED).choice(d, size=(5000, len(d))).mean(1)
-    lo, hi = np.percentile(bs, [2.5, 97.5])
-    return {"delta": float(d.mean()), "lo": float(lo), "hi": float(hi), "n": len(d),
-            "p": float(min(1.0, 2 * min((bs <= 0).mean(), (bs >= 0).mean())))}
+    return paired_boot((p[mode] - p["base"]).to_numpy(float))
 
 
 # ---------------- số liệu ----------------
@@ -114,7 +97,11 @@ stats["faithfulness_answered_all"] = {"n": int(answered_all.sum()),
 stats["hallucination_answered"] = {m: float(A[(A["mode"] == m) & (A.refusal == 0)].hallucination.mean())
                                    for m in MODES}
 pr_all = [stats["paired"][m][k] for m in MODES[1:] for k in METRICS]
-stats["n_comparisons"] = {"total": len(pr_all), "significant": sum(x["lo"] > 0 or x["hi"] < 0 for x in pr_all)}
+# hiệu chỉnh Holm cho họ 21 so sánh (3 chế độ × 7 chỉ số); kiểm định non-inferiority của faithfulness là phép thử
+# chính đặt trước, dựa trên cận dưới CI 95%, không thuộc họ này
+holm(pr_all)
+stats["n_comparisons"] = {"total": len(pr_all), "significant": sum(x["significant"] for x in pr_all),
+                          "significant_holm": sum(x["significant_holm"] for x in pr_all)}
 # câu có đáp án mà bản nén refuse còn bản gốc trả lời
 ref = A.pivot(index="id", columns="mode", values="refusal")
 cor = A.pivot(index="id", columns="mode", values="answer_correctness")

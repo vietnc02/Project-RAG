@@ -78,22 +78,22 @@
           ],
           "faithfulness": [
             0.890867019884877,
-            0.8509421332635617,
-            0.9256558248299319
+            0.8524038052721088,
+            0.9275253603043782
           ],
           "answer_relevancy": [
             0.7433639947820366,
-            0.677165294745738,
-            0.8008805449446351
+            0.6803459484736069,
+            0.8002510122410761
           ],
           "hallucination": [
             0.43548387096774194,
-            0.3064516129032258,
+            0.3225806451612903,
             0.5645161290322581
           ],
           "answer_correctness": [
             0.8548387096774194,
-            0.7580645161290323,
+            0.7741935483870968,
             0.9354838709677419
           ]
         },
@@ -101,17 +101,17 @@
           "context_precision": [
             0.4879032258064516,
             0.4274193548387097,
-            0.5483870967741935
+            0.5443548387096774
           ],
           "faithfulness": [
             0.846771928468357,
-            0.8065987360853433,
-            0.8860550337559266
+            0.8081593679138322,
+            0.8844942247732426
           ],
           "answer_relevancy": [
             0.7404069231407526,
-            0.6745748073657448,
-            0.7979537183704712
+            0.6726316222173162,
+            0.7972378717258003
           ],
           "hallucination": [
             0.532258064516129,
@@ -120,7 +120,7 @@
           ],
           "answer_correctness": [
             0.8225806451612904,
-            0.7258064516129032,
+            0.7096774193548387,
             0.9193548387096774
           ]
         }
@@ -175,35 +175,93 @@
           "lo": -0.2056451612903226,
           "hi": -0.04838709677419355,
           "n": 62,
-          "p": 0.0016
+          "p": 0.0024,
+          "p_holm": 0.0336,
+          "family_size": 15,
+          "significant": true,
+          "significant_holm": true
         },
         "faithfulness": {
           "delta": -0.03028866558278323,
-          "lo": -0.07720234014351662,
-          "hi": 0.018052996839761526,
+          "lo": -0.07875271242918302,
+          "hi": 0.020866632006337843,
           "n": 51,
-          "p": 0.22
+          "p": 0.2344,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_relevancy": {
           "delta": -0.0029570716412840826,
-          "lo": -0.08813611886431387,
-          "hi": 0.08090486653892823,
+          "lo": -0.08892884858657564,
+          "hi": 0.08144659781272248,
           "n": 62,
-          "p": 0.9496
+          "p": 0.9184,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "hallucination": {
           "delta": 0.0967741935483871,
           "lo": -0.04838709677419355,
           "hi": 0.22580645161290322,
           "n": 62,
-          "p": 0.222
+          "p": 0.2224,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_correctness": {
           "delta": -0.03225806451612903,
           "lo": -0.14516129032258066,
           "hi": 0.08064516129032258,
           "n": 62,
-          "p": 0.6812
+          "p": 0.6568,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
+        }
+      },
+      "outcomes": {
+        "vec": {
+          "counts": {
+            "grounded_correct": 28,
+            "correct_unsupported": 25,
+            "wrong": 3,
+            "refused_wrongly": 6,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 62,
+          "n_answerable": 62,
+          "n_answered": 56,
+          "halluc_answered": 0.48214285714285715,
+          "correct_answered": 0.9464285714285714,
+          "refusal_wrong_rate": 0.0967741935483871,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.9032258064516129
+        },
+        "gr": {
+          "counts": {
+            "grounded_correct": 21,
+            "correct_unsupported": 30,
+            "wrong": 5,
+            "refused_wrongly": 6,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 62,
+          "n_answerable": 62,
+          "n_answered": 56,
+          "halluc_answered": 0.5892857142857143,
+          "correct_answered": 0.9107142857142857,
+          "refusal_wrong_rate": 0.0967741935483871,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.9032258064516129
         }
       }
     },
@@ -213,22 +271,22 @@
         "vec": {
           "context_precision": [
             0.49074074074074076,
-            0.39814814814814814,
+            0.3888888888888889,
             0.5833333333333334
           ],
           "faithfulness": [
             0.9453333333333334,
-            0.8933000000000001,
+            0.894,
             0.9853333333333333
           ],
           "answer_relevancy": [
             0.7670935520656683,
-            0.6738534635771307,
-            0.8413533925440082
+            0.6678557188477467,
+            0.8381491545878047
           ],
           "hallucination": [
             0.18518518518518517,
-            0.07407407407407407,
+            0.037037037037037035,
             0.3333333333333333
           ],
           "answer_correctness": [
@@ -241,21 +299,21 @@
           "context_precision": [
             0.4351851851851852,
             0.35185185185185186,
-            0.5185185185185185
+            0.5277777777777778
           ],
           "faithfulness": [
             0.9035714285714286,
-            0.8462655279503106,
-            0.9550724637681158
+            0.8470419254658386,
+            0.9583333333333333
           ],
           "answer_relevancy": [
             0.7043464140980693,
-            0.5827889785758089,
-            0.8111121332426433
+            0.5829570937075399,
+            0.804257861831687
           ],
           "hallucination": [
             0.3333333333333333,
-            0.14814814814814814,
+            0.18518518518518517,
             0.5185185185185185
           ],
           "answer_correctness": [
@@ -312,38 +370,96 @@
       "paired": {
         "context_precision": {
           "delta": -0.05555555555555555,
-          "lo": -0.17615740740740735,
-          "hi": 0.08333333333333333,
+          "lo": -0.18518518518518517,
+          "hi": 0.07407407407407407,
           "n": 27,
-          "p": 0.46
+          "p": 0.4504,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "faithfulness": {
           "delta": -0.02732683982683982,
-          "lo": -0.09859307359307361,
-          "hi": 0.05,
+          "lo": -0.09789502164502166,
+          "hi": 0.048053300865800834,
           "n": 22,
-          "p": 0.4684
+          "p": 0.45,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_relevancy": {
           "delta": -0.06274713796759904,
-          "lo": -0.1864333055174729,
-          "hi": 0.05709738995239338,
+          "lo": -0.1875428765269895,
+          "hi": 0.05833759389183609,
           "n": 27,
-          "p": 0.3012
+          "p": 0.3188,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "hallucination": {
           "delta": 0.14814814814814814,
           "lo": -0.07407407407407407,
           "hi": 0.37037037037037035,
           "n": 27,
-          "p": 0.2444
+          "p": 0.2312,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_correctness": {
           "delta": -0.1111111111111111,
           "lo": -0.25925925925925924,
           "hi": 0.037037037037037035,
           "n": 27,
-          "p": 0.2312
+          "p": 0.2272,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
+        }
+      },
+      "outcomes": {
+        "vec": {
+          "counts": {
+            "grounded_correct": 19,
+            "correct_unsupported": 4,
+            "wrong": 2,
+            "refused_wrongly": 2,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 27,
+          "n_answerable": 27,
+          "n_answered": 25,
+          "halluc_answered": 0.2,
+          "correct_answered": 0.92,
+          "refusal_wrong_rate": 0.07407407407407407,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.9259259259259259
+        },
+        "gr": {
+          "counts": {
+            "grounded_correct": 12,
+            "correct_unsupported": 8,
+            "wrong": 3,
+            "refused_wrongly": 4,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 27,
+          "n_answerable": 27,
+          "n_answered": 23,
+          "halluc_answered": 0.391304347826087,
+          "correct_answered": 0.8695652173913043,
+          "refusal_wrong_rate": 0.14814814814814814,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.8518518518518519
         }
       }
     },
@@ -358,13 +474,13 @@
           ],
           "faithfulness": [
             0.8469425735554769,
-            0.7974824481074482,
-            0.8935816692268305
+            0.7967239503328214,
+            0.8978591614478711
           ],
           "answer_relevancy": [
             0.7250583363060923,
-            0.630981185414231,
-            0.8013053739260074
+            0.6303382285600374,
+            0.800755404759412
           ],
           "hallucination": [
             0.6285714285714286,
@@ -373,25 +489,25 @@
           ],
           "answer_correctness": [
             0.8571428571428571,
-            0.7142857142857143,
+            0.7428571428571429,
             0.9714285714285714
           ]
         },
         "gr": {
           "context_precision": [
             0.5285714285714286,
-            0.45,
+            0.44285714285714284,
             0.6071428571428571
           ],
           "faithfulness": [
             0.8071843980934891,
-            0.7590399121080939,
-            0.8568891293891293
+            0.7586735318553501,
+            0.8565619397437579
           ],
           "answer_relevancy": [
             0.7682250301165369,
-            0.6958809920073111,
-            0.8195627305118223
+            0.6978455048740939,
+            0.8186039560902387
           ],
           "hallucination": [
             0.6857142857142857,
@@ -452,38 +568,96 @@
       "paired": {
         "context_precision": {
           "delta": -0.18571428571428572,
-          "lo": -0.2714285714285714,
-          "hi": -0.1,
+          "lo": -0.2785714285714286,
+          "hi": -0.09285714285714286,
           "n": 35,
-          "p": 0.0
+          "p": 0.0,
+          "p_holm": 0.0,
+          "family_size": 15,
+          "significant": true,
+          "significant_holm": true
         },
         "faithfulness": {
           "delta": -0.03253556788039546,
-          "lo": -0.09446279295417227,
-          "hi": 0.030785543479508994,
+          "lo": -0.0948549223764741,
+          "hi": 0.03146067533998567,
           "n": 29,
-          "p": 0.3112
+          "p": 0.3084,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_relevancy": {
           "delta": 0.04316669381044458,
-          "lo": -0.07095348807641146,
-          "hi": 0.16140260083707444,
+          "lo": -0.06840325859449221,
+          "hi": 0.16149498212041316,
           "n": 35,
-          "p": 0.466
+          "p": 0.486,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "hallucination": {
           "delta": 0.05714285714285714,
           "lo": -0.11428571428571428,
           "hi": 0.22857142857142856,
           "n": 35,
-          "p": 0.6104
+          "p": 0.6448,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
         },
         "answer_correctness": {
           "delta": 0.02857142857142857,
           "lo": -0.11428571428571428,
           "hi": 0.17142857142857143,
           "n": 35,
-          "p": 0.854
+          "p": 0.8536,
+          "p_holm": 1.0,
+          "family_size": 15,
+          "significant": false,
+          "significant_holm": false
+        }
+      },
+      "outcomes": {
+        "vec": {
+          "counts": {
+            "grounded_correct": 9,
+            "correct_unsupported": 21,
+            "wrong": 1,
+            "refused_wrongly": 4,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 35,
+          "n_answerable": 35,
+          "n_answered": 31,
+          "halluc_answered": 0.7096774193548387,
+          "correct_answered": 0.967741935483871,
+          "refusal_wrong_rate": 0.11428571428571428,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.8857142857142857
+        },
+        "gr": {
+          "counts": {
+            "grounded_correct": 9,
+            "correct_unsupported": 22,
+            "wrong": 2,
+            "refused_wrongly": 2,
+            "refused_correctly": 0,
+            "answered_out_of_corpus": 0
+          },
+          "n": 35,
+          "n_answerable": 35,
+          "n_answered": 33,
+          "halluc_answered": 0.7272727272727273,
+          "correct_answered": 0.9393939393939394,
+          "refusal_wrong_rate": 0.05714285714285714,
+          "refusal_correct_rate": NaN,
+          "coverage": 0.9428571428571428
         }
       }
     },
@@ -595,6 +769,93 @@
         "answer_relevancy": null,
         "hallucination": null,
         "answer_correctness": null
+      },
+      "outcomes": {
+        "vec": {
+          "counts": {
+            "grounded_correct": 0,
+            "correct_unsupported": 0,
+            "wrong": 0,
+            "refused_wrongly": 0,
+            "refused_correctly": 23,
+            "answered_out_of_corpus": 0
+          },
+          "n": 23,
+          "n_answerable": 0,
+          "n_answered": 0,
+          "halluc_answered": NaN,
+          "correct_answered": NaN,
+          "refusal_wrong_rate": NaN,
+          "refusal_correct_rate": 1.0,
+          "coverage": NaN
+        },
+        "gr": {
+          "counts": {
+            "grounded_correct": 0,
+            "correct_unsupported": 0,
+            "wrong": 0,
+            "refused_wrongly": 0,
+            "refused_correctly": 23,
+            "answered_out_of_corpus": 0
+          },
+          "n": 23,
+          "n_answerable": 0,
+          "n_answered": 0,
+          "halluc_answered": NaN,
+          "correct_answered": NaN,
+          "refusal_wrong_rate": NaN,
+          "refusal_correct_rate": 1.0,
+          "coverage": NaN
+        }
+      }
+    }
+  },
+  "holm_family": 15,
+  "by_source_group": {
+    "added": {
+      "n": 10,
+      "n_single": 6,
+      "vec": {
+        "context_precision": 0.475,
+        "gold_chunk_recall": 0.75,
+        "retrieval_hit": 0.9,
+        "answer_correctness": 0.8
+      },
+      "gr": {
+        "context_precision": 0.525,
+        "gold_chunk_recall": 0.4,
+        "retrieval_hit": 0.5,
+        "answer_correctness": 0.5
+      },
+      "paired_context_precision": {
+        "delta": 0.05,
+        "lo": -0.1,
+        "hi": 0.225,
+        "n": 10,
+        "p": 0.6644
+      }
+    },
+    "original": {
+      "n": 52,
+      "n_single": 21,
+      "vec": {
+        "context_precision": 0.6442307692307693,
+        "gold_chunk_recall": 0.6730769230769231,
+        "retrieval_hit": 0.7307692307692307,
+        "answer_correctness": 0.8653846153846154
+      },
+      "gr": {
+        "context_precision": 0.4807692307692308,
+        "gold_chunk_recall": 0.38461538461538464,
+        "retrieval_hit": 0.5192307692307693,
+        "answer_correctness": 0.8846153846153846
+      },
+      "paired_context_precision": {
+        "delta": -0.16346153846153846,
+        "lo": -0.25,
+        "hi": -0.08173076923076923,
+        "n": 52,
+        "p": 0.0004
       }
     }
   },

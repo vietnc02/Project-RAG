@@ -33,7 +33,7 @@ from kg_build import load_papers
 SRC = config.RESULTS_DIR / "kg30"
 DIR = config.PROJECT_DIR / "testset" / "human_judge"
 SHEET, KEY, LABELS = DIR / "phieu_cham.html", DIR / "key.json", DIR / "human_labels.json"
-TEMPLATE = config.PROJECT_DIR / "human_judge_template.html"
+TEMPLATE = DIR / "template.html"   # khuôn phiếu chấm (HTML + JS); --make chèn dữ liệu vào /*__DATA__*/
 OUT = config.RESULTS_DIR / "human_judge"
 SYSTEMS = ("vector_rag", "graphrag")
 N_PER_TYPE = 9

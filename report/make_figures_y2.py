@@ -22,6 +22,7 @@ import config  # noqa: E402
 from evaluate import load_jsonl, load_testset  # noqa: E402
 from evaluate_graphrag import TESTSET_FILES, gold_sources  # noqa: E402
 from kg_build import load_papers  # noqa: E402
+from stat_utils import boot, holm, isnan, outcomes, paired_boot  # noqa: E402
 
 RUN = config.RESULTS_DIR / "kg30"
 OUT = ROOT / "report" / "figures"
@@ -51,7 +52,6 @@ plt.rcParams.update({
     "axes.titleweight": "bold", "figure.facecolor": SURF, "axes.facecolor": SURF,
     "axes.spines.top": False, "axes.spines.right": False, "savefig.dpi": 200,
 })
-rng = np.random.default_rng(config.SEED)
 
 
 def save(fig, name):
@@ -62,19 +62,6 @@ def save(fig, name):
 def grid(ax, axis="y"):
     (ax.yaxis if axis == "y" else ax.xaxis).grid(True, color=GRID, lw=0.8)
     ax.set_axisbelow(True)
-
-
-def isnan(x):
-    return x is None or (isinstance(x, float) and math.isnan(x))
-
-
-def boot(x, n=2000):
-    x = np.asarray([v for v in x if not isnan(v)], float)
-    if len(x) == 0:
-        return [math.nan] * 3
-    means = rng.choice(x, size=(n, len(x))).mean(1)
-    lo, hi = np.percentile(means, [2.5, 97.5])
-    return [float(x.mean()), float(lo), float(hi)]
 
 
 # ---------------- load ----------------
@@ -115,10 +102,27 @@ for qt in [*TYPES, "unanswerable"]:
         if len(d) == 0 or not d.any() and qt == "unanswerable":
             ts["paired"][m] = None
             continue
-        bs = rng.choice(d, size=(5000, len(d))).mean(1)
-        lo, hi = np.percentile(bs, [2.5, 97.5])
-        ts["paired"][m] = {"delta": float(d.mean()), "lo": float(lo), "hi": float(hi), "n": len(d),
-                           "p": float(min(1.0, 2 * min((bs <= 0).mean(), (bs >= 0).mean())))}
+        ts["paired"][m] = paired_boot(d)
+    # nhóm kết cục: tách hallucination khỏi refusal (như nội dung 1)
+    ts["outcomes"] = {s: outcomes([(qt != "unanswerable", S[s][i]["refusal"], S[s][i]["answer_correctness"],
+                                    S[s][i]["hallucination"]) for i in ids]) for s in SYS}
+# hiệu chỉnh Holm: họ so sánh = mọi paired difference của Bảng 8 (3 nhóm câu × 5 chỉ số)
+stats["holm_family"] = holm([stats["types"][qt]["paired"][m] for qt in TYPES for m, *_ in METRICS])
+
+# Tách theo nhóm bài nguồn: câu có bài nguồn thuộc 7 bài bổ sung (bài kinh điển, chọn vì nhiều bài khác nhắc tới)
+# so với câu chỉ dùng 23 bài thuộc corpus 95 bài
+ADDED = {pp["source"] for pp in PINFO if pp.get("added_for_y2")}
+stats["by_source_group"] = {}
+for grp, cond in (("added", lambda i: bool(set(gold_sources(TS[i])) & ADDED)),
+                  ("original", lambda i: not set(gold_sources(TS[i])) & ADDED)):
+    ids = [i for i in ids_of("all") if cond(i)]
+    stats["by_source_group"][grp] = {
+        "n": len(ids), "n_single": sum(TS[i]["type"] == "single" for i in ids),
+        **{s: {k: float(np.nanmean([S[s][i].get(k, math.nan) for i in ids]))
+               for k in ("context_precision", "gold_chunk_recall", "retrieval_hit", "answer_correctness")}
+           for s in SYS},
+        "paired_context_precision": paired_boot([S["gr"][i]["context_precision"] - S["vec"][i]["context_precision"]
+                                                 for i in ids])}
 
 # Entity "quá chung" (gắn với >= 50 chunk) trong số seed entity -> tỉ lệ lấy được gold chunk
 cnt = {e["name"]: len(e["chunk_ids"]) for e in G["entities"]}

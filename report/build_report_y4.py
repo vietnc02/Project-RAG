@@ -286,8 +286,24 @@ def dpp_x(x, d=3):
 
 
 def sig(m, k):
+    """CI 95% không chứa 0 (chưa hiệu chỉnh đa so sánh)."""
     x = P[m][k]
     return x["lo"] > 0 or x["hi"] < 0
+
+
+def sig_h(m, k):
+    """Còn statistical significance sau hiệu chỉnh Holm cho 21 so sánh (3 chế độ × 7 chỉ số)."""
+    return P[m][k]["significant_holm"]
+
+
+def max_drop(m):
+    """Mức giảm faithfulness lớn nhất mà CI 95% chưa loại trừ (= −cận dưới), vd. "0,079"."""
+    return f"{-P[m]['faithfulness']['lo']:.3f}".replace(".", ",")
+
+
+def holm_txt(m, k):
+    x = P[m][k]
+    return f"{pv(x['p'])}, sau hiệu chỉnh Holm {pv(x['p_holm']).replace('p ', 'p_Holm ', 1)}"
 
 
 def non_inferior(m):
@@ -399,8 +415,12 @@ table("Chỉ số của nội dung 4", ["Chỉ số", "Cách tính"],
        ["Refusal (câu có đáp án) ↓", "Tỉ lệ refuse ở câu có ground truth (hành vi không mong muốn)."],
        ["Answer relevancy ↑", "Như nội dung 1–2; câu refusal = 0."]],
       [4.6, 11.4], font=10.5)
-bullets([("Thống kê: ", "CI 95% bằng bootstrap (2000 lần); paired difference giữa chế độ nén và context gốc trên cùng câu "
-          "hỏi (bootstrap 5000 lần), như nội dung 1–3."),
+bullets([("Thống kê: ", "CI 95% bằng bootstrap (2000 lần, seed cố định cho từng lần bootstrap); paired difference giữa "
+          "chế độ nén và context gốc trên cùng câu hỏi (bootstrap 5000 lần), như nội dung 1–3. Các paired difference "
+          f"({S['n_comparisons']['total']} so sánh: 3 chế độ × 7 chỉ số) là một họ so sánh, p được hiệu chỉnh theo Holm; "
+          "chỉ chênh lệch qua được hiệu chỉnh mới được gọi là có statistical significance, chênh lệch có CI 95% không chứa "
+          "0 nhưng không qua hiệu chỉnh được ghi là gợi ý. Kiểm định non-inferiority của faithfulness là phép thử chính "
+          "đặt trước, dựa trên cận dưới CI 95%, không thuộc họ này."),
          ("Non-inferiority: ", f"ngưỡng {num(NI, 2)} cho faithfulness, đặt trước khi chạy. \"Giữ nguyên faithfulness\" "
           f"chỉ khi cận dưới CI 95% của (nén − gốc) lớn hơn −{num(NI, 2)} (tương đương kiểm định một phía ở mức 2,5%). "
           "Không có ngưỡng chuẩn cho faithfulness; 0,05 (tức trung bình mất khoảng 1 claim được hỗ trợ trên 20 claim) là "
@@ -432,21 +452,29 @@ h("5.2. Faithfulness: có giữ nguyên không", 2)
 rows = []
 for m in MODES[1:]:
     x = P[m]["faithfulness"]
-    concl = ("không thấp hơn quá " + num(NI, 2)) if non_inferior(m) else (
-        "giảm, có statistical significance; không giữ nguyên" if sig(m, "faithfulness")
-        else "không đủ bằng chứng để nói giữ nguyên")
-    rows.append([NAMES[m], str(x["n"]), num(M[m]["faithfulness"][0]), dpp(m, "faithfulness"), concl])
+    concl = ("không thấp hơn quá " + num(NI, 2)) if non_inferior(m) else "không đủ bằng chứng để nói giữ nguyên"
+    rows.append([NAMES[m], str(x["n"]), num(M[m]["faithfulness"][0]), dpp(m, "faithfulness"),
+                 f"{x['lo']:+.3f}".replace(".", ",").replace("-", "−"), concl])
 table(f"Faithfulness so với context gốc ({num(M['base']['faithfulness'][0])}): kiểm định non-inferiority, ngưỡng "
-      f"−{num(NI, 2)}", ["Chế độ", "Số cặp", "Faithfulness", "Nén − gốc [CI 95%]", "Kết luận"], rows,
-      [3.4, 1.5, 2.6, 4.2, 4.3], font=10, center_from=1)
+      f"−{num(NI, 2)}", ["Chế độ", "Số cặp", "Faithfulness", "Nén − gốc [CI 95%]", "Mức giảm chưa loại trừ được",
+                         "Kết luận"], rows,
+      [2.7, 1.2, 2.5, 3.7, 2.4, 3.5], font=10, center_from=1)
 figure("y4_fig2_paired.png", "Paired difference so với context gốc trên năm chỉ số", width=16.5)
 p(f"**Không chế độ nào chứng minh được faithfulness được giữ nguyên.** Nén KG và nén passage làm faithfulness giảm khoảng "
   f"0,03 ({dpp('kg', 'faithfulness')} và {dpp('text', 'faithfulness')}), không có statistical significance, nhưng CI kéo "
-  f"tới khoảng −0,08 nên không đủ bằng chứng để nói faithfulness được giữ nguyên. Nén cả hai phần: nén − gốc = "
-  f"{dpp('both', 'faithfulness')}, giảm có statistical significance, và mức giảm trung bình đã vượt ngưỡng {num(NI, 2)}. "
+  f"tới khoảng −0,08 nên không đủ bằng chứng để nói faithfulness được giữ nguyên: dữ liệu chưa loại trừ được mức giảm tới "
+  f"{max_drop('kg')} (nén KG) và {max_drop('text')} (nén passage). Nén cả hai phần: nén − gốc = "
+  f"{dpp('both', 'faithfulness')}, CI không chứa 0 ({holm_txt('both', 'faithfulness')}), tức là có dấu hiệu giảm nhưng "
+  f"chưa qua hiệu chỉnh đa so sánh; mức giảm trung bình đã vượt ngưỡng {num(NI, 2)}. "
   f"Chấm trên context gốc chưa nén (faithfulness_full) cho kết quả cùng chiều nhưng không có statistical significance "
   f"({dpp('both', 'faithfulness_full')} ở chế độ nén cả hai): có dấu hiệu câu trả lời từ context nén chứa thêm claim "
   "không có trong cả context gốc (mô hình tự bổ sung bằng kiến thức riêng), nhưng chưa đủ bằng chứng để khẳng định.")
+p("**Độ dài context và judge:** ở nội dung 2 (mục 8.5), judge chấm faithfulness của GraphRAG thấp hơn human judge nhiều "
+  "hơn so với Vector RAG, và GraphRAG có context dài hơn (mô tả KG cộng 4 passage); tức là judge có thể khắt khe hơn khi "
+  "context dài. Nếu đúng như vậy, context nén (ngắn hơn) được chấm dễ hơn context gốc, và mức giảm faithfulness thật có "
+  "thể lớn hơn số đo ở Bảng 6. Faithfulness_full chấm mọi chế độ trên cùng context gốc nên không bị ảnh hưởng bởi thiên "
+  f"lệch này, và cho kết quả cùng chiều (nén cả hai: {dpp('both', 'faithfulness_full')}). Chiều lệch theo độ dài chưa "
+  "được kiểm chứng trên dữ liệu của nội dung 4.")
 p(f"Năng lực kiểm định thấp: với khoảng {P['kg']['faithfulness']['n']} cặp, CI 95% của paired difference rộng khoảng ±0,05, "
   f"ngang ngưỡng {num(NI, 2)}. Giả sử nén hoàn toàn không làm thay đổi faithfulness, xác suất kiểm định kết luận được "
   f"\"giữ nguyên\" cũng chỉ khoảng {pct(P['kg']['ni_power_if_zero'], 0)} (nén KG, nén passage) và "
@@ -474,15 +502,17 @@ p(f"Các chỉ số tính trên đủ {S['n_answerable']} câu, trừ faithfulne
   size=10, italic=True, indent=False)
 p(f"**Context recall** (thông tin quan trọng còn lại): khi chỉ nén KG ({dpp('kg', 'context_recall', True)}) hoặc chỉ "
   f"nén passage ({dpp('text', 'context_recall', True)}), không đủ bằng chứng để phân biệt với context gốc. Nén cả "
-  f"hai: nén − gốc = {dpp('both', 'context_recall', True)}, giảm có statistical significance nhưng nhỏ: phần lớn "
-  "claim của ground truth vẫn còn sau khi bỏ gần một nửa số token.")
+  f"hai: nén − gốc = {dpp('both', 'context_recall', True)}, CI không chứa 0 nhưng không qua hiệu chỉnh Holm "
+  f"({holm_txt('both', 'context_recall')}), và mức giảm nhỏ: phần lớn claim của ground truth vẫn còn sau khi bỏ gần một "
+  "nửa số token.")
 p(f"**Answer correctness:** ở cả ba chế độ, không đủ bằng chứng để phân biệt với context gốc (nén cả hai: "
   f"{dpp('both', 'answer_correctness', True)}; CI vẫn chứa mức giảm khoảng 10 điểm %). Giá trị trung bình gần như bằng "
   "nhau che hai chiều ngược nhau: ở chế độ nén cả hai, "
   f"{S['correct_flips']['both']['right_to_wrong']} câu context gốc trả lời đúng trở thành sai và "
   f"{S['correct_flips']['both']['wrong_to_right']} câu sai trở thành đúng.")
 p(f"**Refusal ở câu có đáp án tăng gấp đôi khi nén KG** ({pct(M['base']['refusal'][0])} lên {pct(M['kg']['refusal'][0])}, "
-  f"{dpp('kg', 'refusal', True)}, có statistical significance; nén cả hai cũng vậy), còn nén passage thì không đủ bằng "
+  f"{dpp('kg', 'refusal', True)}, CI không chứa 0, {holm_txt('kg', 'refusal')}; nén cả hai cũng vậy): đây là thay đổi "
+  "rõ nhất về mặt độ lớn nhưng chưa qua hiệu chỉnh đa so sánh. Nén passage thì không đủ bằng "
   f"chứng để phân biệt ({dpp('text', 'refusal', True)}). Answer relevancy giảm ở các chế độ nén KG chủ yếu vì câu refusal "
   f"được 0 điểm: chỉ tính câu không refuse, answer relevancy là {num(M['base']['answer_relevancy_non_refused'], 3)} (gốc) "
   f"và {num(M['both']['answer_relevancy_non_refused'], 3)} (nén cả hai). Cả bốn chế độ đều refuse đúng "
@@ -510,8 +540,8 @@ p("**KG-RAG [1]** (KG y sinh, cắt context bằng embedding) báo cáo giảm h
   f"ở đây cùng chiều về độ chính xác: giảm {red('both')} token mà không đủ bằng chứng để phân biệt answer correctness "
   "với context gốc (CI còn rộng, khoảng ±10 điểm %). Khác biệt là nội dung 4 "
   "đo thêm faithfulness và refusal, và chính hai chỉ số này cho thấy cái giá của việc nén: ở chế độ nén cả hai, câu trả "
-  "lời bám vào context kém hơn một chút (faithfulness giảm có statistical significance), và khi nén KG mô hình refuse "
-  "nhiều hơn ở câu multi-hop. Chỉ nhìn độ chính xác thì sẽ không thấy các thay đổi này.")
+  "lời có dấu hiệu bám vào context kém hơn (faithfulness giảm, CI không chứa 0 nhưng chưa qua hiệu chỉnh đa so sánh), "
+  "và khi nén KG mô hình refuse nhiều hơn ở câu multi-hop. Chỉ nhìn độ chính xác thì sẽ không thấy các thay đổi này.")
 p("**RECOMP [2]** dùng bộ nén extractive chọn câu (được huấn luyện) và cho phép trả về chuỗi rỗng khi tài liệu không giúp "
   "ích (selective augmentation); context nén chỉ còn khoảng 6% độ dài gốc mà chất lượng giảm ít. Nén passage ở đây cũng là chọn câu "
   "nhưng không huấn luyện (chỉ dùng cosine với câu hỏi), và không đủ bằng chứng để phân biệt với context gốc ở cả "
@@ -528,10 +558,11 @@ bullets([("Một mức nén cho mỗi cách: ", "mỗi cách nén chỉ thử m�
           "được chấm trong cùng một lần chạy, nhưng nhiễu này vẫn có giữa các câu, nên các chênh lệch faithfulness nhỏ "
           f"(khoảng 0,03) cần được hiểu thận trọng. {S['n_answerable']} câu có đáp án nên năng lực kiểm định thấp với "
           f"ngưỡng {num(NI, 2)}."),
-         ("Đa so sánh: ", f"{S['n_comparisons']['total']} paired comparison (3 chế độ × 7 chỉ số) không hiệu chỉnh đa so "
-          f"sánh, {S['n_comparisons']['significant']} có statistical significance; nếu không có khác biệt thật nào, ở mức "
-          "5% vẫn kỳ vọng khoảng 1 kết quả dương tính giả, nên các kết quả có CI sát 0 (faithfulness và context recall ở "
-          "chế độ nén cả hai, cận trên −0,003) cần được xác nhận trên bộ câu hỏi lớn hơn."),
+         ("Đa so sánh: ", f"trong {S['n_comparisons']['total']} paired comparison (3 chế độ × 7 chỉ số), "
+          f"{S['n_comparisons']['significant']} có CI 95% không chứa 0 nhưng chỉ {S['n_comparisons']['significant_holm']} "
+          "còn statistical significance sau hiệu chỉnh Holm (answer relevancy khi nén KG, chủ yếu do refuse nhiều hơn). "
+          "Các kết quả có CI sát 0 (faithfulness và context recall ở chế độ nén cả hai, cận trên −0,003) và mức tăng refusal "
+          "cần được xác nhận trên bộ câu hỏi lớn hơn."),
          ("Chỉ thử GraphRAG: ","Vector RAG không có phần KG; nén passage có thể áp dụng cho Vector RAG nhưng chưa đo."),
          ("Cách hiểu \"thông tin quan trọng\": ", "đo bằng context recall theo claim của ground truth, không phải bằng "
           "danh mục thông tin do chuyên gia xác định như trong bối cảnh lâm sàng.")])
@@ -542,13 +573,16 @@ p(f"Nén context của GraphRAG chỉ bằng cách xoá bớt theo độ liên q
   f"{red('text')} (nén passage) và {red('both')} (nén cả hai), đều trong khoảng mục tiêu 19–53%. Không chế độ nào chứng "
   f"minh được faithfulness được giữ nguyên với ngưỡng {num(NI, 2)}: nén một phần làm faithfulness giảm khoảng 0,03, không "
   "đủ bằng chứng để phân biệt với context gốc nhưng cũng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp); "
-  f"nén cả hai: nén − gốc = {dpp('both', 'faithfulness')}, giảm có statistical significance. Với thông tin quan trọng "
+  f"nén cả hai: nén − gốc = {dpp('both', 'faithfulness')}, có dấu hiệu giảm (CI không chứa 0) nhưng chưa qua hiệu chỉnh "
+  "đa so sánh. Với cỡ mẫu hiện có, dữ liệu chưa loại trừ được mức giảm faithfulness tới "
+  f"{max_drop('text')} ở chế độ nén passage và {max_drop('both')} ở chế độ nén cả hai. Với thông tin quan trọng "
   "(context recall) và answer correctness, nén một phần không đủ bằng chứng để phân biệt với context gốc; nén cả hai làm "
-  "context recall giảm nhẹ (có statistical significance), còn answer correctness vẫn không đủ bằng chứng để phân biệt. "
-  "Cái giá rõ nhất là refusal ở câu có đáp án tăng gấp đôi khi nén KG, chủ yếu ở câu multi-hop. Với cài đặt GraphRAG "
+  "context recall giảm nhẹ (CI không chứa 0, chưa qua hiệu chỉnh đa so sánh), còn answer correctness vẫn không đủ bằng "
+  "chứng để phân biệt. Thay đổi lớn nhất là refusal ở câu có đáp án tăng gấp đôi khi nén KG, chủ yếu ở câu multi-hop "
+  "(cũng chưa qua hiệu chỉnh đa so sánh). Với cài đặt GraphRAG "
   f"local search và mô hình 7B ở đây, nén passage (giảm {red('text')} token) là mức ít rủi ro nhất trong ba mức đã thử: "
-  "không có chỉ số nào giảm có statistical significance, kể cả refusal, dù vẫn chưa chứng minh được faithfulness giữ "
-  "nguyên. Muốn nén mạnh hơn cần giữ phần mô tả KG cho câu multi-hop hoặc dùng bộ nén có huấn luyện.")
+  "không chỉ số nào có dấu hiệu giảm, kể cả refusal, dù vẫn chưa chứng minh được faithfulness giữ nguyên. Muốn nén mạnh "
+  "hơn cần giữ phần mô tả KG cho câu multi-hop hoặc dùng bộ nén có huấn luyện.")
 
 h("TÀI LIỆU THAM KHẢO", 1)
 for ref in ["[1] K. Soman et al., \"Biomedical knowledge graph-optimized prompt generation for large language models\", "

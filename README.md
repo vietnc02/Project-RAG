@@ -7,13 +7,16 @@ So sánh các kiến trúc RAG (RAG thuần, Self-RAG, GraphRAG) trên 95 bài b
 
 | | Câu hỏi | Kết quả chính | Báo cáo |
 |---|---|---|---|
-| **Ý 1** | LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate | Single-hop: không đủ bằng chứng để phân biệt hai hệ. Multi-hop: Self-RAG giảm hallucination rate 71% → 37%, phần lớn nhờ refuse nhiều hơn; đổi lại answer relevancy 0,70 → 0,42 | [Bao_cao_Y1.pdf](report/Bao_cao_Y1.pdf) · [chi tiết](#ý-1--langchain-rag-thuần-vs-langgraph-self-rag) |
-| **Ý 2** | KG từ 30 bài (chủ đề quantum); GraphRAG vs Vector RAG: retrieval precision, generation quality | GraphRAG có retrieval precision thấp hơn (0,49 so với 0,62, statistically significant); generation quality không đủ bằng chứng để phân biệt. Judge audit: kết luận không đổi; agreement với human judge thấp (κ 0,14–0,28) | [Bao_cao_Y2.pdf](report/Bao_cao_Y2.pdf) · [chi tiết](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) |
-| **Ý 3** | KG từ k = 10, 20, 30 bài: k bài có đủ để KG hoạt động tốt không | Câu hỏi về chính các bài trong KG: không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp. Điểm yếu là relation (~37% sau hiệu chỉnh). Hỏi cả chủ đề: answer correctness 55% / 76% / 82% | [Bao_cao_Y3.pdf](report/Bao_cao_Y3.pdf) · [chi tiết](#ý-3--kg-từ-k--10-20-30-bài) |
-| **Ý 4** | Context compression (nén KG và passage): token reduction 19–53%, giữ nguyên faithfulness | Token reduction 22,5% / 25,3% / 47,9%; chưa chứng minh được faithfulness giữ nguyên (non-inferiority, ngưỡng 0,05); nén KG làm refuse nhiều hơn | [Bao_cao_Y4.pdf](report/Bao_cao_Y4.pdf) · [chi tiết](#ý-4--context-compression-cho-graphrag) |
+| **Ý 1** | LangChain RAG thuần vs LangGraph Self-RAG: faithfulness, answer relevancy, hallucination rate | Single-hop: không đủ bằng chứng để phân biệt hai hệ. Multi-hop: Self-RAG (xấp xỉ bằng prompt) giảm hallucination rate 71% → 37%, nhưng chủ yếu do refuse nhiều hơn (chỉ tính câu có trả lời: 72% so với 83%; số câu đúng, có căn cứ không tăng); đổi lại answer relevancy 0,70 → 0,42 | [Bao_cao_Y1.pdf](report/Bao_cao_Y1.pdf) · [chi tiết](#ý-1--langchain-rag-thuần-vs-langgraph-self-rag) |
+| **Ý 2** | KG từ 30 bài (chủ đề quantum); GraphRAG vs Vector RAG: retrieval precision, generation quality | GraphRAG truy xuất kém hơn (retrieval precision 0,49 so với 0,62, statistically significant sau hiệu chỉnh Holm; gold chunk 44% so với 78% ở single-hop); generation quality không đủ bằng chứng để phân biệt. Judge audit: kết luận không đổi; agreement với human judge thấp (κ 0,14–0,28) | [Bao_cao_Y2.pdf](report/Bao_cao_Y2.pdf) · [chi tiết](#ý-2--graphrag-vs-vector-rag-30-bài-chủ-đề-quantum) |
+| **Ý 3** | KG từ k = 10, 20, 30 bài: k bài có đủ để KG hoạt động tốt không | Câu hỏi về chính các bài trong KG: không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp. Điểm yếu là relation (~37% sau hiệu chỉnh). Hỏi cả chủ đề: answer correctness 55% / 76% / 82%. Theo tiêu chí non-inferiority δ = 10 điểm %: KG20 đủ cho câu về 20 bài đầu; KG10 chưa kết luận được cho câu về 10 bài đầu; với cả 30 bài, KG10 không đủ, KG20 chưa kết luận được | [Bao_cao_Y3.pdf](report/Bao_cao_Y3.pdf) · [chi tiết](#ý-3--kg-từ-k--10-20-30-bài) |
+| **Ý 4** | Context compression (nén KG và passage): token reduction 19–53%, giữ nguyên faithfulness | Token reduction 22,5% / 25,3% / 47,9%; chưa chứng minh được faithfulness giữ nguyên (non-inferiority, ngưỡng 0,05; chưa loại trừ được mức giảm tới 0,079–0,110); nén KG làm refuse nhiều hơn (chưa qua hiệu chỉnh đa so sánh) | [Bao_cao_Y4.pdf](report/Bao_cao_Y4.pdf) · [chi tiết](#ý-4--context-compression-cho-graphrag) |
 
-Mọi chênh lệch được báo kèm CI 95% (bootstrap, paired trên cùng câu hỏi). Judge được audit (judge_failures, truncate)
-ở ý 2 và ý 3.
+Mọi chênh lệch được báo kèm CI 95% (bootstrap, paired trên cùng câu hỏi; seed cố định cho từng lần bootstrap, hàm
+chung trong `report/stat_utils.py`). Mỗi bảng paired difference là một họ so sánh, p được hiệu chỉnh theo Holm; chỉ
+chênh lệch qua hiệu chỉnh mới được gọi là có statistical significance. Hallucination được tách khỏi refusal bằng nhóm
+kết cục (đúng có căn cứ / đúng nhưng có claim không được hỗ trợ / sai / refuse). Judge được audit (judge_failures,
+truncate) ở ý 2 và ý 3, và đối chiếu với human judge ở ý 2.
 
 ## Mục lục
 - [Chạy nhanh](#chạy-nhanh-sau-khi-clone-repo) · [Môi trường](#môi-trường) · [Cấu trúc repo](#cấu-trúc-repo) · [Dữ liệu](#dữ-liệu-chunks--chroma-có-trong-repo)
@@ -33,7 +36,7 @@ kg_build.py                   dựng Knowledge Graph từ 30 bài (data/kg/)
 rag_graphrag.py               GraphRAG (local search qua KG)
 evaluate_graphrag.py          GraphRAG vs Vector RAG (retrieval precision, generation quality)
 judge_audit.py                re-judge ý 2 với judge log: judge_failures, truncate, sensitivity analysis
-human_judge.py                phiếu chấm tay (human_judge_template.html) + agreement human judge ↔ judge (Cohen's κ)
+human_judge.py                phiếu chấm tay (khuôn: testset/human_judge/template.html) + agreement human judge ↔ judge (Cohen's κ)
 ── Ý 3 ──
 kg_quality.py                 chất lượng KG10/20/30: entity coverage, relation completeness (+ bản hiệu chỉnh)
 evaluate_kg_scale.py          GraphRAG trên KG10/20/30
@@ -47,7 +50,8 @@ papers/, papers_y2/           PDF bài báo (papers_y2: 7 bài bổ sung cho ý 
 testset/       bộ câu hỏi đã duyệt tay (+ bản sinh tự động *_raw.json, kết quả duyệt review_*.py)
 results/       kết quả từng lần chạy: k4, k8 (ý 1) · kg30, kg30_judge_audit, human_judge (ý 2) · kg_scale,
                kg_scale_judge_audit (ý 3) · compression (ý 4); mỗi thư mục có summary.md + run_info.json
-report/        báo cáo Bao_cao_Y1..Y4 (.docx/.pdf), make_figures_y*.py (số liệu + hình), build_report_y*.py
+report/        báo cáo Bao_cao_Y1..Y4 (.docx/.pdf), make_figures_y*.py (số liệu + hình), build_report_y*.py,
+               stat_utils.py (bootstrap, hiệu chỉnh Holm, nhóm kết cục dùng chung)
 ```
 
 ## Chạy nhanh (sau khi clone repo)
@@ -226,7 +230,7 @@ Faithfulness chỉ tính trên câu không refuse (n = 56 mỗi hệ); các ch�
 Với cài đặt local search ở đây và KG dựng bằng mô hình 7B: GraphRAG truy xuất kém hơn chủ yếu ở câu multi-hop
 (retrieval precision 0,53 so với 0,71); về generation quality không đủ bằng chứng để phân biệt hai hệ (không paired
 difference nào có statistical significance, CI còn rộng); câu out-of-corpus cả hai hệ refuse đúng 23/23.
-Phân tích nguyên nhân và đối chiếu tài liệu (Han et al. 2025, GraphRAG-Bench, HybridRAG) trong báo cáo.
+Phân tích nguyên nhân và đối chiếu tài liệu (Han et al., arXiv v3 2026; GraphRAG-Bench; HybridRAG) trong báo cáo.
 
 ## Judge audit (ý 2)
 ```powershell
@@ -301,7 +305,10 @@ KG, câu hỏi, môi trường).
   lệch lớn.
 - Điểm yếu chung là **relation** (~40% relation cần thiết có trong KG), do mô hình trích xuất 7B chứ không do số bài.
 - KG **chưa đạt saturation**: mỗi bài thêm vào vẫn mang ~250–300 entity mới; trên toàn bộ 62 câu KG10 kém KG30 có statistical
-  significance (answer correctness −27,4 điểm % [−40,3; −14,5]), còn KG20 thì không đủ bằng chứng để phân biệt với KG30 (−6,5 điểm % [−16,1; +1,6]). Câu out-of-scope vẫn được trả lời đúng 45% (KG10) / 60% (KG20), chủ
+  significance (answer correctness −27,4 điểm % [−40,3; −14,5]), còn KG20 thì không đủ bằng chứng để phân biệt với KG30 (−6,5 điểm % [−16,1; +1,6]).
+- **"Đủ" theo tiêu chí non-inferiority** (answer correctness so với KG30, δ = 10 điểm %, đặt khi rà soát lại báo cáo):
+  KG20 đủ cho câu về 20 bài đầu; KG10 chưa kết luận được cho câu về 10 bài đầu (S10 chỉ 15 câu); với câu về cả 30 bài,
+  KG10 không đủ, KG20 chưa kết luận được. Câu out-of-scope vẫn được trả lời đúng 45% (KG10) / 60% (KG20), chủ
   yếu nhờ kiến thức sẵn có của mô hình (claim không có trong context).
 
 **Judge audit ý 3** (`python judge_audit_kg_scale.py` -> `results/kg_scale_judge_audit/`): re-judge KG10 / KG20 với
@@ -310,7 +317,7 @@ nào bị truncate. Khác ý 2, re-judge không cho điểm giống hệt (faith
 analysis: answer correctness và answer relevancy KG10 − KG30 vững; "faithfulness KG10 < KG30" không vững (mất statistical
 significance khi bỏ câu có judge failure và khi dùng điểm re-judge), nên không dùng làm kết luận.
 
-Đối chiếu tài liệu trong báo cáo: Han et al. 2025, GraphRAG-Bench (thử nghiệm theo cỡ corpus), KGGen / MINE,
+Đối chiếu tài liệu trong báo cáo: Han et al. (arXiv v3, 2026), GraphRAG-Bench (thử nghiệm theo cỡ corpus), KGGen / MINE,
 Zhu et al., Joren et al. (sufficient context, ICLR 2025), định luật Heaps.
 
 # Ý 4 — Context compression cho GraphRAG
@@ -349,11 +356,13 @@ python report/make_figures_y4.py; python report/build_report_y4.py   # 3. báo c
 
 - Token reduction của cả ba mức nằm trong mục tiêu 19–53%.
 - **Không chế độ nào chứng minh được faithfulness giữ nguyên** (non-inferiority, ngưỡng 0,05): nén một phần giảm ~0,03,
-  không có statistical significance nhưng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp, CI ±0,05);
-  nén cả hai giảm 0,054, có statistical significance.
+  không có statistical significance nhưng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp, CI ±0,05;
+  chưa loại trừ được mức giảm tới 0,079); nén cả hai giảm 0,054 [−0,110; −0,003], CI không chứa 0 nhưng không qua
+  hiệu chỉnh Holm cho 21 so sánh.
 - Context recall và answer correctness: nén một phần không đủ bằng chứng để phân biệt với context gốc; nén cả hai làm
-  context recall giảm nhẹ. Nén KG làm **refusal ở câu có đáp án tăng gấp đôi** (8% → 16%), chủ yếu câu multi-hop dù
-  thông tin vẫn còn trong context; answer relevancy giảm vì câu refusal được 0 điểm.
+  context recall giảm nhẹ. Nén KG làm **refusal ở câu có đáp án tăng gấp đôi** (8% → 16%, chưa qua hiệu chỉnh Holm),
+  chủ yếu câu multi-hop dù thông tin vẫn còn trong context; answer relevancy giảm vì câu refusal được 0 điểm (kết quả
+  duy nhất còn statistical significance sau hiệu chỉnh Holm).
 - Judge log: 1.333 judge call, 2 judge_failures, không prompt nào bị truncate.
 
 Đối chiếu tài liệu trong báo cáo: KG-RAG (Soman et al., Bioinformatics 2024), RECOMP (ICLR 2024), LongLLMLingua (ACL 2024).

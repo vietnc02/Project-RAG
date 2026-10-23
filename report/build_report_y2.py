@@ -329,8 +329,9 @@ def paired_table(caption, types):
         for k, _, as_pct in MAIN:
             d = dp(qt, k)
             dv = f"{d['delta'] * 100:+.1f} điểm %".replace(".", ",") if as_pct else f"{d['delta']:+.3f}".replace(".", ",")
-            sig = d["lo"] > 0 or d["hi"] < 0
-            cells.append(f"{'**' if sig else ''}{dv}{'**' if sig else ''} ({pv(d['p'])})"
+            sig = d["significant_holm"]
+            cells.append(f"{'**' if sig else ''}{dv}{'**' if sig else ''}\n({pv(d['p'])}; "
+                         f"Holm {pv(d['p_holm']).replace('p ', '', 1)})"
                          + (f"\n(n = {d['n']} cặp)" if d["n"] != T[qt]["n"] else ""))
         rows.append([TYPE_VI[qt], *cells])
     table(caption, ["Loại câu hỏi", *[f"Δ {n[:-2]}" for _, n, _ in MAIN]], rows,
@@ -514,8 +515,10 @@ table("Chỉ số so sánh", ["Nhóm", "Chỉ số", "Cách tính"],
        ["", "Hallucination rate ↓", "Như nội dung 1: tỉ lệ câu trả lời có ít nhất một claim không được context hỗ trợ."],
        ["", "Answer correctness ↑", "Judge so câu trả lời với ground truth (đúng / sai); câu out-of-corpus: đúng = refusal."]],
       [3.2, 3.6, 9.2], font=10.5)
-bullets([("Thống kê: ", "CI 95% bằng bootstrap (2000 lần); paired difference giữa hai hệ tính trên cùng câu "
-          "hỏi (bootstrap 5000 lần), cách làm giống nội dung 1."),
+bullets([("Thống kê: ", "CI 95% bằng bootstrap (2000 lần, seed cố định cho từng lần bootstrap); paired difference giữa "
+          "hai hệ tính trên cùng câu hỏi (bootstrap 5000 lần), cách làm giống nội dung 1. Bảng paired difference là một "
+          "họ so sánh (3 nhóm câu × 5 chỉ số) và p được hiệu chỉnh đa so sánh theo Holm; chỉ chênh lệch qua được hiệu "
+          "chỉnh mới được gọi là có statistical significance."),
          ("Secondary metric (chỉ để giải thích): ", "tỉ lệ lấy được gold chunk (đoạn dùng để sinh câu hỏi), tỉ lệ có đủ bài nguồn, "
           "tỉ lệ đoạn thuộc bài nguồn, context recall, tỉ lệ relation KG hữu ích, faithfulness chỉ tính trên passage.")])
 
@@ -524,7 +527,8 @@ h("8. KẾT QUẢ", 1)
 h("8.1. Retrieval precision và generation quality", 2)
 main_table("Năm chỉ số chính: giá trị trung bình [CI 95%]", ["all", "single", "multihop"])
 figure("y2_fig3_main.png", "Năm chỉ số chính theo loại câu hỏi", width=16.5)
-paired_table("Paired difference GraphRAG − Vector RAG (in đậm: CI 95% không chứa 0)",
+paired_table(f"Paired difference GraphRAG − Vector RAG (in đậm: còn statistical significance sau hiệu chỉnh Holm cho "
+             f"{S['holm_family']} so sánh của bảng)",
              ["all", "single", "multihop"])
 figure("y2_fig4_paired.png", "Paired difference trên cùng câu hỏi", width=16.5)
 a_, s_, mh = "all", "single", "multihop"
@@ -548,6 +552,26 @@ p(f"**Generation quality:** trên toàn bộ câu có đáp án, không paired d
   f"và answer correctness của GraphRAG lại cao hơn ({num(m(mh, 'gr', 'answer_relevancy')[0], 2)} so với "
   f"{num(m(mh, 'vec', 'answer_relevancy')[0], 2)}; {pct(m(mh, 'gr', 'answer_correctness')[0], 0)} so với "
   f"{pct(m(mh, 'vec', 'answer_correctness')[0], 0)}). Không chênh lệch nào trong số này có statistical significance.")
+
+p("**Tách hallucination khỏi refusal:** như ở nội dung 1, mỗi câu có đáp án được xếp vào một nhóm kết cục từ các "
+  "nhãn đã có; hallucination rate và answer correctness được tính lại chỉ trên câu được trả lời.")
+rows = []
+for qt in ("all", "single", "multihop"):
+    for sy in ("vec", "gr"):
+        o = T[qt]["outcomes"][sy]
+        c = o["counts"]
+        rows.append([TYPE_VI[qt] if sy == "vec" else "", SYSN[sy], str(c["grounded_correct"]),
+                     str(c["correct_unsupported"]), str(c["wrong"]), str(c["refused_wrongly"]), pct(o["coverage"], 0),
+                     pct(o["halluc_answered"], 0), pct(o["correct_answered"], 0)])
+table("Nhóm kết cục của câu có đáp án (số câu) và các tỉ lệ tính trên câu được trả lời",
+      ["Loại câu hỏi", "Hệ thống", "Đúng, có căn cứ", "Đúng, có claim không được hỗ trợ", "Sai", "Refuse oan",
+       "Coverage", "Hallucination (câu có trả lời)", "Correctness (câu có trả lời)"],
+      rows, [2.1, 1.9, 1.3, 1.7, 1.0, 1.4, 2.0, 2.5, 2.1], font=9.5, center_from=2)
+oa = T["all"]["outcomes"]
+p(f"Hai hệ có cùng coverage trên toàn bộ câu có đáp án ({pct(oa['vec']['coverage'], 0)}), nên ở nội dung 2 refusal không "
+  "làm lệch so sánh hallucination như ở nội dung 1. Số câu đúng và mọi claim có căn cứ của GraphRAG ít hơn "
+  f"({oa['gr']['counts']['grounded_correct']} so với {oa['vec']['counts']['grounded_correct']}), chủ yếu ở câu single-hop, "
+  "cùng hướng với hallucination rate cao hơn ở Bảng 7 nhưng chưa có statistical significance.")
 
 h("8.2. Câu hỏi out-of-corpus", 2)
 u = T["unanswerable"]
@@ -585,6 +609,19 @@ p(f"**Context recall** (tỉ lệ ý của ground truth có trong context) của
   f"({pct(x(a_, 'gr', 'context_recall'), 0)} so với {pct(x(a_, 'vec', 'context_recall'), 0)}) dù context có thêm mô tả KG. "
   f"GraphRAG chậm hơn ({num(x(a_, 'gr', 'latency_s'), 1)} so với {num(x(a_, 'vec', 'latency_s'), 1)} giây mỗi câu) vì "
   "context dài hơn; bản thân bước truy xuất trên KG không gọi LLM.")
+bg = S["by_source_group"]
+ga, go = bg["added"], bg["original"]
+f3 = lambda v: f"{v:+.3f}".replace(".", ",").replace("-", "−")
+pco = go["paired_context_precision"]
+p(f"**Theo nhóm bài nguồn:** 7/30 bài là bài bổ sung (bài gốc của các khái niệm mà 23 bài còn lại nhắc nhiều nhất, "
+  "mục 3), nên tập 30 bài không phải mẫu ngẫu nhiên và các bài bổ sung có thể làm KG liên kết tốt hơn. Tách theo nhóm: "
+  f"ở {go['n']} câu chỉ dùng 23 bài thuộc corpus ban đầu, retrieval precision của GraphRAG vẫn thấp hơn Vector RAG "
+  f"({num(go['gr']['context_precision'], 2)} so với {num(go['vec']['context_precision'], 2)}, chênh lệch "
+  f"{f3(pco['delta'])} [{f3(pco['lo'])}; {f3(pco['hi'])}]) và tỉ lệ lấy được gold chunk là "
+  f"{pct(go['gr']['gold_chunk_recall'], 0)} so với {pct(go['vec']['gold_chunk_recall'], 0)}; ở {ga['n']} câu có bài nguồn "
+  f"thuộc 7 bài bổ sung, tỉ lệ lấy được gold chunk là {pct(ga['gr']['gold_chunk_recall'], 0)} so với "
+  f"{pct(ga['vec']['gold_chunk_recall'], 0)} (quá ít câu để kiểm định). Như vậy kết luận về truy xuất không đến từ các bài "
+  "bổ sung, và GraphRAG cũng không truy xuất tốt hơn ở nhóm bài kinh điển này.")
 
 JA = S.get("judge_audit")
 if JA:
@@ -741,12 +778,13 @@ h("9. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)
 p("**Phù hợp với các nghiên cứu về câu hỏi sự kiện.** GraphRAG gốc của Microsoft [1] được thiết kế cho câu hỏi tổng quát "
   "trên toàn bộ tài liệu (sensemaking) và được đánh giá bằng độ đầy đủ, độ đa dạng của câu trả lời, không phải độ chính "
   "xác khi hỏi một sự kiện cụ thể. Các đánh giá độc lập cho thấy với câu hỏi sự kiện, vector RAG bằng hoặc tốt hơn "
-  "GraphRAG: Han và cộng sự [2] báo cáo F1 trên câu single-hop (NQ) là 68,18% với RAG và 65,44% với GraphRAG local search; "
+  "GraphRAG: Han và cộng sự [2] báo cáo F1 trên câu single-hop (NQ, sinh câu trả lời bằng Llama 3.1-70B) là 68,18% với "
+  "RAG và 65,44% với GraphRAG local search (với Llama 3.1-8B: 64,78% và 63,01%); "
   "GraphRAG-Bench [3] báo cáo độ chính xác ở câu hỏi tra cứu sự kiện là 60,9% với RAG và 49,3% với MS-GraphRAG, và ghi "
   "nhận GraphRAG đưa thêm thông tin liên quan nhưng dư thừa làm nhiễu context. Bộ câu hỏi của nội dung 2 gồm câu sự kiện "
   "cụ thể, nên kết quả GraphRAG không tốt hơn Vector RAG là phù hợp với các nghiên cứu này.")
 p("**Khác biệt ở câu multi-hop.** Han và cộng sự [2] thấy GraphRAG nhỉnh hơn ở câu multi-hop (F1 64,60% so với 63,88% "
-  f"trên HotPotQA). Ở đây, với câu multi-hop, không đủ bằng chứng để phân biệt answer correctness của hai hệ (GraphRAG "
+  f"trên HotPotQA với Llama 3.1-70B; 61,66% so với 60,04% với Llama 3.1-8B). Ở đây, với câu multi-hop, không đủ bằng chứng để phân biệt answer correctness của hai hệ (GraphRAG "
   f"− Vector RAG: {dci(mh, 'answer_correctness', True)}), còn retrieval precision của GraphRAG kém hơn rõ. Có ba khác "
   "biệt về điều kiện: (1) họ dựng KG bằng GPT-4o-mini và vẫn "
   "chỉ khoảng 65% entity của đáp án có trong KG, còn ở đây KG được dựng bằng mô hình cục bộ 7B nên thiếu và trùng lặp "
@@ -773,20 +811,31 @@ bullets([("Mô hình dựng KG: ", "chất lượng KG phụ thuộc mạnh vào
 h("10. KẾT LUẬN", 1)
 p(f"KG dựng từ 30 bài bằng qwen2.5:7b gồm {dot(KG['entities'])} entity và {dot(KG['relations'])} relation, "
   f"{dot(KG['entities_in_2plus_papers'])} entity liên kết từ hai bài trở lên. Trên {T['all']['n']} câu có đáp án, với cài "
-  f"đặt local search ở đây và KG dựng bằng mô hình 7B, GraphRAG có retrieval precision thấp hơn Vector RAG, có statistical "
-  f"significance ({num(m(a_, 'gr', 'context_precision')[0], 2)} so với {num(m(a_, 'vec', 'context_precision')[0], 2)}), chủ yếu ở câu "
-  "multi-hop. Về generation quality, không đủ bằng chứng để phân biệt hai hệ (không paired difference nào có statistical significance, "
-  f"CI còn rộng, ví dụ answer correctness {dci(a_, 'answer_correctness', True)}), cả ở câu single-hop lẫn "
-  f"multi-hop; cả hai hệ đều refuse đúng toàn bộ {u['n']} câu out-of-corpus. Các kết luận này chỉ áp dụng cho câu hỏi sự "
-  "kiện, cài đặt local search tự viết (không phải Microsoft GraphRAG) và KG dựng bằng mô hình cục bộ 7B (qwen2.5:7b): "
+  f"đặt local search ở đây và KG dựng bằng mô hình 7B, GraphRAG truy xuất kém hơn Vector RAG. Hướng của kết luận này "
+  "được các chỉ số không qua judge ủng hộ (lấy được gold chunk ở "
+  f"{pct(x(s_, 'gr', 'gold_chunk_recall'), 0)} so với {pct(x(s_, 'vec', 'gold_chunk_recall'), 0)} câu single-hop; có đủ hai "
+  f"bài nguồn ở {pct(x(mh, 'gr', 'retrieval_hit'), 0)} so với {pct(x(mh, 'vec', 'retrieval_hit'), 0)} câu multi-hop), còn độ "
+  f"lớn đo bằng retrieval precision ({num(m(a_, 'gr', 'context_precision')[0], 2)} so với "
+  f"{num(m(a_, 'vec', 'context_precision')[0], 2)}, có statistical significance sau hiệu chỉnh Holm, chủ yếu ở câu "
+  "multi-hop) phụ thuộc vào judge, mà ở bước chấm passage judge có agreement rất thấp với human judge (mục 8.5). Về "
+  "generation quality, không đủ bằng chứng để phân biệt hai hệ theo judge (không paired difference nào có statistical "
+  f"significance, CI còn rộng, ví dụ answer correctness {dci(a_, 'answer_correctness', True)}). Trên mẫu chấm tay, nhãn "
+  "human judge lại cho hướng ngược với judge ở faithfulness và hallucination rate (GraphRAG tốt hơn theo human judge, "
+  "kém hơn theo judge; mục 8.5); đây chỉ là gợi ý trên 15–18 cặp, nhưng cho thấy kết luận về generation quality chưa "
+  f"chắc chắn. Cả hai hệ đều refuse đúng toàn bộ {u['n']} câu out-of-corpus. Các kết luận này chỉ áp dụng cho câu hỏi "
+  "sự kiện, tập 30 bài không chọn ngẫu nhiên (7 bài bổ sung; kết luận về truy xuất vẫn đúng khi bỏ các câu dùng bài bổ "
+  f"sung, mục 8.3), KG thưa (average degree {num(KG['avg_degree'], 1)}), cài đặt local search tự viết (không phải "
+  "Microsoft GraphRAG) và KG dựng bằng mô hình cục bộ 7B (qwen2.5:7b): "
   "trong điều kiện đó, truy xuất qua KG chưa thay thế được truy xuất theo embedding passage. Hướng có cơ sở từ tài liệu "
-  "là kết hợp hai cách truy xuất (HybridRAG [4]; Han và cộng sự [2] báo cáo tăng 6,4 điểm khi ghép context của RAG và "
-  "GraphRAG) và đánh giá thêm trên câu hỏi tổng quát.")
+  "là kết hợp hai cách truy xuất (HybridRAG [4]; Han và cộng sự [2] báo cáo ghép context của RAG và GraphRAG cải thiện "
+  "6,4% so với phương pháp tốt nhất trên MultiHop-RAG với Llama 3.1-70B) và đánh giá thêm trên câu hỏi tổng quát.")
 
 h("TÀI LIỆU THAM KHẢO", 1)
 for ref in ["[1] D. Edge et al., \"From Local to Global: A Graph RAG Approach to Query-Focused Summarization\", "
             "arXiv:2404.16130, 2024.",
-            "[2] H. Han et al., \"RAG vs. GraphRAG: A Systematic Evaluation and Key Insights\", arXiv:2502.11371, 2025.",
+            "[2] H. Han et al., \"RAG vs. GraphRAG: A Systematic Evaluation and Key Insights\", arXiv:2502.11371v3, 2026 "
+            "(v1: 02/2025; số liệu F1 trích ở đây có trong Bảng 1 của v1 và Bảng 8, 20 của v3; chi tiết dựng KG bằng "
+            "GPT-4o-mini lấy từ v3).",
             "[3] \"When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation\" "
             "(GraphRAG-Bench), arXiv:2506.05690, ICLR 2026.",
             "[4] B. Sarmah et al., \"HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation "
