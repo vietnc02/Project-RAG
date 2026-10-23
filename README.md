@@ -44,6 +44,13 @@ judge_audit_kg_scale.py       re-judge KG10/KG20, sensitivity analysis
 ── Ý 4 ──
 compress.py                   nén context GraphRAG (KG + passage)
 evaluate_compression.py       4 chế độ nén: token reduction, faithfulness (non-inferiority), context recall
+                              (+ baseline xoá ngẫu nhiên / cắt đầu, hai mức nén thêm: --modes)
+── Thí nghiệm bổ sung (chung cho ý 1–4) ──
+run_experiments.sh            chạy toàn bộ thí nghiệm, mỗi câu trả lời chấm 3 lượt judge -> results/r2/
+judge_passes.py               gộp 3 lượt chấm (đa số / trung bình) + độ nhất quán giữa các lượt
+baseline_closed_book.py       baseline không truy xuất: LLM trả lời không có context
+threshold_refusal.py          baseline RAG thuần + refuse theo ngưỡng cosine, đường risk–coverage
+retrieval_metrics.py          chỉ số truy xuất không qua judge: gold-chunk hit, recall, MRR, nDCG@k
 
 data/          chunks, Chroma (chroma.zip), KG (data/kg/k10, k20, k30)
 papers/, papers_y2/           PDF bài báo (papers_y2: 7 bài bổ sung cho ý 2, nguồn trong SOURCES.md)

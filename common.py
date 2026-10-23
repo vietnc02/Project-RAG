@@ -33,12 +33,12 @@ def get_embeddings():
 
 
 @lru_cache
-def get_llm(model: str | None = None, json_mode: bool = False):
+def get_llm(model: str | None = None, json_mode: bool = False, seed: int | None = None):
     return ChatOllama(
         model=model or config.LLM_MODEL,
         base_url=config.OLLAMA_URL,
         temperature=0,
-        seed=config.SEED,
+        seed=config.SEED if seed is None else seed,
         num_ctx=config.NUM_CTX,
         format="json" if json_mode else None,
         # JSON mode đôi khi lặp vô hạn (không tự dừng); đầu ra hợp lệ của các bước chấm chỉ vài trăm token
@@ -81,7 +81,37 @@ def get_vectorstore(auto_restore: bool = True):
 
 def get_retriever(k: int | None = None):
     # đọc config.TOP_K lúc gọi (không phải lúc import) để evaluate.py --top-k ghi đè được
-    return get_vectorstore().as_retriever(search_kwargs={"k": k or config.TOP_K})
+    kw = {"k": k or config.TOP_K}
+    if config.SOURCE_FILTER:  # Vector RAG chỉ trên k bài (ý 3)
+        kw["filter"] = {"source": {"$in": list(config.SOURCE_FILTER)}}
+    retriever = get_vectorstore().as_retriever(search_kwargs=kw)
+    if not config.NOISE_CHUNKS:
+        return retriever
+    from langchain_core.runnables import RunnableLambda
+    return RunnableLambda(lambda q: add_noise(retriever.invoke(q), q, config.NOISE_CHUNKS))
+
+
+@lru_cache
+def _corpus_chunks() -> tuple:
+    import json
+    with open(config.CHUNKS_FILE, encoding="utf-8") as f:
+        return tuple(json.loads(x) for x in f if x.strip())
+
+
+def add_noise(docs: list[Document], query: str, n: int) -> list[Document]:
+    """Điều kiện nhiễu thuần: giữ nguyên top-k, thêm n đoạn ngẫu nhiên của các bài KHÔNG có trong top-k, xáo trộn
+    thứ tự. Ngẫu nhiên theo seed từ nội dung truy vấn, nên cùng câu hỏi luôn nhận cùng đoạn nhiễu."""
+    import hashlib
+    import random
+    rng = random.Random(int(hashlib.sha256(f"{config.SEED}:{query}".encode()).hexdigest()[:12], 16))
+    used = {d.metadata.get("source") for d in docs}
+    pool = [c for c in _corpus_chunks() if c["source"] not in used]
+    noise = [Document(page_content=c["text"], metadata={k: c.get(k) for k in ("topic", "source", "path", "chunk_id",
+                                                                              "page")} | {"noise": True})
+             for c in rng.sample(pool, n)]
+    out = list(docs) + noise
+    rng.shuffle(out)
+    return out
 
 
 def format_docs(docs: list[Document]) -> str:

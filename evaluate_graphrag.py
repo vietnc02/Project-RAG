@@ -41,8 +41,8 @@ import config
 from common import env_info, is_refusal
 # Dùng lại nguyên prompt judge / hàm chấm của ý 1 (evaluate.py không bị sửa)
 from evaluate import (CORRECTNESS, EXTRACT_CLAIMS, PROMPT_NAMES, REVERSE_QUESTIONS, TITLES, append_jsonl,
-                      bootstrap_ci, cosine, flush_judge_log, judge, judge_log_md, load_jsonl, load_testset,
-                      note_missing, verify)
+                      bootstrap_ci, cosine, flush_judge_log, judge, judge_log_md, judge_verdicts, load_jsonl,
+                      load_testset, ratio, verify)
 from common import get_embeddings
 from kg_build import load_papers, use_kg_store
 
@@ -87,16 +87,19 @@ def answer_correctness(item: dict, answer: str, refusal: bool) -> int:
                                        answer=answer).get("score", 0) in (1, "1"))
 
 
-def useful_flags(item: dict, texts: list[str]) -> list[int]:
+def useful_flags(item: dict, texts: list[str]) -> list[int | None]:
+    """1 / 0 cho từng đoạn; None nếu judge không trả verdict sau khi thử lại (bị loại khỏi mẫu số)."""
     if not texts:
         return []
     passages = "\n\n".join(f"{i + 1}. {t}" for i, t in enumerate(texts))
-    verdicts = judge(USEFUL, question=item["question"], reference=item["ground_truth"],
-                     passages=passages).get("verdicts", [])
-    ok = {int(v.get("id", 0)): str(v.get("useful", "")).lower().startswith("y")
-          for v in verdicts if isinstance(v, dict) and str(v.get("id", "")).isdigit()}
-    note_missing(len(texts), sum(i + 1 in ok for i in range(len(texts))))
-    return [int(ok.get(i + 1, False)) for i in range(len(texts))]
+    ok = judge_verdicts(USEFUL, len(texts), "useful", question=item["question"], reference=item["ground_truth"],
+                        passages=passages)
+    return [int(ok[i + 1]) if i + 1 in ok else None for i in range(len(texts))]
+
+
+def mean_judged(flags: list) -> float:
+    v = [f for f in flags if f is not None]
+    return float(np.mean(v)) if v else math.nan
 
 
 def average_precision(flags: list[int]) -> float:
@@ -128,16 +131,16 @@ def score(item: dict, run: dict) -> dict:
         flags = useful_flags(item, [c["text"] for c in texts])
         src, ids = gold_sources(item), gold_chunks(item)
         gt_claims = extract_claims(q, item["ground_truth"])
-        s.update(useful=flags, context_precision=float(np.mean(flags)) if flags else 0.0,
-                 context_ap=average_precision(flags),
+        s.update(useful=flags, context_precision=mean_judged(flags) if flags else 0.0,
+                 context_ap=average_precision([f or 0 for f in flags]),
                  source_precision=float(np.mean([c["source"] in src for c in texts])) if texts else 0.0,
                  retrieval_hit=int(all(any(c["source"] == x for c in texts) for x in src)),
                  gold_chunk_recall=float(np.mean([any(c["chunk_id"] == x for c in texts) for x in ids])),
-                 context_recall=verify(gt_claims, full) / len(gt_claims))
+                 context_recall=ratio(*verify(gt_claims, full)))
         if run.get("kg_context"):  # tỉ lệ quan hệ KG đưa vào context là hữu ích
             rel_lines = run["kg_context"].split("Knowledge graph relations:\n", 1)[-1].splitlines()
             rf = useful_flags(item, [x for x in rel_lines if x.strip()])
-            s["kg_relation_precision"] = float(np.mean(rf)) if rf else math.nan
+            s["kg_relation_precision"] = mean_judged(rf) if rf else math.nan
     else:
         s.update(context_precision=math.nan, context_ap=math.nan, source_precision=math.nan,
                  retrieval_hit=math.nan, gold_chunk_recall=math.nan, context_recall=math.nan)
@@ -148,10 +151,11 @@ def score(item: dict, run: dict) -> dict:
                  faithfulness_text=math.nan, hallucination_text=0)
     else:
         claims = extract_claims(q, ans)
-        n, sup = len(claims), verify(claims, full)
-        sup_text = verify(claims, texts) if len(full) > len(texts) else sup
-        s.update(n_claims=n, n_unsupported=n - sup, faithfulness=sup / n, hallucination=int(sup < n),
-                 faithfulness_text=sup_text / n, hallucination_text=int(sup_text < n), claims=claims)
+        sup, nj = verify(claims, full)
+        sup_t, nj_t = verify(claims, texts) if len(full) > len(texts) else (sup, nj)
+        s.update(n_claims=len(claims), n_judged=nj, n_unsupported=nj - sup, faithfulness=ratio(sup, nj),
+                 hallucination=int(sup < nj) if nj else math.nan, faithfulness_text=ratio(sup_t, nj_t),
+                 hallucination_text=int(sup_t < nj_t) if nj_t else math.nan, claims=claims)
 
     s["answer_relevancy"] = 0.0 if refusal else answer_relevancy(q, ans)
     s["answer_correctness"] = answer_correctness(item, ans, refusal)
@@ -239,6 +243,8 @@ def main():
     ap.add_argument("--systems", nargs="+", default=list(SYSTEMS), choices=list(SYSTEMS))
     ap.add_argument("--include-unreviewed", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--report-only", action="store_true",
+                    help="chỉ tổng hợp từ scores_*.jsonl đã gộp các lượt chấm (judge_passes.py)")
     args = ap.parse_args()
 
     papers = load_papers(config.KG_K)
@@ -262,24 +268,33 @@ def main():
                         for fp in args.testset if Path(fp).exists()},
             "n_by_type": pd.Series([t["type"] for t in testset]).value_counts().to_dict(),
             "environment": env_info()}
-    (out / "run_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"{len(testset)} câu hỏi {info['n_by_type']} | {len(papers)} bài | top-k={config.TOP_K} -> {out}")
+    if not args.report_only:
+        if (out / "run_info.json").exists():  # giữ lượt đầu, thêm môi trường của lượt chấm hiện tại
+            info = {**json.loads((out / "run_info.json").read_text(encoding="utf-8")),
+                    f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"], "environment": info["environment"]}}
+        (out / "run_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"{len(testset)} câu hỏi {info['n_by_type']} | {len(papers)} bài | top-k={config.TOP_K} "
+          f"| judge pass {config.JUDGE_PASS} -> {out}")
     get_kg()  # nạp KG trước để báo lỗi sớm nếu chưa dựng
 
     rows = []
     for sys_name in args.systems:
         module = __import__(SYSTEMS[sys_name])
         ans_path, sc_path = out / f"answers_{sys_name}.jsonl", out / f"scores_{sys_name}.jsonl"
-        answers, scores = load_jsonl(ans_path), load_jsonl(sc_path)
-        for item in tqdm(testset, desc=f"[{sys_name}] trả lời"):
-            if item["id"] not in answers:
-                answers[item["id"]] = {"id": item["id"], **module.answer(item["question"])}
-                append_jsonl(ans_path, answers[item["id"]])
-        for item in tqdm(testset, desc=f"[{sys_name}] chấm điểm"):
-            if item["id"] not in scores:
-                scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
-                append_jsonl(sc_path, scores[item["id"]])
-                flush_judge_log(out / f"judge_log_{sys_name}.jsonl", item["id"])
+        answers = load_jsonl(ans_path)
+        if not args.report_only:
+            sc_path = config.pass_path(sc_path)   # mỗi lượt chấm một file; judge_passes.py gộp lại
+        scores = load_jsonl(sc_path)
+        if not args.report_only:
+            for item in tqdm(testset, desc=f"[{sys_name}] trả lời"):
+                if item["id"] not in answers:
+                    answers[item["id"]] = {"id": item["id"], **module.answer(item["question"])}
+                    append_jsonl(ans_path, answers[item["id"]])
+            for item in tqdm(testset, desc=f"[{sys_name}] chấm điểm"):
+                if item["id"] not in scores:
+                    scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
+                    append_jsonl(sc_path, scores[item["id"]])
+                    flush_judge_log(config.pass_path(out / f"judge_log_{sys_name}.jsonl"), item["id"])
         for item in testset:
             a, s = answers[item["id"]], scores[item["id"]]
             rows.append({"system": sys_name, "id": item["id"], "type": item["type"], "question": item["question"],

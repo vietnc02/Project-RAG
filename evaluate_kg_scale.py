@@ -17,6 +17,10 @@ phạm vi (scope) = k nhỏ nhất trong {10, 20, 30} mà mọi bài nguồn c�
   - toàn bộ 62 câu: KG k bài trả lời được bao nhiêu câu hỏi về cả chủ đề (câu ngoài phạm vi KG -> mong đợi từ chối)
 Chỉ số giống ý 2 (evaluate_graphrag.score): context_precision, faithfulness, answer_relevancy, hallucination_rate,
 answer_correctness. Kết quả GraphRAG k = 30 lấy lại từ results/kg30 của ý 2 (cùng code, cùng KG, cùng câu hỏi).
+
+    python evaluate_kg_scale.py --system vector_rag   # Vector RAG chỉ truy xuất trong k bài đầu (so sánh theo k)
+Vector RAG theo k: Chroma của ý 2, lọc theo bài nguồn thuộc k bài đầu (config.SOURCE_FILTER); k = 30 lấy lại từ
+vector_rag của ý 2. Kết quả ghi cạnh GraphRAG: kg_scale/k<k>/answers_vector_rag.jsonl, scores_vector_rag.jsonl.
 """
 import argparse
 import hashlib
@@ -40,7 +44,7 @@ from kg_build import load_papers
 KS = (10, 20, 30)
 OUT = config.RESULTS_DIR / "kg_scale"
 K30_FROM_Y2 = config.RESULTS_DIR / "kg30"
-SYSTEM = "graphrag"
+SYSTEMS = ("graphrag", "vector_rag")
 
 
 def load_items() -> list[dict]:
@@ -54,46 +58,60 @@ def load_items() -> list[dict]:
     return items
 
 
-def run_k(k: int, items: list[dict]):
+def run_k(k: int, items: list[dict], system: str = "graphrag"):
     out = OUT / f"k{k}"
     out.mkdir(parents=True, exist_ok=True)
-    ans_path, sc_path = out / f"answers_{SYSTEM}.jsonl", out / f"scores_{SYSTEM}.jsonl"
-    if k == 30 and not ans_path.exists() and (K30_FROM_Y2 / f"answers_{SYSTEM}.jsonl").exists():
+    ans_path = out / f"answers_{system}.jsonl"
+    sc_path = config.pass_path(out / f"scores_{system}.jsonl")   # file của lượt chấm hiện tại
+    if k == 30:  # k = 30: lấy lại câu trả lời + điểm của ý 2 (cùng code, cùng câu hỏi)
         for p in (ans_path, sc_path):
-            shutil.copy(K30_FROM_Y2 / p.name, p)
-        print(f"k=30: lấy kết quả GraphRAG của ý 2 từ {K30_FROM_Y2}")
+            if not p.exists() and (K30_FROM_Y2 / p.name).exists():
+                shutil.copy(K30_FROM_Y2 / p.name, p)
+                print(f"k=30: lấy {p.name} của ý 2 từ {K30_FROM_Y2}")
 
-    import rag_graphrag
-    config.KG_K = k
-    rag_graphrag.get_kg.cache_clear()
-    rag_graphrag.get_kg()  # nạp KG trước để báo lỗi sớm nếu chưa dựng
+    if system == "graphrag":
+        import rag_graphrag as rag
+        config.KG_K = k
+        rag.get_kg.cache_clear()
+        rag.get_kg()  # nạp KG trước để báo lỗi sớm nếu chưa dựng
+    else:
+        import rag_langchain as rag
+        from kg_build import use_kg_store
+        use_kg_store()
+        config.SOURCE_FILTER = load_papers(k)   # chỉ truy xuất trong k bài đầu
+        rag._chain = None                        # dựng lại chain với bộ lọc mới
     kg_stats = json.loads((config.KG_DIR / f"k{k}" / "graph.json").read_text(encoding="utf-8"))["stats"]
-    info = {"k": k, "started": datetime.now().isoformat(timespec="seconds"), "top_k": config.TOP_K,
-            "num_ctx": config.NUM_CTX, "kg": kg_stats,
+    info = {"k": k, "system": system, "started": datetime.now().isoformat(timespec="seconds"),
+            "top_k": config.TOP_K, "num_ctx": config.NUM_CTX, "kg": kg_stats,
             "graphrag": {"seed_entities": config.KG_SEED_ENTITIES, "max_relations": config.KG_MAX_RELATIONS},
             "testset": {f.name: hashlib.sha256(f.read_bytes()).hexdigest()[:16] for f in TESTSET_FILES if f.exists()},
             "environment": env_info()}
     if k == 30 and (K30_FROM_Y2 / "run_info.json").exists():
         info["answers_from"] = str(K30_FROM_Y2.relative_to(config.PROJECT_DIR))
-    (out / "run_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    ri = out / ("run_info.json" if system == "graphrag" else f"run_info_{system}.json")
+    if ri.exists():  # giữ lượt đầu, thêm môi trường của lượt chấm hiện tại
+        info = {**json.loads(ri.read_text(encoding="utf-8")),
+                f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"], "environment": info["environment"]}}
+    ri.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
 
     answers, scores = load_jsonl(ans_path), load_jsonl(sc_path)
-    for item in tqdm(items, desc=f"[KG k={k}] trả lời"):
+    for item in tqdm(items, desc=f"[{system} k={k}] trả lời"):
         if item["id"] not in answers:
-            answers[item["id"]] = {"id": item["id"], **rag_graphrag.answer(item["question"])}
+            answers[item["id"]] = {"id": item["id"], **rag.answer(item["question"])}
             append_jsonl(ans_path, answers[item["id"]])
-    for item in tqdm(items, desc=f"[KG k={k}] chấm điểm"):
+    for item in tqdm(items, desc=f"[{system} k={k}] chấm điểm (lượt {config.JUDGE_PASS})"):
         if item["id"] not in scores:
             scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
             append_jsonl(sc_path, scores[item["id"]])
-            flush_judge_log(out / f"judge_log_{SYSTEM}.jsonl", item["id"])
+            flush_judge_log(config.pass_path(out / f"judge_log_{system}.jsonl"), item["id"])
+    config.SOURCE_FILTER = None
 
 
-def collect(items: list[dict]) -> pd.DataFrame:
+def collect(items: list[dict], system: str = "graphrag") -> pd.DataFrame:
     rows = []
     for k in KS:
         out = OUT / f"k{k}"
-        answers, scores = load_jsonl(out / f"answers_{SYSTEM}.jsonl"), load_jsonl(out / f"scores_{SYSTEM}.jsonl")
+        answers, scores = load_jsonl(out / f"answers_{system}.jsonl"), load_jsonl(out / f"scores_{system}.jsonl")
         for item in items:
             if item["id"] not in scores:
                 continue
@@ -209,7 +227,7 @@ def write_report(items: list[dict]):
         g = sm[sm["type"] == t]
         lines += [f"### {SET_TITLES[t]}\n",
                   g[["k"] + [c for c in EXTRA if c in g and g[c].notna().any()]].to_markdown(index=False), ""]
-    logs = sorted(OUT.glob("k*/judge_log_*.jsonl"))
+    logs = sorted(OUT.glob("k*/judge_log_graphrag*.jsonl"))
     if logs:  # chỉ có khi run được chấm sau khi thêm log judge
         t = pd.concat([judge_log_table([fp]).assign(k=fp.parent.name) for fp in logs], ignore_index=True)
         lines += ["## 6. Log judge (lỗi + độ dài prompt)\n",
@@ -223,6 +241,7 @@ def main():
     ap.add_argument("--k", type=int, nargs="+", default=list(KS), choices=list(KS))
     ap.add_argument("--limit", type=int, default=0, help="chạy thử trên n câu đầu")
     ap.add_argument("--report-only", action="store_true")
+    ap.add_argument("--system", default="graphrag", choices=SYSTEMS)
     args = ap.parse_args()
     items = load_items()
     if args.limit:
@@ -232,8 +251,9 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     if not args.report_only:
         for k in args.k:
-            run_k(k, items)
-    write_report(items)
+            run_k(k, items, args.system)
+    if args.system == "graphrag":
+        write_report(items)
 
 
 if __name__ == "__main__":

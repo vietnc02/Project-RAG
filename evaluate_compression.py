@@ -35,11 +35,12 @@ import compress
 import config
 from common import env_info, is_refusal
 from evaluate import (append_jsonl, bootstrap_ci, flush_judge_log, judge_log_table, load_jsonl, load_testset,
-                      verify)
+                      ratio, verify)
 from evaluate_graphrag import (TESTSET_FILES, answer_correctness, answer_relevancy, extract_claims, gold_sources)
 from kg_build import load_papers
 
 MODES = list(compress.MODES)          # base, kg, text, both
+ALL_MODES = [*MODES, *compress.BASELINE_MODES]   # + baseline nén ngẫu nhiên / cắt đầu, hai mức nén thêm
 NI_MARGIN = 0.05                      # ngưỡng non-inferiority cho faithfulness (đặt trước khi chạy)
 METRICS = ["faithfulness", "hallucination", "answer_correctness", "context_recall", "answer_relevancy"]
 EXTRA = ["faithfulness_full", "hallucination_full", "refusal", "context_tokens", "prompt_tokens", "latency_s"]
@@ -61,15 +62,16 @@ def score(item: dict, a: dict, base: dict, gt_claims: list[str] | None) -> dict:
     refusal = is_refusal(ans)
     s = {"refusal": int(refusal),
          "context_tokens": a["prompt_tokens"] - a["prompt_tokens_no_context"], "prompt_tokens": a["prompt_tokens"]}
-    s["context_recall"] = (verify(gt_claims, context_of(a)) / len(gt_claims)) if gt_claims else math.nan
+    s["context_recall"] = ratio(*verify(gt_claims, context_of(a))) if gt_claims else math.nan
     if refusal:
         s.update(n_claims=0, faithfulness=math.nan, hallucination=0, faithfulness_full=math.nan, hallucination_full=0)
     else:
         claims = extract_claims(q, ans)
-        n, sup = len(claims), verify(claims, context_of(a))
-        sup_full = sup if a["mode"] == "base" else verify(claims, context_of(base))
-        s.update(n_claims=n, n_unsupported=n - sup, faithfulness=sup / n, hallucination=int(sup < n),
-                 faithfulness_full=sup_full / n, hallucination_full=int(sup_full < n), claims=claims)
+        sup, nj = verify(claims, context_of(a))
+        sup_f, nj_f = (sup, nj) if a["mode"] == "base" else verify(claims, context_of(base))
+        s.update(n_claims=len(claims), n_judged=nj, n_unsupported=nj - sup, faithfulness=ratio(sup, nj),
+                 hallucination=int(sup < nj) if nj else math.nan, faithfulness_full=ratio(sup_f, nj_f),
+                 hallucination_full=int(sup_f < nj_f) if nj_f else math.nan, claims=claims)
     s["answer_relevancy"] = 0.0 if refusal else answer_relevancy(q, ans)
     s["answer_correctness"] = answer_correctness(item, ans, refusal)
     return s
@@ -90,8 +92,12 @@ def paired(df: pd.DataFrame, metric: str, mode: str, n=5000) -> dict | None:
 
 def report(out, items):
     rows = []
-    for m in MODES:
-        ans, sc = load_jsonl(out / m / "answers.jsonl"), load_jsonl(out / m / "scores.jsonl")
+    # điểm đã gộp các lượt (judge_passes.py); chưa gộp thì dùng file của lượt hiện tại
+    sc_file = lambda m: next((f for f in (out / m / "scores.jsonl", config.pass_path(out / m / "scores.jsonl"))
+                              if f.exists()), None)
+    modes = [m for m in ALL_MODES if sc_file(m)]
+    for m in modes:
+        ans, sc = load_jsonl(out / m / "answers.jsonl"), load_jsonl(sc_file(m))
         for t in items:
             if t["id"] in sc:
                 rows.append({"mode": m, "id": t["id"], "type": t["type"], "question": t["question"],
@@ -106,7 +112,7 @@ def report(out, items):
 
     ans_df = df[df.type != "unanswerable"]
     summ = []
-    for m in MODES:
+    for m in modes:
         g, ga, gu = df[df["mode"] == m], ans_df[ans_df["mode"] == m], df[(df["mode"] == m) & (df.type == "unanswerable")]
         row = {"mode": m, "n": len(ga)}
         for k in ("token_reduction", "prompt_reduction", *METRICS, "faithfulness_full", "hallucination_full"):
@@ -121,7 +127,7 @@ def report(out, items):
         row["latency_s"] = round(g.latency_s.mean(), 2)
         summ.append(row)
     sm = pd.DataFrame(summ)
-    pr = pd.DataFrame([x for m in MODES[1:] for k in (*METRICS, "faithfulness_full", "refusal")
+    pr = pd.DataFrame([x for m in modes[1:] for k in (*METRICS, "faithfulness_full", "refusal")
                        if (x := paired(ans_df, k, m))])
     ni = pr[pr.metric == "faithfulness"].assign(
         margin=-NI_MARGIN, non_inferior=lambda d: d.lo > -NI_MARGIN)[["mode", "n_pairs", "diff", "ci95", "margin",
@@ -129,7 +135,7 @@ def report(out, items):
     sm.to_csv(out / "summary.csv", index=False, encoding="utf-8-sig")
     pr.drop(columns=["lo", "hi"]).to_csv(out / "paired_diff.csv", index=False, encoding="utf-8-sig")
 
-    logs = sorted(out.glob("*/judge_log.jsonl")) + sorted(out.glob("judge_log_gt.jsonl"))  # + bước tách claim GT
+    logs = sorted(out.glob("*/judge_log*.jsonl")) + sorted(out.glob("judge_log_gt*.jsonl"))  # + bước tách claim GT
     lines = ["# Kết quả ý 4: context compression cho GraphRAG\n",
              f"{len(items)} câu của ý 2 ({len(ans_df.id.unique())} câu có đáp án). LLM `{config.LLM_MODEL}`, judge "
              f"`{config.JUDGE_MODEL}`. Nén: KG_KEEP = {compress.KG_KEEP}, KG_ITEM_CHARS = {compress.KG_ITEM_CHARS}, "
@@ -150,7 +156,10 @@ def report(out, items):
                                        "latency_s"]].to_markdown(index=False), "",
              "*faithfulness_full: claim của câu trả lời chấm trên context GỐC chưa nén.*\n"]
     if logs:
-        t = pd.concat([judge_log_table([fp]).assign(mode=fp.parent.name if fp.name == "judge_log.jsonl" else "ground truth")
+        t = pd.concat([judge_log_table([fp]).assign(mode=(fp.parent.name if fp.name.startswith("judge_log.")
+                                                          or fp.name == "judge_log.jsonl" else "ground truth")
+                                                    + fp.name.removesuffix(".jsonl").removeprefix("judge_log")
+                                                    .removeprefix("_gt"))
                        for fp in logs], ignore_index=True)
         lines += ["## 5. Judge failures và truncate\n",t[["mode", *[c for c in t if c not in ("mode", "system")]]].to_markdown(index=False), ""]
     (out / "summary.md").write_text("\n".join(lines), encoding="utf-8")
@@ -160,7 +169,7 @@ def report(out, items):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--modes", nargs="+", default=MODES, choices=MODES)
+    ap.add_argument("--modes", nargs="+", default=MODES, choices=ALL_MODES)
     ap.add_argument("--report-only", action="store_true")
     args = ap.parse_args()
     items = load_items()
@@ -178,8 +187,12 @@ def main():
         answers = {}
         for m in modes:   # 1. sinh câu trả lời (qwen2.5:7b) cho mọi chế độ
             (out / m).mkdir(parents=True, exist_ok=True)
-            (out / m / "run_info.json").write_text(json.dumps({**info, "mode": m}, ensure_ascii=False, indent=2),
-                                                   encoding="utf-8")
+            ri = out / m / "run_info.json"
+            prev = json.loads(ri.read_text(encoding="utf-8")) if ri.exists() else None
+            ri.write_text(json.dumps({**info, "mode": m, "spec": compress.mode_spec(m)} if prev is None else
+                                     {**prev, f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"],
+                                                                                 "environment": info["environment"]}},
+                                     ensure_ascii=False, indent=2), encoding="utf-8")
             answers[m] = load_jsonl(out / m / "answers.jsonl")
             for t in tqdm(items, desc=f"[{m}] trả lời"):
                 if t["id"] not in answers[m]:
@@ -192,14 +205,15 @@ def main():
                 gts[t["id"]] = {"id": t["id"], "claims": extract_claims(t["question"], t["ground_truth"])}
                 append_jsonl(gt_path, gts[t["id"]])
                 flush_judge_log(out / "judge_log_gt.jsonl", t["id"])
-        for m in modes:   # 3. chấm (llama3.1:8b)
-            sc = load_jsonl(out / m / "scores.jsonl")
-            for t in tqdm(items, desc=f"[{m}] chấm"):
+        for m in modes:   # 3. chấm (llama3.1:8b); mỗi lượt chấm một file, judge_passes.py gộp lại
+            sp = config.pass_path(out / m / "scores.jsonl")
+            sc = load_jsonl(sp)
+            for t in tqdm(items, desc=f"[{m}] chấm (lượt {config.JUDGE_PASS})"):
                 if t["id"] not in sc:
                     gt = gts[t["id"]]["claims"] if t["id"] in gts else None
                     sc[t["id"]] = {"id": t["id"], **score(t, answers[m][t["id"]], answers["base"][t["id"]], gt)}
-                    append_jsonl(out / m / "scores.jsonl", sc[t["id"]])
-                    flush_judge_log(out / m / "judge_log.jsonl", t["id"])
+                    append_jsonl(sp, sc[t["id"]])
+                    flush_judge_log(config.pass_path(out / m / "judge_log.jsonl"), t["id"])
     report(out, items)
 
 

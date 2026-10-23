@@ -94,7 +94,8 @@ PROMPT_NAMES = {id(EXTRACT_CLAIMS): "extract_claims", id(VERIFY_CLAIMS): "verify
 #   missing         số claim / đoạn văn judge không trả verdict (bị tính là "không hỗ trợ" / "không hữu ích")
 #   truncated       prompt dài hơn num_ctx: Ollama cắt prompt mà KHÔNG báo lỗi, chỉ giữ đúng num_ctx // 2 + 2 token
 #                   (đã thử với Ollama 0.40.4: prompt tới ~3.900 token giữ nguyên, dài hơn 4.096 còn đúng 2.050)
-# Log không đổi cách chấm điểm: lỗi vẫn trả {} như trước.
+# Lần gọi lỗi được thử lại tối đa JUDGE_RETRIES lần với seed khác (cùng seed thì judge
+# tất định, sẽ lỗi y hệt); mỗi lần thử là một dòng log (attempt = 0, 1, ...; final = lần cuối của lượt gọi đó).
 JUDGE_LOG: list[dict] = []
 
 
@@ -102,10 +103,23 @@ def is_truncated(prompt_tokens) -> bool:
     return prompt_tokens is not None and (prompt_tokens == config.NUM_CTX // 2 + 2 or prompt_tokens >= config.NUM_CTX)
 
 
-def judge(prompt, **kw) -> dict:
-    ev = {"prompt": PROMPT_NAMES.get(id(prompt), "other"), "status": "ok"}
+def judge_seed(attempt: int = 0) -> int:
+    return config.SEED + 1000 * config.JUDGE_PASS + attempt
+
+
+def judge(prompt, attempt: int | None = None, **kw) -> dict:
+    """Một lần gọi judge (JSON). attempt=None: tự thử lại khi JSON hỏng / Ollama huỷ; attempt=a: đúng một lần thử."""
+    if attempt is None:
+        for a in range(config.JUDGE_RETRIES + 1):
+            out = judge(prompt, attempt=a, **kw)
+            if JUDGE_LOG[-1]["status"] == "ok":
+                return out
+            JUDGE_LOG[-1]["final"] = a == config.JUDGE_RETRIES
+        return out
+    ev = {"prompt": PROMPT_NAMES.get(id(prompt), "other"), "status": "ok", "attempt": attempt, "final": True,
+          "pass": config.JUDGE_PASS}
     try:
-        msg = (prompt | get_llm(config.JUDGE_MODEL, json_mode=True)).invoke(kw)
+        msg = (prompt | get_llm(config.JUDGE_MODEL, json_mode=True, seed=judge_seed(attempt))).invoke(kw)
         meta = msg.response_metadata
         ev.update(prompt_tokens=meta.get("prompt_eval_count"), output_tokens=meta.get("eval_count"),
                   done_reason=meta.get("done_reason"))
@@ -145,6 +159,9 @@ def judge_log_table(paths) -> pd.DataFrame:
         for col in ("missing", "prompt_tokens", "done_reason"):
             if col not in df:
                 df[col] = np.nan
+        if "attempt" not in df:  # log không có thông tin thử lại: mọi lần gọi là lần cuối
+            df["attempt"], df["final"] = 0, True
+        df["final"] = df["final"].fillna(True).astype(bool)
         for name, g in [*df.groupby("prompt"), ("(tổng)", df)]:
             rows.append({"system": fp.stem.removeprefix("judge_log_"), "prompt": name, "calls": len(g),
                          # judge failure: lần gọi không trả đủ verdict hợp lệ (JSON hỏng, Ollama huỷ, thiếu verdict)
@@ -155,6 +172,9 @@ def judge_log_table(paths) -> pd.DataFrame:
                          "calls_missing_verdicts": int((g.missing.fillna(0) > 0).sum()),
                          "verdicts_missing": int(g.missing.fillna(0).sum()),
                          "truncated_prompt": int(g.truncated.sum()),
+                         # lần thử lại và lỗi vẫn còn sau khi thử lại (verdict bị loại khỏi mẫu số)
+                         "retries": int((g.attempt.fillna(0) > 0).sum()),
+                         "unresolved": int((g.final & ((g.status != "ok") | (g.missing.fillna(0) > 0))).sum()),
                          "prompt_tokens_max": int(g.prompt_tokens.max()) if g.prompt_tokens.notna().any() else None,
                          "prompt_tokens_median": (int(g.prompt_tokens.median()) if g.prompt_tokens.notna().any()
                                                   else None)})
@@ -184,15 +204,35 @@ def initial_contexts(question: str) -> list[dict]:
     return docs_to_contexts(get_retriever().invoke(question))
 
 
-def verify(claims: list[str], contexts: list[dict]) -> int:
-    """Số claim được context hỗ trợ (thiếu verdict = không hỗ trợ)."""
+def judge_verdicts(prompt, n: int, key: str, **kw) -> dict[int, bool]:
+    """Gọi judge lấy verdict yes/no cho n mục đánh số 1..n; thiếu verdict thì thử lại (seed khác), giữ lần đủ nhất.
+    Trả {id: True/False} chỉ cho các mục có verdict: mục vẫn thiếu bị loại khỏi mẫu số, không tính là "không"."""
+    best: dict[int, bool] = {}
+    for a in range(config.JUDGE_RETRIES + 1):
+        verdicts = judge(prompt, attempt=a, **kw).get("verdicts", [])
+        got = {int(v.get("id", 0)): str(v.get(key, "")).lower().startswith("y")
+               for v in verdicts if isinstance(v, dict) and str(v.get("id", "")).isdigit()}
+        got = {i: got[i] for i in range(1, n + 1) if i in got}
+        note_missing(n, len(got))
+        if len(got) > len(best):
+            best = got
+        done = len(best) == n
+        JUDGE_LOG[-1]["final"] = done or a == config.JUDGE_RETRIES
+        if done:
+            break
+    return best
+
+
+def verify(claims: list[str], contexts: list[dict]) -> tuple[int, int]:
+    """(số claim được context hỗ trợ, số claim có verdict). Claim không có verdict sau khi thử lại bị loại."""
     ctx = "\n\n".join(c["text"] for c in contexts) or "(no context)"
     stmts = "\n".join(f"{i + 1}. {c}" for i, c in enumerate(claims))
-    verdicts = judge(VERIFY_CLAIMS, context=ctx, statements=stmts).get("verdicts", [])
-    sup = {int(v.get("id", 0)): str(v.get("supported", "")).lower().startswith("y")
-           for v in verdicts if isinstance(v, dict) and str(v.get("id", "")).isdigit()}
-    note_missing(len(claims), sum(i + 1 in sup for i in range(len(claims))))
-    return sum(sup.get(i + 1, False) for i in range(len(claims)))
+    sup = judge_verdicts(VERIFY_CLAIMS, len(claims), "supported", context=ctx, statements=stmts)
+    return sum(sup.values()), len(sup)
+
+
+def ratio(num: int, den: int) -> float:
+    return num / den if den else math.nan
 
 
 def score(item: dict, run: dict) -> dict:
@@ -212,13 +252,13 @@ def score(item: dict, run: dict) -> dict:
     else:
         claims = [c for c in judge(EXTRACT_CLAIMS, question=q, answer=ans).get("claims", [])
                   if isinstance(c, str) and c.strip()] or [ans]
-        sup = verify(claims, initial)
+        sup, nj = verify(claims, initial)
         same = [c["text"] for c in used] == [c["text"] for c in initial]
-        sup_used = sup if same else verify(claims, used)
-        n = len(claims)
-        s.update(n_claims=n, n_unsupported=n - sup, faithfulness=sup / n, hallucination=int(sup < n),
-                 n_unsupported_used=n - sup_used, faithfulness_used=sup_used / n,
-                 hallucination_used=int(sup_used < n), claims=claims)
+        sup_used, nj_used = (sup, nj) if same else verify(claims, used)
+        s.update(n_claims=len(claims), n_judged=nj, n_unsupported=nj - sup, faithfulness=ratio(sup, nj),
+                 hallucination=int(sup < nj) if nj else math.nan,
+                 n_unsupported_used=nj_used - sup_used, faithfulness_used=ratio(sup_used, nj_used),
+                 hallucination_used=int(sup_used < nj_used) if nj_used else math.nan, claims=claims)
 
     # Answer relevancy
     if refusal:
@@ -303,7 +343,8 @@ def summarize(df: pd.DataFrame) -> pd.DataFrame:
             name = rename.get(m, m)
             row[name] = round(mean, 4)
             row[f"{name}_ci95"] = f"[{lo:.3f}, {hi:.3f}]"
-        row["claim_halluc_rate"] = round(g["n_unsupported"].sum() / max(g["n_claims"].sum(), 1), 4)
+        den = g["n_judged"].sum() if "n_judged" in g else g["n_claims"].sum()
+        row["claim_halluc_rate"] = round(g["n_unsupported"].sum() / max(den, 1), 4)
         answered = g[g["refusal"] == 0]
         row["halluc_rate_among_answered"] = round(answered["hallucination"].mean(), 4) if len(answered) else math.nan
         rows.append(row)
@@ -346,6 +387,8 @@ def main():
     ap.add_argument("--top-k", type=int, default=0, help="ghi đè TOP_K cho cả 2 hệ (vd. 8 = retrieval nhiễu)")
     ap.add_argument("--include-unreviewed", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--report-only", action="store_true",
+                    help="chỉ tổng hợp từ scores_*.jsonl đã gộp các lượt chấm (judge_passes.py)")
     args = ap.parse_args()
     if args.top_k:
         config.TOP_K = args.top_k  # đặt trước khi dựng 2 hệ thống
@@ -364,26 +407,36 @@ def main():
             "testset": {Path(fp).name: hashlib.sha256(Path(fp).read_bytes()).hexdigest()[:16] for fp in args.testset},
             "n_by_type": pd.Series([t["type"] for t in testset]).value_counts().to_dict(),
             "environment": env_info()}
-    (out / "run_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    if not args.report_only:
+        if (out / "run_info.json").exists():  # giữ thời điểm bắt đầu của lượt đầu, thêm lượt chấm hiện tại
+            info = {**json.loads((out / "run_info.json").read_text(encoding="utf-8")),
+                    f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"], "environment": info["environment"]}}
+        info["noise_chunks"] = config.NOISE_CHUNKS
+        (out / "run_info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{len(testset)} câu hỏi {info['n_by_type']} | LLM={config.LLM_MODEL} | judge={config.JUDGE_MODEL} "
-          f"| top-k={config.TOP_K} -> {out}")
+          f"| top-k={config.TOP_K} | judge pass {config.JUDGE_PASS} -> {out}")
 
     rows = []
     for sys_name in args.systems:
         module = __import__(SYSTEMS[sys_name])
-        ans_path, sc_path = out / f"answers_{sys_name}.jsonl", out / f"scores_{sys_name}.jsonl"
-        answers, scores = load_jsonl(ans_path), load_jsonl(sc_path)
+        ans_path = out / f"answers_{sys_name}.jsonl"
+        sc_path = out / f"scores_{sys_name}.jsonl"
+        answers = load_jsonl(ans_path)
+        if args.report_only:
+            scores = load_jsonl(sc_path)
+        else:
+            sc_path = config.pass_path(sc_path)   # mỗi lượt chấm một file; judge_passes.py gộp lại
+            scores = load_jsonl(sc_path)
+            for item in tqdm(testset, desc=f"[{sys_name}] trả lời"):
+                if item["id"] not in answers:
+                    answers[item["id"]] = {"id": item["id"], **module.answer(item["question"])}
+                    append_jsonl(ans_path, answers[item["id"]])
 
-        for item in tqdm(testset, desc=f"[{sys_name}] trả lời"):
-            if item["id"] not in answers:
-                answers[item["id"]] = {"id": item["id"], **module.answer(item["question"])}
-                append_jsonl(ans_path, answers[item["id"]])
-
-        for item in tqdm(testset, desc=f"[{sys_name}] chấm điểm"):
-            if item["id"] not in scores:
-                scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
-                append_jsonl(sc_path, scores[item["id"]])
-                flush_judge_log(out / f"judge_log_{sys_name}.jsonl", item["id"])
+            for item in tqdm(testset, desc=f"[{sys_name}] chấm điểm"):
+                if item["id"] not in scores:
+                    scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
+                    append_jsonl(sc_path, scores[item["id"]])
+                    flush_judge_log(config.pass_path(out / f"judge_log_{sys_name}.jsonl"), item["id"])
 
         for item in testset:
             a, s = answers[item["id"]], scores[item["id"]]

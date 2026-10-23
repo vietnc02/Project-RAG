@@ -19,7 +19,7 @@ CHROMA_SNAPSHOT = DATA_DIR / "chroma.zip"
 MANIFEST_FILE = DATA_DIR / "MANIFEST.json"
 COLLECTION = os.getenv("COLLECTION", "papers")
 
-RESULTS_DIR = Path(os.getenv("RESULTS_DIR", PROJECT_DIR / "results"))
+RESULTS_DIR = PROJECT_DIR / os.getenv("RESULTS_DIR", "results")   # đường dẫn tương đối tính từ thư mục dự án
 TESTSET_FILE = PROJECT_DIR / "testset" / "testset.json"        # single-hop
 TESTSET_FILES = [TESTSET_FILE, PROJECT_DIR / "testset" / "multihop.json",
                  PROJECT_DIR / "testset" / "unanswerable.json"]
@@ -67,3 +67,20 @@ KG_SEED_ENTITIES = int(os.getenv("KG_SEED_ENTITIES", 8))   # số entity khớp 
 KG_MAX_RELATIONS = int(os.getenv("KG_MAX_RELATIONS", 12))  # số quan hệ đưa vào context
 
 SEED = 42
+
+# ---- Chấm nhiều lượt, thử lại khi judge lỗi, điều kiện nhiễu thuần, Vector RAG theo k ----
+# JUDGE_PASS: lượt chấm (0, 1, 2): seed của judge = SEED + 1000 * JUDGE_PASS; mỗi lượt ghi scores_*.p<N>.jsonl,
+#             judge_passes.py gộp các lượt (nhãn nhị phân: đa số; điểm liên tục: trung bình) thành scores_*.jsonl.
+# JUDGE_RETRIES: số lần thử lại khi judge trả JSON hỏng / Ollama huỷ / thiếu verdict (đổi seed mỗi lần thử);
+#             verdict vẫn thiếu sau khi thử lại thì bị loại khỏi mẫu số (không còn tính là "không").
+# NOISE_CHUNKS: thêm n đoạn ngẫu nhiên của bài khác vào top-k (điều kiện nhiễu thuần của ý 1).
+# SOURCE_FILTER: chỉ truy xuất trong các bài này (Vector RAG theo k bài của ý 3); đặt trong code.
+JUDGE_PASS = int(os.getenv("JUDGE_PASS", 0))
+JUDGE_RETRIES = int(os.getenv("JUDGE_RETRIES", 3))
+NOISE_CHUNKS = int(os.getenv("NOISE_CHUNKS", 0))
+SOURCE_FILTER: list[str] | None = None
+
+
+def pass_path(path: Path) -> Path:
+    """scores_x.jsonl -> scores_x.p<JUDGE_PASS>.jsonl (file của một lượt chấm)."""
+    return path.with_name(f"{path.stem}.p{JUDGE_PASS}{path.suffix}")

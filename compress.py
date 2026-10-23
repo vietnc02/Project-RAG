@@ -12,8 +12,15 @@ XOÁ BỚT (extractive): context nén luôn là tập con của context gốc, k
   - nén văn bản: bỏ nhiễu (đánh số trích dẫn [12], URL, email, dòng arXiv), tách câu, giữ tỉ lệ SENT_KEEP số câu
               gần câu hỏi nhất của mỗi đoạn (luôn giữ ít nhất 1 câu), giữ nguyên thứ tự câu.
 Chế độ: base (không nén) / kg / text / both. Prompt sinh câu trả lời + LLM giữ nguyên (common.GENERATE_PROMPT).
+
+Baseline: cùng số dòng KG / số câu / giới hạn ký tự như cách chọn theo độ liên quan,
+chỉ khác cách chọn, để biết việc chọn theo độ liên quan có giá trị riêng không:
+  - rand_<kg|text|both>[_s<seed>]: chọn ngẫu nhiên (seed theo câu hỏi + seed của chế độ)
+  - head_<kg|text|both>          : giữ phần đầu (dòng KG đầu tiên, mảnh mô tả đầu tiên, câu đầu tiên)
+  - both_l25, both_l40           : nén cả hai theo độ liên quan ở hai mức nhẹ hơn (token reduction ~25% và ~40%)
 """
 import argparse
+import hashlib
 import re
 import sys
 import time
@@ -27,6 +34,32 @@ from common import GENERATE_PROMPT, get_embeddings, get_llm
 from rag_graphrag import format_context, get_kg
 
 MODES = {"base": (False, False), "kg": (True, False), "text": (False, True), "both": (True, True)}
+PARTS = {"kg": (True, False), "text": (False, True), "both": (True, True)}
+# mức nén thêm cho chế độ nén cả hai: (KG_KEEP, SENT_KEEP, KG_ITEM_CHARS), chọn bằng --calibrate theo độ dài
+LEVELS = {"both_l25": (0.75, 0.75, 165), "both_l40": (0.6, 0.6, 130)}
+BASELINE_MODES = [*(f"rand_both{x}" for x in ("", "_s1", "_s2")), "head_both", "rand_kg", "head_kg",
+                  "rand_text", "head_text", *LEVELS]
+
+
+def mode_spec(mode: str) -> dict:
+    """base / kg / text / both / rand_* / head_* / both_l* -> cách nén."""
+    sel, seed, part, levels = "rel", 0, mode, (KG_KEEP, SENT_KEEP, KG_ITEM_CHARS)
+    if mode in LEVELS:
+        part, levels = "both", LEVELS[mode]
+    elif mode.startswith(("rand_", "head_")):
+        sel, rest = mode.split("_", 1)
+        part, _, sd = rest.partition("_s")
+        seed = int(sd) if sd else 0
+    kg_on, text_on = MODES[part] if part in MODES else PARTS[part]
+    return {"kg": kg_on, "text": text_on, "sel": sel, "seed": seed, "kg_keep": levels[0], "sent_keep": levels[1],
+            "item_chars": levels[2]}
+
+
+def order(sims: np.ndarray, sel: str, rng: np.random.Generator) -> np.ndarray:
+    """Thứ tự ưu tiên giữ lại: theo độ liên quan (rel), ngẫu nhiên (rand) hoặc theo vị trí gốc (head)."""
+    if sel == "rel":
+        return np.argsort(-sims)
+    return rng.permutation(len(sims)) if sel == "rand" else np.arange(len(sims))
 KG_ITEM_CHARS = 110       # độ dài mô tả tối đa mỗi entity / quan hệ sau khi nén (gốc: 220)
 KG_KEEP = 0.5             # tỉ lệ entity / quan hệ giữ lại (gần câu hỏi nhất)
 # Mức nén chọn bằng --calibrate CHỈ theo độ dài context (chưa chạy LLM / judge): giảm ký tự trung bình kg ~24%,
@@ -68,31 +101,35 @@ def shown_fragments(descriptions: list[str]) -> list[str]:
     return out
 
 
-def pick(frags: list[str], q: np.ndarray, budget: int) -> str:
+def pick(frags: list[str], q: np.ndarray, budget: int, sel: str = "rel", rng=None) -> str:
     """Mảnh gần câu hỏi nhất trước, thêm mảnh tiếp theo nếu còn trong giới hạn; giữ thứ tự gốc."""
-    sims = embed_docs(frags) @ q
+    sims = embed_docs(frags) @ q if sel == "rel" else np.zeros(len(frags))
     keep, used = [], 0
-    for i in np.argsort(-sims):
+    for i in order(sims, sel, rng):
         if not keep or used + len(frags[i]) + 2 <= budget:
             keep.append(int(i))
             used += len(frags[i]) + 2
     return "; ".join(frags[i] for i in sorted(keep))
 
 
-def top_items(lines: list[str], q: np.ndarray) -> list[str]:
+def top_items(lines: list[str], q: np.ndarray, keep: float = None, sel: str = "rel", rng=None) -> list[str]:
     """Giữ tỉ lệ KG_KEEP dòng (entity hoặc quan hệ) gần câu hỏi nhất, theo thứ tự gốc."""
-    n = max(1, round(len(lines) * KG_KEEP))
-    keep = np.argsort(-(embed_docs(lines) @ q))[:n]
-    return [lines[i] for i in sorted(int(i) for i in keep)]
+    keep = KG_KEEP if keep is None else keep
+    n = max(1, round(len(lines) * keep))
+    sims = embed_docs(lines) @ q if sel == "rel" else np.zeros(len(lines))
+    top = order(sims, sel, rng)[:n]
+    return [lines[i] for i in sorted(int(i) for i in top)]
 
 
-def kg_text_compressed(kg, hit: dict, q: np.ndarray) -> str:
-    ents = [f"- {e['name']} ({e['type']}): {pick(shown_fragments(e['descriptions']), q, KG_ITEM_CHARS)}"
+def kg_text_compressed(kg, hit: dict, q: np.ndarray, spec: dict | None = None, rng=None) -> str:
+    spec = spec or mode_spec("kg")
+    sel, chars = spec["sel"], spec["item_chars"]
+    ents = [f"- {e['name']} ({e['type']}): {pick(shown_fragments(e['descriptions']), q, chars, sel, rng)}"
             for e in hit["entities"]]
     rels = [f"- {kg.entities[r['source']]['name']} -- {kg.entities[r['target']]['name']}: "
-            f"{pick(shown_fragments(r['descriptions']), q, KG_ITEM_CHARS)}" for r in hit["relations"]]
-    return ("Knowledge graph entities:\n" + "\n".join(top_items(ents, q)) + "\n\nKnowledge graph relations:\n"
-            + "\n".join(top_items(rels, q)))
+            f"{pick(shown_fragments(r['descriptions']), q, chars, sel, rng)}" for r in hit["relations"]]
+    return ("Knowledge graph entities:\n" + "\n".join(top_items(ents, q, spec["kg_keep"], sel, rng))
+            + "\n\nKnowledge graph relations:\n" + "\n".join(top_items(rels, q, spec["kg_keep"], sel, rng)))
 
 
 # ---------------- nén văn bản ----------------
@@ -122,24 +159,37 @@ def sentences(text: str) -> list[str]:
     return out
 
 
-def compress_passage(text: str, q: np.ndarray, keep: float = None) -> str:
+def compress_passage(text: str, q: np.ndarray, keep: float = None, sel: str = "rel", rng=None) -> str:
     keep = SENT_KEEP if keep is None else keep
     sents = sentences(clean(text))
     if len(sents) <= 1:
         return " ".join(sents)
     n = max(1, round(len(sents) * keep))
-    top = sorted(int(i) for i in np.argsort(-(embed_docs(sents) @ q))[:n])
-    return " ".join(sents[i] for i in top)
+    rel = sorted(int(i) for i in np.argsort(-(embed_docs(sents) @ q))[:n])
+    if sel == "rel":
+        return " ".join(sents[i] for i in rel)
+    # baseline: cùng ngân sách ký tự với bản chọn theo độ liên quan (không chỉ cùng số câu: câu dài ngắn khác nhau)
+    budget, top, used = sum(len(sents[i]) + 1 for i in rel), [], 0
+    for i in order(np.zeros(len(sents)), sel, rng):
+        if top and used + len(sents[i]) / 2 > budget:
+            break
+        top.append(int(i))
+        used += len(sents[i]) + 1
+    return " ".join(sents[i] for i in sorted(top))
 
 
 # ---------------- context + trả lời ----------------
 def build(question: str, mode: str) -> dict:
-    kg_on, text_on = MODES[mode]
+    spec = mode_spec(mode)
+    kg_on, text_on = spec["kg"], spec["text"]
     kg = get_kg()
     hit = kg.search(question)
     q = query_vec(question) if (kg_on or text_on) else None
-    kg_text = kg_text_compressed(kg, hit, q) if kg_on else kg.kg_text(hit)
-    chunks = [{**c, "text": compress_passage(c["text"], q) if text_on else c["text"]} for c in hit["chunks"]]
+    # seed theo câu hỏi + seed của chế độ: cùng câu hỏi luôn được nén ngẫu nhiên giống nhau
+    rng = np.random.default_rng(int(hashlib.sha256(f"{spec['seed']}:{question}".encode()).hexdigest()[:12], 16))
+    kg_text = kg_text_compressed(kg, hit, q, spec, rng) if kg_on else kg.kg_text(hit)
+    chunks = [{**c, "text": compress_passage(c["text"], q, spec["sent_keep"], spec["sel"], rng) if text_on
+               else c["text"]} for c in hit["chunks"]]
     return {"kg_text": kg_text, "chunks": chunks, "context": format_context(kg_text, chunks),
             "hit": hit}
 
@@ -198,12 +248,17 @@ def calibrate():
                 red[m].append(1 - len(build(q, m)["context"]) / len(base[q]["context"]))
         print(f"KG_KEEP={kg_keep:.2f} KG_ITEM_CHARS={KG_ITEM_CHARS} SENT_KEEP={keep:.1f}: giảm ký tự " +
               ", ".join(f"{m} {np.mean(v):.1%} [{np.min(v):.0%}–{np.max(v):.0%}]" for m, v in red.items()))
+    KG_KEEP, SENT_KEEP = 0.5, 0.5
+    # mức nén thêm cho chế độ nén cả hai và các baseline: chỉ đo độ dài
+    red = {m: [1 - len(build(q, m)["context"]) / len(base[q]["context"]) for q in qs] for m in BASELINE_MODES}
+    for m, v in red.items():
+        print(f"{m}: giảm ký tự {np.mean(v):.1%} [{np.min(v):.0%}–{np.max(v):.0%}]")
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("question", nargs="*")
-    ap.add_argument("--mode", default="both", choices=list(MODES))
+    ap.add_argument("--mode", default="both", choices=[*MODES, *BASELINE_MODES])
     ap.add_argument("--calibrate", action="store_true")
     a = ap.parse_args()
     if a.calibrate:
