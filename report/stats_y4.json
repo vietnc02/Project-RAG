@@ -1,0 +1,1437 @@
+{
+  "n_questions": 85,
+  "n_answerable": 62,
+  "n_unanswerable": 23,
+  "ni_margin": 0.05,
+  "params": {
+    "KG_KEEP": 0.5,
+    "KG_ITEM_CHARS": 110,
+    "SENT_KEEP": 0.5
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.40.4",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  },
+  "modes": {
+    "base": {
+      "context_tokens": 1539.3294117647058,
+      "prompt_tokens": 1630.6823529411765,
+      "kg_chars": 2877.105882352941,
+      "passage_chars": 3706.858823529412,
+      "token_reduction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "token_reduction_min": 0.0,
+      "token_reduction_max": 0.0,
+      "prompt_reduction": 0.0,
+      "latency_s": 14.44541176470588,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 57,
+      "refusal_n": 5,
+      "answer_relevancy_non_refused": 0.817140154477612,
+      "faithfulness": [
+        0.8556695091782811,
+        0.8171478570162779,
+        0.8932041593883698
+      ],
+      "faithfulness_full": [
+        0.8556695091782811,
+        0.8171478570162779,
+        0.8932041593883698
+      ],
+      "hallucination": [
+        0.4838709677419355,
+        0.3548387096774194,
+        0.5967741935483871
+      ],
+      "answer_correctness": [
+        0.8064516129032258,
+        0.6935483870967742,
+        0.9032258064516129
+      ],
+      "context_recall": [
+        0.6927035330261135,
+        0.6302029220779222,
+        0.7536616016152307
+      ],
+      "answer_relevancy": [
+        0.7512417549229657,
+        0.6863823400266124,
+        0.8043359839129463
+      ],
+      "refusal": [
+        0.08064516129032258,
+        0.016129032258064516,
+        0.16129032258064516
+      ]
+    },
+    "kg": {
+      "context_tokens": 1190.2,
+      "prompt_tokens": 1281.5529411764705,
+      "kg_chars": 1152.4117647058824,
+      "passage_chars": 3706.858823529412,
+      "token_reduction": [
+        0.22537698193048236,
+        0.21716426710306208,
+        0.23392634870421253
+      ],
+      "token_reduction_min": 0.1423705722070845,
+      "token_reduction_max": 0.3107638888888888,
+      "prompt_reduction": 0.21263535169892803,
+      "latency_s": 15.013882352941174,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 52,
+      "refusal_n": 10,
+      "answer_relevancy_non_refused": 0.8090654884457832,
+      "faithfulness": [
+        0.8418498168498169,
+        0.794755608974359,
+        0.885625
+      ],
+      "faithfulness_full": [
+        0.8355998168498167,
+        0.7870949710012207,
+        0.883036858974359
+      ],
+      "hallucination": [
+        0.4838709677419355,
+        0.3548387096774194,
+        0.6129032258064516
+      ],
+      "answer_correctness": [
+        0.7741935483870968,
+        0.6612903225806451,
+        0.8709677419354839
+      ],
+      "context_recall": [
+        0.6859487734487735,
+        0.6231777451938741,
+        0.7490502519433971
+      ],
+      "answer_relevancy": [
+        0.6785710548254956,
+        0.5950599824707071,
+        0.7532462094527309
+      ],
+      "refusal": [
+        0.16129032258064516,
+        0.08064516129032258,
+        0.25806451612903225
+      ]
+    },
+    "text": {
+      "context_tokens": 1150.8470588235293,
+      "prompt_tokens": 1242.2,
+      "kg_chars": 2877.105882352941,
+      "passage_chars": 2138.2235294117645,
+      "token_reduction": [
+        0.25326669348716163,
+        0.24559529866724295,
+        0.26023370123244743
+      ],
+      "token_reduction_min": 0.1771300448430492,
+      "token_reduction_max": 0.3587548638132295,
+      "prompt_reduction": 0.2389994811028964,
+      "latency_s": 14.436823529411766,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 55,
+      "refusal_n": 7,
+      "answer_relevancy_non_refused": 0.8339912426510302,
+      "faithfulness": [
+        0.8326190476190476,
+        0.7872916666666666,
+        0.8751369047619046
+      ],
+      "faithfulness_full": [
+        0.8335281385281386,
+        0.7885032467532468,
+        0.8742564935064935
+      ],
+      "hallucination": [
+        0.5645161290322581,
+        0.43548387096774194,
+        0.6774193548387096
+      ],
+      "answer_correctness": [
+        0.7903225806451613,
+        0.6774193548387096,
+        0.8870967741935484
+      ],
+      "context_recall": [
+        0.6705709165386583,
+        0.6049160819019689,
+        0.735530870339338
+      ],
+      "answer_relevancy": [
+        0.7398309410613978,
+        0.6662832072701408,
+        0.8030842207939217
+      ],
+      "refusal": [
+        0.11290322580645161,
+        0.03225806451612903,
+        0.1935483870967742
+      ]
+    },
+    "both": {
+      "context_tokens": 801.7176470588236,
+      "prompt_tokens": 893.0705882352942,
+      "kg_chars": 1152.4117647058824,
+      "passage_chars": 2138.2235294117645,
+      "token_reduction": [
+        0.4786436754176442,
+        0.4702476346069282,
+        0.48719359744863655
+      ],
+      "token_reduction_min": 0.3957680250783699,
+      "token_reduction_max": 0.5989583333333333,
+      "prompt_reduction": 0.4516348328018243,
+      "latency_s": 9.704823529411764,
+      "unanswerable_refused": 23,
+      "faithfulness_n": 52,
+      "refusal_n": 10,
+      "answer_relevancy_non_refused": 0.822805010799929,
+      "faithfulness": [
+        0.8016303141303142,
+        0.7426337898212897,
+        0.8599578546453548
+      ],
+      "faithfulness_full": [
+        0.829788961038961,
+        0.7705312395937394,
+        0.8850528638028637
+      ],
+      "hallucination": [
+        0.4838709677419355,
+        0.3709677419354839,
+        0.6129032258064516
+      ],
+      "answer_correctness": [
+        0.7903225806451613,
+        0.6774193548387096,
+        0.8870967741935484
+      ],
+      "context_recall": [
+        0.6602778941488618,
+        0.601205357142857,
+        0.7195647285062607
+      ],
+      "answer_relevancy": [
+        0.6900945251870373,
+        0.6103684436464725,
+        0.7643463672865703
+      ],
+      "refusal": [
+        0.16129032258064516,
+        0.08064516129032258,
+        0.25806451612903225
+      ]
+    }
+  },
+  "paired": {
+    "kg": {
+      "faithfulness": {
+        "delta": -0.025725236302159393,
+        "lo": -0.069857308823655,
+        "hi": 0.01838942707933089,
+        "n": 52,
+        "p": 0.2464,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "faithfulness_full": {
+        "delta": -0.0319752363021594,
+        "lo": -0.07873506301390919,
+        "hi": 0.01080719627594623,
+        "n": 52,
+        "p": 0.1504,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "hallucination": {
+        "delta": 0.0,
+        "lo": -0.12903225806451613,
+        "hi": 0.12903225806451613,
+        "n": 62,
+        "p": 1.0,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_correctness": {
+        "delta": -0.03225806451612903,
+        "lo": -0.11290322580645161,
+        "hi": 0.04838709677419355,
+        "n": 62,
+        "p": 0.5476,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "context_recall": {
+        "delta": -0.006754759577340223,
+        "lo": -0.03681423974770749,
+        "hi": 0.022693452380952335,
+        "n": 62,
+        "p": 0.6488,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_relevancy": {
+        "delta": -0.07267070009747026,
+        "lo": -0.14309939897769952,
+        "hi": -0.018171403794123218,
+        "n": 62,
+        "p": 0.0032,
+        "p_holm": 0.06720000000000001,
+        "family_size": 21,
+        "significant": true,
+        "significant_holm": false
+      },
+      "refusal": {
+        "delta": 0.08064516129032258,
+        "lo": 0.016129032258064516,
+        "hi": 0.16129032258064516,
+        "n": 62,
+        "p": 0.0068,
+        "p_holm": 0.13599999999999998,
+        "family_size": 21,
+        "significant": true,
+        "significant_holm": false
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.5936590828980718
+    },
+    "text": {
+      "faithfulness": {
+        "delta": -0.02520948748221476,
+        "lo": -0.07369295224977042,
+        "hi": 0.019905175632448313,
+        "n": 55,
+        "p": 0.2812,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "faithfulness_full": {
+        "delta": -0.024300396573123856,
+        "lo": -0.0683514528400892,
+        "hi": 0.015914807414807396,
+        "n": 55,
+        "p": 0.2352,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "hallucination": {
+        "delta": 0.08064516129032258,
+        "lo": -0.04838709677419355,
+        "hi": 0.20967741935483872,
+        "n": 62,
+        "p": 0.2744,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.08064516129032258,
+        "hi": 0.03225806451612903,
+        "n": 62,
+        "p": 0.7812,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "context_recall": {
+        "delta": -0.022132616487455188,
+        "lo": -0.05704685099846389,
+        "hi": 0.01195740527393752,
+        "n": 62,
+        "p": 0.2092,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_relevancy": {
+        "delta": -0.011410813861568126,
+        "lo": -0.053655517772782164,
+        "hi": 0.019440876737877345,
+        "n": 62,
+        "p": 0.604,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "refusal": {
+        "delta": 0.03225806451612903,
+        "lo": 0.0,
+        "hi": 0.08064516129032258,
+        "n": 62,
+        "p": 0.2484,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.5566386574447073
+    },
+    "both": {
+      "faithfulness": {
+        "delta": -0.0659447390216621,
+        "lo": -0.12011138167388168,
+        "hi": -0.01576583139083141,
+        "n": 52,
+        "p": 0.0112,
+        "p_holm": 0.19039999999999999,
+        "family_size": 21,
+        "significant": true,
+        "significant_holm": false
+      },
+      "faithfulness_full": {
+        "delta": -0.037786092113015195,
+        "lo": -0.09264121295371296,
+        "hi": 0.012054057054057018,
+        "n": 52,
+        "p": 0.1496,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "hallucination": {
+        "delta": 0.0,
+        "lo": -0.11290322580645161,
+        "hi": 0.11290322580645161,
+        "n": 62,
+        "p": 1.0,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.0967741935483871,
+        "hi": 0.06451612903225806,
+        "n": 62,
+        "p": 0.846,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "context_recall": {
+        "delta": -0.03242563887725177,
+        "lo": -0.06642263650328166,
+        "hi": 0.003246811432295269,
+        "n": 62,
+        "p": 0.0716,
+        "p_holm": 1.0,
+        "family_size": 21,
+        "significant": false,
+        "significant_holm": false
+      },
+      "answer_relevancy": {
+        "delta": -0.06114722973592867,
+        "lo": -0.12718784290951746,
+        "hi": -0.010907139555545188,
+        "n": 62,
+        "p": 0.0084,
+        "p_holm": 0.1512,
+        "family_size": 21,
+        "significant": true,
+        "significant_holm": false
+      },
+      "refusal": {
+        "delta": 0.08064516129032258,
+        "lo": 0.016129032258064516,
+        "hi": 0.16129032258064516,
+        "n": 62,
+        "p": 0.0068,
+        "p_holm": 0.13599999999999998,
+        "family_size": 21,
+        "significant": true,
+        "significant_holm": false
+      },
+      "token_reduction_target": true,
+      "ni_power_if_zero": 0.4660608181132577
+    }
+  },
+  "faithfulness_answered_all": {
+    "n": 52,
+    "kg": {
+      "delta": -0.025725236302159393,
+      "lo": -0.069857308823655,
+      "hi": 0.01838942707933089,
+      "n": 52,
+      "p": 0.2464
+    },
+    "text": {
+      "delta": -0.03307413740106049,
+      "lo": -0.08228893969278585,
+      "hi": 0.012604562905043661,
+      "n": 52,
+      "p": 0.1556
+    },
+    "both": {
+      "delta": -0.0659447390216621,
+      "lo": -0.12011138167388168,
+      "hi": -0.01576583139083141,
+      "n": 52,
+      "p": 0.0112
+    }
+  },
+  "hallucination_answered": {
+    "base": 0.5263157894736842,
+    "kg": 0.5769230769230769,
+    "text": 0.6363636363636364,
+    "both": 0.5769230769230769
+  },
+  "n_comparisons": {
+    "total": 21,
+    "significant": 5,
+    "significant_holm": 0
+  },
+  "new_refusals": {
+    "kg": [
+      {
+        "id": "g042",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.4545454545454545,
+        "recall_mode": 0.4545454545454545
+      },
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.5555555555555556
+      },
+      {
+        "id": "m027",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.75,
+        "recall_mode": 0.75
+      },
+      {
+        "id": "m064",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.5,
+        "recall_mode": 0.625
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.5,
+        "recall_mode": 0.5
+      }
+    ],
+    "text": [
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.4444444444444444
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.5,
+        "recall_mode": 0.5
+      }
+    ],
+    "both": [
+      {
+        "id": "g042",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.4545454545454545,
+        "recall_mode": 0.4545454545454545
+      },
+      {
+        "id": "m001",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.6666666666666666,
+        "recall_mode": 0.4444444444444444
+      },
+      {
+        "id": "m027",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.75,
+        "recall_mode": 0.75
+      },
+      {
+        "id": "m064",
+        "type": "multihop",
+        "base_correct": 1,
+        "recall_base": 0.5,
+        "recall_mode": 0.5
+      },
+      {
+        "id": "s007",
+        "type": "single",
+        "base_correct": 0,
+        "recall_base": 0.5,
+        "recall_mode": 0.5
+      }
+    ]
+  },
+  "correct_flips": {
+    "kg": {
+      "wrong_to_right": 2,
+      "right_to_wrong": 4
+    },
+    "text": {
+      "wrong_to_right": 1,
+      "right_to_wrong": 2
+    },
+    "both": {
+      "wrong_to_right": 3,
+      "right_to_wrong": 4
+    }
+  },
+  "judge_log": {
+    "calls": 62,
+    "judge_failures": 0,
+    "json_error": 0,
+    "ollama_error": 0,
+    "verdicts_missing": 0,
+    "truncated": 0,
+    "prompt_tokens_max": 248
+  },
+  "example": {
+    "id": "q005",
+    "question": "Does Libsodium support any NIST PQC finalist algorithms as of its latest release in the 1.0.x series?",
+    "kg_base": [
+      "- libsodium (SYSTEM): Cryptographic open-source library.; Popular cryptographic library with a consistent API.; Cryptographic library that does not include support for NIST PQC finalist algorithms.; Library insufficient for quantum readiness ",
+      "- NIST PQC algorithms (ALGORITHM): Suite of algorithms spanning different families of mathematical problems.; Algorithms based on criteria mentioned in previous section.; NIST Post-Quantum Cryptography algorithms.; Standard post-quantum cryptography algor",
+      "- NIST (ORGANIZATION): U.S. government agency standardizing post-quantum cryptography.; Launched a global competition for quantum-resistant public-key cryptographic algorithms.; Kyber has been officially selected by NIST.; Selected Falcon for ",
+      "- PQC (ALGORITHM): Deep PQCs, or those forming 2-designs.; Post-quantum cryptographic algorithms implemented through hybrid systems.; Post-Quantum Cryptography.; Algorithms submitted in various categories for the NIST competition.; PQC sta",
+      "- NIST PQC finalists (ALGORITHM): NIST-selected algorithms for post-quantum cryptography.; NIST's post-quantum cryptography finalist algorithms including Kyber, Dilithium, FALCON, SPHINCS+.; Post-quantum key exchange or signature schemes that are not yet",
+      "- post quantum cryptography (STANDARD): PQC is the new era of cryptography due to quantum computing.; Solution to mitigate risks posed by quantum computing.",
+      "- PQC finalists of NIST (DATASET): NIST's post-quantum cryptography finalists for comparison.",
+      "- post-quantum cryptosystems (ALGORITHM): Innovative solution for resisting quantum attacks.; Cryptosystems designed to resist quantum computing attacks.; New generation of cryptosystems examined in the study.; This article discusses the challenges and potential",
+      "- libsodium -- NIST PQC finalists: libsodium does not include support for any of the NIST PQC finalist algorithms.",
+      "- liboqs -- NIST PQC algorithms: OQS supports many PQC algorithms including Kyber, Dilithium, Falcon, and SPHINCS+.",
+      "- LibreSSL -- NIST PQC finalists: LibreSSL supports some of the NIST PQC finalist algorithms.",
+      "- OpenSSL -- NIST PQC algorithms: OpenSSL has signaled that support for NIST PQC algorithms is forthcoming.; OpenSSL has not included these algorithms in its official release.",
+      "- OpenSSL -- NIST finalists: OpenSSL does not support any NIST finalist algorithms.",
+      "- OpenSSL Foundation -- NIST PQC algorithms: Plans to implement support for these algorithms in OpenSSL.",
+      "- NIST PQC algorithms -- Dilithium: NIST PQC algorithms include Dilithium.",
+      "- libsodium -- PQC: libsodium has not yet embraced PQC.",
+      "- MbedTLS -- NIST PQC algorithms: MbedTLS does not have NIST PQC algorithms implemented.",
+      "- Crypto++ -- NIST PQC finalists: Crypto++ does not include the NIST PQC finalists in its mainline distribution.",
+      "- PQC solutions -- NIST: NIST is leading standardization efforts for PQC algorithms.",
+      "- open-source libraries -- PQC: Libraries support PQC algorithms."
+    ],
+    "kg_both": [
+      "- libsodium (SYSTEM): Cryptographic library that does not include support for NIST PQC finalist algorithms.",
+      "- NIST PQC algorithms (ALGORITHM): Algorithms based on criteria mentioned in previous section.; NIST Post-Quantum Cryptography algorithms.",
+      "- NIST PQC finalists (ALGORITHM): NIST's post-quantum cryptography finalist algorithms including Kyber, Dilithium, FALCON, SPHINCS+.",
+      "- PQC finalists of NIST (DATASET): NIST's post-quantum cryptography finalists for comparison.",
+      "- libsodium -- NIST PQC finalists: libsodium does not include support for any of the NIST PQC finalist algorithms.",
+      "- liboqs -- NIST PQC algorithms: OQS supports many PQC algorithms including Kyber, Dilithium, Falcon, and SPHINCS+.",
+      "- LibreSSL -- NIST PQC finalists: LibreSSL supports some of the NIST PQC finalist algorithms.",
+      "- OpenSSL -- NIST PQC algorithms: OpenSSL has signaled that support for NIST PQC algorithms is forthcoming.",
+      "- OpenSSL -- NIST finalists: OpenSSL does not support any NIST finalist algorithms.",
+      "- NIST PQC algorithms -- Dilithium: NIST PQC algorithms include Dilithium."
+    ],
+    "passage_base": "OpenSSL has not included NIST PQC algorithms in its official\nrelease, but has signaled that support is forthcoming now that\nstandards are finalized [19]. In September 2024, the OpenSSL\nFoundation announced plans to implement the NIST PQC finalists (Kyber, Dilithium, Falcon, SPHINCS+) in a future release,\nstating: “We intend to implement support for these algorithms\nin our providers in a future version of OpenSSL” [19]. This\ncame after NIST published the FIPS draft standards (ML-KEM,\nML-DSA, SLH-DSA), which OpenSSL was awaiting to avoid\nintegrating pre-standard algorithms. As of early 2025, integration is underway (targeting OpenSSL 3.5), but not yet released.\nMeanwhile, since early 2022, the Open Quantum Safe (OQS)\nproject has offered PQC support for OpenSSL 3 via its provider\narchitecture [34]. Maintained by openquantumsafe.org, the OQS\nprovider allowed experimentation with many PQC algorithms\nacross TLS 1.3 and X.509 [19], serving as a “test vehicle” for",
+    "passage_both": "OpenSSL has not included NIST PQC algorithms in its official release, but has signaled that support is forthcoming now that standards are finalized. In September 2024, the OpenSSL Foundation announced plans to implement the NIST PQC finalists (Kyber, Dilithium, Falcon, SPHINCS+) in a future release, stating: “We intend to implement support for these algorithms in our providers in a future version of OpenSSL”. Maintained by openquantumsafe.org, the OQS provider allowed experimentation with many PQC algorithms across TLS 1.3 and X.509, serving as a “test vehicle” for",
+    "tokens_base": 1707,
+    "tokens_both": 893
+  },
+  "gt_claims": {
+    "n": 62,
+    "mean": 6.370967741935484
+  },
+  "baselines": {
+    "rows": {
+      "kg:rel": {
+        "modes": [
+          "kg"
+        ],
+        "token_reduction": 0.2253769819304824,
+        "faithfulness": 0.8418498168498169,
+        "context_recall": 0.6859487734487734,
+        "answer_correctness": 0.7741935483870968,
+        "refusal": 0.16129032258064516
+      },
+      "kg:rand": {
+        "modes": [
+          "rand_kg"
+        ],
+        "token_reduction": 0.2296930375314946,
+        "faithfulness": 0.8622023809523809,
+        "context_recall": 0.7051185821347111,
+        "answer_correctness": 0.7903225806451613,
+        "refusal": 0.16129032258064516
+      },
+      "kg:head": {
+        "modes": [
+          "head_kg"
+        ],
+        "token_reduction": 0.22784967671672948,
+        "faithfulness": 0.85501628001628,
+        "context_recall": 0.6879022560474172,
+        "answer_correctness": 0.8064516129032258,
+        "refusal": 0.16129032258064516
+      },
+      "text:rel": {
+        "modes": [
+          "text"
+        ],
+        "token_reduction": 0.25326669348716163,
+        "faithfulness": 0.8326190476190476,
+        "context_recall": 0.6705709165386584,
+        "answer_correctness": 0.7903225806451613,
+        "refusal": 0.11290322580645161
+      },
+      "text:rand": {
+        "modes": [
+          "rand_text"
+        ],
+        "token_reduction": 0.2533940133330855,
+        "faithfulness": 0.8245252689697133,
+        "context_recall": 0.6217613927291346,
+        "answer_correctness": 0.8064516129032258,
+        "refusal": 0.12903225806451613
+      },
+      "text:head": {
+        "modes": [
+          "head_text"
+        ],
+        "token_reduction": 0.2539372375542603,
+        "faithfulness": 0.8172168851414134,
+        "context_recall": 0.6236083957858151,
+        "answer_correctness": 0.7741935483870968,
+        "refusal": 0.14516129032258066
+      },
+      "both:rel": {
+        "modes": [
+          "both"
+        ],
+        "token_reduction": 0.4786436754176442,
+        "faithfulness": 0.8016303141303142,
+        "context_recall": 0.6602778941488618,
+        "answer_correctness": 0.7903225806451613,
+        "refusal": 0.16129032258064516
+      },
+      "both:rand": {
+        "modes": [
+          "rand_both",
+          "rand_both_s1",
+          "rand_both_s2"
+        ],
+        "token_reduction": 0.4851676763753165,
+        "faithfulness": 0.8296316337983005,
+        "context_recall": 0.6126013721443829,
+        "answer_correctness": 0.7043010752688171,
+        "refusal": 0.23118279569892475
+      },
+      "both:head": {
+        "modes": [
+          "head_both"
+        ],
+        "token_reduction": 0.48178691427098996,
+        "faithfulness": 0.7912453102453102,
+        "context_recall": 0.6001607860478828,
+        "answer_correctness": 0.7580645161290323,
+        "refusal": 0.1935483870967742
+      }
+    },
+    "paired": {
+      "kg:rand:context_recall": {
+        "delta": -0.019169808685937727,
+        "lo": -0.042567509775171083,
+        "hi": 0.003918956267746577,
+        "n": 62,
+        "p": 0.1052,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "kg:rand:answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.08064516129032258,
+        "hi": 0.04838709677419355,
+        "n": 62,
+        "p": 0.8372,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "kg:rand:faithfulness": {
+        "delta": -0.016485112563543947,
+        "lo": -0.06090394491129785,
+        "hi": 0.02614502282394435,
+        "n": 51,
+        "p": 0.4632,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "kg:head:context_recall": {
+        "delta": -0.001953482598643891,
+        "lo": -0.01777184285248802,
+        "hi": 0.014244635293022381,
+        "n": 62,
+        "p": 0.7956,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "kg:head:answer_correctness": {
+        "delta": -0.03225806451612903,
+        "lo": -0.0967741935483871,
+        "hi": 0.03225806451612903,
+        "n": 62,
+        "p": 0.4464,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "kg:head:faithfulness": {
+        "delta": -0.01086471625687313,
+        "lo": -0.06010549590206453,
+        "hi": 0.03786233011723207,
+        "n": 51,
+        "p": 0.6672,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "text:rand:context_recall": {
+        "delta": 0.04880952380952383,
+        "lo": 0.010650068271036027,
+        "hi": 0.08837285586277523,
+        "n": 62,
+        "p": 0.01,
+        "p_holm": 0.16,
+        "family_size": 18,
+        "significant": true,
+        "significant_holm": false
+      },
+      "text:rand:answer_correctness": {
+        "delta": -0.016129032258064516,
+        "lo": -0.08064516129032258,
+        "hi": 0.03225806451612903,
+        "n": 62,
+        "p": 0.7924,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "text:rand:faithfulness": {
+        "delta": 0.009623761012649909,
+        "lo": -0.03742145971312637,
+        "hi": 0.05771501774973996,
+        "n": 54,
+        "p": 0.6988,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "text:head:context_recall": {
+        "delta": 0.04696252075284334,
+        "lo": 0.0030384877965523274,
+        "hi": 0.09371735306211113,
+        "n": 62,
+        "p": 0.0364,
+        "p_holm": 0.546,
+        "family_size": 18,
+        "significant": true,
+        "significant_holm": false
+      },
+      "text:head:answer_correctness": {
+        "delta": 0.016129032258064516,
+        "lo": -0.04838709677419355,
+        "hi": 0.08064516129032258,
+        "n": 62,
+        "p": 0.834,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "text:head:faithfulness": {
+        "delta": 0.01380288125571145,
+        "lo": -0.03418825016702375,
+        "hi": 0.06127233702705398,
+        "n": 53,
+        "p": 0.576,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "both:rand:context_recall": {
+        "delta": 0.047676522004479006,
+        "lo": 0.01170118200696157,
+        "hi": 0.08504141679208882,
+        "n": 62,
+        "p": 0.0072,
+        "p_holm": 0.1296,
+        "family_size": 18,
+        "significant": true,
+        "significant_holm": false
+      },
+      "both:rand:answer_correctness": {
+        "delta": 0.08602150537634408,
+        "lo": 1.0744093786695063e-17,
+        "hi": 0.16666666666666669,
+        "n": 62,
+        "p": 0.042,
+        "p_holm": 0.5880000000000001,
+        "family_size": 18,
+        "significant": true,
+        "significant_holm": false
+      },
+      "both:rand:faithfulness": {
+        "delta": -0.018601278895396544,
+        "lo": -0.07639233723792549,
+        "hi": 0.03358244560450441,
+        "n": 51,
+        "p": 0.5192,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "both:head:context_recall": {
+        "delta": 0.06011710810097907,
+        "lo": 0.014815096044934754,
+        "hi": 0.11118803724650494,
+        "n": 62,
+        "p": 0.0076,
+        "p_holm": 0.1296,
+        "family_size": 18,
+        "significant": true,
+        "significant_holm": false
+      },
+      "both:head:answer_correctness": {
+        "delta": 0.03225806451612903,
+        "lo": -0.06451612903225806,
+        "hi": 0.12903225806451613,
+        "n": 62,
+        "p": 0.6416,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      },
+      "both:head:faithfulness": {
+        "delta": 0.008918049543049542,
+        "lo": -0.05428912763548179,
+        "hi": 0.07007483691077442,
+        "n": 48,
+        "p": 0.77,
+        "p_holm": 1.0,
+        "family_size": 18,
+        "significant": false,
+        "significant_holm": false
+      }
+    },
+    "holm_family": 18
+  },
+  "levels": {
+    "base": {
+      "token_reduction": 0.0,
+      "faithfulness": 0.855669509178281,
+      "context_recall": 0.6927035330261134,
+      "answer_correctness": 0.8064516129032258,
+      "refusal": 0.08064516129032258
+    },
+    "both_l25": {
+      "token_reduction": 0.2681081948800631,
+      "faithfulness": 0.8359029002547521,
+      "context_recall": 0.689226946888237,
+      "answer_correctness": 0.7903225806451613,
+      "refusal": 0.12903225806451613,
+      "paired_faithfulness": {
+        "delta": -0.0229965336446818,
+        "lo": -0.06280204577658281,
+        "hi": 0.01456745500726981,
+        "n": 54,
+        "p": 0.2244
+      }
+    },
+    "both_l40": {
+      "token_reduction": 0.38935047711654364,
+      "faithfulness": 0.8178744866244868,
+      "context_recall": 0.6552143943272977,
+      "answer_correctness": 0.7903225806451613,
+      "refusal": 0.16129032258064516,
+      "paired_faithfulness": {
+        "delta": -0.0497005665274896,
+        "lo": -0.09384884213009213,
+        "hi": -0.009576410057179291,
+        "n": 52,
+        "p": 0.0172
+      }
+    },
+    "both": {
+      "token_reduction": 0.4786436754176442,
+      "faithfulness": 0.8016303141303142,
+      "context_recall": 0.6602778941488618,
+      "answer_correctness": 0.7903225806451613,
+      "refusal": 0.16129032258064516,
+      "paired_faithfulness": {
+        "delta": -0.0659447390216621,
+        "lo": -0.12011138167388168,
+        "hi": -0.01576583139083141,
+        "n": 52,
+        "p": 0.0112
+      }
+    }
+  },
+  "judge_passes": {
+    "base": {
+      "passes": [
+        0,
+        1,
+        2
+      ],
+      "n_ids": 85,
+      "agreement": {
+        "answer_correctness": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "answer_relevancy": {
+          "n": 85,
+          "all_equal": 0.9882352941176471,
+          "mean_abs_diff": 1.744938130982129e-05,
+          "mean_sd": 1.2338575851684436e-05
+        },
+        "context_recall": {
+          "n": 62,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 5.3720468933475315e-18
+        },
+        "context_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "faithfulness": {
+          "n": 57,
+          "all_equal": 0.9649122807017544,
+          "mean_abs_diff": 0.007277452891487979,
+          "mean_sd": 0.005145936289336812
+        },
+        "faithfulness_full": {
+          "n": 57,
+          "all_equal": 0.9649122807017544,
+          "mean_abs_diff": 0.007277452891487979,
+          "mean_sd": 0.005145936289336812
+        },
+        "hallucination": {
+          "n": 85,
+          "all_equal": 0.9764705882352941,
+          "mean_abs_diff": 0.01568627450980392,
+          "mean_sd": 0.01109187107743604
+        },
+        "hallucination_full": {
+          "n": 85,
+          "all_equal": 0.9764705882352941,
+          "mean_abs_diff": 0.01568627450980392,
+          "mean_sd": 0.01109187107743604
+        },
+        "n_claims": {
+          "n": 85,
+          "all_equal": 0.9764705882352941,
+          "mean_abs_diff": 0.01568627450980392,
+          "mean_sd": 0.01109187107743604
+        },
+        "n_judged": {
+          "n": 57,
+          "all_equal": 0.9649122807017544,
+          "mean_abs_diff": 0.023391812865497075,
+          "mean_sd": 0.016540509501439708
+        },
+        "n_unsupported": {
+          "n": 57,
+          "all_equal": 0.9649122807017544,
+          "mean_abs_diff": 0.04678362573099415,
+          "mean_sd": 0.033081019002879415
+        },
+        "prompt_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "refusal": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        }
+      }
+    },
+    "kg": {
+      "passes": [
+        0,
+        1,
+        2
+      ],
+      "n_ids": 85,
+      "agreement": {
+        "answer_correctness": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "answer_relevancy": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "context_recall": {
+          "n": 62,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 3.581364595565021e-18
+        },
+        "context_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "faithfulness": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 5.337610695313253e-18
+        },
+        "faithfulness_full": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 6.4051328343759035e-18
+        },
+        "hallucination": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "hallucination_full": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_claims": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_judged": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_unsupported": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "prompt_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "refusal": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        }
+      }
+    },
+    "text": {
+      "passes": [
+        0,
+        1,
+        2
+      ],
+      "n_ids": 85,
+      "agreement": {
+        "answer_correctness": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "answer_relevancy": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "context_recall": {
+          "n": 62,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 8.058070340021298e-18
+        },
+        "context_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "faithfulness": {
+          "n": 55,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 1.2111523905001707e-17
+        },
+        "faithfulness_full": {
+          "n": 55,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 9.08364292875128e-18
+        },
+        "hallucination": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "hallucination_full": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_claims": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_judged": {
+          "n": 55,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_unsupported": {
+          "n": 55,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "prompt_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "refusal": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        }
+      }
+    },
+    "both": {
+      "passes": [
+        0,
+        1,
+        2
+      ],
+      "n_ids": 85,
+      "agreement": {
+        "answer_correctness": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "answer_relevancy": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "context_recall": {
+          "n": 62,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 8.953411488912552e-18
+        },
+        "context_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "faithfulness": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 1.2810265668751807e-17
+        },
+        "faithfulness_full": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 1.708035422500241e-17
+        },
+        "hallucination": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "hallucination_full": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_claims": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_judged": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "n_unsupported": {
+          "n": 52,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "prompt_tokens": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        },
+        "refusal": {
+          "n": 85,
+          "all_equal": 1.0,
+          "mean_abs_diff": 0.0,
+          "mean_sd": 0.0
+        }
+      }
+    }
+  },
+  "faithfulness_delta_by_pass": {
+    "n_passes": 3,
+    "deltas": {
+      "kg": [
+        -0.03085344143036451,
+        -0.02316113373805682,
+        -0.02316113373805682
+      ],
+      "text": [
+        -0.03005797233069961,
+        -0.022785245057972338,
+        -0.022785245057972338
+      ],
+      "both": [
+        -0.07107294414986723,
+        -0.06338063645755954,
+        -0.06338063645755954
+      ]
+    },
+    "sd": {
+      "kg": 0.003626188621469473,
+      "text": 0.003428396514843866,
+      "both": 0.0036261886214694746
+    }
+  },
+  "judge_log_all": {
+    "calls": 13455,
+    "judge_failures": 88,
+    "retries": 70,
+    "unresolved": 18,
+    "truncated_prompt": 0,
+    "prompt_tokens_max": 2232
+  }
+}

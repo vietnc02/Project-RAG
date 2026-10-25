@@ -1,0 +1,90 @@
+{
+  "scores.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 0.7647058823529411,
+        "mean_abs_diff": 0.0023378067028114596,
+        "mean_sd": 0.001653078972661347
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 0.9193548387096774,
+        "mean_abs_diff": 0.009247622150847956,
+        "mean_sd": 0.006539056332715519
+      },
+      "context_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "faithfulness": {
+        "n": 50,
+        "all_equal": 0.7,
+        "mean_abs_diff": 0.037892736892736895,
+        "mean_sd": 0.02679421121457193
+      },
+      "faithfulness_full": {
+        "n": 50,
+        "all_equal": 0.74,
+        "mean_abs_diff": 0.038041847041847036,
+        "mean_sd": 0.026899648012151455
+      },
+      "hallucination": {
+        "n": 85,
+        "all_equal": 0.9647058823529412,
+        "mean_abs_diff": 0.023529411764705882,
+        "mean_sd": 0.016637806616154056
+      },
+      "hallucination_full": {
+        "n": 85,
+        "all_equal": 0.9764705882352941,
+        "mean_abs_diff": 0.01568627450980392,
+        "mean_sd": 0.01109187107743604
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 0.8705882352941177,
+        "mean_abs_diff": 0.11764705882352941,
+        "mean_sd": 0.0831890330807703
+      },
+      "n_judged": {
+        "n": 50,
+        "all_equal": 0.78,
+        "mean_abs_diff": 0.2,
+        "mean_sd": 0.1414213562373095
+      },
+      "n_unsupported": {
+        "n": 50,
+        "all_equal": 0.76,
+        "mean_abs_diff": 0.22666666666666666,
+        "mean_sd": 0.16027753706895076
+      },
+      "prompt_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  }
+}

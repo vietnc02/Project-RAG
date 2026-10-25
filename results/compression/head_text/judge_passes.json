@@ -1,0 +1,90 @@
+{
+  "scores.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 0.7294117647058823,
+        "mean_abs_diff": 0.004355466950984287,
+        "mean_sd": 0.0030797802162748854
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 0.8870967741935484,
+        "mean_abs_diff": 0.015083632019115889,
+        "mean_sd": 0.010665738485639387
+      },
+      "context_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "faithfulness": {
+        "n": 52,
+        "all_equal": 0.8461538461538461,
+        "mean_abs_diff": 0.009821232898155974,
+        "mean_sd": 0.0069446603818985
+      },
+      "faithfulness_full": {
+        "n": 52,
+        "all_equal": 0.8461538461538461,
+        "mean_abs_diff": 0.008854606931530009,
+        "mean_sd": 0.006261152606026287
+      },
+      "hallucination": {
+        "n": 84,
+        "all_equal": 0.9761904761904762,
+        "mean_abs_diff": 0.015873015873015872,
+        "mean_sd": 0.01122391716169123
+      },
+      "hallucination_full": {
+        "n": 84,
+        "all_equal": 0.9880952380952381,
+        "mean_abs_diff": 0.007936507936507936,
+        "mean_sd": 0.005611958580845615
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 0.9058823529411765,
+        "mean_abs_diff": 0.08627450980392157,
+        "mean_sd": 0.061005290925898216
+      },
+      "n_judged": {
+        "n": 53,
+        "all_equal": 0.8301886792452831,
+        "mean_abs_diff": 0.20125786163522014,
+        "mean_sd": 0.14231079872936805
+      },
+      "n_unsupported": {
+        "n": 53,
+        "all_equal": 0.8867924528301887,
+        "mean_abs_diff": 0.0880503144654088,
+        "mean_sd": 0.06226097444409852
+      },
+      "prompt_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  }
+}

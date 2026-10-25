@@ -1,0 +1,215 @@
+{
+  "rule": "Chủ đề quantum: Quantum Security + Quantum Machine Learning (23 bài trong papers/ + 7 bài bổ sung trong papers_y2/); thứ tự phân tầng theo chủ đề (seed 42) để k bài đầu giữ tỉ lệ chủ đề",
+  "papers": [
+    {
+      "rank": 1,
+      "source": "The-Quantum-Security-Deadline",
+      "topic": "Quantum Security",
+      "chunks": 55,
+      "added_for_y2": false
+    },
+    {
+      "rank": 2,
+      "source": "Barren plateaus in quantum neural network training landscapes",
+      "topic": "Quantum Machine Learning",
+      "chunks": 40,
+      "added_for_y2": true
+    },
+    {
+      "rank": 3,
+      "source": "Are Enterprises Ready for Quantum-Safe Cybersecurity",
+      "topic": "Quantum Security",
+      "chunks": 118,
+      "added_for_y2": false
+    },
+    {
+      "rank": 4,
+      "source": "Practical Challenges in Executing Shor’s Algorithm",
+      "topic": "Quantum Security",
+      "chunks": 58,
+      "added_for_y2": false
+    },
+    {
+      "rank": 5,
+      "source": "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+      "topic": "Quantum Machine Learning",
+      "chunks": 139,
+      "added_for_y2": false
+    },
+    {
+      "rank": 6,
+      "source": "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber",
+      "topic": "Quantum Security",
+      "chunks": 32,
+      "added_for_y2": false
+    },
+    {
+      "rank": 7,
+      "source": "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation",
+      "topic": "Quantum Security",
+      "chunks": 47,
+      "added_for_y2": false
+    },
+    {
+      "rank": 8,
+      "source": "Post-Quantum_Blockchain_Security_for_the_Internet_of_Things_Survey_and_Research_Directions",
+      "topic": "Quantum Security",
+      "chunks": 145,
+      "added_for_y2": false
+    },
+    {
+      "rank": 9,
+      "source": "A Survey of Quantum Generative Adversarial Networks",
+      "topic": "Quantum Machine Learning",
+      "chunks": 79,
+      "added_for_y2": false
+    },
+    {
+      "rank": 10,
+      "source": "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction",
+      "topic": "Quantum Security",
+      "chunks": 141,
+      "added_for_y2": false
+    },
+    {
+      "rank": 11,
+      "source": "Quantum key distribution through quantum machine learning - a research review",
+      "topic": "Quantum Security",
+      "chunks": 33,
+      "added_for_y2": false
+    },
+    {
+      "rank": 12,
+      "source": "Quantum_Machine_Learning_A_Survey",
+      "topic": "Quantum Machine Learning",
+      "chunks": 31,
+      "added_for_y2": false
+    },
+    {
+      "rank": 13,
+      "source": "Decoy State Quantum Key Distribution",
+      "topic": "Quantum Security",
+      "chunks": 25,
+      "added_for_y2": true
+    },
+    {
+      "rank": 14,
+      "source": "Post-Quantum Cryptography and Quantum-Safe Security",
+      "topic": "Quantum Security",
+      "chunks": 117,
+      "added_for_y2": false
+    },
+    {
+      "rank": 15,
+      "source": "Quantum Computing in the NISQ era and beyond",
+      "topic": "Quantum Machine Learning",
+      "chunks": 73,
+      "added_for_y2": true
+    },
+    {
+      "rank": 16,
+      "source": "Quantum Key Distribution Networks -- Key Management - A Survey",
+      "topic": "Quantum Security",
+      "chunks": 146,
+      "added_for_y2": false
+    },
+    {
+      "rank": 17,
+      "source": "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions",
+      "topic": "Quantum Security",
+      "chunks": 156,
+      "added_for_y2": false
+    },
+    {
+      "rank": 18,
+      "source": "A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber",
+      "topic": "Quantum Security",
+      "chunks": 28,
+      "added_for_y2": false
+    },
+    {
+      "rank": 19,
+      "source": "Quantum Machine Learning for Cybersecurity",
+      "topic": "Quantum Machine Learning",
+      "chunks": 91,
+      "added_for_y2": false
+    },
+    {
+      "rank": 20,
+      "source": "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer",
+      "topic": "Quantum Security",
+      "chunks": 92,
+      "added_for_y2": true
+    },
+    {
+      "rank": 21,
+      "source": "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries",
+      "topic": "Quantum Security",
+      "chunks": 74,
+      "added_for_y2": false
+    },
+    {
+      "rank": 22,
+      "source": "Quantum Machine Learning for 6G Network",
+      "topic": "Quantum Machine Learning",
+      "chunks": 55,
+      "added_for_y2": false
+    },
+    {
+      "rank": 23,
+      "source": "Quantum Cryptography - Public Key Distribution and Coin Tossing",
+      "topic": "Quantum Security",
+      "chunks": 33,
+      "added_for_y2": true
+    },
+    {
+      "rank": 24,
+      "source": "Harvest-Now, Decrypt-Later - A Temporal Cybersecurity Risk in the Quantum Transition",
+      "topic": "Quantum Security",
+      "chunks": 86,
+      "added_for_y2": false
+    },
+    {
+      "rank": 25,
+      "source": "Beyond Barren Plateaus - A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification",
+      "topic": "Quantum Machine Learning",
+      "chunks": 63,
+      "added_for_y2": false
+    },
+    {
+      "rank": 26,
+      "source": "How to factor 2048 bit RSA integers with less than a million noisy qubits",
+      "topic": "Quantum Security",
+      "chunks": 77,
+      "added_for_y2": true
+    },
+    {
+      "rank": 27,
+      "source": "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing",
+      "topic": "Quantum Security",
+      "chunks": 44,
+      "added_for_y2": false
+    },
+    {
+      "rank": 28,
+      "source": "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications",
+      "topic": "Quantum Security",
+      "chunks": 132,
+      "added_for_y2": false
+    },
+    {
+      "rank": 29,
+      "source": "Variational quantum algorithms",
+      "topic": "Quantum Machine Learning",
+      "chunks": 140,
+      "added_for_y2": true
+    },
+    {
+      "rank": 30,
+      "source": "harvest-now-decrypt-later-pqc-threat-model",
+      "topic": "Quantum Security",
+      "chunks": 178,
+      "added_for_y2": false
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "started": "2026-10-23T11:36:55",
+  "argv": [
+    "--modes",
+    "rand_both",
+    "rand_both_s1",
+    "rand_both_s2",
+    "head_both",
+    "rand_kg",
+    "head_kg",
+    "rand_text",
+    "head_text",
+    "both_l25",
+    "both_l40"
+  ],
+  "compression": {
+    "KG_KEEP": 0.5,
+    "KG_ITEM_CHARS": 110,
+    "SENT_KEEP": 0.5
+  },
+  "ni_margin": 0.05,
+  "top_k": 4,
+  "num_ctx": 4096,
+  "testset": {
+    "testset.json": "f8d689f1150b1d96",
+    "singlehop_kg.json": "bd56d7e78dd32897",
+    "multihop.json": "0df8ee1bb89c5f69",
+    "multihop_kg.json": "258e467516aad4dc",
+    "unanswerable.json": "f99f6edc31e56765"
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.40.4",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  },
+  "mode": "head_both",
+  "spec": {
+    "kg": true,
+    "text": true,
+    "sel": "head",
+    "seed": 0,
+    "kg_keep": 0.5,
+    "sent_keep": 0.5,
+    "item_chars": 110
+  },
+  "judge_pass_0": {
+    "started": "2026-10-25T15:15:39",
+    "environment": {
+      "python": "3.14.6",
+      "packages": {
+        "langchain": "1.4.3",
+        "langchain-core": "1.6.6",
+        "langgraph": "1.2.12",
+        "langchain-ollama": "1.1.0",
+        "langchain-chroma": "1.1.0",
+        "langchain-text-splitters": "1.1.2",
+        "chromadb": "1.5.9",
+        "ollama": "0.6.3",
+        "pymupdf": "1.28.2"
+      },
+      "ollama_server": "0.40.4",
+      "models": {
+        "llm": {
+          "name": "qwen2.5:7b",
+          "digest": "845dbda0ea48",
+          "quantization": "Q4_K_M"
+        },
+        "judge": {
+          "name": "llama3.1:8b",
+          "digest": "46e0c10c039e",
+          "quantization": "Q4_K_M"
+        },
+        "embedding": {
+          "name": "nomic-embed-text",
+          "digest": "0a109f422b47",
+          "quantization": "F16"
+        }
+      }
+    }
+  },
+  "judge_pass_1": {
+    "started": "2026-10-25T15:16:49",
+    "environment": {
+      "python": "3.14.6",
+      "packages": {
+        "langchain": "1.4.3",
+        "langchain-core": "1.6.6",
+        "langgraph": "1.2.12",
+        "langchain-ollama": "1.1.0",
+        "langchain-chroma": "1.1.0",
+        "langchain-text-splitters": "1.1.2",
+        "chromadb": "1.5.9",
+        "ollama": "0.6.3",
+        "pymupdf": "1.28.2"
+      },
+      "ollama_server": "0.40.4",
+      "models": {
+        "llm": {
+          "name": "qwen2.5:7b",
+          "digest": "845dbda0ea48",
+          "quantization": "Q4_K_M"
+        },
+        "judge": {
+          "name": "llama3.1:8b",
+          "digest": "46e0c10c039e",
+          "quantization": "Q4_K_M"
+        },
+        "embedding": {
+          "name": "nomic-embed-text",
+          "digest": "0a109f422b47",
+          "quantization": "F16"
+        }
+      }
+    }
+  },
+  "judge_pass_2": {
+    "started": "2026-10-25T16:57:06",
+    "environment": {
+      "python": "3.14.6",
+      "packages": {
+        "langchain": "1.4.3",
+        "langchain-core": "1.6.6",
+        "langgraph": "1.2.12",
+        "langchain-ollama": "1.1.0",
+        "langchain-chroma": "1.1.0",
+        "langchain-text-splitters": "1.1.2",
+        "chromadb": "1.5.9",
+        "ollama": "0.6.3",
+        "pymupdf": "1.28.2"
+      },
+      "ollama_server": "0.40.4",
+      "models": {
+        "llm": {
+          "name": "qwen2.5:7b",
+          "digest": "845dbda0ea48",
+          "quantization": "Q4_K_M"
+        },
+        "judge": {
+          "name": "llama3.1:8b",
+          "digest": "46e0c10c039e",
+          "quantization": "Q4_K_M"
+        },
+        "embedding": {
+          "name": "nomic-embed-text",
+          "digest": "0a109f422b47",
+          "quantization": "F16"
+        }
+      }
+    }
+  }
+}

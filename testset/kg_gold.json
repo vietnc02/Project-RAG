@@ -1,0 +1,2289 @@
+[
+  {
+    "id": "q001",
+    "type": "single",
+    "question": "What is Shor's algorithm and how does it impact the security of current cryptographic systems?",
+    "entities": [
+      "Shor's algorithm",
+      "integer factorization",
+      "discrete logarithm",
+      "public-key cryptography"
+    ],
+    "relations": [
+      [
+        "Shor's algorithm",
+        "integer factorization",
+        "Shor's algorithm efficiently factors large integers"
+      ],
+      [
+        "Shor's algorithm",
+        "discrete logarithm",
+        "Shor's algorithm computes discrete logarithms in polynomial time"
+      ],
+      [
+        "Shor's algorithm",
+        "public-key cryptography",
+        "Shor's algorithm undermines the security of current public-key cryptosystems"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q005",
+    "type": "single",
+    "question": "Does Libsodium support any NIST PQC finalist algorithms as of its latest release in the 1.0.x series?",
+    "entities": [
+      "Libsodium",
+      "NIST PQC finalists"
+    ],
+    "relations": [
+      [
+        "Libsodium",
+        "NIST PQC finalists",
+        "Libsodium 1.0.x does not support any NIST PQC finalist algorithm"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q006",
+    "type": "single",
+    "question": "What type of QGAN was designed to generate classical image data using linear optical circuits and Fock-space encoding?",
+    "entities": [
+      "photonic QGAN",
+      "linear optical circuit",
+      "Fock-space encoding",
+      "Ascella"
+    ],
+    "relations": [
+      [
+        "photonic QGAN",
+        "linear optical circuit",
+        "the photonic QGAN uses linear optical circuits"
+      ],
+      [
+        "photonic QGAN",
+        "Fock-space encoding",
+        "the photonic QGAN uses Fock-space encoding"
+      ],
+      [
+        "photonic QGAN",
+        "Ascella",
+        "the photonic QGAN is implemented on Quandela's Ascella photonic processor"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q007",
+    "type": "single",
+    "question": "What is the role of the quantum feature map in QSVM?",
+    "entities": [
+      "quantum support vector machine (QSVM)",
+      "quantum feature map",
+      "quantum feature space"
+    ],
+    "relations": [
+      [
+        "quantum support vector machine (QSVM)",
+        "quantum feature map",
+        "QSVM uses a quantum circuit, the quantum feature map"
+      ],
+      [
+        "quantum feature map",
+        "quantum feature space",
+        "the quantum feature map embeds data into a quantum feature space (Hilbert space)"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q011",
+    "type": "single",
+    "question": "Which conventional public key cryptography methods are described as susceptible to quantum risks in the survey of pre- versus post-quantum security for 5G-enabled IoT?",
+    "entities": [
+      "RSA",
+      "Diffie-Hellman",
+      "secret sharing",
+      "Elliptic Curve Cryptography (ECC)"
+    ],
+    "relations": [],
+    "reviewed": true
+  },
+  {
+    "id": "q015",
+    "type": "single",
+    "question": "In side-channel attacks on Kyber with an imperfect plaintext-checking oracle, how much of the Kyber-512 secret key was recovered by applying the CPA attack twice, and with how many power traces?",
+    "entities": [
+      "Kyber-512",
+      "side-channel attack",
+      "plaintext-checking oracle",
+      "correlation power analysis (CPA)",
+      "power trace"
+    ],
+    "relations": [
+      [
+        "correlation power analysis (CPA)",
+        "Kyber-512",
+        "applying the CPA attack twice recovered about 60% of the Kyber-512 secret key"
+      ],
+      [
+        "correlation power analysis (CPA)",
+        "power trace",
+        "the CPA attack used about 1619 power traces"
+      ],
+      [
+        "side-channel attack",
+        "plaintext-checking oracle",
+        "the side-channel attack on Kyber uses an imperfect plaintext-checking oracle"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q017",
+    "type": "single",
+    "question": "How are technology service providers using quantum resilience as a selling point?",
+    "entities": [
+      "post-quantum cryptography (PQC)",
+      "VPN",
+      "Amazon Web Services (AWS)",
+      "IBM",
+      "Microsoft"
+    ],
+    "relations": [
+      [
+        "VPN",
+        "post-quantum cryptography (PQC)",
+        "VPN products advertise being quantum-safe by integrating PQC"
+      ],
+      [
+        "Amazon Web Services (AWS)",
+        "post-quantum cryptography (PQC)",
+        "AWS released tools for experimenting with PQC"
+      ],
+      [
+        "IBM",
+        "post-quantum cryptography (PQC)",
+        "IBM released tools for experimenting with PQC"
+      ],
+      [
+        "Microsoft",
+        "post-quantum cryptography (PQC)",
+        "Microsoft released tools for experimenting with PQC"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q022",
+    "type": "single",
+    "question": "What accuracy does the scalable quantum convolutional neural network (QCNN) achieve on MNIST, and with how many trainable parameters?",
+    "entities": [
+      "quantum convolutional neural network (QCNN)",
+      "MNIST"
+    ],
+    "relations": [
+      [
+        "quantum convolutional neural network (QCNN)",
+        "MNIST",
+        "the scalable QCNN achieves 98.7% accuracy on MNIST with 45 parameters"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q044",
+    "type": "single",
+    "question": "In the network-centric Harvest-Now, Decrypt-Later (HNDL) model, what information besides application data is included in harvested ciphertext?",
+    "entities": [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "network-layer routing information",
+      "subscriber authentication vector",
+      "inter-domain trust relationship",
+      "certificate transparency log"
+    ],
+    "relations": [
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "network-layer routing information",
+        "HNDL harvested ciphertext includes network-layer routing information"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "subscriber authentication vector",
+        "HNDL harvested ciphertext includes subscriber authentication vectors"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "inter-domain trust relationship",
+        "HNDL harvested ciphertext includes inter-domain trust relationships"
+      ],
+      [
+        "inter-domain trust relationship",
+        "certificate transparency log",
+        "inter-domain trust relationships persist in certificate transparency logs"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q049",
+    "type": "single",
+    "question": "In CRYSTALS-Kyber, how is the shared key K derived during encapsulation?",
+    "entities": [
+      "CRYSTALS-Kyber",
+      "CPAPKE.Enc",
+      "key derivation function (KDF)",
+      "shared key K"
+    ],
+    "relations": [
+      [
+        "CRYSTALS-Kyber",
+        "CPAPKE.Enc",
+        "Kyber encapsulation uses the CPAPKE.Enc function"
+      ],
+      [
+        "key derivation function (KDF)",
+        "shared key K",
+        "the shared key K is derived with a key derivation function"
+      ],
+      [
+        "CPAPKE.Enc",
+        "shared key K",
+        "the hash of the CPAPKE.Enc output is an input for deriving K"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q057",
+    "type": "single",
+    "question": "How is the state of a qubit defined in terms of probability amplitudes?",
+    "entities": [
+      "qubit",
+      "superposition",
+      "probability amplitude"
+    ],
+    "relations": [
+      [
+        "qubit",
+        "superposition",
+        "a qubit is in a superposition state alpha|0> + beta|1>"
+      ],
+      [
+        "superposition",
+        "probability amplitude",
+        "alpha and beta are complex probability amplitudes with |alpha|^2 + |beta|^2 = 1"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q061",
+    "type": "single",
+    "question": "What specific vulnerability was exploited in the July 2022 cryptanalytic breakthrough against SIDH/SIKE, and how was it carried out?",
+    "entities": [
+      "SIKE",
+      "SIDH",
+      "auxiliary point information"
+    ],
+    "relations": [
+      [
+        "SIKE",
+        "auxiliary point information",
+        "the July 2022 attack on SIKE exploited auxiliary point information in the specification"
+      ],
+      [
+        "SIDH",
+        "auxiliary point information",
+        "the July 2022 attack on SIDH exploited auxiliary point information, enabling classical key recovery"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q062",
+    "type": "single",
+    "question": "What technique can be used in a blockchain-IoT environment to obscure the information of the sender transferring coins?",
+    "entities": [
+      "ring signature",
+      "blockchain",
+      "Monero"
+    ],
+    "relations": [
+      [
+        "ring signature",
+        "blockchain",
+        "ring signatures obscure the sender's information in blockchain-IoT transactions"
+      ],
+      [
+        "ring signature",
+        "Monero",
+        "ring signatures are used in Monero"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q063",
+    "type": "single",
+    "question": "What are the advantages and the main challenge of NV centers in diamond as a qubit technology?",
+    "entities": [
+      "nitrogen-vacancy (NV) center",
+      "qubit",
+      "coherence time"
+    ],
+    "relations": [
+      [
+        "nitrogen-vacancy (NV) center",
+        "qubit",
+        "NV centers encode qubits in the spin of a lattice defect"
+      ],
+      [
+        "nitrogen-vacancy (NV) center",
+        "coherence time",
+        "NV centers offer long coherence times"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q064",
+    "type": "single",
+    "question": "Which physical effect was exploited in a 2019 jamming attack against QKD, and what was its impact?",
+    "entities": [
+      "Faraday effect",
+      "jamming attack",
+      "quantum key distribution (QKD)",
+      "quantum bit error rate (QBER)"
+    ],
+    "relations": [
+      [
+        "Faraday effect",
+        "jamming attack",
+        "the 2019 jamming attack exploited the Faraday effect"
+      ],
+      [
+        "jamming attack",
+        "quantum key distribution (QKD)",
+        "the jamming attack disrupts QKD and halts key exchange"
+      ],
+      [
+        "jamming attack",
+        "quantum bit error rate (QBER)",
+        "the jamming attack increases the QBER"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q065",
+    "type": "single",
+    "question": "What scheme is proposed in 2022 for dynamically allocating key resources in QKD networks, and what technology is used to realize this scheme?",
+    "entities": [
+      "DDKA-QKDN",
+      "QKD network",
+      "software-defined networking (SDN)",
+      "Quantum IoT"
+    ],
+    "relations": [
+      [
+        "DDKA-QKDN",
+        "QKD network",
+        "DDKA-QKDN dynamically allocates key resources in QKD networks"
+      ],
+      [
+        "DDKA-QKDN",
+        "software-defined networking (SDN)",
+        "DDKA-QKDN is realized using SDN technology"
+      ],
+      [
+        "DDKA-QKDN",
+        "Quantum IoT",
+        "DDKA-QKDN allocates keys per application request in Quantum IoT scenarios"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q066",
+    "type": "single",
+    "question": "How is the trojan gate attack on quantum circuit models for 6G resource allocation constructed, and why is it stealthy?",
+    "entities": [
+      "trojan gate attack",
+      "quantum circuit model",
+      "6G resource allocation",
+      "adversarial perturbation",
+      "decoherence"
+    ],
+    "relations": [
+      [
+        "trojan gate attack",
+        "quantum circuit model",
+        "the trojan gate attack inserts subcircuits into the quantum circuit model"
+      ],
+      [
+        "quantum circuit model",
+        "6G resource allocation",
+        "the quantum circuit model is used for 6G resource allocation"
+      ],
+      [
+        "trojan gate attack",
+        "adversarial perturbation",
+        "the trojan gate attack inserts adversarial perturbations as subcircuits"
+      ],
+      [
+        "decoherence",
+        "adversarial perturbation",
+        "natural noise and decoherence mask the adversarial perturbations"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q067",
+    "type": "single",
+    "question": "In the hybrid QNN and QSVM pipeline for real-time network traffic monitoring, what accuracies and alerting latency were achieved?",
+    "entities": [
+      "quantum neural network (QNN)",
+      "quantum support vector machine (QSVM)",
+      "anomaly detection"
+    ],
+    "relations": [
+      [
+        "quantum neural network (QNN)",
+        "anomaly detection",
+        "the QNN achieved 96% accuracy in anomaly detection"
+      ],
+      [
+        "quantum support vector machine (QSVM)",
+        "anomaly detection",
+        "the QSVM achieved 93% accuracy in anomaly detection"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q068",
+    "type": "single",
+    "question": "Why is quantum key distribution (QKD) considered provably secure against eavesdropping?",
+    "entities": [
+      "quantum key distribution (QKD)",
+      "eavesdropping",
+      "computational complexity"
+    ],
+    "relations": [
+      [
+        "quantum key distribution (QKD)",
+        "eavesdropping",
+        "QKD detects anyone attempting to access the key exchange"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "computational complexity",
+        "QKD relies on physics, not on the computational complexity of mathematical problems"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q082",
+    "type": "single",
+    "question": "Under the Harvest-Now, Decrypt-Later (HNDL) model, what is the status of encrypted data transmitted or stored today without quantum resistance?",
+    "entities": [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "quantum computer",
+      "RSA-2048",
+      "ECC-256",
+      "GDPR",
+      "FISMA"
+    ],
+    "relations": [
+      [
+        "quantum computer",
+        "RSA-2048",
+        "quantum computers capable of breaking RSA-2048 may be a decade away"
+      ],
+      [
+        "quantum computer",
+        "ECC-256",
+        "quantum computers capable of breaking ECC-256 may be a decade away"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "GDPR",
+        "decrypted harvested data could violate regulations such as GDPR"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "FISMA",
+        "decrypted harvested data could violate regulations such as FISMA"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "q092",
+    "type": "single",
+    "question": "When should organizations begin post-quantum cryptography migration, and why is waiting for Q-Day an error?",
+    "entities": [
+      "post-quantum cryptography (PQC) migration",
+      "Q-Day",
+      "legacy system"
+    ],
+    "relations": [
+      [
+        "post-quantum cryptography (PQC) migration",
+        "Q-Day",
+        "PQC migration takes 2-5 years and must finish before Q-Day (2030 +- 5 years)"
+      ],
+      [
+        "legacy system",
+        "post-quantum cryptography (PQC) migration",
+        "legacy constraints make waiting to migrate a strategic error"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s001",
+    "type": "single",
+    "question": "In variational quantum circuits, what name is given in quantum simulation to the approach that uses parametrized random circuits of varying depth?",
+    "entities": [
+      "variational quantum circuit",
+      "quantum simulation",
+      "hardware efficient ansatz",
+      "parametrized random circuit"
+    ],
+    "relations": [
+      [
+        "hardware efficient ansatz",
+        "variational quantum circuit",
+        "the hardware efficient ansatz is a parameterization of variational quantum circuits"
+      ],
+      [
+        "hardware efficient ansatz",
+        "quantum simulation",
+        "in quantum simulation the approach is called hardware efficient ansatz"
+      ],
+      [
+        "hardware efficient ansatz",
+        "parametrized random circuit",
+        "the hardware efficient ansatz is a parametrized random circuit of varying depth"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s002",
+    "type": "single",
+    "question": "Which states are used in the Vacuum+Weak decoy-state method for quantum key distribution, and what do Alice and Bob gain by measuring the decoy states?",
+    "entities": [
+      "decoy-state method",
+      "vacuum state",
+      "weak decoy state",
+      "signal state",
+      "yield",
+      "quantum bit error rate (QBER)"
+    ],
+    "relations": [
+      [
+        "decoy-state method",
+        "vacuum state",
+        "the Vacuum+Weak decoy method uses the vacuum state"
+      ],
+      [
+        "decoy-state method",
+        "weak decoy state",
+        "the Vacuum+Weak decoy method uses a weak decoy state with mean photon number << 1"
+      ],
+      [
+        "decoy-state method",
+        "signal state",
+        "the Vacuum+Weak decoy method uses a signal state with mean photon number O(1)"
+      ],
+      [
+        "weak decoy state",
+        "yield",
+        "measuring the yields of decoy states bounds the single-photon parameters"
+      ],
+      [
+        "weak decoy state",
+        "quantum bit error rate (QBER)",
+        "measuring the QBER of decoy states bounds the single-photon error rate"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s004",
+    "type": "single",
+    "question": "In Shor's quantum algorithm for discrete logarithms, with what probability is each good (c, d) pair generated, and what fraction of the possible c values belong to a good pair?",
+    "entities": [
+      "Shor's algorithm",
+      "discrete logarithm",
+      "good (c, d) pair"
+    ],
+    "relations": [
+      [
+        "Shor's algorithm",
+        "discrete logarithm",
+        "Shor's quantum algorithm computes discrete logarithms"
+      ],
+      [
+        "Shor's algorithm",
+        "good (c, d) pair",
+        "each good (c, d) pair is generated with probability at least 1/(20q^2)"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s005",
+    "type": "single",
+    "question": "Why is it difficult to foresee the future applications of quantum computing, and what recent industry trend surprised many quantum researchers in academia?",
+    "entities": [
+      "quantum computing",
+      "information technology",
+      "startup"
+    ],
+    "relations": [
+      [
+        "quantum computing",
+        "information technology",
+        "quantum computing is so different from today's information technology that its applications are hard to foresee"
+      ],
+      [
+        "startup",
+        "quantum computing",
+        "a surge of investment in quantum computing by large companies and startups came sooner than expected"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s006",
+    "type": "single",
+    "question": "In quantum public key distribution with polarized photons (BB84), how do Alice and Bob test for eavesdropping, and how are the remaining bits used?",
+    "entities": [
+      "BB84",
+      "quantum public key distribution",
+      "polarized photon",
+      "eavesdropping",
+      "one-time pad"
+    ],
+    "relations": [
+      [
+        "BB84",
+        "quantum public key distribution",
+        "BB84 is a protocol for quantum public key distribution"
+      ],
+      [
+        "BB84",
+        "polarized photon",
+        "BB84 encodes bits in polarized photons"
+      ],
+      [
+        "BB84",
+        "eavesdropping",
+        "Alice and Bob publicly compare a random subset of bits to detect eavesdropping"
+      ],
+      [
+        "BB84",
+        "one-time pad",
+        "the remaining bits are used as a one-time pad"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "s007",
+    "type": "single",
+    "question": "How do local parameter-update optimizers for variational quantum algorithms work, and what has been proposed to speed up their convergence?",
+    "entities": [
+      "variational quantum algorithm (VQA)",
+      "local parameter-update optimizer",
+      "Anderson acceleration",
+      "gradient-free optimization"
+    ],
+    "relations": [
+      [
+        "local parameter-update optimizer",
+        "variational quantum algorithm (VQA)",
+        "local parameter-update optimizers optimize VQA parameters sequentially"
+      ],
+      [
+        "local parameter-update optimizer",
+        "gradient-free optimization",
+        "local parameter updates give a gradient-free method without hyper-parameters"
+      ],
+      [
+        "Anderson acceleration",
+        "local parameter-update optimizer",
+        "a variant with Anderson acceleration speeds up convergence"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m001",
+    "type": "multihop",
+    "question": "How do concerns about harvest-now-decrypt-later (HNDL) attacks differ between security professionals and profit-motivated cybercriminals, and which kinds of data are considered prime targets for HNDL?",
+    "entities": [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "ISACA",
+      "cybercriminal",
+      "nation-state actor",
+      "medical record",
+      "government intelligence",
+      "banking archive",
+      "intellectual property"
+    ],
+    "relations": [
+      [
+        "ISACA",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "an ISACA survey found 56% of security professionals concerned about HNDL"
+      ],
+      [
+        "cybercriminal",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "profit-motivated cybercriminals have less incentive for HNDL"
+      ],
+      [
+        "nation-state actor",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "nation-state actors are already conducting HNDL campaigns"
+      ],
+      [
+        "medical record",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "medical records are prime HNDL targets"
+      ],
+      [
+        "government intelligence",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "government intelligence is a prime HNDL target"
+      ],
+      [
+        "banking archive",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "banking archives are prime HNDL targets"
+      ],
+      [
+        "intellectual property",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "intellectual property is a prime HNDL target"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m003",
+    "type": "multihop",
+    "question": "What role does Quantum Random Number Generation (QRNG) play in quantum key distribution (QKD), and how far has QKD technology progressed toward real-world deployment?",
+    "entities": [
+      "Quantum Random Number Generation (QRNG)",
+      "quantum key distribution (QKD)",
+      "eavesdropping",
+      "one-time pad",
+      "information-theoretic security"
+    ],
+    "relations": [
+      [
+        "Quantum Random Number Generation (QRNG)",
+        "quantum key distribution (QKD)",
+        "QRNG produces the true random numbers QKD needs for key setting and growth"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "eavesdropping",
+        "QKD detects eavesdroppers"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "one-time pad",
+        "QKD combined with a one-time pad provides information-theoretic security"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "information-theoretic security",
+        "QKD with one-time pad or symmetric ciphers provides information-theoretic security"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m005",
+    "type": "multihop",
+    "question": "What is the status of CRYSTALS-Dilithium support in cryptographic libraries such as OpenSSL and Botan, and which industry players have adopted Dilithium?",
+    "entities": [
+      "CRYSTALS-Dilithium",
+      "Kyber",
+      "OpenSSL",
+      "Botan",
+      "wolfSSL",
+      "Bouncy Castle",
+      "Cloudflare",
+      "Amazon Web Services (AWS)",
+      "IBM"
+    ],
+    "relations": [
+      [
+        "wolfSSL",
+        "CRYSTALS-Dilithium",
+        "wolfSSL integrates Dilithium into its TLS stack"
+      ],
+      [
+        "Bouncy Castle",
+        "CRYSTALS-Dilithium",
+        "Bouncy Castle integrates Dilithium into its TLS stack"
+      ],
+      [
+        "OpenSSL",
+        "CRYSTALS-Dilithium",
+        "OpenSSL plans to integrate Dilithium"
+      ],
+      [
+        "OpenSSL",
+        "Kyber",
+        "OpenSSL plans to integrate Kyber"
+      ],
+      [
+        "Cloudflare",
+        "CRYSTALS-Dilithium",
+        "Cloudflare adopted Dilithium early"
+      ],
+      [
+        "Amazon Web Services (AWS)",
+        "CRYSTALS-Dilithium",
+        "AWS adopted Dilithium early"
+      ],
+      [
+        "IBM",
+        "CRYSTALS-Dilithium",
+        "IBM adopted Dilithium early"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m027",
+    "type": "multihop",
+    "question": "When do experts expect cryptographically relevant quantum computers (CRQCs) able to break 2048-bit RSA, and what post-quantum algorithms has NIST standardized in response?",
+    "entities": [
+      "cryptographically relevant quantum computer (CRQC)",
+      "RSA-2048",
+      "integer factorization",
+      "elliptic curve discrete logarithm",
+      "NIST",
+      "CRYSTALS-Kyber",
+      "post-quantum cryptography (PQC)"
+    ],
+    "relations": [
+      [
+        "cryptographically relevant quantum computer (CRQC)",
+        "RSA-2048",
+        "CRQCs able to break RSA-2048 could emerge within the next decade"
+      ],
+      [
+        "cryptographically relevant quantum computer (CRQC)",
+        "integer factorization",
+        "integer factorization is efficiently solvable on a CRQC"
+      ],
+      [
+        "cryptographically relevant quantum computer (CRQC)",
+        "elliptic curve discrete logarithm",
+        "elliptic curve discrete logarithms are efficiently solvable on a CRQC"
+      ],
+      [
+        "NIST",
+        "post-quantum cryptography (PQC)",
+        "NIST standardized a first set of PQC algorithms"
+      ],
+      [
+        "NIST",
+        "CRYSTALS-Kyber",
+        "NIST standardized the lattice-based KEM CRYSTALS-Kyber"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m037",
+    "type": "multihop",
+    "question": "How do Quantum Gaussian Mixture Models (QGMMs) and Quantum Boltzmann Machines (QBMs) differ in how they represent probability distributions?",
+    "entities": [
+      "Quantum Gaussian Mixture Model (QGMM)",
+      "Quantum Boltzmann Machine (QBM)",
+      "Gaussian mixture model",
+      "density estimation",
+      "clustering",
+      "Gibbs state",
+      "Hamiltonian",
+      "transverse field"
+    ],
+    "relations": [
+      [
+        "Quantum Gaussian Mixture Model (QGMM)",
+        "Gaussian mixture model",
+        "QGMMs are quantum extensions of Gaussian mixture models"
+      ],
+      [
+        "Quantum Gaussian Mixture Model (QGMM)",
+        "density estimation",
+        "QGMMs are used for density estimation"
+      ],
+      [
+        "Quantum Gaussian Mixture Model (QGMM)",
+        "clustering",
+        "QGMMs are used for clustering"
+      ],
+      [
+        "Quantum Boltzmann Machine (QBM)",
+        "Gibbs state",
+        "QBMs describe the target distribution as a quantum thermal (Gibbs) state"
+      ],
+      [
+        "Quantum Boltzmann Machine (QBM)",
+        "Hamiltonian",
+        "the QBM Gibbs state is of a parameterized Hamiltonian"
+      ],
+      [
+        "Quantum Boltzmann Machine (QBM)",
+        "transverse field",
+        "QBMs add transverse-field quantum fluctuations"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m043",
+    "type": "multihop",
+    "question": "How has hybrid post-quantum key agreement been deployed in Chrome, and how do hybrid PQC deployments keep backward compatibility with parties that do not support it?",
+    "entities": [
+      "hybrid key exchange",
+      "Chrome",
+      "BoringSSL",
+      "X25519",
+      "Kyber",
+      "graceful degradation"
+    ],
+    "relations": [
+      [
+        "hybrid key exchange",
+        "Chrome",
+        "Google deployed hybrid X25519+Kyber key agreement in Chrome"
+      ],
+      [
+        "hybrid key exchange",
+        "X25519",
+        "the hybrid key agreement combines X25519"
+      ],
+      [
+        "hybrid key exchange",
+        "Kyber",
+        "the hybrid key agreement combines Kyber"
+      ],
+      [
+        "Chrome",
+        "BoringSSL",
+        "Chrome's hybrid key agreement is implemented with BoringSSL"
+      ],
+      [
+        "hybrid key exchange",
+        "graceful degradation",
+        "hybrid deployments fall back to classical algorithms via graceful degradation"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m046",
+    "type": "multihop",
+    "question": "What applications of Quantum Neural Networks (QNNs) do quantum machine learning surveys highlight in healthcare and in cybersecurity?",
+    "entities": [
+      "quantum machine learning (QML)",
+      "quantum neural network (QNN)",
+      "drug discovery",
+      "personalized medicine",
+      "malware detection",
+      "botnet detection",
+      "NISQ"
+    ],
+    "relations": [
+      [
+        "quantum machine learning (QML)",
+        "drug discovery",
+        "QML is promising for drug discovery"
+      ],
+      [
+        "quantum machine learning (QML)",
+        "personalized medicine",
+        "QML is promising for personalized medicine"
+      ],
+      [
+        "quantum neural network (QNN)",
+        "malware detection",
+        "QNN-based frameworks are used for malware detection"
+      ],
+      [
+        "quantum neural network (QNN)",
+        "botnet detection",
+        "QNN-based frameworks are used for botnet detection"
+      ],
+      [
+        "NISQ",
+        "quantum neural network (QNN)",
+        "current NISQ hardware constrains QNN-based frameworks"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m064",
+    "type": "multihop",
+    "question": "Why do large post-quantum keys and signatures cause problems for 5G network slices and handovers, and how large is the handshake overhead of hash-based signature schemes?",
+    "entities": [
+      "post-quantum cryptography (PQC)",
+      "5G network slicing",
+      "enhanced mobile broadband (eMBB)",
+      "handover",
+      "fragmentation",
+      "signalling congestion",
+      "hash-based signature",
+      "handshake overhead"
+    ],
+    "relations": [
+      [
+        "post-quantum cryptography (PQC)",
+        "5G network slicing",
+        "large PQC keys and signatures cause problems for 5G network slices"
+      ],
+      [
+        "post-quantum cryptography (PQC)",
+        "enhanced mobile broadband (eMBB)",
+        "PQC per-packet size increase adds aggregate bandwidth in eMBB slices"
+      ],
+      [
+        "post-quantum cryptography (PQC)",
+        "fragmentation",
+        "larger PQC messages cause fragmentation"
+      ],
+      [
+        "handover",
+        "signalling congestion",
+        "repeated PQC handshakes during handovers worsen signalling congestion"
+      ],
+      [
+        "hash-based signature",
+        "handshake overhead",
+        "hash-based signatures cause 245%-890% handshake overhead"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "m068",
+    "type": "multihop",
+    "question": "How does the Module-LWE problem underlying ML-KEM and ML-DSA relate to the basic Learning With Errors (LWE) problem in lattice-based cryptography?",
+    "entities": [
+      "Module-LWE",
+      "ML-KEM",
+      "ML-DSA",
+      "Learning With Errors (LWE)",
+      "Ring-LWE",
+      "lattice-based cryptography",
+      "shortest vector problem (SVP)",
+      "NIST"
+    ],
+    "relations": [
+      [
+        "Module-LWE",
+        "ML-KEM",
+        "Module-LWE underlies ML-KEM"
+      ],
+      [
+        "Module-LWE",
+        "ML-DSA",
+        "Module-LWE underlies ML-DSA"
+      ],
+      [
+        "Learning With Errors (LWE)",
+        "Module-LWE",
+        "Module-LWE refines LWE with ring/module structure"
+      ],
+      [
+        "Learning With Errors (LWE)",
+        "Ring-LWE",
+        "Ring-LWE is a ring variant of LWE used for efficiency"
+      ],
+      [
+        "Learning With Errors (LWE)",
+        "lattice-based cryptography",
+        "LWE is a basic hard problem of lattice-based cryptography"
+      ],
+      [
+        "Learning With Errors (LWE)",
+        "shortest vector problem (SVP)",
+        "LWE together with SVP is believed resistant to quantum algorithms"
+      ],
+      [
+        "NIST",
+        "ML-KEM",
+        "NIST standardized ML-KEM"
+      ],
+      [
+        "NIST",
+        "ML-DSA",
+        "NIST standardized ML-DSA"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g001",
+    "type": "multihop",
+    "question": "Why does Shor's algorithm threaten RSA and elliptic-curve cryptography while Grover's algorithm can be countered by larger symmetric keys, and how many noisy qubits do theoretical estimates say are needed to break 2048-bit RSA?",
+    "entities": [
+      "Shor's algorithm",
+      "Grover's algorithm",
+      "RSA",
+      "Elliptic Curve Cryptography (ECC)",
+      "integer factorization",
+      "discrete logarithm",
+      "symmetric cipher",
+      "AES",
+      "RSA-2048",
+      "noisy qubit"
+    ],
+    "relations": [
+      [
+        "Shor's algorithm",
+        "RSA",
+        "Shor's algorithm threatens RSA"
+      ],
+      [
+        "Shor's algorithm",
+        "Elliptic Curve Cryptography (ECC)",
+        "Shor's algorithm threatens ECC"
+      ],
+      [
+        "Shor's algorithm",
+        "integer factorization",
+        "Shor's algorithm efficiently factors large integers"
+      ],
+      [
+        "Shor's algorithm",
+        "discrete logarithm",
+        "Shor's algorithm efficiently computes discrete logarithms"
+      ],
+      [
+        "Grover's algorithm",
+        "symmetric cipher",
+        "Grover's quadratic speed-up halves symmetric-cipher security, countered by doubling key sizes"
+      ],
+      [
+        "Grover's algorithm",
+        "AES",
+        "under Grover's algorithm AES-128 has 64-bit security"
+      ],
+      [
+        "RSA-2048",
+        "noisy qubit",
+        "RSA-2048 could be broken with fewer than a million noisy qubits"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g002",
+    "type": "multihop",
+    "question": "How does Kyber compare with RSA in key exchange speed in practical deployment tests, and on which hard problem is Kyber's security based?",
+    "entities": [
+      "Kyber",
+      "RSA",
+      "Dilithium",
+      "OpenSSL",
+      "TLS 1.3",
+      "Learning With Errors (LWE)",
+      "lattice-based cryptography"
+    ],
+    "relations": [
+      [
+        "Kyber",
+        "RSA",
+        "Kyber outperforms RSA in key exchange speed"
+      ],
+      [
+        "Kyber",
+        "Learning With Errors (LWE)",
+        "Kyber's security depends on the LWE problem"
+      ],
+      [
+        "Kyber",
+        "lattice-based cryptography",
+        "Kyber is a lattice-based scheme"
+      ],
+      [
+        "Kyber",
+        "OpenSSL",
+        "Kyber was integrated into OpenSSL prototypes"
+      ],
+      [
+        "Kyber",
+        "TLS 1.3",
+        "Kyber was tested in TLS 1.3 handshakes"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g003",
+    "type": "multihop",
+    "question": "Why do Smart City and IoVT applications need 5G unlike traditional IoT applications, and what security consequences does the predicted growth of IoT devices have?",
+    "entities": [
+      "Smart City",
+      "Internet of Vehicles and Things (IoVT)",
+      "5G",
+      "Internet of Things (IoT)",
+      "Smart Home",
+      "cyber-physical system (CPS)",
+      "machine-to-machine (M2M)"
+    ],
+    "relations": [
+      [
+        "Smart City",
+        "5G",
+        "Smart Cities require the higher throughput that 5G provides"
+      ],
+      [
+        "Internet of Vehicles and Things (IoVT)",
+        "5G",
+        "IoVT requires the higher throughput that 5G provides"
+      ],
+      [
+        "Smart Home",
+        "Internet of Things (IoT)",
+        "Smart Homes are traditional IoT applications needing minimal wireless capabilities"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g005",
+    "type": "multihop",
+    "question": "What problem with encoding classical data into quantum states does the data re-uploading strategy address, and what accuracy did a hybrid model with quantum-enhanced embeddings achieve for botnet detection?",
+    "entities": [
+      "amplitude encoding",
+      "angle encoding",
+      "qubit",
+      "data re-uploading",
+      "quantum circuit",
+      "quantum embedding",
+      "botnet detection"
+    ],
+    "relations": [
+      [
+        "amplitude encoding",
+        "qubit",
+        "amplitude encoding requires a prohibitively large number of qubits"
+      ],
+      [
+        "data re-uploading",
+        "quantum circuit",
+        "data re-uploading improves data representation within quantum circuits"
+      ],
+      [
+        "quantum embedding",
+        "botnet detection",
+        "a hybrid model with quantum embeddings achieved up to 94.7% accuracy for botnet detection"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g007",
+    "type": "multihop",
+    "question": "Why are multivariate quadratic (MQ) cryptographic schemes considered quantum-resistant, what are they mainly used for, and what property makes a multivariate signature scheme suitable for authenticating edge nodes?",
+    "entities": [
+      "multivariate quadratic (MQ) cryptography",
+      "system of quadratic equations",
+      "digital signature",
+      "public-key encryption",
+      "multivariate signature scheme",
+      "edge node authentication"
+    ],
+    "relations": [
+      [
+        "multivariate quadratic (MQ) cryptography",
+        "system of quadratic equations",
+        "MQ cryptography relies on solving systems of quadratic equations over finite fields (NP-hard)"
+      ],
+      [
+        "multivariate quadratic (MQ) cryptography",
+        "digital signature",
+        "MQ schemes are mainly used for digital signatures"
+      ],
+      [
+        "multivariate quadratic (MQ) cryptography",
+        "public-key encryption",
+        "MQ schemes are used for public-key encryption"
+      ],
+      [
+        "multivariate signature scheme",
+        "edge node authentication",
+        "the scheme's parallelism allows effective edge node authentication"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g011",
+    "type": "multihop",
+    "question": "How many side-channel leakage points have been reported in Kyber's decryption procedure, and how did researchers use machine learning in a side-channel attack on a Kyber implementation?",
+    "entities": [
+      "Kyber",
+      "side-channel attack",
+      "side-channel leakage",
+      "machine learning",
+      "power analysis"
+    ],
+    "relations": [
+      [
+        "Kyber",
+        "side-channel leakage",
+        "three side-channel leakage points were reported in Kyber's decryption"
+      ],
+      [
+        "Kyber",
+        "side-channel attack",
+        "side-channel attacks were completed on Kyber hardware implementations"
+      ],
+      [
+        "machine learning",
+        "power analysis",
+        "researchers used machine learning to exploit a power-consumption side channel"
+      ],
+      [
+        "power analysis",
+        "Kyber",
+        "the power side channel was exploited against a Kyber implementation"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g015",
+    "type": "multihop",
+    "question": "How do Kyber's public key and Dilithium's signature sizes compare with classical ECC, and are these post-quantum schemes considered feasible and efficient enough for IoT and mainstream applications?",
+    "entities": [
+      "Kyber",
+      "Dilithium",
+      "Elliptic Curve Cryptography (ECC)",
+      "Classic McEliece",
+      "ECDSA",
+      "FALCON",
+      "Internet of Things (IoT)",
+      "RSA"
+    ],
+    "relations": [
+      [
+        "Kyber",
+        "Elliptic Curve Cryptography (ECC)",
+        "Kyber's public key (~800 bytes) is larger than an ECC public key"
+      ],
+      [
+        "Kyber",
+        "Classic McEliece",
+        "Kyber's public key is much smaller than Classic McEliece's (>1 MB)"
+      ],
+      [
+        "Dilithium",
+        "ECDSA",
+        "Dilithium signatures are a few kilobytes versus 64 bytes for ECDSA"
+      ],
+      [
+        "Kyber",
+        "Internet of Things (IoT)",
+        "Kyber is considered feasible for a common IoT setup"
+      ],
+      [
+        "Kyber",
+        "RSA",
+        "Kyber operations are comparable to or faster than RSA"
+      ],
+      [
+        "FALCON",
+        "Dilithium",
+        "FALCON is more memory-efficient than Dilithium"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g016",
+    "type": "multihop",
+    "question": "How does quantum secure direct communication (QSDC) differ from quantum key distribution (QKD), and which intercity networks illustrate the development of practical QKD networks?",
+    "entities": [
+      "quantum secure direct communication (QSDC)",
+      "quantum key distribution (QKD)",
+      "quantum channel",
+      "DARPA quantum network",
+      "Tokyo QKD network",
+      "Trieste QKD network"
+    ],
+    "relations": [
+      [
+        "quantum secure direct communication (QSDC)",
+        "quantum key distribution (QKD)",
+        "QSDC transmits messages directly whereas QKD establishes shared keys"
+      ],
+      [
+        "quantum secure direct communication (QSDC)",
+        "quantum channel",
+        "QSDC transmits messages directly over a quantum channel"
+      ],
+      [
+        "DARPA quantum network",
+        "quantum key distribution (QKD)",
+        "the DARPA network is a practical intercity QKD network"
+      ],
+      [
+        "Tokyo QKD network",
+        "quantum key distribution (QKD)",
+        "the Tokyo network is a practical intercity QKD network"
+      ],
+      [
+        "Trieste QKD network",
+        "quantum key distribution (QKD)",
+        "the Trieste network is a practical intercity QKD network"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g019",
+    "type": "multihop",
+    "question": "Why must the key storages of a QKD network be kept synchronized, and why does QKD still depend on classical cryptography in practice?",
+    "entities": [
+      "QKD network",
+      "quantum key distribution (QKD)",
+      "key storage",
+      "key rate",
+      "authentication",
+      "man-in-the-middle attack",
+      "pre-shared key",
+      "key management system"
+    ],
+    "relations": [
+      [
+        "QKD network",
+        "key storage",
+        "the key storages of a QKD network must stay consistent for the service to work"
+      ],
+      [
+        "key storage",
+        "key rate",
+        "key storage decouples generation from consumption to cope with limited QKD key rates"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "authentication",
+        "QKD has no built-in authentication"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "man-in-the-middle attack",
+        "without authentication a man-in-the-middle could impersonate a QKD endpoint"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "pre-shared key",
+        "QKD links are bootstrapped with a pre-shared key or classical signature"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "key management system",
+        "QKD may need integration with classical key management systems"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g021",
+    "type": "multihop",
+    "question": "How many power traces does the improved two-step side-channel attack need to recover Kyber's secret key, and what hardware efficiency cost does the hardware-friendly shuffling countermeasure for Kyber have?",
+    "entities": [
+      "Kyber",
+      "two-step attack",
+      "correlation power analysis (CPA)",
+      "lattice attack",
+      "power trace",
+      "ARM Cortex-M4",
+      "shuffling countermeasure",
+      "FPGA",
+      "TVLA"
+    ],
+    "relations": [
+      [
+        "two-step attack",
+        "Kyber",
+        "the two-step attack recovers Kyber's secret key"
+      ],
+      [
+        "two-step attack",
+        "correlation power analysis (CPA)",
+        "the two-step attack starts with CPA"
+      ],
+      [
+        "two-step attack",
+        "lattice attack",
+        "the two-step attack follows CPA with a lattice attack"
+      ],
+      [
+        "two-step attack",
+        "power trace",
+        "the two-step attack needs at most 15 power traces"
+      ],
+      [
+        "two-step attack",
+        "ARM Cortex-M4",
+        "the two-step attack is run on an ARM Cortex-M4 board"
+      ],
+      [
+        "shuffling countermeasure",
+        "Kyber",
+        "the shuffling countermeasure protects Kyber"
+      ],
+      [
+        "shuffling countermeasure",
+        "FPGA",
+        "the shuffling countermeasure is implemented on FPGA with 8.7% efficiency loss"
+      ],
+      [
+        "shuffling countermeasure",
+        "TVLA",
+        "the shuffling countermeasure is verified with TVLA"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g026",
+    "type": "multihop",
+    "question": "How does higher-order masking, used to protect Kyber implementations against side-channel attacks, split a sensitive variable into shares, and how does threshold secret sharing split a secret among participants?",
+    "entities": [
+      "higher-order masking",
+      "Kyber",
+      "side-channel attack",
+      "arithmetic masking",
+      "Boolean masking",
+      "threshold secret sharing",
+      "Lagrange interpolation"
+    ],
+    "relations": [
+      [
+        "higher-order masking",
+        "Kyber",
+        "higher-order masking protects Kyber implementations"
+      ],
+      [
+        "higher-order masking",
+        "side-channel attack",
+        "masking is a countermeasure against side-channel attacks"
+      ],
+      [
+        "higher-order masking",
+        "arithmetic masking",
+        "shares can be combined by arithmetic addition (arithmetic masking)"
+      ],
+      [
+        "higher-order masking",
+        "Boolean masking",
+        "shares can be combined by XOR (Boolean masking)"
+      ],
+      [
+        "threshold secret sharing",
+        "Lagrange interpolation",
+        "t or more participants reconstruct the secret by Lagrange interpolation"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g027",
+    "type": "multihop",
+    "question": "How do the best reported quantum gate error rates compare with those of classical transistors, and what limitations did a quantum error correction demonstration with a Toffoli gate on superconducting qubits have?",
+    "entities": [
+      "gate error rate",
+      "trapped ion",
+      "transistor",
+      "quantum error correction (QEC)",
+      "fault-tolerant quantum computation",
+      "Toffoli gate",
+      "superconducting qubit",
+      "coherence time"
+    ],
+    "relations": [
+      [
+        "trapped ion",
+        "gate error rate",
+        "trapped ions have the best reported gate error rates (1e-7 / 1e-5)"
+      ],
+      [
+        "transistor",
+        "gate error rate",
+        "digital transistors reach error rates of 1e-23"
+      ],
+      [
+        "fault-tolerant quantum computation",
+        "quantum error correction (QEC)",
+        "fault-tolerant computation depends on effective QEC"
+      ],
+      [
+        "quantum error correction (QEC)",
+        "Toffoli gate",
+        "QEC was demonstrated with a Toffoli gate"
+      ],
+      [
+        "Toffoli gate",
+        "superconducting qubit",
+        "the Toffoli gate was implemented on superconducting qubits"
+      ],
+      [
+        "quantum error correction (QEC)",
+        "coherence time",
+        "the QEC demonstration was limited by coherence times"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g028",
+    "type": "multihop",
+    "question": "What is the status of Kyber and Dilithium support in the MbedTLS and Crypto++ libraries, and why are Kyber and Dilithium considered suitable for general-purpose deployment?",
+    "entities": [
+      "Kyber",
+      "Dilithium",
+      "MbedTLS",
+      "Crypto++",
+      "LMS",
+      "cryptopp-pqc",
+      "SABER",
+      "FrodoKEM",
+      "Internet of Things (IoT)"
+    ],
+    "relations": [
+      [
+        "MbedTLS",
+        "Kyber",
+        "MbedTLS intends to add Kyber soon"
+      ],
+      [
+        "MbedTLS",
+        "Dilithium",
+        "MbedTLS intends to add Dilithium later"
+      ],
+      [
+        "MbedTLS",
+        "LMS",
+        "MbedTLS supports LMS signatures"
+      ],
+      [
+        "MbedTLS",
+        "Internet of Things (IoT)",
+        "MbedTLS runs on millions of IoT devices"
+      ],
+      [
+        "Crypto++",
+        "cryptopp-pqc",
+        "cryptopp-pqc is a third-party fork of Crypto++"
+      ],
+      [
+        "cryptopp-pqc",
+        "Kyber",
+        "cryptopp-pqc adds CRYSTALS-Kyber"
+      ],
+      [
+        "cryptopp-pqc",
+        "Dilithium",
+        "cryptopp-pqc adds CRYSTALS-Dilithium"
+      ],
+      [
+        "cryptopp-pqc",
+        "SABER",
+        "cryptopp-pqc adds SABER"
+      ],
+      [
+        "cryptopp-pqc",
+        "FrodoKEM",
+        "cryptopp-pqc adds FrodoKEM"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g030",
+    "type": "multihop",
+    "question": "What is the primary threat-actor behavior before Q-Day, and why does the 'Cryptographic Time Paradox' make this behavior dangerous?",
+    "entities": [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "Q-Day",
+      "nation-state actor",
+      "RSA",
+      "Elliptic Curve Cryptography (ECC)",
+      "Cryptographic Time Paradox",
+      "cryptographically relevant quantum computer (CRQC)",
+      "post-quantum cryptography (PQC)"
+    ],
+    "relations": [
+      [
+        "nation-state actor",
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "HNDL is the primary behavior of nation-states before Q-Day"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "Q-Day",
+        "HNDL actors collect data now to decrypt after Q-Day"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "RSA",
+        "harvested data is decrypted once quantum computers break RSA"
+      ],
+      [
+        "Harvest-Now, Decrypt-Later (HNDL)",
+        "Elliptic Curve Cryptography (ECC)",
+        "harvested data is decrypted once quantum computers break ECC"
+      ],
+      [
+        "Cryptographic Time Paradox",
+        "cryptographically relevant quantum computer (CRQC)",
+        "encrypted data becomes readable the moment a CRQC is built"
+      ],
+      [
+        "Cryptographic Time Paradox",
+        "RSA",
+        "RSA-encrypted data is safe only until a working CRQC exists"
+      ],
+      [
+        "Cryptographic Time Paradox",
+        "post-quantum cryptography (PQC)",
+        "the paradox means PQC readiness is needed by 2035"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g034",
+    "type": "multihop",
+    "question": "How does the security basis of quantum cryptography differ from traditional encryption, what are the two main categories of QKD protocols, and what practical requirement distinguishes QKD from traditional key agreement?",
+    "entities": [
+      "quantum cryptography",
+      "quantum physics",
+      "quantum key distribution (QKD)",
+      "continuous-variable QKD (CV-QKD)",
+      "discrete-variable QKD (DV-QKD)",
+      "single photon",
+      "information-theoretic security"
+    ],
+    "relations": [
+      [
+        "quantum cryptography",
+        "quantum physics",
+        "quantum cryptography relies on principles of quantum physics"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "continuous-variable QKD (CV-QKD)",
+        "CV protocols are one category of QKD protocols"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "discrete-variable QKD (DV-QKD)",
+        "DV protocols are one category of QKD protocols"
+      ],
+      [
+        "discrete-variable QKD (DV-QKD)",
+        "single photon",
+        "DV protocols use discrete outcomes such as single-photon polarization"
+      ],
+      [
+        "quantum key distribution (QKD)",
+        "information-theoretic security",
+        "QKD keys are information-theoretically secure"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g035",
+    "type": "multihop",
+    "question": "Which quantum mechanisms allow Shor's algorithm to factor large integers efficiently, and why does this threaten RSA?",
+    "entities": [
+      "Shor's algorithm",
+      "entanglement",
+      "quantum parallelism",
+      "Quantum Fourier Transform (QFT)",
+      "integer factorization",
+      "RSA",
+      "Elliptic Curve Cryptography (ECC)"
+    ],
+    "relations": [
+      [
+        "Shor's algorithm",
+        "entanglement",
+        "Shor's algorithm uses entanglement"
+      ],
+      [
+        "Shor's algorithm",
+        "quantum parallelism",
+        "Shor's algorithm exploits quantum parallelism"
+      ],
+      [
+        "Shor's algorithm",
+        "Quantum Fourier Transform (QFT)",
+        "the QFT is at the core of Shor's algorithm"
+      ],
+      [
+        "Shor's algorithm",
+        "integer factorization",
+        "Shor's algorithm factors large integers in polynomial time"
+      ],
+      [
+        "RSA",
+        "integer factorization",
+        "RSA's security rests on the difficulty of factoring large numbers"
+      ],
+      [
+        "Shor's algorithm",
+        "RSA",
+        "Shor's algorithm threatens RSA"
+      ],
+      [
+        "Shor's algorithm",
+        "Elliptic Curve Cryptography (ECC)",
+        "Shor's algorithm threatens ECC"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g037",
+    "type": "multihop",
+    "question": "What does the security of SPHINCS+ (SLH-DSA) rely on compared with the other algorithms NIST selected, how does it achieve stateless operation, and which FIPS standards correspond to Kyber, Dilithium and SPHINCS+?",
+    "entities": [
+      "SPHINCS+ (SLH-DSA)",
+      "hash function",
+      "WOTS+",
+      "FORS",
+      "hypertree",
+      "NIST",
+      "Kyber",
+      "Dilithium",
+      "FIPS 203",
+      "FIPS 204",
+      "FIPS 205"
+    ],
+    "relations": [
+      [
+        "SPHINCS+ (SLH-DSA)",
+        "hash function",
+        "SPHINCS+ security relies solely on the collision resistance of hash functions"
+      ],
+      [
+        "SPHINCS+ (SLH-DSA)",
+        "WOTS+",
+        "SPHINCS+ uses WOTS+ to sign individual nodes"
+      ],
+      [
+        "SPHINCS+ (SLH-DSA)",
+        "FORS",
+        "SPHINCS+ uses FORS few-time signatures at the leaves"
+      ],
+      [
+        "SPHINCS+ (SLH-DSA)",
+        "hypertree",
+        "SPHINCS+ links its trees in a hypertree for stateless operation"
+      ],
+      [
+        "NIST",
+        "SPHINCS+ (SLH-DSA)",
+        "NIST selected SPHINCS+"
+      ],
+      [
+        "FIPS 203",
+        "Kyber",
+        "FIPS 203 is ML-KEM (Kyber)"
+      ],
+      [
+        "FIPS 204",
+        "Dilithium",
+        "FIPS 204 is ML-DSA (Dilithium)"
+      ],
+      [
+        "FIPS 205",
+        "SPHINCS+ (SLH-DSA)",
+        "FIPS 205 is SLH-DSA (SPHINCS+)"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g039",
+    "type": "multihop",
+    "question": "On what is the security of quantum key distribution (QKD) based, why are practical QKD experiments with attenuated lasers potentially insecure, and how can quantum machine learning help detect eavesdroppers?",
+    "entities": [
+      "quantum key distribution (QKD)",
+      "attenuated laser",
+      "quantum machine learning (QML)",
+      "quantum support vector machine (QSVM)",
+      "quantum convolutional neural network (QCNN)",
+      "eavesdropping detection"
+    ],
+    "relations": [
+      [
+        "quantum key distribution (QKD)",
+        "attenuated laser",
+        "attenuated lasers sometimes emit multi-photon signals, making practical QKD insecure"
+      ],
+      [
+        "quantum machine learning (QML)",
+        "eavesdropping detection",
+        "QML algorithms can be leveraged for eavesdropping detection"
+      ],
+      [
+        "quantum support vector machine (QSVM)",
+        "eavesdropping detection",
+        "QSVM can be used for eavesdropping detection"
+      ],
+      [
+        "quantum convolutional neural network (QCNN)",
+        "eavesdropping detection",
+        "QCNN can be used for eavesdropping detection"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g040",
+    "type": "multihop",
+    "question": "What speed-up does an FPGA accelerator with an optimized Number Theoretic Transform (NTT) achieve for Kyber, and why is polynomial multiplication in Kyber computed in the NTT domain?",
+    "entities": [
+      "Number Theoretic Transform (NTT)",
+      "Kyber",
+      "Dilithium",
+      "Artix-7 FPGA",
+      "polynomial multiplication"
+    ],
+    "relations": [
+      [
+        "Number Theoretic Transform (NTT)",
+        "Kyber",
+        "the NTT-optimized accelerator speeds up Kyber by up to 34.16x"
+      ],
+      [
+        "Number Theoretic Transform (NTT)",
+        "Dilithium",
+        "the NTT-optimized accelerator speeds up Dilithium by 9.6x"
+      ],
+      [
+        "Number Theoretic Transform (NTT)",
+        "Artix-7 FPGA",
+        "the NTT accelerator is implemented on an Artix-7 FPGA"
+      ],
+      [
+        "Number Theoretic Transform (NTT)",
+        "polynomial multiplication",
+        "the NTT reduces polynomial multiplication from O(N^2) to O(N log N)"
+      ],
+      [
+        "polynomial multiplication",
+        "Kyber",
+        "polynomial multiplication dominates Kyber encryption and decryption"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g042",
+    "type": "multihop",
+    "question": "How do quantum generative adversarial networks (QGANs) work, and how does EQGAN improve their training?",
+    "entities": [
+      "quantum generative adversarial network (QGAN)",
+      "quantum generator",
+      "discriminator",
+      "minimax game",
+      "variational quantum algorithm (VQA)",
+      "EQGAN",
+      "fitness evaluation"
+    ],
+    "relations": [
+      [
+        "quantum generative adversarial network (QGAN)",
+        "quantum generator",
+        "a QGAN has a parameterized quantum generator"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "discriminator",
+        "a QGAN has a quantum or classical discriminator"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "minimax game",
+        "QGAN training is a two-player minimax game"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "variational quantum algorithm (VQA)",
+        "a QGAN is usually built as a variational quantum algorithm"
+      ],
+      [
+        "EQGAN",
+        "quantum generative adversarial network (QGAN)",
+        "EQGAN improves QGAN training"
+      ],
+      [
+        "EQGAN",
+        "fitness evaluation",
+        "EQGAN uses fitness evaluation to select generator configurations"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g043",
+    "type": "multihop",
+    "question": "What reasons suggest that quantum computers can outperform classical computers, and what role does the precision of quantum state manipulation play?",
+    "entities": [
+      "quantum computer",
+      "classical computer",
+      "quantum algorithm",
+      "integer factorization",
+      "precision of quantum state manipulation"
+    ],
+    "relations": [
+      [
+        "quantum algorithm",
+        "classical computer",
+        "quantum algorithms solve problems believed hard for classical computers"
+      ],
+      [
+        "quantum algorithm",
+        "integer factorization",
+        "factoring large integers is the best-known such problem"
+      ],
+      [
+        "precision of quantum state manipulation",
+        "quantum computer",
+        "if precision grows polynomially with input size, quantum computers are more powerful"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g044",
+    "type": "multihop",
+    "question": "Why are variational quantum algorithms (VQAs) considered the leading strategy for NISQ devices, which constraints must they account for, and why does improving gate accuracy matter for near-term platforms?",
+    "entities": [
+      "variational quantum algorithm (VQA)",
+      "NISQ",
+      "qubit connectivity",
+      "circuit depth",
+      "gate fidelity",
+      "quantum error correction (QEC)"
+    ],
+    "relations": [
+      [
+        "variational quantum algorithm (VQA)",
+        "NISQ",
+        "VQAs are the leading strategy for NISQ devices"
+      ],
+      [
+        "variational quantum algorithm (VQA)",
+        "qubit connectivity",
+        "VQAs account for limited qubit connectivity"
+      ],
+      [
+        "variational quantum algorithm (VQA)",
+        "circuit depth",
+        "VQAs account for errors that limit circuit depth"
+      ],
+      [
+        "gate fidelity",
+        "NISQ",
+        "more accurate gates extend the power of NISQ technology"
+      ],
+      [
+        "gate fidelity",
+        "quantum error correction (QEC)",
+        "more accurate gates lower the overhead of later QEC"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g045",
+    "type": "multihop",
+    "question": "What error rate does an eavesdropper who measures and resends all photons in the rectilinear basis induce in BB84, and which two sources contribute to detection events in decoy-state QKD?",
+    "entities": [
+      "BB84",
+      "intercept-resend attack",
+      "rectilinear basis",
+      "decoy-state QKD",
+      "yield",
+      "dark count"
+    ],
+    "relations": [
+      [
+        "intercept-resend attack",
+        "BB84",
+        "measuring and resending all photons induces errors in 1/4 of BB84 bits"
+      ],
+      [
+        "intercept-resend attack",
+        "rectilinear basis",
+        "the eavesdropper measures all photons in the rectilinear basis"
+      ],
+      [
+        "decoy-state QKD",
+        "yield",
+        "decoy-state QKD analyses the yield"
+      ],
+      [
+        "yield",
+        "dark count",
+        "the yield combines signal-photon detection and background events such as dark counts"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g046",
+    "type": "multihop",
+    "question": "How has research on quantum machine learning for quantum key distribution evolved, and what risk do QML-based applications themselves face in 6G networks?",
+    "entities": [
+      "quantum machine learning (QML)",
+      "quantum key distribution (QKD)",
+      "eavesdropping detection",
+      "6G network",
+      "adversarial attack"
+    ],
+    "relations": [
+      [
+        "quantum machine learning (QML)",
+        "quantum key distribution (QKD)",
+        "research on QML for QKD has increased since 2010"
+      ],
+      [
+        "quantum machine learning (QML)",
+        "eavesdropping detection",
+        "QML is used for eavesdropping detection in QKD"
+      ],
+      [
+        "quantum machine learning (QML)",
+        "6G network",
+        "QML is studied for 6G network intelligence"
+      ],
+      [
+        "quantum machine learning (QML)",
+        "adversarial attack",
+        "QML-based applications face adversarial threats"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g048",
+    "type": "multihop",
+    "question": "How are variational quantum classifiers (VQCs) used for cyberattack detection, and why are variational quantum circuits the most common architecture for QGANs?",
+    "entities": [
+      "variational quantum classifier (VQC)",
+      "parameterized quantum circuit",
+      "classical optimizer",
+      "cyberattack detection",
+      "NSL-KDD",
+      "DGA botnet",
+      "variational quantum circuit",
+      "quantum generative adversarial network (QGAN)"
+    ],
+    "relations": [
+      [
+        "variational quantum classifier (VQC)",
+        "parameterized quantum circuit",
+        "VQCs combine parameterised quantum circuits with classical optimisers"
+      ],
+      [
+        "variational quantum classifier (VQC)",
+        "classical optimizer",
+        "VQCs use classical optimisers in hybrid feedback loops"
+      ],
+      [
+        "variational quantum classifier (VQC)",
+        "cyberattack detection",
+        "VQCs are used for cyberattack detection"
+      ],
+      [
+        "variational quantum classifier (VQC)",
+        "NSL-KDD",
+        "VQCs were used for cyberattack detection on NSL-KDD"
+      ],
+      [
+        "variational quantum classifier (VQC)",
+        "DGA botnet",
+        "VQCs were used for DGA botnet classification"
+      ],
+      [
+        "variational quantum circuit",
+        "quantum generative adversarial network (QGAN)",
+        "variational quantum circuits are the most common QGAN architecture"
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "id": "g050",
+    "type": "multihop",
+    "question": "How are the generator and discriminator of quantum GANs trained, and how are the gradients obtained?",
+    "entities": [
+      "quantum generative adversarial network (QGAN)",
+      "generator",
+      "discriminator",
+      "Nash equilibrium",
+      "parameter-shift rule",
+      "stochastic approximation"
+    ],
+    "relations": [
+      [
+        "quantum generative adversarial network (QGAN)",
+        "generator",
+        "the QGAN generator is trained to make fake data classified as real"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "discriminator",
+        "the QGAN discriminator is trained to distinguish real from generated data"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "Nash equilibrium",
+        "QGAN training proceeds until a Nash equilibrium"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "parameter-shift rule",
+        "QGAN gradients are estimated with the parameter-shift rule"
+      ],
+      [
+        "quantum generative adversarial network (QGAN)",
+        "stochastic approximation",
+        "QGAN gradients may be estimated by stochastic approximation"
+      ]
+    ],
+    "reviewed": true
+  }
+]

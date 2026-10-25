@@ -1,0 +1,232 @@
+{
+  "scores_graphrag.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 0.9882352941176471,
+        "mean_abs_diff": 0.00784313725490196,
+        "mean_sd": 0.00554593553871802
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 0.8235294117647058,
+        "mean_abs_diff": 0.0024023708425758568,
+        "mean_sd": 0.001698732713710228
+      },
+      "context_ap": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 1.4325458382260084e-17
+      },
+      "context_precision": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 6.267388042238787e-18
+      },
+      "faithfulness": {
+        "n": 39,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 7.828495686459437e-18
+      },
+      "faithfulness_text": {
+        "n": 39,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 9.25185853854297e-18
+      },
+      "gold_chunk_recall": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "hallucination": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "hallucination_text": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "kg_relation_precision": {
+        "n": 60,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_chunks": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_judged": {
+        "n": 39,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_unsupported": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "retrieval_hit": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "source_precision": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  },
+  "scores_vector_rag.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 0.9882352941176471,
+        "mean_abs_diff": 0.00784313725490196,
+        "mean_sd": 0.00554593553871802
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 0.8470588235294118,
+        "mean_abs_diff": 0.001439872109655114,
+        "mean_sd": 0.0010159446033397264
+      },
+      "context_ap": {
+        "n": 62,
+        "all_equal": 0.8870967741935484,
+        "mean_abs_diff": 0.024790919952210277,
+        "mean_sd": 0.01752982761006077
+      },
+      "context_precision": {
+        "n": 61,
+        "all_equal": 0.8688524590163934,
+        "mean_abs_diff": 0.02459016393442623,
+        "mean_sd": 0.017387871668521657
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 0.7903225806451613,
+        "mean_abs_diff": 0.02119618732521958,
+        "mean_sd": 0.014987967792963122
+      },
+      "faithfulness": {
+        "n": 39,
+        "all_equal": 0.6666666666666666,
+        "mean_abs_diff": 0.028363611696945026,
+        "mean_sd": 0.020056102169851913
+      },
+      "faithfulness_text": {
+        "n": 39,
+        "all_equal": 0.6666666666666666,
+        "mean_abs_diff": 0.028363611696945026,
+        "mean_sd": 0.020056102169851913
+      },
+      "gold_chunk_recall": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "hallucination": {
+        "n": 85,
+        "all_equal": 0.9647058823529412,
+        "mean_abs_diff": 0.023529411764705882,
+        "mean_sd": 0.016637806616154056
+      },
+      "hallucination_text": {
+        "n": 85,
+        "all_equal": 0.9647058823529412,
+        "mean_abs_diff": 0.023529411764705882,
+        "mean_sd": 0.016637806616154056
+      },
+      "n_chunks": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 0.8823529411764706,
+        "mean_abs_diff": 0.12549019607843137,
+        "mean_sd": 0.08873496861948833
+      },
+      "n_judged": {
+        "n": 39,
+        "all_equal": 0.7435897435897436,
+        "mean_abs_diff": 0.27350427350427353,
+        "mean_sd": 0.19339672647837197
+      },
+      "n_unsupported": {
+        "n": 85,
+        "all_equal": 0.8941176470588236,
+        "mean_abs_diff": 0.0784313725490196,
+        "mean_sd": 0.0554593553871802
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "retrieval_hit": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "source_precision": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  }
+}

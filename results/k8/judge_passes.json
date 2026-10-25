@@ -1,0 +1,16 @@
+{
+  "scores_langchain_rag.jsonl": {
+    "passes": [
+      0
+    ],
+    "n_ids": 121,
+    "agreement": {}
+  },
+  "scores_langgraph_selfrag.jsonl": {
+    "passes": [
+      0
+    ],
+    "n_ids": 121,
+    "agreement": {}
+  }
+}

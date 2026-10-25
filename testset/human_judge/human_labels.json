@@ -1,0 +1,2472 @@
+{
+ "sheet_id": "673eb8409f6b",
+ "exported_at": "2026-10-18T10:45:20.000Z",
+ "n_total": 352,
+ "n_done": 352,
+ "labels": [
+  {
+   "code": "H01",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H01",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H01",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H01",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H01",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H02",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H03",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H04",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H05",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H06",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H07",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H08",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H09",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H10",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H11",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H11",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H11",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H11",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H11",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "useful",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 8,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 9,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 10,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "claim",
+   "index": 11,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H12",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 8,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 9,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "claim",
+   "index": 10,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H13",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H14",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H15",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H16",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H17",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H18",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "claim",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H19",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "claim",
+   "index": 5,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H20",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H21",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "useful",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H22",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H23",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H23",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H23",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H23",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H23",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "claim",
+   "index": 6,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H24",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H25",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H26",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "claim",
+   "index": 8,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H27",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H28",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H29",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H30",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H30",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H30",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H30",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H30",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "claim",
+   "index": 7,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H31",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "useful",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H32",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H33",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "useful",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H34",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "useful",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "useful",
+   "index": 3,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H35",
+   "kind": "correct",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "useful",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "useful",
+   "index": 1,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "useful",
+   "index": 2,
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "useful",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 0,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 1,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 2,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 3,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 4,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 5,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "claim",
+   "index": 6,
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "H36",
+   "kind": "correct",
+   "index": 0,
+   "label": 0,
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,321 @@
+[
+  {
+    "id": "u001",
+    "type": "unanswerable",
+    "question": "Which company acquired the deception technology vendor Illusive Networks in 2022?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "Proofpoint"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u002",
+    "type": "unanswerable",
+    "question": "Which Suricata rule keyword is used to match the TLS Server Name Indication (SNI) field?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "QoS",
+    "absent_terms": [
+      "tls.sni"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u003",
+    "type": "unanswerable",
+    "question": "What packet-processing throughput did Facebook's Katran XDP-based layer-4 load balancer achieve?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "QoS",
+    "absent_terms": [
+      "Katran"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u004",
+    "type": "unanswerable",
+    "question": "How many qubits does Google's Willow quantum processor have?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Quantum Machine Learning",
+    "absent_terms": [
+      "Willow"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u005",
+    "type": "unanswerable",
+    "question": "What is the maximum context window length of OpenAI's GPT-4 Turbo model?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "GPT-4 Turbo"
+    ],
+    "reviewed": true,
+    "keep": false,
+    "review_note": "loại: corpus có đáp án (BABILong: 'GPT-4-Turbo ... context window of 128k tokens'); grep ban đầu bỏ sót cách viết có gạch nối"
+  },
+  {
+    "id": "u006",
+    "type": "unanswerable",
+    "question": "How many artificial neurons does Intel's Hala Point neuromorphic system contain?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "Hala Point"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u007",
+    "type": "unanswerable",
+    "question": "What bit-width does the KIVI method use to quantize the key and value cache of large language models?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "KIVI"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u008",
+    "type": "unanswerable",
+    "question": "Which community detection algorithm does Microsoft's GraphRAG use to build its hierarchy of entity communities?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Survey",
+    "absent_terms": [
+      "Leiden"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u009",
+    "type": "unanswerable",
+    "question": "What is the name of the password-authenticated key exchange (also called Dragonfly) used by WPA3-Personal?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Quantum Security",
+    "absent_terms": [
+      "WPA3",
+      "Dragonfly",
+      "Simultaneous Authentication"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u010",
+    "type": "unanswerable",
+    "question": "How much ransom did Colonial Pipeline pay to the DarkSide ransomware group in 2021?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "Colonial",
+      "DarkSide"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u011",
+    "type": "unanswerable",
+    "question": "What was the peak bandwidth of the 2016 Mirai botnet DDoS attack against the hosting provider OVH?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "OVH"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u012",
+    "type": "unanswerable",
+    "question": "What is the default block size of the Hadoop Distributed File System (HDFS)?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "HDFS"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u013",
+    "type": "unanswerable",
+    "question": "Which IETF RFC number specifies version 1.3 of the TLS protocol?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "RFC 8446"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u014",
+    "type": "unanswerable",
+    "question": "Which TCP port does the Modbus/TCP industrial control protocol use by default?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "Modbus"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u015",
+    "type": "unanswerable",
+    "question": "How many uranium enrichment centrifuges at Natanz are estimated to have been destroyed by the Stuxnet worm?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "Stuxnet",
+      "Natanz"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u016",
+    "type": "unanswerable",
+    "question": "Which CVE identifier was assigned to the Bash vulnerability known as Shellshock?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "WAF",
+    "absent_terms": [
+      "Shellshock"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u017",
+    "type": "unanswerable",
+    "question": "How many neural processing units does BrainChip's Akida neuromorphic processor contain?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "Akida",
+      "BrainChip"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u018",
+    "type": "unanswerable",
+    "question": "Which tool is commonly used by attackers to dump plaintext credentials from the LSASS process memory on Windows?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Survey",
+    "absent_terms": [
+      "Mimikatz",
+      "LSASS"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u019",
+    "type": "unanswerable",
+    "question": "What kind of data structure does the BloodHound tool build to reveal attack paths in Active Directory?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Survey",
+    "absent_terms": [
+      "BloodHound"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u020",
+    "type": "unanswerable",
+    "question": "What scripting language does the Zeek (formerly Bro) network security monitor use for its policy scripts?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "QoS",
+    "absent_terms": [
+      "Zeek"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u021",
+    "type": "unanswerable",
+    "question": "How many electrodes does the Neuralink N1 brain implant have?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Ref",
+    "absent_terms": [
+      "Neuralink"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u022",
+    "type": "unanswerable",
+    "question": "Approximately how many computers in how many countries were infected by the WannaCry ransomware in May 2017?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "Deception",
+    "absent_terms": [
+      "WannaCry + số máy bị nhiễm (corpus chỉ nhắc tên WannaCry)"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u023",
+    "type": "unanswerable",
+    "question": "What is the half-life of the carbon-14 isotope?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "(ngoài lĩnh vực)",
+    "absent_terms": [
+      "carbon-14"
+    ],
+    "reviewed": true,
+    "keep": true
+  },
+  {
+    "id": "u024",
+    "type": "unanswerable",
+    "question": "Which country won the 2022 FIFA World Cup?",
+    "ground_truth": "The corpus does not contain this information; the correct behaviour is to abstain.",
+    "source": null,
+    "topic": "(ngoài lĩnh vực)",
+    "absent_terms": [
+      "World Cup"
+    ],
+    "reviewed": true,
+    "keep": true
+  }
+]

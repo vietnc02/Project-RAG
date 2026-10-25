@@ -1,0 +1,9 @@
+﻿metric,who,n_pairs,graphrag,vector_rag,diff,ci95,significant
+context_precision,human,18,0.153,0.25,-0.097,"[-0.208, 0.014]",False
+context_precision,judge,17,0.515,0.549,-0.034,"[-0.176, 0.098]",False
+faithfulness,human,15,0.99,0.928,0.062,"[0.01, 0.138]",True
+faithfulness,judge,15,0.844,0.893,-0.049,"[-0.145, 0.056]",False
+hallucination,human,18,0.056,0.222,-0.167,"[-0.333, 0.0]",False
+hallucination,judge,18,0.556,0.389,0.167,"[-0.111, 0.444]",False
+correct,human,18,0.333,0.5,-0.167,"[-0.389, 0.056]",False
+correct,judge,18,0.833,0.833,0.0,"[-0.222, 0.222]",False

@@ -1,0 +1,90 @@
+{
+  "scores.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 3.581364595565021e-18
+      },
+      "context_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "faithfulness": {
+        "n": 52,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 5.337610695313253e-18
+      },
+      "faithfulness_full": {
+        "n": 52,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 6.4051328343759035e-18
+      },
+      "hallucination": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "hallucination_full": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_judged": {
+        "n": 52,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "n_unsupported": {
+        "n": 52,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "prompt_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  }
+}

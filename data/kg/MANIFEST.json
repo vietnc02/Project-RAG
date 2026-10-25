@@ -1,0 +1,50 @@
+{
+  "created": "2026-10-05T11:17:30",
+  "papers": 30,
+  "papers_from_y1_chroma": 23,
+  "papers_added": 7,
+  "chunks": 2528,
+  "collection": "kg30",
+  "distance": "cosine",
+  "chunking": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "drop_references": true
+  },
+  "files": {
+    "chroma.zip": "7fd50dc5a67c1e79fd30139a4a8d461b095e99c8795c4c3256a130c44be34240",
+    "chunks_y2.jsonl": "b42d409bebf6908da53c6ae04368f64ebf03798362c3776f933e787f9fc8f9aa"
+  },
+  "environment": {
+    "python": "3.14.6",
+    "packages": {
+      "langchain": "1.4.3",
+      "langchain-core": "1.6.6",
+      "langgraph": "1.2.12",
+      "langchain-ollama": "1.1.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-text-splitters": "1.1.2",
+      "chromadb": "1.5.9",
+      "ollama": "0.6.3",
+      "pymupdf": "1.28.2"
+    },
+    "ollama_server": "0.35.1",
+    "models": {
+      "llm": {
+        "name": "qwen2.5:7b",
+        "digest": "845dbda0ea48",
+        "quantization": "Q4_K_M"
+      },
+      "judge": {
+        "name": "llama3.1:8b",
+        "digest": "46e0c10c039e",
+        "quantization": "Q4_K_M"
+      },
+      "embedding": {
+        "name": "nomic-embed-text",
+        "digest": "0a109f422b47",
+        "quantization": "F16"
+      }
+    }
+  }
+}

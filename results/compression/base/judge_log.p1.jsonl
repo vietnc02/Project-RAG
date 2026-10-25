@@ -1,0 +1,290 @@
+{"id": "q001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1381, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q001", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 146, "output_tokens": 105, "done_reason": "stop", "truncated": false}
+{"id": "q001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1429, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q001", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 148, "output_tokens": 77, "done_reason": "stop", "truncated": false}
+{"id": "q001", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 200, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1734, "output_tokens": 48, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "q005", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 137, "output_tokens": 65, "done_reason": "stop", "truncated": false}
+{"id": "q005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1734, "output_tokens": 49, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q005", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 131, "output_tokens": 59, "done_reason": "stop", "truncated": false}
+{"id": "q005", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 182, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q006", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1557, "output_tokens": 103, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q006", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 99, "output_tokens": 54, "done_reason": "stop", "truncated": false}
+{"id": "q006", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1541, "output_tokens": 77, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q006", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 97, "output_tokens": 63, "done_reason": "stop", "truncated": false}
+{"id": "q006", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 160, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1596, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q007", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 59, "done_reason": "stop", "truncated": false}
+{"id": "q007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1566, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q007", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 128, "output_tokens": 68, "done_reason": "stop", "truncated": false}
+{"id": "q007", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 188, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q011", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1655, "output_tokens": 82, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q011", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 57, "done_reason": "stop", "truncated": false}
+{"id": "q011", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1581, "output_tokens": 82, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q011", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 109, "output_tokens": 60, "done_reason": "stop", "truncated": false}
+{"id": "q011", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q015", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1766, "output_tokens": 49, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q015", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 137, "output_tokens": 85, "done_reason": "stop", "truncated": false}
+{"id": "q015", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1806, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q015", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 116, "output_tokens": 74, "done_reason": "stop", "truncated": false}
+{"id": "q015", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 179, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q017", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1401, "output_tokens": 51, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q017", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 112, "output_tokens": 51, "done_reason": "stop", "truncated": false}
+{"id": "q017", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1402, "output_tokens": 51, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q017", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 119, "output_tokens": 79, "done_reason": "stop", "truncated": false}
+{"id": "q017", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 166, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q022", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1655, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q022", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 105, "output_tokens": 36, "done_reason": "stop", "truncated": false}
+{"id": "q022", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1611, "output_tokens": 46, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "q022", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 99, "output_tokens": 71, "done_reason": "stop", "truncated": false}
+{"id": "q022", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q044", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1521, "output_tokens": 64, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q049", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1849, "output_tokens": 103, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q049", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 135, "output_tokens": 79, "done_reason": "stop", "truncated": false}
+{"id": "q049", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1749, "output_tokens": 55, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q049", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 135, "output_tokens": 82, "done_reason": "stop", "truncated": false}
+{"id": "q049", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 226, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q057", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 2163, "output_tokens": 49, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q057", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 107, "output_tokens": 41, "done_reason": "stop", "truncated": false}
+{"id": "q057", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 2154, "output_tokens": 36, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "q057", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 110, "output_tokens": 84, "done_reason": "stop", "truncated": false}
+{"id": "q057", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 162, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q061", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1626, "output_tokens": 79, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "q061", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 142, "output_tokens": 87, "done_reason": "stop", "truncated": false}
+{"id": "q061", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1647, "output_tokens": 79, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "q061", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 134, "output_tokens": 70, "done_reason": "stop", "truncated": false}
+{"id": "q061", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 188, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q062", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1464, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q062", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 102, "output_tokens": 50, "done_reason": "stop", "truncated": false}
+{"id": "q062", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1447, "output_tokens": 64, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q062", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 100, "output_tokens": 56, "done_reason": "stop", "truncated": false}
+{"id": "q062", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q063", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1622, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q063", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 56, "done_reason": "stop", "truncated": false}
+{"id": "q063", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1616, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q063", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 122, "output_tokens": 81, "done_reason": "stop", "truncated": false}
+{"id": "q063", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 178, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q064", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1593, "output_tokens": 82, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q064", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 52, "done_reason": "stop", "truncated": false}
+{"id": "q064", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1592, "output_tokens": 64, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q064", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 118, "output_tokens": 91, "done_reason": "stop", "truncated": false}
+{"id": "q064", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 155, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q065", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1342, "output_tokens": 77, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q065", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 122, "output_tokens": 60, "done_reason": "stop", "truncated": false}
+{"id": "q065", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1316, "output_tokens": 51, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q065", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 114, "output_tokens": 74, "done_reason": "stop", "truncated": false}
+{"id": "q065", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 176, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q066", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1603, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q066", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 153, "output_tokens": 81, "done_reason": "stop", "truncated": false}
+{"id": "q066", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1620, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q066", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 147, "output_tokens": 68, "done_reason": "stop", "truncated": false}
+{"id": "q066", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 214, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q067", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1619, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "q067", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 130, "output_tokens": 65, "done_reason": "stop", "truncated": false}
+{"id": "q067", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1634, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q067", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 124, "output_tokens": 94, "done_reason": "stop", "truncated": false}
+{"id": "q067", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 175, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q068", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1484, "output_tokens": 64, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "q068", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 160, "output_tokens": 109, "done_reason": "stop", "truncated": false}
+{"id": "q068", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1554, "output_tokens": 116, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "q068", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 161, "output_tokens": 52, "done_reason": "stop", "truncated": false}
+{"id": "q068", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 201, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "q082", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1601, "output_tokens": 68, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q082", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 170, "output_tokens": 93, "done_reason": "stop", "truncated": false}
+{"id": "q082", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1612, "output_tokens": 68, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "q082", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 159, "output_tokens": 55, "done_reason": "stop", "truncated": false}
+{"id": "q082", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 235, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "q092", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1602, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q092", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 139, "output_tokens": 89, "done_reason": "stop", "truncated": false}
+{"id": "q092", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1597, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "q092", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 138, "output_tokens": 77, "done_reason": "stop", "truncated": false}
+{"id": "q092", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 226, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "s001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1569, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "s002", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1857, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "s002", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 161, "output_tokens": 119, "done_reason": "stop", "truncated": false}
+{"id": "s002", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1853, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "s002", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 149, "output_tokens": 92, "done_reason": "stop", "truncated": false}
+{"id": "s002", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 248, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "s004", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1783, "output_tokens": 36, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "s004", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 138, "output_tokens": 52, "done_reason": "stop", "truncated": false}
+{"id": "s004", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1786, "output_tokens": 38, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "s004", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 119, "output_tokens": 80, "done_reason": "stop", "truncated": false}
+{"id": "s004", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 194, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "s005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1408, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "s006", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1778, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "s006", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 170, "output_tokens": 89, "done_reason": "stop", "truncated": false}
+{"id": "s006", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1781, "output_tokens": 100, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "s006", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 157, "output_tokens": 80, "done_reason": "stop", "truncated": false}
+{"id": "s006", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 257, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "s007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1717, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "s007", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 142, "output_tokens": 76, "done_reason": "stop", "truncated": false}
+{"id": "s007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1708, "output_tokens": 49, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "s007", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 137, "output_tokens": 69, "done_reason": "stop", "truncated": false}
+{"id": "s007", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 213, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "m001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1616, "output_tokens": 116, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "m001", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 159, "output_tokens": 108, "done_reason": "stop", "truncated": false}
+{"id": "m001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1595, "output_tokens": 114, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "m001", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 136, "output_tokens": 73, "done_reason": "stop", "truncated": false}
+{"id": "m001", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 273, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m003", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1466, "output_tokens": 100, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "m003", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 93, "done_reason": "stop", "truncated": false}
+{"id": "m003", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1458, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "m003", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 143, "output_tokens": 84, "done_reason": "stop", "truncated": false}
+{"id": "m003", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 257, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1830, "output_tokens": 120, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "m005", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 161, "output_tokens": 69, "done_reason": "stop", "truncated": false}
+{"id": "m005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1791, "output_tokens": 84, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "m005", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 147, "output_tokens": 65, "done_reason": "stop", "truncated": false}
+{"id": "m005", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 270, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m027", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1676, "output_tokens": 82, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "m027", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 148, "output_tokens": 108, "done_reason": "stop", "truncated": false}
+{"id": "m027", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1697, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "m027", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 131, "output_tokens": 79, "done_reason": "stop", "truncated": false}
+{"id": "m027", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 246, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m037", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1786, "output_tokens": 114, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "m037", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 168, "output_tokens": 94, "done_reason": "stop", "truncated": false}
+{"id": "m037", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1751, "output_tokens": 100, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "m037", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 157, "output_tokens": 91, "done_reason": "stop", "truncated": false}
+{"id": "m037", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 271, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m043", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1658, "output_tokens": 155, "done_reason": "stop", "truncated": false, "expected": 11, "missing": 0}
+{"id": "m043", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 172, "output_tokens": 138, "done_reason": "stop", "truncated": false}
+{"id": "m043", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1643, "output_tokens": 104, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "m043", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 160, "output_tokens": 64, "done_reason": "stop", "truncated": false}
+{"id": "m043", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 294, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m046", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1687, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "m046", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 102, "done_reason": "stop", "truncated": false}
+{"id": "m046", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1666, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "m046", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 118, "output_tokens": 68, "done_reason": "stop", "truncated": false}
+{"id": "m046", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 228, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m064", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1661, "output_tokens": 154, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "m064", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 152, "output_tokens": 95, "done_reason": "stop", "truncated": false}
+{"id": "m064", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1622, "output_tokens": 100, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "m064", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 137, "output_tokens": 86, "done_reason": "stop", "truncated": false}
+{"id": "m064", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 270, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "m068", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1819, "output_tokens": 129, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "m068", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 152, "output_tokens": 89, "done_reason": "stop", "truncated": false}
+{"id": "m068", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1741, "output_tokens": 77, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "m068", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 140, "output_tokens": 67, "done_reason": "stop", "truncated": false}
+{"id": "m068", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 295, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1699, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g001", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 191, "output_tokens": 86, "done_reason": "stop", "truncated": false}
+{"id": "g001", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1661, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g001", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 164, "output_tokens": 83, "done_reason": "stop", "truncated": false}
+{"id": "g001", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 302, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g002", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1572, "output_tokens": 103, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g002", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 122, "output_tokens": 48, "done_reason": "stop", "truncated": false}
+{"id": "g002", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1522, "output_tokens": 64, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "g002", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 114, "output_tokens": 68, "done_reason": "stop", "truncated": false}
+{"id": "g002", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 222, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g003", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1450, "output_tokens": 114, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "g003", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 162, "output_tokens": 143, "done_reason": "stop", "truncated": false}
+{"id": "g003", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1491, "output_tokens": 181, "done_reason": "stop", "truncated": false, "expected": 13, "missing": 0}
+{"id": "g003", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 152, "output_tokens": 60, "done_reason": "stop", "truncated": false}
+{"id": "g003", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 274, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1678, "output_tokens": 77, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g005", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 130, "output_tokens": 46, "done_reason": "stop", "truncated": false}
+{"id": "g005", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1644, "output_tokens": 46, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "g005", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 114, "output_tokens": 70, "done_reason": "stop", "truncated": false}
+{"id": "g005", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 226, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1577, "output_tokens": 104, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "g007", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 163, "output_tokens": 79, "done_reason": "stop", "truncated": false}
+{"id": "g007", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1496, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g007", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 146, "output_tokens": 63, "done_reason": "stop", "truncated": false}
+{"id": "g007", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 260, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g011", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1684, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g011", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 124, "output_tokens": 36, "done_reason": "stop", "truncated": false}
+{"id": "g011", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1631, "output_tokens": 46, "done_reason": "stop", "truncated": false, "expected": 2, "missing": 0}
+{"id": "g011", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 110, "output_tokens": 59, "done_reason": "stop", "truncated": false}
+{"id": "g011", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 203, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g015", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1794, "output_tokens": 114, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "g015", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 188, "output_tokens": 151, "done_reason": "stop", "truncated": false}
+{"id": "g015", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1836, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g015", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 170, "output_tokens": 78, "done_reason": "stop", "truncated": false}
+{"id": "g015", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 323, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g016", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1499, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g016", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 174, "output_tokens": 82, "done_reason": "stop", "truncated": false}
+{"id": "g016", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1479, "output_tokens": 100, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g016", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 160, "output_tokens": 94, "done_reason": "stop", "truncated": false}
+{"id": "g016", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 265, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g019", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1551, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g019", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 194, "output_tokens": 117, "done_reason": "stop", "truncated": false}
+{"id": "g019", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1531, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g019", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 186, "output_tokens": 62, "done_reason": "stop", "truncated": false}
+{"id": "g019", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 312, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g021", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1813, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g026", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1732, "output_tokens": 140, "done_reason": "stop", "truncated": false, "expected": 11, "missing": 0}
+{"id": "g026", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 146, "output_tokens": 121, "done_reason": "stop", "truncated": false}
+{"id": "g026", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1694, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g026", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 130, "output_tokens": 58, "done_reason": "stop", "truncated": false}
+{"id": "g026", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 295, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g027", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1664, "output_tokens": 192, "done_reason": "stop", "truncated": false, "expected": 14, "missing": 0}
+{"id": "g028", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1984, "output_tokens": 103, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g028", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 219, "output_tokens": 166, "done_reason": "stop", "truncated": false}
+{"id": "g028", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 2016, "output_tokens": 155, "done_reason": "stop", "truncated": false, "expected": 11, "missing": 0}
+{"id": "g028", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 201, "output_tokens": 65, "done_reason": "stop", "truncated": false}
+{"id": "g028", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 360, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g030", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1475, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g030", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 174, "output_tokens": 94, "done_reason": "stop", "truncated": false}
+{"id": "g030", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1424, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "g030", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 166, "output_tokens": 55, "done_reason": "stop", "truncated": false}
+{"id": "g030", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 299, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g034", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1592, "output_tokens": 127, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g034", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 178, "output_tokens": 90, "done_reason": "stop", "truncated": false}
+{"id": "g034", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1558, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g034", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 161, "output_tokens": 66, "done_reason": "stop", "truncated": false}
+{"id": "g034", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 280, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g035", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1830, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g035", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 219, "output_tokens": 154, "done_reason": "stop", "truncated": false}
+{"id": "g035", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1901, "output_tokens": 92, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g035", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 218, "output_tokens": 53, "done_reason": "stop", "truncated": false}
+{"id": "g035", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 302, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g037", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1875, "output_tokens": 174, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g037", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 206, "output_tokens": 126, "done_reason": "stop", "truncated": false}
+{"id": "g037", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1873, "output_tokens": 91, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g037", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 171, "output_tokens": 73, "done_reason": "stop", "truncated": false}
+{"id": "g037", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 334, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g039", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1718, "output_tokens": 79, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g039", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 177, "output_tokens": 109, "done_reason": "stop", "truncated": false}
+{"id": "g039", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1714, "output_tokens": 92, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g039", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 64, "done_reason": "stop", "truncated": false}
+{"id": "g039", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 279, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g040", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1936, "output_tokens": 103, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g040", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 156, "output_tokens": 94, "done_reason": "stop", "truncated": false}
+{"id": "g040", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1878, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "g040", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 137, "output_tokens": 67, "done_reason": "stop", "truncated": false}
+{"id": "g040", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 279, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g042", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1601, "output_tokens": 140, "done_reason": "stop", "truncated": false, "expected": 11, "missing": 0}
+{"id": "g042", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 142, "output_tokens": 85, "done_reason": "stop", "truncated": false}
+{"id": "g042", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1534, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g042", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 138, "output_tokens": 72, "done_reason": "stop", "truncated": false}
+{"id": "g042", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 257, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g043", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1589, "output_tokens": 88, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g043", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 166, "output_tokens": 84, "done_reason": "stop", "truncated": false}
+{"id": "g043", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1566, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g043", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 162, "output_tokens": 60, "done_reason": "stop", "truncated": false}
+{"id": "g043", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 275, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g044", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1729, "output_tokens": 131, "done_reason": "stop", "truncated": false, "expected": 9, "missing": 0}
+{"id": "g044", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 199, "output_tokens": 156, "done_reason": "stop", "truncated": false}
+{"id": "g044", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1773, "output_tokens": 152, "done_reason": "stop", "truncated": false, "expected": 12, "missing": 0}
+{"id": "g044", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 179, "output_tokens": 89, "done_reason": "stop", "truncated": false}
+{"id": "g044", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 296, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g045", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1846, "output_tokens": 118, "done_reason": "stop", "truncated": false, "expected": 6, "missing": 0}
+{"id": "g045", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 159, "output_tokens": 92, "done_reason": "stop", "truncated": false}
+{"id": "g045", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1803, "output_tokens": 82, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "g045", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 138, "output_tokens": 77, "done_reason": "stop", "truncated": false}
+{"id": "g045", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 257, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g046", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1628, "output_tokens": 75, "done_reason": "stop", "truncated": false, "expected": 5, "missing": 0}
+{"id": "g046", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 130, "output_tokens": 62, "done_reason": "stop", "truncated": false}
+{"id": "g046", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1601, "output_tokens": 62, "done_reason": "stop", "truncated": false, "expected": 4, "missing": 0}
+{"id": "g046", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 121, "output_tokens": 74, "done_reason": "stop", "truncated": false}
+{"id": "g046", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 213, "output_tokens": 10, "done_reason": "stop", "truncated": false}
+{"id": "g048", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1717, "output_tokens": 114, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "g048", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 167, "output_tokens": 105, "done_reason": "stop", "truncated": false}
+{"id": "g048", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1683, "output_tokens": 101, "done_reason": "stop", "truncated": false, "expected": 7, "missing": 0}
+{"id": "g048", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 154, "output_tokens": 102, "done_reason": "stop", "truncated": false}
+{"id": "g048", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 270, "output_tokens": 7, "done_reason": "stop", "truncated": false}
+{"id": "g050", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1709, "output_tokens": 104, "done_reason": "stop", "truncated": false, "expected": 8, "missing": 0}
+{"id": "g050", "prompt": "extract_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 120, "output_tokens": 57, "done_reason": "stop", "truncated": false}
+{"id": "g050", "prompt": "verify_claims", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 1662, "output_tokens": 49, "done_reason": "stop", "truncated": false, "expected": 3, "missing": 0}
+{"id": "g050", "prompt": "reverse_questions", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 120, "output_tokens": 59, "done_reason": "stop", "truncated": false}
+{"id": "g050", "prompt": "correctness", "status": "ok", "attempt": 0, "final": true, "pass": 1, "prompt_tokens": 217, "output_tokens": 10, "done_reason": "stop", "truncated": false}

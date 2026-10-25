@@ -1,0 +1,463 @@
+{
+ "seed": 42,
+ "source": "results/kg30",
+ "sheet_id": "673eb8409f6b",
+ "cases": {
+  "H01": {
+   "id": "g016",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": []
+  },
+  "H02": {
+   "id": "m003",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Quantum Random Number Generation (QRNG) plays a crucial role in quantum key distribution (QKD).",
+    "QRNG provides truly unpredictable keys.",
+    "QRNG is essential for secure cryptographic solutions.",
+    "QKD technology has progressed significantly.",
+    "There have been real-world deployments of QKD technology.",
+    "China has a 2,000-km Quantum Key Distribution network.",
+    "Challenges remain in integrating QKD with legacy systems."
+   ]
+  },
+  "H03": {
+   "id": "q011",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "The survey describes traditional public key cryptography methods.",
+    "RSA is a traditional public key cryptography method.",
+    "RSA is susceptible to quantum risks.",
+    "Advancements in computing technology pose threats to traditional cryptography."
+   ]
+  },
+  "H04": {
+   "id": "q022",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "The scalable QCNN achieves 98.7% accuracy on the MNIST dataset.",
+    "The scalable QCNN uses only 45 independent rotational parameters."
+   ]
+  },
+  "H05": {
+   "id": "s006",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Alice and Bob test for eavesdropping by publicly comparing some of the bits on which they think they should agree.",
+    "They use a random subset (about one third) of the correctly received bits.",
+    "If all comparisons agree, they conclude the transmission was free of significant eavesdropping.",
+    "The remaining bits that were sent and received with the same basis and agreed upon can be used as a one-time pad for secure communications."
+   ]
+  },
+  "H06": {
+   "id": "g011",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Several side-channel leakage points have been reported in Kyber's decryption procedure.",
+    "The leakage points are particularly during the Polynomial Multiplication With Masking (PWM) of ˆs ◦ˆu.",
+    "Researchers used machine learning to exploit power usage patterns.",
+    "Machine learning was used to successfully extract encryption keys from Kyber implementations."
+   ]
+  },
+  "H07": {
+   "id": "s006",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Alice and Bob test for eavesdropping by performing sifting on the remaining qubits.",
+    "They discard those measured in different bases.",
+    "They use the sifted qubits to determine if an eavesdropper is present.",
+    "If the quantum transmission has been undisturbed, Alice and Bob agree on the bits encoded by these photons.",
+    "The agreed bits are used as the final secret key."
+   ]
+  },
+  "H08": {
+   "id": "s004",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Each good (c, d) pair is generated with a probability of at least 1/(20q2).",
+    "At least a twelfth of the possible c’s are in a good (c, d) pair."
+   ]
+  },
+  "H09": {
+   "id": "g016",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "QSDC provides a comprehensive, confidential, and near-instantaneous solution.",
+    "QKD is primarily concerned with the secure negotiation of cryptographic keys.",
+    "China’s 2,000-km Quantum Key Distribution network is an example of a practical QKD network.",
+    "The SwissQuantum QKD network is an example of a practical QKD network."
+   ]
+  },
+  "H10": {
+   "id": "m068",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "The Module-LWE problem is a variation of the LWE problem.",
+    "The LWE problem is central to lattice-based cryptography.",
+    "Both the Module-LWE problem and the LWE problem rely on the computational hardness of solving noisy linear systems.",
+    "Module-LWE is specifically defined over module lattices.",
+    "Module-LWE is the foundation for NIST’s standardized ML-KEM and ML-DSA schemes."
+   ]
+  },
+  "H11": {
+   "id": "q044",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": []
+  },
+  "H12": {
+   "id": "g037",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "The security of SPHINCS+ (SLH-DSA) relies on the collision resistance of hash functions.",
+    "Lattice-based approaches use structured lattices.",
+    "SPHINCS+ (SLH-DSA) achieves stateless operation through a hierarchical structure of hash trees.",
+    "SPHINCS+ (SLH-DSA) uses WOTS+ for signing individual nodes.",
+    "SPHINCS+ (SLH-DSA) uses FORS for efficient few-time signatures.",
+    "SPHINCS+ (SLH-DSA) uses the Hypertree construction to link components.",
+    "NIST's FIPS 203 corresponds to the standard for Kyber.",
+    "NIST's FIPS 204 corresponds to the standard for Dilithium.",
+    "NIST's FIPS 205 corresponds to the standard for SPHINCS+ (SLH-DSA).",
+    "Kyber is a Module-Lattice KEM.",
+    "Dilithium is a lattice signature.",
+    "SPHINCS+ (SLH-DSA) is a stateless hash signature."
+   ]
+  },
+  "H13": {
+   "id": "g015",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Kyber's public key is approximately 1088 bytes.",
+    "Classical ECC's public key is 32 bytes for P-256.",
+    "Dilithium's signatures are larger than ECDSA signatures.",
+    "Dilithium's signatures are smaller than McEliece's signatures.",
+    "Kyber's public key is larger than classical ECC's public key.",
+    "Kyber and Dilithium are feasible for IoT applications.",
+    "Kyber and Dilithium are feasible for mainstream applications.",
+    "Kyber and Dilithium are efficient enough for IoT and mainstream applications.",
+    "Kyber and Dilithium are suitable for general-purpose deployment.",
+    "Kyber and Dilithium are suitable for constrained environments.",
+    "Kyber and Dilithium are suitable for bandwidth-sensitive environments."
+   ]
+  },
+  "H14": {
+   "id": "g037",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "The security of SPHINCS+ (SLH-DSA) relies on the stateless approach and hash functions.",
+    "SPHINCS+ achieves stateless operation by not requiring any state to be maintained between signature generations.",
+    "Dilithium and Kyber depend on hard problems in lattice theory.",
+    "NIST has standardized Kyber, Dilithium, and SPHINCS+ under FIPS 203, 204, and 205, respectively."
+   ]
+  },
+  "H15": {
+   "id": "g015",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Kyber's public key is around 800 bytes.",
+    "Kyber's public key is significantly larger than an ECC public key (32 bytes).",
+    "Dilithium signatures are on the order of a few kilobytes.",
+    "Dilithium signatures are much larger than ECDSA signatures.",
+    "The overhead of Kyber and Dilithium is manageable for most mainstream applications.",
+    "Lattice-based algorithms like Kyber and Dilithium can be optimized for efficiency.",
+    "Lattice-based algorithms like Kyber and Dilithium are feasible and efficient enough for IoT and general-purpose deployment."
+   ]
+  },
+  "H16": {
+   "id": "q007",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "The quantum feature map in QSVM embeds data into a quantum feature space.",
+    "The quantum feature map in QSVM utilizes the parallel processing capabilities of quantum computers.",
+    "QSVM helps in identifying a hyperplane that separates different data classes more efficiently than constructing a high-dimensional feature space classically."
+   ]
+  },
+  "H17": {
+   "id": "q007",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "The quantum feature map in QSVM embeds data into a quantum feature space.",
+    "The quantum feature map makes patterns easier to identify.",
+    "The quantum feature map allows for the computation of kernel functions in a quantum setting.",
+    "QSVM leverages the parallel processing capabilities of quantum computers.",
+    "QSVM maps input data into a high-dimensional Hilbert space.",
+    "QSVM computes kernel values using fidelity measures."
+   ]
+  },
+  "H18": {
+   "id": "g011",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Three side-channel leakage points have been reported in Kyber's decryption procedure.",
+    "Researchers used machine learning techniques to extract encryption keys from Kyber implementations."
+   ]
+  },
+  "H19": {
+   "id": "s004",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Each good (c, d) pair occurs with a probability of at least 1/3r².",
+    "Only one-twelfth of all possible c values generate a good pair."
+   ]
+  },
+  "H20": {
+   "id": "q001",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Shor's algorithm is a quantum algorithm.",
+    "Shor's algorithm can efficiently factor large numbers.",
+    "Factoring large numbers is computationally infeasible for classical computers.",
+    "Public-key encryption schemes like RSA rely on the difficulty of factoring large integers.",
+    "Shor's algorithm can break public-key encryption schemes like RSA.",
+    "Current cryptographic methods are vulnerable to quantum attacks."
+   ]
+  },
+  "H21": {
+   "id": "m043",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Hybrid post-quantum key agreement has been deployed in Chrome.",
+    "The deployment in Chrome uses a hybrid X25519+Kyber key agreement.",
+    "The hybrid key agreement was first implemented in Google's BoringSSL.",
+    "The deployment ensures backward compatibility with parties that do not support it.",
+    "Backward compatibility is achieved by using both classical and post-quantum algorithms in parallel.",
+    "Using both classical and post-quantum algorithms in parallel provides security even if both are broken.",
+    "Hybrid approaches like this help maintain compatibility with parties that may not yet support PQC.",
+    "Hybrid approaches offer a transitional solution for parties that do not support PQC."
+   ]
+  },
+  "H22": {
+   "id": "q022",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "The scalable QCNN achieves 98.7% accuracy on the MNIST dataset.",
+    "The scalable QCNN uses only 45 independent rotational parameters (θ)."
+   ]
+  },
+  "H23": {
+   "id": "s001",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": []
+  },
+  "H24": {
+   "id": "m003",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Quantum Random Number Generation (QRNG) plays a crucial role in QKD.",
+    "QRNG provides truly unpredictable keys.",
+    "QRNG enhances the security of cryptographic systems.",
+    "QKD technology has progressed significantly.",
+    "QKD technology has moved from theoretical concepts to practical implementations.",
+    "Challenges remain in extending distances.",
+    "Challenges remain in making QKD technology more widely deployable."
+   ]
+  },
+  "H25": {
+   "id": "q001",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Shor's algorithm is a quantum algorithm.",
+    "Shor's algorithm can efficiently factor large integers.",
+    "Shor's algorithm can solve the discrete logarithm problem.",
+    "The discrete logarithm problem is the foundation of many public-key cryptographic systems.",
+    "Public-key cryptographic systems are based on the assumption that these problems are difficult to solve.",
+    "Shor's algorithm reduces the complexity of these problems from exponential to polynomial time.",
+    "Shor's algorithm undermines the security assumptions of public-key cryptographic systems.",
+    "Shor's algorithm impacts the security of current cryptographic systems, particularly public-key cryptographic systems."
+   ]
+  },
+  "H26": {
+   "id": "g003",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Smart City and IoVT applications require 5G for significantly higher throughput rates.",
+    "5G uniquely provides the throughput rates required for Smart City and IoVT applications.",
+    "The predicted growth of IoT devices poses security challenges.",
+    "Attackers may exploit the large number of IoT devices to steal sensitive information.",
+    "Attackers may exploit the large number of IoT devices to cause financial losses.",
+    "Robust security measures are needed due to the predicted growth of IoT devices."
+   ]
+  },
+  "H27": {
+   "id": "q092",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Organizations should begin post-quantum cryptography migration now.",
+    "The ideal time to begin post-quantum cryptography migration is 2025-2026.",
+    "Organizations should complete post-quantum cryptography migration before Q-Day (estimated 2030 ± 5 years).",
+    "Waiting for Q-Day is an error.",
+    "It takes 2-5 years for most organizations to migrate their entire cryptographic infrastructure.",
+    "Additional time is needed for supply chain coordination.",
+    "Additional time is needed for legacy system constraints.",
+    "Data encrypted today remains sensitive throughout the transition period.",
+    "Immediate action is necessary for post-quantum cryptography migration."
+   ]
+  },
+  "H28": {
+   "id": "g001",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Shor's algorithm can efficiently factor large integers.",
+    "Shor's algorithm can compute discrete logarithms.",
+    "Grover's algorithm can be countered by doubling key sizes for symmetric ciphers.",
+    "Factoring a 2048-bit RSA modulus could require about one million noisy qubits."
+   ]
+  },
+  "H29": {
+   "id": "g003",
+   "type": "multihop",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Smart Cities and IoVT applications require 5G due to their need for significantly higher throughput rates.",
+    "Traditional IoT applications do not demand significantly higher throughput rates.",
+    "The predicted growth of IoT devices poses security challenges.",
+    "5G-empowered IoT systems must maintain standard security.",
+    "5G-empowered IoT systems must meet requirements such as authentication, access control, confidentiality, integrity, privacy preservation, and trust management."
+   ]
+  },
+  "H30": {
+   "id": "q044",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": []
+  },
+  "H31": {
+   "id": "m068",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "The Module-LWE problem is a generalization of the basic LWE problem.",
+    "The Module-LWE problem operates over a polynomial ring.",
+    "The polynomial ring is defined as R = Z[X]/(X^n + 1).",
+    "The Module-LWE problem operates over a modulus q.",
+    "The LWE problem is defined over a vector space.",
+    "The ring structure of Module-LWE allows it to inherit the security properties of LWE.",
+    "The ring structure of Module-LWE potentially offers efficiency improvements.",
+    "The Module-LWE problem is suitable for practical deployment in schemes like ML-KEM and ML-DSA."
+   ]
+  },
+  "H32": {
+   "id": "m043",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Chrome has deployed a hybrid X25519+Kyber key agreement.",
+    "Chrome is likely the largest post-quantum cryptography deployment ever.",
+    "Hybrid PQC deployments use classical algorithms if hybrid PQC is unavailable.",
+    "Hybrid PQC deployments use pure PQC as an alternative if hybrid PQC is unavailable.",
+    "Hybrid PQC deployments will eventually phase out classical-only systems."
+   ]
+  },
+  "H33": {
+   "id": "q011",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "The survey describes conventional public key cryptography methods.",
+    "RSA is susceptible to quantum risks.",
+    "Diffie-Hellman is susceptible to quantum risks.",
+    "Secret Sharing is susceptible to quantum risks.",
+    "Elliptic Curve Cryptography (ECC) is susceptible to quantum risks."
+   ]
+  },
+  "H34": {
+   "id": "g001",
+   "type": "multihop",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "Shor's algorithm can efficiently factor large numbers.",
+    "Shor's algorithm can solve the discrete logarithm problem.",
+    "Grover's algorithm provides a quadratic speedup for unstructured search problems.",
+    "Larger symmetric key sizes can maintain security against Grover's algorithm.",
+    "Breaking a 2048-bit RSA key using Shor's algorithm would require about one million noisy qubits.",
+    "Breaking a 2048-bit RSA key using Shor's algorithm would require a week of runtime on a quantum computer."
+   ]
+  },
+  "H35": {
+   "id": "s001",
+   "type": "single",
+   "system": "vector_rag",
+   "n_passages": 4,
+   "claims": [
+    "In quantum simulation, variational quantum circuits use parametrized random circuits of varying depth.",
+    "This approach is referred to as a hardware efficient ansatz."
+   ]
+  },
+  "H36": {
+   "id": "q092",
+   "type": "single",
+   "system": "graphrag",
+   "n_passages": 4,
+   "claims": [
+    "Organizations should begin post-quantum cryptography migration now.",
+    "The ideal time for post-quantum cryptography migration is between 2025-2028.",
+    "Q-Day is estimated to occur around 2030 ± 5 years.",
+    "Waiting for Q-Day creates unnecessary risk.",
+    "Waiting for Q-Day creates unnecessary cost.",
+    "Waiting for Q-Day creates unnecessary disruption.",
+    "If Q-Day occurs before migration is complete, exposed data becomes immediately vulnerable."
+   ]
+  }
+ }
+}

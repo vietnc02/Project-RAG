@@ -1,0 +1,1073 @@
+[
+  {
+    "id": "g001",
+    "type": "multihop",
+    "question": "What are the key size implications for RSA when considering the practical challenges of executing Shor’s algorithm on existing quantum platforms compared to the theoretical resource estimates?",
+    "ground_truth": "Theoretical resource estimates suggest that 2048-bit RSA keys could be broken using Shor’s algorithm with fewer than a million noisy qubits, while practical challenges on existing quantum platforms raise the question of what key sizes can realistically be factored with today’s technology, indicating that the key size implications for RSA are still uncertain and need further investigation.",
+    "sources": [
+      "Practical Challenges in Executing Shor’s Algorithm",
+      "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "8a5faa30cee8-0",
+      "6b46c927c9f6-2"
+    ],
+    "chunk_texts": [
+      "Practical Challenges in Executing Shor’s Algorithm on Existing\nQuantum Platforms\nPaul Bagourd1, Julian Jang-Jaccard∗1, Vincent Lenders1, Alain Mermoud1, Torsten\nHoefler2, and Cornelius Hempel3\n1armasuisse Science and Technology, Cyber-Defence Campus, Thun, Switzerland\n2ETH Zurich, Department of Computer Science, Zurich, Switzerland\n3Paul Scherrer Institute, ETH Zurich–PSI Quantum Computing Hub, Villigen, Switzerland\nAbstract\nQuantum computers pose a fundamental threat to widely deployed public-key cryptosystems, such as RSA and ECC, by enabling efficient integer factorization using Shor’s algorithm.\nTheoretical resource estimates suggest that 2048-bit RSA keys could be broken using Shor’s\nalgorithm with fewer than a million noisy qubits. Although such machines do not yet exist, the\navailability of smaller, cloud-accessible quantum processors and open-source implementations of\nShor’s algorithm raises the question of what key sizes can realistically be factored with today’s",
+      "1\nIntroduction\nQuantum computing promises to solve certain mathematical\nproblems far faster than classical computers, posing a serious\nthreat to current cryptographic protocols. In particular, Shor’s\nalgorithm, a quantum algorithm, can efficiently factor large\nintegers and compute discrete logarithms—the hard problems\nthat underlie RSA and elliptic-curve cryptography (ECC) [1].\nThis implies that a quantum computer with sufficient power has\nthe potential to compromise all commonly used public-key\nencryption and digital signature schemes [2]. Grover’s algorithm, another quantum algorithm, can quadratically speed up\nbrute force search, effectively halving the security of symmetric\nciphers (for example, AES-128 would have the security of a\n64-bit key) [2,3]. Although Grover’s impact can be countered\nby doubling key sizes, Shor’s algorithm spells an eventual disaster for RSA, ECC, Diffie-Hellman, and related schemes. The\nurgency is amplified by the “harvest now, decrypt later” threat:"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g002",
+    "type": "multihop",
+    "question": "How does the implementation of Kyber in TLS 1.3 handshakes and its performance compare to RSA in key exchange speed, and what role does Kyber play in quantum-resistant cryptography as described in the context of cloud storage security and quantum communication protocols?",
+    "ground_truth": "Kyber, a post-quantum algorithm, has been successfully integrated into OpenSSL prototypes and tested in TLS 1.3 handshakes, outperforming RSA in key exchange speed but potentially lagging in signing tasks. In the context of quantum-resistant cryptography, Kyber is used to ensure data security in cloud storage systems and quantum communication protocols, leveraging the Learning With Errors (LWE) problem to protect data even against future quantum computers.",
+    "sources": [
+      "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing",
+      "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "2c179858df1d-32",
+      "08d761285c1c-114"
+    ],
+    "chunk_texts": [
+      "As outlined in Table 2, the move to post-quantum algorithms entails a shift\nto problems presumed hard even for quantum computers. However, these assumptions are less mature, and long-term cryptanalysis remains crucial.\n5.4\nImplementation Considerations\nIn real-world deployment, factors like hardware support, implementation maturity, susceptibility to side-channel attacks, and ease of integration into existing\nprotocols play an equally important role. For instance, Kyber and Dilithium\nhave been successfully integrated into OpenSSL prototypes and tested in TLS\n1.3 handshakes, proving their compatibility with current infrastructures.\n5.5\nSummary of Practical Trade-offs\n• Performance: Post-quantum algorithms like Kyber outperform RSA in\nkey exchange speed but may lag in signing tasks compared to ECC.\n• Bandwidth: Signature and key sizes remain major limitations for postquantum algorithms in resource-constrained environments.",
+      "the natural limitations of quantum states such as transmission distance, loss, and noise. To overcome these, cloud providers propose \nmerging quantum communication protocols into existing infrastructure using quantum repeaters and satellite-based communication \nsystems to expand the reach and scale of the QKD network, according to [211].\nMoreover, quantum-resistant cryptography is being incorporated into cloud storage systems to protect data at rest [212]. \nPost-quantum algorithms, such as Kyber (for key exchange) and NTRU (for encryption), are implemented to ensure that data \nremain secure even if future quantum computers can efficiently break traditional systems [213]. The principle behind lattice-based \nencryption schemes such as Kyber depends on the Learning With Errors (LWE) problem. Specifically, where 𝐀 is public, 𝑟 is random, \nand 𝐞 is noise, to ensure that the secret decryption key cannot be feasibly derived, even with quantum computing. In the short and"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g003",
+    "type": "multihop",
+    "question": "How does the advent of 5G technology in smart cities and IoVT applications impact the security challenges faced by IoT devices compared to traditional IoT applications like Smart Homes and industries?",
+    "ground_truth": "The advent of 5G technology in smart cities and IoVT applications increases the throughput requirements, which traditional IoT applications like Smart Homes and industries do not typically demand. This higher throughput requirement introduces new security challenges for IoT devices, such as data security and user privacy, which were less of a concern in traditional IoT applications.",
+    "sources": [
+      "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications",
+      "Post-Quantum_Blockchain_Security_for_the_Internet_of_Things_Survey_and_Research_Directions"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "39f246bd1b83-22",
+      "434ecaa7528d-4"
+    ],
+    "chunk_texts": [
+      "a new generation of IoT devices demands higher throughput\nrates. As these requirements push the boundaries of existing\nwireless technologies, 5G emerges as a promising solution\nto meet these demands effectively [45]. With advancements\nin wireless communication technologies, 5G is becoming\nmore and more real and has the potential to completely\nchange the Internet of Things (IoT) landscape. Traditional\nIoT applications like Smart Homes, industries, and farming\ntypically demand minimal wireless capabilities due to the\nlimited processing power of the devices involved. However,\nemerging trends such as Smart Cities and IoVT necessitate\n1Figures are indicative and may differ by 5–6 in count.\nsignificantly higher throughput rates to deliver optimal\nuser experiences, a capability uniquely provided by 5G\nnetworks [3], [45], [46]. In essence, the advent of 5G\ntechnology addresses the evolving connectivity requirements",
+      "metropolitan areas, where they are employed to monitor and\nmanage trafﬁc and notify residents about weather status and\nair quality in different districts [2].\nSuch extensive acceptance, on the one hand, and the\ngrowth of new concepts for IoT like Cyber-Physical Systems\n(CPS), Machine-to-Machine (M2M) communications and 5G\ntechnology, on the other hand, have led to the prediction of\nover 30 billion IoT devices in use by 2030 [3]. Moreover,\nthe large number and variety of devices, along with their different deployment architectures in broad applications, lead to\nnumerous security risks and challenges. Therefore, IoT devices\nare one of the most common devices targeted by adversaries,\nwhich can compromise data security and user privacy or cause\nnetwork disruption. Currently, the majority of IoT applications\nare supported by publish-subscriber architectures that connect\nto cloud servers through the Internet. The cloud provides\na centralized approach that has some advantages, such as"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g004",
+    "type": "multihop",
+    "question": "How does the QNN-QRL algorithm, which integrates quantum neural networks (QNN) and quantum reinforcement learning (QRL) in the BB84 and B92 protocols, compare to quantum deep learning algorithms in terms of their approach to optimizing key management and resource utilization in quantum key distribution (QKD)?",
+    "ground_truth": "The QNN-QRL algorithm integrates QRL with QNN to enhance security, optimize key management, and improve adaptability in QKD, while quantum deep learning algorithms, such as Quantum Convolutional Neural Networks (QCNN) and Quantum Long Short-Term Memory Networks (QLSTM), explore complex designs and are adapted to quantum constraints. Both approaches aim to optimize resource utilization, but QNN-QRL specifically addresses QKD protocols and key management issues.",
+    "sources": [
+      "Quantum key distribution through quantum machine learning - a research review",
+      "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "096268fca3ea-9",
+      "f642ef5c199a-76"
+    ],
+    "chunk_texts": [
+      "TABLE 1 Recent advancements in QML algorithms for QKD highlight current research gaps and future directions.\nQML in QKD\nProposed algorithm\nProspects\nConstraints\nQuantum machine learning\nin Quantum key distribution\nQNN-QRL: (Behera et al., 2025)\nIn this approach, two novel QRL-based\nalgorithms are introduced and integrated with\na QNN implemented on BB84 and\nB92 protocols. This integration enhances\nsecurity, optimizes key management,\nimproves adaptability, reduces noise, and\noptimizes resource utilization\nIntegration QNN-QRL with the classical\nsystem is challenging\nReinforcement learning in a quantum\nenvironment creates instability\nMany hardware constraints with the real-time\nimplementation of QNN-QRL\nOptimal parameter prediction for secure\nQKD using QML models (Bhargavi and\nSubramanya, 2020)\nOptimization of parameters enhances the key\nrate, and scalability, and reduces noise\nReliability, Standardization, Computational\noverload, and Training data dependency are\nmajor constraints",
+      "A Survey of QML: Foundations, Algorithms, Frameworks, Data and Applications\n91:17\nadvantage in efficiency or accuracy. In addition, they may require fewer parameters to approximate\ncertain functions compared to deep classical architectures, which could reduce training complexity\nunder the right conditions.\nFinally, its pseudocode can be found in Algorithm 7 (see Appendix C).\n4.3\nQuantum Deep Learning Algorithms\nAs QML evolves, growing attention is being devoted to quantum deep learning (QDL) algorithms\n[121]. Unlike early QML models based on linear classifiers or shallow circuits, QDL approaches\nexplore complex designs such as convolutional, recurrent, generative, and probabilistic networks.\nThese are not mere quantum translations, but often require fundamentally new implementations\nadapted to quantum constraints. We review four representative QDL families: Quantum\nConvolutional Neural Networks (QCNN), Quantum Long Short-Term Memory Networks"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g005",
+    "type": "multihop",
+    "question": "How does the data re-uploading strategy, as demonstrated by Pérez-Salinas et al., compare to hybrid quantum embeddings in terms of data representation, and what specific benchmarks were used to evaluate their performance in quantum classification and image processing, according to the survey of quantum machine learning? How did the hybrid model using quantum-enhanced embeddings and circuit designs perform in botnet detection, and which quantum providers and frameworks were utilized by Tehrani et al. for their experiments?",
+    "ground_truth": "The data re-uploading strategy, as demonstrated by Pérez-Salinas et al., showed significant improvements in data representation within quantum circuits compared to traditional embedding methods like amplitude encoding. Future research should investigate hybrid encoding techniques and their practical performance in tasks like quantum classification and quantum-enhanced image processing, using specific benchmarks. The hybrid model using quantum-enhanced embeddings and circuit designs achieved up to 94.7% accuracy in botnet detection, significantly outperforming classical baselines. Tehrani et al. used a hybrid approach that utilized both quantum and classical methods, employing public cloud infrastructure such as Google Cloud and Microsoft Azure, along with quantum providers like Rigetti, IonQ, and Quantinuum, and the IBM Qiskit framework and AER simulator for their experiments.",
+    "sources": [
+      "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+      "Quantum Machine Learning for Cybersecurity"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "f642ef5c199a-133",
+      "25e78fc9ccfe-40"
+    ],
+    "chunk_texts": [
+      "more scalable and trainable quantum neural networks by leveraging problem-specific ansatz\nstructures.\nThe process of efficiently encoding classical data into quantum states remains a significant\nobstacle. Traditional embedding methods, such as amplitude encoding, require a prohibitively\nlarge number of qubits, whereas simpler encoding strategies like angle encoding may lead to\ninsufficient data representational capacity. Recent advances, such as the data re-uploading strategy\nexperimentally demonstrated by Pérez-Salinas et al. [97], show significant improvements in data\nrepresentation within quantum circuits. Future research should investigate hybrid encoding techniques and their practical performance in tasks like quantum classification and quantum-enhanced\nimage processing, using specific benchmarks.\nACM Comput. Surv., Vol. 58, No. 4, Article 91. Publication date: October 2025.",
+      "embeddings, which enabled the mapping of classical features\ninto quantum state representations. The authors experimented\nwith multiple circuit architectures, including basic entangler\nlayers, random quantum layers, and strongly entangling\nlayers. The hybrid model achieved up to 94.7% accuracy,\nsignificantly outperforming classical baselines. They concluded\nthat quantum-enhanced embeddings and circuit designs\nare especially effective for botnet detection and broader\ncybersecurity analytics. Tehrani et al. [20] used a QHTC for\ndetecting domain generation algorithm botnets. They employed\na hybrid approach that utilised both quantum and classical\nmethods to enhance the accuracy and efficiency of real-time\ndetection in network environments. They used public cloud\ninfrastructure such as Google Cloud and Microsoft Azure, along\nwith quantum providers like Rigetti, IonQ, and Quantinuum.\nThe IBM Qiskit framework and AER simulator were used for"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g006",
+    "type": "multihop",
+    "question": "How does the Global Distributed Honeynet project, as part of the NOAH Project, contribute to the detection of drive-by-download attacks compared to the use of machine learning in honeypots mentioned in the second paper?",
+    "ground_truth": "The Global Distributed Honeynet project, part of the NOAH Project, contributes to the detection of drive-by-download attacks through the deployment of high-interaction honeynets and cross-referencing of incident data for correlation against historical forensic databases. In contrast, the second paper suggests using machine learning for adaptive detection in honeypots to enhance threat detection.",
+    "sources": [
+      "Use of Deception to Improve Client Honeypot Detection of Drive-by-Download Attacks",
+      "Advancing Cybersecurity with Honeypots and Deception Strategies"
+    ],
+    "topic": "Deception",
+    "chunk_ids": [
+      "fc2fb8e18610-26",
+      "309a501835c1-2"
+    ],
+    "chunk_texts": [
+      "Use of Deception to Improve Client Honeypot Detection \n145 \nThe authors believe that counter counter-deception in the development of client \nhoneypots, in addition to a technical approach, should be complemented by a political \nand social approach to learning about trends and alerts in the attacker community. \nThis is part of a framework to study malware, attackers' behavior and attack trends. \nThe Honeynet Project deployed the Global Distributed Honeynet project, with \ngoals such as global deployment of more high-interaction honeynets, and cross referencing of incident data for correlation against historical forensic databases [39]. \nThe NOAH Project, funded by the European Commission, is a three year project \nthat intends to gather and analyze information about the nature of Internet cyber attacks [40]. Its Honey At Home implementation project extends its network to homes \nand small businesses [41]. It will develop an infrastructure to detect and provide early",
+      "firewalls and incident response strategies, while offering comprehensive insights into attackers’ tactics, techniques, and procedures (TTPs). Emerging trends are examined, such as\nincorporating machine learning for adaptive detection and creating cloud-based honeypots.\nRecommendations for optimizing honeypot deployment include strategic placement, comprehensive monitoring, and ongoing updates. This research provides a detailed framework\nfor selecting and implementing honeypots customized to organizational requirements.\nKeywords: honeypots; deception technology; cybersecurity; threat detection; deception\n1. Introduction\nIn an age of escalating cyber threats, safeguarding networks and systems has emerged\nas a global challenge for organizations. As cybersecurity teams pursue novel techniques\nto identify and mitigate unauthorized access, honeypots have surfaced as a formidable\nasset in the repertoire of defensive strategies. A honeypot is a decoy system or application"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g007",
+    "type": "multihop",
+    "question": "How does the McEliece cryptosystem, which uses error-correcting codes, compare to multivariate quadratic (MQ) cryptography in terms of their resistance to quantum attacks and key sizes, and what are the specific security applications of each method as mentioned in the papers?",
+    "ground_truth": "McEliece cryptosystem, which uses error-correcting codes, has large key sizes but has been extensively studied due to its long-standing resistance to both classical and quantum attacks. In contrast, multivariate quadratic (MQ) cryptography, which involves solving systems of quadratic equations over finite fields, is noted for its resistance to quantum attacks and is primarily used in digital signatures and public-key encryption. Both methods are considered promising for post-quantum security, with MQ-based schemes being particularly praised for their parallelism support in edge node authentication.",
+    "sources": [
+      "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions",
+      "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "08d761285c1c-92",
+      "39f246bd1b83-105"
+    ],
+    "chunk_texts": [
+      "𝑞 and a generator matrix 𝐺, the \nattacker must find an error vector 𝑒∈F𝑛\n𝑞 such that 𝑦= 𝐺𝑥+ 𝑒 for some codeword 𝑥.\nThis problem remains intractable for quantum computers, making McEliece a strong candidate for PQC. Despite its large key \nsizes, McEliece has been extensively studied due to its long-standing resistance to both classical and quantum attacks [188].\n5.3. Multivariate Quadratic equations (MQ)\nMultivariate quadratic (MQ) cryptography is a promising PQC approach [189]. The core problem involves solving systems of \nquadratic equations over finite fields: \n𝑓1(𝑥1, 𝑥2, … , 𝑥𝑛) = 0,\n𝑓2(𝑥1, 𝑥2, … , 𝑥𝑛) = 0,\n⋮\n𝑓𝑚(𝑥1, 𝑥2, … , 𝑥𝑛) = 0,\n(8)\nwhere each 𝑓𝑖 is a quadratic polynomial in 𝑛 variables. No efficient classical or quantum algorithms are known for solving generic \nMQ systems, making them suitable for cryptographic applications. MQ-based schemes are primarily used in digital signatures and \npublic-key encryption, leveraging their resistance to quantum attacks.",
+      "KEM (HQC) to strengthen the security of the edge nodes.\nThe results demonstrate that the implementation has good and\nefficient security.\nC. MULTIVARIATE-BASED CRYPTOGRAPHY\nMultivariate polynomials are based on NP hard and NP\ncomplete problems defined over a finite field [33]. There are\nspecific situations in which these polynomials can be defined\nacross an extension field. Multivariate quadratics are what we\nrefer to when the polynomials have a degree of two [182].\nMultivariate schemes have the obvious benefit of providing\npost-quantum security.\nAkleylek et al. [183] stated that digital signatures can be\nused to mitigate attacks pertaining to unauthorized access.\nThe authors presented a multivariate signature based on\nmultivariate polynomials that is immune to attacks from\nquantum computers and has effective key and signature sizes.\nDue to the proposed scheme’s excellent parallelism support,\nedge node authentication may be deployed effectively at high"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g008",
+    "type": "multihop",
+    "question": "What is the key length bound for the CV protocol in finite-size regimes, and how does this compare to the security margin of symmetric ciphers under quantum attacks according to the HNDL paradigm?",
+    "ground_truth": "The key length bound for the CV protocol in finite-size regimes is given by the formula: l ≤2n h 2HMLE(U) −f(Σmax_a, Σmax_b, Σmin_c) −leakEC −∆AEP −∆ent −2 log(1/2¯ϵ). This bound is derived from the security proof of the CV protocol. In contrast, the HNDL paradigm suggests that doubling the key length of symmetric ciphers, such as upgrading AES-128 to AES-256, can preserve equivalent post-quantum strength, effectively halving the security margin of symmetric ciphers under quantum attacks.",
+    "sources": [
+      "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction",
+      "Harvest-Now, Decrypt-Later - A Temporal Cybersecurity Risk in the Quantum Transition"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "b5b8f79e773e-88",
+      "8bb51b835577-12"
+    ],
+    "chunk_texts": [
+      "earlier, more complex security proofs. Furthermore, the proof’s use of CSS codes makes explicit the mapping\nbetween observed bit or phase errors and correctable syndromes, thus, precisely the interface to the quantum\nerror-correction machinery discussed afterwards.\n3. Composable Security Proof for CV Protocol: The security proof begins by considering a reversereconciliation entanglement-based (EB) protocol [61]. Alice prepares 2n two-mode squeezed vacuum states\nand sends half of each state to Bob through a quantum channel [12]. Bob measures his received modes using\nheterodyne detection, and the shared quantum state is analyzed for parameter estimation.\nThe key length l in finite-size regimes is derived using the following bound, [61]\nl ≤2n\nh\n2HMLE(U) −f\n\u0000Σmax\na\n, Σmax\nb\n, Σmin\nc\n\u0001 i\n−leakEC −∆AEP −∆ent\n−2 log\n\u0012 1\n2¯ϵ\n\u0013\n.\n(59)\nwhere HMLE(U) is the maximum-likelihood entropy of the discretized measurement outcomes U, and\nf(Σmax\na\n, Σmax\nb\n, Σmin",
+      "computation of discrete logarithms on a quantum computer, implying that both RSA and\nelliptic-curve cryptography (ECC) would collapse once scalable quantum hardware becomes available [1,2]. Recent advances in quantum resource estimation have accelerated\nthis timeline. Notably, Google researchers reported that factoring a 2048-bit RSA modulus\ncould require only about one million noisy qubits and a week of runtime. This is a dramatic\nreduction from earlier twenty-million–qubit projections [12].\nSymmetric cryptography remains comparatively resilient, yet Grover’s algorithm\noffers a quadratic speed-up for brute-force key search, effectively halving the security\nmargin of symmetric ciphers [13]. To compensate, doubling key lengths such as upgrading\nAES-128 to AES-256, preserves equivalent post-quantum strength [14]. These foundational\nbreakthroughs underpin the HNDL paradigm: adversaries can capture encrypted data"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g009",
+    "type": "multihop",
+    "question": "How does the Quantum-Resilience Index (R(t)) relate to the Adoption Rate and Attack Resilience in the context of quantum computing and cybersecurity, according to the two passages?",
+    "ground_truth": "The Quantum-Resilience Index (R(t)) is a key metric for enterprise adaptability in post-quantum environments, indicating greater quantum resilience with higher values. In contrast, the passage on next-generation quantum security highlights that quantum computing has near 100% Attack Resilience due to its theoretical unbreakability, but it lags in Adoption Rate, which is a measure of how widely the technology is being implemented. Thus, while R(t) measures the preparedness for quantum threats, the Adoption Rate and Attack Resilience reflect the practical challenges and benefits of quantum computing in cybersecurity.",
+    "sources": [
+      "The-Quantum-Security-Deadline",
+      "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "c43a276d672a-23",
+      "08d761285c1c-153"
+    ],
+    "chunk_texts": [
+      "European Journal of Computer Science and Information Technology, 13(52),35-52, 2025 \n \n \n Print ISSN: 2054-0957 (Print) \n Online ISSN: 2054-0965 (Online) \n Website: https://www.eajournals.org/ \n Publication of the European Centre for Research Training and Development -UK \n43 \n \nA higher R(t) indicates greater quantum resilience. In practical terms, enterprises should target an \nR(t)>0. (on a 0–1 scale) before the estimated Cryptographically Relevant Quantum Computer \n(CRQC) horizon—currently projected around 2032 (Mosca, 2021; NIST, 2024). \nThe Quantum-Resilience Index, R(t), serves as a key performance metric for enterprise \nadaptability in post-quantum environments. A higher R(t) indicates greater enterprise quantum \nresilience, reflecting superior agility, automation, and cryptographic readiness against quantumera threats. \n \nBUILDING THE FOUNDATION FOR QUANTUM-RESILIENT SECURITY \nQuantum resilience requires a holistic, enterprise-wide approach that integrates discovery,",
+      "Adoption Rate, Energy Efficiency, Attack Resilience, Key Size, and Latency. Each attribute is represented as a percentage on \nthe 𝑦-axis, reflecting its relative effectiveness or performance within each paradigm, while the 𝑥-axis lists the categories being \ncompared. Quantum Computing demonstrates superior Encryption Strength and Attack Resilience (near 100%) due to its theoretical \nunbreakability with post-quantum cryptography, but it lags in Scalability, Cost Efficiency, and Adoption Rate (lower percentages) \ndue to its nascent stage, high implementation costs, and limited real-world deployment. Modern Cybersecurity strikes a balance, \noutperforming Traditional Cybersecurity in Vulnerability to Attacks and Energy Efficiency due to advanced protocols like ellipticcurve cryptography and optimized algorithms, while Traditional Cybersecurity remains more Cost-Efficient and Scalable due to its \nmaturity and widespread infrastructure."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g010",
+    "type": "multihop",
+    "question": "What are the key technical barriers for executing Shor’s algorithm on current NISQ-era quantum devices, and how do these barriers compare to the requirements for upgrading cryptographic hash functions in the harvest-now-decrypt-later threat model?",
+    "ground_truth": "The key technical barriers for executing Shor’s algorithm on current NISQ-era quantum devices include limited qubit counts, high error rates, and short coherence times, which are insufficient for running Shor’s algorithm against RSA2048. In contrast, upgrading cryptographic hash functions like SHA-256 to SHA-512 can provide better security against quantum attacks, highlighting the different challenges faced in quantum cryptography and classical cryptography.",
+    "sources": [
+      "Practical Challenges in Executing Shor’s Algorithm",
+      "harvest-now-decrypt-later-pqc-threat-model"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "8a5faa30cee8-4",
+      "f8a2d1c8b385-28"
+    ],
+    "chunk_texts": [
+      "hardware remains extremely challenging — even for integers far smaller than those used in deployed\ncryptographic schemes. In the current noisy intermediate-scale quantum (NISQ) [4] era, quantum\ndevices have limited qubit counts, significant noise, and short coherence times.\nUnderstanding\nwhat they can and cannot realistically achieve is crucial for assessing the urgency of quantum-safe\ncryptographic migration.\nThis paper makes three main contributions. First, we review the leading quantum computing\napproaches that have reached comparable technical readiness levels. We group them into synthetic\nand natural qubits and discuss their strengths, weaknesses, and key technical barriers.\nSecond, we review the state of experimental implementations of Shor’s algorithm across various\nquantum computing technologies attempted to date, discussing the significance and limitations of\neach effort.",
+      "can be upgraded from SHA-256 (which would become 128-bit secure) to SHA-512 (which\nwould become 256-bit secure).\n3.4 The NISQ Era and Limitations of Current Quantum Hardware\nThe current era of quantum computing (2024-2025) is characterized as the NISQ era: Noisy\nIntermediate-Scale Quantum. Current quantum computers have several severe limitations:\n1. Limited Qubit Counts: Current systems operate with hundreds to a few thousand physical\nqubits, compared to the millions or billions required to run Shor’s algorithm against RSA2048.\n2. High Error Rates: Quantum operations are subject to decoherence (loss of quantum\ninformation) and gate errors. Current error rates range from 10ˆ-3 to 10ˆ-2 per operation,\nwhereas error correction requires rates below 10ˆ-4.\n3. Limited Coherence Time: Qubits maintain quantum state for microseconds to milliseconds before decoherence. For a complex computation like Shor’s algorithm (requiring"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g011",
+    "type": "multihop",
+    "question": "What are the specific side-channel leakage points in Kyber’s decryption procedure, and how do machine learning techniques enhance side-channel attacks against Kyber’s hardware implementations as mentioned in the papers?",
+    "ground_truth": "Kyber’s decryption procedure has three side-channel leakage points, as reported in Paper A. Paper B mentions that researchers used machine learning techniques to enhance side-channel attacks by taking advantage of power usage fluctuations, which are a result of these leakage points.",
+    "sources": [
+      "A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber",
+      "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "2def9bea4093-4",
+      "60cc7a198bb1-29"
+    ],
+    "chunk_texts": [
+      "that there are three side-channel leakage points in Kyber’s\ndecryption procedure, and successfully completed SCAs on\nKyber’s hardware implementations. On the FIAs side, Ni\net al. [6] successfully implemented bitstream fault injection\nattacks on Kyber’s hardware implementations. In addition,\ncombined fault and power attacks also pose a significant threat\nto lattice-based cryptographic algorithms.\nHowever, defense work for Kyber, especially on hardware\nplatform, is still far from sufficient. Sarker et al. [7] proposed\nthe error detection architectures for hardware/coftware codesign approaches of number theoretic transform (NTT). Zhao\net al. [5] and Kamucheka et al. [8] proposed two different\nhardware masking schemes, both of which introduce significant area overhead. On the other hand, two hiding schemes on\nhardware platform are provided in [9] and [10]. In [9], Morait\net al. used the method of randomized clock and duplication to",
+      "improved key derivation procedures [49].\n6. Attacks against CRYSTALS-Kyber\nNIST has recommended CRYSTALS-Kyber as one of the public-key algorithms for\nstandardizing post-quantum encryption. A side-channel attack has been successfully used\nby researchers against an algorithm implementation that was previously believed to be\nresistant to these kinds of attacks. The researchers employed machine learning techniques\nto take advantage of this side-channel attack, which entails power usage.\nWith the increased ease of measuring and analyzing computer hardware power usage\nin recent years, side-channel attacks have grown in importance as a security concern. It\nis well known that some processor or circuit processes can result in energy fluctuations.\nThese fluctuations can be identified and utilized to deduce details about the system or the\ndata being processed."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g012",
+    "type": "multihop",
+    "question": "What are the quantum-resistant measures mandated by the US government, and which cryptographic libraries support NIST PQC standards as of 2024?",
+    "ground_truth": "The US government, through the NSA’s CNSA 2.0 suite, mandates that national security systems start using approved PQC algorithms by 2025. As of 2024, OpenSSL, MbedTLS, Crypto++, Bouncy Castle, and Botan are among the libraries that support NIST PQC standards, with OpenSSL, MbedTLS, and Bouncy Castle fully supporting NIST PQC standards, while Crypto++, Bouncy Castle, and Botan have partial support.",
+    "sources": [
+      "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries",
+      "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "6b46c927c9f6-56",
+      "60cc7a198bb1-5"
+    ],
+    "chunk_texts": [
+      "Preprint – A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries\n9\nTable 1: Open-Source Crypto Library PQC Support Matrix\nLibrary\nLanguage\nSupports\nNIST PQC\nPQC\nForks\nExist\nNIST\nStandards\nRoadmap\nOpenSSL\nC\nYes\nYes\n—\nlibsodium\nC\nNo\nNo\nNo\nMbedTLS\nC\nPartial\nYes\nYes\nCrypto++\nC++\nNo\nYes\nNo\nBouncy\nCastle\nJava /\nC#\nYes\nNo\n—\nwolfSSL\nC\nYes\nNo\n—\nBotan\nC++\nYes\nNo\n—\nBoringSSL\nC\nPartial\nYes\nYes\nLibreSSL\nC\nNo\nNo\nNo\nGovernment and Military Systems\nGovernment agencies\n(civilian and military) often handle data that must remain confidential for decades (diplomatic communications, intelligence,\netc. [24]. These organizations are among the first to mandate\nquantum-resistant measures. The US government, for example, through the NSA’s CNSA 2.0 suite, has stated that national security systems should start using approved PQC algorithms by 2025 for certain applications [24]. An example\nis software/firmware signing for military equipment: a fighter",
+      "Cryptography 2024, 8, 15\n2 of 13\nAware of this difficulty, post-quantum cryptosystems that can safely and successfully\nwithstand quantum attacks must be developed and put into use [4,5]. With the development\nof quantum computing, conventional asymmetric methods like RSA could not be adequate\nto protect private data. The way that quantum technology is developing has prompted an\nongoing endeavor to design resilient post-quantum systems [6].\nThe National Institute of Standards and Technology (NIST) initiated the Post-Quantum\nCryptography Standardization Initiative (NIST PQC) in 2016 in response to the changing\nthreat scenario provided by quantum computers. NIST PQC’s main objective is to provide\nstrong cryptographic algorithm standards that can withstand attacks from quantum computers. The goal of the project is to secure sensitive data in the post-quantum computing age\nby requesting, assessing, and standardizing quantum-resistant cryptographic algorithms."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g013",
+    "type": "multihop",
+    "question": "How does the success rate of message recovery differ between the six-share implementation with cyclic rotations and the lattice-based cryptography attack on Kyber, and what factors contribute to the success rate differences?",
+    "ground_truth": "In the six-share implementation with cyclic rotations, 87% of the shared key may be recovered when 20 traces are allowed. On the other hand, the lattice-based cryptography attack on Kyber can recover the full secret key on different security levels with consistent success rates, although the time taken slightly increases at the high security level due to high parallelism in Step1 and the duration of Step2.",
+    "sources": [
+      "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation",
+      "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "60cc7a198bb1-40",
+      "cc70e283bcc5-28"
+    ],
+    "chunk_texts": [
+      "message, the authors cleverly provide a twist. When four identical traces are rotated, the\nlikelihood of success in comparison to a two-share implementation rises to 78%. At 0.5%,\nthe six-share implementation is still robust nonetheless. Eighty-seven percent of the shared\nkey may be recovered when 20 traces are allowed from the six-share implementation.\nIt should be noted that 2.5 K messages are chosen at random for each w-order masked\nimplementation. Since each trace contains three 2-bit cyclic message rotations, there are\na total of 10 K traces for each message. Without cyclic rotations, the average message\nrecovery probability for a first-order masked implementation with one trace is 0.127%.\nCyclic rotations increase this chance to 78.866%. The likelihood is 0.56% with a single trace\non a fifth-order masked implementation employing cyclic rotations, 54.53% with three\ntraces, and 87.085% with five traces.",
+      "heavily relies on the number of power traces, while the CPA\nis almost unchanged although the trace number is doubled.\nThe main reason could be the different utilization ratios of\nthe multi-threading server. Note that the CPA computations\nare independently executed with the different power traces\nwhile the trial computations of the lattice attack of SK-128\nare executed in serial.\nTable I presents the time of implementing the proposed\nattacks on Kyber at different security levels, using 15 power\ntraces across twenty experiments. Kyber-512, -768, and -1024\nhave 4, 6, and 8 SK-128s, respectively, with each SK-128\nbeing independent of the others. This allows us to recover the\ndifferent SK-128s in parallel. The attack method we propose\ncan recover the full secret key on different security levels of\nKyber, with the success rate remaining consistent. The reason\nfor the slight increase in time taken at the high security level\nis the high parallelism of Step1 and the duration of Step2"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g014",
+    "type": "multihop",
+    "question": "How have modern honeypots integrated AI to enhance their believability and what are the key differences between traditional and modern honeypot classifications mentioned in both papers?",
+    "ground_truth": "Modern honeypots integrate AI to enhance their believability by defeating fingerprinting attempts and mapping to the MITRE ATT&CK framework for standardized attack pattern documentation. Traditional honeypots were classified into low-interaction and high-interaction models, while modern works focus on hybrid and dynamic honeypots that better mimic real-world systems and address sophisticated threats.",
+    "sources": [
+      "AI-Powered Honeypots - Enhancing Deception Technologies for Cyber Defense",
+      "A Systematic Meta-Survey of Cyber Deception - Unified Taxonomy and Research Directions"
+    ],
+    "topic": "Deception",
+    "chunk_ids": [
+      "9400e0fc8ddf-5",
+      "4015206e5739-134"
+    ],
+    "chunk_texts": [
+      "concept of honeypots was first introduced in the 1990s as a means to study hacker behavior \nand collect forensic evidence. Traditional honeypots were classified into low-interaction and \nhigh-interaction models, each serving distinct purposes. Low-interaction honeypots simulated \nbasic network services with limited engagement, while high-interaction honeypots provided \nfully functional environments to capture detailed attack methodologies. Despite their \nusefulness, these systems suffered from scalability issues, maintenance challenges, and \nsusceptibility to detection by skilled attackers. As cyber threats evolved, researchers explored \nenhancements to honeypot technologies, leading to the development of hybrid and dynamic \nhoneypots capable of mimicking real-world systems more effectively. The integration of \nmachine learning and artificial intelligence into cybersecurity solutions gained momentum in",
+      "established conceptual models that distinguished honeypots from intrusion detection systems and firewalls, defined basic\nclassifications including goal-based taxonomies (research vs. production honeypots) and interaction-level distinctions\n(low, medium, high interaction), and began systematically applying honeypot concepts to emerging domains like\nwireless networks and mobile systems.\nPhase 2: Modern Integration and Evaluation Crisis (2020-Present). Current works [37, 59] shift focus from\ndefinition to enhancement, operating in an environment where honeypots are established but require modernization to\naddress sophisticated threats. This phase emphasizes improved believability through advanced mimicking techniques\nthat defeat fingerprinting attempts [37] and integration with modern security ecosystems including AI-driven threat\nanalysis and MITRE ATT&CK framework mapping for standardized attack pattern documentation [59]. However, this"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g015",
+    "type": "multihop",
+    "question": "How do the key sizes and performance of Kyber and Dilithium compare in the context of post-quantum cryptography for IoT devices, according to the two passages?",
+    "ground_truth": "According to the passages, Kyber has a smaller public key size compared to Classic McEliece but larger than an ECC public key, making it theoretically feasible for common IoT setups. Dilithium, on the other hand, is well-suited for scenarios requiring faster signing and verification when memory resources are sufficient. Kyber operations are fast, comparable to RSA in software and even faster with optimized implementations, while Dilithium can verify thousands of signatures per second on a modern CPU, indicating better efficiency in memory usage.",
+    "sources": [
+      "Post-Quantum_Blockchain_Security_for_the_Internet_of_Things_Survey_and_Research_Directions",
+      "Are Enterprises Ready for Quantum-Safe Cybersecurity"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "434ecaa7528d-52",
+      "88cc0662be4c-16"
+    ],
+    "chunk_texts": [
+      "1756\nIEEE COMMUNICATIONS SURVEYS & TUTORIALS, VOL. 26, NO. 3, THIRD QUARTER 2024\ncommunication. Additionally, the majority of KEM algorithms\nhave reasonable key sizes, making their bandwidth needs less\nimpactful than signatures. Therefore, the most efﬁcient KEMs\nlike Kyber—with the exception of Classic McEliece, whose\nvery large public keys surpass the RAM size—are theoretically\nfeasible at least at the ﬁrst security level for a common\nIoT setup [74]. Fortunately, NIST has introduced several\nPQ signature standards, offering users a range of options\ntailored to their speciﬁc needs and application constraints. For\nexample, Dilithium is well suited for scenarios requiring faster\nsigning and veriﬁcation when memory resources are sufﬁcient,\nbut FALCON exhibits superior efﬁciency in terms of memory\nusage.\nAs a ﬁnal remark, it is worth noting that the experiments\non speed, network overhead, and memory in this section were\nnot performed on a speciﬁc device, which makes it difﬁcult",
+      "signature sizes or higher computational costs [24, 25]. For instance, Dilithium signatures are\non the order of a few kilobytes (much larger than an ECDSA signature\n64 bytes), and Kyber’s public key ( 800 bytes) is larger than an ECC public key ( 32 bytes) but much smaller\nthan some alternatives like McEliece (which uses very large public keys, e.g. > 1 MB) [26–28].\nThese differences can impact network bandwidth and storage, especially in constrained devices.\nHowever, researchers have demonstrated that for most mainstream applications the overhead is\nmanageable: Kyber operations are fast (comparable to RSA in software and even faster with\noptimized implementations), and Dilithium can verify thousands of signatures per second on a\nmodern CPU [17]. Early performance benchmarks indicate that lattice-based algorithms can\noften be optimized with hardware acceleration (e.g., using vector instructions) and may even"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g016",
+    "type": "multihop",
+    "question": "How does QSDC differ from traditional QKD in terms of key distribution and secure communication, and what are the implications of their respective approaches on practical quantum networks as discussed in the two papers?",
+    "ground_truth": "QSDC, as described in the first paper, introduces a novel communication paradigm that directly transmits messages over a quantum channel without the need for cryptographic keys, ensuring secure communication. In contrast, traditional QKD, as discussed in the second paper, establishes shared secret keys between two parties by exploiting quantum mechanics principles, which is a fundamental approach in the development of practical quantum networks. The absence of cryptographic keys in QSDC could potentially offer near-instantaneous secure communication, whereas QKD's reliance on key distribution might be more susceptible to practical attacks and error correction challenges in real-world networks.",
+    "sources": [
+      "Quantum key distribution through quantum machine learning - a research review",
+      "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "096268fca3ea-3",
+      "b5b8f79e773e-3"
+    ],
+    "chunk_texts": [
+      "cryptographic keys, QSDC introduces a novel communication paradigm that provides a\ncomprehensive, conﬁdential, and near-instantaneous solution by transmitting actual\nmessages directly over a quantum channel. By eliminating the need for cryptographic\nkeys for encryption and decryption, QSDC ensures secure communication (Pan et al.,\nOPEN ACCESS\nEDITED BY\nQin Liao,\nHunan University, China\nREVIEWED BY\nNanrun Zhou,\nShanghai University of Engineering Sciences,\nChina\n*CORRESPONDENCE\nKrupa Purohit,\nkrupa.dave24@gmail.com\nRECEIVED 12 February 2025\nACCEPTED 23 April 2025\nPUBLISHED 02 May 2025\nCITATION\nPurohit K and Vyas AK (2025) Quantum key\ndistribution through quantum machine\nlearning: a research review.\nFront. Quantum Sci. Technol. 4:1575498.\ndoi: 10.3389/frqst.2025.1575498\nCOPYRIGHT\n© 2025 Purohit and Vyas. This is an openaccess article distributed under the terms of the\nCreative Commons Attribution License (CC BY).\nThe use, distribution or reproduction in other",
+      "standards of secure communications are derived from the last seven decades of information science and cryptography\nschemes such as public-key authentication. However, in the last three decades, the introduction of quantum computers\nhas put the security of current communications in need of serious revision.\nQuantum Key Distribution (QKD) is one of the major candidates for secure communication in the age of quantum\ncomputers. QKD establishes shared secret keys between two parties, Alice and Bob, by exploiting the principles of\nquantum mechanics [1, 2]. Throughout the last couple of decades, the development of QKD networks has made great\nstrides. Intercity networks such as the DARPA network [3], Trieste network [4], Tokyo network [5], etc., are prime\nexamples of rapidly growing interest in the development of practical quantum networks. In addition to land-based\narXiv:2511.20602v1 [quant-ph] 25 Nov 2025"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g017",
+    "type": "multihop",
+    "question": "How can leakage-aware benchmarks and smart task scheduling in QML cybersecurity pipelines be combined with operational measurement and readiness in post-quantum cryptography to ensure robust security and performance?",
+    "ground_truth": "Leakage-aware benchmarks and smart task scheduling in QML cybersecurity pipelines can help prevent temporal or cross-task leakage and ensure reliable performance. Similarly, operational measurement and readiness in post-quantum cryptography, through internet-scale telemetry and controlled benchmarks, can track adoption rates, failure signatures, and the effectiveness of hybrid designs, ensuring sustained confidence during PQC deployment. By integrating these practices, both fields can enhance their security and performance.",
+    "sources": [
+      "Quantum Machine Learning for Cybersecurity",
+      "Post-Quantum Cryptography and Quantum-Safe Security"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "25e78fc9ccfe-82",
+      "6bd42fde4e48-72"
+    ],
+    "chunk_texts": [
+      "13\nFUTURE\nDIRECTIONS\nTRANSPARENT\nREPORTING\nSYSTEMS AND\nSCHEDULING\nROBUSTNESS\nAND SAFETY\nGOVERNANCE\nAND\nSTANDARDS\n LEAKAGEAWARE\nBENCHMARKS\nPRIVACY AND\nCOMPLIANCE\nRequire clear reporting of all\nresources used, including\nlatency, memory, throughput,\nand cost.\nPublish fixed dataset splits,\nrandom seeds, and auditable\nchecks to ensure reproducibility.\nUse temporally ordered,\nstreaming benchmarks to\nprevent temporal or cross-task\nleakage.\nMonitor calibration drift and\napply drift-aware online learning\nto maintain reliable\nperformance.\nUse smart task scheduling\nand result reuse to stay fast\nand within budget.\nPackage workflows in\ncontainers for consistent\ndeployment and reliable\ndetection.\nUse checklists and shared\nresult cards to keep QML\ncybersecurity pipelines\nauditable and comparable.\nBoost transparency with\npublic red-team datasets,\nopen scoreboards, and\nreproducibility challenges.\nMeasure privacy–utility trade-offs\nand assess protections like\ndifferential privacy, TEEs, and",
+      "microarchitectural isolation, and continuous test harnesses for fault injection, power, and EM\nanalysis, and randomized protocol paths.\n6.3\nOperational Readiness and Ecosystem Maturity\nOperational measurement and readiness are essential for sustaining confidence during PQC deployment. Internet-scale telemetry and controlled benchmarks have become critical for tracking\nadoption rates, failure signatures, and the effectiveness of hybrid designs in production environments [87]. Cloud and web-scale studies of TLS handshakes with PQC provide data for rollout\nschedules, buffer sizing, and retry logic, while identifying where middleboxes or legacy clients\nrequire remediation [22, 77]. In finance and payments, pilots and guidance documents from central\nbank digital currency research and enterprise security programs recommend staged enablement,"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g018",
+    "type": "multihop",
+    "question": "How does the 'harvest-now, decrypt-later' (HNDL) threat relate to the proposed hybrid TLS solution in the Quantum-resistant TLS 1.3 paper, and what are the implications for post-quantum cryptography (PQC) adoption according to the systematic literature review?",
+    "ground_truth": "The 'harvest-now, decrypt-later' (HNDL) threat poses a significant risk to the long-term security of encrypted communications, as attackers can collect encrypted data now and decrypt it later when current cryptographic schemes become vulnerable to quantum computing attacks. The Quantum-resistant TLS 1.3 paper proposes a hybrid solution combining classical, quantum, and post-quantum cryptography to mitigate this threat. The systematic literature review, however, suggests that while HNDL is a critical concern, the adoption of post-quantum cryptography (PQC) remains challenging due to various practical and technical obstacles.",
+    "sources": [
+      "The-Quantum-Security-Deadline",
+      "Harvest-Now, Decrypt-Later - A Temporal Cybersecurity Risk in the Quantum Transition"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "c43a276d672a-53",
+      "8bb51b835577-3"
+    ],
+    "chunk_texts": [
+      "16. Garcia, C. R., Vegas Olmos, J. J., & Rommel, S. (2024). Quantum-resistant TLS 1.3 — \nA hybrid solution combining classical, quantum, and post-quantum cryptography. \nEindhoven University of Technology Research Report. \nhttps://research.tue.nl/files/331004655/QuantumResistant_TLS_1.3_A_Hybrid_Solution_Combining_Classical_Quantum_and_PostQuantum_Cryptography.pdf \n17. Marchesi, L., et al. (2025). A survey on cryptoagility and agile practices in light of PQC \nadoption. Information & Software Technology. \nhttps://www.sciencedirect.com/science/article/pii/S095058492400209X \n18. ResearchGate / systematic review authors. (2025). Analyzing the Harvest Now, Decrypt \nLater threat and post-quantum solutions: A systematic literature review. ResearchGate \npreprint. \nhttps://www.researchgate.net/publication/393404982_Analyzing_the_Harvest_Now_Dec\nrypt_Later_Threat_and_PostQuantum_Cryptography_Solutions_A_Systematic_Literature_Review",
+      "quantum-safe cryptography; hybrid TLS; telecom security\n1. Introduction\nEncryption underpins the trustworthiness of modern communications, but confidentiality guarantees are only as strong as the adversary’s horizon. In practice, attackers can\nharvest encrypted traffic today and defer decryption until future computational breakthroughs render current schemes obsolete [1,2]. This “harvest-now, decrypt-later” (HNDL)\nstrategy converts long-lived ciphertext into a temporal cyberweapon, threatening not\nonly cryptographic primitives but also the infrastructures and archives that depend on\nthem [3,4].\nThe phrase HNDL has circulated in industry and policy discourse since the mid-2010s,\noften attributed to practitioners such as Andersen Cheng, yet it has remained largely\ninformal in the academic literature [5]. Existing studies are piecemeal: for example, recent\nstudies forecasts the feasibility of post-quantum cryptography (PQC) adoption under"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g019",
+    "type": "multihop",
+    "question": "How does the integration of QKD with classical key management systems and initial authentication methods impact the synchronization and supply of cryptographic keys in a QKD network as a service, according to the two passages?",
+    "ground_truth": "The integration of QKD with classical key management systems is necessary for maintaining synchronization among key storages in a QKD network as a service, as mentioned in Paper A. However, QKD alone does not provide built-in authentication, which means it must be used in conjunction with classical cryptography for initial authentication, as stated in Paper B. This implies that the synchronization and supply of cryptographic keys in a QKD network as a service require careful management to ensure both quantum and classical components work together seamlessly.",
+    "sources": [
+      "Quantum Key Distribution Networks -- Key Management - A Survey",
+      "Are Enterprises Ready for Quantum-Safe Cybersecurity"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "eb482c92a629-27",
+      "88cc0662be4c-27"
+    ],
+    "chunk_texts": [
+      "supply. As a result, interaction between the KMs involved is required.\nDecoupling key generation and key consumption processes addresses not only the large gap between two consecutive\nkey generation events but also the QKD’s limited key generation rates. Secure key storage allows the accumulation\nof larger amounts of cryptographic keys when there are low demands for consumption processes. A burst of high\nconsumption demands that exceed the key generation rate can then be accommodated using existing key supplies.\n2.2\nKey synchronization\nQKD network as a service generates, manages, and supplies symmetric cryptographic keys. As a result, it is essential to\nmaintain synchronization, or consistency, among the contents of key storages. Otherwise, the service is not operational.\nEven if the perfect correlation between two symmetric keys is proven at the quantum layer, the key management",
+      "networks and then keys are fed into encryption devices (e.g., QKD boxes connected to link\nencryptors). This can be complex to manage and may require integration with classical\nkey management systems [49–51].\n• Limited Scope of Security – No Built-in Authentication: QKD solves the problem of\ndistributing a secret key, but it does not by itself authenticate the communicating parties.\nAn adversary can theoretically launch a man-in-the-middle attack on a QKD session if\nthere is no authentication mechanism, by impersonating one endpoint to the other. In\npractice, QKD links must be bootstrapped with an initial authentication method (usually\na pre-shared key or a classical public-key signature to authenticate the first quantum\nexchange) [47]. This necessity means QKD is actually used in conjunction with classical\ncryptography (for authentication), slightly undermining the claim of being purely based\non physics – at least some classical trust or pre-shared secret is required. Moreover, if"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g020",
+    "type": "multihop",
+    "question": "How does the cryptographic community plan to address the challenges of adapting post-quantum cryptographic solutions to constrained environments, and what role does cross-disciplinary collaboration play in this transition according to the two papers?",
+    "ground_truth": "According to the first paper, the cryptographic community must continue to rigorously evaluate the resilience of standardized algorithms under both classical and quantum cryptanalysis, and cross-disciplinary collaboration among mathematicians, computer scientists, engineers, and policymakers will be essential for a secure and globally coordinated transition to the post-quantum era. The second paper suggests that while technical, operational, and standardization challenges persist, organizations that embrace agility, automation, and continuous innovation will be best equipped to navigate the transition to quantum resilience, highlighting the importance of proactive adoption of post-quantum cryptography (PQC) to safeguard sensitive information and ensure compliance.",
+    "sources": [
+      "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing",
+      "The-Quantum-Security-Deadline"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "2c179858df1d-43",
+      "c43a276d672a-46"
+    ],
+    "chunk_texts": [
+      "to support new algorithms is still evolving, and adapting PQC solutions to\nconstrained environments—such as Internet of Things (IoT) devices and embedded systems—poses significant engineering and resource challenges. Going\nforward, the cryptographic community must continue to rigorously evaluate the\nresilience of standardized algorithms under both classical and quantum cryptanalysis. This effort will be vital for maintaining trust in post-quantum primitives. Cross-disciplinary collaboration among mathematicians, computer scientists, engineers, and policymakers will be essential to enabling a secure and\nglobally coordinated transition to the post-quantum era.",
+      "positioning them to defend critical assets against both current and future threats. \n \nCONCLUSION \n \nThe rise of quantum computing represents a paradigm shift in digital security, challenging longstanding cryptographic foundations and compelling enterprises to rethink their security \narchitectures. As classical encryption methods edge toward obsolescence, proactive adoption of \npost-quantum cryptography (PQC) becomes essential to safeguard sensitive information, ensure \ncompliance, and future-proof digital ecosystems. A well-structured roadmap—spanning CBOM \nassessment, hybrid cryptography pilots, CLM automation, and governance frameworks—provides \na clear pathway toward achieving quantum resilience. \n \nWhile technical, operational, and standardization challenges persist, organizations that embrace \nagility, automation, and continuous innovation will be best equipped to navigate the transition to"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g021",
+    "type": "multihop",
+    "question": "What are the success rates and hardware efficiency impacts of the lattice-based attack on Kyber and the shuffling countermeasure implemented against side-channel attacks on Kyber, respectively?",
+    "ground_truth": "The lattice-based attack on Kyber, using a two-step process, successfully recovers the secret key s in approximately 9 to 10 minutes with at most 15 power traces on an ARM Cortex-M4 target board. The shuffling countermeasure implemented against side-channel attacks on Kyber, when evaluated on FPGA, reports only 8.7% degradation on hardware efficiency compared with the original unprotected version.",
+    "sources": [
+      "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber",
+      "A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "cc70e283bcc5-1",
+      "2def9bea4093-1"
+    ],
+    "chunk_texts": [
+      "Kendall’s rank correlation coefficients and modifying the leakage\nmodel to improve the accuracy. In the second step, we adopt the\nlattice attack to recover s based on the results of CPA. The success\nrate is largely built up by constructing a trial-and-error method.\nWe deploy the reference implementations of Kyber-512, -768,\nand -1024 on an ARM Cortex-M4 target board and successfully\nrecover s in approximately 9 ∼10 minutes with at most 15 power\ntraces, using a Xeon Gold 6342-equipped machine for the attack.\nIndex Terms—Lattice-based cryptography, CRYSTALS-Kyber,\nSide-channel attack, Power analysis.\nI. INTRODUCTION\nW\nITH the fast development of quantum computing, modern cryptographic algorithms are encountering significant threats. Recognizing this problem, NIST started the postquantum cryptography (PQC) standardization process in 2016\nwith the aim of standardizing quantum-resistant cryptographic\nalgorithms. By July 2022, NIST released the post-quantum",
+      "and potential side-channel leakage points. Finally, we implement\nthe modified Kyber design on FPGA and evaluate its security and\nperformance. The security is verified by conducting correlation\npower analysis (CPA) and test vector leakage assessment (TVLA)\non the hardware. Meanwhile, FPGA place-and-route results show\nthat the proposed design reports only 8.7% degradation on\nthe hardware efficiency compared with the original unprotected\nversion, much better than existing hardware hiding schemes.\nIndex Terms—CRYSTALS-Kyber, hardware implementation,\nshuffling, side-channel attack, countermeasure.\nI. INTRODUCTION\nW\nITH the rapid development of quantum computing,\nmodern cryptography faces severe threats. Since 2016,\nNIST has held a post-quantum cryptography (PQC) standardization competition, receiving global proposals. After\nthree rounds, CRYSTALS-Kyber (Kyber) was chosen as the"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g022",
+    "type": "multihop",
+    "question": "How does the Federal Reserve Board's recommendation for 'harvest now-decrypt later' in financial services relate to the broader socio-technical challenges of PQC migration discussed in the survey paper?",
+    "ground_truth": "The Federal Reserve Board's recommendation for 'harvest now-decrypt later' is a specific example of a 'harvest now, decrypt later' threat, which is discussed in the survey paper as one of the challenges in PQC migration. The survey paper emphasizes that PQC migration is a socio-technical transition, similar to the historical adoption of public-key cryptography, and requires coordination between researchers, standards bodies, policymakers, and industry stakeholders.",
+    "sources": [
+      "harvest-now-decrypt-later-pqc-threat-model",
+      "Post-Quantum Cryptography and Quantum-Safe Security"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "f8a2d1c8b385-164",
+      "6bd42fde4e48-114"
+    ],
+    "chunk_texts": [
+      "74, 75.\n5. Migration must begin immediately: Effective migration requires 2-5 years for most\norganizations. To complete before Q-Day, migration should begin in 2025-2026.\n6. Hybrid approaches provide transition path: Combining classical and PQC cryptography\nenables gradual transition while maintaining security guarantees.\n70 National Security Agency (NSA). (2022). “Quantum Computing and Post-Quantum Cryptography.” NSA\nCybersecurity Information Sheet. Available:\nhttps://www.nsa.gov/Cybersecurity/Post-Quantum-Cybersecurity-Resources/\n71 Federal Reserve Board. (2025). “Harvest Now Decrypt Later: Examining Post-Quantum Cryptography Risk in\nFinancial Services.” Finance and Economics Discussion Series 2025-093. Retrieved from\nhttps://www.federalreserve.gov/econres/feds/files/2025093pap.pdf\n72 Gidney, C., & Ekerå, M. (2019). “How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits.”\nQuantum, 5, 433. DOI: 10.22331/q-2021-04-15-433",
+      "Post-Quantum Cryptography and Quantum-Safe Security: A Comprehensive Survey\n27\nsuch as zero-trust architectures, homomorphic encryption, and secure multiparty computation also\nwarrants systematic investigation, as these fields converge in building the security foundations of a\npost-quantum digital ecosystem. Finally, researchers must recognize that PQC migration is not solely\na technical problem but a socio-technical transition akin to the historical adoption of public-key\ncryptography in the late 20th century. Success will require coordination between researchers, standards bodies, policymakers, and industry stakeholders. Challenges such as “harvest now, decrypt\nlater” threats, uneven adoption across regions, and the economic costs of retrofitting infrastructure\nhighlight the importance of developing migration playbooks, sector-specific roadmaps, and global\ncollaboration mechanisms. By foregrounding these systemic issues, future work can ensure that"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g023",
+    "type": "multihop",
+    "question": "How does the use of AI-powered honeypots in cyber deception technologies address the challenges posed by zero-day exploits and sophisticated cyber adversaries mentioned in both papers?",
+    "ground_truth": "The use of AI-powered honeypots in cyber deception technologies addresses the challenges posed by zero-day exploits and sophisticated cyber adversaries by providing a more resilient security framework. These honeypots can distract adversaries from real targets and present simulated targets, such as decoy systems, which can help in neutralizing sophisticated cyber adversaries. Additionally, AI can enhance the effectiveness of honeypots by adapting to new threats and improving intrusion detection, thereby mitigating the risks associated with zero-day exploits and other advanced persistent threats.",
+    "sources": [
+      "Evaluating Deception and Moving Target Defense with Network Attack Simulation",
+      "AI-Powered Honeypots - Enhancing Deception Technologies for Cyber Defense"
+    ],
+    "topic": "Deception",
+    "chunk_ids": [
+      "f6f6708639d3-3",
+      "9400e0fc8ddf-2"
+    ],
+    "chunk_texts": [
+      "still being compromised despite the security measures in place.\nThere are multiple reasons that are complex to mitigate, such as\nzero-day-exploits or malicious or naïve insiders. Thus, it is becoming clearer that concepts for defense-in-depth and resiliency need\n∗Also with Department of Electrical and Computer Engineering, Technische Universität\nKaiserslautern.\nto be researched and ultimately deployed to aid the overall level\nof security. In parallel, the field of cyber deception is gaining relevance, as it addresses multiple problems in state of the art cyber\ndefense. Cyber deception is seeking to distract adversaries from real\ntargets, and present simulated targets instead, such as honeypots.\nThis also addresses the traditional asymmetry between attackers\nand defenders, meaning that the defender has to be successful all of\nthe time and the attacker is only required to be successful once. In",
+      "neutralizing sophisticated cyber adversaries, paving the way for a more resilient security \nframework. \nKeywords \nArtificial Intelligence, Honeypots, Cybersecurity, Deception Technologies, Threat \nIntelligence, Adaptive Security, Intrusion Detection, Machine Learning \nIntroduction \nThe escalating frequency and complexity of cyber threats have made traditional security \nmeasures inadequate in protecting digital assets. Organizations worldwide are facing an \nincreasing number of sophisticated attacks, including ransomware, zero-day exploits, and \nadvanced persistent threats. These evolving threats challenge conventional security \nmechanisms, necessitating the development of innovative approaches to cyber defense. \nDeception technologies have emerged as a crucial component in modern cybersecurity \nstrategies, with honeypots being one of the most effective tools in this domain. Honeypots \nserve as decoy systems designed to attract and monitor malicious actors, providing security"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g024",
+    "type": "multihop",
+    "question": "What are the cybersecurity recommendations for post-quantum cryptography mentioned in the ENISA report, and how do they relate to the deadlines set by NIST for standardizing post-quantum encryption standards?",
+    "ground_truth": "The ENISA report recommends cryptographic measures for a post-quantum world, while NIST has set deadlines for standardizing post-quantum encryption standards. ENISA's recommendations aim to ensure cybersecurity in the era of quantum computers, whereas NIST is working towards finalizing and releasing post-quantum encryption standards by August 2024, as per their announcement.",
+    "sources": [
+      "harvest-now-decrypt-later-pqc-threat-model",
+      "The-Quantum-Security-Deadline"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "f8a2d1c8b385-8",
+      "c43a276d672a-48"
+    ],
+    "chunk_texts": [
+      "8\nEuropean Parliament and Council. (2022). “Directive (EU) 2022/2555 on measures for a high common level of\ncybersecurity across the Union (NIS2 Directive).” Official Journal of the European Union, L 333/80.\n9\nEuropean Union Agency for Cybersecurity (ENISA). (2022). “Cryptographic Recommendations for a\nPost-Quantum World.” ENISA Technical Guidance. Available:\nhttps://www.enisa.europa.eu/publications/post-quantum-cryptography-integration-study\n10 Mosca, M. (2015). “Cybersecurity in an era with quantum computers: Will we be ready?” IEEE Security &\nPrivacy, 16(5), 38-41. DOI: 10.1109/MSP.2018.3761723\n3",
+      "European Journal of Computer Science and Information Technology, 13(52),35-52, 2025 \n \n \n Print ISSN: 2054-0957 (Print) \n Online ISSN: 2054-0965 (Online) \n Website: https://www.eajournals.org/ \n Publication of the European Centre for Research Training and Development -UK \n51 \n \nThe quantum clock is ticking — the time to secure tomorrow’s data is today. \n \nREFERENCE \n \n1. NIST. (2022). Announcing PQC candidates to be standardized, plus fourth round \ncandidates (NIST CSRC news). National Institute of Standards and Technology. \nhttps://csrc.nist.gov/news/2022/pqc-candidates-to-be-standardized-and-round-4 \n2. NIST. (2024, August 13). NIST releases first three finalized post-quantum encryption \nstandards (News release). National Institute of Standards and Technology. \nhttps://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-postquantum-encryption-standards \n3. Mosca, M., & Piani, M. (2021). Risk assessment and timelines for cryptographically"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g025",
+    "type": "multihop",
+    "question": "How does the use of decoherence-free states (DFS) in multi-party semi-quantum private comparison (MQPC) protocols relate to the concept of quantum Gaussian mixture models (QGMMS) in terms of their application in quantum systems?",
+    "ground_truth": "Decoherence-free states (DFS) are used in MQPC protocols to enhance the integrity of quantum communication in the presence of collective noise. Similarly, QGMMS are quantum extensions of classical Gaussian mixture models, which can be applied to large datasets for improved learning dynamics. Both concepts leverage quantum principles to address challenges in quantum systems, with DFS focusing on communication integrity and QGMMS on data processing efficiency.",
+    "sources": [
+      "Quantum_Machine_Learning_A_Survey",
+      "Quantum key distribution through quantum machine learning - a research review"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "5f0741856e70-19",
+      "096268fca3ea-23"
+    ],
+    "chunk_texts": [
+      "J. Electrical Systems 20-6s (2024): 971-981 \n977 \n(A) is the covariance matrix of the data. \n(V) is the matrix of principal components. \nKey Points: Can achieve significant speedup compared to classical PCA, making it suitable for large datasets. \nQuantum Phase Transitions Algorithms \nDescription: Quantum phase transition algorithms study the quantum analogue of thermal phase transitions, \nwhich can provide insights into the learning dynamics of quantum systems. \nUse Cases: Used in the study of quantum systems to understand their thermodynamic properties and learning \nmechanisms. \nFields of Use: Applied in quantum information theory and quantum neuroscience. \nQPTAs use quantum states to study phase transitions in quantum systems. \nPhase transition probability: P(x)=exp(−BJ(x)), where (J(x)) is the magnetization \nQuantum Gaussian Mixture Models (QGMMS) \nDescription: Quantum Gaussian Mixture Models are quantum extensions of classical Gaussian mixture models,",
+      "network\nchannels\nto\nﬁnd\nmany\napplications\nin\nquantum\ncommunication\nnetworks.\nMulti-party\nsemi-quantum\nprivate\ncomparison (MQPC) protocols developed by Gong et al. (2023)\nrepresent an advancement in quantum cryptography in which the\nuse of decoherence-free states (DFS) against collective noise\nmultiparty can communicate in the presence of collectivedephasing noise and collective-rotation noise which affects the\nintegrity of quantum communication.\n3 Quantum machine learning in\naugmenting quantum cryptography\nWith the integration of quantum computing into classical\nmachine learning, QML emerges as a powerful approach to\nenhance computational performance. Various classical machine\nlearning\nalgorithms,\nincluding\nsupervised\nand\nunsupervised\nlearning, beneﬁt from quantum principles, leading to improved\nefﬁciency and scalability. Unsupervised learning, particularly in\nprocessing large real-time data, has gained popularity with the\ndevelopment of quantum generative models. Several variants of"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g026",
+    "type": "multihop",
+    "question": "How does the arithmetic masking technique used in the implementation of Kyber differ from the threshold secret sharing scheme in terms of protecting sensitive information in cryptographic protocols, and what are the respective roles of randomization in each method?",
+    "ground_truth": "In the arithmetic masking technique used in Kyber, sensitive information is protected by dividing a sensitive variable into shares and performing operations on these shares to prevent direct exposure, with randomization achieved through the allocation of random masks. In contrast, the threshold secret sharing scheme divides a secret among participants, ensuring that no single participant can learn the secret, and the secret can only be reconstructed when a threshold number of shares are combined. Randomization in the threshold secret sharing scheme is achieved through the use of a random polynomial in the computation of shares.",
+    "sources": [
+      "Investigating CRYSTALS-Kyber Vulnerabilities - Attack Analysis and Mitigation",
+      "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "60cc7a198bb1-24",
+      "39f246bd1b83-69"
+    ],
+    "chunk_texts": [
+      "sensitive variable, which depends on x information from leaking out because it is never\nutilized directly. A sensitive variable x is divided into ω + 1 shares in an ω-order masking,\nx = x1 ◦x2 ◦. . . ◦xω+1, so that x = x1 ◦x2 ◦. . . ◦xω+1. Arithmetic and Boolean masking\nare the two options available. Depending on the masking technique, “o” might represent\ndifferent operations. For example, in arithmetic masking, “o” is the arithmetic addition,\nwhereas in Boolean masking, it is the XOR.\nThe computations avoid involving x directly by carrying out operations on shares\nindependently, which theoretically prevents side-channel information about x from leaking. Every time a share is executed, it is randomly assigned. Randomization is usually\naccomplished by allocating random masks x1, x2, . . . , xω to ω shares and calculating the\nfinal share as x −(x1 + x2 + . . . + xω) for arithmetic masking or x ⊕x1 ⊕x2 ⊕. . . ⊕xω for\nBoolean masking [42].\n5. State of the Art Implementation of Kyber",
+      "threshold secret sharing scheme, which has since become\na cornerstone in cryptographic protocols. In this scheme,\na secret S is divided among a group of participants P such\nthat:\n• No single share reveals any information about the secret.\n• Any t or more participants can collaboratively reconstruct the secret using Lagrange interpolation.\n• Fewer than t participants learn nothing about the secret.\nEach participant Pi receives a share computed as:\nf (x) = S + a1x + a2x2 + · · · + an−1xn−1\n(1)\nwhere f (x) is a random polynomial of degree t −1 and S is\nthe constant term (i.e., the secret). The secret is reconstructed\nvia Lagrangian interpolation:\nS =\nt−1\nX\ni=0\nf (xi)\nt−1\nY\nj=0 j̸=i\nxj\nxj −xi\n(2)\nIn large-scale IoT networks, the scalability and resource\nefficiency of key distribution are critical challenges. Tang\net al. [133] addressed this by proposing a physical-layer keysharing protocol for MIMO-based IoT devices. This method\nenables direct transmission of secret keys from sender to"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g027",
+    "type": "multihop",
+    "question": "What are the error rates for single-qubit and two-qubit gates in trapped ions compared to superconducting qubits, and how do these compare to the error rates of classical digital transistors, and what are the limitations of the QEC protocol in superconducting qubits as mentioned in the two papers?",
+    "ground_truth": "The best reported error rates for single-qubit operations in trapped ions are at the level of 10^-7, while two-qubit gates have reached the 10^-5 range. In contrast, modern digital transistors exhibit error rates as low as 10^-23, highlighting the vast gap between classical and quantum reliability. For superconducting qubits, the Toffoli gate achieved 85% fidelity for classical action and 78% for quantum process action, with the QEC protocol reducing the error rate quadratic to the single-qubit error rate. However, the implementation is constrained by the coherence times of superconducting qubits, with lifetimes around T1 = 0.7-1.3µs, and only two error models are implemented, which might not be sufficient for large-scale fault-tolerant quantum computing.",
+    "sources": [
+      "Practical Challenges in Executing Shor’s Algorithm",
+      "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "8a5faa30cee8-53",
+      "b5b8f79e773e-119"
+    ],
+    "chunk_texts": [
+      "error rates, clock speed, qubit connectivity, and the overhead of the chosen QEC code.\nThe best reported error rates (all in trapped ions) for single qubit operations are currently at\nthe level of 10−7 [41], with the best two-qubit gates having reached the 10−5 range [36]. These\nnumbers, however, are “hero values”. In many multi-qubit systems, effective error rates are much\ncloser to 10−4 for single-qubit and 10−2 for two-qubit gates once full-system effects are included.\nIn contrast, modern digital transistors exhibit error rates as low as 10−23 [42], highlighting the vast\ngap between classical and quantum reliability.\nLarge-scale, fault-tolerant quantum computation therefore hinges on effective QEC. In recent\nyears, experimental demonstrations have shown that QEC can, in principle, suppress logical error\nrates below those of the underlying physical qubits. For instance, a demonstration in 2025 [43]\n14",
+      "the Toffoli gate achieved 85% fidelity for classical action and 78% fidelity for quantum process action. The\nQEC protocol reduced the error rate quadratic to the single-qubit error rate, showcasing the effectiveness of\nthe correction mechanism. There are few limitations of this work,\n• The implementation is constrained by the coherence times of superconducting qubits, with lifetimes\naround T1 = 0.7 −1.3µs.\n• The gate fidelity, while significant, might not be sufficient for large-scale fault-tolerant quantum computing.\n• Only two error models are implemented; more complex error models such as amplitude damping,\ndephasing errors, etc.\nThis work serves as a quite detailed work implementing the simplest form of QECC, and can be important for\nfuture works on implementing more complex QECCs on superconducting qubits."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g028",
+    "type": "multihop",
+    "question": "How does the current implementation status of Kyber and Dilithium in MbedTLS and Crypto++ compare, and what are the implications for their deployment in constrained environments and general-purpose applications?",
+    "ground_truth": "MbedTLS has strong intent to add Kyber soon and Dilithium eventually, while Crypto++ does not include the NIST PQC finalists in its mainline distribution but has a third-party fork (cryptopp-pqc) that adds CRYSTALS-Kyber and CRYSTALS-Dilithium. This suggests that MbedTLS is more aligned with the standards and is expected to support Kyber and Dilithium in the near future, whereas Crypto++ relies on third-party efforts. For constrained environments, SPHINCS+ signatures can be 30-50 times larger than ECDSA signatures, which might be a concern, while Falcon provides smaller signatures but is difficult to implement securely. Kyber and Dilithium, being more mature and efficient, are suitable for general-purpose deployment across various applications.",
+    "sources": [
+      "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries",
+      "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "6b46c927c9f6-40",
+      "2c179858df1d-26"
+    ],
+    "chunk_texts": [
+      "Preprint – A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries\n7\nObservation: MbedTLS does not yet have Kyber, Dilithium,\nFalcon, or SPHINCS+ implemented, but supports LMS for\nsignatures, and has strong intent to add Kyber soon, followed\nby Dilithium eventually. This will be a major development because MbedTLS is used in millions of IoT devices (everything\nfrom small appliances to sensors).\n5.4\nCrypto++\nCrypto++ is a widely used C++ library known for its broad\nset of crypto-primitives. We rank it fourth in our list. Historically, Crypto++ has been cautious in adopting cutting-edge\nalgorithms until standards stabilize. As of version 8.9 (late\n2023), it does not include the NIST PQC finalists in its mainline distribution. However, third-party efforts have emerged:\nfrom 2020–2022, Finnish researchers (J. Hekkala et al.) created a fork adding CRYSTALS-Kyber, CRYSTALS-Dilithium,\nSABER, and later FrodoKEM [40,41]. This fork (cryptopp-pqc)",
+      "as their underlying assumptions hold true. - Key and Signature Size Overheads\nPost-quantum cryptography often comes with a significant price tag in terms\nof key and signature sizes. For instance, SPHINCS+ signatures can be 30-50\ntimes larger than ECDSA signatures. This might be a major concern for constrained environments or bandwidth-sensitive applications that require compact\ndata transfers. Falcon, on the other hand, provides relatively small signatures\nbut is notoriously difficult to implement securely. - Performance and Implementation Complexity While many post-quantum cryptographic schemes perform\nreasonably well in software implementations, some (like SPHINCS+) are computationally intensive. Dilithium and Kyber strike a balance between efficiency\nand simplicity, making them suitable for general-purpose deployment across various applications. - Deployment Readiness: A Few Front-Runners Among the\npost-quantum candidates, Kyber and Dilithium are considered the most mature"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g029",
+    "type": "multihop",
+    "question": "How do high-interaction honeypots like Cowrie capture attack details during credential-based attacks, and how does this compare to the functionality of NASim in simulating network attacks with honeypots and varying parameters such as the number of honeypots and movement time?",
+    "ground_truth": "High-interaction honeypots like Cowrie capture detailed logs, including identifying scanning methods and potential attacker intent, as well as attack input such as keystrokes and authentication attempts during credential-based attacks. NASim, on the other hand, expands its functionality to include honeypots and allows for the simulation of network attacks with varying parameters such as the number of honeypots, movement time, and the behavior of agents.",
+    "sources": [
+      "Advancing Cybersecurity with Honeypots and Deception Strategies",
+      "Evaluating Deception and Moving Target Defense with Network Attack Simulation"
+    ],
+    "topic": "Deception",
+    "chunk_ids": [
+      "309a501835c1-90",
+      "f6f6708639d3-18"
+    ],
+    "chunk_texts": [
+      "performed using tools such as Nmap and Nessus. Techniques such as TCP SYN, ACK scans,\nand service enumeration were employed in these scans. It was shown that basic details,\nsuch as IP addresses and scanning intervals, were logged by low-interaction honeypots,\nbut insights into the scan techniques were lacking. In contrast, high-interaction honeypots\ncaptured detailed logs, including identifying scanning methods (e.g., Nmap SYN scan)\nand potential attacker intent. The capability of the honeypots to withstand and log bruteforce login attempts was assessed in credential-based attacks. Iterative username and\npassword combination testing on SSH and HTTP services was conducted using automated\ntools such as Hydra and custom Python scripts. Attack input, including keystrokes and\nauthentication attempts, was captured by high-interaction honeypots, such as Cowrie,\nwhich provided valuable insights into attack strategies. Meanwhile, failed low-interaction",
+      "the concept of credentials and wiretapping as an attack for obtaining\ncredentials.\n4.2\nImplementation of Honeypots and\nNetwork Address Mutation\nFor this paper, the functionality of NASim was expanded to include\nHoneypots. Honeypots are based on the implementation of sensitive\nhosts. If an agent exploits one honeypot host with either user or\nroot privileges, the goal failed and the agent has lost.\nParameter\nDescription\nValue\nnum_honeypots_options\nNumber of\nHoneypots\n0, 2, 4, 6, 9, 10\nmovement_time_options\nMovement\nTime\nNone, 25, 50, 75,\n100\nnum_hosts_options\nNumber of normal hosts\n10, 50\none_goal_options\nObjective\nTrue, False\nseed_options\nRandom Seed\n1234, 42,\n24121997\nagents\nAttack behaviour of\nagents\ncareful, standard, aggressive\nTable 1: All Possible Varied Parameter Values\nAlso, a second definition of the goal for the analysing was added.\nInstead of the agent needing to gain root privileges on all sensitive\nhosts, the second definition only needs one sensitive host to be"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g030",
+    "type": "multihop",
+    "question": "What are the primary threat actor behaviors in the pre-Q-Day phase, and how does the 'Cryptographic Time Paradox' affect the urgency of PQC readiness according to the two passages?",
+    "ground_truth": "In the pre-Q-Day phase, the primary threat actor behavior is the 'Store/Harvest Now, Decrypt Later' (HNDL) approach. This is discussed in Paper A. The 'Cryptographic Time Paradox', as described in Paper B, highlights the urgency of PQC readiness because once a working CRQC is built, all previously collected encrypted data becomes readable, emphasizing the need for PQC measures by 2035 at the latest, as stated in Paper B.",
+    "sources": [
+      "Are Enterprises Ready for Quantum-Safe Cybersecurity",
+      "harvest-now-decrypt-later-pqc-threat-model"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "88cc0662be4c-64",
+      "f8a2d1c8b385-6"
+    ],
+    "chunk_texts": [
+      "somehow got a CRQC early and used it covertly for years before the world realizes. In such\na scenario, they could quietly decrypt vast amounts of intercepted traffic and harvested data\nwithout tipping off victims. As discussed by RAND and others, this scenario is deemed highly\nunlikely for multiple reasons [3]. But even if a CRQC’s existence is not secret, there’s a worry\nthat once it is plausible that someone has it, panic could ensue among defenders trying to\nrapidly upgrade systems (“crypto scramble”).\nThus, threat actors (particularly nation-states) are likely strategizing for both eventualities:\nthe pre-Q-Day and post-Q-Day phases. In the pre-Q-Day phase (present to Q-Day), the primary threat actor behavior is the “Store/Harvest Now, Decrypt Later” (HNDL) approach. As\nsoon as it became broadly believed that quantum computers will eventually break RSA/ECC,\nintelligence agencies and even some cybercriminal groups realized that any encrypted data",
+      "8, 9. Translation: you need PQC readiness by 2035 at the latest.\n1.2 The Cryptographic Time Paradox\nA frequently overlooked aspect of quantum threats is the time dimension. Traditional breaches\nproduce immediate consequences—a stolen password grants instant access. Quantum threats, by\ncontrast, operate across decades. An adversary’s window depends on data value over time, not\nmerely when the quantum computer becomes operational.\nThis phenomenon is termed the “Cryptographic Time Paradox.” RSA-encrypted data is safe\ntoday and will remain so until a working CRQC is built. But the moment that happens, every\npiece of encrypted data ever collected becomes readable. Consider what remains valuable:\ndiplomatic cables do not expire—geopolitical strategies play out over decades 10. Genetic data\nstays sensitive forever. Trade secrets matter as long as the technology is relevant. Tax records\nlegally require protection for years."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g031",
+    "type": "multihop",
+    "question": "How do ETSI's recommendations for post-quantum cryptography implementation relate to the efforts of blockchain platforms like Bitcoin and Ethereum to incorporate post-quantum security measures?",
+    "ground_truth": "ETSI recommends prioritizing education and training for developers and IT staff to ensure readiness for post-quantum cryptography. Meanwhile, blockchain platforms such as Bitcoin and Ethereum are actively working on incorporating post-quantum security measures, with Bitcoin exploring quantum-safe mining and signatures and Ethereum planning to use zk-STARKs in its next development stage, indicating a broader industry effort to prepare for the quantum computing era.",
+    "sources": [
+      "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing",
+      "Post-Quantum_Blockchain_Security_for_the_Internet_of_Things_Survey_and_Research_Directions"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "2c179858df1d-42",
+      "434ecaa7528d-88"
+    ],
+    "chunk_texts": [
+      "Standards Institute (ETSI) is crucial for informed and future-proof implementation. Lastly, education and training must be prioritized. Developers, security\nengineers, compliance personnel, and IT staff should be provided with adequate\nawareness and instruction on post-quantum cryptography, including new APIs,\nprotocols, and implementation libraries, to ensure readiness at both technical\nand operational levels. Outlook and Future Challenges Despite the substantial\nprogress made toward standardizing and implementing post-quantum cryptographic algorithms, several challenges remain on the horizon. These include\nuncertainty about the long-term hardness of the lattice problems upon which\nmost current schemes are based, the need to develop efficient countermeasures\nagainst side-channel attacks, and the difficulty of ensuring backward compatibility with existing systems. Moreover, the readiness of hardware accelerators\n13",
+      "similar to many security applications and protocols that rely\non traditional cryptographic algorithms. Hence, post-quantum\ncryptography is currently a state-of-the-art topic that is also\nbeing considered by the most well-known blockchains for\ntheir next development stage. For instance, an experimental\nbranch of Bitcoin’s main blockchain is independently working\non quantum-safe mining and signatures with the expectation\nthat it would lead to developing post-quantum Bitcoin [136].\nAnother illustration is Ethereum 3.0, which plans to utilize\nEIP-4844: Proto Danksharding, allowing quantum-resistant\nelements\nsuch\nas\nZero-Knowledge\nScalable\nTransparent\nARguments of Knowledge (zk-STARKs) as an improvement\nin Ethereum’s security and scalability [137]. Other blockchain\nplatforms such as IoTeX [138] and Cardano [139] are also\npreparing for the quantum computing era to resist quantum\nadversaries.\nHowever, several post-quantum blockchain platforms are"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g032",
+    "type": "multihop",
+    "question": "How does the modified Hamming weight (MHW) model improve the accuracy of the CPA attack on Kyber, and what cryptographic threat does Shor's algorithm pose to RSA, and how does it compare in terms of computational complexity?",
+    "ground_truth": "The modified Hamming weight (MHW) model improves the accuracy of the CPA attack on Kyber by reducing the number of power traces needed for the attack from the original model, allowing the correct key coefficient to be identified with just 15 power traces. Shor's algorithm poses a significant threat to RSA by reducing the complexity of factoring large numbers from exponential to polynomial time, thereby enabling quantum adversaries to efficiently break RSA keys that would otherwise be considered secure, such as a 2048-bit RSA key, within seconds using a sufficiently large and stable quantum computer.",
+    "sources": [
+      "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber",
+      "A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "cc70e283bcc5-12",
+      "2c179858df1d-8"
+    ],
+    "chunk_texts": [
+      "as the intermediate value.\nA. Modified Leakage Model for CPA\nThe Hamming weight (HW) model counts the number of\n“1” in intermediate values and is a common linear power\nmodel. ARM processors’ ALUs are optimized for two’s complement operations, so we adjust the HW (called modified\nHamming weight, MHW) to account for this by using the\nHW of the 16-bit complement of the intermediate values. This\nmodification improves the accuracy of the HW model and\nreduces the number of power traces (denoted as D) needed for\nCPA. As shown inside the blue dotted box in Fig. 2 (a) and\n(b), the correct key coefficient is obscured using the original\nmodel (a) but can be effectively identified with just 15 power\ntraces using the modified model (b).\nB. Optional Kendall’s tau for CPA\nWhen the number of power traces is limited, traditional\nCPA may face challenges due to high PCC values across\nguessed keys. To address this, we set the |PCC| threshold\n(e.g., 0.9) based on repeated experimental analysis, with 0.9",
+      "logarithms in polynomial time, directly undermining the security assumptions\non which most public-key cryptographic systems are based. Systems such as\nRSA, the Diffie–Hellman Key Exchange, Elliptic Curve Cryptography (ECC),\nand the Digital Signature Algorithm (DSA) are all rendered insecure by the capabilities of this quantum algorithm. What makes Shor’s algorithm particularly\nthreatening is its ability to reduce the complexity of these problems from exponential to polynomial time, thereby enabling quantum adversaries to efficiently\ndecrypt data or forge credentials that would otherwise be considered secure. For\nexample, a 2048-bit RSA key—currently assumed to be robust against classical\nattacks—could be broken within seconds using a sufficiently large and stable\nquantum computer running Shor’s algorithm.\nThis quantum advantage implies the potential for total cryptanalytic compromise of traditional public-key\n3"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g033",
+    "type": "multihop",
+    "question": "How do quantum decoy-state countermeasures in quantum key distribution (QKD) systems affect the key rate, and can quantum machine learning techniques help in detecting anomalies in encrypted traffic while ensuring privacy, according to the given passages?",
+    "ground_truth": "Quantum decoy-state countermeasures, while effective against certain PNS attacks, significantly decrease the key rate in QKD systems. On the other hand, quantum machine learning techniques can help in detecting anomalies in encrypted traffic by leveraging rich feature maps and kernel evaluations, which can reveal weak cross-modal correlations and rare-event structures in near real-time, while preserving privacy by utilising flow-level statistics without payload decryption.",
+    "sources": [
+      "QUANTUM KEY DISTRIBUTION - Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction",
+      "Quantum Machine Learning for Cybersecurity"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "b5b8f79e773e-133",
+      "25e78fc9ccfe-6"
+    ],
+    "chunk_texts": [
+      "A PREPRINT - NOVEMBER 26, 2025\nof information-theoretic security can be undermined in practice. For example, a Trojan-horse injection\nthat exploits unmonitored back-scatter may leak phase-reference information to Eve unless optical isolators,\nnarrow-band filters, and real-time reflectometry are incorporated into transmitter and receiver modules. Likewise, decoy-state countermeasures—while effective against idealized PNS attacks—must be tuned to detect\njoint-PNS variants that siphon photons bidirectionally. Furthermore, decoy-state countermeasures are not\nvery practical solutions as these decrease the key rate significantly [24]. In a QuANet context, these insights\nwill help directly in the hardware design of several key components such as quantum gateways and switches,\nensuring that any node arbitrating between classical and quantum paths can also monitor for side-channel\nleakage.",
+      "inference and optimisation with fewer effective computational\nsteps than strong classical baselines [5]. Conventional pipelines\nin cybersecurity telemetry struggle to keep pace with\nthe volume, speed, and diversity of data generated from\nnetwork flows, system logs, endpoint events, and threat\nintelligence feeds. A hybrid approach of quantum and\nclassical techniques can leverage rich feature maps and kernel\nevaluations. This can reveal weak cross-modal correlations\nand rare-event structures in near real-time. Adversaries use\ntechniques such as code obfuscation, multi-stage social\nengineering, and AI-enabled automation. The detectors for\nthese adversaries should generalise under distribution shift and\nadversarial manipulation. Previous studies have indicated that\nquantum-based classifiers, which utilise flow-level statistics\nwithout payload decryption, can effectively detect anomalies\nin encrypted traffic [6]. Thus, they are able to preserve privacy"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g034",
+    "type": "multihop",
+    "question": "How do Continuous Variable (CV) and Discrete Variable (DV) QKDPs differ in generating outcomes, and what are the implications for their implementation in quantum key distribution systems compared to traditional methods?",
+    "ground_truth": "Continuous Variable QKDPs generate continuous outcomes, while Discrete Variable QKDPs generate discrete outcomes by employing the polarization of a single photon. This difference implies that Continuous Variable QKDPs might be more flexible but could be more challenging to implement compared to the specialized hardware required for Discrete Variable QKDPs. In contrast, traditional methods rely on conventional encryption, which may be less secure but more widely available and easier to implement.",
+    "sources": [
+      "Quantum key distribution through quantum machine learning - a research review",
+      "Quantum Key Distribution Networks -- Key Management - A Survey"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "096268fca3ea-17",
+      "eb482c92a629-5"
+    ],
+    "chunk_texts": [
+      "secure communication systems that differ from conventional\nmethods. Quantum cryptography’s security depends on physics\nprinciples, unlike traditional encryption, which relies on the\ncomputational complexity of certain mathematical problems.\nQuantum cryptography utilizes quantum physics principles to\nensure secure communication. Quantum Encryption employs\nquantum\nstates\nto\nencrypt\ndata\ndirectly,\nalong\nwith\nthe\nprominent QKD application for secure key exchange. Random\nnumbers are essential for generating keys in QKD. As a result,\nboth QKD and random number generation play a crucial role in the\nlandscape of quantum cryptography. This includes advanced\nprotocols like Quantum Secure Direct Communication and\nQuantum Homomorphic Encryption (Goyal, 2024). The two\nprimary\ncategories\nof\nQuantum\nKey\nDistribution\nProtocols\n(QKDPs) are Continuous Variable (CV) and Discrete Variable\n(DV)\nQKDPs.\nDiscrete\nVariable\nQKDPs\ngenerate\ndiscrete\noutcomes by employing the polarization of a single photon or",
+      "discovered in the near future, compromising their security. In contrast, quantum cryptography is based on the principles\nof quantum physics. Because the laws of quantum physics are unbreakable, the technology offers a long-term security\nsolution. It is unaffected by advancements in computing or mathematics. However, it has considerable limitations.\nQuantum Key Distribution (QKD) [5] is the most mature example of quantum technologies. It has been in experimental\ntesting for over two decades and has only recently been used in commercial applications. QKD is a method for\nagreeing on secret keys, a problem that cryptographers have long faced. The real advantage of QKD over traditional\nkey-agreement protocols is that the established keys are Information-Theoretically Secure (ITS) [6]. It is unique in many\nother aspects, including the method of implementation. QKD necessitates specialized hardware, whereas traditional"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g035",
+    "type": "multihop",
+    "question": "How does Shor’s algorithm leverage quantum parallelism and the Quantum Fourier Transform to factor large integers, and why is this significant for RSA encryption as described in both passages?",
+    "ground_truth": "Shor’s algorithm utilizes quantum parallelism and the Quantum Fourier Transform to factor large integers exponentially faster than classical methods, as mentioned in both passages. In Paper A, it is noted that Shor’s algorithm employs quantum parallelism through entanglement to rapidly factor large integers, while in Paper B, it is highlighted that the Quantum Fourier Transform enables key subroutines to be implemented exponentially faster. This is significant for RSA encryption because, as stated in both passages, RSA bases its security on the difficulty of factoring large numbers into their prime factors, and Shor’s algorithm can break this security by efficiently performing the factorization task.",
+    "sources": [
+      "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions",
+      "Practical Challenges in Executing Shor’s Algorithm"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "08d761285c1c-36",
+      "8a5faa30cee8-2"
+    ],
+    "chunk_texts": [
+      "quantum algorithms possible because it enables the creation of highly parallelized quantum states that solve complex problems \nfaster than traditional computers [45]. It is through entanglement that Shor’s algorithm employs quantum parallelism to rapidly \nfactor large integers, since classical computers would require impractical amounts of time [46].\n3.1.2. Why quantum systems can break classical encryption?\nQuantum computers obtain their exceptional computational speed through their ability to handle superposition and interference \nphenomena, among other processes [47]. The treatment involves breaking the RSA and ECC encryption protocols, despite their basis \non number-theoretic problems that classical computers find difficult [48].\nShor algorithm and RSA: RSA encryption bases its functionality on the ability to factor large numbers into their prime factors,",
+      "quantum threats.\nKeywords: cryptography, prime factorization, public key, quantum computing, Shor’s algorithm\n1\nIntroduction\nQuantum computers have the potential to transform computing by efficiently solving certain problems that are intractable for classical machines. Shor’s algorithm [1, 2] is particularly notable for its\nability to factor large integers in polynomial time, outperforming the best-known classical methods.\nAt the core of Shor’s algorithm is the Quantum Fourier Transform (QFT), which enables key subroutines to be implemented exponentially faster than their classical counterparts. This capability\nthreatens widely used public-key cryptographic protocols, such as RSA and also ECC [3], whose\nsecurity is based on the presumed hardness of integer factorization or related number-theoretic\nproblems. While theoretical advancements have clarified how quantum computers could eventually\ncompromise such systems, the practical implementation of Shor’s algorithm on existing quantum"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g036",
+    "type": "multihop",
+    "question": "How do client honeypots differ from physical and virtual honeypots, and what are the primary value and effectiveness factors of honeypots as described in the two papers?",
+    "ground_truth": "Client honeypots are a type of honeypot that simulate the behavior of a human to analyze how attackers exploit vulnerabilities in client programs. They can be categorized as low-interaction or high-interaction honeypots, and can run on physical or virtual machines. According to the second paper, the primary value of honeypots lies in their intelligence-gathering capabilities, which provide rich datasets about attacker tactics, techniques, and procedures (TTPs). The effectiveness of honeypots depends on their realism and proper isolation, as they must be convincing enough to attract attackers without compromising the security of genuine systems.",
+    "sources": [
+      "Use of Deception to Improve Client Honeypot Detection of Drive-by-Download Attacks",
+      "A Systematic Meta-Survey of Cyber Deception - Unified Taxonomy and Research Directions"
+    ],
+    "topic": "Deception",
+    "chunk_ids": [
+      "fc2fb8e18610-5",
+      "4015206e5739-35"
+    ],
+    "chunk_texts": [
+      "cracker, the traps used to lure and detect him, and the chroot “Jail” the researchers \nbuilt to watch his activities [6]. \nTypes of honeypots can be differentiated by their ability to interact with an attacker. Systems that emulate vulnerabilities and allow limited interaction with the \nattacker are low-interaction honeypots. Systems that are vulnerable and allow interaction with the attacker at all levels are high-interaction honeypots [7]. Another differentiation is between physical honeypots, which run on physical machines, and virtual \nhoneypots, which run on virtual machines [2]. \nAs a result of attackers exploiting vulnerabilities in client programs (such as \nbrowsers), honeypots have evolved to simulate the behavior of a human and analyze \nhow such behavior is exploited by an attacker [2]. \n2.1 Client Honeypots",
+      "networks of interconnected honeypot systems that simulate realistic organizational infrastructure [61].\nThe primary value of honeypots lies in their intelligence-gathering capabilities. By providing a safe, sandboxed\nenvironment where attackers can operate freely while being comprehensively monitored, defenders gain unparalleled\nvisibility into adversary behavior. Every command executed, file accessed, tool uploaded, and lateral movement attempt\nis logged for analysis. This produces rich datasets about attacker TTPs that inform threat models, guide security\ninvestments, and enable proactive defense improvements. The effectiveness of honeypots depends critically on their\nrealism [63, 69] and proper isolation. They must be convincing enough that attackers invest significant effort in\nexploitation, yet sufficiently isolated that compromised honeypots cannot be used as pivots to attack genuine systems.\n3.2.2"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g037",
+    "type": "multihop",
+    "question": "How does SPHINCS+ differ from other lattice-based approaches in terms of security assumptions and implementation, and what is its stateless operation mechanism compared to MLWE-based systems like Dilithium?",
+    "ground_truth": "SPHINCS+ uses hash functions for security, avoiding newer hardness assumptions like MLWE, whereas lattice-based approaches rely on structured lattices. SPHINCS+ implements stateless hash-based digital signatures through a hierarchical structure of hash trees combined with WOTS+, FORS, and Hypertree constructions, differing from MLWE-based systems like Dilithium which focus on lattice-based cryptography.",
+    "sources": [
+      "Post-Quantum Cryptography and Quantum-Safe Security",
+      "A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "6bd42fde4e48-51",
+      "6b46c927c9f6-11"
+    ],
+    "chunk_texts": [
+      "the NTRU assumption-less extensively analyzed than MLWE-leaves open long-term theoretical\nquestions, and experts caution that rejection-sampling techniques may weaken under real-world\nside-channel conditions [55].\n4.3\nSPHINCS+ (SLH-DSA)\nThe stateless hash-based digital signature algorithm (SLH-DSA), instantiated through SPHINCS+,\nhas recently been standardized as FIPS 205 (see Figure 4) [4]. Unlike lattice-based approaches, SLHDSA derives its security solely from the collision resistance of hash functions, avoiding reliance\non newer hardness assumptions. It achieves quantum resistance through a hierarchical structure\nof hash trees combined with few-time signature mechanisms. Specifically, winternitz one-time\nsignature plus (WOTS+) is used for signing individual nodes, FORS enables efficient few-time\nsignatures at the leaf level, and the Hypertree construction links these components together to\nachieve stateless operation [28].",
+      "on an entirely different hardness assumption. Notably, three of\nthese four use structured lattices as the source of difficulty, while\nSPHINCS+ uses hash functions. NIST’s announcement also\nidentified four additional algorithms for further analysis in a\n“Round 4”. These included candidates such as Classic McEliece\n(code-based encryption) and others that, while not selected in the\nfirst batch, could be standardized later for broader security [6].\nTimeline of Standardization\nFollowing the selection, NIST\nbegan drafting standards for the new algorithms. By August\n2024, NIST released draft versions of FIPS 203, 204, and 205.\nThese drafts correspond to the standards for Kyber, now called\nModule-Lattice KEM or ML-KEM, Dilithium as lattice signatures, ML-DSA, and SPHINCS+ as stateless hash signature,\nSLH-DSA [19]. These drafts underwent public comment and final FIPS approval, staying on track with NIST’s earlier estimate\nthat the standards would be finalized about “two years” after the"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g038",
+    "type": "multihop",
+    "question": "What mathematical breakthroughs were critical in both the cryptanalytic attack on SIKE and the efficiency of Shor’s algorithm for factoring large numbers, and how do these breakthroughs impact post-quantum cryptography and quantum machine learning respectively?",
+    "ground_truth": "The cryptanalytic attack on SIKE relied on advanced genus theory and the 'glue-and-split' theorem, highlighting the potential for unexpected mathematical breakthroughs to reveal vulnerabilities in post-quantum cryptography. Similarly, Shor’s algorithm’s efficiency in factoring large numbers, driven by mathematical principles, poses a significant threat to classical cryptographic systems like RSA. These breakthroughs underscore the importance of developing post-quantum cryptographic systems that can withstand quantum attacks, impacting both the security landscape and the potential applications of quantum machine learning in optimization problems.",
+    "sources": [
+      "Post-Quantum Cryptography and Quantum-Safe Security",
+      "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "6bd42fde4e48-42",
+      "f642ef5c199a-53"
+    ],
+    "chunk_texts": [
+      "in approximately one hour on standard hardware through mathematical techniques that do not\nrequire quantum computation.\nSIKE initially appeared to be a highly promising PQC candidate because of its exceptionally\nsmall key sizes, with public keys remaining under 600 bytes even at strong security levels [68]. Its\nefficiency in bandwidth consumption, coupled with security assumptions rooted in the hardness\nof computing isogenies between supersingular elliptic curves, positioned it as one of the leading\ncontenders during the NIST post-quantum standardization process.\nThe eventual cryptanalytic attack on SIKE showcased striking mathematical depth, drawing on\nadvanced genus theory and the little-known \"glue-and-split\" theorem [92]. This result underscored\nhow powerful breakthroughs can arise from unexpected areas of mathematics, revealing vulnerabilities that had not been captured in the original security analysis of isogeny-based cryptography.",
+      "𝜃((𝑙𝑜𝑔𝑁)2(𝑙𝑜𝑔(𝑙𝑜𝑔𝑁))(𝑙𝑜𝑔(𝑙𝑜𝑔(𝑙𝑜𝑔𝑁)))) with fast multiplication, or even 𝜃((𝑙𝑜𝑔𝑁)2(𝑙𝑜𝑔(𝑙𝑜𝑔𝑁))\nusing the fastest known multiplication algorithm. This is significantly faster than the general\nnumber field sieve, the most efficient classical algorithm.\nCryptographic security is one of the primary applications of Shor’s algorithm. The algorithm can potentially break systems like RSA, which rely on the difficulty of factoring large\nnumbers. This vulnerability has driven significant research and development in post-quantum\ncryptography, aiming at creating cryptographic systems that remain secure against quantum\nattacks.\nAdditionally, the principles behind Shor’s algorithm can be applied to other optimization problems that benefit from the speedup provided by quantum computing. The ability to solve such\nproblems more efficiently could have wide-ranging impacts across various fields that require\ncomplex computations and optimizations."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g039",
+    "type": "multihop",
+    "question": "How does the security of QKD in quantum cryptography differ from traditional cryptography, and what method can be used to detect eavesdropping in QKD according to the review on quantum machine learning algorithms?",
+    "ground_truth": "The security of QKD is based on the fundamental laws of physics, whereas traditional cryptography relies on unproven computational assumptions. According to the review, eavesdropping detection can be achieved by leveraging various QML algorithms, such as quantum support vector machine (QSVM) or quantum convoluted neural networks (QCNN), to identify potential eavesdroppers in the quantum key distribution process.",
+    "sources": [
+      "Quantum key distribution through quantum machine learning - a research review",
+      "Decoy State Quantum Key Distribution"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "096268fca3ea-2",
+      "3c616c5ddb91-1"
+    ],
+    "chunk_texts": [
+      "detection by leveraging various QML algorithms.\nKEYWORDS\nquantum\ncryptography\n(QC),\nquantum\nmachine\nlearning\n(QML),\nquantum\nkey\ndistribution (QKD), quantum convoluted neural networks (QCNN), quantum support\nvector\nmachine\n(QSVM),\neavesdropping\ndetection,\nquantum\nsecure\ndirect\ncommunication (QSDC)\n1 Introduction\nBeyond the constraints of classical encryption, the ﬁeld of quantum cryptography (QC)\nprovides\na\nrevolutionary\nmethod\nof\nsecure\ncommunication.\nDespite\ntraditional\ncryptography methods, QC protocols offer veriﬁable security assurances by utilizing the\nconcepts of quantum mechanics (Goyal, 2024). Quantum teleportation (QT), quantum\nsecret sharing (QSS), quantum secure direct communication (QSDC), and quantum key\ndistribution (QKD) represent the four fundamental branches of quantum cryptography\nprotocols. Unlike QKD, which is primarily concerned with the secure negotiation of\ncryptographic keys, QSDC introduces a novel communication paradigm that provides a",
+      "enjoying unconditional security guaranteed by the fundamental laws of physics and yet dramatically\nsurpassing even some of the best experimental performances reported in the literature.\nPACS numbers:\nQuantum key distribution (QKD) allows two users, Alice and Bob, to communicate in absolute security in the\npresence of an eavesdropper, Eve. Unlike conventional\ncryptography, the security of QKD is based on the fundamental laws of physics, rather than unproven computational assumptions. The security of QKD has been rigorously proven in a number of recent papers [1]. See also\n[2]. There has been tremendous interest in experimental\nQKD [3, 4], with the current world record distance of 150\nkm of Telecom ﬁbers[4].\nUnfortunately, all those exciting recent experiments\nare, in principle, insecure due to real-life imperfections.\nMore concretely, highly attenuated lasers are often used\nas sources. But, these sources sometimes produce signals\nthat contain more than one photons. Those multi-photon"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g040",
+    "type": "multihop",
+    "question": "How does the optimized NTT implementation in the proposed Dilithium accelerator affect the speed and area-time product compared to Kyber, and what specific technique is used in the attack on Kyber to reduce computational complexity during polynomial multiplication in the NTT domain?",
+    "ground_truth": "The proposed Dilithium accelerator, using optimized NTT implementation, achieves a speed-up of up to 34.16× for Kyber and 9.6× for Dilithium, with a corresponding 44%–96% improvement in area-time product. In the attack on Kyber, the computational complexity of polynomial multiplication in the NTT domain is reduced from O(N^2) to O(N log N) by dividing the 256 coefficients into odd and even groups and using bit-reversal and matrix operations.",
+    "sources": [
+      "A_Comprehensive_Survey_on_Pre_Versus_Post_Quantum_Security_Schemes_for_5G-Enabled_IoT_Applications",
+      "An Improved Two-Step Attack on Lattice-Based Cryptography - A Case Study of Kyber"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "39f246bd1b83-90",
+      "cc70e283bcc5-8"
+    ],
+    "chunk_texts": [
+      "B. Choudhury et al.: Comprehensive Survey on Pre Versus Post Quantum Security Schemes\nDilithium, optimizing polynomial multiplication via Number Theoretic Transform (NTT) on resource-constrained\nplatforms. The proposed design introduces a novel DSP\narchitecture that reduces the critical path delay of modular\nmultiplication and eliminates the need for separate preand post-processing steps. Furthermore, unified pipelined\narchitectures for both Radix-2 and Radix-4 NTT/INTT\ntransformations are developed, achieving full throughput\nutilization and reducing redundant memory access. Implemented on an Artix-7 FPGA, their accelerator achieves a\nspeed-up of up to 34.16× for Kyber and 9.6× for Dilithium,\nwith a corresponding 44%–96% improvement in area-timeproduct. These results highlight the suitability of their design\nfor secure, low-latency IoT and embedded applications\nresistant to quantum and side-channel attacks.\nCRYSTALS-Kyber\nhas\nseen\nsignificant\ndeployment",
+      "m ←Compressq(v −INTT(ˆsT ◦NTT(u)), 1).\n(1)\nComputing polynomial multiplication in NTT domain can\nreduce\nthe\ncomputational\ncomplexity\nfrom\nO(N 2)\nto\nO(N log N), thus significantly improving the speed of the\nentire encryption and decryption process in Kyber. Note that\nfor Kyber, here is only 256th primitive root of unity ξ instead of\n512th. Therefore, 256 coefficients are divided into two groups,\nnamely the odd and even groups, for NTT calculations. The\neven coefficients in NTT domain are described as follows:\nˆf2i =\n127\nX\nj=0\nf2jξ(2br(i)+1)j ⇒[ ˆf2i]⊤= M[f2i]⊤, 0 ≤i < 128,\n(2)\nwhere br(i) represents bit-reversal of i and M is an 128×128\nmatrix with reduced integers. Similarly, the inverse matrix of\nINTT can be represented as N in the same way.\nB. Correlation-Based Attack Techniques\nThe conventional CPA attack is a non-invasive SCA that\nuses the Person correlation between power consumption models and actual power traces to recover cryptographic keys. It"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g041",
+    "type": "multihop",
+    "question": "How does Duck Bevy Optimization (DBO) enhance the performance of the Quantum Hamiltonian Generative Adversarial Network (QHGAN) in detecting software defects, and how does it compare to the Particle Swarm Optimization (PSO) algorithm in handling complex, nonlinear, and systemic problems in the context of software defect prediction and image generation?",
+    "ground_truth": "DBO enhances the performance of the QHGAN in detecting software defects by refining the model, offering a highly reliable and cost-effective solution. In contrast, PSO, a nature-inspired metaheuristic algorithm, is noted for its fewer control parameters and faster search rate, making it suitable for handling complex, nonlinear, and systemic problems in image generation and other applications, though it is not specifically mentioned in the context of software defect prediction.",
+    "sources": [
+      "A Survey of Quantum Generative Adversarial Networks",
+      "Quantum key distribution through quantum machine learning - a research review"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "209d04d0da90-75",
+      "096268fca3ea-24"
+    ],
+    "chunk_texts": [
+      "Optimization algorithm then selects five critical software metrics, including cyclomatic\ncomplexity, Halstead measures, and code churn. These refined features are input into a\nQuantum Hamiltonian Generative Adversarial Network [67], which identifies software\ndefects using probabilistic thresholding. The process is further refined using Duck\nBevy Optimization (DBO), enhancing model performance, offering a highly reliable\nand cost-effective solution for software defect prediction.\nConclusion\nQuantum Generative Adversarial Networks represent a convergence of two transformative technologies: quantum computing and generative modeling. This review examined\n20",
+      "processing large real-time data, has gained popularity with the\ndevelopment of quantum generative models. Several variants of\nGenerative\nAdversarial\nNetworks\n(GANs)\nwith\nadvanced\ncomputing capabilities have been introduced. Recently, a hybrid\nquantum-classical Generative Adversarial Network (GAN) has been\ndeveloped for image generation, leveraging QML to overcome\nquantum hardware constraints (Zhou et al., 2023). With the\nadvancement of artiﬁcial intelligence and machine learning,\ntraditional optimization techniques struggle to handle complex,\nnonlinear, and systemic problems. Advanced algorithms such as\nant colony optimization, bat optimization, simulated annealing,\ngenetic\noptimization,\nfruit\nﬂy\noptimization,\nparticle\nswarm\noptimization\n(PSO),\nand\nthe\ngravitational\nsearch\nmethod,\ncombined with effective preprocessing techniques, offer more\nrobust\nsolutions.\nAmong\nthese,\nPSO,\na\nnature-inspired\nmetaheuristic algorithm, stands out due to its fewer control\nparameters,\nfaster\nsearch\nrate,"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g042",
+    "type": "multihop",
+    "question": "How does the fitness evaluation in EQGAN contribute to its training process compared to traditional QGANs, and what quantum resources are utilized in both QGANs and EQGANs for generating and discriminating quantum states?",
+    "ground_truth": "The fitness evaluation in EQGAN selects optimal generator configurations across generations, which improves convergence speed and reduces training costs. In contrast, QGANs rely on iterative adversarial training using a hybrid loop, where quantum measurements are used to estimate loss. Both QGANs and EQGANs utilize quantum resources such as superposition and entanglement for encoding and manipulating data distributions, with QGANs pairing a parameterized quantum generator with a discriminator that can be either quantum or classical, while EQGANs integrate quantum computational elements into classical neural networks as discriminators.",
+    "sources": [
+      "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+      "A Survey of Quantum Generative Adversarial Networks"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "f642ef5c199a-81",
+      "209d04d0da90-56"
+    ],
+    "chunk_texts": [
+      "91:18\nF. Rodríguez-Díaz et al.\nFinally, its pseudocode can be found in Algorithm 9 (see Appendix C).\n4.3.3\nQuantum Generative Adversarial Networks. QGANs generalize the classical GAN framework to the quantum setting by pairing a parameterized quantum generator with a discriminatoreither quantum or classical-in a two-player minimax game. The generator seeks to produce quantum\nstates that approximate an unknown data distribution, while the discriminator learns to distinguish\nbetween real samples and those generated. Like classical GANs, QGANs rely on iterative adversarial\ntraining, but leverage quantum resources such as superposition and entanglement to encode and\nmanipulate data distributions.\nThese models are typically implemented within a variational quantum algorithm (VQA)\nframework, where both the generator and discriminator are expressed as parameterized quantum\ncircuits. Optimization proceeds via a hybrid loop, using quantum measurements to estimate loss",
+      "training targets as mutation operations. Quantum circuits serve as generators while\nclassical neural networks act as discriminators. A fitness evaluation is employed to select\noptimal generator configurations across generations, improving convergence speed\nand reducing training costs. Simulations conducted on two datasets demonstrate that\nEQGAN achieves faster and more stable training compared to traditional approaches,\neffectively addressing limitations related to adversarial singularity.\nIntegration of quantum computational elements into classical Generative Adversarial\nNetworks was investigated for advancing the frontier of quantum-enhanced machine\nlearning [73]. By incorporating quantum data representation techniques and leveraging\nthe distinctive capabilities of qubits, the study proposes a hybrid GAN architecture\nintended to accelerate convergence and improve generative quality. Theoretical and\nexperimental considerations are discussed, including the potential quantum advantages"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g043",
+    "type": "multihop",
+    "question": "What conditions allow a quantum computer to potentially outperform a classical computer in terms of precision, and how does this relate to the factorization problem discussed in both papers?",
+    "ground_truth": "According to Paper A, if the precision of a quantum computer is large enough to make it more powerful than a classical computer, it could potentially outperform classical computers. Paper B suggests that quantum computers might have capabilities surpassing classical ones, particularly for problems like prime factorization, which is mentioned as a classically intractable problem with a known quantum algorithm solution.",
+    "sources": [
+      "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer",
+      "Quantum Computing in the NISQ era and beyond"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "96ba03bbfa27-7",
+      "cf64a00c519e-9"
+    ],
+    "chunk_texts": [
+      "computer that cannot also be computed in polynomial time on a classical computer\nwith a random number generator. However, if we let the precision grow polynomially\nin the input size (that is, we let the number of bits of precision grow logarithmically\nin the input size), we appear to obtain a more powerful type of computer. Allowing\nthe same polynomial growth in precision does not appear to confer extra computing\npower to classical mechanics, although allowing exponential growth in precision does\n[Hartmanis and Simon 1974, Vergis et al. 1986].\nAs far as we know, what precision is possible in quantum state manipulation is dictated not by fundamental physical laws but by the properties of the materials and the\narchitecture with which a quantum computer is built. It is currently not clear which\narchitectures, if any, will give high precision, and what this precision will be. If the precision of a quantum computer is large enough to make it more powerful than a classical",
+      "many qubits. Giving a complete description of all the correlations among just a few hundred qubits may require more bits than the number of atoms in the visible universe. It\nwill never be possible, even in principle, to write that description down, or to faithfully\ndescribe the processing of a few hundred qubits using classical language.\nThis apparently extravagant complexity of the quantum world, though highly suggestive, does not by itself ensure that quantum computers are more powerful than classical\nones. But we have at least three good reasons for thinking that quantum computers have\ncapabilities surpassing what classical computers can do.\n(1) Quantum algorithms for classically intractable problems. First, we know of problems\nthat are believed to be hard for classical computers, but for which quantum algorithms have been discovered that could solve these problems easily. The best known\nexample is the problem of ﬁnding the prime factors of a large composite integer [1]."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g044",
+    "type": "multihop",
+    "question": "How does the improvement in quantum gate accuracy in near-term quantum platforms relate to the strategy of using Variational Quantum Algorithms (VQAs) on NISQ devices to achieve quantum advantage, and what are the key constraints that VQAs must account for?",
+    "ground_truth": "Improving quantum gate accuracy in near-term quantum platforms will allow for the execution of larger quantum circuits, paving the way for more advanced quantum devices. Variational Quantum Algorithms (VQAs) are a leading strategy to achieve quantum advantage on NISQ devices by accounting for limited numbers of qubits, limited connectivity, and coherent and incoherent errors that limit quantum circuit depth, despite the fact that fault-tolerant quantum computers are still many years or decades away.",
+    "sources": [
+      "Quantum Computing in the NISQ era and beyond",
+      "Variational quantum algorithms"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "cf64a00c519e-69",
+      "44b1cee70529-4"
+    ],
+    "chunk_texts": [
+      "ones.\nWe should continue to focus on building quantum hardware with lower gate error rates.\nImproved quantum gate accuracy will lower the overhead cost of quantum error\ncorrection when it is eventually implemented. In the nearer term, more accurate\ngates will allow us to execute larger quantum circuits, and so extend the power of\nNISQ technology.\nNISQ is not likely to change the world all by itself. Instead, the primary goal for nearterm quantum platforms should be to pave the way for bigger payoﬀs which will be\nrealized by more advanced quantum devices down the road.\nAccepted in Quantum 2018-07-30, click title to verify\n15",
+      "speedup for practical applications, which is often called\nquantum advantage, has yet to be realized. Moreover, the\navailability of fault-tolerant quantum computers appears\n∗e-mail: cerezo@lanl.gov\n† e-mail: pcoles@lanl.gov\nto still be many years, or even decades, away. The key\ntechnological question is therefore how to make best use\nof today’s NISQ devices to achieve quantum advantage.\nAny such strategy must account for: limited numbers of\nqubits, limited connectivity of the qubits, and coherent\nand incoherent errors that limit quantum circuit depth.\nVariational\nQuantum\nAlgorithms\n(VQAs)\nhave\nemerged as the leading strategy to obtain quantum\nadvantage on NISQ devices.\nAccounting for all of the\nconstraints imposed by NISQ computers with a single\nstrategy requires an optimization-based or learningbased approach, precisely what VQAs use.\nVQAs\nare arguably the quantum analog of highly successful\nmachine-learning methods, such as neural networks.\nMoreover,\nVQAs\nleverage\nthe\ntoolbox\nof"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g045",
+    "type": "multihop",
+    "question": "What is the expected QBER when an eavesdropper measures and retransmits all intercepted photons in the rectilinear basis, and how does this relate to the background event rate pdark in the Decoy State Quantum Key Distribution method?",
+    "ground_truth": "When an eavesdropper measures and retransmits all intercepted photons in the rectilinear basis, the expected QBER is at least 1/4. This relates to the background event rate pdark in the Decoy State Quantum Key Distribution method, as the term pdark accounts for background events such as dark counts, which can contribute to the overall error rate in the quantum key distribution process.",
+    "sources": [
+      "Decoy State Quantum Key Distribution",
+      "Quantum Cryptography - Public Key Distribution and Coin Tossing"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "3c616c5ddb91-11",
+      "6c936dc191cb-18"
+    ],
+    "chunk_texts": [
+      "two sources, i) the detection of signal photons ηn, and\nii) the background event pdark. The combination gives,\nassuming the independence of background and signal detection events,\nYn = ηn + pdark −ηn · pdark\n≈ηn + pdark\n(6)\nwhere in the second line we neglect the cross term because\nthe background rate (typically 10−5) and transmission\neﬃciency (typically 10−3) are both very small.\nSuppose the overall transmission probability of each\nphoton is η. In a normal channel, it is common to assume independence between the behaviors of the n photons. Therefore, the transmission eﬃciency for n-photon\nsignals ηn is given by:\nηn = 1 −(1 −η)n,\n(7)\n[For a small η and ignore the dark count, Yn ≈nη.]\nQBER\nLet us discuss the QBERs, en’s, in a realistic\nexperiment.\n(a) If the signal is a vacuum, Bob’s detection is due\nto background including dark counts and stray light due",
+      "Specifically, \nit can be shown that no measurement on a photon in \ntransit, by an eavesdropper who is informed of the \nphoton's•original basis only after he has performed \nhis measurement, can yield more than 1/2 expected \nbits of information aboďt the key bit encoded by \nthat photon; and that any such measurement yielding \nb bits of expected information (b s 1/2) must induce \na disagreement with probability at least b/2 if \nthe measured photon, or an attempted forgery of it, \nis later re-measured in its original basis. \n(This \nopti_mum tradeoff occurs, for example, when the ea­\nvesdropper measures and retransmits all intercepted \nphotons in the rectilinear basis, thereby learning \nthe correct polarizations of half the photons and \ninducing disagreements in 1/4 of those that are lat­\ner re-measured in the original basis.) \nAlice and Bob can therefore test for eaves­\ndropping by publicly comparing some of the bits on \nwhich they think they should agree, though of course"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g046",
+    "type": "multihop",
+    "question": "How has the integration of quantum machine learning (QML) in quantum key distribution (QKD) research contributed to the development of more robust cryptographic applications, and what are the emerging security threats that QML-based applications face according to the 6G network research?",
+    "ground_truth": "The integration of QML in QKD research has significantly increased eavesdropping detection and security analysis of QKD protocols, contributing to more robust cryptographic applications. However, QML-based applications face emerging security threats, as highlighted in the 6G network research, which focuses on intelligence and adversarial threats despite their potential to enhance artificial intelligence with unprecedented computational power.",
+    "sources": [
+      "Quantum key distribution through quantum machine learning - a research review",
+      "Quantum Machine Learning for 6G Network"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "096268fca3ea-7",
+      "1439760f12a7-0"
+    ],
+    "chunk_texts": [
+      "maps and kernel-based classiﬁers, Real-time protocol prediction for\nquantum key distribution, Applications of artiﬁcial neural networks\nFIGURE 1\nThe integration of QML into QKD research has facilitated the resolution of more complex problems within the quantum cryptography community.\nAs illustrated in (a) research on eavesdropping detection and security analysis of QKD protocols has signiﬁcantly increased after 2010, reﬂecting a growing\nfocus on more robust and intelligent cryptographic applications. (b) Illustrates how advancements in quantum mechanics and quantum computing have\ncontributed to the development of quantum cryptography (QC) and quantum machine learning (QML). Various technologies associated with these\nverticals are highlighted, paving the way for intelligent, adaptive, and secure quantum communication systems. (a) Quantum cryptography research",
+      "Quantum Machine Learning for 6G Network\nIntelligence and Adversarial Threats\nVan-Linh Nguyen, Senior Member, IEEE, Lan-Huong Nguyen, Ren-Hung Hwang, Senior Member, IEEE,\nBerk Canberk, Senior Member, IEEE, Trung Q. Duong, Fellow, IEEE\nAbstract—Quantum computing has been a major priority\nfor several nations and prominent institutions in their pursuit\nof a transformative breakthrough in the ﬁelds of computation\nand encryption. By using the principles of quantum mechanics,\nparticularly quantum superposition and entanglement, quantum\ncomputing and quantum machine learning (QML) have the\npotential to enhance artiﬁcial intelligence (AI) and achieve\nquantum supremacy with unprecedented computational power.\nHowever, despite its exceptional learning capabilities, QMLbased applications face several emerging security threats. Unlike\nprevious studies focused on classical quantum cryptography\nand secure quantum communications, this work investigates"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g047",
+    "type": "multihop",
+    "question": "What is the role of the unitary matrices Ud and Ue in the context of QGANs, and how do they relate to the generator and discriminator functions described in the passages?",
+    "ground_truth": "In the context of QGANs, the unitary matrices Ud and Ue play a crucial role in the encoding and decoding processes of quantum states. Specifically, Ud is used for encoding the input state |ϕ⟩ into the encoded state |ϕ′⟩, which is then processed by the quantum circuit. This process is analogous to the generator function G(z) in classical GANs, which maps from the latent space to the data space. The discriminator function D(x) in QGANs, on the other hand, evaluates the authenticity of the reconstructed state |ϕ′′⟩, which is the result of the quantum circuit processing the encoded state |ϕ′⟩. This evaluation is similar to the classical discriminator's role in assessing the authenticity of the generated data samples.",
+    "sources": [
+      "A Survey of Quantum Generative Adversarial Networks",
+      "Quantum_Machine_Learning_A_Survey"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "209d04d0da90-3",
+      "5f0741856e70-13"
+    ],
+    "chunk_texts": [
+      "Keywords: quantum AI, quantum GAN, QGAN\n1 Introduction\nGenerative Adversarial Networks (GANs) have transformed the landscape of machine\nlearning since their introduction by Goodfellow et al. in 2014 [1]. At their core, GANs\nconsist of two competing neural networks-a generator and a discriminator-locked in\nan adversarial training process. The generator creates synthetic data samples, while\nthe discriminator evaluates their authenticity compared to real data. This elegant\ncompetitive framework has enabled remarkable advances in generating realistic images,\ntext, audio, and other data types.\nMeanwhile, quantum computing has emerged as a promising computational\nparadigm that harnesses quantum mechanical principles such as superposition and entanglement. Instead of classical bits that can be either 0 or 1, quantum computers use",
+      "J. Electrical Systems 20-6s (2024): 971-981 \n974 \n∣ϕ′′⟩=Ud∣ϕ′⟩ \nWhere: \nUe and Ud are the unitary matrices for encoding and decoding. \n∣ϕ⟩ is the input state. \n∣ϕ′⟩ is the encoded state. \n∣ϕ′′⟩ is the reconstructed state. \nQuantum Generative Adversarial Networks (QGANs) \nDescription: Quantum versions of GANs for generating synthetic data that closely matches real data distributions. \nUse Cases: Data augmentation, anomaly detection, and creating realistic synthetic samples for machine learning \n[1]. \nFields of Use: Applied in medical imaging, virtual reality, and autonomous driving. \nQGANs use quantum circuits to generate new data instances. \nGenerator formula: G(z) \nDiscriminator formula: \nD(x) \nWhere: \nG is the generator function mapping from latent space to data space. \nD is the discriminator function mapping from data space to a binary class label. \nz represents the input to the generator. \nx represents the input to the discriminator."
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g048",
+    "type": "multihop",
+    "question": "How does the use of VQCs in cyberattack detection and their application in QGANs differ, and what are the key features of VQCs that make them suitable for both tasks?",
+    "ground_truth": "VQCs are used in cyberattack detection for malware classification and cyberattack detection on the NSL-KDD dataset, while they are also a key architecture in QGAN implementations due to their flexibility and trainability. VQCs consist of an initial state preparation followed by layers of parameterized gates, allowing them to be optimized through classical optimization techniques.",
+    "sources": [
+      "Quantum Machine Learning for Cybersecurity",
+      "A Survey of Quantum Generative Adversarial Networks"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "25e78fc9ccfe-57",
+      "209d04d0da90-9"
+    ],
+    "chunk_texts": [
+      "evaluated their architecture on the Malware DB dataset and\nachieved a 95% accuracy, outperforming classical models\nand other quantum baselines. They achieved all this while\nmaintaining low latency. Thus, they demonstrated that their\narchitecture is suitable for real-time deployment.\n3) Variational\nQuantum\nClassifiers:\nVQCs\ncombine\nparameterised quantum circuits with classical optimisers in\nhybrid feedback loops. Thus, they can adapt to evolving attack\nstrategies. Abreu et al. [21] integrated classical variational\nalgorithms into quantum workflows by encoding classical\ndata into quantum states, processing them with variational\ncircuits, and optimising parameters for improved classification.\nTehrani [16] compared several hybrid quantum-classical binary\nclassifiers on a DGA botnet dataset, with a focus on VQCs.\nThey also pitched QHTC as an alternative.\nAbdur Rahman et al. [33] performed cyberattack detection\nusing VQCs on the NSL-KDD dataset. They reduced the",
+      "Quantum Eigensolver (VQE) [6] and Quantum Approximate Optimization Algorithm\n(QAOA) [7].\n2.2 Key Quantum Circuit Architectures\nSeveral quantum circuit architectures have emerged as particularly useful for QGAN\nimplementations, and the choice of architecture often depends on the specific application\ndomain, available quantum resources, and the nature of the data being modeled. Major\narchitectures are as follows.\nVariational Quantum Circuits (VQCs) are parameterized quantum circuits that\ncan be optimized through classical optimization techniques. A typical VQC consists of\nan initial state preparation, followed by layers of parameterized gates\n|ψ(θ)⟩= UL(θL) · · · U2(θ2)U1(θ1)|0⟩⊗n,\n(4)\nwhere each Ui(θi) represents a layer of parameterized quantum gates. VQCs are the\nmost common architecture for QGANs due to their flexibility and trainability [8, 9].\n3"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g049",
+    "type": "multihop",
+    "question": "How does the probabilistic error mitigation approach in variational quantum algorithms differ from the error handling in Shor’s algorithm implementation, and what specific techniques are used in each approach?",
+    "ground_truth": "In variational quantum algorithms, probabilistic error mitigation techniques such as stochastic error mitigation and regression with near-Cliﬀord circuits are used to estimate noise-free expectation values. In contrast, the Shor’s algorithm implementation focuses on avoiding hard-coded modular exponentiation and using a Cuccaro-style ripple-carry adder and two’s-complement overflow/comparator method for modular addition to handle errors through native, physical error rates without QEC.",
+    "sources": [
+      "Practical Challenges in Executing Shor’s Algorithm",
+      "Variational quantum algorithms"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "8a5faa30cee8-26",
+      "44b1cee70529-120"
+    ],
+    "chunk_texts": [
+      "CNOT-like primitive). The Readout Error (RO) quantifies the probability of misclassifying the\nfinal measurement outcome (|0⟩↔|1]⟩). These values reflect native, physical error rates without\nQEC; lower values permit deeper and wider circuits before noise dominates.\nCode\nOur implementation is based on standard constructions for reversible arithmetic. We employ a Cuccaro-style ripple-carry adder [26] and a two’s-complement overflow/comparator method\nfor modular addition [27], avoiding QFT-space adders [28]. Controlled powers of a are implemented\nvia precomputed exponents a2k mod N within a textbook QPE order-finding scaffold [29, 30] and\nwe target Qiskit Runtime Sampler V2 [31].\nImplementation Approaches\nWe derived an implementation of order-finding via Quantum\nPhase Estimation (QPE) that avoids the ad-hoc modular exponentiation tailored to a specific\nN. Instead of hard-coding multiply-by-a mod N for a fixed N, we programmatically assemble a",
+      "based on probabilistic error cancellation, stochastic error\nmitigation which works for general continuous systems\nsuch as analog quantum simulators and digital quantum\ncomputers was introduced [239].\nA diﬀerent approach to QEM relies on the classical\nsimulability of near-Cliﬀord circuits. The basic idea behind this approach is to compare the classically computed exact expectation values for near-Cliﬀord circuits\nwith their noisy counterparts evaluated on actual hardware [240–242]. Taking this approach can allow one to\nimplement a probabilistic error mitigation protocol without needing to construct a full error model for an experiment [240]. Alternatively, one can perform a simple\nregression with this Cliﬀord data to estimate how the observables have been aﬀected and invert this regression to\nestimate desired noise-free expectation values [241]. Finally, zero-noise extrapolation can be merged with this\nregression to have an extrapolation to zero-noise whose"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g050",
+    "type": "multihop",
+    "question": "How does the training process of QuGANs in quantum machine learning differ from the classical GANs in terms of optimization and adversarial training, and what is the role of the discriminator in both cases?",
+    "ground_truth": "In QuGANs, the training follows an adversarial minimax framework with quantum gradient-based optimization, while classical GANs use the loss functions L_D and L_G to update discriminator and generator parameters respectively. The discriminator in both cases distinguishes between generated and real states, but QuGANs may outperform classical GANs in representation due to their quantum principles, as suggested in [12].",
+    "sources": [
+      "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+      "Quantum Machine Learning for 6G Network"
+    ],
+    "topic": "Quantum Machine Learning",
+    "chunk_ids": [
+      "f642ef5c199a-83",
+      "1439760f12a7-34"
+    ],
+    "chunk_texts": [
+      "𝐿𝐷= −1\n2 ∑\n𝑖\n[log 𝐷(𝑥𝑖) + log(1 −𝐷(𝑧𝑖))],\n(28)\nwhere 𝐷(⋅) is the discriminator function that outputs the probability of an input being real. The\ndiscriminator parameters 𝜙are updated to minimize 𝐿𝐷, improving its ability to distinguish real\nfrom fake data. Next, the generator produces a new batch {𝑧′\n𝑖}, and its loss is given by\n𝐿𝐺= −∑\n𝑖\nlog 𝐷(𝑧′\n𝑖).\n(29)\nMinimizing 𝐿𝐺updates the generator parameters 𝜃to increase the chance that fake data is\nclassified as real. This adversarial process continues until the generator and discriminator reach\na balance, known as Nash equilibrium. In QGANs, gradients are typically estimated using the\nparameter-shift rule or stochastic approximation, and optimization is performed via classical\nalgorithms.\nFinally, its pseudocode can be found in Algorithm 10 (see Appendix C).\n4.3.4\nQuantum Boltzmann Machines. QBMs are the quantum generalization of classical Boltzmann Machines, designed to model complex probability distributions through quantum principles",
+      "data, while the discriminator distinguishes between generated\nand real states. The training follows an adversarial minimax\nframework with quantum gradient-based optimization. A practical circuit ansatz ensures universality with sufﬁcient layers,\nand the authors in [12] suggest QuGANs may outperform\nclassical GANs in representation, with applications in quantum\nchemistry and cryptography.\nQuantum defensive distillation. This approach involves\ntraining a deep neural network (DNN) at an elevated softmax\ntemperature to generate probability distributions that encapsulate additional knowledge about class relationships. These soft\ntargets are then used to train the same network architecture,\nleading to a smoother decision boundary and reduced model\nsensitivity to input perturbations. The training decreases the\nmagnitude of adversarial gradients, hindering the creation of\nadversarial examples. In several empirical evaluations on the\nclassical data, the technique increases the average minimum"
+    ],
+    "reviewed": false,
+    "keep": true
+  },
+  {
+    "id": "g051",
+    "type": "multihop",
+    "question": "What is the probability that a random good c′ is divisible by a prime power over 18, and how does this relate to finding an L with deviation below 2−f in the context of factoring RSA integers with quantum computers?",
+    "ground_truth": "The probability that a random good c′ is divisible by a prime power over 18 is at most 12/pαi i, as stated in Paper A. This relates to finding an L with deviation below 2−f in the context of factoring RSA integers with quantum computers, as described in Paper B, where it is mentioned that an L with sufficiently small deviation can be found in polynomial time using a random search for a set of small primes, which is efficient under certain assumptions.",
+    "sources": [
+      "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer",
+      "How to factor 2048 bit RSA integers with less than a million noisy qubits"
+    ],
+    "topic": "Quantum Security",
+    "chunk_ids": [
+      "96ba03bbfa27-82",
+      "6a430815085b-18"
+    ],
+    "chunk_texts": [
+      "i\ndividing p −1, a random good c′ is unlikely to\ncontain pi. If we are willing to accept a large constant for our algorithm, we can just\nignore the prime powers under 18; if we know r modulo all prime powers over 18, we can\ntry all possible residues for primes under 18 with only a (large) constant factor increase\nin running time. Because at least one twelfth of the c’s were in a good (c, d) pair, at\nleast one twelfth of the c′’s are good. Thus, for a prime power pαi\ni , a random good c′ is\ndivisible by pαi\ni\nwith probability at most 12/pαi\ni . If we have t good c′’s, the probability\nof having a prime power over 18 that divides all of them is therefore at most\nX\n18 < p\nαi\ni\n\f\f(p−1)\n\u0012 12\npαi\ni\n\u0013t\n,\n(6.20)\nwhere a|b means that a evenly divides b, so the sum is over all prime powers greater\nthan 18 that divide p −1. This sum (over all integers > 18) converges for t = 2, and\ngoes down by at least a factor of 2/3 for each further increase of t by 1; thus for some",
+      "L mod N uniformly distributed over the range [1, N). In cases I’ve tested, I’m consistently able to\nfind an L with deviation below 2−f with high probability by randomly sampling O(2f) sets of small\nprimes. I conjecture this is true in general (see Assumption 1). I’ll show later in Equation 23 that\nthe required value of f grows logarithmically with the problem size len N. Assuming the conjecture\nand the promise that f will grow like O(log log N), an L with sufficiently small deviation can be\nfound in polynomial time:\n∆N(L) < 2−f\n(by brute force random search for a satisfying P)\n(17)\nAssumption 1 (random search for small modular deviations is efficient): A set P of small\nprimes satisfying (Q P) ≥N m and ∆N(Q P) < 2−f can be found in O(2f · poly(m · len N))\nexpected time by randomly varying the primes included in P.\nAs an example, here’s a set of 25000 primes I found in ten seconds using a 128 core machine."
+    ],
+    "reviewed": false,
+    "keep": true
+  }
+]

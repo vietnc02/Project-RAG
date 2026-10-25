@@ -1,0 +1,90 @@
+{
+  "scores.jsonl": {
+    "passes": [
+      0,
+      1,
+      2
+    ],
+    "n_ids": 85,
+    "agreement": {
+      "answer_correctness": {
+        "n": 85,
+        "all_equal": 0.9882352941176471,
+        "mean_abs_diff": 0.00784313725490196,
+        "mean_sd": 0.00554593553871802
+      },
+      "answer_relevancy": {
+        "n": 85,
+        "all_equal": 0.7529411764705882,
+        "mean_abs_diff": 0.0038606411604437314,
+        "mean_sd": 0.0027298855442776646
+      },
+      "context_recall": {
+        "n": 62,
+        "all_equal": 0.9193548387096774,
+        "mean_abs_diff": 0.011328725038402461,
+        "mean_sd": 0.008010618296852224
+      },
+      "context_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "faithfulness": {
+        "n": 52,
+        "all_equal": 0.7884615384615384,
+        "mean_abs_diff": 0.018309148116840427,
+        "mean_sd": 0.01294652279116678
+      },
+      "faithfulness_full": {
+        "n": 52,
+        "all_equal": 0.8269230769230769,
+        "mean_abs_diff": 0.01426027676027676,
+        "mean_sd": 0.01008353839878864
+      },
+      "hallucination": {
+        "n": 85,
+        "all_equal": 0.9647058823529412,
+        "mean_abs_diff": 0.023529411764705882,
+        "mean_sd": 0.016637806616154056
+      },
+      "hallucination_full": {
+        "n": 85,
+        "all_equal": 0.9647058823529412,
+        "mean_abs_diff": 0.023529411764705882,
+        "mean_sd": 0.016637806616154056
+      },
+      "n_claims": {
+        "n": 85,
+        "all_equal": 0.9058823529411765,
+        "mean_abs_diff": 0.09411764705882353,
+        "mean_sd": 0.06655122646461623
+      },
+      "n_judged": {
+        "n": 52,
+        "all_equal": 0.8461538461538461,
+        "mean_abs_diff": 0.15384615384615385,
+        "mean_sd": 0.10878565864408422
+      },
+      "n_unsupported": {
+        "n": 52,
+        "all_equal": 0.8076923076923077,
+        "mean_abs_diff": 0.14102564102564102,
+        "mean_sd": 0.09972018709041054
+      },
+      "prompt_tokens": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      },
+      "refusal": {
+        "n": 85,
+        "all_equal": 1.0,
+        "mean_abs_diff": 0.0,
+        "mean_sd": 0.0
+      }
+    }
+  }
+}
