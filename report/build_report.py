@@ -704,14 +704,24 @@ p(f"**Hallucination ở mức claim:** mỗi câu trả lời của RAG thuần 
      f"{pct(S['retrieval']['k4']['langchain_rag']['single']['source_hit'], 0)} số câu nhưng chỉ lấy được gold chunk (đoạn "
      f"dùng để sinh câu hỏi) ở {pct(S['retrieval']['k4']['langchain_rag']['single']['hit'], 0)}, nên một phần claim không "
      "được hỗ trợ có thể đến từ thông tin nằm ở đoạn khác của bài." if S.get("retrieval") else "")
-  + " Ngoài ra, đối chiếu với human judge ở nội dung 2 (cùng judge và cùng prompt "
-  "verify claim) cho thấy judge chấm nhiều câu trả lời có claim không được hỗ trợ hơn hẳn người chấm (53% so với 16%), "
-  "nên mức tuyệt đối của hallucination rate ở đây có thể cao hơn thực tế; so sánh giữa hai hệ dùng cùng judge nên ít "
-  "bị ảnh hưởng hơn.")
+  + ((lambda y: f" Chấm tay {y['n_flagged'] + y['n_clean']} câu trả lời single-hop của RAG thuần (mục 7.6) cho thấy "
+      f"nguyên nhân chủ yếu nằm ở judge: trong {y['n_flagged']} câu judge gắn hallucination, người chấm chỉ thấy claim "
+      f"không được hỗ trợ ở {y['flagged_human_halluc']} câu (trong đó {y['flagged_contradict']} câu có claim mâu thuẫn "
+      f"context); ở {y['n_clean']} câu judge không gắn, người chấm "
+      + (f"thấy thêm {y['clean_human_halluc']} câu" if y['clean_human_halluc'] else "cũng không thấy câu nào")
+      + f". Trên {y['claims']} claim của mẫu, "
+      + (f"người chấm không thấy claim nào nằm ngoài context, chỉ thấy {y['claims_contradict']} claim mâu thuẫn context"
+         if not y['claims_absent'] else f"người chấm thấy {y['claims_absent']} claim không có trong context và "
+         f"{y['claims_contradict']} claim mâu thuẫn context")
+      + ". Trong ba cách giải thích (judge khắt khe, chỉ số theo câu khuếch đại lỗi claim, mô hình thêm "
+      "thông tin nằm ngoài đoạn truy xuất), dữ liệu chấm tay ủng hộ cách thứ nhất: hallucination rate tuyệt đối ở câu "
+      "single-hop cao hơn thực tế nhiều. So sánh giữa hai hệ dùng cùng judge nên ít bị ảnh hưởng hơn, nhưng điều này chưa "
+      "kiểm chứng được trên câu multi-hop vì mẫu chấm tay chỉ có 5 câu mỗi hệ.")(S["human_audit"]["y1_1"])
+     if S.get("human_audit") else ""))
 
 JPS = S.get("judge_passes", {})
 if JPS:
-    h("7.6. Độ tin cậy của judge: chấm 3 lần và thử lại khi lỗi", 2)
+    h("7.6. Độ tin cậy của judge: chấm 3 lần, thử lại khi lỗi và đối chiếu với người chấm", 2)
     JL = S.get("judge_log", {})
     rows = []
     for fname, name in (("scores_langchain_rag.jsonl", "LangChain RAG"), ("scores_langgraph_selfrag.jsonl", "Self-RAG")):
@@ -735,6 +745,40 @@ if JPS:
          f"verdict); sau khi thử lại chỉ còn {JL['unresolved']} lần chưa có verdict, và không prompt nào bị truncate."
          if JL else ""))
 
+HA = S.get("human_audit")
+if HA:
+    G = HA["groups"]
+    cells = lambda a: [str(a["n_answers"]), f"{pct(a['human_pos'], 0)} / {pct(a['judge_pos'], 0)}",
+                       f"{pct(a['agreement'], 0)} [{pct(a['agreement_ci95'][0], 0)}; {pct(a['agreement_ci95'][1], 0)}]",
+                       f"{num(a['kappa'], 2)} [{num(a['kappa_ci95'][0], 2)}; {num(a['kappa_ci95'][1], 2)}]"]
+    rows = [[scope if m == "hallucination" else "", lab, *cells(G[g][m])]
+            for g, scope in (("Y1", "Nội dung 1"), ("Y1–Y4", "Nội dung 1–4"))
+            for m, lab in (("hallucination", "Có claim không được hỗ trợ"), ("correct", "Câu trả lời đúng"))]
+    p("**Đối chiếu với người chấm.** Một mẫu câu trả lời được chấm tay theo đúng hai loại nhãn mà judge gán: từng claim "
+      "(do judge tách) có được context hỗ trợ không, phân biệt claim không có trong context với claim mâu thuẫn context; "
+      "và câu trả lời có đúng so với ground truth không. Mẫu của nội dung 1 (seed 42, chỉ câu có đáp án mà hệ không "
+      "refuse) gồm 40 câu single-hop của RAG thuần, chọn 20 câu judge gắn hallucination và 20 câu không, cùng 10 câu "
+      "multi-hop (5 câu mỗi hệ). Cùng đợt có 25 câu trả lời của nội dung 3 và 25 câu của nội dung 4; cộng với 32 câu của "
+      "nội dung 2 đã chấm trước đó, mẫu gồm "
+      f"{G['Y1–Y4']['hallucination']['n_answers']} câu trả lời. Phiếu chấm xáo thứ tự, không ghi hệ và không có điểm "
+      "judge; một người chấm.")
+    table("Người chấm so với judge ở mức câu trả lời (CI 95% bootstrap theo câu trả lời)",
+          ["Phạm vi", "Nhãn", "Số câu", "Tỉ lệ \"có\": người / judge", "% khớp [CI 95%]", "Cohen's κ [CI 95%]"],
+          rows, [2.6, 3.6, 1.4, 3.0, 2.9, 3.0], font=10, center_from=2)
+    f1, fa = G["Y1"]["faithfulness"], G["Y1–Y4"]["faithfulness"]
+    p(f"Mẫu nội dung 1 chọn theo nhãn judge nên tỉ lệ \"có\" của judge trong mẫu ({pct(G['Y1']['hallucination']['judge_pos'], 0)}) "
+      "không phải tỉ lệ thật; điều đáng chú ý là chiều lệch. Judge gắn hallucination ở "
+      f"{G['Y1–Y4']['direction_hallucination']['judge1_human0']} câu trả lời mà người chấm thấy mọi claim được hỗ trợ, "
+      f"chiều ngược lại chỉ {G['Y1–Y4']['direction_hallucination']['judge0_human1']} câu; ngược lại, judge cho đúng "
+      f"{G['Y1–Y4']['direction_correct']['judge1_human0']} câu mà người chấm cho sai và chiều ngược lại "
+      f"{G['Y1–Y4']['direction_correct']['judge0_human1']} câu. Faithfulness trung bình của judge là {num(f1['mean_judge'], 2)} "
+      f"so với {num(f1['mean_human'], 2)} của người chấm ở nội dung 1 ({num(fa['mean_judge'], 2)} so với "
+      f"{num(fa['mean_human'], 2)} trên cả bốn nội dung, tương quan Pearson {num(fa['pearson'], 2)}). Như vậy judge "
+      "khắt khe ở bước kiểm tra claim và dễ dãi ở bước chấm độ đúng, và việc 3 lần chấm gần như trùng nhau không có nghĩa "
+      "là judge đúng. Kết quả này khớp với các nghiên cứu về judge cỡ nhỏ: judge Llama-3-8B chạy cục bộ lặp lại điểm của "
+      "chính nó 97% nhưng tương quan với người chỉ 0,28 [10]; judge nhỏ có xu hướng dễ dãi và khớp người kém hơn judge "
+      "lớn [8]; còn judge mạnh như GPT-4 khớp người khoảng 85%, ngang mức hai người khớp nhau [9].")
+
 # ================= 8. THẢO LUẬN =================
 h("8. THẢO LUẬN VÀ HẠN CHẾ", 1)
 bullets([("Self-RAG có ích ở đâu: ", "lợi thế của Self-RAG chỉ xuất hiện khi tài liệu truy xuất không đủ để trả lời "
@@ -754,9 +798,11 @@ bullets([("Self-RAG có ích ở đâu: ", "lợi thế của Self-RAG chỉ xu�
          ("Giới hạn của cách cài đặt: ", "các bước tự đánh giá dùng mô hình 7B với prompt, không phải mô hình được huấn "
           "luyện riêng như Self-RAG gốc. Kết quả phản ánh cách cài đặt này, không phải giới hạn của phương pháp Self-RAG "
           "nói chung."),
-         ("Judge: ", "chấm 3 lần cho kết quả gần như trùng nhau (mục 7.6), nhưng ở nội dung 2 cùng prompt verify claim "
-          "chấm khắt khe hơn human judge (mục 7.5) và các judge 7–8B nói chung có agreement thấp với người [8]. Kết luận "
-          "chỉ dựa trên các chênh lệch có statistical significance sau hiệu chỉnh Holm."),
+         ("Judge: ", "chấm 3 lần cho kết quả gần như trùng nhau nhưng khớp kém với người chấm (mục 7.6): judge gắn "
+          "hallucination nhiều hơn người chấm nhiều và chấm độ đúng dễ dãi hơn, giống các nghiên cứu về judge 7–8B "
+          "[8, 10]. Vì vậy hallucination rate và độ đúng tuyệt đối trong báo cáo đều nên đọc như cận trên; kết luận chỉ dựa trên các chênh lệch giữa hai hệ có statistical significance sau hiệu chỉnh Holm. "
+          "Mẫu chấm tay chỉ có một người chấm nên chưa có độ khớp giữa người chấm, và mỗi hệ ở câu multi-hop chỉ có 5 câu "
+          "nên chưa kiểm chứng được riêng chênh lệch hallucination giữa hai hệ."),
          ("Nhiễu: ", "điều kiện nhiễu thuần dùng đoạn của bài khác chủ đề; chưa thử nhiễu khó (đoạn cùng chủ đề, không "
           "chứa đáp án), là loại gây hại nhiều nhất theo [5]."),
          ("Cỡ bộ câu hỏi: ", f"{TS['multihop']['kept']} câu multi-hop và {TS['unanswerable']['kept']} câu out-of-corpus nên "
@@ -779,7 +825,10 @@ p(f"Trên {NQ} câu hỏi, với top-k = 4: ở câu hỏi một đoạn, không
   "đúng toàn bộ. Trong cài đặt này, vòng tự kiểm tra của Self-RAG chủ yếu hoạt động như một cơ chế refuse có chọn "
   "lọc: ở cùng coverage, nó không tốt hơn rõ rệt so với một quy tắc refuse theo ngưỡng cosine không cần gọi thêm LLM, "
   "trong khi tốn thời gian gấp nhiều lần. Thêm đoạn nhiễu ngẫu nhiên không làm RAG thuần kém đi; cải thiện ở top-k = 8 "
-  "đến từ việc có thêm bằng chứng liên quan.")
+  "đến từ việc có thêm bằng chứng liên quan."
+  + (" Chấm tay cho thấy judge gắn hallucination nhiều hơn người chấm nhiều (mục 7.6): ở câu single-hop, phần lớn câu "
+     "trả lời bị judge gắn hallucination thực ra có mọi claim được context hỗ trợ, nên các hallucination rate tuyệt đối "
+     "ở trên là cận trên." if S.get("human_audit") else ""))
 if R8:
     T8 = R8["types"]
     p(f"Khi tăng top-k lên 8 (nhiều đoạn không liên quan), ở câu một đoạn Self-RAG có xu hướng ít hallucination hơn "
@@ -802,7 +851,11 @@ for ref in ["[1] A. Asai et al., \"Self-RAG: Learning to Retrieve, Generate, and
             "[7] A. Kamath, R. Jia, P. Liang, \"Selective Question Answering under Domain Shift\", ACL 2020 "
             "(arXiv:2006.09462).",
             "[8] A. S. Thakur et al., \"Judging the Judges: Evaluating Alignment and Vulnerabilities in LLMs-as-Judges\", "
-            "arXiv:2406.12624, 2024."]:
+            "arXiv:2406.12624, 2024.",
+            "[9] L. Zheng et al., \"Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena\", NeurIPS 2023 "
+            "(arXiv:2306.05685).",
+            "[10] \"When Consistency Does Not Mean Reliability: Evaluating Local LLM Judges Against Human Ratings\", "
+            "arXiv:2609.13824, 2026."]:
     p(ref, indent=False, size=12)
 
 doc.save(OUT)

@@ -17,7 +17,8 @@ chung trong `report/stat_utils.py`). Mỗi bảng paired difference là một h�
 chênh lệch qua hiệu chỉnh mới được gọi là có statistical significance. Hallucination được tách khỏi refusal bằng nhóm
 kết cục (đúng có căn cứ / đúng nhưng có claim không được hỗ trợ / sai / refuse). Mọi bảng của ý 2–4 và bảng chính của
 ý 1 (top-k = 4) do judge chấm 3 lần (cùng cách chấm, temperature 0; nhãn nhị phân lấy đa số, điểm liên tục lấy trung
-bình); mọi lần gọi judge được ghi log (lỗi, thử lại, truncate); judge được đối chiếu với human judge ở ý 2. Baseline:
+bình); mọi lần gọi judge được ghi log (lỗi, thử lại, truncate); judge được đối chiếu với người chấm trên 132 câu trả
+lời của cả bốn ý (κ ≈ 0,2: judge khắt khe khi kiểm tra claim, dễ dãi khi chấm độ đúng). Baseline:
 closed-book (không truy xuất), RAG thuần + refuse theo ngưỡng cosine (ý 1), Vector RAG theo k (ý 3), xoá ngẫu nhiên /
 cắt đầu cùng ngân sách token (ý 4).
 
@@ -52,6 +53,8 @@ judge_passes.py               gộp 3 lần chấm (đa số / trung bình) + đ
 baseline_closed_book.py       baseline không truy xuất: LLM trả lời không có context
 threshold_refusal.py          baseline RAG thuần + refuse theo ngưỡng cosine, đường risk–coverage
 retrieval_metrics.py          chỉ số truy xuất không qua judge: gold-chunk hit, recall, MRR, nDCG@k
+human_audit.py                phiếu chấm tay 100 câu trả lời của ý 1, 3, 4 (testset/human_audit/) + agreement với judge,
+                              gộp với 36 câu của ý 2 -> results/human_audit/
 
 data/          chunks, Chroma (chroma.zip), KG (data/kg/k10, k20, k30)
 papers/, papers_y2/           PDF bài báo (papers_y2: 7 bài bổ sung cho ý 2, nguồn trong SOURCES.md)
@@ -260,6 +263,13 @@ truncate (dài nhất 2.163 / 4.096 token). Điểm của 3 lần chấm gần n
 0,13 (passage hữu ích), 0,15 (answer correctness), 0,28 (hallucination). Judge dễ dãi hơn ở bước chấm passage và
 answer correctness (83% câu đúng so với 42% của human judge) nhưng khắt khe hơn ở bước verify claim (faithfulness 0,869
 so với 0,962). Chi tiết: `results/human_judge/human_judge.md`, báo cáo Y2 mục 8.5.
+
+**Chấm tay mở rộng** (`python human_audit.py --make` / `--score`): 100 câu trả lời của ý 1 (40 single-hop RAG thuần: 20
+câu judge gắn hallucination + 20 câu không; 10 multi-hop), ý 3 (25) và ý 4 (25), chấm từng claim (không có trong
+context / mâu thuẫn context) và độ đúng; gộp với ý 2 thành 132 câu trả lời. Cùng chiều lệch: judge gắn hallucination
+60% so với 17% của người chấm (κ 0,19), cho đúng 94% so với 69% (κ 0,20). Ở 20 câu single-hop judge gắn hallucination,
+người chấm chỉ đồng ý 2 câu: hallucination rate tuyệt đối chủ yếu do judge khắt khe. Chi tiết:
+`results/human_audit/human_audit.md`, báo cáo Y1 mục 7.6. Một người chấm, chưa có κ giữa người chấm.
 
 # Ý 3 — KG từ k = 10, 20, 30 bài
 

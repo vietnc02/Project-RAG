@@ -832,6 +832,20 @@ if JPS or JLG:
           "faithfulness và các điểm liên tục: trung bình). Điểm gần như trùng nhau ở mọi lần chấm, nên các kết luận không "
           "phụ thuộc vào một lần chấm cụ thể.")
 
+HA = S.get("human_audit")
+if HA and "Y3" in HA["groups"]:
+    g3 = HA["groups"]["Y3"]
+    p(f"Ba lần chấm trùng nhau không có nghĩa là judge đúng. Một mẫu {g3['hallucination']['n_answers']} câu trả lời của "
+      "GraphRAG với KG10 và KG20 (seed 42, chỉ câu có đáp án mà hệ không refuse) được chấm tay theo đúng các nhãn judge "
+      "gán: từng claim có được context hỗ trợ không và câu trả lời có đúng không. Judge gắn hallucination "
+      f"{pct(g3['hallucination']['judge_pos'], 0)} số câu trả lời so với {pct(g3['hallucination']['human_pos'], 0)} của "
+      f"người chấm (κ = {num(g3['hallucination']['kappa'], 2)}), cho đúng {pct(g3['correct']['judge_pos'], 0)} so với "
+      f"{pct(g3['correct']['human_pos'], 0)} (κ = {num(g3['correct']['kappa'], 2)}), và faithfulness trung bình "
+      f"{num(g3['faithfulness']['mean_judge'], 2)} so với {num(g3['faithfulness']['mean_human'], 2)}; cùng chiều lệch với "
+      "nội dung 2 (mục 8.5 báo cáo nội dung 2). Vì vậy các giá trị tuyệt đối của faithfulness, hallucination rate và "
+      "answer correctness ở mục 6 lệch có hệ thống so với người chấm; so sánh giữa các k dùng cùng judge ít bị ảnh "
+      "hưởng hơn, nhưng mẫu chấm tay quá nhỏ để kiểm chứng riêng các chênh lệch theo k.")
+
 # ================= 7. THẢO LUẬN =================
 h("7. THẢO LUẬN: K BÀI CÓ ĐỦ KHÔNG?", 1)
 SU = S["sufficiency"]

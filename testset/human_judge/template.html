@@ -91,7 +91,7 @@ body.nohl .terms { display: none; }
 </head>
 <body>
 <header>
-  <h1>Phiếu chấm tay · nội dung 2</h1>
+  <h1 id="title">Phiếu chấm tay · nội dung 2</h1>
   <div class="progress"><div class="bar"><div id="bar"></div></div><small id="ptext"></small></div>
   <button id="hl" aria-pressed="true">Tô sáng từ khớp: bật</button>
   <button id="next-todo">Tới mục chưa chấm</button>
@@ -115,10 +115,15 @@ if (document.getElementById("data").textContent.includes("__" + "DATA" + "__")) 
   throw new Error("template");
 }
 const DATA = JSON.parse(document.getElementById("data").textContent);
+if (DATA.title) document.getElementById("title").textContent = DATA.title;
 const STORE = "phieu_cham_" + DATA.sheet_id;
+const USEFUL = DATA.useful !== false;  // false: không chấm passage (chỉ claim + độ đúng)
+// cause: claim "không được hỗ trợ" tách thành không có trong context (0) / mâu thuẫn context (2)
+const CLAIM_OPTS = DATA.cause ? [[1, "Có (1)", "y"], [0, "Không: không có trong context (0)", "n"],
+                                 [2, "Không: mâu thuẫn context (2)", "n"]] : undefined;
 const items = [];  // mọi ô cần chấm: {code, kind, index}
 for (const c of DATA.cases) {
-  c.passages.forEach((_, i) => items.push({code: c.code, kind: "useful", index: i}));
+  if (USEFUL) c.passages.forEach((_, i) => items.push({code: c.code, kind: "useful", index: i}));
   c.claims.forEach((_, j) => items.push({code: c.code, kind: "claim", index: j}));
   items.push({code: c.code, kind: "correct", index: 0});
 }
@@ -200,14 +205,14 @@ function renderNav() {
     "aria-current": i === state.current ? "true" : "false", onclick: () => go(i)}, c.code))));
 }
 
-function labelRow(code, kind, index, question) {
+function labelRow(code, kind, index, question, opts = [[1, "Có (1)", "y"], [0, "Không (0)", "n"]]) {
   const key = k(code, kind, index), v = state.labels[key];
   const box = el("div", {class: "label" + (v !== undefined ? " set" : "")});
   const mk = (val, txt, cls) => el("button", {class: cls, "aria-pressed": String(v === val), onclick: () => {
     state.labels[key] = val; save(); refresh(false); }}, txt);
   const note = el("input", {type: "text", placeholder: "Ghi chú (không bắt buộc)", value: state.notes[key] || ""});
   note.addEventListener("change", () => { state.notes[key] = note.value; save(); });
-  box.append(el("span", {class: "q"}, question), mk(1, "Có (1)", "y"), mk(0, "Không (0)", "n"), note);
+  box.append(el("span", {class: "q"}, question), ...opts.map(o => mk(...o)), note);
   return box;
 }
 
@@ -234,7 +239,7 @@ function renderCase() {
       el("p", {}, ...highlight(p.text, ref)),
       chips(`Từ của ground truth có trong đoạn (${entries.filter(e => e.hit).length}/${entries.length}):`,
             entries.sort((a, b) => b.hit - a.hit)),
-      labelRow(c.code, "useful", i, `Đoạn ${i + 1} có giúp suy ra ground truth không?`)));
+      ...(USEFUL ? [labelRow(c.code, "useful", i, `Đoạn ${i + 1} có giúp suy ra ground truth không?`)] : [])));
   });
   const claims = el("div", {class: "card"}, el("h2", {},
     c.claims.length ? "Các claim của câu trả lời: có được context hỗ trợ không?" : "Các claim của câu trả lời"));
@@ -248,7 +253,7 @@ function renderCase() {
     claims.append(el("div", {class: "claim"}, el("p", {}, `Ý ${j + 1}. ${cl}`),
       chips(miss ? `Từ của ý trong context (${miss} từ không thấy, gạch ngang):` : "Từ của ý trong context (đều có):",
             entries.sort((a, b) => a.hit - b.hit)),
-      labelRow(c.code, "claim", j, `Ý ${j + 1} được context (mô tả KG nếu có + 4 đoạn) hỗ trợ?`)));
+      labelRow(c.code, "claim", j, `Ý ${j + 1} được context (mô tả KG nếu có + các đoạn) hỗ trợ?`, CLAIM_OPTS)));
   });
   root.append(claims, el("div", {class: "card"}, el("h2", {}, "Đánh giá chung: câu trả lời có đúng so với ground truth?"),
     el("div", {class: "compare"},
@@ -297,7 +302,7 @@ document.getElementById("import").onchange = async (ev) => {
     const d = JSON.parse(await f.text());
     if (d.sheet_id !== DATA.sheet_id) { toast("File JSON không khớp phiếu này (sheet_id khác)."); return; }
     for (const l of d.labels) { const key = k(l.code, l.kind, l.index);
-      if (l.label === 0 || l.label === 1) state.labels[key] = l.label; if (l.note) state.notes[key] = l.note; }
+      if (l.label === 0 || l.label === 1 || l.label === 2) state.labels[key] = l.label; if (l.note) state.notes[key] = l.note; }
     save(); refresh(); toast(`Đã nhập ${d.labels.filter(l => l.label !== null).length} ô.`);
   } catch (e) { toast("Không đọc được file JSON."); }
   ev.target.value = "";

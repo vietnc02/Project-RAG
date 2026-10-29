@@ -771,6 +771,20 @@ if HJ:
       "hệ. Khác biệt duy nhất có statistical significance theo nhãn human judge là faithfulness: GraphRAG cao hơn "
       f"({f3(ff['diff'])} [{f3(ff['ci95'][0])}; {f3(ff['ci95'][1])}], n = {ff['n_pairs']} cặp), trong khi judge không "
       "phát hiện khác biệt này; vì mẫu nhỏ và đây là một trong nhiều so sánh, kết quả này chỉ mang tính gợi ý.")
+    HA = S.get("human_audit")
+    if HA:
+        g2, a = HA["groups"]["Y1, Y3, Y4"], HA["groups"]["Y1–Y4"]
+        m2, m1 = HA["by_type"]["Y1, Y3, Y4"]["multihop"], HA["by_type"]["Y2"]["multihop"]
+        p(f"Lần chấm tay sau, trên {g2['hallucination']['n_answers']} câu trả lời của nội dung 1, 3 và 4 (cùng cách chấm "
+          "claim và độ đúng, không chấm passage), cho cùng chiều lệch: judge gắn hallucination "
+          f"{pct(g2['hallucination']['judge_pos'], 0)} số câu trả lời so với {pct(g2['hallucination']['human_pos'], 0)} của "
+          f"người chấm, và cho đúng {pct(g2['correct']['judge_pos'], 0)} so với {pct(g2['correct']['human_pos'], 0)}. Gộp cả "
+          f"hai lần ({a['hallucination']['n_answers']} câu trả lời), κ là {num(a['hallucination']['kappa'], 2)} cho "
+          f"hallucination và {num(a['correct']['kappa'], 2)} cho độ đúng, nên sai lệch ở mục này không phải do mẫu 36 câu "
+          "tình cờ. Riêng câu multi-hop, người chấm cho đúng ở nội dung 2 ít hơn hẳn lần sau "
+          f"({pct(m1['correct_human'], 0)} so với {pct(m2['correct_human'], 0)}); nguyên nhân có thể là câu hỏi của nội "
+          "dung 2 khó hơn hoặc tiêu chuẩn chấm thay đổi giữa hai lần, và với một người chấm thì chưa tách được hai khả "
+          "năng này.")
 
 # ================= 9. THẢO LUẬN =================
 h("9. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)

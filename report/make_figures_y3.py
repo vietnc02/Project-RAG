@@ -234,6 +234,10 @@ if _logs:
                                                           "truncated_prompt")}
     stats["judge_log"]["prompt_tokens_max"] = int(_tot["prompt_tokens_max"].max())
     stats["judge_log"]["num_ctx"] = config.NUM_CTX
+# Chấm tay giai đoạn 2 (human_audit.py --score): agreement người chấm – judge trên nội dung 1–4
+HA = config.RESULTS_DIR / "human_audit" / "stats.json"
+if HA.exists():
+    stats["human_audit"] = json.loads(HA.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats_y3.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 

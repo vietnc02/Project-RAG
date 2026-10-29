@@ -214,6 +214,10 @@ with open(config.CHUNKS_FILE, encoding="utf-8") as f:
         papers[c["topic"]].add(c["source"])
         chunks[c["topic"]] += 1
 stats["corpus"] = {tp: {"papers": len(p), "chunks": chunks[tp]} for tp, p in papers.items()}
+# Chấm tay giai đoạn 2 (human_audit.py --score): agreement người chấm – judge trên nội dung 1–4
+HA = config.RESULTS_DIR / "human_audit" / "stats.json"
+if HA.exists():
+    stats["human_audit"] = json.loads(HA.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 

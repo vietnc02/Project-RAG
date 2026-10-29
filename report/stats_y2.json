@@ -1515,5 +1515,386 @@
         "significant": false
       }
     ]
+  },
+  "human_audit": {
+    "n_answers": 100,
+    "n_answers_with_y2": 132,
+    "by_group": {
+      "Y1": 50,
+      "Y2": 32,
+      "Y3": 25,
+      "Y4": 25
+    },
+    "groups": {
+      "Y1": {
+        "hallucination": {
+          "n_labels": 50,
+          "n_answers": 50,
+          "human_pos": 0.12,
+          "judge_pos": 0.6,
+          "agreement": 0.52,
+          "agreement_ci95": [
+            0.38,
+            0.66
+          ],
+          "kappa": 0.167,
+          "kappa_ci95": [
+            0.053,
+            0.317
+          ]
+        },
+        "correct": {
+          "n_labels": 50,
+          "n_answers": 50,
+          "human_pos": 0.84,
+          "judge_pos": 0.96,
+          "agreement": 0.88,
+          "agreement_ci95": [
+            0.78,
+            0.96
+          ],
+          "kappa": 0.359,
+          "kappa_ci95": [
+            0.0,
+            0.73
+          ]
+        },
+        "faithfulness": {
+          "n": 50,
+          "mean_human": 0.957,
+          "mean_judge": 0.81,
+          "mae": 0.155,
+          "pearson": 0.492
+        },
+        "direction_hallucination": {
+          "judge1_human0": 24,
+          "judge0_human1": 0
+        },
+        "direction_correct": {
+          "judge1_human0": 6,
+          "judge0_human1": 0
+        }
+      },
+      "Y2": {
+        "hallucination": {
+          "n_labels": 32,
+          "n_answers": 32,
+          "human_pos": 0.156,
+          "judge_pos": 0.531,
+          "agreement": 0.625,
+          "agreement_ci95": [
+            0.469,
+            0.781
+          ],
+          "kappa": 0.281,
+          "kappa_ci95": [
+            0.077,
+            0.548
+          ]
+        },
+        "correct": {
+          "n_labels": 32,
+          "n_answers": 32,
+          "human_pos": 0.469,
+          "judge_pos": 0.938,
+          "agreement": 0.469,
+          "agreement_ci95": [
+            0.312,
+            0.625
+          ],
+          "kappa": -0.007,
+          "kappa_ci95": [
+            -0.185,
+            0.158
+          ]
+        },
+        "faithfulness": {
+          "n": 32,
+          "mean_human": 0.962,
+          "mean_judge": 0.869,
+          "mae": 0.102,
+          "pearson": 0.431
+        },
+        "direction_hallucination": {
+          "judge1_human0": 12,
+          "judge0_human1": 0
+        },
+        "direction_correct": {
+          "judge1_human0": 16,
+          "judge0_human1": 1
+        }
+      },
+      "Y3": {
+        "hallucination": {
+          "n_labels": 25,
+          "n_answers": 25,
+          "human_pos": 0.32,
+          "judge_pos": 0.72,
+          "agreement": 0.52,
+          "agreement_ci95": [
+            0.32,
+            0.72
+          ],
+          "kappa": 0.171,
+          "kappa_ci95": [
+            -0.068,
+            0.468
+          ]
+        },
+        "correct": {
+          "n_labels": 25,
+          "n_answers": 25,
+          "human_pos": 0.68,
+          "judge_pos": 0.92,
+          "agreement": 0.76,
+          "agreement_ci95": [
+            0.6,
+            0.92
+          ],
+          "kappa": 0.312,
+          "kappa_ci95": [
+            0.0,
+            0.706
+          ]
+        },
+        "faithfulness": {
+          "n": 25,
+          "mean_human": 0.908,
+          "mean_judge": 0.743,
+          "mae": 0.191,
+          "pearson": 0.315
+        },
+        "direction_hallucination": {
+          "judge1_human0": 11,
+          "judge0_human1": 1
+        },
+        "direction_correct": {
+          "judge1_human0": 6,
+          "judge0_human1": 0
+        }
+      },
+      "Y4": {
+        "hallucination": {
+          "n_labels": 25,
+          "n_answers": 25,
+          "human_pos": 0.16,
+          "judge_pos": 0.56,
+          "agreement": 0.52,
+          "agreement_ci95": [
+            0.32,
+            0.72
+          ],
+          "kappa": 0.112,
+          "kappa_ci95": [
+            -0.143,
+            0.398
+          ]
+        },
+        "correct": {
+          "n_labels": 25,
+          "n_answers": 25,
+          "human_pos": 0.68,
+          "judge_pos": 0.92,
+          "agreement": 0.76,
+          "agreement_ci95": [
+            0.6,
+            0.92
+          ],
+          "kappa": 0.312,
+          "kappa_ci95": [
+            0.0,
+            0.658
+          ]
+        },
+        "faithfulness": {
+          "n": 25,
+          "mean_human": 0.923,
+          "mean_judge": 0.835,
+          "mae": 0.168,
+          "pearson": 0.047
+        },
+        "direction_hallucination": {
+          "judge1_human0": 11,
+          "judge0_human1": 1
+        },
+        "direction_correct": {
+          "judge1_human0": 6,
+          "judge0_human1": 0
+        }
+      },
+      "Y1–Y4": {
+        "hallucination": {
+          "n_labels": 132,
+          "n_answers": 132,
+          "human_pos": 0.174,
+          "judge_pos": 0.598,
+          "agreement": 0.545,
+          "agreement_ci95": [
+            0.462,
+            0.629
+          ],
+          "kappa": 0.194,
+          "kappa_ci95": [
+            0.098,
+            0.299
+          ]
+        },
+        "correct": {
+          "n_labels": 132,
+          "n_answers": 132,
+          "human_pos": 0.689,
+          "judge_pos": 0.939,
+          "agreement": 0.735,
+          "agreement_ci95": [
+            0.659,
+            0.803
+          ],
+          "kappa": 0.205,
+          "kappa_ci95": [
+            0.071,
+            0.353
+          ]
+        },
+        "faithfulness": {
+          "n": 132,
+          "mean_human": 0.942,
+          "mean_judge": 0.816,
+          "mae": 0.152,
+          "pearson": 0.347
+        },
+        "direction_hallucination": {
+          "judge1_human0": 58,
+          "judge0_human1": 2
+        },
+        "direction_correct": {
+          "judge1_human0": 34,
+          "judge0_human1": 1
+        }
+      },
+      "Y1, Y3, Y4": {
+        "hallucination": {
+          "n_labels": 100,
+          "n_answers": 100,
+          "human_pos": 0.18,
+          "judge_pos": 0.62,
+          "agreement": 0.52,
+          "agreement_ci95": [
+            0.42,
+            0.62
+          ],
+          "kappa": 0.168,
+          "kappa_ci95": [
+            0.058,
+            0.287
+          ]
+        },
+        "correct": {
+          "n_labels": 100,
+          "n_answers": 100,
+          "human_pos": 0.76,
+          "judge_pos": 0.94,
+          "agreement": 0.82,
+          "agreement_ci95": [
+            0.74,
+            0.89
+          ],
+          "kappa": 0.336,
+          "kappa_ci95": [
+            0.115,
+            0.555
+          ]
+        },
+        "faithfulness": {
+          "n": 100,
+          "mean_human": 0.936,
+          "mean_judge": 0.8,
+          "mae": 0.168,
+          "pearson": 0.331
+        },
+        "direction_hallucination": {
+          "judge1_human0": 46,
+          "judge0_human1": 2
+        },
+        "direction_correct": {
+          "judge1_human0": 18,
+          "judge0_human1": 0
+        }
+      }
+    },
+    "by_type": {
+      "Y1–Y4": {
+        "multihop": {
+          "n": 58,
+          "hallucination_human": 0.328,
+          "hallucination_judge": 0.81,
+          "correct_human": 0.466,
+          "correct_judge": 0.931,
+          "faithfulness_human": 0.901,
+          "faithfulness_judge": 0.755
+        },
+        "single": {
+          "n": 74,
+          "hallucination_human": 0.054,
+          "hallucination_judge": 0.432,
+          "correct_human": 0.865,
+          "correct_judge": 0.946,
+          "faithfulness_human": 0.975,
+          "faithfulness_judge": 0.864
+        }
+      },
+      "Y2": {
+        "multihop": {
+          "n": 17,
+          "hallucination_human": 0.176,
+          "hallucination_judge": 0.706,
+          "correct_human": 0.235,
+          "correct_judge": 1.0,
+          "faithfulness_human": 0.967,
+          "faithfulness_judge": 0.825
+        },
+        "single": {
+          "n": 15,
+          "hallucination_human": 0.133,
+          "hallucination_judge": 0.333,
+          "correct_human": 0.733,
+          "correct_judge": 0.867,
+          "faithfulness_human": 0.956,
+          "faithfulness_judge": 0.918
+        }
+      },
+      "Y1, Y3, Y4": {
+        "multihop": {
+          "n": 41,
+          "hallucination_human": 0.39,
+          "hallucination_judge": 0.854,
+          "correct_human": 0.561,
+          "correct_judge": 0.902,
+          "faithfulness_human": 0.873,
+          "faithfulness_judge": 0.726
+        },
+        "single": {
+          "n": 59,
+          "hallucination_human": 0.034,
+          "hallucination_judge": 0.458,
+          "correct_human": 0.898,
+          "correct_judge": 0.966,
+          "faithfulness_human": 0.98,
+          "faithfulness_judge": 0.851
+        }
+      }
+    },
+    "y1_1": {
+      "n_flagged": 20,
+      "flagged_human_halluc": 2,
+      "flagged_judge_wrong": 18,
+      "flagged_absent_only": 0,
+      "flagged_contradict": 2,
+      "n_clean": 20,
+      "clean_human_halluc": 0,
+      "claims": 180,
+      "claims_absent": 0,
+      "claims_contradict": 3,
+      "claims_per_answer": 4.5
+    }
   }
 }

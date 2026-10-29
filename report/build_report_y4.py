@@ -613,6 +613,20 @@ p(f"Toàn bộ {dot(JL['calls'])} lần gọi judge của nội dung 4 được 
                  for m_ in MODES if JPS.get(m_) and JPS[m_].get('agreement', {}).get('faithfulness'))
      + " số câu; độ lệch giữa các lần nhỏ hơn nhiều so với biên non-inferiority (mục 5.2)."
      if any(JPS.get(m_) and JPS[m_].get('agreement') for m_ in MODES) else ""))
+HA = S.get("human_audit")
+if HA and "Y4" in HA["groups"]:
+    g4 = HA["groups"]["Y4"]
+    p(f"Ba lần chấm trùng nhau không có nghĩa là judge đúng. Một mẫu {g4['hallucination']['n_answers']} câu trả lời của "
+      "bốn chế độ (6–7 câu mỗi chế độ, seed 42, chỉ câu có đáp án mà hệ không refuse) được chấm tay theo đúng các nhãn "
+      f"judge gán. Faithfulness trung bình của judge là {num(g4['faithfulness']['mean_judge'], 2)} so với "
+      f"{num(g4['faithfulness']['mean_human'], 2)} của người chấm; judge gắn hallucination "
+      f"{pct(g4['hallucination']['judge_pos'], 0)} số câu trả lời so với {pct(g4['hallucination']['human_pos'], 0)} "
+      f"(κ = {num(g4['hallucination']['kappa'], 2)}) và cho đúng {pct(g4['correct']['judge_pos'], 0)} so với "
+      f"{pct(g4['correct']['human_pos'], 0)} (κ = {num(g4['correct']['kappa'], 2)}), cùng chiều lệch với nội dung 1–3. "
+      "Kiểm định non-inferiority dùng chênh lệch giữa các chế độ do cùng judge chấm, nên lệch chung giữa judge và người "
+      "chấm không ảnh hưởng trực tiếp nếu nó như nhau ở mọi chế độ. Với 6–7 câu khác nhau mỗi chế độ, mẫu chấm tay chưa "
+      "đủ để kiểm tra điều đó, cũng như thiên lệch của judge theo độ dài context (mục 5.2), nên mức giảm faithfulness "
+      "ở mục 5.2 nên đọc là ước lượng theo judge.")
 
 # ================= 6. THẢO LUẬN =================
 h("6. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)

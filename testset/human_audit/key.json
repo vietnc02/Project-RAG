@@ -1,0 +1,1525 @@
+{
+ "seed": 42,
+ "sheet_id": "8a2d5128d270",
+ "cases": {
+  "A001": {
+   "id": "g037",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "The security of SPHINCS+ relies on minimal security assumptions.",
+    "The security of SPHINCS+ relies on a stateless hash-based approach.",
+    "SPHINCS+ achieves stateless operation by not requiring the signer to maintain any state between signatures.",
+    "NIST standardized SPHINCS+ as SLH-DSA.",
+    "The corresponding FIPS standard for Dilithium is FIPS 186-5.",
+    "The corresponding FIPS standard for SPHINCS+ is FIPS 186-5.",
+    "The corresponding FIPS standard for Kyber is FIPS 206."
+   ]
+  },
+  "A002": {
+   "id": "q083",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Network tarpits employ three primary mechanisms.",
+    "The first mechanism determines which IP addresses on a subnetwork are unused.",
+    "The second mechanism impersonates hosts by responding to TCP, UDP, or ICMP probes.",
+    "The third mechanism holds the TCP connection open."
+   ]
+  },
+  "A003": {
+   "id": "q082",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Encrypted data transmitted or stored today without quantum resistance exists.",
+    "The current encryption is vulnerable to being broken by future quantum computers.",
+    "Future quantum computers will be powerful enough to break the current encryption.",
+    "The current encryption will be retroactively decrypted in the future when quantum computers become powerful enough to break it."
+   ]
+  },
+  "A004": {
+   "id": "q003",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Lu et al. based their argument on a game-theoretic concept.",
+    "The game-theoretic concept is Nash equilibrium.",
+    "Lu et al. used Nash equilibrium when discussing the scenarios under which KPSD is incentive-compatible."
+   ]
+  },
+  "A005": {
+   "id": "q007",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k10",
+   "claims": [
+    "The quantum feature map in QSVM is used to embed input data into a quantum feature space.",
+    "The quantum feature map uses a quantum circuit to perform this embedding.",
+    "QSVM computes kernel functions in a high-dimensional quantum space.",
+    "QSVM uses the quantum feature map to assess similarity between data points.",
+    "QSVM uses the quantum feature map to facilitate effective classification."
+   ]
+  },
+  "A006": {
+   "id": "q027",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "202,003 Mirai-infected IP addresses were trapped in the tarpit.",
+    "48% of the Mirai-infected IP addresses were trapped in the tarpit.",
+    "13,298 unique infections were observed per day on average."
+   ]
+  },
+  "A007": {
+   "id": "q046",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The ICLSTM study uses accuracy as an evaluation metric for encrypted traffic service identification.",
+    "The ICLSTM study uses precision as an evaluation metric for encrypted traffic service identification.",
+    "The ICLSTM study uses recall as an evaluation metric for encrypted traffic service identification.",
+    "The ICLSTM study uses F1-score as an evaluation metric for encrypted traffic service identification."
+   ]
+  },
+  "A008": {
+   "id": "q065",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "A Dynamic-On-Demand Key Allocation (DDKA) scheme was proposed in 2022.",
+    "The DDKA scheme is for Quantum Key Distribution Networks (QKDN).",
+    "The DDKA scheme uses Software-Defined Networking (SDN) technology.",
+    "The SDN technology is used to dynamically allocate key resources based on application requests."
+   ]
+  },
+  "A009": {
+   "id": "q005",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Libsodium does not include support for any of the NIST PQC finalist algorithms.",
+    "Libsodium's 1.0.x series does not include support for any of the NIST PQC finalist algorithms."
+   ]
+  },
+  "A010": {
+   "id": "g043",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "Quantum computers can perform multiple calculations simultaneously.",
+    "Qubits exist in superpositions of states.",
+    "The precision in manipulating quantum states affects coherence times.",
+    "The precision in manipulating quantum states affects gate fidelities.",
+    "Coherence times and gate fidelities are key factors in quantum computers outperforming classical computers."
+   ]
+  },
+  "A011": {
+   "id": "q062",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_kg",
+   "claims": [
+    "Monero can be used in a blockchain-IoT environment.",
+    "Monero can obscure the information of the sender transferring coins.",
+    "Ring signatures are used by Monero to obscure the information of the sender transferring coins."
+   ]
+  },
+  "A012": {
+   "id": "q065",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k20",
+   "claims": [
+    "A Dynamic-On-Demand Key Allocation (DDKA) scheme for QKD networks has been proposed in 2022.",
+    "The DDKA scheme is for QKD networks (QKDN).",
+    "The DDKA scheme is realized using SDN technology."
+   ]
+  },
+  "A013": {
+   "id": "q064",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_base",
+   "claims": [
+    "In a 2019 jamming attack against QKD, the Faraday effect was exploited.",
+    "This attack increased the quantum bit-error rate (QBER) by 7.6%",
+    "The attack effectively halted key exchange."
+   ]
+  },
+  "A014": {
+   "id": "m054",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_rag",
+   "claims": [
+    "Synaptic currents are typically modeled as exponentially decaying currents following each presynaptic spike in spiking neural networks trained with surrogate gradients.",
+    "The amplitude of a postsynaptic current depends on the difference between the membrane potential and the reversal potential of the synapse according to Neuronal Dynamics."
+   ]
+  },
+  "A015": {
+   "id": "m042",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_rag",
+   "claims": [
+    "A community-run tarpit infrastructure can help clean up IoT botnets.",
+    "Spare devices can be used to run a honeypot/tarpit solution.",
+    "A honeypot/tarpit solution can contain and eliminate the threat of IoT botnets.",
+    "Attackers can use a detection methodology to automatically skip tarpits.",
+    "Using a detection methodology can give attackers immunity to the effects of tarpits."
+   ]
+  },
+  "A016": {
+   "id": "q034",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Dense attention results in Out-of-Memory errors.",
+    "Window attention provides low accuracy due to random outputs when the input length exceeds the cache size.",
+    "StreamingLLM efficiently handles the streaming format.",
+    "StreamingLLM maintains reasonable accuracy even as input lengths approach 120K tokens.",
+    "StreamingLLM outperforms both dense attention and window attention."
+   ]
+  },
+  "A017": {
+   "id": "g027",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "The best reported quantum gate error rates are higher than those of modern digital transistors.",
+    "Quantum systems, including superconducting qubits, have much higher error rates compared to the low error rates of modern digital transistors.",
+    "A quantum error correction demonstration with a Toffoli gate on superconducting qubits was constrained by the coherence times of superconducting qubits.",
+    "The quantum error correction demonstration with a Toffoli gate on superconducting qubits implemented only two error models.",
+    "The quantum error correction demonstration with a Toffoli gate on superconducting qubits was not sufficient for large-scale fault-tolerant quantum computing."
+   ]
+  },
+  "A018": {
+   "id": "g028",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_base",
+   "claims": [
+    "MbedTLS plans to add Kyber and Dilithium.",
+    "MbedTLS does not yet have Kyber and Dilithium implemented.",
+    "MbedTLS has strong intent to add Kyber and Dilithium.",
+    "Crypto++ does not include NIST PQC finalists in its mainline distribution.",
+    "A fork of Crypto++ has added CRYSTALS-Kyber and CRYSTALS-Dilithium.",
+    "Kyber and Dilithium are quantum-resistant.",
+    "Kyber and Dilithium are balanced in efficiency.",
+    "Kyber and Dilithium are suitable for general-purpose deployment.",
+    "Kyber and Dilithium are attractive for secure communication protocols like TLS.",
+    "Kyber is likely to be implemented first due to its urgency.",
+    "ML-KEM is Kyber."
+   ]
+  },
+  "A019": {
+   "id": "q037",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "One-dimensional convolution neural networks (1D-CNN) are used for end-to-end encrypted traffic classification.",
+    "1D-CNN learns features directly from raw traffic."
+   ]
+  },
+  "A020": {
+   "id": "q001",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Shor's algorithm is a quantum algorithm.",
+    "Shor's algorithm can efficiently factor large numbers.",
+    "Factoring large numbers is computationally infeasible for classical computers.",
+    "Public-key encryption schemes like RSA rely on the difficulty of factoring large integers.",
+    "Shor's algorithm can break public-key encryption schemes like RSA.",
+    "Current cryptographic methods are vulnerable to quantum attacks."
+   ]
+  },
+  "A021": {
+   "id": "m009",
+   "group": "Y1",
+   "system": "langgraph_selfrag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_selfrag",
+   "claims": [
+    "Lateral inhibition allows only the neuron with the strongest similarity to a given input to update its weights.",
+    "Lateral inhibition inhibits other neurons.",
+    "ICA addresses the problem of finding data representations into a set of maximally independent variables.",
+    "ICA goes beyond PCA by considering higher-order statistical moments for decorrelation.",
+    "PCA only considers second-order statistical moments for decorrelation."
+   ]
+  },
+  "A022": {
+   "id": "g037",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "The security of SPHINCS+ (SLH-DSA) relies on a stateless approach.",
+    "SPHINCS+ (SLH-DSA) achieves stateless operation by not requiring any stateful components.",
+    "NIST's FIPS 203–205 standards correspond to Kyber (a KEM).",
+    "NIST's FIPS 203–205 standards correspond to Dilithium (ML-DSA).",
+    "NIST's FIPS 203–205 standards correspond to SPHINCS+ (SLH-DSA)."
+   ]
+  },
+  "A023": {
+   "id": "q015",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The CPA attack was applied twice on Kyber with an imperfect plaintext-checking oracle.",
+    "60% of the Kyber-512 secret key was recovered.",
+    "The CPA attack was applied twice.",
+    "The cost of the attack was about 1619 power traces.",
+    "The attack was on Kyber-512."
+   ]
+  },
+  "A024": {
+   "id": "m027",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "Experts expect CRQCs capable of breaking 2048-bit RSA to develop by the 2030s.",
+    "The RAND Corporation expects CRQCs capable of breaking 2048-bit RSA to develop by the 2030s.",
+    "NIST has standardized a set of post-quantum algorithms.",
+    "NIST selected its first cohort of post-quantum algorithms in July 2022.",
+    "The first cohort of post-quantum algorithms selected by NIST was in July 2022."
+   ]
+  },
+  "A025": {
+   "id": "g043",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_kg",
+   "claims": [
+    "Quantum computers can handle highly entangled quantum states.",
+    "Classical computers struggle with highly entangled quantum states.",
+    "The precision of quantum state manipulation could potentially give quantum computers more power than classical computers.",
+    "The precision of quantum state manipulation is currently uncertain.",
+    "The exact precision required for quantum computers to outperform classical computers is not yet clear.",
+    "It is not yet clear which architectures can achieve the required precision for quantum computers to outperform classical computers."
+   ]
+  },
+  "A026": {
+   "id": "g046",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "Research has integrated machine learning with quantum key distribution protocols.",
+    "QML-based applications in 6G networks face adversarial attacks.",
+    "QML-based applications in 6G networks are vulnerable."
+   ]
+  },
+  "A027": {
+   "id": "q035",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The approach performed well on unencrypted vs. VPN traffic.",
+    "The approach had 94% average recall on unencrypted vs. VPN traffic.",
+    "The approach had 93% average precision on unencrypted vs. VPN traffic.",
+    "The approach had a significant drop in performance on unencrypted vs. Tor traffic.",
+    "The approach had 57% average recall on unencrypted vs. Tor traffic.",
+    "The approach had 44% average precision on unencrypted vs. Tor traffic."
+   ]
+  },
+  "A028": {
+   "id": "q066",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_kg",
+   "claims": [
+    "The trojan gate attack is on quantum circuit models for 6G resource allocation.",
+    "The trojan gate attack is constructed by embedding a trojan gate in subcircuits.",
+    "The subcircuits have limited error detection capabilities.",
+    "It is difficult to attribute errors to malicious interference.",
+    "The trojan gate attack is stealthy.",
+    "The stealthiness of the attack is enhanced by the limited error detection capabilities."
+   ]
+  },
+  "A029": {
+   "id": "q072",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The spiking convolutional encoder in SCNNTraffic primarily consists of two 3×1 1D CNNs."
+   ]
+  },
+  "A030": {
+   "id": "q011",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The survey describes conventional public key cryptography methods.",
+    "RSA is susceptible to quantum risks.",
+    "Diffie-Hellman is susceptible to quantum risks.",
+    "Secret Sharing is susceptible to quantum risks.",
+    "Elliptic Curve Cryptography (ECC) is susceptible to quantum risks."
+   ]
+  },
+  "A031": {
+   "id": "q040",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "ZoMBI improves Bayesian optimization on needle-in-a-haystack problems.",
+    "ZoMBI iteratively zooms into the search bounds based on the m best performing previously sampled points.",
+    "ZoMBI converges quickly to narrow and sharp optima.",
+    "ZoMBI prunes low-performing historical experiments to speed up computation.",
+    "ZoMBI leads to faster convergence compared to standard methods like MiP-EGO, TuRBO, and HEBO."
+   ]
+  },
+  "A032": {
+   "id": "q062",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k10",
+   "claims": [
+    "Monero can be used in a blockchain-IoT environment.",
+    "Monero can obscure the information of the sender transferring coins.",
+    "Ring signatures are used by Monero to obscure the information of the sender transferring coins."
+   ]
+  },
+  "A033": {
+   "id": "m004",
+   "group": "Y1",
+   "system": "langgraph_selfrag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_selfrag",
+   "claims": [
+    "The ADL-WAF uses a two-layer approach.",
+    "The ADL-WAF uses machine learning.",
+    "The ADL-WAF detects anomalies.",
+    "The ADL-WAF determines if anomalies are actual threats.",
+    "Conventional rule-based WAFs rely on predefined rules.",
+    "Conventional rule-based WAFs may miss SQL injections.",
+    "The ADL-WAF's first layer detects anomalies.",
+    "The ADL-WAF's second layer determines if anomalies are actual threats.",
+    "The ADL-WAF can block SQL injections that might be missed by rule-based systems."
+   ]
+  },
+  "A034": {
+   "id": "q063",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "NV centers in diamond have long coherence times.",
+    "NV centers in diamond can operate at room temperature.",
+    "Scaling NV centers in diamond to large, controllable registers is difficult.",
+    "Precise and reliable manufacturing of NV centers in diamond is challenging."
+   ]
+  },
+  "A035": {
+   "id": "q050",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Loihi's synaptic density is over three times higher than TrueNorth's.",
+    "Loihi has 2.1 million unique synaptic variables per mm².",
+    "Loihi's neuron density of 2,184 per mm² is marginally worse than TrueNorth's.",
+    "Loihi has a 2× reduction in the design's neuron density compared to TrueNorth.",
+    "TrueNorth has a higher neuron density than Loihi.",
+    "Loihi's expanded feature set is the cost of its reduced neuron density compared to TrueNorth."
+   ]
+  },
+  "A036": {
+   "id": "q057",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The state of a qubit is defined in terms of probability amplitudes α and β.",
+    "A qubit is represented as |ψ⟩ = α|0⟩ + β|1⟩.",
+    "The amplitudes α and β must satisfy the constraint |α|² + |β|² = 1.",
+    "The constraint |α|² + |β|² = 1 ensures the total probability is conserved."
+   ]
+  },
+  "A037": {
+   "id": "q038",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The stacked deep ensembles approach exploits the multi-scale structure of encrypted traffic.",
+    "The stacked deep ensembles approach combines the strengths of different deep learning models.",
+    "The stacked deep ensembles approach improves robustness in classifying encrypted HTTPS traffic.",
+    "The stacked deep ensembles approach improves interpretability in classifying encrypted HTTPS traffic.",
+    "The stacked deep ensembles approach improves efficiency in classifying encrypted HTTPS traffic."
+   ]
+  },
+  "A038": {
+   "id": "q068",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k20",
+   "claims": [
+    "Quantum key distribution (QKD) is considered provably secure against eavesdropping.",
+    "QKD leverages the principles of quantum mechanics.",
+    "The Heisenberg uncertainty principle is a principle of quantum mechanics used by QKD.",
+    "Any eavesdropping attempt introduces measurable errors.",
+    "Eavesdropping attempts disturb quantum states.",
+    "The communicating parties can detect eavesdropping attempts.",
+    "The security of QKD communication arises from the inherent properties of quantum systems.",
+    "QKD provides information-theoretic security."
+   ]
+  },
+  "A039": {
+   "id": "g043",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "Quantum computers can handle highly entangled quantum states.",
+    "Classical computers have difficulty simulating entangled quantum states accurately.",
+    "The precision of quantum state manipulation is crucial for achieving quantum speedup.",
+    "Quantum computers are not fundamentally limited by physical laws in terms of precision.",
+    "Quantum computers can solve certain problems faster than classical computers if they can achieve sufficient precision.",
+    "Quantum computing has the potential for polynomial-time algorithms that outperform classical counterparts for specific tasks."
+   ]
+  },
+  "A040": {
+   "id": "q092",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_text",
+   "claims": [
+    "Organizations should begin post-quantum cryptography migration now.",
+    "The ideal time for post-quantum cryptography migration is between 2025-2028.",
+    "Waiting for Q-Day to occur before starting migration creates unnecessary risk.",
+    "Waiting for Q-Day to occur before starting migration creates unnecessary cost.",
+    "Waiting for Q-Day to occur before starting migration creates unnecessary disruption."
+   ]
+  },
+  "A041": {
+   "id": "s002",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k20",
+   "claims": [
+    "Alice uses a vacuum state in the Vacuum+Weak decoy-state method for quantum key distribution.",
+    "Alice uses a weak decoy state with a very small number of photons in the Vacuum+Weak decoy-state method for quantum key distribution.",
+    "By measuring the yields of the decoy states, Alice and Bob can obtain reliable bounds to ensure the security of their quantum key distribution.",
+    "By measuring the QBER of the decoy states, Alice and Bob can obtain reliable bounds to ensure the security of their quantum key distribution."
+   ]
+  },
+  "A042": {
+   "id": "g039",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_base",
+   "claims": [
+    "The security of QKD is based on the principles of quantum mechanics.",
+    "QKD offers information-theoretic security.",
+    "Practical QKD experiments with highly attenuated lasers can be insecure.",
+    "Highly attenuated lasers in QKD experiments can generate multi-photon signals.",
+    "Eavesdroppers can exploit multi-photon signals in QKD experiments.",
+    "Quantum machine learning can enhance eavesdropping detection capabilities in QKD.",
+    "Quantum machine learning can optimize security analysis in QKD protocols."
+   ]
+  },
+  "A043": {
+   "id": "q055",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Backpropagation through time (BPTT) is used to approximate the functional contribution of the brain's optimization processes",
+    "BPTT is used to train recurrent spiking neural networks such as LSNNs"
+   ]
+  },
+  "A044": {
+   "id": "m003",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Quantum Random Number Generation (QRNG) plays a crucial role in quantum key distribution (QKD).",
+    "QRNG provides truly unpredictable keys.",
+    "QRNG is essential for secure cryptographic solutions.",
+    "QKD technology has progressed significantly.",
+    "Real-world deployments of QKD technology have been made.",
+    "China has a 2,000-km Quantum Key Distribution network.",
+    "Challenges remain in integrating QKD with legacy systems.",
+    "Technical limitations of QKD need to be addressed."
+   ]
+  },
+  "A045": {
+   "id": "q045",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "HybridRAG integrates VectorRAG and GraphRAG.",
+    "VectorRAG provides broad, similarity-based retrieval of relevant information.",
+    "GraphRAG contributes structured, relationship-rich data.",
+    "HybridRAG leverages the strengths of VectorRAG and GraphRAG to enhance response quality.",
+    "HybridRAG leverages the strengths of VectorRAG and GraphRAG to enhance response accuracy.",
+    "HybridRAG leverages the strengths of VectorRAG and GraphRAG to enhance response comprehensiveness."
+   ]
+  },
+  "A046": {
+   "id": "q031",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "A Multi-Layer Perceptron (MLP) consists of an input layer.",
+    "A Multi-Layer Perceptron (MLP) consists of an output layer.",
+    "A Multi-Layer Perceptron (MLP) consists of several hidden layers of neurons.",
+    "Each layer of a Multi-Layer Perceptron (MLP) has several neurons.",
+    "Each layer of a Multi-Layer Perceptron (MLP) has neurons densely connected to adjacent layers.",
+    "The main drawback of a Multi-Layer Perceptron (MLP) is that it has a huge number of parameters to learn.",
+    "A Multi-Layer Perceptron (MLP) is usually very complex.",
+    "A Multi-Layer Perceptron (MLP) is usually inefficient.",
+    "A Multi-Layer Perceptron (MLP) is hard to train."
+   ]
+  },
+  "A047": {
+   "id": "g003",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "Smart Cities and IoVT applications require significantly higher throughput rates to deliver optimal user experiences.",
+    "5G networks uniquely provide the capability for higher throughput rates.",
+    "The predicted growth of IoT devices poses security challenges.",
+    "IoT devices are resource-constrained.",
+    "The large number of IoT devices increases the risk of covert exploitation.",
+    "Covert exploitation of IoT devices can result in the theft of sensitive information.",
+    "Covert exploitation of IoT devices can result in financial losses.",
+    "Security measures like authentication, access control, confidentiality, integrity, privacy preservation, and trust management are essential for 5G-empowered IoT systems."
+   ]
+  },
+  "A048": {
+   "id": "q062",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_text",
+   "claims": [
+    "Monero can be used in a blockchain-IoT environment.",
+    "Monero can obscure the information of the sender transferring coins.",
+    "Ring signatures are used by Monero to obscure the information of the sender transferring coins."
+   ]
+  },
+  "A049": {
+   "id": "g003",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "Smart cities and IoVT applications require 5G for faster speeds and lower latency.",
+    "Faster speeds and lower latency are crucial for seamless communication and real-time data processing.",
+    "The predicted growth of IoT devices poses numerous security risks.",
+    "IoT devices are common targets for adversaries.",
+    "IoT devices can potentially compromise data security and user privacy.",
+    "IoT devices can cause network disruptions."
+   ]
+  },
+  "A050": {
+   "id": "q024",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "A flow-based classification method was proposed.",
+    "The method uses only time-related features.",
+    "The method is to characterize encrypted and VPN traffic.",
+    "An extensive labeled dataset was published.",
+    "The dataset has 14 different labels.",
+    "7 labels are for regular encrypted traffic.",
+    "7 labels are for VPN traffic."
+   ]
+  },
+  "A051": {
+   "id": "m023",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_rag",
+   "claims": [
+    "STDP in the Spiking STDP Transformer (S2TDPT) embeds query–key correlations in synaptic weights.",
+    "The computation of query-key similarity in memory uses spike-timing-dependent plasticity.",
+    "Synaptic weight updates in STDP are based on the timing of pre-synaptic and post-synaptic spikes.",
+    "STDP reflects the temporal coding of information in biological neural circuits."
+   ]
+  },
+  "A052": {
+   "id": "q001",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k20",
+   "claims": [
+    "Shor's algorithm is a quantum algorithm.",
+    "Shor's algorithm performs large factoring in polynomial time.",
+    "Shor's algorithm poses a significant threat to current cryptographic systems.",
+    "Shor's algorithm compromises RSA and ECC systems.",
+    "Shor's algorithm can compromise AES and NTRUEncrypt systems.",
+    "Hash-based cryptographic schemes are resistant to Shor's algorithm.",
+    "Shor's algorithm undermines data privacy.",
+    "Shor's algorithm undermines digital signature systems.",
+    "Current cryptographic systems are vulnerable to Shor's algorithm as quantum computing matures."
+   ]
+  },
+  "A053": {
+   "id": "q022",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_base",
+   "claims": [
+    "The scalable QCNN achieves 98.7% accuracy on the MNIST dataset.",
+    "The scalable QCNN uses only 45 independent rotational parameters."
+   ]
+  },
+  "A054": {
+   "id": "q015",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_base",
+   "claims": [
+    "The CPA attack was used twice to recover the secret key of Kyber-512.",
+    "60% of the secret key of Kyber-512 was recovered.",
+    "The recovery of the secret key of Kyber-512 was done at the cost of about 1619 power traces.",
+    "There were still 40% error coefficients after the recovery of the secret key of Kyber-512."
+   ]
+  },
+  "A055": {
+   "id": "q077",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The CNN-based feature extractor is a sensory front-end.",
+    "The CNN-based feature extractor transforms raw sensory inputs.",
+    "The CNN-based feature extractor transforms raw sensory inputs into structured, semantically meaningful representations.",
+    "The features extracted by the CNN-based feature extractor provide diversity and structure.",
+    "The features extracted by the CNN-based feature extractor provide the necessary diversity and structure for spike agreement-dependent plasticity.",
+    "The features extracted by the CNN-based feature extractor provide the necessary diversity and structure for spike agreement-dependent plasticity to reinforce class-relevant neuronal assemblies."
+   ]
+  },
+  "A056": {
+   "id": "g045",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_text",
+   "claims": [
+    "An eavesdropper who measures and resends all photons in the rectilinear basis induces an error rate of 1/4 in BB84.",
+    "Decoy-state QKD detection events are contributed to by decoy-state methods.",
+    "Decoy-state QKD detection events are contributed to by quantum error correction codes."
+   ]
+  },
+  "A057": {
+   "id": "q086",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "WAF-A-MoLE manages its payload pool using a priority queue Q.",
+    "Payloads are prioritized based on the confidence value returned by the WAF's classification algorithm.",
+    "The payload pool initially contains the starting payload.",
+    "During each iteration, the payload with the lowest confidence value is selected.",
+    "The selected payload is mutated and re-evaluated.",
+    "The new payload is added back to the queue.",
+    "The priority of the new payload is based on the updated confidence value.",
+    "This process continues until a payload with a confidence value below the rejection threshold is found."
+   ]
+  },
+  "A058": {
+   "id": "q005",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_base",
+   "claims": [
+    "Libsodium does not include support for any of the NIST PQC finalist algorithms as of the 1.0.x series.",
+    "The library's lead developer has noted that ML-KEM is on the roadmap.",
+    "No official timeline has been given for the integration of ML-KEM."
+   ]
+  },
+  "A059": {
+   "id": "m015",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_rag",
+   "claims": [
+    "Modern attack landscapes are dominated by IoT-based malware and keylogging campaigns.",
+    "Adaptive honeypots are necessary to effectively counter these threats.",
+    "AI-powered honeypots face computational overhead.",
+    "AI-powered honeypots face model training complexities.",
+    "AI-powered honeypots face potential adversarial AI attacks that could manipulate the models through adversarial inputs."
+   ]
+  },
+  "A060": {
+   "id": "q084",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Client honeypots are designed to simulate the behavior of a human.",
+    "Client honeypots analyze how attackers exploit vulnerabilities in client programs such as browsers."
+   ]
+  },
+  "A061": {
+   "id": "g007",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "Solving systems of multivariate quadratic equations in finite fields is intractable for quantum computers.",
+    "Multivariate quadratic (MQ) cryptographic schemes are resistant to quantum attacks.",
+    "MQ schemes are mainly used for public key encryption.",
+    "MQ schemes are mainly used for digital signatures.",
+    "Multivariate signature schemes can efficiently handle large volumes of data.",
+    "Multivariate signature schemes are resilient to quantum computing threats.",
+    "Resource-constrained IoT devices are vulnerable to quantum computing threats.",
+    "Multivariate signature schemes are suitable for authenticating edge nodes in IoT devices."
+   ]
+  },
+  "A062": {
+   "id": "q012",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The second layer of ADL-WAF uses Support Vector Machine (SVM) to classify anomalies.",
+    "The second layer of ADL-WAF classifies anomalies as either threat anomalies or benign anomalies."
+   ]
+  },
+  "A063": {
+   "id": "g016",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "QSDC involves sharing messages directly without the need to establish secret keys.",
+    "QKD focuses on securely exchanging encryption keys.",
+    "The DARPA network is an example of a practical QKD network.",
+    "The Trieste network is an example of a practical QKD network.",
+    "The Tokyo network is an example of a practical QKD network."
+   ]
+  },
+  "A064": {
+   "id": "q017",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Technology service providers are using quantum resilience as a selling point.",
+    "They are doing this by integrating Post-Quantum Cryptography (PQC) into their products.",
+    "Certain Virtual Private Network (VPN) and secure communications products advertise their quantum-safe capabilities.",
+    "Cloud companies like AWS, IBM, and Microsoft have released tools for experimenting with PQC in their platforms."
+   ]
+  },
+  "A065": {
+   "id": "g026",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "A sensitive variable is split into many partially randomized shares by higher-order masking.",
+    "Higher-order masking is used to protect Kyber implementations against side-channel attacks.",
+    "Threshold secret sharing partitions a secret into N shares.",
+    "A secret can only be decrypted in the presence of k keys when using threshold secret sharing.",
+    "Threshold secret sharing enhances security by distributing the secret across different entities.",
+    "A secret is split among participants by threshold secret sharing."
+   ]
+  },
+  "A066": {
+   "id": "m050",
+   "group": "Y1",
+   "system": "langgraph_selfrag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_selfrag",
+   "claims": [
+    "Hebbian learning updates synaptic weights based on the coincident activity of pre- and post-synaptic neurons.",
+    "The Hebbian learning rule is given by the formula: ∆wi j = η · xi · yj.",
+    "xi represents the spike activity of the pre-synaptic neuron.",
+    "yj represents the spike activity of the post-synaptic neuron.",
+    "η is a learning rate.",
+    "Spike-Time-Dependent Plasticity (STDP) takes spike timing into account.",
+    "STDP adjusts synaptic weights according to the relative timing of pre- and post-synaptic spikes.",
+    "STDP strengthens weights when a pre-synaptic spike precedes a post-synaptic one.",
+    "STDP weakens weights when the order of spikes is reversed.",
+    "STDP is described by the formula: Δ𝑤= 𝜂+ 𝑒−|Δ𝑡|/𝜏+ if Δ𝑡> 0.",
+    "STDP is described by the formula: Δ𝑤= 𝜂−𝑒−|Δ𝑡|/𝜏− if Δ𝑡< 0.",
+    "Δ𝑡 is the time difference between the spikes.",
+    "𝜂+, 𝜏+ are learning rate parameters and time constants for strengthening weights.",
+    "𝜂−, 𝜏− are learning rate parameters and time constants for weakening weights."
+   ]
+  },
+  "A067": {
+   "id": "m022",
+   "group": "Y1",
+   "system": "langgraph_selfrag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_selfrag",
+   "claims": [
+    "Cyber deception can increase attackers' uncertainty and operational risk.",
+    "Cyber deception can slow down attackers' attack progression.",
+    "Cyber deception can increase the likelihood of attackers' mistakes.",
+    "Honeypots can achieve high detection rates.",
+    "Bidirectional deception techniques can achieve high detection rates.",
+    "Bidirectional deception techniques can have low false positive rates.",
+    "Cyber deception can effectively manipulate attackers' perceptions and actions.",
+    "The cognitive load on attackers interacting with cyber deception can be high."
+   ]
+  },
+  "A068": {
+   "id": "q009",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The VECTOR framework integrates reconstructability-aware approximation.",
+    "The VECTOR framework integrates this into existing eviction methods.",
+    "The VECTOR framework integrates this to improve cache compression.",
+    "The VECTOR framework improves cache compression."
+   ]
+  },
+  "A069": {
+   "id": "s004",
+   "group": "Y4",
+   "system": "base",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_base",
+   "claims": [
+    "Each good (c, d) pair is generated with a probability of at least 1/(20q2).",
+    "At least a twelfth of the possible c’s are in a good (c, d) pair."
+   ]
+  },
+  "A070": {
+   "id": "q043",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "FPGAs are considered an ideal platform for SNN hardware accelerators.",
+    "FPGAs have flexible hardware reconfigurability.",
+    "FPGAs have parallel computing capabilities.",
+    "The key challenge is balancing inference speed, power consumption, and model accuracy.",
+    "FPGAs have limited resources."
+   ]
+  },
+  "A071": {
+   "id": "q059",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The integer-arithmetic-only NN classifier in the kernel space reduces inference time to 13.8% of the floating-point version in user space.",
+    "The decision tree (DT) classifier in the kernel space reduces inference time to 1.7% of the floating-point version in user space."
+   ]
+  },
+  "A072": {
+   "id": "q076",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "A synapse's weight in differentiable plasticity is composed of two parts.",
+    "The two parts are the backprop part (𝑤𝐵𝑃) and the Hebbian part (𝑤𝐻).",
+    "The weighting factor (𝜁) determines the balance between the backprop part and the Hebbian part.",
+    "The backprop part is meta-learned.",
+    "The weighting constant is meta-learned.",
+    "The backprop part and the weighting constant are meta-learned to exploit general information from the Hebbian part for specific tasks."
+   ]
+  },
+  "A073": {
+   "id": "q016",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The O(1) LFU cache algorithm uses a min heap to store its data.",
+    "The min heap is ordered by the usage count of the elements.",
+    "When the first element is inserted, it enters with a usage count of 1.",
+    "The first element is placed in the appropriate position in the min heap based on its usage count.",
+    "The insertion complexity of the O(1) LFU cache algorithm is O(log n) due to the heap operation required to maintain the heap property."
+   ]
+  },
+  "A074": {
+   "id": "q085",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "VulnBot represents dependencies among penetration testing tasks.",
+    "VulnBot uses a Penetration Task Graph (PTG) to represent dependencies.",
+    "The PTG ensures logical task execution.",
+    "The PTG covers the reconnaissance phase.",
+    "The PTG covers the scanning phase.",
+    "The PTG covers the exploitation phase."
+   ]
+  },
+  "A075": {
+   "id": "g005",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_text",
+   "claims": [
+    "The data re-uploading strategy addresses optimization issues in encoding classical data into quantum states.",
+    "A hybrid model with quantum-enhanced embeddings achieved up to 94.7% accuracy in botnet detection."
+   ]
+  },
+  "A076": {
+   "id": "g042",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Quantum generative adversarial networks (QGANs) use quantum circuits or hybrid quantum-classical architectures to implement GANs.",
+    "QGANs leverage quantum advantages for more efficient training.",
+    "QGANs can better represent complex probability distributions.",
+    "EQGAN improves QGAN training by enhancing performance.",
+    "EQGAN improves QGAN training by enhancing stability.",
+    "EQGAN achieves faster training compared to standard QGANs.",
+    "EQGAN achieves more stable training compared to standard QGANs."
+   ]
+  },
+  "A077": {
+   "id": "q017",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_kg",
+   "claims": [
+    "Technology service providers are using quantum-resilience as a selling point.",
+    "They are integrating Post-Quantum Cryptography (PQC) into their products.",
+    "PQC is being integrated into VPN and secure communications offerings.",
+    "Cloud companies like AWS, IBM, and Microsoft are leveraging PQC in their platforms.",
+    "They are advertising quantum-safe security."
+   ]
+  },
+  "A078": {
+   "id": "q071",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "SCNNTraffic uses spiking convolution neural networks (SCNNs) to capture the time-varying characteristics of network traffic.",
+    "SCNNTraffic uses a cross-gating module based on spiking neurons for feature fusion.",
+    "The cross-gating module in SCNNTraffic decreases power usage.",
+    "SCNNTraffic achieves effective classification.",
+    "SCNNTraffic significantly reduces the number of network parameters.",
+    "SCNNTraffic significantly reduces energy consumption."
+   ]
+  },
+  "A079": {
+   "id": "m043",
+   "group": "Y1",
+   "system": "langgraph_selfrag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_selfrag",
+   "claims": [
+    "Chrome has deployed a hybrid X25519+Kyber key agreement.",
+    "The hybrid key agreement allows Chrome to maintain compatibility with parties that do not support PQC.",
+    "Chrome falls back to classical algorithms during the handshake negotiation process.",
+    "The system remains usable even when not all parties support the new hybrid approach.",
+    "The handshake negotiation process allows for backward compatibility with parties that do not support PQC."
+   ]
+  },
+  "A080": {
+   "id": "q068",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "single",
+   "source": "y3_k10",
+   "claims": [
+    "Quantum Key Distribution (QKD) is considered provably secure against eavesdropping.",
+    "QKD leverages principles of quantum mechanics.",
+    "The no-cloning theorem is a principle of quantum mechanics.",
+    "The no-cloning theorem ensures that any eavesdropping attempt introduces detectable disturbances.",
+    "Any eavesdropping attempt makes retrospective cryptanalysis impossible.",
+    "An eavesdropper must attack the communication in progress in real-time."
+   ]
+  },
+  "A081": {
+   "id": "m037",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "Quantum Gaussian Mixture Models (QGMMs) represent probability distributions using quantum states to model the likelihood.",
+    "Quantum Boltzmann Machines (QBMs) describe the target distribution as a quantum thermal state derived from a parameterized Hamiltonian.",
+    "QBMs use quantum Hamiltonians to define energy functions.",
+    "QBMs can capture correlations and distributions that are intractable for classical models."
+   ]
+  },
+  "A082": {
+   "id": "g034",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "The security basis of quantum cryptography is information-theoretic security.",
+    "Traditional encryption relies on computational complexity.",
+    "QKD protocols are categorized into two types.",
+    "The three-state QKD protocol is one type of QKD protocol.",
+    "The three-stage multi-photon QKD protocol is one type of QKD protocol.",
+    "QKD can detect eavesdropping on the quantum channel.",
+    "QKD ensures secure key transmission.",
+    "QKD is distinguished from traditional key agreement by its ability to detect eavesdropping on the quantum channel."
+   ]
+  },
+  "A083": {
+   "id": "g007",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Multivariate quadratic (MQ) cryptographic schemes are considered quantum-resistant.",
+    "No efficient classical or quantum algorithms are known for solving generic MQ systems.",
+    "MQ schemes are mainly used in digital signatures and public-key encryption.",
+    "A multivariate signature scheme is suitable for authenticating edge nodes.",
+    "The resistance to quantum attacks is crucial for long-term security in edge computing environments.",
+    "Devices in edge computing environments may have limited computational resources."
+   ]
+  },
+  "A084": {
+   "id": "g037",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_text",
+   "claims": [
+    "The security of SPHINCS+ (SLH-DSA) relies on a stateless, hash-based approach.",
+    "SPHINCS+ (SLH-DSA) achieves stateless operation by not requiring any stateful components.",
+    "SPHINCS+ (SLH-DSA) is easier to implement securely due to its stateless operation.",
+    "NIST FIPS 205 corresponds to SLH-DSA, which is the same as SPHINCS+.",
+    "NIST has selected Dilithium and Kyber for transitioning to quantum-safe methods.",
+    "FIPS 203 corresponds to Dilithium.",
+    "FIPS 204 corresponds to Kyber.",
+    "NIST has formalized Dilithium and Kyber as standards with FIPS 203 and FIPS 204, respectively."
+   ]
+  },
+  "A085": {
+   "id": "m001",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Concerns about HNDL attacks are similar between security professionals and profit-motivated cybercriminals.",
+    "Both security professionals and profit-motivated cybercriminals recognize the threat to long-term data confidentiality.",
+    "Security professionals are more focused on long-term data protection.",
+    "Security professionals believe that Post-Quantum Cryptography (PQC) is needed to mitigate HNDL risks.",
+    "Profit-motivated cybercriminals prioritize short-term data exfiltration and storage for future decryption.",
+    "Prime targets for HNDL include classified government documents.",
+    "Prime targets for HNDL include healthcare records.",
+    "Prime targets for HNDL include corporate trade secrets.",
+    "Prime targets for HNDL are due to their long-term confidentiality requirements."
+   ]
+  },
+  "A086": {
+   "id": "g050",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Gradients in QGANs are typically estimated using the parameter-shift rule or stochastic approximation.",
+    "Optimization in QGANs is performed via classical algorithms.",
+    "The discriminator parameters are updated to minimize the loss function.",
+    "The generator parameters are updated to increase the chance that fake data is classified as real.",
+    "The adversarial process in QGANs continues until equilibrium is reached."
+   ]
+  },
+  "A087": {
+   "id": "q089",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "The OpenDaylight NetIDE project exists.",
+    "The OpenDaylight NetIDE project provides a framework.",
+    "The framework is for developing intent-based network applications."
+   ]
+  },
+  "A088": {
+   "id": "q078",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Feedback Alignment uses random matrices for error backpropagation.",
+    "Direct Feedback Alignment directly propagates errors from the top layer to the hidden layers.",
+    "Feedback Alignment replaces the transposed weight matrix with a random matrix.",
+    "Feedback Alignment and Direct Feedback Alignment allow for simpler implementations.",
+    "Feedback Alignment and Direct Feedback Alignment can still effectively descend the error surface.",
+    "Feedback Alignment and Direct Feedback Alignment may not be as accurate as traditional backpropagation."
+   ]
+  },
+  "A089": {
+   "id": "q023",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Researchers developed a tool to visualize how CAPECs could be chained in an information system containing CVEs.",
+    "They manually described the characteristics and settings of the information system.",
+    "They input some data from the CVSS vector related to the CVEs."
+   ]
+  },
+  "A090": {
+   "id": "q051",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_halluc",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "Loihi supports a hierarchical network model.",
+    "The hierarchical network model is used to exploit structure in the network.",
+    "The hierarchical network model reduces chip-wide connectivity and synaptic resources needed.",
+    "A hierarchical template network is formally represented as a directed multigraph.",
+    "A directed multigraph is represented as ℋ = (࣮, ℰ).",
+    "࣮ is a set of disjoint neuron population types.",
+    "ℰ defines a set of edges connecting between pairs of population types."
+   ]
+  },
+  "A091": {
+   "id": "m068",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "The Module-LWE problem is a variation of the LWE problem.",
+    "The LWE problem forms the basis of lattice-based cryptography.",
+    "The security of CRYSTALS-Kyber is based on the difficulty of solving the Module-LWE problem.",
+    "The Module-LWE problem introduces unknown noise into linear equations.",
+    "The Module-LWE problem has additional structure compared to LWE.",
+    "The Module-LWE problem is suitable for certain cryptographic applications.",
+    "The LWE problem introduces unknown noise into linear equations.",
+    "The LWE problem is the basis of lattice-based cryptography."
+   ]
+  },
+  "A092": {
+   "id": "q001",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_kg",
+   "claims": [
+    "Shor's algorithm is a quantum algorithm.",
+    "Shor's algorithm can efficiently solve the integer factorization problem.",
+    "Shor's algorithm can efficiently solve the discrete logarithm problem.",
+    "The integer factorization and discrete logarithm problems underpin many public-key cryptographic systems.",
+    "Shor's algorithm poses a significant threat to the security of current cryptographic systems.",
+    "Shor's algorithm can break the security assumptions of RSA and ECC.",
+    "The complexity of integer factorization and discrete logarithm problems is reduced from exponential to polynomial time by Shor's algorithm."
+   ]
+  },
+  "A093": {
+   "id": "g011",
+   "group": "Y3",
+   "system": "graphrag_kg10",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k10",
+   "claims": [
+    "One critical side-channel leakage point has been reported in Kyber's decryption procedure.",
+    "The side-channel leakage point occurs during the PWM of ˆs ◦ˆu.",
+    "Researchers used machine learning techniques to extract encryption keys from Kyber implementations."
+   ]
+  },
+  "A094": {
+   "id": "g015",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Kyber's public key is very large compared to classical ECC.",
+    "Dilithium's signatures are much larger than ECDSA signatures.",
+    "Dilithium's signatures are smaller than some alternatives like McEliece.",
+    "These post-quantum schemes are considered feasible for IoT and mainstream applications.",
+    "These post-quantum schemes are considered efficient enough for IoT and mainstream applications.",
+    "These post-quantum schemes may require more memory.",
+    "These post-quantum schemes have higher cryptographic overhead."
+   ]
+  },
+  "A095": {
+   "id": "m005",
+   "group": "Y4",
+   "system": "kg",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_kg",
+   "claims": [
+    "OpenSSL does not natively support CRYSTALS-Dilithium.",
+    "OpenSSL supports CRYSTALS-Dilithium through prototypes.",
+    "Botan supports CRYSTALS-Dilithium in its recent versions.",
+    "Botan has adopted Dilithium for post-quantum cryptography.",
+    "OpenSSL has adopted Dilithium for post-quantum cryptography."
+   ]
+  },
+  "A096": {
+   "id": "g007",
+   "group": "Y4",
+   "system": "both",
+   "stratum": "y4",
+   "type": "multihop",
+   "source": "y4_both",
+   "claims": [
+    "Multivariate quadratic (MQ) cryptographic schemes are considered quantum-resistant.",
+    "No efficient quantum algorithms are known for solving generic MQ systems.",
+    "Multivariate quadratic (MQ) cryptographic schemes are mainly used in digital signatures and public-key encryption.",
+    "Multivariate signature schemes are suitable for authenticating edge nodes.",
+    "The quantum-resistance of multivariate signature schemes ensures security against potential quantum computer attacks."
+   ]
+  },
+  "A097": {
+   "id": "m064",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_multihop",
+   "type": "multihop",
+   "source": "y1_rag",
+   "claims": [
+    "Large post-quantum keys and signatures cause problems for 5G network slices and handovers.",
+    "The problems are due to increased resource consumption and potential delays.",
+    "The handshake overhead of hash-based signature schemes is significant.",
+    "The handshake overhead of hash-based signature schemes ranges from 245% to 890% relative to classical algorithms.",
+    "The increased handshake overhead is primarily due to the need to transmit signatures over multiple packets."
+   ]
+  },
+  "A098": {
+   "id": "q068",
+   "group": "Y4",
+   "system": "text",
+   "stratum": "y4",
+   "type": "single",
+   "source": "y4_text",
+   "claims": [
+    "Quantum key distribution (QKD) is considered provably secure against eavesdropping.",
+    "QKD leverages the principles of quantum mechanics.",
+    "The Heisenberg uncertainty principle is used in QKD.",
+    "Eavesdropping attempts introduce measurable errors.",
+    "Eavesdropping attempts disturb quantum states.",
+    "The communicating parties can detect eavesdropping attempts.",
+    "The security of QKD is information-theoretic.",
+    "The security of QKD is unconditional."
+   ]
+  },
+  "A099": {
+   "id": "g035",
+   "group": "Y3",
+   "system": "graphrag_kg20",
+   "stratum": "y3",
+   "type": "multihop",
+   "source": "y3_k20",
+   "claims": [
+    "Shor's algorithm leverages quantum mechanics principles such as superposition.",
+    "Shor's algorithm leverages quantum mechanics principles such as entanglement.",
+    "Shor's algorithm can perform complex calculations in parallel.",
+    "RSA's security relies on the computational difficulty of factoring large integers.",
+    "Classical computers find it infeasible to factor large integers for sufficiently large numbers.",
+    "Shor's algorithm can factor large integers in polynomial time on a quantum computer.",
+    "Shor's algorithm compromises RSA's security."
+   ]
+  },
+  "A100": {
+   "id": "q019",
+   "group": "Y1",
+   "system": "langchain_rag",
+   "stratum": "y1_single_ok",
+   "type": "single",
+   "source": "y1_rag",
+   "claims": [
+    "AutoPen employs Retrieval-Augmented Generation (RAG) to obtain more relevant and accurate responses from the LLM.",
+    "AutoPen employs chain-of-thought reasoning to obtain more relevant and accurate responses from the LLM.",
+    "AutoPen employs structured output to obtain more relevant and accurate responses from the LLM."
+   ]
+  }
+ }
+}
