@@ -1,0 +1,85 @@
+{
+  "n_chunks": 89,
+  "n_facts": 262,
+  "missing_verdicts": 0,
+  "retention": {
+    "10": {
+      "in_scope": {
+        "n": 89,
+        "retention": 0.7865,
+        "ci95": [
+          0.6966,
+          0.8652
+        ],
+        "retention_adjusted": 0.5649
+      },
+      "all": {
+        "n": 262,
+        "retention": 0.4962,
+        "ci95": [
+          0.4389,
+          0.5573
+        ]
+      }
+    },
+    "20": {
+      "in_scope": {
+        "n": 175,
+        "retention": 0.76,
+        "ci95": [
+          0.6971,
+          0.8171
+        ],
+        "retention_adjusted": 0.5481
+      },
+      "all": {
+        "n": 262,
+        "retention": 0.6489,
+        "ci95": [
+          0.5916,
+          0.7061
+        ]
+      }
+    },
+    "30": {
+      "in_scope": {
+        "n": 262,
+        "retention": 0.7786,
+        "ci95": [
+          0.7289,
+          0.8282
+        ],
+        "retention_adjusted": 0.5599
+      },
+      "all": {
+        "n": 262,
+        "retention": 0.7786,
+        "ci95": [
+          0.7289,
+          0.8282
+        ]
+      }
+    }
+  },
+  "human_check": {
+    "n_labels": 60,
+    "n_answers": 60,
+    "human_pos": 0.383,
+    "judge_pos": 0.5,
+    "agreement": 0.817,
+    "agreement_ci95": [
+      0.717,
+      0.917
+    ],
+    "kappa": 0.633,
+    "kappa_ci95": [
+      0.439,
+      0.82
+    ],
+    "level": "khá",
+    "judge_yes_precision": 0.7,
+    "judge_no_npv": 0.933,
+    "fact_ok": 0.933,
+    "n": 60
+  }
+}

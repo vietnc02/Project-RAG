@@ -473,7 +473,7 @@ table(f"Faithfulness so với context gốc ({num(M['base']['faithfulness'][0])}
                          "Kết luận"], rows,
       [2.7, 1.2, 2.5, 3.7, 2.4, 3.5], font=10, center_from=1)
 figure("y4_fig2_paired.png", "Paired difference so với context gốc trên năm chỉ số", width=16.5)
-p(f"**Không chế độ nào chứng minh được faithfulness được giữ nguyên.** Nén KG và nén passage làm faithfulness giảm khoảng "
+p(f"**Theo judge, không chế độ nào chứng minh được faithfulness được giữ nguyên** (chấm tay ở mục 5.7 cho kết quả khác với nén cả hai). Nén KG và nén passage làm faithfulness giảm khoảng "
   f"0,03 ({dpp('kg', 'faithfulness')} và {dpp('text', 'faithfulness')}), không có statistical significance, nhưng CI kéo "
   f"tới khoảng −{num(max(-P['kg']['faithfulness']['lo'], -P['text']['faithfulness']['lo']), 2)} nên không đủ bằng chứng để nói faithfulness được giữ nguyên: dữ liệu chưa loại trừ được mức giảm tới "
   f"{max_drop('kg')} (nén KG) và {max_drop('text')} (nén passage). Nén cả hai phần: nén − gốc = "
@@ -486,8 +486,8 @@ p("**Độ dài context và judge:** ở nội dung 2 (mục 8.5), judge chấm 
   "hơn so với Vector RAG, và GraphRAG có context dài hơn (mô tả KG cộng 4 passage); tức là judge có thể khắt khe hơn khi "
   "context dài. Nếu đúng như vậy, context nén (ngắn hơn) được chấm dễ hơn context gốc, và mức giảm faithfulness thật có "
   "thể lớn hơn số đo ở Bảng 6. Faithfulness_full chấm mọi chế độ trên cùng context gốc nên không bị ảnh hưởng bởi thiên "
-  f"lệch này, và cho kết quả cùng chiều (nén cả hai: {dpp('both', 'faithfulness_full')}). Chiều lệch theo độ dài chưa "
-  "được kiểm chứng trên dữ liệu của nội dung 4.")
+  f"lệch này, và cho kết quả cùng chiều (nén cả hai: {dpp('both', 'faithfulness_full')}). Chấm tay ở mục 5.7 kiểm tra "
+  "trực tiếp giả thuyết này.")
 p(f"Năng lực kiểm định thấp: với khoảng {P['kg']['faithfulness']['n']} cặp, CI 95% của paired difference rộng khoảng ±0,05, "
   f"ngang ngưỡng {num(NI, 2)}. Giả sử nén hoàn toàn không làm thay đổi faithfulness, xác suất kiểm định kết luận được "
   f"\"giữ nguyên\" cũng chỉ khoảng {pct(P['kg']['ni_power_if_zero'], 0)} (nén KG, nén passage) và "
@@ -624,9 +624,65 @@ if HA and "Y4" in HA["groups"]:
       f"(κ = {num(g4['hallucination']['kappa'], 2)}) và cho đúng {pct(g4['correct']['judge_pos'], 0)} so với "
       f"{pct(g4['correct']['human_pos'], 0)} (κ = {num(g4['correct']['kappa'], 2)}), cùng chiều lệch với nội dung 1–3. "
       "Kiểm định non-inferiority dùng chênh lệch giữa các chế độ do cùng judge chấm, nên lệch chung giữa judge và người "
-      "chấm không ảnh hưởng trực tiếp nếu nó như nhau ở mọi chế độ. Với 6–7 câu khác nhau mỗi chế độ, mẫu chấm tay chưa "
-      "đủ để kiểm tra điều đó, cũng như thiên lệch của judge theo độ dài context (mục 5.2), nên mức giảm faithfulness "
-      "ở mục 5.2 nên đọc là ước lượng theo judge.")
+      "chấm không ảnh hưởng trực tiếp nếu nó như nhau ở mọi chế độ. Với 6–7 câu khác nhau mỗi chế độ, mẫu này chưa "
+      "đủ để kiểm tra điều đó; mục 5.7 kiểm tra trực tiếp bằng cách chấm tay từng cặp context gốc / nén cả hai.")
+
+HY = S.get("human_audit_y4")
+if HY:
+    h("5.7. Chấm tay cặp context gốc và context nén", 2)
+    HP, HM, LB = HY["paired"], HY["means"], HY["length_bias"]
+    fx = lambda x: f"{x['delta']:+.3f} [{x['ci95'][0]:+.3f}; {x['ci95'][1]:+.3f}]".replace(".", ",").replace("-", "−")
+    p(f"Để kiểm tra kết luận của judge, {HY['n_questions']} câu có đáp án mà cả context gốc lẫn chế độ nén cả hai đều "
+      "trả lời được chọn ngẫu nhiên (seed 42) và chấm tay cả hai câu trả lời. Phiếu hiện hai câu trả lời A / B theo thứ "
+      "tự ngẫu nhiên, không ghi chế độ, mỗi câu kèm đúng context đã đưa vào LLM. Người chấm gán hai loại nhãn:")
+    bullets([("Claim của câu trả lời ", "(claim do judge tách, như khi chấm faithfulness): có được context hỗ trợ, "
+              "không có trong context, hay mâu thuẫn với context → faithfulness và hallucination theo người."),
+             ("Ý của ground truth ", f"({HY['n_gt_ideas']} ý, chính là các claim dùng cho context recall): ý đó có bắt "
+              f"buộc để trả lời đúng không ({HY['n_must']} ý bắt buộc, trung bình {num(HY['must_per_question'], 1)} mỗi "
+              "câu), và với từng câu trả lời, ý đó nằm trong context, trong câu trả lời, cả hai hay không ở đâu → "
+              "context recall theo người, tỉ lệ ý bắt buộc được câu trả lời nêu, và \"đúng\" theo người = câu trả lời "
+              "nêu mọi ý bắt buộc.")])
+    HN = {"faithfulness_human": "Faithfulness (người)", "faithfulness_judge": "Faithfulness (judge)",
+          "context_recall_human": "Context recall (người)", "context_recall_judge": "Context recall (judge)",
+          "context_recall_must_human": "Context recall, ý bắt buộc (người)",
+          "answer_recall_must_human": "Ý bắt buộc được câu trả lời nêu (người)",
+          "correct_must_human": "Nêu đủ mọi ý bắt buộc (người)", "correct_judge": "Answer correctness (judge)",
+          "hallucination_human": "Có claim không được hỗ trợ (người)",
+          "hallucination_judge": "Có claim không được hỗ trợ (judge)"}
+    AS_PCT = {"correct_must_human", "correct_judge", "hallucination_human", "hallucination_judge"}
+    rows = [[HN[k], pct(HM[k]["base"], 0) if k in AS_PCT else num(HM[k]["base"]),
+             pct(HM[k]["both"], 0) if k in AS_PCT else num(HM[k]["both"]), fx(HP[k])] for k in HN]
+    table(f"Context gốc và nén cả hai trên cùng {HY['n_questions']} câu: người chấm và judge",
+          ["Chỉ số", "Gốc", "Nén cả hai", "Nén − gốc [CI 95%]"], rows, [6.8, 2.0, 2.2, 5.0], font=10, center_from=1)
+    fh = HP["faithfulness_human"]
+    p(f"**Theo người chấm, nén cả hai giữ nguyên faithfulness:** {num(HM['faithfulness_human']['base'])} → "
+      f"{num(HM['faithfulness_human']['both'])}, nén − gốc = {fx(fh)}; cận dưới "
+      f"{num(fh['ci95'][0]).replace('-', '−')} lớn hơn −{num(NI, 2)}, tức là đạt tiêu chí non-inferiority đặt ra ở mục 4. Trên cùng "
+      f"{HY['n_questions']} câu, judge cho chênh lệch {fx(HP['faithfulness_judge'])}, cùng chiều nhưng rộng hơn. Mẫu "
+      "chỉ gồm câu cả hai chế độ đều trả lời, nên không tính các câu bị refuse thêm khi nén (mục 5.4).")
+    p(f"**Không thấy thiên lệch của judge theo độ dài context.** Faithfulness của judge thấp hơn người chấm "
+      f"{num(-LB['gap_base'], 2)} ở context gốc và {num(-LB['gap_both'], 2)} ở context nén; chênh lệch giữa hai mức là "
+      f"{fx(LB['gap_both_minus_base'])}. Như vậy giả thuyết ở mục 5.2 (judge khắt khe hơn khi context dài) không được dữ "
+      "liệu ủng hộ ở độ dài context của nội dung 4 (khoảng 800–1.500 token); lệch giữa judge và người chấm gần như như "
+      "nhau ở hai chế độ, nên chênh lệch do cùng judge chấm vẫn dùng được để so sánh.")
+    cr = HP["context_recall_human"]
+    p(f"**Nén làm mất khoảng 10% ý của đáp án trong context nhưng câu trả lời không kém đi.** Theo người chấm, context "
+      f"recall giảm {num(HM['context_recall_human']['base'], 2)} → {num(HM['context_recall_human']['both'], 2)} "
+      f"({fx(cr)}), với ý bắt buộc cũng vậy ({fx(HP['context_recall_must_human'])}); judge thấy mức giảm nhỏ hơn "
+      f"({fx(HP['context_recall_judge'])}). Tuy vậy tỉ lệ ý bắt buộc được câu trả lời nêu gần như không đổi "
+      f"({num(HM['answer_recall_must_human']['base'], 2)} → {num(HM['answer_recall_must_human']['both'], 2)}, "
+      f"{fx(HP['answer_recall_must_human'])}). Ở cả hai chế độ, context chứa khoảng "
+      f"{pct(HM['context_recall_must_human']['base'], 0)} ý bắt buộc nhưng câu trả lời chỉ nêu khoảng một nửa: mô hình 7B "
+      "không dùng hết thông tin có trong context, nên (tính trung bình) phần thông tin bị nén mất chưa làm câu trả lời "
+      "thiếu thêm ý.")
+    p(f"**Answer correctness của judge quá dễ dãi.** Judge cho đúng {pct(HM['correct_judge']['base'], 0)} / "
+      f"{pct(HM['correct_judge']['both'], 0)} câu trả lời, trong khi chỉ {pct(HM['correct_must_human']['base'], 0)} nêu "
+      f"đủ mọi ý bắt buộc; hai cách chấm khớp nhau ở {pct(HY['correct_agreement'], 0)} số câu trả lời. Một phần do định "
+      "nghĩa (tiêu chí của người chấm chặt hơn), nhưng mức chênh này cho thấy answer correctness của judge chỉ phân biệt "
+      "được câu trả lời sai hẳn, không đo được câu trả lời có đủ ý hay không. Theo người chấm, "
+      f"{round(HM['hallucination_human']['both'] * HY['n_questions'])}/{HY['n_questions']} câu trả lời từ context nén có "
+      "claim không được context hỗ trợ, context gốc không có câu nào; judge gắn hallucination cho khoảng một nửa số câu "
+      "trả lời ở cả hai chế độ.")
 
 # ================= 6. THẢO LUẬN =================
 h("6. THẢO LUẬN VÀ ĐỐI CHIẾU TÀI LIỆU", 1)
@@ -644,7 +700,22 @@ p("**RECOMP [2]** dùng bộ nén extractive chọn câu (được huấn luyệ
 p("**LongLLMLingua [3]** cho thấy nén theo câu hỏi có thể tăng độ chính xác (tới 21,4% trên NaturalQuestions với khoảng "
   "4 lần ít token hơn) vì giảm hiện tượng thông tin quan trọng bị \"lạc\" giữa context dài. Context ở đây chỉ khoảng "
   f"{dot(M['base']['context_tokens'])} token, ngắn hơn nhiều so với các thí nghiệm đó, nên lợi ích từ việc rút ngắn "
-  "context là nhỏ và không thấy cải thiện độ chính xác; lợi ích chính ở đây là chi phí và thời gian.")
+  "context là nhỏ và không thấy cải thiện độ chính xác; lợi ích chính ở đây là chi phí và thời gian. Điều này khớp "
+  "với Liu và cộng sự [4]: hiện tượng thông tin ở giữa context bị bỏ qua chỉ rõ khi context dài; chấm tay (mục 5.7) "
+  "cũng không thấy judge lệch khác nhau giữa context gốc và context nén ở độ dài này.")
+if HY:
+    p("**Sufficient context [5]** cho thấy khi context không còn đủ thông tin, LLM hoặc refuse, hoặc trả lời bằng kiến "
+      "thức riêng thay vì refuse. Nén ở đây làm context mất khoảng 10% ý của đáp án (mục 5.7) và cho thấy cả hai hành "
+      f"vi: refusal ở câu có đáp án tăng gấp đôi khi nén KG (mục 5.3), và "
+      f"{round(HY['means']['hallucination_human']['both'] * HY['n_questions'])}/{HY['n_questions']} câu trả lời từ "
+      "context nén có claim không có căn cứ theo người chấm (context gốc: 0). Với số câu nhỏ như vậy, đây là dấu hiệu "
+      "chứ chưa phải kết luận.")
+    p("**Độ tin cậy của LLM-judge [6]:** các nghiên cứu về LLM-as-a-judge cho thấy judge có thiên lệch hệ thống và judge "
+      "nhỏ lệch nhiều hơn. Ở đây judge 8B khắt khe khi kiểm tra claim (faithfulness thấp hơn người chấm khoảng 0,14) và "
+      "dễ dãi khi chấm độ đúng (cho đúng khoảng 90% câu trả lời, trong khi chỉ 20% nêu đủ ý bắt buộc). Judge cũng thấy "
+      "mức giảm context recall nhỏ hơn người chấm, đúng như kỳ vọng khi nhãn có nhiễu ngẫu nhiên: phân loại sai làm "
+      "chênh lệch giữa hai nhóm co về 0. Vì vậy mức giảm context recall theo judge ở mục 5.3 có thể nhỏ hơn thật, còn "
+      "với faithfulness thì chấm tay cho mức giảm nhỏ hơn judge.")
 bullets([("Mức nén: ", "chỉ chế độ nén cả hai có thêm hai mức (mục 5.5); nén KG và nén passage mỗi cách một mức."),
          ("Judge 7B và cỡ mẫu: ", "faithfulness chấm bằng llama3.1:8b; các lần chấm cho kết quả gần như trùng nhau "
           "(mục 5.6), nhưng ở nội dung 2 judge lệch có hệ thống so với human judge. "
@@ -654,13 +725,16 @@ bullets([("Mức nén: ", "chỉ chế độ nén cả hai có thêm hai mức (
           "statistical significance sau hiệu chỉnh Holm; các thay đổi về faithfulness ở chế độ nén cả hai và mức tăng "
           "refusal cần được xác nhận trên bộ câu hỏi lớn hơn."),
          ("Chỉ thử GraphRAG: ","Vector RAG không có phần KG; nén passage có thể áp dụng cho Vector RAG nhưng chưa đo."),
-         ("Cách hiểu \"thông tin quan trọng\": ", "đo bằng context recall theo claim của ground truth, không phải bằng "
-          "danh mục thông tin do chuyên gia xác định như trong bối cảnh lâm sàng.")])
+         ("Cách hiểu \"thông tin quan trọng\": ", "đo bằng context recall theo claim của ground truth; ở mẫu chấm tay "
+          "(mục 5.7) có thêm nhãn ý bắt buộc do một người chấm xác định, chưa phải danh mục thông tin do chuyên gia "
+          "lập như trong bối cảnh lâm sàng."),
+         ("Mẫu chấm tay: ", "30 cặp câu trả lời, một người chấm, chỉ câu cả hai chế độ đều trả lời và chỉ cho chế độ "
+          "nén cả hai; nén KG và nén passage chưa được chấm tay theo cặp.")])
 
 # ================= 7. KẾT LUẬN =================
 h("7. KẾT LUẬN", 1)
 p(f"Nén context của GraphRAG chỉ bằng cách xoá bớt theo độ liên quan với câu hỏi đạt token reduction {red('kg')} (nén KG), "
-  f"{red('text')} (nén passage) và {red('both')} (nén cả hai), đều trong khoảng mục tiêu 19–53%. Không chế độ nào chứng "
+  f"{red('text')} (nén passage) và {red('both')} (nén cả hai), đều trong khoảng mục tiêu 19–53%. Theo judge, không chế độ nào chứng "
   f"minh được faithfulness được giữ nguyên với ngưỡng {num(NI, 2)}: nén một phần làm faithfulness giảm khoảng 0,03, không "
   "đủ bằng chứng để phân biệt với context gốc nhưng cũng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp); "
   f"nén cả hai: nén − gốc = {dpp('both', 'faithfulness')}, faithfulness {evid4('both', 'faithfulness')}. Với cỡ mẫu "
@@ -674,7 +748,14 @@ p(f"Nén context của GraphRAG chỉ bằng cách xoá bớt theo độ liên q
   "cách chọn dòng KG, chủ yếu ở câu multi-hop. Với cài đặt GraphRAG "
   f"local search và mô hình 7B ở đây, nén passage (giảm {red('text')} token) là mức ít rủi ro nhất trong ba mức đã thử: "
   "không chỉ số nào có dấu hiệu giảm, kể cả refusal, dù vẫn chưa chứng minh được faithfulness giữ nguyên. Muốn nén mạnh "
-  "hơn cần giữ phần mô tả KG cho câu multi-hop hoặc dùng bộ nén có huấn luyện.")
+  "hơn cần giữ phần mô tả KG cho câu multi-hop hoặc dùng bộ nén có huấn luyện."
+  + (f" Chấm tay {HY['n_questions']} cặp câu trả lời (mục 5.7) cho kết quả rõ hơn judge ở chế độ nén cả hai: theo người "
+     f"chấm, faithfulness được giữ nguyên với ngưỡng {num(NI, 2)} (nén − gốc = "
+     f"{num(HY['paired']['faithfulness_human']['delta']).replace('-', '−')} [{num(HY['paired']['faithfulness_human']['ci95'][0]).replace('-', '−')}; "
+     f"{num(HY['paired']['faithfulness_human']['ci95'][1])}]) và câu trả lời vẫn nêu được số ý bắt buộc như context "
+     "gốc, dù context mất khoảng 10% ý của đáp án; judge không lệch khác nhau giữa context dài và context nén. Như vậy "
+     "giảm gần một nửa token context vẫn giữ được faithfulness và các ý quan trọng trong câu trả lời, với cái giá là "
+     "refuse nhiều hơn ở câu multi-hop." if HY else ""))
 
 h("TÀI LIỆU THAM KHẢO", 1)
 for ref in ["[1] K. Soman et al., \"Biomedical knowledge graph-optimized prompt generation for large language models\", "
@@ -682,7 +763,13 @@ for ref in ["[1] K. Soman et al., \"Biomedical knowledge graph-optimized prompt 
             "[2] F. Xu, W. Shi, E. Choi, \"RECOMP: Improving Retrieval-Augmented LMs with Context Compression and "
             "Selective Augmentation\", ICLR 2024 (arXiv:2310.04408).",
             "[3] H. Jiang et al., \"LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt "
-            "Compression\", ACL 2024 (arXiv:2310.06839)."]:
+            "Compression\", ACL 2024 (arXiv:2310.06839).",
+            "[4] N. F. Liu et al., \"Lost in the Middle: How Language Models Use Long Contexts\", TACL 12, 2024 "
+            "(arXiv:2307.03172).",
+            "[5] H. Joren, J. Zhang, C.-S. Ferng, D.-C. Juan, A. Taly, C. Rashtchian, \"Sufficient Context: A New Lens on "
+            "Retrieval Augmented Generation Systems\", ICLR 2025 (arXiv:2411.06037).",
+            "[6] L. Zheng et al., \"Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena\", NeurIPS 2023 Datasets and "
+            "Benchmarks (arXiv:2306.05685)."]:
     p(ref, indent=False, size=12)
 
 doc.save(OUT)

@@ -295,12 +295,15 @@ def coverage() -> dict:
         m, lo, hi = bootstrap_ci(list(x))
         return round(m, 4), f"[{lo:.3f}, {hi:.3f}]"
 
-    # Kiểm tra tay: 40 quan hệ chuẩn (khác nhau) ngẫu nhiên (seed 42) có cạnh khớp trong KG30, đọc mô tả cạnh xem
-    # có nói đúng quan hệ chuẩn không -> độ chính xác của phép khớp "có cạnh trực tiếp" (kg_relation_audit.csv)
-    audit = OUT / "kg_relation_audit.csv"
-    audit_ok = pd.read_csv(audit)["correct"].to_numpy(dtype=float) if audit.exists() else None
+    # Kiểm tra tay: 40 quan hệ chuẩn (khác nhau) ngẫu nhiên (seed 42) có cạnh khớp trong mỗi KG, đọc mô tả cạnh xem
+    # có nói đúng quan hệ chuẩn không -> độ chính xác của phép khớp "có cạnh trực tiếp"
+    # (kg_relation_audit.csv cho KG30, kg_relation_audit_k10.csv / _k20.csv cho KG10 / KG20, phiếu của kg_audit.py)
+    audits = {k: OUT / ("kg_relation_audit.csv" if k == KS[-1] else f"kg_relation_audit_k{k}.csv") for k in KS}
+    audits = {k: pd.read_csv(p)["correct"].to_numpy(dtype=float) for k, p in audits.items() if p.exists()}
+    # KG chưa kiểm tra tay thì dùng độ chính xác của KG30
+    audit_of = {k: audits.get(k, audits.get(KS[-1])) for k in KS} if KS[-1] in audits else {}
 
-    def ci_adjusted(direct, n=2000):
+    def ci_adjusted(direct, audit_ok, n=2000):
         """relation completeness đã hiệu chỉnh = completeness × độ chính xác phép khớp (audit). CI bootstrap gộp hai
         nguồn sai số: lấy mẫu lại quan hệ chuẩn và (độc lập) lấy mẫu lại các cạnh đã kiểm tra tay."""
         x = np.asarray(list(direct), dtype=float)
@@ -326,8 +329,9 @@ def coverage() -> dict:
                    "n_gold_relations": len(r)}
             row["entity_coverage"], row["entity_coverage_ci95"] = ci(e["covered"])
             row["relation_completeness"], row["relation_completeness_ci95"] = ci(r["direct"])
-            if audit_ok is not None:
-                row["relation_completeness_adj"], row["relation_completeness_adj_ci95"] = ci_adjusted(r["direct"])
+            if audit_of:
+                row["relation_completeness_adj"], row["relation_completeness_adj_ci95"] = ci_adjusted(r["direct"],
+                                                                                                    audit_of[k])
             row["entity_coverage_lenient"], _ = ci(e["covered_lenient"])
             row["relation_completeness_lenient"], _ = ci(r["direct_lenient"])
             row["relation_completeness_2hop"], _ = ci(r["hop2"])
@@ -338,10 +342,12 @@ def coverage() -> dict:
     sm = pd.DataFrame(summary)
     sm.to_csv(OUT / "kg_coverage.csv", index=False, encoding="utf-8-sig")
     extra = {}
-    if audit_ok is not None:
-        _, lo, hi = bootstrap_ci(list(audit_ok))
-        extra["relation_audit"] = {"n": len(audit_ok), "correct": int(audit_ok.sum()),
-                                   "precision": round(float(audit_ok.mean()), 4), "precision_ci95": [lo, hi]}
+    for k, a in audits.items():
+        _, lo, hi = bootstrap_ci(list(a))
+        extra.setdefault("relation_audit_by_k", {})[str(k)] = {
+            "n": len(a), "correct": int(a.sum()), "precision": round(float(a.mean()), 4), "precision_ci95": [lo, hi]}
+    if KS[-1] in audits:
+        extra["relation_audit"] = extra["relation_audit_by_k"][str(KS[-1])]
     return {**extra,"gold": {"questions": len(items), "entities": int(edf[edf.k == KS[-1]].gold_key.nunique()),
                      "relations": int(rdf[rdf.k == KS[-1]].gold_key.nunique())},
             "coverage": sm.to_dict(orient="records")}
@@ -376,12 +382,10 @@ def write_md(q: dict):
                   sm[["set", "k", "entity_coverage_lenient", "relation_completeness_lenient",
                       "relation_completeness_2hop", "relation_endpoints_covered", "questions_all_entities_covered",
                       "gold_chunk_reachable"]].to_markdown(index=False), ""]
-        if "relation_audit" in q:
-            a = q["relation_audit"]
-            lines += [f"Kiểm tra tay {a['n']} cạnh KG30 khớp với quan hệ chuẩn (`kg_relation_audit.csv`): "
-                      f"{a['correct']}/{a['n']} cạnh nói đúng quan hệ chuẩn ({a['correct'] / a['n']:.0%}"
-                      + (f", CI 95% [{a['precision_ci95'][0]:.0%}, {a['precision_ci95'][1]:.0%}]"
-                         if "precision_ci95" in a else "") + ").\n"]
+        for k, a in q.get("relation_audit_by_k", {}).items():
+            lines += [f"Kiểm tra tay {a['n']} cạnh KG{k} khớp với quan hệ chuẩn: {a['correct']}/{a['n']} cạnh nói đúng "
+                      f"quan hệ chuẩn ({a['correct'] / a['n']:.1%}, CI 95% [{a['precision_ci95'][0]:.1%}, "
+                      f"{a['precision_ci95'][1]:.1%}]).\n"]
     if "kg" in q:
         lines += ["## Đường cong tăng trưởng (`kg_growth.csv`)\n",
                   f"Số entity mới trung bình mỗi bài thêm vào ({N_ORDERS} thứ tự bài ngẫu nhiên): "
@@ -395,9 +399,9 @@ def write_md(q: dict):
               "`_lenient`: đầu mút khớp lenient; `_2hop`: nối nhau trong <= 2 bước; `relation_endpoints_covered`: "
               "cả 2 đầu mút có trong KG.",
               "- **relation_completeness_adj** (đã hiệu chỉnh): relation completeness × độ chính xác của phép khớp "
-              "cạnh theo kiểm tra tay (`kg_relation_audit.csv`), loại phần cạnh nối đúng 2 thực thể nhưng nói quan hệ "
-              "khác. CI 95% bootstrap gộp cả sai số lấy mẫu quan hệ chuẩn lẫn sai số của tỉ lệ kiểm tra tay. Giả định: "
-              "độ chính xác kiểm tra trên KG30 áp dụng cho KG10 / KG20; chỉ hiệu chỉnh khớp sai (dương tính giả), "
+              "cạnh theo kiểm tra tay của chính KG đó (`kg_relation_audit.csv` cho KG30, `kg_relation_audit_k10.csv` / "
+              "`_k20.csv`), loại phần cạnh nối đúng 2 thực thể nhưng nói quan hệ khác. CI 95% bootstrap gộp cả sai số "
+              "lấy mẫu quan hệ chuẩn lẫn sai số của tỉ lệ kiểm tra tay. Chỉ hiệu chỉnh khớp sai (dương tính giả), "
               "không hiệu chỉnh quan hệ có trong KG mà phép khớp tên bỏ sót.",
               "- **gold_chunk_reachable**: tỉ lệ đoạn gốc của câu hỏi có ít nhất 1 entity/quan hệ trong KG "
               "(GraphRAG chỉ lấy được đoạn văn qua entity/quan hệ).",

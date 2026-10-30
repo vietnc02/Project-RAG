@@ -336,10 +336,20 @@ DISCUSSION = [
     "câu hỏi tra cứu sự kiện gần như không đổi (60,14%, 59,99%, 59,19%). Corpus của nội dung 3 (khoảng 0,2 đến 0,6 triệu "
     "token) nằm trong khoảng đó; khác biệt là [3] dùng HippoRAG2 còn ở đây là local search tự cài đặt, nên chỉ so được xu "
     "hướng.",
-    "**Điểm nghẽn là bước trích xuất, không phải số bài.** Relation completeness chỉ khoảng 40% ở mọi k (khoảng 33–37% "
-    "sau hiệu chỉnh theo audit). Các nghiên cứu "
+    "**Điểm nghẽn là bước trích xuất, không phải số bài.** Relation completeness chỉ khoảng 40% ở mọi k (khoảng "
+    f"{_pct(min(_cov[('in_scope', k)]['relation_completeness_adj'] for k in (10, 20, 30)))}–"
+    f"{_pct(max(_cov[('in_scope', k)]['relation_completeness_adj'] for k in (10, 20, 30)))} sau hiệu chỉnh theo kiểm "
+    "tra tay), và fact retention sau hiệu chỉnh cũng đứng yên ở khoảng "
+    f"{_pct(min(_S['fact_retention']['retention'][k]['in_scope']['retention_adjusted'] for k in _K))}–"
+    f"{_pct(max(_S['fact_retention']['retention'][k]['in_scope']['retention_adjusted'] for k in _K))} ở cả ba k; "
+    "edge đã có thì phần lớn đúng (kiểm tra tay "
+    f"{_pct(min(a['precision'] for a in _S['relation_audit_by_k'].values()), 1)}–"
+    f"{_pct(max(a['precision'] for a in _S['relation_audit_by_k'].values()))}), nên KG thiếu thông tin chứ ít khi sai. "
+    "Các nghiên cứu "
     "khác cũng thấy KG do LLM trích ra thiếu nhiều thông tin: trên benchmark MINE [4], KG do Microsoft GraphRAG trích "
-    "chỉ giữ được 47,8% số sự kiện của văn bản (KGGen 66,1%, OpenIE 29,8%), và các tác giả nêu đúng hai vấn đề gặp ở đây là "
+    "chỉ giữ được 47,8% số sự kiện của văn bản (KGGen 66,1%, OpenIE 29,8%); fact retention ở đây đo theo cùng cách "
+    "(judge kiểm tra sự kiện trên phần KG truy xuất được) và nằm giữa GraphRAG và KGGen, dù sự kiện, văn bản và mô hình "
+    "khác nên chỉ so được độ lớn. Các tác giả của [4] nêu đúng hai vấn đề gặp ở đây là "
     "đồ thị thưa và entity trùng lặp; Han và cộng sự [2] thấy chỉ khoảng 65,8% (HotpotQA) và 65,5% (NQ) entity của "
     "đáp án có trong KG, đồng thời đổi mô hình dựng KG từ GPT-4o-mini sang GPT-4o làm độ chính xác QA (MultiHop-RAG, "
     "Llama 3.1-70B) tăng từ 71,17% lên "
@@ -370,8 +380,14 @@ LIMITS = [
     ("Thứ tự bài: ", "ba KG dùng một thứ tự bài cố định (stratified theo chủ đề); đường cong tăng trưởng có kiểm tra trên "
      "20 thứ tự ngẫu nhiên nhưng chất lượng câu trả lời chỉ đo với một thứ tự."),
     ("Gold set và cách khớp: ", "gold set chỉ gồm entity / relation mà câu hỏi cần, không phải toàn bộ kiến thức trong "
-     "30 bài; khớp theo tên chuẩn hoá có thể bỏ sót biến thể (bản lenient cho upper bound). Phép khớp relation được kiểm tra "
-     f"tay trên {_S['relation_audit']['n']} edge ({_S['relation_audit']['correct']} đúng)."),
+     "30 bài; khớp theo tên chuẩn hoá có thể bỏ sót biến thể (bản lenient cho upper bound). Gold set do một người lập "
+     "và duyệt lại 20% (κ = "
+     f"{num(_S['kg_audit']['gold_review']['entity']['kappa'], 2)} với entity, "
+     f"{num(_S['kg_audit']['gold_review']['relation']['kappa'], 2)} với relation; bất đồng chỉ ở các mục lần đầu đã "
+     "bỏ, mục 4.1). Phép khớp relation được kiểm tra tay trên "
+     f"{_S['relation_audit']['n']} edge mỗi KG."),
+    ("Fact retention: ", "sự kiện và verdict đều do judge 8B tạo; verdict được hiệu chỉnh theo 60 cặp chấm tay nên con "
+     "số hiệu chỉnh còn sai số của mẫu kiểm tra tay; mỗi bài chỉ lấy 3 đoạn."),
     ("KG30: ", "kết quả câu trả lời với KG30 lấy lại từ nội dung 2 (cùng mã, KG, câu hỏi và môi trường)."),
     ("Cỡ corpus: ", "corpus ở đây nhỏ (10–30 bài, khoảng 0,2–0,6 triệu token); GraphRAG-Bench [3] thấy lợi thế của "
      "GraphRAG so với vector RAG chỉ xuất hiện ở corpus lớn hơn nhiều, nên kết quả so sánh với Vector RAG theo k (mục 6.3) "
@@ -384,7 +400,10 @@ CONCLUSION = (
     f"{_dci('S10:10-30')}), nên chỉ loại trừ được các chênh lệch lớn. Điểm yếu chung của cả ba KG là relation: chỉ khoảng 40% "
     "relation cần thiết có edge trong KG (sau hiệu chỉnh theo audit, KG30: "
     f"{_pct(_cov[('in_scope', 30)]['relation_completeness_adj'])}, CI 95% "
-    f"{_ci_txt(_cov[('in_scope', 30)]['relation_completeness_adj_ci95'])}), do giới hạn của mô hình trích xuất 7B chứ không do số bài. KG chưa đạt saturation ở 30 bài (mỗi "
+    f"{_ci_txt(_cov[('in_scope', 30)]['relation_completeness_adj_ci95'])}), và KG chỉ giữ được khoảng "
+    f"{_pct(_S['fact_retention']['retention']['30']['in_scope']['retention_adjusted'])} sự kiện của các bài nó chứa "
+    "(fact retention sau hiệu chỉnh theo người chấm, như nhau ở cả ba k), do giới hạn của mô hình trích xuất 7B chứ "
+    "không do số bài. KG chưa đạt saturation ở 30 bài (mỗi "
     "bài vẫn thêm khoảng 250 entity mới), nên KG chỉ trả lời tốt phạm vi tài liệu nó chứa: trên toàn bộ câu hỏi của 30 "
     f"bài, answer correctness là {_pct(_m('all', '10', 'answer_correctness'))} / {_pct(_m('all', '20', 'answer_correctness'))} / "
     f"{_pct(_m('all', '30', 'answer_correctness'))} với k = 10 / 20 / 30; KG10 kém KG30 có statistical significance, còn KG20 và "
@@ -527,7 +546,8 @@ h("1. MỤC TIÊU VÀ PHẠM VI", 1)
 p("Nội dung 3 thử nghiệm Knowledge Graph (KG) dựng từ **k = 10, 20 và 30 bài báo** để trả lời câu hỏi: k bài báo có đủ "
   "để KG hoạt động tốt không. Hai nhóm chỉ số được đo với mỗi k:")
 bullets([("Chất lượng KG: ", "**entity coverage** (tỉ lệ entity cần để trả lời câu hỏi có trong KG) và **relation "
-          "completeness** (tỉ lệ relation giữa các entity đó có trong KG), kèm các chỉ số cấu trúc của đồ thị."),
+          "completeness** (tỉ lệ relation giữa các entity đó có trong KG), **fact retention** (tỉ lệ sự kiện của văn "
+          "bản gốc suy ra được từ KG), kèm các chỉ số cấu trúc của đồ thị."),
          ("Chất lượng câu trả lời: ", "hệ GraphRAG của nội dung 2 chạy trên từng KG, chấm bằng đúng năm chỉ số của nội "
           "dung 2: retrieval precision, faithfulness, answer relevancy, hallucination rate, answer correctness.")])
 p("Ba KG được dựng **lồng nhau**: KG10 từ 10 bài đầu, KG20 từ 20 bài đầu, KG30 từ cả 30 bài chủ đề quantum của nội dung "
@@ -552,7 +572,9 @@ p("Mã và dữ liệu của nội dung 3 chỉ được thêm mới, không s�
   "lượng KG), `evaluate_kg_scale.py` (chất lượng câu trả lời theo k), `data/kg/k10/` và `data/kg/k20/` (KG10, KG20 dựng "
   "bằng lệnh có sẵn `python kg_build.py --build --k 10` / `--k 20`; KG30 là KG của nội dung 2), gold set đánh giá KG "
   "`testset/kg_gold.json` (kèm bản trích tự động `kg_gold_raw.json` và kết quả duyệt tay `review_kg_gold.py`), kết quả "
-  "trong `results/kg_scale/`. Chạy lại: `python kg_quality.py --all` và `python evaluate_kg_scale.py`. Kết quả GraphRAG "
+  "trong `results/kg_scale/`. Kiểm tra tay gold set, edge và fact retention dùng `kg_audit.py` (phiếu chấm và nhãn "
+  "trong `testset/kg_audit/`, kết quả `kg_audit.json` và `fact_retention/`). Chạy lại: `python kg_quality.py --all`, "
+  "`python evaluate_kg_scale.py`, rồi `python kg_audit.py` lần lượt với `--score`, `--facts`, `--score-facts`. Kết quả GraphRAG "
   "với KG30 lấy lại từ `results/kg30/` của nội dung 2 (cùng mã, cùng KG, cùng câu hỏi).")
 
 # ================= 3. THIẾT KẾ =================
@@ -607,6 +629,25 @@ table("Kích thước gold set (62 câu có đáp án)", ["", "Bản trích tự
       [["Entity", dot(GS["raw_entities"]), dot(GS["entities"]), dot(S["gold"]["entities"])],
        ["Relation", dot(GS["raw_relations"]), dot(GS["relations"]), dot(S["gold"]["relations"])]],
       [3.0, 4.0, 4.0, 5.0], font=11, center_from=1)
+GR = S["kg_audit"]["gold_review"]
+p(f"**Duyệt lại gold set.** {GR['n_questions']} câu (20%, seed 42) được duyệt lại lần hai theo đúng quy tắc trên, trên "
+  "phiếu xáo trộn gồm cả mục của gold set lẫn mục bản trích tự động đề xuất nhưng lần đầu đã bỏ, không ghi mục nào đã "
+  "được giữ.")
+table("Duyệt lại 20% gold set: lần hai so với lần đầu",
+      ["", "Số mục", "% khớp [CI 95%]", "Cohen's κ [CI 95%]", "Lần đầu giữ → lần hai giữ",
+       "Lần đầu bỏ → lần hai bỏ"],
+      [[name, str(g["n_labels"]), f"{pct(g['agreement'], 1)} [{pct(g['agreement_ci95'][0], 1)}; "
+        f"{pct(g['agreement_ci95'][1], 1)}]", f"{num(g['kappa'], 2)} [{num(g['kappa_ci95'][0], 2)}; "
+        f"{num(g['kappa_ci95'][1], 2)}]", pct(g["kept_by_first_also_kept"], 0),
+        f"{pct(g['dropped_by_first_also_dropped'], 0)} ({g['n_dropped_shown']} mục)"]
+       for name, g in (("Entity", GR["entity"]), ("Relation", GR["relation"]))],
+      [1.8, 1.4, 3.2, 3.2, 3.0, 3.4], font=10, center_from=1)
+p(f"Gần như mọi mục đã có trong gold set đều được giữ lại ở lần hai ({pct(GR['entity']['kept_by_first_also_kept'], 0)} entity, "
+  f"{pct(GR['relation']['kept_by_first_also_kept'], 0)} relation), nên gold set không chứa mục thừa. Bất đồng nằm ở "
+  "các mục lần đầu đã bỏ: lần hai giữ lại nhiều mục trong số đó, nhất là relation (κ = "
+  f"{num(GR['relation']['kappa'], 2)}), chủ yếu là relation suy diễn hoặc chỉ nêu gián tiếp trong ground truth. Như "
+  "vậy gold set là một tập chặt: relation completeness đo trên tập này không bị thổi phồng bởi mục thừa, nhưng một "
+  "người duyệt khác có thể đưa thêm một số relation vào.")
 
 h("4.2. Cách khớp với KG", 2)
 p("**Entity coverage** = số gold entity có trong KG / tổng số gold entity. Một gold entity được coi là có trong "
@@ -621,20 +662,40 @@ p("Việc khớp không dùng LLM. Phương án dùng judge xác nhận \"cùng 
   "\"FPGA\" là \"artix-7 fpga\". Khớp theo tên chuẩn hoá chặt hơn nhưng tất định và kiểm tra lại được.")
 p("**Relation completeness** = số gold relation có **edge trực tiếp** trong KG nối hai entity đã khớp với hai đầu của "
   "relation / tổng số gold relation. Secondary metric: cả hai đầu có trong KG (dù không nối nhau), nối nhau trong tối đa 2 bước, "
-  "và bản lenient. Để kiểm tra phép khớp \"có edge\" có thật sự đúng relation, "
-  f"{AU['n']} gold relation có edge trong KG30 được chọn ngẫu nhiên (seed 42) và đọc tay mô tả edge: "
-  f"**{AU['correct']}/{AU['n']} ({pct(AU['correct'] / AU['n'], 0)})** edge nói đúng gold relation; các edge sai nói một "
-  "relation khác giữa cùng hai entity (ví dụ ground truth \"OpenSSL dự định tích hợp Dilithium\", edge lại ghi "
-  "\"OpenSSL hỗ trợ Dilithium\"); chi tiết trong `results/kg_scale/kg_relation_audit.csv`. Vì vậy relation completeness "
-  "(đếm mọi edge khớp) hơi cao hơn thực tế; báo cáo thêm **relation completeness hiệu chỉnh** = relation completeness × "
-  f"{pct(AU['precision'], 0)}, với CI 95% bootstrap gộp hai nguồn sai số: lấy mẫu lại các gold relation và, độc "
-  f"lập, lấy mẫu lại {AU['n']} edge đã audit (tỉ lệ đúng {pct(AU['precision'], 0)}, CI "
-  f"{pct(AU['precision_ci95'][0], 0)}–{pct(AU['precision_ci95'][1], 0)}). Hai giả định: tỉ lệ kiểm tra trên KG30 áp dụng "
-  "cho KG10, KG20; và chỉ hiệu chỉnh edge khớp sai, không tính relation có trong KG nhưng phép khớp tên bỏ sót.")
+  "và bản lenient. Để kiểm tra phép khớp \"có edge\" có thật sự đúng relation, với mỗi KG chọn ngẫu nhiên (seed 42) "
+  f"{AU['n']} gold relation có edge trong KG đó và đọc tay mô tả edge. Edge sai nói một relation khác giữa cùng hai "
+  "entity (ví dụ ground truth \"OpenSSL dự định tích hợp Dilithium\", edge lại ghi \"OpenSSL hỗ trợ Dilithium\"); chi "
+  "tiết trong `results/kg_scale/kg_relation_audit.csv` (KG30) và `kg_relation_audit_k10.csv`, `_k20.csv`.")
+table("Kiểm tra tay phép khớp edge: edge nói đúng gold relation",
+      ["KG", "Đúng / số edge", "Tỉ lệ đúng [CI 95%]"],
+      [[f"KG{k}", f"{a['correct']}/{a['n']}", f"{pct(a['precision'])} [{pct(a['precision_ci95'][0])}; "
+        f"{pct(a['precision_ci95'][1])}]"] for k, a in sorted(S["relation_audit_by_k"].items(), key=lambda x: int(x[0]))],
+      [3.0, 4.0, 5.0], font=11, center_from=1)
+p("Vì vậy relation completeness (đếm mọi edge khớp) hơi cao hơn thực tế; báo cáo thêm **relation completeness hiệu "
+  "chỉnh** = relation completeness × tỉ lệ đúng của chính KG đó, với CI 95% bootstrap gộp hai nguồn sai số: lấy mẫu lại "
+  "các gold relation và, độc lập, lấy mẫu lại các edge đã kiểm tra. Chỉ hiệu chỉnh edge khớp sai, không tính relation "
+  "có trong KG nhưng phép khớp tên bỏ sót. Tỉ lệ đúng tăng nhẹ theo k nhưng các CI chồng nhau.")
 p("Mỗi entity / gold relation tính một lần trong một tập câu hỏi (gộp theo tên chuẩn hoá); CI 95% bằng "
   "bootstrap trên các entity / relation. Chỉ số cấu trúc (không cần gold set): tỉ lệ entity và relation xuất hiện ở ≥ 2 "
   "bài (liên kết giữa các bài), average degree, largest connected component, entity không có relation, số entity mới "
   "khi thêm một bài.")
+h("4.3. Fact retention", 2)
+FR = S["fact_retention"]
+FH = FR["human_check"]
+p("Entity coverage và relation completeness chỉ đo phần KG mà bộ câu hỏi cần. Để đo KG giữ được bao nhiêu thông tin "
+  "của văn bản nói chung, nội dung 3 dùng thêm **fact retention** theo cách của benchmark MINE [4]: tách sự kiện từ văn "
+  "bản gốc rồi hỏi sự kiện đó có suy ra được từ KG không.")
+bullets([("Sự kiện: ", f"mỗi bài trong 30 bài lấy 3 đoạn (seed 42, bỏ đoạn quá ngắn hoặc là tài liệu tham khảo); judge "
+          f"llama3.1:8b (khác mô hình dựng KG) tách 3 sự kiện kỹ thuật mỗi đoạn, bỏ câu nói về chính bài báo. Được "
+          f"{dot(FR['n_facts'])} sự kiện từ {FR['n_chunks']} đoạn."),
+         ("Phần KG: ", "với mỗi sự kiện và mỗi KG, lấy phần KG theo đúng local search của GraphRAG (8 entity, 12 "
+          "relation, không lấy passage) với câu truy vấn là sự kiện."),
+         ("Verdict: ", "judge trả lời sự kiện có được phần KG đó nêu hoặc suy ra trực tiếp không (không dùng kiến thức "
+          "ngoài). Retention = tỉ lệ sự kiện được trả lời \"có\", tính trên sự kiện của các bài có trong KG (in-scope) "
+          "và trên toàn bộ sự kiện."),
+         ("Kiểm tra tay: ", f"{FH['n']} cặp (sự kiện, verdict) chọn ngẫu nhiên, một nửa verdict \"có\", một nửa "
+          "\"không\", chấm trên phiếu không ghi verdict của judge. Từ đó tính tỉ lệ verdict \"có\" đúng (p₁) và tỉ lệ "
+          "verdict \"không\" sai (p₀), rồi hiệu chỉnh retention r của judge thành r·p₁ + (1 − r)·p₀.")])
 
 # ================= 5. KẾT QUẢ: CHẤT LƯỢNG KG =================
 h("5. KẾT QUẢ: CHẤT LƯỢNG KG", 1)
@@ -679,9 +740,10 @@ table("Entity coverage và relation completeness [CI 95%]",
       ["Tập câu hỏi", "KG", "Câu / entity / gold relation", "Entity coverage", "Relation compl.",
        "Relation compl. hiệu chỉnh", "Entity cov. (lenient)", "Relation compl. (lenient)", "Nối trong ≤ 2 bước"],
       rows, [1.75, 1.35, 1.8, 2.05, 2.05, 2.05, 1.65, 1.65, 1.65], font=8.5, center_from=2)
-p(f"Relation completeness hiệu chỉnh = relation completeness × {pct(AU['precision'], 0)} (tỉ lệ edge khớp nói đúng "
-  f"gold relation theo audit, mục 4); CI gộp cả sai số của tỉ lệ audit "
-  f"({pct(AU['precision_ci95'][0], 0)}–{pct(AU['precision_ci95'][1], 0)}).", size=10, italic=True, indent=False)
+p("Relation completeness hiệu chỉnh = relation completeness × tỉ lệ edge khớp nói đúng gold relation theo kiểm tra tay "
+  "của chính KG đó (" + ", ".join(f"KG{k}: {pct(a['precision'])}" for k, a in sorted(
+      S["relation_audit_by_k"].items(), key=lambda x: int(x[0]))) + "; mục 4.2); CI gộp cả sai số của tỉ lệ kiểm "
+  "tra tay.", size=10, italic=True, indent=False)
 figure("y3_fig2_coverage.png", "Entity coverage (a) và relation completeness (b) theo k", width=16.5)
 p(f"**In-scope, entity coverage chênh nhau ít giữa các k, CI chồng nhau** ({pct(cv('in_scope', 10, 'entity_coverage'), 0)}, "
   f"{pct(cv('in_scope', 20, 'entity_coverage'), 0)}, {pct(cv('in_scope', 30, 'entity_coverage'), 0)} với k = 10, 20, 30): "
@@ -711,6 +773,34 @@ p(f"**Trên toàn bộ 62 câu, coverage tăng theo k** (entity coverage {pct(cv
   "phần lớn relation và gần như mọi passage nguồn của câu hỏi về bài khác: tỉ lệ câu có gold chunk nằm trong KG là "
   f"{pct(cv('all', 10, 'gold_chunk_reachable'), 0)} / {pct(cv('all', 20, 'gold_chunk_reachable'), 0)} / "
   f"{pct(cv('all', 30, 'gold_chunk_reachable'), 0)} với KG10 / KG20 / KG30.")
+
+h("5.3. Fact retention", 2)
+RT = FR["retention"]
+table(f"Fact retention theo k ({dot(FR['n_facts'])} sự kiện từ 30 bài; CI 95%)",
+      ["KG", "Sự kiện in-scope", "Retention in-scope (judge)", "In-scope, hiệu chỉnh theo người chấm",
+       "Retention trên toàn bộ sự kiện (judge)"],
+      [[f"KG{k}", dot(RT[k]["in_scope"]["n"]),
+        f"{pct(RT[k]['in_scope']['retention'])} [{pct(RT[k]['in_scope']['ci95'][0])}; {pct(RT[k]['in_scope']['ci95'][1])}]",
+        pct(RT[k]["in_scope"]["retention_adjusted"]),
+        f"{pct(RT[k]['all']['retention'])} [{pct(RT[k]['all']['ci95'][0])}; {pct(RT[k]['all']['ci95'][1])}]"]
+       for k in ("10", "20", "30")],
+      [1.6, 2.4, 4.2, 3.6, 4.2], font=10, center_from=1)
+p(f"**Kiểm tra tay judge ({FH['n']} cặp):** verdict của judge khớp người chấm {pct(FH['agreement'])} "
+  f"(κ = {num(FH['kappa'], 2)} [{num(FH['kappa_ci95'][0], 2)}; {num(FH['kappa_ci95'][1], 2)}]); verdict \"có\" đúng "
+  f"{pct(FH['judge_yes_precision'])}, verdict \"không\" đúng {pct(FH['judge_no_npv'])}. Judge dễ dãi khi nói \"có\": "
+  "ở các verdict \"có\" sai, phần KG có đúng entity và mô tả liên quan nhưng thiếu phần thông tin chính của sự kiện "
+  "(ví dụ có entity \"gain\" và \"signal state\" nhưng không có công thức của gain). "
+  f"Sự kiện do judge tách khớp với đoạn văn gốc ở {pct(FH['fact_ok'])} số cặp, nên bước tách sự kiện đáng tin.")
+p(f"**KG giữ được khoảng 55% sự kiện của các bài nó chứa, như nhau ở mọi k.** Sau hiệu chỉnh, retention in-scope là "
+  f"{pct(RT['10']['in_scope']['retention_adjusted'])} / {pct(RT['20']['in_scope']['retention_adjusted'])} / "
+  f"{pct(RT['30']['in_scope']['retention_adjusted'])} với KG10 / KG20 / KG30; theo judge các CI chồng nhau. Như "
+  "relation completeness, tỉ lệ này không tăng khi thêm bài: mỗi bài được trích một lần, nên lượng thông tin KG giữ "
+  "được của một bài do bước trích xuất quyết định. Trên toàn bộ sự kiện của 30 bài, retention tăng theo k ("
+  f"{pct(RT['10']['all']['retention'], 0)} → {pct(RT['20']['all']['retention'], 0)} → "
+  f"{pct(RT['30']['all']['retention'], 0)} theo judge) chỉ vì KG lớn hơn chứa nhiều bài hơn. KG10 vẫn \"giữ\" khoảng "
+  f"{pct((RT['10']['all']['retention'] * RT['10']['all']['n'] - RT['10']['in_scope']['retention'] * RT['10']['in_scope']['n']) / (RT['10']['all']['n'] - RT['10']['in_scope']['n']), 0)} "
+  "sự kiện của các bài nó không chứa, phần lớn là kiến thức chung của chủ đề mà 10 bài đầu cũng nêu, cộng với phần "
+  "judge chấm \"có\" sai.")
 
 # ================= 6. KẾT QUẢ: CÂU TRẢ LỜI =================
 h("6. KẾT QUẢ: CHẤT LƯỢNG CÂU TRẢ LỜI", 1)

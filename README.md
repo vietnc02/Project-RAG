@@ -42,11 +42,13 @@ evaluate_graphrag.py          GraphRAG vs Vector RAG (retrieval precision, gener
 human_judge.py                phiếu chấm tay (khuôn: testset/human_judge/template.html) + agreement human judge ↔ judge (Cohen's κ)
 ── Ý 3 ──
 kg_quality.py                 chất lượng KG10/20/30: entity coverage, relation completeness (+ bản hiệu chỉnh)
+kg_audit.py                   kiểm tra tay: duyệt lại 20% gold set, 40 edge mỗi KG10/KG20, fact retention (testset/kg_audit/)
 evaluate_kg_scale.py          GraphRAG trên KG10/20/30 (--system vector_rag: Vector RAG chỉ truy xuất trong k bài)
 ── Ý 4 ──
 compress.py                   nén context GraphRAG (KG + passage)
 evaluate_compression.py       4 chế độ nén: token reduction, faithfulness (non-inferiority), context recall
                               (+ baseline xoá ngẫu nhiên / cắt đầu, hai mức nén thêm: --modes)
+human_audit_y4.py             chấm tay 30 cặp câu trả lời context gốc / nén cả hai (testset/human_audit_y4/)
 ── Thí nghiệm bổ sung (chung cho ý 1–4) ──
 run_experiments.sh            chạy toàn bộ thí nghiệm, mỗi câu trả lời chấm 3 lần bằng judge -> results/
 judge_passes.py               gộp 3 lần chấm (đa số / trung bình) + độ nhất quán giữa các lần chấm
@@ -63,6 +65,7 @@ results/       kết quả: k4, k8, noise4 (ý 1) · kg30, human_judge (ý 2) ·
                closed_book, retrieval_metrics.*, threshold_refusal.* (baseline); mỗi thư mục có summary.md + run_info.json,
                điểm từng lần chấm scores*.p0/p1/p2.jsonl và bản gộp scores*.jsonl; run_log.txt: nhật ký run_experiments.sh
 report/        báo cáo Bao_cao_Y1..Y4 (.docx/.pdf), make_figures_y*.py (số liệu + hình), build_report_y*.py,
+               Tong_hop_Y1-Y4.docx (tổng hợp + khuyến nghị triển khai, build_tonghop.py),
                stat_utils.py (bootstrap, hiệu chỉnh Holm, nhóm kết cục dùng chung)
 ```
 
@@ -177,7 +180,8 @@ Dựng Knowledge Graph (KG) từ 30 bài báo bằng LLM local, so sánh **Graph
 prompt + LLM: khác biệt chỉ ở cách truy xuất. Báo cáo: `report/Bao_cao_Y2.pdf`.
 
 **30 bài = một chủ đề chính (quantum)**, gồm 2 nhánh gần nhau để các bài có entity / khái niệm chung tạo relation:
-23 bài Quantum Security + Quantum Machine Learning có trong `papers/` và 7 bài bổ sung (truy cập mở trên arXiv, bài gốc
+23 bài Quantum Security + Quantum Machine Learning có trong `papers/` (tập bài được giao có nhiều bài trùng nên sau khi
+loại trùng chỉ còn 23 bài quantum) và 7 bài bổ sung (truy cập mở trên arXiv, bài gốc
 của các khái niệm mà 23 bài kia nhắc nhiều nhất: Shor, BB84, decoy-state QKD, RSA-2048, barren plateau, VQA, NISQ),
 xem `papers_y2/SOURCES.md`. **Dữ liệu ý 1 không đổi**: 7 bài nằm trong `papers_y2/` (ngoài `papers/`), chunk của chúng
 trong `data/kg/chunks_y2.jsonl`, và Vector RAG của ý 2 dùng Chroma riêng `data/kg/chroma.zip` (collection `kg30`).
@@ -287,6 +291,8 @@ python testset/review_kg_gold.py         #    kết quả duyệt tay -> testset
 python kg_quality.py --all               # 3. chất lượng KG -> results/kg_scale/kg_quality.md (tất định, không gọi LLM)
 python evaluate_kg_scale.py              # 4. GraphRAG với KG10/20/30 trên 85 câu của ý 2 -> results/kg_scale/summary.md
 python evaluate_kg_scale.py --system vector_rag   #    Vector RAG chỉ truy xuất trong k bài (so sánh theo k)
+python kg_audit.py --make; python kg_audit.py --score               #    kiểm tra tay gold set + edge KG10/KG20
+python kg_audit.py --facts; python kg_audit.py --make-facts; python kg_audit.py --score-facts   # fact retention
 python report/make_figures_y3.py; python report/build_report_y3.py   # 5. báo cáo -> report/Bao_cao_Y3.docx/.pdf
 ```
 Các bước 1–4 đã chạy sẵn, kết quả có trong repo. Kết quả GraphRAG với KG30 lấy lại từ `results/kg30/` của ý 2 (cùng mã,
@@ -297,15 +303,21 @@ KG, câu hỏi, môi trường).
 |---|---|
 | `data/kg/k10/`, `data/kg/k20/` | KG10 (3.274 entity, 3.252 relation), KG20 (5.702 / 6.160): `graph.json` + `vectors.npz` |
 | `testset/kg_gold.json` | gold set: 62 câu, 353 entity, 263 relation (bản tự động `kg_gold_raw.json`: 503 / 415; duyệt tay trong `review_kg_gold.py`) |
-| `results/kg_scale/` | chất lượng KG (`kg_quality.md`, `kg_coverage*.csv`, `kg_growth.csv`, `kg_relation_audit.csv`) + câu trả lời theo k (`k10/`, `k20/`, `k30/`, `summary.md`) |
+| `results/kg_scale/` | chất lượng KG (`kg_quality.md`, `kg_coverage*.csv`, `kg_growth.csv`, `kg_relation_audit*.csv`) + câu trả lời theo k (`k10/`, `k20/`, `k30/`, `summary.md`) + kiểm tra tay (`kg_audit.md`) + `fact_retention/` |
+| `testset/kg_audit/` | phiếu và nhãn chấm tay: duyệt lại gold set + edge (`human_labels.json`), fact retention (`human_labels_fact.json`) |
 
 ## Cách đo
 - **Entity coverage**: tỉ lệ gold entity có trong KG, khớp theo tên sau chuẩn hoá (cùng quy tắc gộp entity của
   `kg_build.py`); bản `_lenient` (upper bound) tính thêm entity có tên chứa trọn cụm từ chuẩn. Không dùng LLM để khớp
   (đã thử llama3.1:8b, qwen2.5:7b: nhận nhầm khái niệm rộng / hẹp hơn).
-- **Relation completeness**: tỉ lệ gold relation có edge trực tiếp trong KG nối 2 entity đã khớp; audit 40
-  edge KG30: 36 edge nói đúng gold relation. Bản **hiệu chỉnh** = relation completeness × 36/40, CI 95% bootstrap gộp
-  sai số lấy mẫu gold relation và sai số của tỉ lệ audit (`relation_completeness_adj` trong `kg_coverage.csv`).
+- **Relation completeness**: tỉ lệ gold relation có edge trực tiếp trong KG nối 2 entity đã khớp; kiểm tra tay 40
+  edge mỗi KG: 33 / 35 / 36 edge nói đúng gold relation (KG10 / KG20 / KG30). Bản **hiệu chỉnh** = relation completeness
+  × tỉ lệ đúng của chính KG đó, CI 95% bootstrap gộp sai số lấy mẫu gold relation và sai số của tỉ lệ kiểm tra tay
+  (`relation_completeness_adj` trong `kg_coverage.csv`).
+- **Fact retention** (cách của MINE): 262 sự kiện judge tách từ 3 đoạn mỗi bài; với mỗi KG, judge kiểm tra sự kiện có
+  suy ra được từ phần KG mà local search lấy ra không; hiệu chỉnh theo 60 cặp chấm tay (`kg_audit.py`).
+- **Gold set** được duyệt lại 20% (12 câu): mục đã có trong gold set được giữ lại 100% (entity) / 98% (relation); κ
+  0,53 (entity), 0,15 (relation), bất đồng chỉ ở các mục lần đầu đã bỏ.
 - **Câu trả lời**: 5 chỉ số của ý 2, xem theo 3 tập: *in-scope* (bài nguồn thuộc k bài: 15 / 37 / 62 câu),
   *fixed set* S10 (15 câu về 10 bài đầu) và S20 (37 câu về 20 bài đầu) paired comparison, *toàn bộ 62 câu*.
 
@@ -314,7 +326,9 @@ KG, câu hỏi, môi trường).
 |---|---|---|---|
 | Entity coverage (câu in-scope) | 91% | 90% | 89% |
 | Relation completeness (câu in-scope) | 39% | 37% | 42% |
-| Relation completeness hiệu chỉnh × 0,9 theo audit [CI 95%] | 35% [24; 47] | 33% [26; 42] | 37% [31; 44] |
+| Relation completeness hiệu chỉnh theo kiểm tra tay [CI 95%] | 32% [22; 43] | 32% [25; 40] | 37% [31; 44] |
+| Edge khớp nói đúng gold relation (kiểm tra tay 40 edge) | 82,5% | 87,5% | 90,0% |
+| Fact retention in-scope, hiệu chỉnh theo người chấm | 56,5% | 54,8% | 56,0% |
 | Entity coverage / relation completeness (toàn bộ 62 câu) | 64% / 20% | 77% / 31% | 89% / 42% |
 | Answer correctness (câu in-scope) | 80% | 86% | 82% |
 | Answer correctness (toàn bộ 62 câu) | 53% | 76% | 82% |
@@ -324,7 +338,8 @@ KG, câu hỏi, môi trường).
 - Với câu hỏi về chính các bài trong KG: **không phát hiện khác biệt trên S10 / S20; năng lực kiểm định thấp** (S10
   chỉ 15 câu: chênh lệch answer correctness KG10 − KG30 là +0,0 điểm % [−20,0; +20,0]), nên chỉ loại trừ được chênh
   lệch lớn.
-- Điểm yếu chung là **relation** (~40% relation cần thiết có trong KG), do mô hình trích xuất 7B chứ không do số bài.
+- Điểm yếu chung là **relation** (~40% relation cần thiết có trong KG) và KG chỉ giữ ~55% sự kiện của các bài nó chứa
+  (như nhau ở mọi k), do mô hình trích xuất 7B chứ không do số bài; edge đã có thì phần lớn đúng (82,5–90%).
 - KG **chưa đạt saturation**: mỗi bài thêm vào vẫn mang ~250–300 entity mới; trên toàn bộ 62 câu KG10 kém KG30 có statistical
   significance (answer correctness −29,0 điểm % [−41,9; −16,1]), còn KG20 thì không đủ bằng chứng để phân biệt với KG30 (−6,5 điểm % [−16,1; +1,6]).
 - **"Đủ" theo tiêu chí non-inferiority** (answer correctness so với KG30, δ = 10 điểm %, đặt khi rà soát lại báo cáo):
@@ -380,7 +395,7 @@ python report/make_figures_y4.py; python report/build_report_y4.py   # 3. báo c
 | Refusal (câu có đáp án) | +8,1 điểm % [+1,6; +16,1] | +3,2 điểm % [0,0; +8,1] | +8,1 điểm % [+1,6; +16,1] |
 
 - Token reduction của cả ba mức nằm trong mục tiêu 19–53%.
-- **Không chế độ nào chứng minh được faithfulness giữ nguyên** (non-inferiority, ngưỡng 0,05): nén một phần giảm ~0,03,
+- **Theo judge, không chế độ nào chứng minh được faithfulness giữ nguyên** (non-inferiority, ngưỡng 0,05): nén một phần giảm ~0,03,
   không có statistical significance nhưng không đủ bằng chứng để nói giữ nguyên (năng lực kiểm định thấp; chưa loại
   trừ được mức giảm tới 0,070–0,074); nén cả hai giảm 0,066 [−0,120; −0,016], CI không chứa 0 nhưng không qua hiệu
   chỉnh Holm cho 21 so sánh. Hai mức nén thêm cho chế độ nén cả hai (token reduction 27%, 39%): faithfulness giảm dần
@@ -392,5 +407,21 @@ python report/make_figures_y4.py; python report/build_report_y4.py   # 3. báo c
   passage (khoảng +5 điểm %, CI không chứa 0, chưa qua hiệu chỉnh Holm); ở phần mô tả KG cách chọn gần như không quan trọng.
 - Judge (3 lần chấm, 13.455 judge call): 88 judge_failures, sau khi thử lại còn 18 lần thiếu verdict, không prompt nào
   bị truncate; độ lệch của chênh lệch faithfulness giữa các lần chấm (SD ≈ 0,004) nhỏ hơn nhiều so với biên 0,05.
+- **Chấm tay 30 cặp** context gốc / nén cả hai (`python human_audit_y4.py --score`): theo người chấm faithfulness
+  1,000 → 0,987 (−0,013 [−0,033; 0,000]), **đạt non-inferiority** với ngưỡng 0,05; context mất ~10% ý của đáp án
+  (context recall −0,097 [−0,150; −0,047]) nhưng tỉ lệ ý bắt buộc được câu trả lời nêu không đổi (0,497 → 0,488).
+  Không thấy judge lệch theo độ dài context (độ lệch judge − người −0,14 / −0,15). Judge cho đúng 90% câu trả lời,
+  trong khi chỉ 20% nêu đủ ý bắt buộc. Chi tiết: `results/human_audit_y4/`, báo cáo Y4 mục 5.7.
 
-Đối chiếu tài liệu trong báo cáo: KG-RAG (Soman et al., Bioinformatics 2024), RECOMP (ICLR 2024), LongLLMLingua (ACL 2024).
+Đối chiếu tài liệu trong báo cáo: KG-RAG (Soman et al., Bioinformatics 2024), RECOMP (ICLR 2024), LongLLMLingua (ACL 2024),
+Lost in the Middle (TACL 2024), Sufficient Context (ICLR 2025), LLM-as-a-Judge (NeurIPS 2023).
+
+# Tổng hợp và khuyến nghị triển khai
+
+`report/Tong_hop_Y1-Y4.docx` (`python report/build_tonghop.py`) tóm tắt bốn ý và đưa ra 7 khuyến nghị cho người dựng hệ
+hỏi đáp trên tài liệu riêng với GPU 6–8 GB và mô hình 7–8B, mỗi khuyến nghị kèm kết quả thực nghiệm: Vector RAG thuần
+top-k = 8 làm mặc định; refuse theo ngưỡng cosine thay cho Self-RAG xấp xỉ bằng prompt; chỉ dùng KG khi KG chứa đủ bài
+liên quan và cải thiện trích xuất relation trước khi thêm bài; nén passage ~25% (nén cả hai ~48% khi cần tốc độ, không
+nén mô tả KG cho câu multi-hop); cảnh giác câu multi-hop và câu thuộc chủ đề nhưng nguồn không có trong kho; nâng mô
+hình sinh câu trả lời trước khi làm truy xuất phức tạp hơn; dùng judge 8B chỉ để so sánh tương đối, kiểm chứng bằng
+người chấm.

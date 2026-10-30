@@ -1,0 +1,74 @@
+{
+  "gold_review": {
+    "n_questions": 12,
+    "entity": {
+      "n_labels": 89,
+      "n_answers": 12,
+      "human_pos": 0.899,
+      "judge_pos": 0.764,
+      "agreement": 0.865,
+      "agreement_ci95": [
+        0.779,
+        0.954
+      ],
+      "kappa": 0.534,
+      "kappa_ci95": [
+        0.297,
+        0.797
+      ],
+      "kept_by_first_also_kept": 1.0,
+      "dropped_by_first_also_dropped": 0.429,
+      "n_dropped_shown": 21,
+      "level": "trung bình"
+    },
+    "relation": {
+      "n_labels": 79,
+      "n_answers": 12,
+      "human_pos": 0.937,
+      "judge_pos": 0.646,
+      "agreement": 0.684,
+      "agreement_ci95": [
+        0.566,
+        0.802
+      ],
+      "kappa": 0.151,
+      "kappa_ci95": [
+        -0.028,
+        0.314
+      ],
+      "kept_by_first_also_kept": 0.98,
+      "dropped_by_first_also_dropped": 0.143,
+      "n_dropped_shown": 28,
+      "level": "rất thấp"
+    }
+  },
+  "edge_audit": {
+    "10": {
+      "n": 40,
+      "correct": 33,
+      "precision": 0.825,
+      "ci95": [
+        0.7,
+        0.925
+      ]
+    },
+    "20": {
+      "n": 40,
+      "correct": 35,
+      "precision": 0.875,
+      "ci95": [
+        0.775,
+        0.975
+      ]
+    },
+    "30": {
+      "n": 40,
+      "correct": 36,
+      "precision": 0.9,
+      "ci95": [
+        0.8,
+        0.975
+      ]
+    }
+  }
+}

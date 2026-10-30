@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phiếu chấm tay</title>
+<style>
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --surface2: #f0f0ec; --ink: #1d1d1b; --ink2: #55554f; --line: #dcdcd6;
+  --accent: #1c5cab; --accent-ink: #ffffff; --yes: #1f7a4d; --yes-bg: #e3f3ea; --no: #b3261e; --no-bg: #fbe9e7;
+  --todo: #fff2b3; --kg: #f3f0fa; --mark: #cfe3ff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #1f1f1d; --surface2: #2a2a27; --ink: #ecece8; --ink2: #a8a8a0; --line: #3a3a36;
+    --accent: #6ea2e6; --accent-ink: #0d1a2b; --yes: #6fcf97; --yes-bg: #1d3528; --no: #f28b82; --no-bg: #3d1f1c;
+    --todo: #4a4220; --kg: #26222f; --mark: #24456e;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --surface: #1f1f1d; --surface2: #2a2a27; --ink: #ecece8; --ink2: #a8a8a0; --line: #3a3a36;
+  --accent: #6ea2e6; --accent-ink: #0d1a2b; --yes: #6fcf97; --yes-bg: #1d3528; --no: #f28b82; --no-bg: #3d1f1c;
+  --todo: #4a4220; --kg: #26222f; --mark: #24456e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 system-ui, "Segoe UI", Roboto, sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 12px 0 0; }
+.progress { flex: 1 1 200px; min-width: 160px; }
+.bar { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+.bar > div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+.progress small { color: var(--ink2); }
+button, .filebtn { font: inherit; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button:focus-visible, .filebtn:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.layout { display: grid; grid-template-columns: 200px 1fr; gap: 16px; max-width: 1200px; margin: 0 auto; padding: 16px; }
+nav { position: sticky; top: 70px; align-self: start; max-height: calc(100vh - 90px); overflow: auto; }
+nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+nav button { width: 100%; padding: 6px 0; font-size: 13px; }
+nav button.done { background: var(--yes-bg); border-color: var(--yes); }
+nav button.partial { background: var(--todo); }
+nav button.current { outline: 2px solid var(--accent); }
+main { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+.card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink2); margin: 0 0 6px; }
+.card p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.qhead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.qhead h2 { font-size: 20px; text-transform: none; letter-spacing: 0; color: var(--ink); margin: 0; }
+.kg p { background: var(--kg); padding: 10px; border-radius: 6px; font-size: 13px; max-height: 340px; overflow: auto; }
+.passage .src { color: var(--ink2); font-size: 13px; margin-bottom: 6px; }
+.label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; padding: 8px 10px;
+  border-radius: 6px; background: var(--todo); }
+.label.set { background: var(--surface2); }
+.label .q { flex: 1 1 260px; font-weight: 600; }
+.label button[aria-pressed="true"].y { background: var(--yes-bg); border-color: var(--yes); color: var(--yes); font-weight: 700; }
+.label button[aria-pressed="true"].n { background: var(--no-bg); border-color: var(--no); color: var(--no); font-weight: 700; }
+.label input { flex: 1 1 100%; font: inherit; font-size: 13px; padding: 5px 8px; border: 1px solid var(--line);
+  border-radius: 5px; background: var(--surface); color: var(--ink); }
+.claim { padding: 8px 0 0; border-top: 1px dashed var(--line); margin-top: 10px; }
+.claim:first-of-type { border-top: 0; }
+.pager { display: flex; justify-content: space-between; gap: 8px; margin: 16px 0 40px; flex-wrap: wrap; }
+details.guide { margin-bottom: 12px; }
+details.guide summary { cursor: pointer; font-weight: 600; }
+details.guide dl { margin: 8px 0 0; }
+details.guide dt { font-weight: 700; margin-top: 8px; }
+details.guide dd { margin: 2px 0 0; color: var(--ink2); }
+.hint { color: var(--ink2); font-size: 13px; }
+mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 2px; }
+.terms { margin-top: 8px; font-size: 13px; color: var(--ink2); display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: baseline; }
+.terms b { color: var(--ink); font-weight: 600; margin-right: 2px; }
+.chip { border-radius: 10px; padding: 1px 8px; border: 1px solid var(--line); background: var(--surface); white-space: nowrap; }
+.chip.hit { background: var(--mark); border-color: transparent; color: var(--ink); }
+.chip.miss { text-decoration: line-through; opacity: .75; }
+.chip small { color: var(--ink2); margin-left: 3px; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 4px; }
+.compare > div { background: var(--surface2); border-radius: 6px; padding: 8px 10px; }
+@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+body.nohl mark { background: none; padding: 0; }
+body.nohl .terms { display: none; }
+.toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg);
+  padding: 8px 14px; border-radius: 6px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: 1; }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  nav { position: static; max-height: none; }
+  nav ol { grid-template-columns: repeat(6, 1fr); }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Phiếu chấm tay</h1>
+  <div class="progress"><div class="bar"><div id="bar"></div></div><small id="ptext"></small></div>
+  <button id="next-todo">Tới mục chưa chấm</button>
+  <label class="filebtn">Nhập JSON<input id="import" type="file" accept="application/json,.json" hidden></label>
+  <button id="export" class="primary">Xuất JSON</button>
+</header>
+<div class="layout">
+  <nav aria-label="Danh sách mục"><ol id="nav"></ol></nav>
+  <main>
+    <details class="guide" id="guide"><summary>Hướng dẫn chấm</summary><dl id="guide-list"></dl></details>
+    <div id="case"></div>
+    <div class="pager"><button id="prev">← Mục trước</button><button id="next">Mục sau →</button></div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script id="data" type="application/json">/*__DATA__*/</script>
+<script>
+// Khuôn phiếu chung: mỗi mục (case) gồm các khung chỉ đọc (sections) và các ô cần chấm (items, mỗi ô một nhóm nút).
+// DATA = {sheet_id, title, file, guide: [[tiêu đề, mô tả]], cases: [{code, title, blocks: [...]}]}; block là khung đọc
+// {title, text, kind} hoặc ô chấm {key, prompt, group, text, options: [[giá trị, nhãn, "y"|"n"|""]]}, hiện theo thứ tự.
+if (document.getElementById("data").textContent.includes("__" + "DATA" + "__")) {
+  document.body.innerHTML = "<p style='padding:24px;font-size:17px'>Đây là file mẫu, chưa có dữ liệu.</p>";
+  throw new Error("template");
+}
+const DATA = JSON.parse(document.getElementById("data").textContent);
+if (DATA.title) { document.getElementById("title").textContent = DATA.title; document.title = DATA.title; }
+const STORE = "phieu_" + DATA.sheet_id;
+const items = DATA.cases.flatMap(c => c.blocks.filter(b => b.key).map(it => ({code: c.code, key: it.key, options: it.options})));
+const k = (code, key) => `${code}|${key}`;
+let state = {labels: {}, notes: {}, current: 0};
+try { const s = JSON.parse(localStorage.getItem(STORE)); if (s && s.labels) state = {...state, ...s}; } catch (e) {}
+const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} };
+
+function el(tag, attrs = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [a, v] of Object.entries(attrs)) {
+    if (a === "class") e.className = v; else if (a.startsWith("on")) e.addEventListener(a.slice(2), v); else e.setAttribute(a, v);
+  }
+  for (const x of kids) e.append(x);
+  return e;
+}
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 2200); }
+function caseStatus(code) {
+  const its = items.filter(i => i.code === code);
+  const done = its.filter(i => state.labels[k(i.code, i.key)] !== undefined).length;
+  return done === its.length ? "done" : done ? "partial" : "";
+}
+function progress() {
+  const done = items.filter(i => state.labels[k(i.code, i.key)] !== undefined).length;
+  document.getElementById("bar").style.width = (100 * done / items.length) + "%";
+  document.getElementById("ptext").textContent =
+    `${done}/${items.length} ô · ${DATA.cases.filter(c => caseStatus(c.code) === "done").length}/${DATA.cases.length} mục xong`;
+}
+function renderNav() {
+  const ol = document.getElementById("nav"); ol.replaceChildren();
+  DATA.cases.forEach((c, i) => ol.append(el("li", {}, el("button", {
+    class: [caseStatus(c.code), i === state.current ? "current" : ""].join(" "),
+    "aria-current": i === state.current ? "true" : "false", onclick: () => go(i)}, c.code))));
+}
+function labelRow(code, it) {
+  const key = k(code, it.key), v = state.labels[key];
+  const box = el("div", {class: "label" + (v !== undefined ? " set" : "")});
+  const note = el("input", {type: "text", placeholder: "Ghi chú (không bắt buộc)", value: state.notes[key] || ""});
+  note.addEventListener("change", () => { state.notes[key] = note.value; save(); });
+  box.append(el("span", {class: "q"}, it.prompt),
+    ...it.options.map(([val, txt, cls]) => el("button", {class: cls || "", "aria-pressed": String(v === val),
+      onclick: () => { state.labels[key] = val; save(); refresh(); }}, txt)), note);
+  return box;
+}
+function renderCase() {
+  const c = DATA.cases[state.current], root = document.getElementById("case"), y = window.scrollY;
+  root.replaceChildren(el("div", {class: "card"}, el("div", {class: "qhead"}, el("h2", {}, c.code + (c.title ? " · " + c.title : "")),
+    el("span", {class: "hint"}, `Mục ${state.current + 1}/${DATA.cases.length}`))));
+  let card = null, group = null;
+  for (const it of c.blocks) {
+    if (!it.key) {
+      root.append(el("div", {class: "card" + (it.kind ? " " + it.kind : "")}, el("h2", {}, it.title), el("p", {}, it.text)));
+      card = null; continue;
+    }
+    if (!card || it.group !== group) {
+      group = it.group; card = el("div", {class: "card"}, ...(group ? [el("h2", {}, group)] : [])); root.append(card);
+    }
+    if (it.text) card.append(el("p", {class: "claim"}, it.text));
+    card.append(labelRow(c.code, it));
+  }
+  window.scrollTo(0, y);
+}
+function refresh() { renderNav(); progress(); renderCase(); }
+function go(i) { state.current = Math.max(0, Math.min(DATA.cases.length - 1, i)); save(); refresh(); window.scrollTo(0, 0); }
+document.getElementById("prev").onclick = () => go(state.current - 1);
+document.getElementById("next").onclick = () => go(state.current + 1);
+document.getElementById("next-todo").onclick = () => {
+  const n = DATA.cases.length;
+  for (let s = 1; s <= n; s++) { const i = (state.current + s) % n; if (caseStatus(DATA.cases[i].code) !== "done") return go(i); }
+  if (caseStatus(DATA.cases[state.current].code) !== "done") return go(state.current);
+  toast("Đã chấm xong toàn bộ, hãy bấm Xuất JSON.");
+};
+document.getElementById("export").onclick = () => {
+  const labels = items.map(i => ({code: i.code, key: i.key, label: state.labels[k(i.code, i.key)] ?? null,
+                                  note: state.notes[k(i.code, i.key)] || ""}));
+  const done = labels.filter(l => l.label !== null).length;
+  if (done < labels.length && !confirm(`Còn ${labels.length - done} ô chưa chấm. Vẫn xuất (để lưu tạm)?`)) return;
+  const out = {sheet_id: DATA.sheet_id, exported_at: new Date().toISOString(), n_total: labels.length, n_done: done, labels};
+  const a = el("a", {href: URL.createObjectURL(new Blob([JSON.stringify(out, null, 1)], {type: "application/json"})),
+                     download: DATA.file || "human_labels.json"});
+  document.body.append(a); a.click(); a.remove();
+  toast(`Đã xuất ${done}/${labels.length} ô`);
+};
+document.getElementById("import").onchange = async (ev) => {
+  const f = ev.target.files[0]; if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (d.sheet_id !== DATA.sheet_id) { toast("File JSON không khớp phiếu này (sheet_id khác)."); return; }
+    const valid = new Map(items.map(i => [k(i.code, i.key), new Set(i.options.map(o => o[0]))]));
+    for (const l of d.labels) { const key = k(l.code, l.key);
+      if (valid.get(key)?.has(l.label)) state.labels[key] = l.label; if (l.note) state.notes[key] = l.note; }
+    save(); refresh(); toast(`Đã nhập ${d.labels.filter(l => l.label !== null).length} ô.`);
+  } catch (e) { toast("Không đọc được file JSON."); }
+  ev.target.value = "";
+};
+document.getElementById("guide-list").append(...DATA.guide.flatMap(([t, d]) => [el("dt", {}, t), el("dd", {}, d)]));
+if (!Object.keys(state.labels).length) document.getElementById("guide").open = true;
+refresh();
+</script>
+</body>
+</html>

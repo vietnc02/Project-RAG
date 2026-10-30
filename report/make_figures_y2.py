@@ -122,7 +122,8 @@ for grp, cond in (("added", lambda i: bool(set(gold_sources(TS[i])) & ADDED)),
                for k in ("context_precision", "gold_chunk_recall", "retrieval_hit", "answer_correctness")}
            for s in SYS},
         "paired_context_precision": paired_boot([S["gr"][i]["context_precision"] - S["vec"][i]["context_precision"]
-                                                 for i in ids])}
+                                                 for i in ids if not (isnan(S["gr"][i].get("context_precision"))
+                                                                      or isnan(S["vec"][i].get("context_precision")))])}
 
 # Entity "quá chung" (gắn với >= 50 chunk) trong số seed entity -> tỉ lệ lấy được gold chunk
 cnt = {e["name"]: len(e["chunk_ids"]) for e in G["entities"]}

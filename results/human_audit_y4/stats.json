@@ -1,0 +1,143 @@
+{
+  "n_questions": 30,
+  "n_gt_ideas": 177,
+  "n_must": 165,
+  "must_per_question": 5.5,
+  "means": {
+    "faithfulness_human": {
+      "base": 1.0,
+      "both": 0.987
+    },
+    "faithfulness_judge": {
+      "base": 0.8602,
+      "both": 0.8358
+    },
+    "context_recall_human": {
+      "base": 0.8975,
+      "both": 0.8007
+    },
+    "context_recall_judge": {
+      "base": 0.7835,
+      "both": 0.7307
+    },
+    "context_recall_must_human": {
+      "base": 0.903,
+      "both": 0.8098
+    },
+    "answer_recall_must_human": {
+      "base": 0.4972,
+      "both": 0.4883
+    },
+    "correct_must_human": {
+      "base": 0.2,
+      "both": 0.2
+    },
+    "correct_judge": {
+      "base": 0.9,
+      "both": 0.9333
+    },
+    "hallucination_human": {
+      "base": 0.0,
+      "both": 0.0667
+    },
+    "hallucination_judge": {
+      "base": 0.5333,
+      "both": 0.5
+    }
+  },
+  "paired": {
+    "faithfulness_human": {
+      "n": 30,
+      "delta": -0.013,
+      "ci95": [
+        -0.0333,
+        0.0
+      ]
+    },
+    "faithfulness_judge": {
+      "n": 30,
+      "delta": -0.0244,
+      "ci95": [
+        -0.0968,
+        0.0392
+      ]
+    },
+    "context_recall_human": {
+      "n": 30,
+      "delta": -0.0968,
+      "ci95": [
+        -0.1505,
+        -0.0474
+      ]
+    },
+    "context_recall_judge": {
+      "n": 30,
+      "delta": -0.0528,
+      "ci95": [
+        -0.1024,
+        -0.0067
+      ]
+    },
+    "context_recall_must_human": {
+      "n": 30,
+      "delta": -0.0931,
+      "ci95": [
+        -0.1459,
+        -0.0462
+      ]
+    },
+    "answer_recall_must_human": {
+      "n": 30,
+      "delta": -0.0089,
+      "ci95": [
+        -0.0735,
+        0.048
+      ]
+    },
+    "correct_must_human": {
+      "n": 30,
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "correct_judge": {
+      "n": 30,
+      "delta": 0.0333,
+      "ci95": [
+        0.0,
+        0.1
+      ]
+    },
+    "hallucination_human": {
+      "n": 30,
+      "delta": 0.0667,
+      "ci95": [
+        0.0,
+        0.1667
+      ]
+    },
+    "hallucination_judge": {
+      "n": 30,
+      "delta": -0.0333,
+      "ci95": [
+        -0.1667,
+        0.1
+      ]
+    }
+  },
+  "length_bias": {
+    "gap_base": -0.1398,
+    "gap_both": -0.1512,
+    "gap_both_minus_base": {
+      "n": 30,
+      "delta": -0.0114,
+      "ci95": [
+        -0.0879,
+        0.0584
+      ]
+    }
+  },
+  "correct_agreement": 0.2833
+}

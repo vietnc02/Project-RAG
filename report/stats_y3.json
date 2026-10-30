@@ -128,6 +128,35 @@
       0.975
     ]
   },
+  "relation_audit_by_k": {
+    "10": {
+      "n": 40,
+      "correct": 33,
+      "precision": 0.825,
+      "precision_ci95": [
+        0.7,
+        0.925
+      ]
+    },
+    "20": {
+      "n": 40,
+      "correct": 35,
+      "precision": 0.875,
+      "precision_ci95": [
+        0.775,
+        0.975
+      ]
+    },
+    "30": {
+      "n": 40,
+      "correct": 36,
+      "precision": 0.9,
+      "precision_ci95": [
+        0.8,
+        0.975
+      ]
+    }
+  },
   "coverage": [
     {
       "set": "in_scope",
@@ -139,8 +168,8 @@
       "entity_coverage_ci95": "[0.838, 0.959]",
       "relation_completeness": 0.3898,
       "relation_completeness_ci95": "[0.271, 0.508]",
-      "relation_completeness_adj": 0.3508,
-      "relation_completeness_adj_ci95": "[0.238, 0.470]",
+      "relation_completeness_adj": 0.3216,
+      "relation_completeness_adj_ci95": "[0.216, 0.433]",
       "entity_coverage_lenient": 0.9459,
       "relation_completeness_lenient": 0.5593,
       "relation_completeness_2hop": 0.5593,
@@ -158,8 +187,8 @@
       "entity_coverage_ci95": "[0.862, 0.946]",
       "relation_completeness": 0.3709,
       "relation_completeness_ci95": "[0.291, 0.450]",
-      "relation_completeness_adj": 0.3338,
-      "relation_completeness_adj_ci95": "[0.259, 0.420]",
+      "relation_completeness_adj": 0.3245,
+      "relation_completeness_adj_ci95": "[0.251, 0.404]",
       "entity_coverage_lenient": 0.9461,
       "relation_completeness_lenient": 0.5695,
       "relation_completeness_2hop": 0.6291,
@@ -196,8 +225,8 @@
       "entity_coverage_ci95": "[0.838, 0.959]",
       "relation_completeness": 0.3898,
       "relation_completeness_ci95": "[0.271, 0.508]",
-      "relation_completeness_adj": 0.3508,
-      "relation_completeness_adj_ci95": "[0.238, 0.470]",
+      "relation_completeness_adj": 0.3216,
+      "relation_completeness_adj_ci95": "[0.216, 0.433]",
       "entity_coverage_lenient": 0.9459,
       "relation_completeness_lenient": 0.5593,
       "relation_completeness_2hop": 0.5593,
@@ -215,8 +244,8 @@
       "entity_coverage_ci95": "[0.865, 0.986]",
       "relation_completeness": 0.4068,
       "relation_completeness_ci95": "[0.288, 0.525]",
-      "relation_completeness_adj": 0.3661,
-      "relation_completeness_adj_ci95": "[0.252, 0.486]",
+      "relation_completeness_adj": 0.3559,
+      "relation_completeness_adj_ci95": "[0.244, 0.475]",
       "entity_coverage_lenient": 0.9595,
       "relation_completeness_lenient": 0.6102,
       "relation_completeness_2hop": 0.6102,
@@ -253,8 +282,8 @@
       "entity_coverage_ci95": "[0.862, 0.946]",
       "relation_completeness": 0.3709,
       "relation_completeness_ci95": "[0.291, 0.450]",
-      "relation_completeness_adj": 0.3338,
-      "relation_completeness_adj_ci95": "[0.259, 0.420]",
+      "relation_completeness_adj": 0.3245,
+      "relation_completeness_adj_ci95": "[0.251, 0.404]",
       "entity_coverage_lenient": 0.9461,
       "relation_completeness_lenient": 0.5695,
       "relation_completeness_2hop": 0.6291,
@@ -291,8 +320,8 @@
       "entity_coverage_ci95": "[0.580, 0.698]",
       "relation_completeness": 0.204,
       "relation_completeness_ci95": "[0.156, 0.256]",
-      "relation_completeness_adj": 0.1836,
-      "relation_completeness_adj_ci95": "[0.137, 0.236]",
+      "relation_completeness_adj": 0.1683,
+      "relation_completeness_adj_ci95": "[0.122, 0.221]",
       "entity_coverage_lenient": 0.7099,
       "relation_completeness_lenient": 0.288,
       "relation_completeness_2hop": 0.344,
@@ -310,8 +339,8 @@
       "entity_coverage_ci95": "[0.721, 0.824]",
       "relation_completeness": 0.308,
       "relation_completeness_ci95": "[0.252, 0.364]",
-      "relation_completeness_adj": 0.2772,
-      "relation_completeness_adj_ci95": "[0.221, 0.335]",
+      "relation_completeness_adj": 0.2695,
+      "relation_completeness_adj_ci95": "[0.212, 0.326]",
       "entity_coverage_lenient": 0.8244,
       "relation_completeness_lenient": 0.44,
       "relation_completeness_2hop": 0.508,
@@ -1792,6 +1821,165 @@
         "significant": false,
         "significant_holm": false
       }
+    }
+  },
+  "kg_audit": {
+    "gold_review": {
+      "n_questions": 12,
+      "entity": {
+        "n_labels": 89,
+        "n_answers": 12,
+        "human_pos": 0.899,
+        "judge_pos": 0.764,
+        "agreement": 0.865,
+        "agreement_ci95": [
+          0.779,
+          0.954
+        ],
+        "kappa": 0.534,
+        "kappa_ci95": [
+          0.297,
+          0.797
+        ],
+        "kept_by_first_also_kept": 1.0,
+        "dropped_by_first_also_dropped": 0.429,
+        "n_dropped_shown": 21,
+        "level": "trung bình"
+      },
+      "relation": {
+        "n_labels": 79,
+        "n_answers": 12,
+        "human_pos": 0.937,
+        "judge_pos": 0.646,
+        "agreement": 0.684,
+        "agreement_ci95": [
+          0.566,
+          0.802
+        ],
+        "kappa": 0.151,
+        "kappa_ci95": [
+          -0.028,
+          0.314
+        ],
+        "kept_by_first_also_kept": 0.98,
+        "dropped_by_first_also_dropped": 0.143,
+        "n_dropped_shown": 28,
+        "level": "rất thấp"
+      }
+    },
+    "edge_audit": {
+      "10": {
+        "n": 40,
+        "correct": 33,
+        "precision": 0.825,
+        "ci95": [
+          0.7,
+          0.925
+        ]
+      },
+      "20": {
+        "n": 40,
+        "correct": 35,
+        "precision": 0.875,
+        "ci95": [
+          0.775,
+          0.975
+        ]
+      },
+      "30": {
+        "n": 40,
+        "correct": 36,
+        "precision": 0.9,
+        "ci95": [
+          0.8,
+          0.975
+        ]
+      }
+    }
+  },
+  "fact_retention": {
+    "n_chunks": 89,
+    "n_facts": 262,
+    "missing_verdicts": 0,
+    "retention": {
+      "10": {
+        "in_scope": {
+          "n": 89,
+          "retention": 0.7865,
+          "ci95": [
+            0.6966,
+            0.8652
+          ],
+          "retention_adjusted": 0.5649
+        },
+        "all": {
+          "n": 262,
+          "retention": 0.4962,
+          "ci95": [
+            0.4389,
+            0.5573
+          ]
+        }
+      },
+      "20": {
+        "in_scope": {
+          "n": 175,
+          "retention": 0.76,
+          "ci95": [
+            0.6971,
+            0.8171
+          ],
+          "retention_adjusted": 0.5481
+        },
+        "all": {
+          "n": 262,
+          "retention": 0.6489,
+          "ci95": [
+            0.5916,
+            0.7061
+          ]
+        }
+      },
+      "30": {
+        "in_scope": {
+          "n": 262,
+          "retention": 0.7786,
+          "ci95": [
+            0.7289,
+            0.8282
+          ],
+          "retention_adjusted": 0.5599
+        },
+        "all": {
+          "n": 262,
+          "retention": 0.7786,
+          "ci95": [
+            0.7289,
+            0.8282
+          ]
+        }
+      }
+    },
+    "human_check": {
+      "n_labels": 60,
+      "n_answers": 60,
+      "human_pos": 0.383,
+      "judge_pos": 0.5,
+      "agreement": 0.817,
+      "agreement_ci95": [
+        0.717,
+        0.917
+      ],
+      "kappa": 0.633,
+      "kappa_ci95": [
+        0.439,
+        0.82
+      ],
+      "level": "khá",
+      "judge_yes_precision": 0.7,
+      "judge_no_npv": 0.933,
+      "fact_ok": 0.933,
+      "n": 60
     }
   },
   "holm_family": 30,

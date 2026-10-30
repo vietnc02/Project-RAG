@@ -1,0 +1,1810 @@
+{
+ "seed": 42,
+ "sheet_id": "bfffdf2625a0",
+ "cases": {
+  "G01": {
+   "part": "gold",
+   "id": "g002",
+   "entities": [
+    [
+     "RSA",
+     1
+    ],
+    [
+     "Dilithium",
+     1
+    ],
+    [
+     "Learning With Errors (LWE)",
+     1
+    ],
+    [
+     "OpenSSL",
+     1
+    ],
+    [
+     "lattice-based cryptography",
+     1
+    ],
+    [
+     "Kyber",
+     1
+    ],
+    [
+     "TLS 1.3",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "Kyber",
+      "OpenSSL",
+      "Kyber was integrated into OpenSSL prototypes"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "lattice-based cryptography",
+      "Kyber is a lattice-based scheme"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "TLS 1.3",
+      "Kyber was tested in TLS 1.3 handshakes"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "Learning With Errors (LWE)",
+      "Kyber's security depends on the LWE problem"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "RSA",
+      "Kyber outperforms RSA in key exchange speed"
+     ],
+     1
+    ]
+   ]
+  },
+  "G02": {
+   "part": "gold",
+   "id": "g015",
+   "entities": [
+    [
+     "Elliptic Curve Cryptography (ECC)",
+     1
+    ],
+    [
+     "Dilithium",
+     1
+    ],
+    [
+     "Kyber",
+     1
+    ],
+    [
+     "RSA",
+     1
+    ],
+    [
+     "ECDSA",
+     1
+    ],
+    [
+     "Internet of Things (IoT)",
+     1
+    ],
+    [
+     "FALCON",
+     1
+    ],
+    [
+     "Classic McEliece",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "FALCON",
+      "Dilithium",
+      "FALCON is more memory-efficient than Dilithium"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "Classic McEliece",
+      "Kyber's public key is much smaller than Classic McEliece's (>1 MB)"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "Internet of Things (IoT)",
+      "Kyber is considered feasible for a common IoT setup"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "Elliptic Curve Cryptography (ECC)",
+      "Kyber's public key (~800 bytes) is larger than an ECC public key"
+     ],
+     1
+    ],
+    [
+     [
+      "Dilithium",
+      "ECDSA",
+      "Dilithium signatures are a few kilobytes versus 64 bytes for ECDSA"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber",
+      "RSA",
+      "Kyber operations are comparable to or faster than RSA"
+     ],
+     1
+    ]
+   ]
+  },
+  "G03": {
+   "part": "gold",
+   "id": "g016",
+   "entities": [
+    [
+     "Tokyo QKD network",
+     1
+    ],
+    [
+     "DARPA quantum network",
+     1
+    ],
+    [
+     "quantum secure direct communication (QSDC)",
+     1
+    ],
+    [
+     "Alice",
+     0
+    ],
+    [
+     "Bob",
+     0
+    ],
+    [
+     "quantum key distribution (QKD)",
+     1
+    ],
+    [
+     "quantum channel",
+     1
+    ],
+    [
+     "Trieste QKD network",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "Tokyo QKD network",
+      "quantum key distribution (QKD)",
+      "the Tokyo network is a practical intercity QKD network"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum secure direct communication (QSDC)",
+      "quantum channel",
+      "QSDC transmits messages directly over a quantum channel"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "quantum mechanics",
+      "QKD exploits quantum mechanics"
+     ],
+     0
+    ],
+    [
+     [
+      "Trieste QKD network",
+      "quantum key distribution (QKD)",
+      "the Trieste network is a practical intercity QKD network"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "Alice",
+      "QKD establishes shared secret keys between QKD and Alice"
+     ],
+     0
+    ],
+    [
+     [
+      "DARPA quantum network",
+      "quantum key distribution (QKD)",
+      "the DARPA network is a practical intercity QKD network"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum secure direct communication (QSDC)",
+      "quantum key distribution (QKD)",
+      "QSDC transmits messages directly whereas QKD establishes shared keys"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "Bob",
+      "QKD establishes shared secret keys between QKD and Bob"
+     ],
+     0
+    ]
+   ]
+  },
+  "G04": {
+   "part": "gold",
+   "id": "g019",
+   "entities": [
+    [
+     "key generation",
+     0
+    ],
+    [
+     "QKD network",
+     1
+    ],
+    [
+     "key rate",
+     1
+    ],
+    [
+     "key storage",
+     1
+    ],
+    [
+     "key management system",
+     1
+    ],
+    [
+     "man-in-the-middle attack",
+     1
+    ],
+    [
+     "key consumption",
+     0
+    ],
+    [
+     "authentication",
+     1
+    ],
+    [
+     "classical public-key signature",
+     0
+    ],
+    [
+     "endpoint",
+     0
+    ],
+    [
+     "pre-shared key",
+     1
+    ],
+    [
+     "quantum key distribution (QKD)",
+     1
+    ],
+    [
+     "symmetric key",
+     0
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "key storage",
+      "key generation",
+      "key storage decouples key generation from consumption"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "authentication",
+      "QKD has no built-in authentication"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "key management system",
+      "QKD may need integration with classical key management systems"
+     ],
+     1
+    ],
+    [
+     [
+      "key storage",
+      "key consumption",
+      "key storage decouples key generation from consumption"
+     ],
+     0
+    ],
+    [
+     [
+      "key storage",
+      "symmetric key",
+      "key storage generates and manages symmetric keys"
+     ],
+     0
+    ],
+    [
+     [
+      "QKD link",
+      "classical public-key signature",
+      "QKD link is bootstrapped with a classical public-key signature"
+     ],
+     0
+    ],
+    [
+     [
+      "man-in-the-middle",
+      "endpoint",
+      "man-in-the-middle impersonates an endpoint"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "pre-shared key",
+      "QKD links are bootstrapped with a pre-shared key or classical signature"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "man-in-the-middle attack",
+      "without authentication a man-in-the-middle could impersonate a QKD endpoint"
+     ],
+     1
+    ],
+    [
+     [
+      "QKD network",
+      "key storage",
+      "the key storages of a QKD network must stay consistent for the service to work"
+     ],
+     1
+    ],
+    [
+     [
+      "key storage",
+      "key rate",
+      "key storage decouples generation from consumption to cope with limited QKD key rates"
+     ],
+     1
+    ]
+   ]
+  },
+  "G05": {
+   "part": "gold",
+   "id": "g034",
+   "entities": [
+    [
+     "traditional encryption",
+     0
+    ],
+    [
+     "continuous-variable QKD (CV-QKD)",
+     1
+    ],
+    [
+     "discrete-variable QKD (DV-QKD)",
+     1
+    ],
+    [
+     "quantum cryptography",
+     1
+    ],
+    [
+     "information-theoretic security",
+     1
+    ],
+    [
+     "quantum physics",
+     1
+    ],
+    [
+     "mathematical problems",
+     0
+    ],
+    [
+     "key agreement",
+     0
+    ],
+    [
+     "quantum key distribution (QKD)",
+     1
+    ],
+    [
+     "single photon",
+     1
+    ],
+    [
+     "hardware",
+     0
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "traditional encryption",
+      "mathematical problems",
+      "traditional encryption relies on the computational complexity of mathematical problems"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum cryptography",
+      "quantum physics",
+      "quantum cryptography relies on principles of quantum physics"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "information-theoretic security",
+      "QKD keys are information-theoretically secure"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "discrete-variable QKD (DV-QKD)",
+      "DV protocols are one category of QKD protocols"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum cryptography",
+      "traditional encryption",
+      "quantum cryptography differs from traditional encryption"
+     ],
+     0
+    ],
+    [
+     [
+      "key agreement",
+      "hardware",
+      "QKD requires specialized hardware"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "continuous-variable QKD (CV-QKD)",
+      "CV protocols are one category of QKD protocols"
+     ],
+     1
+    ],
+    [
+     [
+      "discrete-variable QKD (DV-QKD)",
+      "single photon",
+      "DV protocols use discrete outcomes such as single-photon polarization"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum cryptography",
+      "key agreement",
+      "QKD's keys are information-theoretically secure, but QKD requires specialized hardware"
+     ],
+     0
+    ]
+   ]
+  },
+  "G06": {
+   "part": "gold",
+   "id": "g035",
+   "entities": [
+    [
+     "Quantum Fourier Transform (QFT)",
+     1
+    ],
+    [
+     "quantum parallelism",
+     1
+    ],
+    [
+     "integer factorization",
+     1
+    ],
+    [
+     "classical counterparts",
+     0
+    ],
+    [
+     "entanglement",
+     1
+    ],
+    [
+     "Shor's algorithm",
+     1
+    ],
+    [
+     "Elliptic Curve Cryptography (ECC)",
+     1
+    ],
+    [
+     "RSA",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "Shor's algorithm",
+      "integer factorization",
+      "Shor's algorithm factors large integers in polynomial time"
+     ],
+     1
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "RSA",
+      "Shor's algorithm threatens RSA"
+     ],
+     1
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "Elliptic Curve Cryptography (ECC)",
+      "Shor's algorithm threatens ECC"
+     ],
+     1
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "Quantum Fourier Transform (QFT)",
+      "the QFT is at the core of Shor's algorithm"
+     ],
+     1
+    ],
+    [
+     [
+      "Quantum Fourier Transform",
+      "classical counterparts",
+      "the Quantum Fourier Transform implements key subroutines exponentially faster than classical counterparts"
+     ],
+     0
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "quantum parallelism",
+      "Shor's algorithm exploits quantum parallelism"
+     ],
+     1
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "entanglement",
+      "Shor's algorithm uses entanglement"
+     ],
+     1
+    ],
+    [
+     [
+      "RSA",
+      "integer factorization",
+      "RSA's security rests on the difficulty of factoring large numbers"
+     ],
+     1
+    ]
+   ]
+  },
+  "G07": {
+   "part": "gold",
+   "id": "g039",
+   "entities": [
+    [
+     "quantum key distribution (QKD)",
+     1
+    ],
+    [
+     "quantum support vector machine (QSVM)",
+     1
+    ],
+    [
+     "eavesdropping detection",
+     1
+    ],
+    [
+     "quantum convolutional neural network (QCNN)",
+     1
+    ],
+    [
+     "fundamental laws of physics",
+     0
+    ],
+    [
+     "quantum machine learning (QML)",
+     1
+    ],
+    [
+     "attenuated laser",
+     1
+    ],
+    [
+     "computational assumptions",
+     0
+    ],
+    [
+     "conventional cryptography",
+     0
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "quantum machine learning",
+      "quantum convolutional neural networks (QCNN)",
+      "quantum machine learning algorithms include QCNN"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "fundamental laws of physics",
+      "QKD security is based on the fundamental laws of physics"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "attenuated laser",
+      "attenuated lasers sometimes emit multi-photon signals, making practical QKD insecure"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum machine learning (QML)",
+      "eavesdropping detection",
+      "QML algorithms can be leveraged for eavesdropping detection"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum support vector machine (QSVM)",
+      "eavesdropping detection",
+      "QSVM can be used for eavesdropping detection"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum convolutional neural network (QCNN)",
+      "eavesdropping detection",
+      "QCNN can be used for eavesdropping detection"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "conventional cryptography",
+      "QKD security is based on the fundamental laws of physics, unlike conventional cryptography which relies on unproven computational assumptions"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum machine learning",
+      "quantum support vector machines (QSVM)",
+      "quantum machine learning algorithms include QSVM"
+     ],
+     0
+    ]
+   ]
+  },
+  "G08": {
+   "part": "gold",
+   "id": "q015",
+   "entities": [
+    [
+     "side-channel attack",
+     1
+    ],
+    [
+     "plaintext-checking oracle",
+     1
+    ],
+    [
+     "correlation power analysis (CPA)",
+     1
+    ],
+    [
+     "power trace",
+     1
+    ],
+    [
+     "Kyber-512",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "secret key",
+      "60%",
+      "about 60% of the Kyber-512 secret key was recovered"
+     ],
+     0
+    ],
+    [
+     [
+      "side-channel attack",
+      "plaintext-checking oracle",
+      "the side-channel attack on Kyber uses an imperfect plaintext-checking oracle"
+     ],
+     1
+    ],
+    [
+     [
+      "60%",
+      "40%",
+      "leaving 40% erroneous coefficients"
+     ],
+     0
+    ],
+    [
+     [
+      "correlation power analysis (CPA)",
+      "Kyber-512",
+      "applying the CPA attack twice recovered about 60% of the Kyber-512 secret key"
+     ],
+     1
+    ],
+    [
+     [
+      "Kyber-512",
+      "secret key",
+      "Kyber-512 has a secret key"
+     ],
+     0
+    ],
+    [
+     [
+      "correlation power analysis (CPA)",
+      "power trace",
+      "the CPA attack used about 1619 power traces"
+     ],
+     1
+    ],
+    [
+     [
+      "power trace",
+      "1619",
+      "about 1619 power traces were used"
+     ],
+     0
+    ]
+   ]
+  },
+  "G09": {
+   "part": "gold",
+   "id": "q044",
+   "entities": [
+    [
+     "Harvest-Now, Decrypt-Later (HNDL)",
+     1
+    ],
+    [
+     "network-layer routing information",
+     1
+    ],
+    [
+     "subscriber authentication vector",
+     1
+    ],
+    [
+     "inter-domain trust relationship",
+     1
+    ],
+    [
+     "certificate transparency log",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "subscriber authentication vector",
+      "HNDL harvested ciphertext includes subscriber authentication vectors"
+     ],
+     1
+    ],
+    [
+     [
+      "inter-domain trust relationship",
+      "certificate transparency log",
+      "inter-domain trust relationships persist in certificate transparency logs"
+     ],
+     1
+    ],
+    [
+     [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "inter-domain trust relationship",
+      "HNDL harvested ciphertext includes inter-domain trust relationships"
+     ],
+     1
+    ],
+    [
+     [
+      "Harvest-Now, Decrypt-Later (HNDL)",
+      "network-layer routing information",
+      "HNDL harvested ciphertext includes network-layer routing information"
+     ],
+     1
+    ]
+   ]
+  },
+  "G10": {
+   "part": "gold",
+   "id": "q062",
+   "entities": [
+    [
+     "ring signature",
+     1
+    ],
+    [
+     "blockchain",
+     1
+    ],
+    [
+     "sender",
+     0
+    ],
+    [
+     "Monero",
+     1
+    ],
+    [
+     "signature",
+     0
+    ],
+    [
+     "verifier",
+     0
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "Ring signatures",
+      "signature",
+      "Ring signatures let a signer sign on behalf of a ring of members"
+     ],
+     0
+    ],
+    [
+     [
+      "Ring signatures",
+      "verifier",
+      "Ring signatures let the verifier validate the signature without knowing which member signed"
+     ],
+     0
+    ],
+    [
+     [
+      "ring signature",
+      "Monero",
+      "ring signatures are used in Monero"
+     ],
+     1
+    ],
+    [
+     [
+      "Ring signatures",
+      "sender",
+      "Ring signatures obscure the sender's information"
+     ],
+     0
+    ],
+    [
+     [
+      "ring signature",
+      "blockchain",
+      "ring signatures obscure the sender's information in blockchain-IoT transactions"
+     ],
+     1
+    ]
+   ]
+  },
+  "G11": {
+   "part": "gold",
+   "id": "q068",
+   "entities": [
+    [
+     "mathematical problems",
+     0
+    ],
+    [
+     "eavesdropping",
+     1
+    ],
+    [
+     "computational complexity",
+     1
+    ],
+    [
+     "quantum key distribution (QKD)",
+     1
+    ],
+    [
+     "physics",
+     0
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "quantum key distribution (QKD)",
+      "mathematical problems",
+      "QKD does not rely on mathematical problems"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "eavesdropping",
+      "QKD detects anyone attempting to access the key exchange"
+     ],
+     1
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "physics",
+      "QKD relies on principles of physics"
+     ],
+     0
+    ],
+    [
+     [
+      "quantum key distribution (QKD)",
+      "computational complexity",
+      "QKD relies on physics, not on the computational complexity of mathematical problems"
+     ],
+     1
+    ]
+   ]
+  },
+  "G12": {
+   "part": "gold",
+   "id": "s004",
+   "entities": [
+    [
+     "discrete logarithm",
+     1
+    ],
+    [
+     "Shor's algorithm",
+     1
+    ],
+    [
+     "probability",
+     0
+    ],
+    [
+     "good (c, d) pair",
+     1
+    ]
+   ],
+   "relations": [
+    [
+     [
+      "good (c, d) pair",
+      "probability",
+      "Each good (c, d) pair is generated with this probability"
+     ],
+     0
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "discrete logarithm",
+      "Shor's quantum algorithm computes discrete logarithms"
+     ],
+     1
+    ],
+    [
+     [
+      "good (c, d) pair",
+      "probability",
+      "Each good (c, d) pair is generated with probability at least 1/(20q²)"
+     ],
+     0
+    ],
+    [
+     [
+      "Shor's algorithm",
+      "good (c, d) pair",
+      "each good (c, d) pair is generated with probability at least 1/(20q^2)"
+     ],
+     1
+    ]
+   ]
+  },
+  "E10-01": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m027",
+   "a": "NIST",
+   "b": "post-quantum cryptography (PQC)",
+   "relation": "NIST standardized a first set of PQC algorithms",
+   "edge_descriptions": "NIST has published guidelines for migration to PQC. || NIST initiated a process to establish a new PQC standard. || NIST is progressing toward defining standardized PQC algorithms. || NIST recommends using PQC algorithms. || NIST selected its first cohort of PQC algorithms for standardization."
+  },
+  "E10-02": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g048",
+   "a": "variational quantum circuit",
+   "b": "quantum generative adversarial network (QGAN)",
+   "relation": "variational quantum circuits are the most common QGAN architecture",
+   "edge_descriptions": "VQCs are components of QGANs."
+  },
+  "E10-03": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g046",
+   "a": "quantum machine learning (QML)",
+   "b": "quantum key distribution (QKD)",
+   "relation": "research on QML for QKD has increased since 2010",
+   "edge_descriptions": "Integrated ML with quantum key distribution protocols."
+  },
+  "E10-04": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q082",
+   "a": "quantum computer",
+   "b": "RSA-2048",
+   "relation": "quantum computers capable of breaking RSA-2048 may be a decade away",
+   "edge_descriptions": "A quantum computer could break RSA-2048."
+  },
+  "E10-05": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g040",
+   "a": "Number Theoretic Transform (NTT)",
+   "b": "Dilithium",
+   "relation": "the NTT-optimized accelerator speeds up Dilithium by 9.6x",
+   "edge_descriptions": "Dilithium algorithms have yielded speedups for NTT operations."
+  },
+  "E10-06": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q017",
+   "a": "VPN",
+   "b": "post-quantum cryptography (PQC)",
+   "relation": "VPN products advertise being quantum-safe by integrating PQC",
+   "edge_descriptions": "PQC can be deployed in VPNs."
+  },
+  "E10-07": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m027",
+   "a": "cryptographically relevant quantum computer (CRQC)",
+   "b": "integer factorization",
+   "relation": "integer factorization is efficiently solvable on a CRQC",
+   "edge_descriptions": "CRQC can solve integer factorization efficiently."
+  },
+  "E10-08": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g050",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "parameter-shift rule",
+   "relation": "QGAN gradients are estimated with the parameter-shift rule",
+   "edge_descriptions": "Gradients are typically estimated using the parameter-shift rule in QGANs."
+  },
+  "E10-09": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q007",
+   "a": "quantum support vector machine (QSVM)",
+   "b": "quantum feature map",
+   "relation": "QSVM uses a quantum circuit, the quantum feature map",
+   "edge_descriptions": "QSVM uses the quantum feature map to embed data."
+  },
+  "E10-10": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g019",
+   "a": "quantum key distribution (QKD)",
+   "b": "key management system",
+   "relation": "QKD may need integration with classical key management systems",
+   "edge_descriptions": "Custom key management systems are needed for QKD."
+  },
+  "E10-11": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m001",
+   "a": "medical record",
+   "b": "Harvest-Now, Decrypt-Later (HNDL)",
+   "relation": "medical records are prime HNDL targets",
+   "edge_descriptions": "HNDL poses a risk to medical records."
+  },
+  "E10-12": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q062",
+   "a": "ring signature",
+   "b": "Monero",
+   "relation": "ring signatures are used in Monero",
+   "edge_descriptions": "Ring signatures are used to obscure the information of the sender in Monero."
+  },
+  "E10-13": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g011",
+   "a": "Kyber",
+   "b": "side-channel leakage",
+   "relation": "three side-channel leakage points were reported in Kyber's decryption",
+   "edge_descriptions": "Kyber is vulnerable to side-channel leakage during decryption."
+  },
+  "E10-14": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q049",
+   "a": "CRYSTALS-Kyber",
+   "b": "CPAPKE.Enc",
+   "relation": "Kyber encapsulation uses the CPAPKE.Enc function",
+   "edge_descriptions": "CPAPKE.Enc is modified to improve security by using a hash of the message and public key."
+  },
+  "E10-15": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g021",
+   "a": "two-step attack",
+   "b": "correlation power analysis (CPA)",
+   "relation": "the two-step attack starts with CPA",
+   "edge_descriptions": "The attack includes non-profiled CPA. || The two-step attack uses CPA."
+  },
+  "E10-16": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q015",
+   "a": "correlation power analysis (CPA)",
+   "b": "power trace",
+   "relation": "the CPA attack used about 1619 power traces",
+   "edge_descriptions": "CPA computations are independently executed with different power traces."
+  },
+  "E10-17": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g034",
+   "a": "quantum key distribution (QKD)",
+   "b": "information-theoretic security",
+   "relation": "QKD keys are information-theoretically secure",
+   "edge_descriptions": "QKD offers the promise of information-theoretic security."
+  },
+  "E10-18": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g001",
+   "a": "Shor's algorithm",
+   "b": "Elliptic Curve Cryptography (ECC)",
+   "relation": "Shor's algorithm threatens ECC",
+   "edge_descriptions": "Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm can break ECC. || Threatens ECC."
+  },
+  "E10-19": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g040",
+   "a": "polynomial multiplication",
+   "b": "Kyber",
+   "relation": "polynomial multiplication dominates Kyber encryption and decryption",
+   "edge_descriptions": "Kyber implementations have demonstrated speedups for polynomial multiplication."
+  },
+  "E10-20": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g021",
+   "a": "two-step attack",
+   "b": "Kyber",
+   "relation": "the two-step attack recovers Kyber's secret key",
+   "edge_descriptions": "An improved attack on Kyber. || Proposed attack targets Kyber. || The attack increases time taken for Kyber at high security levels. || The attack is performed on Kyber. || The attack targets Kyber."
+  },
+  "E10-21": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g050",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "generator",
+   "relation": "the QGAN generator is trained to make fake data classified as real",
+   "edge_descriptions": "QGANs use a generator to produce fake data."
+  },
+  "E10-22": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m003",
+   "a": "quantum key distribution (QKD)",
+   "b": "information-theoretic security",
+   "relation": "QKD with one-time pad or symmetric ciphers provides information-theoretic security",
+   "edge_descriptions": "QKD offers the promise of information-theoretic security."
+  },
+  "E10-23": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q064",
+   "a": "Faraday effect",
+   "b": "jamming attack",
+   "relation": "the 2019 jamming attack exploited the Faraday effect",
+   "edge_descriptions": "Exploited to disrupt QKD through jamming. || The Faraday effect is used in the jamming attack."
+  },
+  "E10-24": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m027",
+   "a": "cryptographically relevant quantum computer (CRQC)",
+   "b": "RSA-2048",
+   "relation": "CRQCs able to break RSA-2048 could emerge within the next decade",
+   "edge_descriptions": "CRQC can break RSA-2048. || CRQC capable of breaking RSA-2048."
+  },
+  "E10-25": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g019",
+   "a": "quantum key distribution (QKD)",
+   "b": "man-in-the-middle attack",
+   "relation": "without authentication a man-in-the-middle could impersonate a QKD endpoint",
+   "edge_descriptions": "An adversary can launch a man-in-the-middle attack on a QKD session."
+  },
+  "E10-26": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g027",
+   "a": "quantum error correction (QEC)",
+   "b": "Toffoli gate",
+   "relation": "QEC was demonstrated with a Toffoli gate",
+   "edge_descriptions": "The QEC protocol showcases the effectiveness of the correction mechanism for the Toffoli gate."
+  },
+  "E10-27": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g002",
+   "a": "Kyber",
+   "b": "Learning With Errors (LWE)",
+   "relation": "Kyber's security depends on the LWE problem",
+   "edge_descriptions": "Kyber mechanism addresses potential weaknesses in Learning with Errors schemes."
+  },
+  "E10-28": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q064",
+   "a": "jamming attack",
+   "b": "quantum bit error rate (QBER)",
+   "relation": "the jamming attack increases the QBER",
+   "edge_descriptions": "The jamming attack induces a quantum bit-error rate."
+  },
+  "E10-29": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q001",
+   "a": "Shor's algorithm",
+   "b": "integer factorization",
+   "relation": "Shor's algorithm efficiently factors large integers",
+   "edge_descriptions": "Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem."
+  },
+  "E10-30": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g042",
+   "a": "EQGAN",
+   "b": "fitness evaluation",
+   "relation": "EQGAN uses fitness evaluation to select generator configurations",
+   "edge_descriptions": "Fitness evaluation improves the performance of EQGAN."
+  },
+  "E10-31": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g011",
+   "a": "Kyber",
+   "b": "side-channel attack",
+   "relation": "side-channel attacks were completed on Kyber hardware implementations",
+   "edge_descriptions": "Kyber mechanism guards against side-channel attacks."
+  },
+  "E10-32": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g019",
+   "a": "quantum key distribution (QKD)",
+   "b": "pre-shared key",
+   "relation": "QKD links are bootstrapped with a pre-shared key or classical signature",
+   "edge_descriptions": "Pre-shared keys are used to bootstrap QKD links. || QKD can be used instead of pre-shared keys for encryption."
+  },
+  "E10-33": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g035",
+   "a": "RSA",
+   "b": "integer factorization",
+   "relation": "RSA's security rests on the difficulty of factoring large numbers",
+   "edge_descriptions": "RSA’s security relies on integer factorization."
+  },
+  "E10-34": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g015",
+   "a": "FALCON",
+   "b": "Dilithium",
+   "relation": "FALCON is more memory-efficient than Dilithium",
+   "edge_descriptions": "Dilithium outperforms FALCON in terms of signature size and speed. || FALCON offers the fastest validation speed while Dilithium provides the fastest signing operation. || NIST has presented Dilithium and FALCON as postquantum signature standards."
+  },
+  "E10-35": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g042",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "discriminator",
+   "relation": "a QGAN has a quantum or classical discriminator",
+   "edge_descriptions": "QGANs pair a parameterized quantum generator with a discriminator."
+  },
+  "E10-36": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q006",
+   "a": "photonic QGAN",
+   "b": "Fock-space encoding",
+   "relation": "the photonic QGAN uses Fock-space encoding",
+   "edge_descriptions": "Used in the photonic QGAN."
+  },
+  "E10-37": {
+   "part": "edge10",
+   "k": 10,
+   "id": "m068",
+   "a": "Learning With Errors (LWE)",
+   "b": "Ring-LWE",
+   "relation": "Ring-LWE is a ring variant of LWE used for efficiency",
+   "edge_descriptions": "Ring-LWE is a variation of LWE."
+  },
+  "E10-38": {
+   "part": "edge10",
+   "k": 10,
+   "id": "q006",
+   "a": "photonic QGAN",
+   "b": "Ascella",
+   "relation": "the photonic QGAN is implemented on Quandela's Ascella photonic processor",
+   "edge_descriptions": "Implemented on the Ascella photonic processor."
+  },
+  "E10-39": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g037",
+   "a": "SPHINCS+ (SLH-DSA)",
+   "b": "WOTS+",
+   "relation": "SPHINCS+ uses WOTS+ to sign individual nodes",
+   "edge_descriptions": "WOTS+ plays the role of an OTS in SPHINCS+."
+  },
+  "E10-40": {
+   "part": "edge10",
+   "k": 10,
+   "id": "g035",
+   "a": "Shor's algorithm",
+   "b": "integer factorization",
+   "relation": "Shor's algorithm factors large integers in polynomial time",
+   "edge_descriptions": "Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem."
+  },
+  "E20-01": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m068",
+   "a": "Learning With Errors (LWE)",
+   "b": "lattice-based cryptography",
+   "relation": "LWE is a basic hard problem of lattice-based cryptography",
+   "edge_descriptions": "Lattice-based cryptography relies on LWE."
+  },
+  "E20-02": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q001",
+   "a": "Shor's algorithm",
+   "b": "integer factorization",
+   "relation": "Shor's algorithm efficiently factors large integers",
+   "edge_descriptions": "Shor's algorithm provides a quantum speedup in integer factorization. || Shor’s algorithm can solve integer factorization issues. || Shor’s algorithm solves the integer factorization problem."
+  },
+  "E20-03": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m027",
+   "a": "cryptographically relevant quantum computer (CRQC)",
+   "b": "integer factorization",
+   "relation": "integer factorization is efficiently solvable on a CRQC",
+   "edge_descriptions": "CRQC can solve integer factorization efficiently."
+  },
+  "E20-04": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m068",
+   "a": "NIST",
+   "b": "ML-DSA",
+   "relation": "NIST standardized ML-DSA",
+   "edge_descriptions": "NIST has endorsed ML-DSA for widespread adoption. || NIST standardized CRYSTALS-Dilithium."
+  },
+  "E20-05": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m003",
+   "a": "Quantum Random Number Generation (QRNG)",
+   "b": "quantum key distribution (QKD)",
+   "relation": "QRNG produces the true random numbers QKD needs for key setting and growth",
+   "edge_descriptions": "QRNG is used for quantum key generation."
+  },
+  "E20-06": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m046",
+   "a": "quantum machine learning (QML)",
+   "b": "personalized medicine",
+   "relation": "QML is promising for personalized medicine",
+   "edge_descriptions": "QML holds promise for personalized medicine."
+  },
+  "E20-07": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q064",
+   "a": "Faraday effect",
+   "b": "jamming attack",
+   "relation": "the 2019 jamming attack exploited the Faraday effect",
+   "edge_descriptions": "Exploited to disrupt QKD through jamming. || The Faraday effect is used in the jamming attack."
+  },
+  "E20-08": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g034",
+   "a": "quantum key distribution (QKD)",
+   "b": "continuous-variable QKD (CV-QKD)",
+   "relation": "CV protocols are one category of QKD protocols",
+   "edge_descriptions": "CV-QKD is a protocol for QKD. || Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD. || QKD protocols include CV-QKD."
+  },
+  "E20-09": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q015",
+   "a": "correlation power analysis (CPA)",
+   "b": "power trace",
+   "relation": "the CPA attack used about 1619 power traces",
+   "edge_descriptions": "CPA computations are independently executed with different power traces."
+  },
+  "E20-10": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q064",
+   "a": "jamming attack",
+   "b": "quantum bit error rate (QBER)",
+   "relation": "the jamming attack increases the QBER",
+   "edge_descriptions": "The jamming attack induces a quantum bit-error rate."
+  },
+  "E20-11": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g021",
+   "a": "two-step attack",
+   "b": "correlation power analysis (CPA)",
+   "relation": "the two-step attack starts with CPA",
+   "edge_descriptions": "The attack includes non-profiled CPA. || The two-step attack uses CPA."
+  },
+  "E20-12": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g001",
+   "a": "Shor's algorithm",
+   "b": "Elliptic Curve Cryptography (ECC)",
+   "relation": "Shor's algorithm threatens ECC",
+   "edge_descriptions": "Breaks ECC. || Quantum computers enable Shor’s algorithm to break ECC’s security. || Shor's algorithm demonstrates that a CRQC can efficiently solve the problems on which ECC depends. || Shor’s algorithm breaks ECC. || Shor’s algorithm can break ECC."
+  },
+  "E20-13": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g040",
+   "a": "polynomial multiplication",
+   "b": "Kyber",
+   "relation": "polynomial multiplication dominates Kyber encryption and decryption",
+   "edge_descriptions": "Kyber implementations have demonstrated speedups for polynomial multiplication."
+  },
+  "E20-14": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g002",
+   "a": "Kyber",
+   "b": "Learning With Errors (LWE)",
+   "relation": "Kyber's security depends on the LWE problem",
+   "edge_descriptions": "Kyber mechanism addresses potential weaknesses in Learning with Errors schemes. || Kyber relies on the quantum-resistant LWE problem."
+  },
+  "E20-15": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g042",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "discriminator",
+   "relation": "a QGAN has a quantum or classical discriminator",
+   "edge_descriptions": "QGANs pair a parameterized quantum generator with a discriminator."
+  },
+  "E20-16": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g019",
+   "a": "quantum key distribution (QKD)",
+   "b": "man-in-the-middle attack",
+   "relation": "without authentication a man-in-the-middle could impersonate a QKD endpoint",
+   "edge_descriptions": "An adversary can launch a man-in-the-middle attack on a QKD session."
+  },
+  "E20-17": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g046",
+   "a": "quantum machine learning (QML)",
+   "b": "adversarial attack",
+   "relation": "QML-based applications face adversarial threats",
+   "edge_descriptions": "QML can simulate realistic attack traces for adversarial attacks."
+  },
+  "E20-18": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g037",
+   "a": "NIST",
+   "b": "SPHINCS+ (SLH-DSA)",
+   "relation": "NIST selected SPHINCS+",
+   "edge_descriptions": "Approved by NIST as a standard. || NIST has endorsed SLH-DSA as a signature family. || NIST standardized SPHINCS+."
+  },
+  "E20-19": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g035",
+   "a": "Shor's algorithm",
+   "b": "Quantum Fourier Transform (QFT)",
+   "relation": "the QFT is at the core of Shor's algorithm",
+   "edge_descriptions": "At the core of Shor’s algorithm is the Quantum Fourier Transform. || QFT is a fundamental component in Shor’s algorithm. || Quantum Fourier Transform (QFT) is the quantum component of Shor’s algorithm. || Shor’s algorithm is a different algorithm from the Quantum Fourier Transform Algorithm. || Shor’s algorithm uses QFT to infer the period r."
+  },
+  "E20-20": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g011",
+   "a": "Kyber",
+   "b": "side-channel attack",
+   "relation": "side-channel attacks were completed on Kyber hardware implementations",
+   "edge_descriptions": "Kyber mechanism guards against side-channel attacks. || SCAs can exploit leakage points in Kyber."
+  },
+  "E20-21": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q062",
+   "a": "ring signature",
+   "b": "Monero",
+   "relation": "ring signatures are used in Monero",
+   "edge_descriptions": "Ring signatures are used to obscure the information of the sender in Monero."
+  },
+  "E20-22": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g050",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "generator",
+   "relation": "the QGAN generator is trained to make fake data classified as real",
+   "edge_descriptions": "QGANs use a generator to produce fake data."
+  },
+  "E20-23": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q017",
+   "a": "VPN",
+   "b": "post-quantum cryptography (PQC)",
+   "relation": "VPN products advertise being quantum-safe by integrating PQC",
+   "edge_descriptions": "PQC can be deployed in VPNs. || PQC requires integration into VPNs."
+  },
+  "E20-24": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g019",
+   "a": "quantum key distribution (QKD)",
+   "b": "key management system",
+   "relation": "QKD may need integration with classical key management systems",
+   "edge_descriptions": "Custom key management systems are needed for QKD. || Key management systems are fundamental components of QKD networks. || QKD supplies generated keys to KMS."
+  },
+  "E20-25": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g001",
+   "a": "Grover's algorithm",
+   "b": "AES",
+   "relation": "under Grover's algorithm AES-128 has 64-bit security",
+   "edge_descriptions": "Grover's algorithm can break AES. || Grover's algorithm offers a speedup for AES. || Grover’s algorithm can potentially break some symmetric keys like AES. || Grover’s algorithm necessitates increased key sizes for AES. || Grover’s algorithm poses a threat to AES."
+  },
+  "E20-26": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g040",
+   "a": "Number Theoretic Transform (NTT)",
+   "b": "Dilithium",
+   "relation": "the NTT-optimized accelerator speeds up Dilithium by 9.6x",
+   "edge_descriptions": "Dilithium algorithms have yielded speedups for NTT operations."
+  },
+  "E20-27": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g015",
+   "a": "FALCON",
+   "b": "Dilithium",
+   "relation": "FALCON is more memory-efficient than Dilithium",
+   "edge_descriptions": "Dilithium outperforms FALCON in terms of signature size and speed. || FALCON offers the fastest validation speed while Dilithium provides the fastest signing operation. || NIST has presented Dilithium and FALCON as postquantum signature standards."
+  },
+  "E20-28": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g034",
+   "a": "quantum key distribution (QKD)",
+   "b": "information-theoretic security",
+   "relation": "QKD keys are information-theoretically secure",
+   "edge_descriptions": "QKD offers the promise of information-theoretic security."
+  },
+  "E20-29": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m001",
+   "a": "medical record",
+   "b": "Harvest-Now, Decrypt-Later (HNDL)",
+   "relation": "medical records are prime HNDL targets",
+   "edge_descriptions": "HNDL poses a risk to medical records."
+  },
+  "E20-30": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g011",
+   "a": "Kyber",
+   "b": "side-channel leakage",
+   "relation": "three side-channel leakage points were reported in Kyber's decryption",
+   "edge_descriptions": "Kyber is vulnerable to side-channel leakage during decryption."
+  },
+  "E20-31": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g037",
+   "a": "SPHINCS+ (SLH-DSA)",
+   "b": "hypertree",
+   "relation": "SPHINCS+ links its trees in a hypertree for stateless operation",
+   "edge_descriptions": "SPHINCS+ composes hypertrees."
+  },
+  "E20-32": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g050",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "discriminator",
+   "relation": "the QGAN discriminator is trained to distinguish real from generated data",
+   "edge_descriptions": "QGANs pair a parameterized quantum generator with a discriminator."
+  },
+  "E20-33": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q049",
+   "a": "CRYSTALS-Kyber",
+   "b": "CPAPKE.Enc",
+   "relation": "Kyber encapsulation uses the CPAPKE.Enc function",
+   "edge_descriptions": "CPAPKE.Enc is modified to improve security by using a hash of the message and public key."
+  },
+  "E20-34": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g050",
+   "a": "quantum generative adversarial network (QGAN)",
+   "b": "stochastic approximation",
+   "relation": "QGAN gradients may be estimated by stochastic approximation",
+   "edge_descriptions": "Gradients are typically estimated using stochastic approximation in QGANs."
+  },
+  "E20-35": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g034",
+   "a": "quantum key distribution (QKD)",
+   "b": "discrete-variable QKD (DV-QKD)",
+   "relation": "DV protocols are one category of QKD protocols",
+   "edge_descriptions": "Modern QKD schemes fall into two main categories: DV-QKD and CV-QKD."
+  },
+  "E20-36": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m003",
+   "a": "quantum key distribution (QKD)",
+   "b": "eavesdropping",
+   "relation": "QKD detects eavesdroppers",
+   "edge_descriptions": "Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts."
+  },
+  "E20-37": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g040",
+   "a": "Number Theoretic Transform (NTT)",
+   "b": "polynomial multiplication",
+   "relation": "the NTT reduces polynomial multiplication from O(N^2) to O(N log N)",
+   "edge_descriptions": "NTT is used in polynomial multiplications."
+  },
+  "E20-38": {
+   "part": "edge20",
+   "k": 20,
+   "id": "m027",
+   "a": "NIST",
+   "b": "CRYSTALS-Kyber",
+   "relation": "NIST standardized the lattice-based KEM CRYSTALS-Kyber",
+   "edge_descriptions": "NIST announced CRYSTALS-Kyber as the new standard. || NIST chose CRYSTALS-Kyber as a PQC candidate. || NIST tested Kyber extensively."
+  },
+  "E20-39": {
+   "part": "edge20",
+   "k": 20,
+   "id": "g019",
+   "a": "QKD network",
+   "b": "key storage",
+   "relation": "the key storages of a QKD network must stay consistent for the service to work",
+   "edge_descriptions": "Maintains synchronization of keys."
+  },
+  "E20-40": {
+   "part": "edge20",
+   "k": 20,
+   "id": "q068",
+   "a": "quantum key distribution (QKD)",
+   "b": "eavesdropping",
+   "relation": "QKD detects anyone attempting to access the key exchange",
+   "edge_descriptions": "Eavesdropping attempts introduce measurable errors in QKD communication. || QKD can detect eavesdropping attempts."
+  }
+ }
+}

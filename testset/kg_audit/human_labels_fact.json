@@ -1,0 +1,728 @@
+{
+ "sheet_id": "a8bb94ff7601",
+ "exported_at": "2026-10-30T11:20:25.852Z",
+ "n_total": 120,
+ "n_done": 120,
+ "labels": [
+  {
+   "code": "F01",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F01",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F02",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F02",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F03",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F03",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F04",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F04",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F05",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F05",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F06",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F06",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F07",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F07",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F08",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F08",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F09",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F09",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F10",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F10",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F11",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F11",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F12",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F12",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F13",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F13",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F14",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F14",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F15",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F15",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F16",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F16",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F17",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F17",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F18",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F18",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F19",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F19",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F20",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F20",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F21",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F21",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F22",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F22",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F23",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F23",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F24",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F24",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F25",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F25",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F26",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F26",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F27",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F27",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F28",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F28",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F29",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F29",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F30",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F30",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F31",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F31",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F32",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F32",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F33",
+   "key": "fact_ok",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F33",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F34",
+   "key": "fact_ok",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F34",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F35",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F35",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F36",
+   "key": "fact_ok",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F36",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F37",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F37",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F38",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F38",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F39",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F39",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F40",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F40",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F41",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F41",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F42",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F42",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F43",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F43",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F44",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F44",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F45",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F45",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F46",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F46",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F47",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F47",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F48",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F48",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F49",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F49",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F50",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F50",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F51",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F51",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F52",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F52",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F53",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F53",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F54",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F54",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F55",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F55",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F56",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F56",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F57",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F57",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F58",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F58",
+   "key": "inferable",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F59",
+   "key": "fact_ok",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "F59",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F60",
+   "key": "fact_ok",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "F60",
+   "key": "inferable",
+   "label": 0,
+   "note": ""
+  }
+ ]
+}

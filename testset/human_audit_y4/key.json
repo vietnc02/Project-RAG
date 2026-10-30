@@ -1,0 +1,911 @@
+{
+ "seed": 42,
+ "sheet_id": "494cca930283",
+ "cases": {
+  "C01": {
+   "id": "q062",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Monero can be used to obscure the information of the sender transferring coins.",
+     "Ring signatures is a technique that provides privacy-preserving attention in blockchain-IoT environments.",
+     "Monero uses ring signatures to obscure the information of the sender transferring coins."
+    ],
+    "B": [
+     "Monero can be used in a blockchain-IoT environment.",
+     "Monero can obscure the information of the sender transferring coins.",
+     "Ring signatures are used by Monero to obscure the information of the sender transferring coins."
+    ]
+   },
+   "gt": [
+    "Ring signatures can be used in a blockchain-IoT environment.",
+    "Ring signatures let a signer sign on behalf of a ring of members.",
+    "The verifier can validate the signature without knowing which member signed.",
+    "Ring signatures are used in Monero.",
+    "Ring signatures obscure the sender's information."
+   ]
+  },
+  "C02": {
+   "id": "g016",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "QSDC provides a novel communication paradigm.",
+     "QSDC offers comprehensive, confidential, and near-instantaneous solutions.",
+     "QKD is primarily concerned with the secure negotiation of cryptographic keys.",
+     "The SwissQuantum QKD network has operated for over a year.",
+     "The SwissQuantum QKD network illustrates the development of practical QKD networks."
+    ],
+    "B": [
+     "QSDC provides a comprehensive, confidential, and near-instantaneous solution.",
+     "QKD is primarily concerned with secure key exchange.",
+     "China’s 2,000-km Quantum Key Distribution network is a practical QKD network.",
+     "The SwissQuantum QKD network is a practical QKD network.",
+     "The SwissQuantum QKD network ran for over a year."
+    ]
+   },
+   "gt": [
+    "QKD establishes shared secret keys between two parties.",
+    "QSDC transmits the actual messages directly over a quantum channel.",
+    "QSDC eliminates the need for cryptographic keys for encryption and decryption.",
+    "QSDC gives confidential, near-instantaneous communication.",
+    "The DARPA network illustrates the growth of practical QKD networks.",
+    "The Trieste network illustrates the growth of practical QKD networks.",
+    "The Tokyo network illustrates the growth of practical QKD networks."
+   ]
+  },
+  "C03": {
+   "id": "g002",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "In practical deployment tests, Kyber outperforms RSA in key exchange speed.",
+     "Kyber's security is based on the hardness of the Module-LWE problem.",
+     "Kyber is resistant to quantum attacks."
+    ],
+    "B": [
+     "Kyber outperforms RSA in key exchange speed during practical deployment tests.",
+     "Kyber's security is based on the hardness of lattice problems.",
+     "Kyber is quantum-resistant."
+    ]
+   },
+   "gt": [
+    "Kyber has been integrated into OpenSSL prototypes.",
+    "Kyber has been tested in TLS 1.3 handshakes.",
+    "Kyber is compatible with current infrastructures.",
+    "Kyber outperforms RSA in key exchange speed.",
+    "Kyber's security is based on the Learning With Errors (LWE) problem.",
+    "Kyber is a lattice-based scheme.",
+    "Kyber is used to protect data at rest in cloud storage."
+   ]
+  },
+  "C04": {
+   "id": "q082",
+   "type": "single",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Encrypted data transmitted or stored today without quantum resistance faces certain retroactive decryption once quantum computers are advanced enough to break the current cryptographic schemes.",
+     "Long-lived sensitive data is highly exposed to HNDL attacks.",
+     "98–100% of healthcare records are long-lived sensitive data.",
+     "95–100% of government classified data are long-lived sensitive data."
+    ],
+    "B": [
+     "Encrypted data transmitted or stored today without quantum resistance faces a significant threat.",
+     "Adversaries can harvest this data now.",
+     "The data will be vulnerable even if it was encrypted securely at the time of transmission or storage.",
+     "Adversaries can decrypt the data when quantum computers become available."
+    ]
+   },
+   "gt": [
+    "Encrypted data transmitted or stored today without quantum resistance is effectively 'pre-compromised'.",
+    "Quantum computers capable of breaking RSA-2048 or ECC-256 are a decade away.",
+    "Once decrypted, the data could undermine national security.",
+    "Once decrypted, the data could erode public trust.",
+    "Once decrypted, the data could violate regulations such as GDPR and FISMA."
+   ]
+  },
+  "C05": {
+   "id": "g043",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Quantum computers can handle multiple calculations simultaneously using quantum states.",
+     "Classical computers process information bit by bit.",
+     "The precision in quantum state manipulation can allow quantum computers to solve problems more efficiently than classical computers.",
+     "The precision required for quantum computers to outperform classical ones is not yet clear.",
+     "The precision in quantum state manipulation is currently dictated by the materials and architecture of quantum computers."
+    ],
+    "B": [
+     "Quantum computers can handle highly entangled quantum states.",
+     "Classical computers have difficulty simulating entangled quantum states accurately.",
+     "The precision of quantum state manipulation is crucial for achieving quantum speedup.",
+     "Quantum computers are not fundamentally limited by physical laws in terms of precision.",
+     "Quantum computers can solve certain problems faster than classical computers if they can achieve sufficient precision.",
+     "Quantum computing has the potential for polynomial-time algorithms that outperform classical counterparts for specific tasks."
+    ]
+   },
+   "gt": [
+    "Describing the correlations of a few hundred qubits may need more bits than there are atoms in the visible universe.",
+    "Complexity alone does not make quantum computers more powerful.",
+    "Quantum algorithms solve problems believed hard for classical computers.",
+    "Factoring large integers is a problem believed hard for classical computers.",
+    "If precision grows polynomially with the input size, quantum computers appear to be a more powerful type of computer.",
+    "The achievable precision is dictated by materials and architecture rather than fundamental physical laws."
+   ]
+  },
+  "C06": {
+   "id": "g039",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "The security of QKD is based on the principles of quantum mechanics.",
+     "Any attempt to measure a quantum state will disturb it.",
+     "The disturbance will alert the communicating parties to potential eavesdropping.",
+     "Practical QKD experiments with attenuated lasers can be insecure.",
+     "Weak signals can be intercepted and measured without detection.",
+     "Potential eavesdropping can occur.",
+     "Quantum machine learning can help detect eavesdroppers.",
+     "Quantum machine learning can analyze patterns and anomalies in the quantum states.",
+     "Quantum machine learning can enhance the eavesdropping detection capability of QKD."
+    ],
+    "B": [
+     "The security of QKD is based on the principles of quantum mechanics.",
+     "QKD offers information-theoretic security.",
+     "Practical QKD experiments with highly attenuated lasers can be insecure.",
+     "Highly attenuated lasers in QKD experiments can generate multi-photon signals.",
+     "Eavesdroppers can exploit multi-photon signals in QKD experiments.",
+     "Quantum machine learning can enhance eavesdropping detection capabilities in QKD.",
+     "Quantum machine learning can optimize security analysis in QKD protocols."
+    ]
+   },
+   "gt": [
+    "The security of quantum key distribution (QKD) is based on the fundamental laws of physics.",
+    "Conventional cryptography relies on unproven computational assumptions.",
+    "Practical QKD experiments with attenuated lasers can be insecure due to real-life imperfections.",
+    "Highly attenuated lasers can sometimes emit signals with more than one photon.",
+    "Quantum machine learning algorithms can be used to detect eavesdroppers.",
+    "QSVM and QCNN are examples of quantum machine learning algorithms that can be used for eavesdropping detection."
+   ]
+  },
+  "C07": {
+   "id": "g037",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "The security of SPHINCS+ (SLH-DSA) relies on a stateless approach.",
+     "SPHINCS+ (SLH-DSA) achieves stateless operation by not requiring any stateful components.",
+     "NIST's FIPS 203–205 standards correspond to Kyber (a KEM).",
+     "NIST's FIPS 203–205 standards correspond to Dilithium (ML-DSA).",
+     "NIST's FIPS 203–205 standards correspond to SPHINCS+ (SLH-DSA)."
+    ],
+    "B": [
+     "The security of SPHINCS+ (SLH-DSA) relies on the stateless approach.",
+     "The security of SPHINCS+ (SLH-DSA) relies on hash-based cryptographic assumptions.",
+     "SPHINCS+ achieves stateless operation by not requiring any state to be maintained between signature generations.",
+     "NIST selected Kyber, Dilithium, and SPHINCS+ for their post-quantum security properties.",
+     "FIPS 203 corresponds to Kyber.",
+     "FIPS 204 corresponds to Dilithium.",
+     "FIPS 205 corresponds to SPHINCS+."
+    ]
+   },
+   "gt": [
+    "Three of the four selected algorithms use structured lattices.",
+    "SPHINCS+ derives its security solely from the collision resistance of hash functions.",
+    "SPHINCS+ combines a hierarchy of hash trees with few-time signatures.",
+    "WOTS+ signs individual nodes.",
+    "FORS gives few-time signatures at the leaves.",
+    "The Hypertree links them to achieve stateless operation.",
+    "FIPS 203 is ML-KEM (Kyber).",
+    "FIPS 204 is ML-DSA (Dilithium).",
+    "FIPS 205 is SLH-DSA (SPHINCS+)."
+   ]
+  },
+  "C08": {
+   "id": "g019",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Key storages in QKD networks must be kept synchronized.",
+     "Synchronization ensures that all parties have access to the correct keys at the right time.",
+     "Synchronization prevents key material waste.",
+     "Synchronization ensures secure communication.",
+     "QKD links need to be bootstrapped with an initial authentication method.",
+     "QKD links are often bootstrapped with pre-shared keys.",
+     "QKD links are often bootstrapped with classical public-key signatures.",
+     "Some form of classical trust is necessary for QKD.",
+     "Some form of pre-shared secret is necessary for QKD."
+    ],
+    "B": [
+     "Key storages in a QKD network must be synchronized.",
+     "Synchronization of key storages maintains the integrity and security of the cryptographic keys.",
+     "Synchronization of key storages ensures seamless key distribution and usage across the network.",
+     "QKD alone does not provide authentication of the communicating parties.",
+     "Classical cryptography is used for authentication purposes in QKD."
+    ]
+   },
+   "gt": [
+    "A QKD network as a service generates, manages and supplies symmetric keys.",
+    "The contents of key storages must stay consistent for the service to be operational.",
+    "Key storage decouples key generation from consumption to cope with QKD's limited key rates.",
+    "QKD has no built-in authentication.",
+    "A man-in-the-middle could impersonate an endpoint without built-in authentication.",
+    "QKD links must be bootstrapped with an initial authentication method.",
+    "QKD links can be bootstrapped with a pre-shared key.",
+    "QKD links can be bootstrapped with a classical public-key signature.",
+    "QKD links may need integration with classical key management systems."
+   ]
+  },
+  "C09": {
+   "id": "g015",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Kyber and Dilithium are considered more mature post-quantum cryptographic algorithms.",
+     "Kyber and Dilithium strike a balance between efficiency and simplicity.",
+     "Dilithium's public key and signature sizes are significantly larger than those of classical ECC algorithms like P-256.",
+     "Kyber's public key and signature sizes are comparable to classical ECC algorithms like P-256.",
+     "These post-quantum schemes are feasible and efficient enough for IoT and mainstream applications.",
+     "Their larger key and signature sizes may pose challenges, especially in low-bandwidth environments."
+    ],
+    "B": [
+     "Kyber's public key is approximately 1088 bytes.",
+     "Kyber's public key is larger than classical ECC's 32-byte key.",
+     "Dilithium's signatures are larger than ECDSA signatures.",
+     "Dilithium's signatures are smaller than McEliece's signatures.",
+     "Kyber and Dilithium are considered feasible for IoT applications.",
+     "Kyber and Dilithium are considered feasible for mainstream applications.",
+     "Kyber and Dilithium are considered efficient enough for IoT and mainstream applications.",
+     "Kyber and Dilithium are part of NIST's standard recommendations for quantum-resistant cryptographic primitives.",
+     "Kyber and Dilithium have a favorable balance across security, performance, and ease of implementation."
+    ]
+   },
+   "gt": [
+    "Kyber's public key is approximately 800 bytes in size.",
+    "An ECC public key is approximately 32 bytes in size.",
+    "Classic McEliece's public key size exceeds 1 MB.",
+    "Dilithium signatures are a few kilobytes in size.",
+    "ECDSA signatures are 64 bytes in size.",
+    "Kyber operations are comparable to or faster than RSA operations.",
+    "Dilithium can verify thousands of signatures per second.",
+    "FALCON is more memory-efficient than Dilithium."
+   ]
+  },
+  "C10": {
+   "id": "q015",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "The CPA attack was used twice to recover the secret key of Kyber-512.",
+     "60% of the secret key of Kyber-512 was recovered.",
+     "The recovery of the secret key of Kyber-512 was done at the cost of about 1619 power traces.",
+     "There were still 40% error coefficients after the recovery of the secret key of Kyber-512."
+    ],
+    "B": [
+     "The CPA attack was used twice to recover the secret key of Kyber-512.",
+     "60% of the secret key of Kyber-512 was recovered.",
+     "The recovery of the secret key of Kyber-512 was done at the cost of about 1619 power traces.",
+     "There were still 40% error coefficients after the recovery of the secret key of Kyber-512."
+    ]
+   },
+   "gt": [
+    "About 60% of the Kyber-512 secret key was recovered.",
+    "The recovery was using about 1619 power traces.",
+    "40% of the secret key was left as erroneous coefficients."
+   ]
+  },
+  "C11": {
+   "id": "g011",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Three side-channel leakage points have been reported in Kyber's decryption procedure.",
+     "Researchers used machine learning techniques to extract encryption keys from Kyber implementations."
+    ],
+    "B": [
+     "Three side-channel leakage points exist in Kyber's decryption procedure.",
+     "Researchers used machine learning techniques to exploit side-channel attacks on Kyber implementations.",
+     "Researchers successfully extracted encryption keys from Kyber implementations."
+    ]
+   },
+   "gt": [
+    "Three side-channel leakage points were reported in Kyber's decryption procedure.",
+    "Side-channel attacks were completed on Kyber hardware implementations.",
+    "Researchers used machine learning to exploit a power-consumption side channel against a Kyber implementation.",
+    "Energy fluctuations of processor or circuit operations reveal details about the data being processed.",
+    "A Kyber implementation was previously believed resistant to power-consumption side-channel attacks."
+   ]
+  },
+  "C12": {
+   "id": "q049",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "In CRYSTALS-Kyber, the shared key K is derived.",
+     "The shared key K is derived through the Encapsulation mechanism.",
+     "The Encapsulation mechanism involves both parties using their respective keys.",
+     "The Encapsulation mechanism involves both parties using the public parameters.",
+     "The Encapsulation mechanism generates a shared symmetric key.",
+     "The shared symmetric key is for secure communication."
+    ],
+    "B": [
+     "In CRYSTALS-Kyber, the shared key K is derived during the encapsulation process.",
+     "The shared key K is re-encapsulated.",
+     "The shared key K is extracted in the decapsulation process.",
+     "The shared key K is re-encapsulated to establish a shared symmetric key between Alice and Bob in a key establishment scenario."
+    ]
+   },
+   "gt": [
+    "The value represented by the letter K is derived during encapsulation in CRYSTALS-Kyber.",
+    "The value represented by the letter K is the outcome of concatenating a message and public key hash.",
+    "The value represented by the letter K is the outcome of concatenating a message and public key hash with the hash of the output from the CPAPKE.Enc function.",
+    "The value represented by the letter K is the outcome of concatenating a message and public key hash with the hash of the output from the CPAPKE.Enc function using a key derivation function.",
+    "The encryption key (K) is obtained from extra data about the message.",
+    "The encryption key (K) is obtained from extra data about the public key.",
+    "The encryption key (K) is obtained from certain outputs of the encryption function (CPAPKE.Enc)."
+   ]
+  },
+  "C13": {
+   "id": "m046",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Quantum machine learning surveys highlight applications of Quantum Neural Networks (QNNs) in healthcare.",
+     "In healthcare, QNNs are used for merging precision medicine principles with quantum computing.",
+     "Quantum machine learning surveys highlight applications of Quantum Neural Networks (QNNs) in cybersecurity.",
+     "In cybersecurity, QNNs are used for intrusion detection.",
+     "QNNs achieve high accuracy in anomaly detection.",
+     "QNNs have near-instant alerting latency in anomaly detection."
+    ],
+    "B": [
+     "Quantum Neural Networks (QNNs) are not specifically highlighted in healthcare in the provided documents.",
+     "QNNs are used for intrusion detection in cybersecurity.",
+     "A quantum-assisted system using QNNs achieved 96.8% accuracy in cybersecurity."
+    ]
+   },
+   "gt": [
+    "Quantum Neural Networks (QNNs) are applied in healthcare for personalized medicine and drug discovery.",
+    "QNNs offer new approaches to analyzing complex biological data in healthcare.",
+    "In cybersecurity, frameworks based on QSVMs, QNNs, VQCs, and QGANs are used for malware and botnet detection and telecommunication security.",
+    "These frameworks improve detection accuracy and expose hidden anomalies in cybersecurity.",
+    "QNNs adapt to evolving threats in cybersecurity.",
+    "Current NISQ hardware imposes constraints on the applications of QNNs in both healthcare and cybersecurity."
+   ]
+  },
+  "C14": {
+   "id": "g003",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Smart Cities and IoVT applications require 5G.",
+     "They necessitate significantly higher throughput rates.",
+     "They require optimal user experiences.",
+     "Traditional IoT applications typically demand minimal wireless capabilities.",
+     "The predicted growth of IoT devices poses security challenges.",
+     "IoT devices must maintain standard security.",
+     "IoT devices must meet requirements such as authentication.",
+     "IoT devices must meet requirements such as access control.",
+     "IoT devices must meet requirements such as confidentiality.",
+     "IoT devices must meet requirements such as integrity.",
+     "IoT devices must meet requirements such as privacy preservation.",
+     "IoT devices must meet requirements such as trust management.",
+     "Secure systems require IoT devices to meet these requirements."
+    ],
+    "B": [
+     "Smart Cities and IoVT applications require significantly higher throughput rates to deliver optimal user experiences.",
+     "5G networks uniquely provide the capability for higher throughput rates.",
+     "The predicted growth of IoT devices poses security challenges.",
+     "IoT devices are resource-constrained.",
+     "The large number of IoT devices increases the risk of covert exploitation.",
+     "Covert exploitation of IoT devices can result in the theft of sensitive information.",
+     "Covert exploitation of IoT devices can result in financial losses.",
+     "Security measures like authentication, access control, confidentiality, integrity, privacy preservation, and trust management are essential for 5G-empowered IoT systems."
+    ]
+   },
+   "gt": [
+    "Traditional IoT applications require minimal wireless capabilities.",
+    "Smart Cities and IoVT require significantly higher throughput.",
+    "5G provides the necessary throughput for Smart Cities and IoVT.",
+    "The predicted growth of IoT devices is over 30 billion by 2030.",
+    "The growth of IoT devices creates numerous security risks.",
+    "IoT devices are among the most common targets of adversaries.",
+    "Adversaries can compromise data security and user privacy.",
+    "Adversaries can disrupt networks."
+   ]
+  },
+  "C15": {
+   "id": "s002",
+   "type": "single",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Alice uses vacuum states in the Vacuum+Weak decoy-state method for quantum key distribution.",
+     "Alice uses weak decoy states in the Vacuum+Weak decoy-state method for quantum key distribution.",
+     "Alice uses standard BB84 states in the Vacuum+Weak decoy-state method for quantum key distribution.",
+     "By measuring the yields of the decoy states, Alice and Bob can obtain reliable bounds to detect eavesdropping attacks.",
+     "By measuring the QBER of the decoy states, Alice and Bob can obtain reliable bounds to detect eavesdropping attacks."
+    ],
+    "B": [
+     "Alice uses a vacuum state in the Vacuum+Weak decoy-state method for quantum key distribution.",
+     "Alice uses a weak decoy state with µdecoy ≪ 1 in the Vacuum+Weak decoy-state method for quantum key distribution.",
+     "By measuring the yields of the decoy states, Alice and Bob can obtain reliable bounds to Ω.",
+     "By measuring the QBER of the decoy states, Alice and Bob can obtain reliable bounds to e1."
+    ]
+   },
+   "gt": [
+    "Only a few states are used in the Vacuum+Weak decoy-state method for quantum key distribution.",
+    "The states used are the vacuum, a weak decoy state with mean photon number µ_decoy ≪ 1 and a signal state with µ = O(1).",
+    "Alice measures the decoy states.",
+    "Bob measures the decoy states.",
+    "By measuring the yields and QBER of the decoy states, Alice and Bob obtain reliable bounds on the single-photon parameters (Ω and e1).",
+    "The bounds obtained by Alice and Bob surpass prior results."
+   ]
+  },
+  "C16": {
+   "id": "q063",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "NV centers in diamonds as qubits have high accuracy and stability.",
+     "NV centers in diamonds as qubits can operate at room temperature.",
+     "Qubit uniformity is a main challenge of NV centers in diamonds as qubits.",
+     "Limited cooling power complicates qubit uniformity.",
+     "Limited wiring complicates qubit uniformity.",
+     "NV centers in diamonds as qubits are highly sensitive to noise.",
+     "Fast classical-electronics requirements complicate qubit uniformity."
+    ],
+    "B": [
+     "NV centers in diamond have long coherence times.",
+     "NV centers in diamond can operate at room temperature.",
+     "NV centers in diamond are difficult to scale to large, controllable registers.",
+     "Precise and reliable manufacturing of NV centers in diamond is challenging."
+    ]
+   },
+   "gt": [
+    "NV centers encode qubits in the spin of a lattice defect.",
+    "NV centers offer long coherence times.",
+    "NV centers offer room-temperature operation.",
+    "Scaling NV centers to large, controllable registers is difficult.",
+    "Precise and reliable manufacturing of NV centers is challenging."
+   ]
+  },
+  "C17": {
+   "id": "g035",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Shor's algorithm uses the Quantum Fourier Transform.",
+     "Shor's algorithm has polynomial time complexity.",
+     "Shor's algorithm's time complexity is 𝜃((𝑙𝑜𝑔𝑁)2(𝑙𝑜𝑔(𝑙𝑜𝑔𝑁))(𝑙𝑜𝑔(𝑙𝑜𝑔(𝑙𝑜𝑔𝑁))))",
+     "Shor's algorithm is faster than classical algorithms.",
+     "RSA's security relies on the difficulty of integer factorization.",
+     "Shor's algorithm can break RSA encryption by factoring large composite numbers.",
+     "RSA keys use large composite numbers."
+    ],
+    "B": [
+     "Shor's algorithm can factor large integers efficiently on a quantum computer in polynomial time.",
+     "The time complexity of Shor's algorithm is 𝜃((log𝑁)²(log(log𝑁))(log(log(log𝑁)))),",
+     "Shor's algorithm's capability to factor large integers efficiently is due to its quantum computing nature.",
+     "RSA's security relies on the difficulty of integer factorization.",
+     "Shor's algorithm can efficiently solve integer factorization on a sufficiently powerful quantum computer."
+    ]
+   },
+   "gt": [
+    "Shor's algorithm uses entanglement to exploit quantum parallelism.",
+    "The Quantum Fourier Transform implements key subroutines exponentially faster than classical counterparts.",
+    "Shor's algorithm factors large integers in polynomial time.",
+    "RSA's security rests on the difficulty of factoring large numbers into their prime factors.",
+    "Shor's algorithm threatens RSA.",
+    "Shor's algorithm threatens ECC."
+   ]
+  },
+  "C18": {
+   "id": "q067",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "The QSVM achieved 93% accuracy.",
+     "The QNN achieved 96% accuracy.",
+     "The average alerting latency was near-instant at 10 ms."
+    ],
+    "B": [
+     "The hybrid QNN and QSVM pipeline for real-time network traffic monitoring was used.",
+     "The QNN achieved 96% accuracy.",
+     "The QSVM achieved 93% accuracy.",
+     "The average alerting latency was near-instant.",
+     "The average alerting latency was 10 ms."
+    ]
+   },
+   "gt": [
+    "The QNN achieved 96% accuracy in anomaly detection.",
+    "The QSVM achieved 93% accuracy.",
+    "The average alerting latency was near-instant.",
+    "The average alerting latency was about 10 ms."
+   ]
+  },
+  "C19": {
+   "id": "q007",
+   "type": "single",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "The quantum feature map in QSVM embeds input data into a quantum feature space.",
+     "QSVM utilizes the parallel processing capabilities of quantum computers.",
+     "QSVM computes kernel functions more efficiently.",
+     "QSVM identifies patterns that are difficult to discern with classical methods."
+    ],
+    "B": [
+     "The quantum feature map in QSVM embeds data into a quantum feature space.",
+     "QSVM avoids constructing a high-dimensional feature space classically.",
+     "QSVM leverages the parallel processing capabilities of quantum computers.",
+     "QSVM identifies a hyperplane that separates different data classes."
+    ]
+   },
+   "gt": [
+    "QSVM uses a quantum circuit.",
+    "The quantum circuit is called the quantum feature map.",
+    "The quantum feature map embeds data into a quantum feature space.",
+    "The quantum feature space is a Hilbert space.",
+    "The quantum feature space is represented by states |phi(x)>.",
+    "Quantum computers can perform computations in parallel.",
+    "Constructing a high-dimensional classical feature space is computationally intensive."
+   ]
+  },
+  "C20": {
+   "id": "s006",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Alice and Bob test for eavesdropping by performing privacy amplification on half of the remaining qubits after sifting.",
+     "They agree on the bits encoded by successfully received photons, ensuring the key's security."
+    ],
+    "B": [
+     "Alice and Bob test for eavesdropping by performing sifting on the remaining qubits.",
+     "They discard qubits measured in different bases.",
+     "They use the sifted qubits to determine if an eavesdropper is present.",
+     "If the quantum transmission has been undisturbed, Alice and Bob agree on the bits encoded by these photons.",
+     "The agreed bits are used as the final secret key."
+    ]
+   },
+   "gt": [
+    "Alice and Bob publicly compare a random subset of the correctly received bits.",
+    "The subset is one third of the correctly received bits.",
+    "Eavesdropping on more than a few photons is unlikely to escape detection.",
+    "If all comparisons agree, the remaining bits can be used as a one-time pad.",
+    "The one-time pad is used up and the protocol is repeated when it is used up."
+   ]
+  },
+  "C21": {
+   "id": "g034",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "The security basis of quantum cryptography relies on principles of quantum mechanics.",
+     "Traditional encryption depends on the computational complexity of mathematical problems.",
+     "There are two main categories of QKD protocols.",
+     "The two main categories of QKD protocols are Continuous Variable (CV) and Discrete Variable (DV) QKDPs.",
+     "QKD eliminates the need for cryptographic keys.",
+     "QKD uses quantum states for secure key exchange."
+    ],
+    "B": [
+     "The security basis of quantum cryptography relies on physical principles.",
+     "The security basis of quantum cryptography does not rely on the computational complexity of mathematical problems.",
+     "Traditional encryption relies on the computational complexity of mathematical problems.",
+     "The two main categories of QKD protocols are Continuous Variable (CV) and Discrete Variable (DV) QKD protocols.",
+     "QKD cannot be implemented as a software patch like traditional post-quantum cryptography (PQC) solutions."
+    ]
+   },
+   "gt": [
+    "Traditional encryption relies on the computational complexity of mathematical problems.",
+    "Quantum cryptography relies on principles of quantum physics.",
+    "QKD protocols are divided into Continuous Variable (CV) and Discrete Variable (DV) protocols.",
+    "Discrete Variable (DV) protocols produce discrete outcomes, e.g. from the polarization of single photons.",
+    "QKD's keys are information-theoretically secure.",
+    "QKD requires specialized hardware.",
+    "QKD has been tested for over two decades.",
+    "QKD has only recently been used commercially.",
+    "Traditional encryption and quantum cryptography have different security bases."
+   ]
+  },
+  "C22": {
+   "id": "g050",
+   "type": "multihop",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Gradients in QGANs are typically estimated using the parameter-shift rule or stochastic approximation.",
+     "Optimization in QGANs is performed via classical algorithms.",
+     "The adversarial process in QGANs continues until the generator and discriminator reach a Nash equilibrium."
+    ],
+    "B": [
+     "The generator and discriminator of QGANs are trained through an adversarial process.",
+     "The discriminator function D outputs the probability of an input being real.",
+     "The parameters of the discriminator are updated to minimize the loss function LD.",
+     "The loss function LD aims to improve the discriminator's ability to distinguish real from fake data.",
+     "Gradients in QGANs are typically estimated using the parameter-shift rule or stochastic approximation.",
+     "Optimization in QGANs is performed via classical algorithms."
+    ]
+   },
+   "gt": [
+    "Training of quantum GANs follows an adversarial minimax framework.",
+    "The discriminator parameters are updated to minimize its loss L_D.",
+    "The generator parameters are updated to minimize L_G.",
+    "The goal is to reach a Nash equilibrium.",
+    "Gradients are typically estimated with the parameter-shift rule.",
+    "Gradients are typically estimated with stochastic approximation.",
+    "Optimization is done with classical algorithms.",
+    "QuGANs may outperform classical GANs in representation."
+   ]
+  },
+  "C23": {
+   "id": "g046",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Research has integrated machine learning with quantum key distribution protocols.",
+     "QML-based applications in 6G networks face adversarial attacks.",
+     "QML-based applications in 6G networks are vulnerable."
+    ],
+    "B": [
+     "Research on quantum machine learning for quantum key distribution has integrated ML with QKD protocols to enhance security.",
+     "QML-based applications in 6G networks face adversarial attacks.",
+     "Adversarial attacks can target QML algorithms.",
+     "Adversarial attacks can target core functions."
+    ]
+   },
+   "gt": [
+    "Research on eavesdropping detection and security analysis of QKD protocols with QML has increased significantly since 2010.",
+    "QML-based applications face several emerging security threats.",
+    "QML-based applications face adversarial threats.",
+    "Studying QML for 6G network intelligence is motivated by the need to counter its attacks.",
+    "QML-based applications are vulnerable to attacks in 6G networks."
+   ]
+  },
+  "C24": {
+   "id": "q005",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Libsodium does not include support for any of the NIST PQC finalist algorithms.",
+     "As of the 1.0.x series, Libsodium does not include support for any of the NIST PQC finalist algorithms."
+    ],
+    "B": [
+     "Libsodium does not include support for any of the NIST PQC finalist algorithms as of the 1.0.x series.",
+     "The library's lead developer has noted that ML-KEM is on the roadmap.",
+     "No official timeline has been given for the integration of ML-KEM."
+    ]
+   },
+   "gt": [
+    "As of the latest release in the 1.0.x series, Libsodium does not include support for any NIST PQC finalist algorithms.",
+    "Libsodium does not include support for any NIST PQC finalist algorithms as of its latest release in the 1.0.x series."
+   ]
+  },
+  "C25": {
+   "id": "q092",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Organizations should begin post-quantum cryptography migration now.",
+     "Waiting for Q-Day creates unnecessary risk.",
+     "Waiting for Q-Day creates unnecessary cost.",
+     "Waiting for Q-Day creates unnecessary disruption.",
+     "Migration should start immediately to enable an orderly transition.",
+     "Migration should start immediately to avoid accelerated timelines.",
+     "Migration should start immediately to avoid increased costs.",
+     "Migration should start immediately to avoid error risks."
+    ],
+    "B": [
+     "Organizations should begin post-quantum cryptography migration now.",
+     "The ideal time for migration is between 2025-2028.",
+     "Migration should be completed before 2030-2035.",
+     "Waiting for Q-Day creates unnecessary risk.",
+     "Waiting for Q-Day creates unnecessary cost.",
+     "Waiting for Q-Day creates unnecessary disruption.",
+     "If Q-Day occurs before migration is complete, exposed data becomes immediately vulnerable."
+    ]
+   },
+   "gt": [
+    "Q-Day is estimated at 2030 ± 5 years.",
+    "Migration takes 2-5 years.",
+    "Migration also takes 1-3 years of supply-chain coordination.",
+    "Migration must start in 2025-2028 to finish before 2030-2035.",
+    "Waiting for Q-Day is a strategic error.",
+    "Legacy constraints make waiting a strategic error.",
+    "Long data confidentiality requirements make waiting a strategic error."
+   ]
+  },
+  "C26": {
+   "id": "q017",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Technology service providers are using quantum-resilience as a selling point.",
+     "They are integrating Post-Quantum Cryptography (PQC) into their products.",
+     "These products include certain VPN and secure communications solutions.",
+     "This highlights their commitment to offering security against potential quantum attacks.",
+     "This can give them an edge in the market.",
+     "This can reassure clients, especially large enterprises, about their security posture."
+    ],
+    "B": [
+     "Technology service providers are using quantum-resilience as a selling point.",
+     "Certain VPN and secure communications products advertise that they are 'quantum-safe'.",
+     "These products integrate Post-Quantum Cryptography (PQC)."
+    ]
+   },
+   "gt": [
+    "Certain VPN and secure communications products advertise that they are 'quantum-safe'.",
+    "They integrate PQC.",
+    "Cloud companies like AWS, IBM, and Microsoft have released tools for experimenting with PQC on their platforms."
+   ]
+  },
+  "C27": {
+   "id": "s004",
+   "type": "single",
+   "A": "base",
+   "B": "both",
+   "claims": {
+    "A": [
+     "Each good (c, d) pair is generated with a probability of at least 1/(20q2).",
+     "At least a twelfth of the possible c’s are in a good (c, d) pair."
+    ],
+    "B": [
+     "Each good (c, d) pair is generated with a probability of at least 1/(20q2),",
+     "At least a twelfth of the possible c’s are in a good (c, d) pair."
+    ]
+   },
+   "gt": [
+    "Each good (c, d) pair is generated with probability at least 1/(20q²)",
+    "At least a twelfth of the possible c's are in a good (c, d) pair"
+   ]
+  },
+  "C28": {
+   "id": "q064",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "A 2019 jamming attack against QKD was demonstrated by Daschner et al.",
+     "The Faraday effect was exploited in the 2019 jamming attack against QKD.",
+     "The Faraday effect increased the quantum bit-error rate (QBER) in the 2019 jamming attack against QKD.",
+     "The Faraday effect halted key exchange in the 2019 jamming attack against QKD."
+    ],
+    "B": [
+     "In a 2019 jamming attack against QKD, the Faraday effect was exploited.",
+     "This attack increased the quantum bit-error rate (QBER) by 7.6%",
+     "The attack effectively halted key exchange."
+    ]
+   },
+   "gt": [
+    "A 2019 jamming attack against QKD exploited the Faraday effect.",
+    "The Faraday effect disrupts QKD.",
+    "The Faraday effect increases the QBER.",
+    "The Faraday effect halts key exchange."
+   ]
+  },
+  "C29": {
+   "id": "g044",
+   "type": "multihop",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "Variational Quantum Algorithms (VQAs) are considered the leading strategy for NISQ devices.",
+     "VQAs can leverage classical optimization techniques to address the constraints of today's imperfect quantum hardware.",
+     "Today's imperfect quantum hardware has limited qubits.",
+     "Today's imperfect quantum hardware has limited connectivity.",
+     "Today's imperfect quantum hardware has error rates.",
+     "VQAs must account for limited numbers of qubits.",
+     "VQAs must account for limited connectivity.",
+     "VQAs must account for coherent errors.",
+     "VQAs must account for incoherent errors.",
+     "VQAs must account for quantum circuit depth limitations.",
+     "Improving gate accuracy matters for near-term platforms.",
+     "NISQ devices are prone to gate errors.",
+     "Higher gate accuracy can enhance the performance of VQAs.",
+     "Higher gate accuracy can enhance the reliability of VQAs.",
+     "Higher gate accuracy can push the boundaries of quantum advantage."
+    ],
+    "B": [
+     "Variational quantum algorithms (VQAs) can operate with limited qubits.",
+     "VQAs can operate in a noisy environment.",
+     "VQAs leverage classical optimization techniques.",
+     "VQAs must account for limited numbers of qubits.",
+     "VQAs must account for limited connectivity.",
+     "VQAs must account for coherent errors.",
+     "VQAs must account for incoherent errors.",
+     "Coherent and incoherent errors limit quantum circuit depth.",
+     "Improving gate accuracy impacts the reliability of VQAs.",
+     "Improving gate accuracy impacts the performance of VQAs.",
+     "Improving gate accuracy enables more complex computations on NISQ devices.",
+     "Improving gate accuracy enables more accurate computations on NISQ devices."
+    ]
+   },
+   "gt": [
+    "Fault-tolerant quantum computers are still years or decades away.",
+    "A strategy must account for limited numbers of qubits.",
+    "A strategy must account for limited qubit connectivity.",
+    "A strategy must account for coherent errors.",
+    "A strategy must account for incoherent errors.",
+    "VQAs handle these constraints with an optimization- or learning-based approach.",
+    "More accurate gates allow larger circuits to be executed.",
+    "More accurate gates extend the power of NISQ technology.",
+    "More accurate gates lower the overhead of quantum error correction later."
+   ]
+  },
+  "C30": {
+   "id": "q066",
+   "type": "single",
+   "A": "both",
+   "B": "base",
+   "claims": {
+    "A": [
+     "The trojan gate attack is constructed by embedding it in low-error-detection regions of the model.",
+     "This makes it difficult to attribute errors to malicious interference.",
+     "The attack is stealthy.",
+     "The natural presence of noise and decoherence in quantum systems masks the perturbations."
+    ],
+    "B": [
+     "The trojan gate attack is constructed by integrating adversarial perturbation into subcircuits.",
+     "The attack is integrated into regions of the model with limited error detection capabilities.",
+     "The presence of noise and decoherence in quantum systems makes it difficult to attribute errors to the attack.",
+     "The attack is stealthy due to the natural presence of noise and decoherence in quantum systems."
+    ]
+   },
+   "gt": [
+    "Adversarial perturbations are inserted as subcircuits into regions of the quantum circuit model.",
+    "The regions are those with limited error detection.",
+    "The natural noise and decoherence of quantum systems mask these perturbations.",
+    "The masking makes errors hard to attribute to malicious interference."
+   ]
+  }
+ }
+}

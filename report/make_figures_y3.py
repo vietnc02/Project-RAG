@@ -93,7 +93,11 @@ def ids_of(name: str, k: int) -> list[str]:
 stats = {"environment": INFO["environment"], "top_k": INFO["top_k"], "graphrag": INFO["graphrag"],
          "kg": KQ["kg"], "growth": KQ["new_entities_per_paper_random_orders"],
          "projection_check": KQ["projection_check"], "gold": KQ["gold"], "relation_audit": KQ.get("relation_audit"),
-         "coverage": KQ["coverage"], "sets": {}, "paired": {}}
+         "relation_audit_by_k": KQ.get("relation_audit_by_k"), "coverage": KQ["coverage"], "sets": {}, "paired": {}}
+# kiểm tra tay bộ chuẩn + cạnh theo k (kg_audit.py) và fact retention kiểu MINE (kg_audit.py --fact)
+for key, p in (("kg_audit", RUN / "kg_audit.json"), ("fact_retention", RUN / "fact_retention" / "fact_retention.json")):
+    if p.exists():
+        stats[key] = json.loads(p.read_text(encoding="utf-8"))
 for name in ("in_scope", "in_single", "in_multihop", "S10", "S20", "all", "out_scope", "unanswerable"):
     for k in KS:
         if name == "S20" and k < 20 or name == "out_scope" and k == 30:

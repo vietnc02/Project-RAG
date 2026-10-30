@@ -406,10 +406,10 @@ p("**Cách chọn.** Để KG có relation giữa các bài, 30 bài cần thu�
   "post-quantum cryptography, qubit, NISQ, variational quantum circuit. Một phương án ghép hai chủ đề an ninh khác nhau "
   "(Quantum Security và Deception) đã được kiểm tra và loại: hai nhóm chỉ chung những entity chung chung (\"accuracy\", "
   "\"attack\", \"AI\"...) và không có relation nào nối khái niệm riêng của hai nhóm.")
-p("Corpus chỉ có 23 bài thuộc nhóm quantum (17 Quantum Security, 6 Quantum Machine Learning) và không có chủ đề thứ ba "
-  "nào đủ gần (độ tương đồng thuật ngữ với nhóm quantum thấp hơn khoảng 10 lần so với giữa các bài quantum). Vì vậy bổ "
-  "sung 7 bài truy cập mở trên arXiv, là bài gốc của những khái niệm mà 23 bài kia nhắc tới nhiều nhất, để đủ 30 bài "
-  "cùng một chủ đề:")
+p("Tập bài báo được giao có nhiều bài trùng nhau; sau khi loại bài trùng, corpus còn 95 bài và chỉ 23 bài thuộc nhóm "
+  "quantum (17 Quantum Security, 6 Quantum Machine Learning). Không có chủ đề thứ ba nào đủ gần để ghép thêm (độ tương "
+  "đồng thuật ngữ với nhóm quantum thấp hơn khoảng 10 lần so với giữa các bài quantum). Vì vậy bổ sung 7 bài truy cập "
+  "mở trên arXiv, là bài gốc của những khái niệm mà 23 bài kia nhắc tới nhiều nhất, để đủ 30 bài cùng một chủ đề:")
 table("7 bài bổ sung (thư mục papers_y2)", ["Nhánh", "Bài", "Nguồn", "Khái niệm chung với 23 bài"],
       [["Quantum Security", "P. W. Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a "
                             "Quantum Computer (1995)", "arXiv:quant-ph/9508027", "thuật toán Shor (11/23 bài)"],
@@ -617,7 +617,7 @@ p(f"**Theo nhóm bài nguồn:** 7/30 bài là bài bổ sung (bài gốc của 
   "mục 3), nên tập 30 bài không phải mẫu ngẫu nhiên và các bài bổ sung có thể làm KG liên kết tốt hơn. Tách theo nhóm: "
   f"ở {go['n']} câu chỉ dùng 23 bài thuộc corpus ban đầu, retrieval precision của GraphRAG vẫn thấp hơn Vector RAG "
   f"({num(go['gr']['context_precision'], 2)} so với {num(go['vec']['context_precision'], 2)}, chênh lệch "
-  f"{f3(pco['delta'])} [{f3(pco['lo'])}; {f3(pco['hi'])}]) và tỉ lệ lấy được gold chunk là "
+  f"{f3(pco['delta'])} [{f3(pco['lo'])}; {f3(pco['hi'])}], n = {pco['n']} cặp) và tỉ lệ lấy được gold chunk là "
   f"{pct(go['gr']['gold_chunk_recall'], 0)} so với {pct(go['vec']['gold_chunk_recall'], 0)}; ở {ga['n']} câu có bài nguồn "
   f"thuộc 7 bài bổ sung, tỉ lệ lấy được gold chunk là {pct(ga['gr']['gold_chunk_recall'], 0)} so với "
   f"{pct(ga['vec']['gold_chunk_recall'], 0)} (quá ít câu để kiểm định). Như vậy kết luận về truy xuất không đến từ các bài "

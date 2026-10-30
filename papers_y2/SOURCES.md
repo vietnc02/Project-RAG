@@ -1,7 +1,8 @@
 # 7 bài bổ sung cho nội dung 2 (30 bài chủ đề quantum)
 
-Nội dung 2 dùng 23 bài Quantum Security + Quantum Machine Learning có sẵn trong `papers/` và 7 bài dưới đây
-(truy cập mở trên arXiv) để đủ 30 bài cùng một chủ đề. Chọn các bài gốc của những khái niệm mà 23 bài kia nhắc tới
+Tập bài báo được giao có nhiều bài trùng nhau; sau khi loại trùng, `papers/` chỉ còn 23 bài Quantum Security +
+Quantum Machine Learning. Nội dung 2 dùng 23 bài này và 7 bài dưới đây (truy cập mở trên arXiv) để đủ 30 bài cùng
+một chủ đề. Chọn các bài gốc của những khái niệm mà 23 bài kia nhắc tới
 nhiều nhất, để KG có thực thể chung giữa các bài. Thư mục này tách riêng khỏi `papers/` nên dữ liệu nội dung 1 không đổi.
 
 | Thư mục | Bài | Nguồn | Khái niệm chung với 23 bài |

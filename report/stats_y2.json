@@ -851,10 +851,10 @@
         "answer_correctness": 0.8846153846153846
       },
       "paired_context_precision": {
-        "delta": NaN,
-        "lo": NaN,
-        "hi": NaN,
-        "n": 52,
+        "delta": -0.1649659863945578,
+        "lo": -0.24659863945578228,
+        "hi": -0.08503401360544216,
+        "n": 49,
         "p": 0.0
       }
     }

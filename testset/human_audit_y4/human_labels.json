@@ -1,0 +1,5042 @@
+{
+ "sheet_id": "494cca930283",
+ "exported_at": "2026-10-30T11:19:12.821Z",
+ "n_total": 839,
+ "n_done": 839,
+ "labels": [
+  {
+   "code": "C01",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:2:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:2:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C01",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C02",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:6:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C03",
+   "key": "gt:6:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:4:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C04",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:0:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:0:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C05",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:1",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:4",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "A:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:3:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C06",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:3:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:3:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:7:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:8:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:8:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C07",
+   "key": "gt:8:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "A:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:1:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:4:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:7:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:8:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:8:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C08",
+   "key": "gt:8:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "B:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:0:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:1:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:7:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C09",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:0:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:1:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C10",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:3:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:3:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C11",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:2:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:3:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:4:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:5:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C12",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C13",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:9",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:10",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:11",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "A:claim:12",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "B:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:7:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C14",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C15",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C16",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C17",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:3:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C18",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C19",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C20",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:5:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:7:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:7:B",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:8:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:8:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C21",
+   "key": "gt:8:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:7:must",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:7:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C22",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C23",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C24",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "A:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:6:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C25",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:4",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C26",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C27",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C28",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:9",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:10",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:11",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:12",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:13",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "A:claim:14",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:4",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:5",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:6",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:7",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:8",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:9",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:10",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "B:claim:11",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:4:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:4:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:4:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:5:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:5:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:5:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:6:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:6:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:6:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:7:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:7:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:7:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:8:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:8:A",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "code": "C29",
+   "key": "gt:8:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "A:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "A:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "A:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "A:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "B:claim:0",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "B:claim:1",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "B:claim:2",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "B:claim:3",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:0:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:0:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:0:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:1:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:1:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:1:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:2:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:2:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:2:B",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:3:must",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:3:A",
+   "label": 2,
+   "note": ""
+  },
+  {
+   "code": "C30",
+   "key": "gt:3:B",
+   "label": 2,
+   "note": ""
+  }
+ ]
+}

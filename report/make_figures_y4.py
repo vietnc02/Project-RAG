@@ -197,6 +197,10 @@ if _logs:
 HA = config.RESULTS_DIR / "human_audit" / "stats.json"
 if HA.exists():
     stats["human_audit"] = json.loads(HA.read_text(encoding="utf-8"))
+# Chấm tay 30 cặp context gốc / nén cả hai (human_audit_y4.py --score)
+HA4 = config.RESULTS_DIR / "human_audit_y4" / "stats.json"
+if HA4.exists():
+    stats["human_audit_y4"] = json.loads(HA4.read_text(encoding="utf-8"))
 (ROOT / "report" / "stats_y4.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
