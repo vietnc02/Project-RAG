@@ -38,19 +38,23 @@ import config
 from common import env_info
 # Dùng lại nguyên bộ câu hỏi, hàm chấm và hàm tổng hợp của ý 2 (evaluate_graphrag.py không bị sửa)
 from evaluate import append_jsonl, bootstrap_ci, flush_judge_log, judge_log_table, load_jsonl, load_testset
-from evaluate_graphrag import EXTRA, MAIN, RENAME, TESTSET_FILES, gold_sources, paired_diff, score, summarize
+from evaluate_graphrag import EXTRA, MAIN, RENAME, TESTSET_FILES_S3 as TESTSET_FILES, gold_sources, paired_diff, score, summarize
 from kg_build import load_papers
+from stage3_runtime import record_attempt
+from report.stat_utils import holm, paired_boot
 
 KS = (10, 20, 30)
 OUT = config.RESULTS_DIR / "kg_scale"
 K30_FROM_Y2 = config.RESULTS_DIR / "kg30"
+# Giai đoạn 3: thứ tự bài khác (KG_ORDER) -> results/kg_scale/<order>/k<k>/; KG30 không đổi theo thứ tự nên không chạy lại
+RUN_DIR = OUT / config.KG_ORDER if config.KG_ORDER else OUT
 SYSTEMS = ("graphrag", "vector_rag")
 
 
 def load_items() -> list[dict]:
     papers = load_papers(max(KS))
     rank = {s: i + 1 for i, s in enumerate(papers)}
-    items = [t for t in load_testset([f for f in TESTSET_FILES if f.exists()])
+    items = [t for t in load_testset([f for f in TESTSET_FILES if f.exists()], include_unreviewed=config.S3_RAW)
              if t["type"] == "unanswerable" or set(gold_sources(t)) <= set(papers)]
     for t in items:
         t["scope"] = 0 if t["type"] == "unanswerable" else next(
@@ -58,8 +62,8 @@ def load_items() -> list[dict]:
     return items
 
 
-def run_k(k: int, items: list[dict], system: str = "graphrag"):
-    out = OUT / f"k{k}"
+def run_k(k: int, items: list[dict], system: str = "graphrag", answers_only: bool = False):
+    out = (OUT if k == 30 else RUN_DIR) / f"k{k}"
     out.mkdir(parents=True, exist_ok=True)
     ans_path = out / f"answers_{system}.jsonl"
     sc_path = config.pass_path(out / f"scores_{system}.jsonl")   # file của lượt chấm hiện tại
@@ -80,7 +84,7 @@ def run_k(k: int, items: list[dict], system: str = "graphrag"):
         use_kg_store()
         config.SOURCE_FILTER = load_papers(k)   # chỉ truy xuất trong k bài đầu
         rag._chain = None                        # dựng lại chain với bộ lọc mới
-    kg_stats = json.loads((config.KG_DIR / f"k{k}" / "graph.json").read_text(encoding="utf-8"))["stats"]
+    kg_stats = json.loads((config.kg_dir(k) / "graph.json").read_text(encoding="utf-8"))["stats"]
     info = {"k": k, "system": system, "started": datetime.now().isoformat(timespec="seconds"),
             "top_k": config.TOP_K, "num_ctx": config.NUM_CTX, "kg": kg_stats,
             "graphrag": {"seed_entities": config.KG_SEED_ENTITIES, "max_relations": config.KG_MAX_RELATIONS},
@@ -89,17 +93,16 @@ def run_k(k: int, items: list[dict], system: str = "graphrag"):
     if k == 30 and (K30_FROM_Y2 / "run_info.json").exists():
         info["answers_from"] = str(K30_FROM_Y2.relative_to(config.PROJECT_DIR))
     ri = out / ("run_info.json" if system == "graphrag" else f"run_info_{system}.json")
-    if ri.exists():  # giữ lượt đầu, thêm môi trường của lượt chấm hiện tại
-        info = {**json.loads(ri.read_text(encoding="utf-8")),
-                f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"], "environment": info["environment"]}}
-    ri.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    info.update(judge_pass=config.JUDGE_PASS, raw_testset=config.S3_RAW,
+                question_ids=[t["id"] for t in items], seed=config.SEED)
+    record_attempt(ri, info, answers_only=answers_only, order=config.KG_ORDER)
 
     answers, scores = load_jsonl(ans_path), load_jsonl(sc_path)
     for item in tqdm(items, desc=f"[{system} k={k}] trả lời"):
         if item["id"] not in answers:
             answers[item["id"]] = {"id": item["id"], **rag.answer(item["question"])}
             append_jsonl(ans_path, answers[item["id"]])
-    for item in tqdm(items, desc=f"[{system} k={k}] chấm điểm (lượt {config.JUDGE_PASS})"):
+    for item in ([] if answers_only else tqdm(items, desc=f"[{system} k={k}] chấm điểm (lượt {config.JUDGE_PASS})")):
         if item["id"] not in scores:
             scores[item["id"]] = {"id": item["id"], **score(item, answers[item["id"]])}
             append_jsonl(sc_path, scores[item["id"]])
@@ -110,8 +113,11 @@ def run_k(k: int, items: list[dict], system: str = "graphrag"):
 def collect(items: list[dict], system: str = "graphrag") -> pd.DataFrame:
     rows = []
     for k in KS:
-        out = OUT / f"k{k}"
-        answers, scores = load_jsonl(out / f"answers_{system}.jsonl"), load_jsonl(out / f"scores_{system}.jsonl")
+        out = (OUT if k == 30 else RUN_DIR) / f"k{k}"
+        score_path = out / f"scores_{system}.jsonl"
+        if not score_path.exists():
+            score_path = config.pass_path(score_path)
+        answers, scores = load_jsonl(out / f"answers_{system}.jsonl"), load_jsonl(score_path)
         for item in items:
             if item["id"] not in scores:
                 continue
@@ -128,9 +134,9 @@ SET_TITLES = {
     "in_scope": "Câu hỏi trong phạm vi KG (bài nguồn nằm trong k bài)",
     "in_scope_single": "Trong phạm vi KG — single-hop",
     "in_scope_multihop": "Trong phạm vi KG — multi-hop",
-    "S10": "Tập cố định S10 (15 câu về 10 bài đầu)",
-    "S20": "Tập cố định S20 (37 câu về 20 bài đầu)",
-    "all": "Toàn bộ 62 câu có đáp án (cả câu ngoài phạm vi KG)",
+    "S10": "Tập cố định S10 (câu về 10 bài đầu)",
+    "S20": "Tập cố định S20 (câu về 20 bài đầu)",
+    "all": "Toàn bộ câu có đáp án (cả câu ngoài phạm vi KG)",
     "out_scope": "Câu ngoài phạm vi KG (bài nguồn chưa có trong KG)",
     "unanswerable": "Câu hỏi ngoài corpus (đúng = từ chối)",
 }
@@ -154,16 +160,23 @@ def fixed_set_diffs(sets: pd.DataFrame) -> pd.DataFrame:
     for name, a, b in (("S10", "k10", "k30"), ("S10", "k20", "k30"), ("S10", "k10", "k20"), ("S20", "k20", "k30"),
                        ("all", "k10", "k30"), ("all", "k20", "k30")):
         g = sets[(sets.type == name) & sets.system.isin([a, b])]
-        d = paired_diff(g, a=a, b=b)
-        if len(d):
-            out.append(d.assign(compare=f"{a} − {b}"))
-    df = pd.concat(out, ignore_index=True) if out else pd.DataFrame()
-    return df[["type", "compare", "metric", "n_pairs", "diff", "ci95", "significant"]] if len(df) else df
+        pa, pb = g[g.system == a].set_index("id"), g[g.system == b].set_index("id")
+        ids = pa.index.intersection(pb.index)
+        for metric in MAIN:
+            col = {v: k for k, v in RENAME.items()}.get(metric, metric)
+            entry = paired_boot((pa.loc[ids, col] - pb.loc[ids, col]).dropna().to_numpy(float))
+            if entry:
+                out.append({**entry, "type": name, "compare": f"{a} − {b}", "metric": metric,
+                            "n_pairs": entry["n"], "diff": round(entry["delta"], 4),
+                            "ci95": f"[{entry['lo']:.3f}, {entry['hi']:.3f}]"})
+    holm(out)
+    df = pd.DataFrame(out)
+    return df[["type", "compare", "metric", "n_pairs", "diff", "ci95", "p", "p_holm", "significant_holm"]] if len(df) else df
 
 
 def coverage_vs_answer(df: pd.DataFrame) -> pd.DataFrame | None:
     """Câu trả lời đúng hay sai theo mức độ KG phủ thực thể của câu hỏi (cần kg_quality.py --coverage)."""
-    fp = OUT / "kg_coverage_per_question.csv"
+    fp = RUN_DIR / "kg_coverage_per_question.csv"
     if not fp.exists():
         return None
     cov = pd.read_csv(fp)
@@ -182,7 +195,7 @@ def coverage_vs_answer(df: pd.DataFrame) -> pd.DataFrame | None:
 NOTES = """\
 - **KG k bài**: dựng từ k bài đầu của `data/kg/papers.json` bằng cùng cache trích xuất (KG10 ⊂ KG20 ⊂ KG30).
 - **Trong phạm vi KG**: câu hỏi mà mọi bài nguồn đều nằm trong k bài -> mỗi k là một tập câu khác nhau.
-  **S10 / S20**: tập câu cố định, cho phép so sánh ghép cặp giữa các k (`significant` = CI 95% không chứa 0).
+  **S10 / S20**: tập câu cố định, so sánh ghép cặp giữa các k; `significant_holm` qua hiệu chỉnh Holm cho cả bảng.
 - Chỉ số giống ý 2: context_precision (retrieval precision), faithfulness, answer_relevancy, hallucination_rate,
   answer_correctness. Câu ngoài phạm vi KG: hành vi tốt nhất là từ chối (không có tài liệu nguồn).
 """
@@ -192,21 +205,22 @@ def write_report(items: list[dict]):
     df = collect(items)
     if df.empty:
         raise SystemExit("Chưa có kết quả: chạy python evaluate_kg_scale.py")
-    df.to_csv(OUT / "per_question.csv", index=False, encoding="utf-8-sig")
+    df.to_csv(RUN_DIR / "per_question.csv", index=False, encoding="utf-8-sig")
     sets = question_sets(df)
     sm = summarize(sets)
     sm.insert(2, "k", sm.system.str[1:].astype(int))
     diff = fixed_set_diffs(sets)
     cva = coverage_vs_answer(df)
-    sm.to_csv(OUT / "summary.csv", index=False, encoding="utf-8-sig")
-    diff.to_csv(OUT / "paired_diff.csv", index=False, encoding="utf-8-sig")
+    sm.to_csv(RUN_DIR / "summary.csv", index=False, encoding="utf-8-sig")
+    diff.to_csv(RUN_DIR / "paired_diff.csv", index=False, encoding="utf-8-sig")
     if cva is not None:
-        cva.to_csv(OUT / "coverage_vs_answer.csv", index=False, encoding="utf-8-sig")
+        cva.to_csv(RUN_DIR / "coverage_vs_answer.csv", index=False, encoding="utf-8-sig")
 
     lines = ["# Kết quả ý 3: KG từ k = 10 / 20 / 30 bài\n",
              f"GraphRAG (ý 2) với KG dựng từ k bài đầu · LLM: `{config.LLM_MODEL}` · Judge: `{config.JUDGE_MODEL}` · "
-             f"TOP_K = {config.TOP_K} · version: xem `k*/run_info.json`\n"]
-    kq = OUT / "kg_quality.md"
+             f"TOP_K = {config.TOP_K} · thứ tự bài: `{config.KG_ORDER or 'original'}` · "
+             f"bộ đã duyệt: {len(items)} câu · version: xem `k*/run_info.json`\n"]
+    kq = RUN_DIR / "kg_quality.md"
     if kq.exists():
         lines += ["## 1. Chất lượng KG (chi tiết: `kg_quality.md`)\n",
                   kq.read_text(encoding="utf-8").split("<!-- main -->", 2)[1].strip(), ""]
@@ -227,13 +241,13 @@ def write_report(items: list[dict]):
         g = sm[sm["type"] == t]
         lines += [f"### {SET_TITLES[t]}\n",
                   g[["k"] + [c for c in EXTRA if c in g and g[c].notna().any()]].to_markdown(index=False), ""]
-    logs = sorted(OUT.glob("k*/judge_log_graphrag*.jsonl"))
+    logs = sorted(RUN_DIR.glob("k*/judge_log_graphrag*.jsonl"))
     if logs:  # chỉ có khi run được chấm sau khi thêm log judge
         t = pd.concat([judge_log_table([fp]).assign(k=fp.parent.name) for fp in logs], ignore_index=True)
         lines += ["## 6. Log judge (lỗi + độ dài prompt)\n",
                   t[["k", *[c for c in t if c not in ("k", "system")]]].to_markdown(index=False), ""]
-    (OUT / "summary.md").write_text("\n".join(lines), encoding="utf-8")
-    print((OUT / "summary.md").read_text(encoding="utf-8"))
+    (RUN_DIR / "summary.md").write_text("\n".join(lines), encoding="utf-8")
+    print((RUN_DIR / "summary.md").read_text(encoding="utf-8"))
 
 
 def main():
@@ -242,17 +256,23 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="chạy thử trên n câu đầu")
     ap.add_argument("--report-only", action="store_true")
     ap.add_argument("--system", default="graphrag", choices=SYSTEMS)
+    ap.add_argument("--answers-only", action="store_true", help="chỉ sinh câu trả lời, chưa chấm (giai đoạn 3)")
+    ap.add_argument("--in-scope-only", action="store_true",
+                    help="mỗi k chỉ chạy câu có đáp án thuộc k bài đầu (thứ tự bài khác, giai đoạn 3)")
     args = ap.parse_args()
+    if config.S3_RAW and not args.answers_only:
+        ap.error("S3_RAW=1 chỉ được dùng với --answers-only; chấm điểm cần bộ đã duyệt.")
     items = load_items()
     if args.limit:
         items = items[: args.limit]
     print(f"{len(items)} câu hỏi | phạm vi: "
           f"{pd.Series([t['scope'] for t in items]).value_counts().sort_index().to_dict()} (0 = ngoài corpus)")
-    OUT.mkdir(parents=True, exist_ok=True)
+    RUN_DIR.mkdir(parents=True, exist_ok=True)
     if not args.report_only:
         for k in args.k:
-            run_k(k, items, args.system)
-    if args.system == "graphrag":
+            run_k(k, [t for t in items if 0 < t["scope"] <= k] if args.in_scope_only else items, args.system,
+                  args.answers_only)
+    if args.system == "graphrag" and not args.answers_only:
         write_report(items)
 
 

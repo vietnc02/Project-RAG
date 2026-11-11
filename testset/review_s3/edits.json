@@ -1,0 +1,560 @@
+{
+  "t029": {
+    "question": "What is the main emphasis of García and Ullah’s survey of quantum machine learning in healthcare, and what limitation does this create for readers seeking algorithmic or implementation details?",
+    "ground_truth": "The survey by García and Ullah focuses more on high-level concepts and emerging perspectives than on providing detailed technical analyses, which may limit its utility to those seeking a deep understanding of specific algorithms or implementation challenges.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Hỏi rõ đối tượng để câu tự đứng: \"What is the main emphasis of García and Ullah’s survey of quantum machine learning in healthcare, and what limitation does this create for readers seeking algorithmic or implementation details?\" Đáp án hiện tại phù hợp."
+  },
+  "t036": {
+    "question": "Which two quantum classifiers did Ricardo et al. compare in the hybrid-model evaluation reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications, and what accuracy improvement over classical methods was reported?",
+    "ground_truth": "They compared QSVM and QNN and reported accuracy improvements of 3–7% over classical methods.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ [80] và định danh ngữ cảnh: \"Which two quantum classifiers did Ricardo et al. compare in the hybrid-model evaluation reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications, and what accuracy improvement over classical methods was reported?\" Đáp án: \"They compared QSVM and QNN and reported accuracy improvements of 3–7% over classical methods.\" Không tự đổi 3–7% thành điểm phần trăm vì nguồn không nói rõ."
+  },
+  "t189": {
+    "question": "Which cryptographic technique did Geethanjali et al. combine with LSB steganography to protect confidential IoT data?",
+    "ground_truth": "Elliptic-curve cryptography (ECC).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Gộp hai vế hỏi trùng nhau và nêu IoT: \"Which cryptographic technique did Geethanjali et al. combine with LSB steganography to protect confidential IoT data?\" Đáp án: \"Elliptic-curve cryptography (ECC).\""
+  },
+  "t027": {
+    "question": "What physical-qubit target and target year are stated for Google’s QEC-based roadmap toward fault-tolerant quantum computation in Practical Challenges in Executing Shor’s Algorithm?",
+    "ground_truth": "Around one million physical qubits by 2029, with the goal of fault-tolerant quantum computation through QEC.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu hỏi đã nêu luôn mục tiêu cần trả lời. Sửa thành: \"What physical-qubit target and target year are stated for Google’s QEC-based roadmap toward fault-tolerant quantum computation in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"Around one million physical qubits by 2029, with the goal of fault-tolerant quantum computation through QEC.\" Đây là lộ trình được bài báo nêu, không xác nhận tiến độ hiện tại."
+  },
+  "t023": {
+    "question": "What algorithmic improvements to Shor’s algorithm are reported in Practical Challenges in Executing Shor’s Algorithm?",
+    "ground_truth": "Reduced qubit counts and improved asymptotic runtime, particularly by leveraging advances in quantum error correction.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ mốc tương đối 'in the past two years' và làm rõ đây là cải tiến thuật toán: \"What algorithmic improvements to Shor’s algorithm are reported in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"Reduced qubit counts and improved asymptotic runtime, particularly by leveraging advances in quantum error correction.\" Bỏ các số trích dẫn rời."
+  },
+  "t024": {
+    "question": "Which method is used for modular addition alongside a Cuccaro-style ripple-carry adder in the Shor implementation described in Practical Challenges in Executing Shor’s Algorithm?",
+    "ground_truth": "A two’s-complement overflow/comparator method.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the implementation' bằng ngữ cảnh cụ thể: \"Which method is used for modular addition alongside a Cuccaro-style ripple-carry adder in the Shor implementation described in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"A two’s-complement overflow/comparator method.\""
+  },
+  "t130": {
+    "question": "How many additional FPGA slices does the hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber require relative to the unprotected Kyber implementation?",
+    "ground_truth": "It requires 260 additional slices; the DSP and BRAM counts remain unchanged.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh thiết kế: \"How many additional FPGA slices does the hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber require relative to the unprotected Kyber implementation?\" Đáp án: \"It requires 260 additional slices; the DSP and BRAM counts remain unchanged.\""
+  },
+  "t051": {
+    "question": "What success rate is reported for the cyclic-rotation attack using five traces against a fifth-order masked CRYSTALS-Kyber implementation?",
+    "ground_truth": "The reported attack success rate is 87.085% with five traces against the fifth-order masked implementation employing cyclic rotations.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nêu rõ Kyber và viết đáp án thành phát biểu có ngữ cảnh: \"What success rate is reported for the cyclic-rotation attack using five traces against a fifth-order masked CRYSTALS-Kyber implementation?\" Đáp án: \"The reported attack success rate is 87.085% with five traces against the fifth-order masked implementation employing cyclic rotations.\""
+  },
+  "t184": {
+    "question": "Which computational timings are compared in the benchmark in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?",
+    "ground_truth": "Average key-generation, encryption, and decryption/signing times for RSA-2048, ECC-P256, Kyber-512, Dilithium-II, and Falcon512.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh benchmark bằng tên bài: \"Which computational timings are compared in the benchmark in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?\" Đáp án: \"Average key-generation, encryption, and decryption/signing times for RSA-2048, ECC-P256, Kyber-512, Dilithium-II, and Falcon512.\""
+  },
+  "t180": {
+    "question": "In the 2048-bit RSA factoring resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many CCZ states are needed for the largest lookup using six address qubits?",
+    "ground_truth": "At least 57 CCZ states per such lookup.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'during loop1' thiếu ngữ cảnh; hỏi: \"In the 2048-bit RSA factoring resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many CCZ states are needed for the largest lookup using six address qubits?\" Đáp án: \"At least 57 CCZ states per such lookup.\" Bỏ biểu thức '26' mất số mũ và phần số lớp không được hỏi."
+  },
+  "t115": {
+    "question": "Which three service-management operations are provided by the REST-based northbound interface of the QKD network controller?",
+    "ground_truth": "Creating, modifying, and deleting services.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Làm rõ giao diện thuộc mạng QKD: \"Which three service-management operations are provided by the REST-based northbound interface of the QKD network controller?\" Đáp án: \"Creating, modifying, and deleting services.\""
+  },
+  "t151": {
+    "question": "Which libraries are described in A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries as having moved aggressively to implement NIST’s post-quantum algorithms?",
+    "ground_truth": "wolfSSL, Bouncy Castle, and Botan.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án bị cắt giữa câu. Sửa: \"wolfSSL, Bouncy Castle, and Botan.\" Hỏi có quy chiếu rõ: \"Which libraries are described in A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries as having moved aggressively to implement NIST’s post-quantum algorithms?\""
+  },
+  "h002": {
+    "question": "Which mathematical task connects HHL with variational linear-system algorithms, and what NISQ design goal distinguishes the variational approaches from fault-tolerant quantum algorithms?",
+    "ground_truth": "Both address solving linear systems of equations. Variational approaches seek heuristic scalings comparable to the provable scalings of fault-tolerant algorithms while keeping their requirements compatible with NISQ hardware.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ khẳng định HHL 'provides a theoretical foundation' không được hai đoạn nêu. Hỏi: \"Which mathematical task connects HHL with variational linear-system algorithms, and what NISQ design goal distinguishes the variational approaches from fault-tolerant quantum algorithms?\" Đáp án: \"Both address solving linear systems of equations. Variational approaches seek heuristic scalings comparable to the provable scalings of fault-tolerant algorithms while keeping their requirements compatible with NISQ hardware.\" Hai đoạn cần cho hai phần: nhiệm vụ của HHL và mục tiêu của VQA."
+  },
+  "t002": {
+    "question": "Which implementation components form the crypto-agility roadmap in The Quantum Security Deadline?",
+    "ground_truth": "CBOM analysis, hybrid encryption deployment, and automated certificate lifecycle management (CLM) integration.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the paper' bằng tên: \"Which implementation components form the crypto-agility roadmap in The Quantum Security Deadline?\" Đáp án: \"CBOM analysis, hybrid encryption deployment, and automated certificate lifecycle management (CLM) integration.\""
+  },
+  "t041": {
+    "question": "How many basemul calls are selected for CPA in the improved trial-and-error lattice attack on Kyber?",
+    "ground_truth": "The method selects 60 basemul calls for CPA.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung Kyber và bỏ phần đáp án ngoài yêu cầu: \"How many basemul calls are selected for CPA in the improved trial-and-error lattice attack on Kyber?\" Đáp án: \"The method selects 60 basemul calls for CPA.\" Không cần nêu 38/39 đầu vào lattice nếu câu không hỏi."
+  },
+  "t179": {
+    "question": "For the n = 2048 resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many physical qubits do hot storage and the compute region use together?",
+    "ground_truth": "Hot storage uses 177,112 physical qubits and the compute region uses 170,352, totaling 347,464 physical qubits.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nêu điều kiện của ước lượng: \"For the n = 2048 resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many physical qubits do hot storage and the compute region use together?\" Đáp án: \"Hot storage uses 177,112 physical qubits and the compute region uses 170,352, totaling 347,464 physical qubits.\" Bỏ công thức và ký hiệu chưa định nghĩa không cần thiết."
+  },
+  "t040": {
+    "question": "Which technique solves the reduced-dimension LWE problem in the improved two-step side-channel/lattice attack on Kyber?",
+    "ground_truth": "Kannan’s embedding technique.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'this attack' bằng tên phương pháp: \"Which technique solves the reduced-dimension LWE problem in the improved two-step side-channel/lattice attack on Kyber?\" Đáp án: \"Kannan’s embedding technique.\" Bỏ 'We', trích dẫn [12] và dấu phẩy cuối."
+  },
+  "t098": {
+    "question": "What curated open repository is introduced in Post-Quantum Cryptography and Quantum-Safe Security for the PQC community?",
+    "ground_truth": "awesome-pqc",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ số chú thích dính vào tên kho: đáp án là \"awesome-pqc\", không phải \"awesome-pqc1\". Sửa câu hỏi: \"What curated open repository is introduced in Post-Quantum Cryptography and Quantum-Safe Security for the PQC community?\""
+  },
+  "t025": {
+    "question": "How is signal quality quantified in the QPE-based Shor order-finding experiments described in Practical Challenges in Executing Shor’s Algorithm, where N is the integer modulus?",
+    "ground_truth": "By the windowed hit rate relative to a uniform baseline.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Làm rõ thuật toán và N: \"How is signal quality quantified in the QPE-based Shor order-finding experiments described in Practical Challenges in Executing Shor’s Algorithm, where N is the integer modulus?\" Đáp án: \"By the windowed hit rate relative to a uniform baseline.\" Bỏ giới hạn N > 30 vì đoạn không giới hạn cách đo này cho riêng N > 30."
+  },
+  "t092": {
+    "question": "In the no-eavesdropping model of decoy-state QKD, which two sources contribute to the yield Y_n for n ≥ 1?",
+    "ground_truth": "Detection of signal photons (η_n) and background detection events (p_dark).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung giả thiết nguồn: \"In the no-eavesdropping model of decoy-state QKD, which two sources contribute to the yield Y_n for n ≥ 1?\" Đáp án: \"Detection of signal photons (η_n) and background detection events (p_dark).\""
+  },
+  "t068": {
+    "question": "Which hybrid GAN framework is introduced to enhance channel prediction in MIMO-OFDM systems?",
+    "ground_truth": "HQDCGAN-MIMO-OFDM, a hybrid quantum deep convolutional generative adversarial network framework.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đoạn không đủ trả lời cách kết hợp thành phần lượng tử/cổ điển; bỏ vế đó và phần câu bị cắt. Hỏi: \"Which hybrid GAN framework is introduced to enhance channel prediction in MIMO-OFDM systems?\" Đáp án: \"HQDCGAN-MIMO-OFDM, a hybrid quantum deep convolutional generative adversarial network framework.\""
+  },
+  "t187": {
+    "question": "What standardization gap for hybrid classical/post-quantum schemes is identified in A Comprehensive Survey on Pre Versus Post Quantum Security Schemes for 5G-Enabled IoT Applications?",
+    "ground_truth": "The survey identifies a lack of standardization for hybrid schemes intended to support efficient implementation and backward compatibility.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Tránh hỏi trạng thái hiện tại không gắn thời điểm. Hỏi: \"What standardization gap for hybrid classical/post-quantum schemes is identified in A Comprehensive Survey on Pre Versus Post Quantum Security Schemes for 5G-Enabled IoT Applications?\" Đáp án: \"The survey identifies a lack of standardization for hybrid schemes intended to support efficient implementation and backward compatibility.\" Đây là phát biểu của nguồn."
+  },
+  "t118": {
+    "question": "Which PQC families are listed as being designed to resist quantum attacks?",
+    "ground_truth": "Lattice-based, multivariate-based, and code-based cryptosystems.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu trả lời bị cắt, câu hỏi tuyệt đối quá rộng. Sửa: \"Which PQC families are listed as being designed to resist quantum attacks?\" Đáp án: \"Lattice-based, multivariate-based, and code-based cryptosystems.\""
+  },
+  "t076": {
+    "question": "What example of a surface-code distance is suggested for QuANet, together with fault-tolerant syndrome extraction, to reach break-even logical-qubit coherence?",
+    "ground_truth": "The review gives surface-code distance d ≥ 3 as an example; an adequate distance and fault-tolerant syndrome extraction are required.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nguồn nêu ví dụ, không chứng minh một khoảng cách tối thiểu phổ quát. Hỏi: \"What example of a surface-code distance is suggested for QuANet, together with fault-tolerant syndrome extraction, to reach break-even logical-qubit coherence?\" Đáp án: \"The review gives surface-code distance d ≥ 3 as an example; an adequate distance and fault-tolerant syndrome extraction are required.\""
+  },
+  "t093": {
+    "question": "What is the practical decoy-state QKD key-generation rate in terms of Q_μ, Q_1, f(E_μ), H_2(E_μ), and H_2(e_1), and what does the factor q represent?",
+    "ground_truth": "S ≥ q{−Q_μ f(E_μ) H_2(E_μ) + Q_1[1 − H_2(e_1)]}. Here q is the basis-sifting factor: 1/2 for standard BB84 and approximately 1 for efficient BB84; f(E_μ) accounts for practical error-correction inefficiency.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung decoy-state QKD vào câu hỏi. Đáp án viết rõ: \"S ≥ q{−Q_μ f(E_μ) H_2(E_μ) + Q_1[1 − H_2(e_1)]}. Here q is the basis-sifting factor: 1/2 for standard BB84 and approximately 1 for efficient BB84; f(E_μ) accounts for practical error-correction inefficiency.\" Giữ đủ ngoặc và chỉ số."
+  },
+  "t181": {
+    "question": "Which quantum-resistant alternatives are evaluated for security, performance, and implementation feasibility in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?",
+    "ground_truth": "Kyber, Dilithium, and Falcon.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the study' bằng tên: \"Which quantum-resistant alternatives are evaluated for security, performance, and implementation feasibility in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?\" Đáp án: \"Kyber, Dilithium, and Falcon.\""
+  },
+  "t170": {
+    "question": "What is the size of the matrix used to represent each image in the baseline MNIST dataset, and how is it flattened into a vector?",
+    "ground_truth": "Each MNIST image is a 28 × 28 grayscale matrix. Flattening it produces a real vector with 784 components (x ∈ ℝ^784).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Chuẩn hóa đáp án: \"Each MNIST image is a 28 × 28 grayscale matrix. Flattening it produces a real vector with 784 components (x ∈ ℝ^784).\" Không hiển thị ℝ784 như tích hay ký hiệu không rõ."
+  },
+  "t075": {
+    "question": "What QEC cycle time is reported for the surface-code experiment encoding a logical qubit using nine physical data qubits?",
+    "ground_truth": "A QEC cycle time of 1.1 μs is reported.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the study' bằng mô tả thí nghiệm có trong đoạn: \"What QEC cycle time is reported for the surface-code experiment encoding a logical qubit using nine physical data qubits?\" Đáp án: \"A QEC cycle time of 1.1 μs is reported.\""
+  },
+  "t054": {
+    "question": "What deployment drawback of code-based cryptosystems motivates key-length-reduction approaches such as the Niederreiter variant for resource-constrained IoT devices?",
+    "ground_truth": "Their large key sizes make deployment on resource-constrained IoT devices difficult.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án hiện tại lặp câu hỏi mà chưa làm rõ nhược điểm. Hỏi: \"What deployment drawback of code-based cryptosystems motivates key-length-reduction approaches such as the Niederreiter variant for resource-constrained IoT devices?\" Đáp án: \"Their large key sizes make deployment on resource-constrained IoT devices difficult.\""
+  },
+  "t019": {
+    "question": "What proportion of companies is reported as having a quantum-safe crypto strategy in Are Enterprises Ready for Quantum-Safe Cybersecurity?",
+    "ground_truth": "The review reports that 5% of companies have such a strategy.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh nguồn thay 'the research': \"What proportion of companies is reported as having a quantum-safe crypto strategy in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"The review reports that 5% of companies have such a strategy.\" Không diễn giải đây là tỷ lệ hiện tại của mọi doanh nghiệp hay tự thêm phạm vi khảo sát chưa có trong đoạn."
+  },
+  "t172": {
+    "question": "What accuracy is reported for the localized-cost QCNN in Beyond Barren Plateaus: A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification under symmetric depolarizing noise with p = 0.01?",
+    "ground_truth": "The reported classification accuracy is 94.2%.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh mô hình và nhiễu: \"What accuracy is reported for the localized-cost QCNN in Beyond Barren Plateaus: A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification under symmetric depolarizing noise with p = 0.01?\" Đáp án: \"The reported classification accuracy is 94.2%.\""
+  },
+  "t044": {
+    "question": "How many total power traces are required by the improved non-profiled CPA/two-step attack to recover the 128-coefficient key group SK-128 in Kyber?",
+    "ground_truth": "Between 660 and 900 power traces in total (60 basemul calls with 11–15 traces each).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'according to the table' và nêu đúng phạm vi: \"How many total power traces are required by the improved non-profiled CPA/two-step attack to recover the 128-coefficient key group SK-128 in Kyber?\" Đáp án: \"Between 660 and 900 power traces in total (60 basemul calls with 11–15 traces each).\" Không gọi đây là số traces của toàn bộ khóa Kyber."
+  },
+  "t119": {
+    "question": "What tailored quantum-resistant measure is proposed for protecting cloud data?",
+    "ground_truth": "Post-quantum encryption for cloud data.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Hỏi khớp mức chi tiết nguồn: \"What tailored quantum-resistant measure is proposed for protecting cloud data?\" Đáp án: \"Post-quantum encryption for cloud data.\" Đoạn không nêu các hệ mật cụ thể để trả lời câu hỏi 'what cryptographic systems'."
+  },
+  "t175": {
+    "question": "In residue arithmetic for computations modulo L, how does the bit length ℓ of the small primes in the residue set P scale with L according to the prime number theorem?",
+    "ground_truth": "The prime set can be chosen with prime bit length ℓ = Θ(log log L).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định nghĩa ký hiệu trong câu hỏi: \"In residue arithmetic for computations modulo L, how does the bit length ℓ of the small primes in the residue set P scale with L according to the prime number theorem?\" Đáp án: \"The prime set can be chosen with prime bit length ℓ = Θ(log log L).\""
+  },
+  "t070": {
+    "question": "In the CV-QKD description, how does choosing a measurement basis compare with using both bases simultaneously in terms of sifting?",
+    "ground_truth": "When a basis is selected, sifting removes uncorrelated measurement data. In the described variants where Alice and Bob use both bases simultaneously, sifting is unnecessary.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Làm rõ hai lựa chọn thay vì câu 'two possible preparations' thiếu liệt kê: \"In the CV-QKD description, how does choosing a measurement basis compare with using both bases simultaneously in terms of sifting?\" Đáp án: \"When a basis is selected, sifting removes uncorrelated measurement data. In the described variants where Alice and Bob use both bases simultaneously, sifting is unnecessary.\" Dùng 'measurement data', không gọi dữ liệu CV là qubits bị loại."
+  },
+  "h017": {
+    "question": "How do the computing resources and runtime reported for the classical cryptanalytic attack on SIKE compare with the computing resources needed to threaten RSA/ECC using Shor’s algorithm?",
+    "ground_truth": "The SIKE attack described in the survey runs in approximately one hour on standard classical hardware and does not require quantum computation. By contrast, breaking RSA/ECC with Shor’s algorithm requires a sufficiently powerful cryptographically relevant quantum computer.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ đánh giá 'more severe threat' vì không có cơ sở so sánh mức độ. Đáp án: \"The SIKE attack described in the survey runs in approximately one hour on standard classical hardware and does not require quantum computation. By contrast, breaking RSA/ECC with Shor’s algorithm requires a sufficiently powerful cryptographically relevant quantum computer.\" Cả hai đoạn đều cần cho phép so sánh tài nguyên này."
+  },
+  "h020": {
+    "question": "Which complementary literature gaps are identified by Quantum Key Distribution Networks—Key Management: A Survey and QUANTUM KEY DISTRIBUTION: Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction?",
+    "ground_truth": "The key-management survey identifies a missing comprehensive system-level engineering view and provides a chronological account of key-manager functionality. The security review identifies incomplete coverage of CV-QKD security proofs and insufficient updates on experimental attacks/security developments in earlier reviews.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Hỏi cụ thể hai khoảng trống thay vì liên hệ suy đoán: \"Which complementary literature gaps are identified by Quantum Key Distribution Networks—Key Management: A Survey and QUANTUM KEY DISTRIBUTION: Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction?\" Đáp án: \"The key-management survey identifies a missing comprehensive system-level engineering view and provides a chronological account of key-manager functionality. The security review identifies incomplete coverage of CV-QKD security proofs and insufficient updates on experimental attacks/security developments in earlier reviews.\" Không tự khẳng định quan hệ nhân quả giữa hai khoảng trống."
+  },
+  "t081": {
+    "question": "What protocols developed by Gong et al. (2023) represent an advancement in quantum cryptography?",
+    "ground_truth": "Gong et al. (2023) developed multi-party semi-quantum private comparison (MQPC) protocols using decoherence-free states to support communication under collective-dephasing and collective-rotation noise.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Rút gọn câu trả lời bị lỗi ngữ pháp: \"Gong et al. (2023) developed multi-party semi-quantum private comparison (MQPC) protocols using decoherence-free states to support communication under collective-dephasing and collective-rotation noise.\""
+  },
+  "t017": {
+    "question": "What year does the White House’s NSM-10 target for mitigating most quantum risk, as reported in Are Enterprises Ready for Quantum-Safe Cybersecurity?",
+    "ground_truth": "The stated target is 2035.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nguồn không gán đích năm 2035 cho ETSI như câu hỏi. Chỉ hỏi: \"What year does the White House’s NSM-10 target for mitigating most quantum risk, as reported in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"The stated target is 2035.\" Bỏ quy kết ETSI có cùng hạn chót."
+  },
+  "t055": {
+    "question": "What is the basis of the FALCON signature algorithm and how does it generate keys and sign messages?",
+    "ground_truth": "FALCON is based on NTRU lattices, uses a rapid Fourier trapdoor sampler, and relies on the SIS problem over NTRU. Its key-generation inputs include the prime modulus q and monic polynomial φ. Messages are signed with secret key sk and signatures are verified with public key h.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung nền tảng còn thiếu trong đáp án: \"FALCON is based on NTRU lattices, uses a rapid Fourier trapdoor sampler, and relies on the SIS problem over NTRU. Its key-generation inputs include the prime modulus q and monic polynomial φ. Messages are signed with secret key sk and signatures are verified with public key h.\" Không chỉ trả lời chung chung 'based on the lattice'."
+  },
+  "t128": {
+    "question": "In the Kyber shuffling countermeasure’s random permutation generator (RPG), how far is the completed permutation cyclically shifted to the right before output?",
+    "ground_truth": "It is cyclically shifted to the right six times before being output as the final random address permutation.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nêu tên hệ thống và đáp án đầy đủ: \"In the Kyber shuffling countermeasure’s random permutation generator (RPG), how far is the completed permutation cyclically shifted to the right before output?\" Đáp án: \"It is cyclically shifted to the right six times before being output as the final random address permutation.\""
+  },
+  "t102": {
+    "question": "What hardware acceleration designs are mentioned for FALCON?",
+    "ground_truth": "FFT and discrete Gaussian co-designs are mentioned for FALCON hardware acceleration.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án thừa các thiết kế cho ML-DSA/SPHINCS+. Chỉ trả lời: \"FFT and discrete Gaussian co-designs are mentioned for FALCON hardware acceleration.\""
+  },
+  "h042": {
+    "question": "How does the use of XMSS in the Quantum-Resistance Ledger (QRL) relate to the support of LMS and XMSS in wolfSSL for code signing, and what are the implications for post-quantum security in embedded systems and blockchains?",
+    "ground_truth": "QRL deploys the hash-based XMSS signature scheme in its blockchain. wolfSSL supports the stateful hash-based schemes LMS and XMSS for software/firmware code signing. The two examples illustrate hash-based post-quantum signatures in blockchain and embedded code-signing deployments, respectively.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ suy luận QRL cũng dùng/đánh giá LMS. Đáp án: \"QRL deploys the hash-based XMSS signature scheme in its blockchain. wolfSSL supports the stateful hash-based schemes LMS and XMSS for software/firmware code signing. The two examples illustrate hash-based post-quantum signatures in blockchain and embedded code-signing deployments, respectively.\" Không khẳng định cả hai triển khai đều sử dụng LMS."
+  },
+  "t110": {
+    "question": "What is the online recommendation-stage runtime of the quantum recommendation algorithm for a low-rank preference matrix with m customers, n products, and rank k?",
+    "ground_truth": "The online stage runs in O(poly(k) polylog(mn)) time by sampling from a low-rank approximation rather than reconstructing the full matrix.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nêu rõ giai đoạn online và ký hiệu: \"What is the online recommendation-stage runtime of the quantum recommendation algorithm for a low-rank preference matrix with m customers, n products, and rank k?\" Đáp án: \"The online stage runs in O(poly(k) polylog(mn)) time by sampling from a low-rank approximation rather than reconstructing the full matrix.\" Nên kèm phần nguồn trước đó định nghĩa m, n, k khi phát hành lại phiếu."
+  },
+  "t197": {
+    "question": "What effect does a barren plateau (BP) have on the landscape of the cost function in a variational quantum algorithm (VQA)?",
+    "ground_truth": "A barren plateau makes the cost-function landscape essentially flat because its partial derivatives vanish exponentially with system size on average.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Sửa câu trả lời lỗi OCR và đại từ: \"A barren plateau makes the cost-function landscape essentially flat because its partial derivatives vanish exponentially with system size on average.\""
+  },
+  "t154": {
+    "question": "Which class of attacks on QML models in 6G replaces a deployed model with a malicious one?",
+    "ground_truth": "QML compromise attacks.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'the paper' và số hiệu hình: \"Which class of attacks on QML models in 6G replaces a deployed model with a malicious one?\" Đáp án: \"QML compromise attacks.\""
+  },
+  "h041": {
+    "question": "How can noise undermine QML-assisted 6G digital twins, and what intrusion-detection latency reduction is reported for quantum processing relative to classical processing?",
+    "ground_truth": "Noise can corrupt qubit-encoded real-time data/measurements and lead to unreliable digital-twin predictions. The cybersecurity example reports latency falling from 320 ms to 110 ms with quantum processing.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nguồn B ghi F1 là 0.94 nhưng classical là 0.87%, không cùng thang đo; không tự sửa 0.87% thành 0.87 khi chưa kiểm chứng. Đổi phần so sánh sang số liệu latency đầy đủ: \"How can noise undermine QML-assisted 6G digital twins, and what intrusion-detection latency reduction is reported for quantum processing relative to classical processing?\" Đáp án: \"Noise can corrupt qubit-encoded real-time data/measurements and lead to unreliable digital-twin predictions. The cybersecurity example reports latency falling from 320 ms to 110 ms with quantum processing.\" Hai đoạn cần cho hai ý."
+  },
+  "t205": {
+    "question": "What UK NCSC PQC-migration year is stated in harvest-now-decrypt-later-pqc-threat-model?",
+    "ground_truth": "The document states a migration year of 2035.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án phải có ngữ cảnh và phân biệt phát biểu nguồn với quy định đã xác minh. Hỏi: \"What UK NCSC PQC-migration year is stated in harvest-now-decrypt-later-pqc-threat-model?\" Đáp án: \"The document states a migration year of 2035.\" Đoạn trích không đủ để xác nhận tính chất pháp lý của từ 'mandate'."
+  },
+  "t178": {
+    "question": "How does the residue-arithmetic RSA factoring implementation replace modular multiplications with modular additions?",
+    "ground_truth": "By classically precomputing short discrete logarithms.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'the example code' không được định danh: \"How does the residue-arithmetic RSA factoring implementation replace modular multiplications with modular additions?\" Đáp án: \"By classically precomputing short discrete logarithms.\""
+  },
+  "t173": {
+    "question": "How does the number of trainable parameters in the localized-cost QCNN architecture scale with the number of qubits n?",
+    "ground_truth": "The trainable-parameter count scales as O(log n).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định nghĩa n và bỏ phần suy diễn lợi thế không được hỏi: \"How does the number of trainable parameters in the localized-cost QCNN architecture scale with the number of qubits n?\" Đáp án: \"The trainable-parameter count scales as O(log n).\""
+  },
+  "t177": {
+    "question": "In Ekerå–Håstad-style period finding for an RSA modulus N = pq, what value of d is recovered with high probability after classical post-processing?",
+    "ground_truth": "With high probability, d = p + q − 2, where p and q are the prime factors of N.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh bước xử lý: \"In Ekerå–Håstad-style period finding for an RSA modulus N = pq, what value of d is recovered with high probability after classical post-processing?\" Đáp án: \"With high probability, d = p + q − 2, where p and q are the prime factors of N.\""
+  },
+  "t135": {
+    "question": "Which classical and quantum stages are integrated in the QML-based intrusion detection system (QML-IDS)?",
+    "ground_truth": "The system combines network monitoring and feature extraction/classical preprocessing, quantum feature mapping and circuit transpilation/optimization, QML models such as VQC, QSVM and QCNN, and classical learning/post-processing for network alerts and evaluation.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'according to Figure 2'. Hỏi: \"Which classical and quantum stages are integrated in the QML-based intrusion detection system (QML-IDS)?\" Đáp án: \"The system combines network monitoring and feature extraction/classical preprocessing, quantum feature mapping and circuit transpilation/optimization, QML models such as VQC, QSVM and QCNN, and classical learning/post-processing for network alerts and evaluation.\""
+  },
+  "t033": {
+    "question": "What is the form of the loss function in a Quantum Neural Network (QNN) and what do the symbols in the equation represent?",
+    "ground_truth": "The loss is an observable expectation value, L(θ) = ⟨ψ(θ)∣O∣ψ(θ)⟩. Here ∣ψ(θ)⟩ is the parameterized QNN state, and O is a Hermitian measurement observable associated with the classification or regression task.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ tham chiếu Equation (26)/(27) khỏi đáp án. Viết: \"The loss is an observable expectation value, L(θ) = ⟨ψ(θ)∣O∣ψ(θ)⟩. Here ∣ψ(θ)⟩ is the parameterized QNN state, and O is a Hermitian measurement observable associated with the classification or regression task.\""
+  },
+  "t158": {
+    "question": "Which two applications are associated with early quantum coding using non-orthogonal quantum states?",
+    "ground_truth": "Counterfeit-resistant money and multiplexing.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'the paper': \"Which two applications are associated with early quantum coding using non-orthogonal quantum states?\" Đáp án: \"Counterfeit-resistant money and multiplexing.\" Khi đưa lại nguồn nên nối từ 'multiplex-' bị ngắt trang để người chấm thấy đầy đủ."
+  },
+  "t107": {
+    "question": "Under what alternative assumptions can quantum randomness expansion remain certifiable even with untrusted equipment?",
+    "ground_truth": "It can rely on the inability of spacelike-separated parties to communicate, or on suitable assumptions about quantum computational hardness.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án hiện nêu giả thiết thay vì trả lời 'what can be used'. Đổi câu hỏi: \"Under what alternative assumptions can quantum randomness expansion remain certifiable even with untrusted equipment?\" Đáp án: \"It can rely on the inability of spacelike-separated parties to communicate, or on suitable assumptions about quantum computational hardness.\""
+  },
+  "t129": {
+    "question": "In the hardware shuffling countermeasure for Kyber, how many replacement RAM/ROM read and write addresses does the address controller (ADDR) provide?",
+    "ground_truth": "It provides four replacement read addresses and two replacement write addresses.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh bộ điều khiển: \"In the hardware shuffling countermeasure for Kyber, how many replacement RAM/ROM read and write addresses does the address controller (ADDR) provide?\" Đáp án: \"It provides four replacement read addresses and two replacement write addresses.\""
+  },
+  "t035": {
+    "question": "What frameworks and tools are discussed for developing hybrid quantum-classical models in the practical implementation of QML on quantum hardware?",
+    "ground_truth": "Qiskit and TensorFlow Quantum are discussed as tools for developing hybrid quantum-classical models.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Sửa đáp án thành nội dung trực tiếp: \"Qiskit and TensorFlow Quantum are discussed as tools for developing hybrid quantum-classical models.\" Bỏ 'The passage mentions' và [96]/[65]."
+  },
+  "t099": {
+    "question": "What is the basis of ML-KEM's cryptographic operations and what problem does it rely on for security guarantees?",
+    "ground_truth": "ML-KEM is lattice-based and operates over polynomial rings with carefully chosen parameters. The passage grounds its security guarantees in worst-case lattice problems.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung cơ sở vận hành bị thiếu trong đáp án: \"ML-KEM is lattice-based and operates over polynomial rings with carefully chosen parameters. The passage grounds its security guarantees in worst-case lattice problems.\" Bỏ đoạn quảng bá hiệu năng không được câu hỏi yêu cầu; không tự bổ sung chi tiết phép quy giảm chưa có trong nguồn."
+  },
+  "t038": {
+    "question": "What property of Dilithium’s point-wise multiplication makes it susceptible to the discussed side-channel attacks on lattice-based PQC?",
+    "ground_truth": "Dilithium uses single-point PWM and is described as more vulnerable to similar PWM-targeting side-channel attacks.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'mentioned in the paper' và làm rõ loại tấn công: \"What property of Dilithium’s point-wise multiplication makes it susceptible to the discussed side-channel attacks on lattice-based PQC?\" Đáp án: \"Dilithium uses single-point PWM and is described as more vulnerable to similar PWM-targeting side-channel attacks.\""
+  },
+  "h003": {
+    "question": "What key/signature-size trade-off is reported for the Rand Basis-based post-quantum blockchain signature scheme, and what hardness assumption underpins the LWE-based protection discussed for Kyber?",
+    "ground_truth": "The Rand Basis scheme reduces public and private key sizes but increases signature size relative to earlier schemes. The lattice-based protection discussed for Kyber relies on the difficulty of finding short vectors in high-dimensional lattices.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay [149] bằng mô tả định danh được: \"What key/signature-size trade-off is reported for the Rand Basis-based post-quantum blockchain signature scheme, and what hardness assumption underpins the LWE-based protection discussed for Kyber?\" Đáp án: \"The Rand Basis scheme reduces public and private key sizes but increases signature size relative to earlier schemes. The lattice-based protection discussed for Kyber relies on the difficulty of finding short vectors in high-dimensional lattices.\" Không để người đọc phải tra số trích dẫn để biết đối tượng."
+  },
+  "h015": {
+    "question": "How do PQC and QKD complement each other in mitigating the temporal cybersecurity risk in the quantum transition?",
+    "ground_truth": "PQC can protect broad existing infrastructures through software migration, although delayed migration leaves exposure. QKD adds physical-layer key-distribution guarantees for selected highly sensitive fiber links, with cost and scalability limits; its keys can feed symmetric encryption such as AES while PQC or pre-shared keys provide authentication. Forward-secure lifecycles, rather than QKD itself, are the measure the HNDL passage assigns to mitigating archival/legacy risk.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án gán nhầm vai trò giảm legacy risk của forward-secure lifecycles cho QKD. Sửa: \"PQC can protect broad existing infrastructures through software migration, although delayed migration leaves exposure. QKD adds physical-layer key-distribution guarantees for selected highly sensitive fiber links, with cost and scalability limits; its keys can feed symmetric encryption such as AES while PQC or pre-shared keys provide authentication. Forward-secure lifecycles, rather than QKD itself, are the measure the HNDL passage assigns to mitigating archival/legacy risk.\""
+  },
+  "t034": {
+    "question": "What performance is reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications for the hybrid model combining classical preprocessing, a variational quantum layer, and mini-batch training?",
+    "ground_truth": "The model is reported to achieve 99.58% accuracy, outperform its classical counterpart, and show enhanced robustness on noisy data.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đoạn không cho tên mô hình/tác giả, không gán mô hình cho tác giả ở đầu trang. Hỏi có nguồn rõ: \"What performance is reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications for the hybrid model combining classical preprocessing, a variational quantum layer, and mini-batch training?\" Đáp án: \"The model is reported to achieve 99.58% accuracy, outperform its classical counterpart, and show enhanced robustness on noisy data.\" Nên bổ sung phần đoạn trước có tên mô hình khi phát hành lại."
+  },
+  "h035": {
+    "question": "How does the modified Fujisaki–Okamoto transform in CRYSTALS-Kyber ensure security, and what previous attack method is used to recover 60% of the secret key in Kyber-512 with 1619 power traces?",
+    "ground_truth": "The modified FO transform ensures random secret/error values are generated within the permitted procedure and checked during decapsulation. The prior work described in the second passage uses CPA twice to recover 60% of the Kyber-512 secret key using approximately 1,619 power traces, leaving 40% erroneous coefficients.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án thừa ví dụ Ueno/3072 traces không được hỏi. Sửa: \"The modified FO transform ensures random secret/error values are generated within the permitted procedure and checked during decapsulation. The prior work described in the second passage uses CPA twice to recover 60% of the Kyber-512 secret key using approximately 1,619 power traces, leaving 40% erroneous coefficients.\" Không gọi đây là phục hồi toàn bộ khóa."
+  },
+  "t090": {
+    "question": "What lower bound is given for the secure key-generation rate per emitted signal state in decoy-state QKD?",
+    "ground_truth": "S ≥ Q_μ{−H_2(E_μ) + Ω[1 − H_2(e_1)]}, where Ω is the fraction of detections originating from single-photon signals and e_1 is their QBER.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "S không phải 'security parameter' mà là secure key-generation rate per emitted signal state. Hỏi: \"What lower bound is given for the secure key-generation rate per emitted signal state in decoy-state QKD?\" Đáp án: \"S ≥ Q_μ{−H_2(E_μ) + Ω[1 − H_2(e_1)]}, where Ω is the fraction of detections originating from single-photon signals and e_1 is their QBER.\""
+  },
+  "t171": {
+    "question": "What is the initial learning rate (η0) used in the optimization configuration for the TFQCirq Simulation Pipeline?",
+    "ground_truth": "The TFQ-Cirq simulation pipeline uses an initial learning rate η_0 = 0.015.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay đáp án bảng/cụt bằng câu đầy đủ: \"The TFQ-Cirq simulation pipeline uses an initial learning rate η_0 = 0.015.\""
+  },
+  "t202": {
+    "question": "What baseline attacker-decryption-horizon estimate H_a is used relative to Q-Day T_Qday in harvest-now-decrypt-later-pqc-threat-model?",
+    "ground_truth": "The model assumes H_a ≈ T_Qday + 3–5 years to allow for operational deployment, refinement, and scaling after Q-Day.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Quy chiếu rõ đây là ước lượng trong mô hình, không dự báo chắc chắn: \"What baseline attacker-decryption-horizon estimate H_a is used relative to Q-Day T_Qday in harvest-now-decrypt-later-pqc-threat-model?\" Đáp án: \"The model assumes H_a ≈ T_Qday + 3–5 years to allow for operational deployment, refinement, and scaling after Q-Day.\""
+  },
+  "t188": {
+    "question": "Which type of cryptographic system uses an asymmetric public/private key pair for encryption and decryption?",
+    "ground_truth": "A public-key cryptography system.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đoạn không giải thích quan hệ toán học cụ thể giữa hai khóa. Bỏ vế đó; hỏi: \"Which type of cryptographic system uses an asymmetric public/private key pair for encryption and decryption?\" Đáp án: \"A public-key cryptography system.\""
+  },
+  "t160": {
+    "question": "In quantum public-key distribution, which scheme lets Alice and Bob authenticate public-channel messages using a small pre-shared secret key?",
+    "ground_truth": "The Wegman–Carter multiple-message authentication scheme.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung ngữ cảnh giao thức: \"In quantum public-key distribution, which scheme lets Alice and Bob authenticate public-channel messages using a small pre-shared secret key?\" Đáp án: \"The Wegman–Carter multiple-message authentication scheme.\""
+  },
+  "t047": {
+    "question": "How does the Fujisaki–Okamoto transform in Kyber use re-encryption to check ciphertext tampering?",
+    "ground_truth": "It decrypts the received ciphertext, re-encrypts the recovered message to obtain c′, and compares c′ with the received ciphertext c; the equality result determines the subsequent session-key selection.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu hiện tại vòng vo và đã nêu phép kiểm tra. Hỏi: \"How does the Fujisaki–Okamoto transform in Kyber use re-encryption to check ciphertext tampering?\" Đáp án: \"It decrypts the received ciphertext, re-encrypts the recovered message to obtain c′, and compares c′ with the received ciphertext c; the equality result determines the subsequent session-key selection.\""
+  },
+  "t011": {
+    "question": "How does vanishing-gradient scaling in classical deep networks compare with the barren-plateau scaling discussed for randomly initialized parameterized quantum circuits?",
+    "ground_truth": "Classical gradients can vanish exponentially with the number of layers; in the quantum barren-plateau setting discussed, gradients become exponentially small with the number of qubits.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Giới hạn phạm vi kết luận lượng tử: \"How does vanishing-gradient scaling in classical deep networks compare with the barren-plateau scaling discussed for randomly initialized parameterized quantum circuits?\" Đáp án: \"Classical gradients can vanish exponentially with the number of layers; in the quantum barren-plateau setting discussed, gradients become exponentially small with the number of qubits.\" Không khẳng định mọi mạch lượng tử đều có gradient như vậy."
+  },
+  "t194": {
+    "question": "What approach can offer additional flexibility by including device-level parameters in the definition of the ansatz, and how does it connect to quantum optimal control?",
+    "ground_truth": "A sub-logical ansatz includes device-level control parameters in the variational ansatz, giving additional flexibility. It connects VQAs to quantum optimal control, which maps logical operations to physical control parameters and is especially relevant to quantum simulation.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đáp án phải nêu tên approach: \"A sub-logical ansatz includes device-level control parameters in the variational ansatz, giving additional flexibility. It connects VQAs to quantum optimal control, which maps logical operations to physical control parameters and is especially relevant to quantum simulation.\""
+  },
+  "t114": {
+    "question": "What is the role of the key sharing and allocation mechanism in a QKD network?",
+    "ground_truth": "The mechanism provides a fair and effective supply of keys to multiple applications through key-sharing and key-allocation functions.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đoạn bị cắt trước phần phân phối global keys. Trả lời đúng phần đầy đủ, phù hợp câu hỏi về vai trò: \"The mechanism provides a fair and effective supply of keys to multiple applications through key-sharing and key-allocation functions.\" Không kể chi tiết tiếp theo chưa có trong đoạn."
+  },
+  "t169": {
+    "question": "In the localized-cost QCNN of Beyond Barren Plateaus: A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification, what is the pooling unitary V_pool(θ), with j the discarded qubit and k the surviving qubit?",
+    "ground_truth": "The pooling operation uses V_pool(θ) = CNOT_(j→k) [I ⊗ R_y(θ)] CNOT_(j→k), with j as the control and k as the surviving qubit. Qubit j is then traced out.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the architecture' bằng localized-cost QCNN trong tên bài; định nghĩa j là qubit bị loại và k là qubit giữ lại. Đáp án: \"The pooling operation uses V_pool(θ) = CNOT_(j→k) [I ⊗ R_y(θ)] CNOT_(j→k), with j as the control and k as the surviving qubit. Qubit j is then traced out.\""
+  },
+  "t146": {
+    "question": "What adoption year does A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries report for quantum-resistant software/firmware signing and web/cloud TLS in US National Security Systems (NSS)?",
+    "ground_truth": "The survey reports 2025 for those NSS applications.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bổ sung phạm vi NSS và quy chiếu nguồn; không biến thành hạn chót chung cho mọi TLS. Hỏi: \"What adoption year does A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries report for quantum-resistant software/firmware signing and web/cloud TLS in US National Security Systems (NSS)?\" Đáp án: \"The survey reports 2025 for those NSS applications.\" Cần kiểm chứng tài liệu NSA gốc nếu muốn dùng câu như phát biểu chính sách thực tế thay vì đọc hiểu nguồn."
+  },
+  "h043": {
+    "question": "What total trace budget is reported for the improved non-profiled CPA/two-step recovery of Kyber’s SK-128 group, and which KEM implementations are described as suitable when power consumption or execution time is a concern?",
+    "ground_truth": "The SK-128 attack uses 660–900 traces. The survey identifies Kyber and NewHope as suitable KEM implementations when power consumption or execution time matters.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "B không nêu một implementation Kyber cụ thể và còn nói NewHope. Hỏi: \"What total trace budget is reported for the improved non-profiled CPA/two-step recovery of Kyber’s SK-128 group, and which KEM implementations are described as suitable when power consumption or execution time is a concern?\" Đáp án: \"The SK-128 attack uses 660–900 traces. The survey identifies Kyber and NewHope as suitable KEM implementations when power consumption or execution time matters.\""
+  },
+  "t013": {
+    "question": "Which algorithm categories are covered by NIST’s first three finalized PQC standards released in August 2024?",
+    "ground_truth": "One key-encapsulation mechanism and two digital-signature schemes.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Phân biệt lựa chọn 2022 với ba chuẩn hoàn tất 2024. Hỏi: \"Which algorithm categories are covered by NIST’s first three finalized PQC standards released in August 2024?\" Đáp án: \"One key-encapsulation mechanism and two digital-signature schemes.\""
+  },
+  "h048": {
+    "question": "How do the reported IBM NISQ Shor experiments compare with fault-tolerant RSA resource estimates, and why does the VQA review distinguish quantum supremacy from practical quantum advantage?",
+    "ground_truth": "The IBM experiments factored only small integers such as 15 and 21. The cited fault-tolerant estimate calls for roughly 20 million physical qubits for about eight hours at a 1 μs surface-code cycle, with major engineering work still needed. The VQA review attributes early limitations to noise and qubit constraints and distinguishes success on contrived supremacy tasks from speedups on practical applications.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nêu đủ đối chiếu và tránh coi số 50–100 qubits của bài khảo sát cũ là hiện trạng. Hỏi: \"How do the reported IBM NISQ Shor experiments compare with fault-tolerant RSA resource estimates, and why does the VQA review distinguish quantum supremacy from practical quantum advantage?\" Đáp án: \"The IBM experiments factored only small integers such as 15 and 21. The cited fault-tolerant estimate calls for roughly 20 million physical qubits for about eight hours at a 1 μs surface-code cycle, with major engineering work still needed. The VQA review attributes early limitations to noise and qubit constraints and distinguishes success on contrived supremacy tasks from speedups on practical applications.\""
+  },
+  "t106": {
+    "question": "Which computational task is identified as a natural candidate for problems that are classically hard but accessible to quantum computers?",
+    "ground_truth": "Simulating a many-particle quantum system.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu hiện tại chứa luôn đáp án. Hỏi: \"Which computational task is identified as a natural candidate for problems that are classically hard but accessible to quantum computers?\" Đáp án: \"Simulating a many-particle quantum system.\""
+  },
+  "t133": {
+    "question": "Which hybrid framework is described for intelligent-firewall malware detection in Quantum Machine Learning for Cybersecurity?",
+    "ground_truth": "A combination of behavioral analysis, QML, and graph neural networks (GNNs).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ Ref. [11] không định danh: \"Which hybrid framework is described for intelligent-firewall malware detection in Quantum Machine Learning for Cybersecurity?\" Đáp án: \"A combination of behavioral analysis, QML, and graph neural networks (GNNs).\""
+  },
+  "t016": {
+    "question": "Which technology categories are reported as offering beta PQC support in Are Enterprises Ready for Quantum-Safe Cybersecurity?",
+    "ground_truth": "Major VPN vendors and TLS libraries.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ 'now' không gắn thời điểm. Hỏi: \"Which technology categories are reported as offering beta PQC support in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"Major VPN vendors and TLS libraries.\" Không biến nhận định trong bài thành trạng thái hiện tại đã xác minh."
+  },
+  "t112": {
+    "question": "In ETSI QKD 004 key-stream sessions, which function returns the requested amount of key material for a specified Key Stream Identifier (KSID)?",
+    "ground_truth": "The GET_KEY function.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Làm rõ chuẩn: \"In ETSI QKD 004 key-stream sessions, which function returns the requested amount of key material for a specified Key Stream Identifier (KSID)?\" Đáp án: \"The GET_KEY function.\""
+  },
+  "t183": {
+    "question": "What is the size range of signatures for SPHINCS+ and what is a notable characteristic of this scheme?",
+    "ground_truth": "SPHINCS+ signatures range from approximately 8 to 30 kilobytes. It is a stateless hash-based scheme relying on established hash functions rather than lattice structure, with a performance cost.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Đoạn dừng ở 'both for key', chưa đủ cho mô tả chi phí của hai thao tác. Dùng đặc tính có đầy đủ trong đoạn: \"SPHINCS+ signatures range from approximately 8 to 30 kilobytes. It is a stateless hash-based scheme relying on established hash functions rather than lattice structure, with a performance cost.\" Nếu giữ chi tiết key generation/signing, phải nối phần nguồn ở trang tiếp theo."
+  },
+  "t096": {
+    "question": "How does the secure key-generation rate scale with channel transmission probability η in the decoy-state method compared with the prior GLLP-style approach?",
+    "ground_truth": "The decoy-state method achieves O(η) scaling with signal intensity μ = O(1), compared with O(η^2) when the earlier approach chooses μ = O(η).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the new method/paper' bằng decoy-state QKD và so sánh GLLP: \"How does the secure key-generation rate scale with channel transmission probability η in the decoy-state method compared with the prior GLLP-style approach?\" Đáp án: \"The decoy-state method achieves O(η) scaling with signal intensity μ = O(1), compared with O(η^2) when the earlier approach chooses μ = O(η).\""
+  },
+  "h008": {
+    "question": "What challenges do controlled operations between qubits pose for the deployment of a QCNN on hardware limited to nearest-neighbor connectivity, and how do these challenges compare to the difficulties encountered when running Shor’s algorithm on non-IBM quantum hardware platforms?",
+    "ground_truth": "Controlled operations between qubits in a QCNN can become physically distant as intermediate qubits are traced out or measured mid-circuit, requiring dynamic SWAP routing during transpilation to preserve the shallow depth of the model. This challenge is similar to the difficulties encountered when running Shor’s algorithm on non-IBM quantum hardware platforms, where generic transpilation pipelines do not succeed due to hardware-specific constraints such as different qubit topologies and native gates, necessitating hardware-specific circuit design and optimization.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu hỏi ghi ngược điều kiện topology: thay 'hardware with non-nearest-neighbor connectivity' bằng 'hardware limited to nearest-neighbor connectivity'. Giữ phần đối chiếu và đáp án về SWAP routing cùng thiết kế/transpilation theo native gates, topology từng nền tảng."
+  },
+  "h039": {
+    "question": "Why might quantum learning networks suit tasks involving quantum-state inputs and outputs, and what architectural properties allow QCNNs to target logarithmic circuit depth for image classification?",
+    "ground_truth": "Quantum learning networks may suit control of quantum systems and distributions where entanglement matters. QCNNs translate hierarchical feature extraction and translation invariance into quantum circuits, seeking logarithmic depth through their hierarchical structure and quantum operations. These are proposed advantages, not a demonstrated common speedup for classical image data.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ suy luận hai trường hợp bảo đảm lợi thế giống nhau. Hỏi: \"Why might quantum learning networks suit tasks involving quantum-state inputs and outputs, and what architectural properties allow QCNNs to target logarithmic circuit depth for image classification?\" Đáp án: \"Quantum learning networks may suit control of quantum systems and distributions where entanglement matters. QCNNs translate hierarchical feature extraction and translation invariance into quantum circuits, seeking logarithmic depth through their hierarchical structure and quantum operations. These are proposed advantages, not a demonstrated common speedup for classical image data.\""
+  },
+  "t206": {
+    "question": "What is the formula for calculating Riskorg in the HNDL Model Extension 1?",
+    "ground_truth": "Risk_org = sum_(i=1)^n P(L_d^(i) > H_a given data_type_i) × (data_value_i × impact_i). This aggregates weighted risk across the organization’s n data types.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Loại thẻ HTML trong đáp án và chuẩn hóa công thức còn đủ thành phần: \"Risk_org = sum_(i=1)^n P(L_d^(i) > H_a given data_type_i) × (data_value_i × impact_i).\" Giải thích ngắn đây là tổng rủi ro có trọng số trên n loại dữ liệu của tổ chức. Không để <sub>/<sup> hiện như văn bản."
+  },
+  "t134": {
+    "question": "Which QML model families does Quantum Machine Learning for Cybersecurity discuss as promising approaches for faster, more efficient, and more robust cybersecurity analysis?",
+    "ground_truth": "Quantum support vector machines (QSVMs), quantum neural networks (QNNs), variational quantum circuits (VQCs), and quantum generative adversarial networks (QGANs).",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thu hẹp phát biểu hiệu năng tuyệt đối: \"Which QML model families does Quantum Machine Learning for Cybersecurity discuss as promising approaches for faster, more efficient, and more robust cybersecurity analysis?\" Đáp án: \"Quantum support vector machines (QSVMs), quantum neural networks (QNNs), variational quantum circuits (VQCs), and quantum generative adversarial networks (QGANs).\" Không khẳng định chúng vượt mọi phương pháp cổ điển trong mọi tác vụ."
+  },
+  "t004": {
+    "question": "What does a higher value of the enterprise Quantum-Resilience Index R(t) indicate?",
+    "ground_truth": "A higher R(t) indicates greater enterprise quantum resilience, reflecting superior agility, automation, and cryptographic readiness against quantum-era threats.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Định danh ký hiệu trong câu hỏi: \"What does a higher value of the enterprise Quantum-Resilience Index R(t) indicate?\" Đáp án hiện tại phù hợp: greater quantum resilience through agility, automation, and cryptographic readiness."
+  },
+  "t131": {
+    "question": "Which lattice-based scheme is currently protected by the compact hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber, and which extensions are proposed?",
+    "ground_truth": "It currently protects Kyber; future work proposes extending it to Dilithium and Raccoon, with error-detection mechanisms also considered.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay 'the proposed method' bằng định danh: \"Which lattice-based scheme is currently protected by the compact hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber, and which extensions are proposed?\" Đáp án: \"It currently protects Kyber; future work proposes extending it to Dilithium and Raccoon, with error-detection mechanisms also considered.\""
+  },
+  "t126": {
+    "question": "Why do the TECS and TCAD hardware shuffling schemes require substantial pre-storage to achieve high security?",
+    "ground_truth": "Their random permutations are generated outside the hardware and preloaded into storage.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Thay [10] và [13] bằng tên mô tả trong bảng: \"Why do the TECS and TCAD hardware shuffling schemes require substantial pre-storage to achieve high security?\" Đáp án: \"Their random permutations are generated outside the hardware and preloaded into storage.\""
+  },
+  "t046": {
+    "question": "Which class of side-channel techniques is highlighted as overcoming masking and shuffling defenses in lattice-based cryptographic implementations?",
+    "ground_truth": "Advanced side-channel analysis techniques, particularly those based on deep learning.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Bỏ cấu trúc gán Kyber chạy 'on ... Saber' sai nghĩa. Hỏi: \"Which class of side-channel techniques is highlighted as overcoming masking and shuffling defenses in lattice-based cryptographic implementations?\" Đáp án: \"Advanced side-channel analysis techniques, particularly those based on deep learning.\" Không lặp câu nguồn bị nối lỗi giữa các triển khai Kyber/Saber."
+  },
+  "t010": {
+    "question": "Which initial single-qubit rotation layer is applied before the random circuit layers to avoid making X, Y, or Z a preferred gradient direction?",
+    "ground_truth": "An initial layer of R_Y(π/4) = exp(−iπY/8) rotations.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Câu hỏi nhầm lớp khởi tạo với 'each layer'. Hỏi: \"Which initial single-qubit rotation layer is applied before the random circuit layers to avoid making X, Y, or Z a preferred gradient direction?\" Đáp án: \"An initial layer of R_Y(π/4) = exp(−iπY/8) rotations.\" Bỏ khẳng định R_Y(π/4) = √H gây nhầm với căn cổng Hadamard."
+  },
+  "t045": {
+    "question": "What implementation-level vulnerability is reported for the Kyber512 reference implementation under chosen-ciphertext conditions?",
+    "ground_truth": "It is reported to be susceptible to side-channel attacks that can enable recovery of the entire secret key under the described conditions.",
+    "edit_basis": "explicit_human_review_note",
+    "note": "Nguồn không nêu cụ thể 'additional functions' là gì. Hỏi: \"What implementation-level vulnerability is reported for the Kyber512 reference implementation under chosen-ciphertext conditions?\" Đáp án: \"It is reported to be susceptible to side-channel attacks that can enable recovery of the entire secret key under the described conditions.\" Không diễn giải thành phá bài toán lattice hoặc mọi triển khai Kyber."
+  }
+}

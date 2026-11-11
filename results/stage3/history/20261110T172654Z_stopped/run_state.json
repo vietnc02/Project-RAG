@@ -1,0 +1,196 @@
+{
+  "pid": 18536,
+  "started_at_utc": "2026-11-10T17:26:54+00:00",
+  "phase": "all",
+  "testset_sha256": {
+    "testset.json": "f8d689f1150b1d96de877c965a1881466e01187f31a47bc0a1d428a3eefcddd7",
+    "singlehop_kg.json": "bd56d7e78dd32897f841ec291a00da986403a3e1aa7a1a95f50be3f461c29203",
+    "multihop.json": "0df8ee1bb89c5f698e4913fd916a09d0b8de1d85f526196cd885aa93bac64c11",
+    "multihop_kg.json": "258e467516aad4dc0523aef17793eadd7a6c54337cb98b7dbad2890ed55a6725",
+    "unanswerable.json": "f99f6edc31e567653039d862e6784e28655d2b44c65569b7b53553ed3355f803",
+    "singlehop_s3.json": "5efa901838919a90f5019dbc2b40c32cadb42b9cb3085e0385c83cec81c023d8",
+    "multihop_s3.json": "7086ef9e117f191df4952718e0ec3c04efb4e09d93919f693f0ac5ce7dc1f349"
+  },
+  "data": {
+    "total": 277,
+    "answerable": 254,
+    "single": 199,
+    "multihop": 55,
+    "unanswerable": 23,
+    "S10": 83,
+    "S20": 161,
+    "entity_bridge_reviewed": 0,
+    "near_topic_reviewed": 0,
+    "pending_raw": {
+      "multihop_s3_bridge_raw.json": 0,
+      "unanswerable_s3_near_raw.json": 1
+    },
+    "results_dir": "C:\\Users\\nguye\\Project-RAG\\results"
+  },
+  "status": "stopped",
+  "jobs": [
+    {
+      "name": "Y3_original_graphrag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "graphrag",
+        "--answers-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": ""
+      },
+      "started_at_utc": "2026-11-10T17:26:54+00:00",
+      "status": "complete",
+      "pid": 11316,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:27:10+00:00"
+    },
+    {
+      "name": "Y3_original_vector_rag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "vector_rag",
+        "--answers-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": ""
+      },
+      "started_at_utc": "2026-11-10T17:27:10+00:00",
+      "status": "complete",
+      "pid": 10772,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:27:26+00:00"
+    },
+    {
+      "name": "Y3_o1_graphrag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "graphrag",
+        "--answers-only",
+        "--k",
+        "10",
+        "20",
+        "--in-scope-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": "o1"
+      },
+      "started_at_utc": "2026-11-10T17:27:26+00:00",
+      "status": "complete",
+      "pid": 24008,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:27:37+00:00"
+    },
+    {
+      "name": "Y3_o1_vector_rag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "vector_rag",
+        "--answers-only",
+        "--k",
+        "10",
+        "20",
+        "--in-scope-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": "o1"
+      },
+      "started_at_utc": "2026-11-10T17:27:37+00:00",
+      "status": "complete",
+      "pid": 24332,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:27:48+00:00"
+    },
+    {
+      "name": "Y3_o2_graphrag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "graphrag",
+        "--answers-only",
+        "--k",
+        "10",
+        "20",
+        "--in-scope-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": "o2"
+      },
+      "started_at_utc": "2026-11-10T17:27:48+00:00",
+      "status": "complete",
+      "pid": 5608,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:28:00+00:00"
+    },
+    {
+      "name": "Y3_o2_vector_rag_answers",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "vector_rag",
+        "--answers-only",
+        "--k",
+        "10",
+        "20",
+        "--in-scope-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": "o2"
+      },
+      "started_at_utc": "2026-11-10T17:28:00+00:00",
+      "status": "complete",
+      "pid": 24380,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:28:11+00:00"
+    },
+    {
+      "name": "Y4_answers",
+      "command": [
+        "evaluate_compression.py",
+        "--modes",
+        "base",
+        "kg",
+        "text",
+        "both",
+        "--answers-only"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": ""
+      },
+      "started_at_utc": "2026-11-10T17:28:11+00:00",
+      "status": "complete",
+      "pid": 23752,
+      "exit_code": 0,
+      "finished_at_utc": "2026-11-10T17:28:17+00:00"
+    },
+    {
+      "name": "Y3_original_graphrag_p0",
+      "command": [
+        "evaluate_kg_scale.py",
+        "--system",
+        "graphrag"
+      ],
+      "env": {
+        "JUDGE_PASS": "0",
+        "KG_ORDER": ""
+      },
+      "started_at_utc": "2026-11-10T17:28:17+00:00",
+      "status": "stopped",
+      "pid": 6076,
+      "stopped_at_utc": "2026-11-10T19:21:18+00:00"
+    }
+  ],
+  "finished_at_utc": "2026-11-10T19:21:18+00:00",
+  "error": "Dừng theo yêu cầu người dùng"
+}

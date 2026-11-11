@@ -60,6 +60,18 @@ KG_MANIFEST = KG_DIR / "MANIFEST.json"
 KG_COLLECTION = "kg30"
 KG_EXTRACTIONS = KG_DIR / "extractions.jsonl"
 KG_K = int(os.getenv("KG_K", 30))           # số bài dùng cho KG / GraphRAG
+# Giai đoạn 3 (Y3.4): thứ tự bài khác. KG_ORDER = "o1", "o2"... -> data/kg/papers_o1.json (cùng cách phân tầng, seed
+# khác) và KG k < 30 trong data/kg/o1/k<k>/; KG30 (đủ 30 bài) không phụ thuộc thứ tự. Rỗng = thứ tự gốc của ý 2-3.
+KG_ORDER = os.getenv("KG_ORDER", "")
+# Giai đoạn 3: S3_RAW=1 -> nội dung 3, 4 dùng câu sinh thêm CHƯA duyệt (testset/*_s3_raw.json) để sinh trước câu trả
+# lời trong lúc chờ duyệt tay; chỉ dùng kèm --answers-only, điểm chỉ chấm trên bộ đã duyệt.
+S3_RAW = os.getenv("S3_RAW") == "1"
+if KG_ORDER:
+    KG_PAPERS_FILE = KG_DIR / f"papers_{KG_ORDER}.json"
+
+
+def kg_dir(k: int) -> Path:
+    return KG_DIR / (f"{KG_ORDER}/k{k}" if KG_ORDER and k < 30 else f"k{k}")
 # Bước trích xuất KG: đưa toàn bộ layer của LLM lên GPU. Mặc định Ollama ước tính dư bộ nhớ và đẩy ~18% model
 # sang CPU trên GPU 6GB (chậm hơn 1,5 lần dù VRAM còn trống). Đặt -1 để Ollama tự chia (máy ít VRAM hơn).
 KG_NUM_GPU = int(os.getenv("KG_NUM_GPU", 99))

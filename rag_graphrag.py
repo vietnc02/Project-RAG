@@ -32,7 +32,7 @@ GLOBAL_RELATIONS = 5     # số quan hệ lấy thêm theo cosine trên toàn KG
 
 class KnowledgeGraph:
     def __init__(self, k: int):
-        d = config.KG_DIR / f"k{k}"
+        d = config.kg_dir(k)
         if not (d / "graph.json").exists():
             raise SystemExit(f"Chưa có KG {d}: chạy python kg_build.py --extract --build --k {k}")
         g = json.loads((d / "graph.json").read_text(encoding="utf-8"))

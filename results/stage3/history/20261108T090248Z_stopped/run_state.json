@@ -1,0 +1,196 @@
+{
+    "pid":  24084,
+    "started_at_utc":  "2026-11-08T09:02:48+00:00",
+    "phase":  "all",
+    "testset_sha256":  {
+                           "testset.json":  "f8d689f1150b1d96de877c965a1881466e01187f31a47bc0a1d428a3eefcddd7",
+                           "singlehop_kg.json":  "bd56d7e78dd32897f841ec291a00da986403a3e1aa7a1a95f50be3f461c29203",
+                           "multihop.json":  "0df8ee1bb89c5f698e4913fd916a09d0b8de1d85f526196cd885aa93bac64c11",
+                           "multihop_kg.json":  "258e467516aad4dc0523aef17793eadd7a6c54337cb98b7dbad2890ed55a6725",
+                           "unanswerable.json":  "f99f6edc31e567653039d862e6784e28655d2b44c65569b7b53553ed3355f803",
+                           "singlehop_s3.json":  "5efa901838919a90f5019dbc2b40c32cadb42b9cb3085e0385c83cec81c023d8",
+                           "multihop_s3.json":  "7086ef9e117f191df4952718e0ec3c04efb4e09d93919f693f0ac5ce7dc1f349"
+                       },
+    "data":  {
+                 "total":  277,
+                 "answerable":  254,
+                 "single":  199,
+                 "multihop":  55,
+                 "unanswerable":  23,
+                 "S10":  83,
+                 "S20":  161,
+                 "entity_bridge_reviewed":  0,
+                 "near_topic_reviewed":  0,
+                 "pending_raw":  {
+                                     "multihop_s3_bridge_raw.json":  1,
+                                     "unanswerable_s3_near_raw.json":  1
+                                 },
+                 "results_dir":  "C:\\Users\\nguye\\Project-RAG\\results"
+             },
+    "status":  "stopped",
+    "jobs":  [
+                 {
+                     "name":  "Y3_original_graphrag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "graphrag",
+                                     "--answers-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  ""
+                             },
+                     "started_at_utc":  "2026-11-08T09:02:48+00:00",
+                     "status":  "complete",
+                     "pid":  20956,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:03:05+00:00"
+                 },
+                 {
+                     "name":  "Y3_original_vector_rag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "vector_rag",
+                                     "--answers-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  ""
+                             },
+                     "started_at_utc":  "2026-11-08T09:03:05+00:00",
+                     "status":  "complete",
+                     "pid":  16104,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:03:19+00:00"
+                 },
+                 {
+                     "name":  "Y3_o1_graphrag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "graphrag",
+                                     "--answers-only",
+                                     "--k",
+                                     "10",
+                                     "20",
+                                     "--in-scope-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  "o1"
+                             },
+                     "started_at_utc":  "2026-11-08T09:03:19+00:00",
+                     "status":  "complete",
+                     "pid":  21260,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:03:31+00:00"
+                 },
+                 {
+                     "name":  "Y3_o1_vector_rag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "vector_rag",
+                                     "--answers-only",
+                                     "--k",
+                                     "10",
+                                     "20",
+                                     "--in-scope-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  "o1"
+                             },
+                     "started_at_utc":  "2026-11-08T09:03:31+00:00",
+                     "status":  "complete",
+                     "pid":  19464,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:03:42+00:00"
+                 },
+                 {
+                     "name":  "Y3_o2_graphrag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "graphrag",
+                                     "--answers-only",
+                                     "--k",
+                                     "10",
+                                     "20",
+                                     "--in-scope-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  "o2"
+                             },
+                     "started_at_utc":  "2026-11-08T09:03:42+00:00",
+                     "status":  "complete",
+                     "pid":  2652,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:03:53+00:00"
+                 },
+                 {
+                     "name":  "Y3_o2_vector_rag_answers",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "vector_rag",
+                                     "--answers-only",
+                                     "--k",
+                                     "10",
+                                     "20",
+                                     "--in-scope-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  "o2"
+                             },
+                     "started_at_utc":  "2026-11-08T09:03:53+00:00",
+                     "status":  "complete",
+                     "pid":  23144,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:04:04+00:00"
+                 },
+                 {
+                     "name":  "Y4_answers",
+                     "command":  [
+                                     "evaluate_compression.py",
+                                     "--modes",
+                                     "base",
+                                     "kg",
+                                     "text",
+                                     "both",
+                                     "--answers-only"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  ""
+                             },
+                     "started_at_utc":  "2026-11-08T09:04:04+00:00",
+                     "status":  "complete",
+                     "pid":  6644,
+                     "exit_code":  0,
+                     "finished_at_utc":  "2026-11-08T09:39:08+00:00"
+                 },
+                 {
+                     "name":  "Y3_original_graphrag_p0",
+                     "command":  [
+                                     "evaluate_kg_scale.py",
+                                     "--system",
+                                     "graphrag"
+                                 ],
+                     "env":  {
+                                 "JUDGE_PASS":  "0",
+                                 "KG_ORDER":  ""
+                             },
+                     "started_at_utc":  "2026-11-08T09:39:08+00:00",
+                     "status":  "stopped",
+                     "pid":  22972,
+                     "stopped_at_utc":  "2026-11-08T14:08:08.6819181Z"
+                 }
+             ],
+    "stopped_at_utc":  "2026-11-08T14:08:08.6819181Z",
+    "stop_reason":  "User requested temporary pause; saved results preserved."
+}

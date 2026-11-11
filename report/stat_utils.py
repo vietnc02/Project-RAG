@@ -50,8 +50,10 @@ def paired_boot(d, n=N_BOOT_PAIRED):
 
 def holm(entries):
     """Thêm p_holm, significant (CI không chứa 0) và significant_holm (p_holm < ALPHA) vào từng dict của một họ so
-    sánh. Bỏ qua None và các so sánh không có khác biệt nào (d toàn 0). Trả về số so sánh trong họ."""
-    es = [e for e in entries if e is not None and not (e["delta"] == 0 and e["lo"] == 0 and e["hi"] == 0)]
+    sánh. Bỏ qua None (không có cặp nào). So sánh có d toàn 0 (p = 1) vẫn tính vào số so sánh m của họ, vì nó là
+    một giả thuyết đã được kiểm định; bỏ nó đi làm m nhỏ hơn thực tế và hiệu chỉnh kém thận trọng.
+    Trả về số so sánh trong họ."""
+    es = [e for e in entries if e is not None]
     m = len(es)
     running = 0.0
     for rank, e in enumerate(sorted(es, key=lambda e: e["p"])):

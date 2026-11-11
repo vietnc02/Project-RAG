@@ -36,8 +36,10 @@ import config
 from common import env_info, is_refusal
 from evaluate import (append_jsonl, bootstrap_ci, flush_judge_log, judge_log_table, load_jsonl, load_testset,
                       ratio, verify)
-from evaluate_graphrag import (TESTSET_FILES, answer_correctness, answer_relevancy, extract_claims, gold_sources)
+from evaluate_graphrag import (TESTSET_FILES_S3 as TESTSET_FILES, answer_correctness, answer_relevancy, extract_claims, gold_sources)
 from kg_build import load_papers
+from stage3_runtime import record_attempt
+from report.stat_utils import holm, paired_boot
 
 MODES = list(compress.MODES)          # base, kg, text, both
 ALL_MODES = [*MODES, *compress.BASELINE_MODES]   # + baseline nén ngẫu nhiên / cắt đầu, hai mức nén thêm
@@ -48,7 +50,7 @@ EXTRA = ["faithfulness_full", "hallucination_full", "refusal", "context_tokens",
 
 def load_items() -> list[dict]:
     papers = set(load_papers(config.KG_K))
-    return [t for t in load_testset([f for f in TESTSET_FILES if f.exists()])
+    return [t for t in load_testset([f for f in TESTSET_FILES if f.exists()], include_unreviewed=config.S3_RAW)
             if t["type"] == "unanswerable" or set(gold_sources(t)) <= papers]
 
 
@@ -82,12 +84,11 @@ def paired(df: pd.DataFrame, metric: str, mode: str, n=5000) -> dict | None:
     if p.empty:
         return None
     d = (p[mode] - p["base"]).to_numpy(float)
-    rng = np.random.default_rng(config.SEED)
-    bs = rng.choice(d, size=(n, len(d))).mean(axis=1)
-    lo, hi = np.percentile(bs, [2.5, 97.5])
+    entry = paired_boot(d, n=n)
+    lo, hi = entry["lo"], entry["hi"]
     return {"mode": mode, "metric": metric, "n_pairs": len(d), "diff": round(float(d.mean()), 4),
             "ci95": f"[{lo:.3f}, {hi:.3f}]", "lo": float(lo), "hi": float(hi),
-            "significant": bool(lo > 0 or hi < 0)}
+            "delta": entry["delta"], "p": entry["p"], "significant": bool(lo > 0 or hi < 0)}
 
 
 def report(out, items):
@@ -127,8 +128,12 @@ def report(out, items):
         row["latency_s"] = round(g.latency_s.mean(), 2)
         summ.append(row)
     sm = pd.DataFrame(summ)
-    pr = pd.DataFrame([x for m in modes[1:] for k in (*METRICS, "faithfulness_full", "refusal")
-                       if (x := paired(ans_df, k, m))])
+    comparisons = [x for m in modes[1:] for k in (*METRICS, "faithfulness_full", "refusal")
+                   if (x := paired(ans_df, k, m))]
+    # hai họ Holm riêng: 3 chế độ nén chính (3 × 7 = 21 so sánh, như báo cáo Y4) và các baseline / mức nén thêm
+    holm([x for x in comparisons if x["mode"] in MODES])
+    holm([x for x in comparisons if x["mode"] not in MODES])
+    pr = pd.DataFrame(comparisons)
     ni = pr[pr.metric == "faithfulness"].assign(
         margin=-NI_MARGIN, non_inferior=lambda d: d.lo > -NI_MARGIN)[["mode", "n_pairs", "diff", "ci95", "margin",
                                                                        "non_inferior"]]
@@ -137,7 +142,7 @@ def report(out, items):
 
     logs = sorted(out.glob("*/judge_log*.jsonl")) + sorted(out.glob("judge_log_gt*.jsonl"))  # + bước tách claim GT
     lines = ["# Kết quả ý 4: context compression cho GraphRAG\n",
-             f"{len(items)} câu của ý 2 ({len(ans_df.id.unique())} câu có đáp án). LLM `{config.LLM_MODEL}`, judge "
+             f"Bộ đã duyệt có {len(items)} câu ({len(ans_df.id.unique())} câu có đáp án đã có điểm). LLM `{config.LLM_MODEL}`, judge "
              f"`{config.JUDGE_MODEL}`. Nén: KG_KEEP = {compress.KG_KEEP}, KG_ITEM_CHARS = {compress.KG_ITEM_CHARS}, "
              f"SENT_KEEP = {compress.SENT_KEEP}. Version: `*/run_info.json`.\n",
              "## 1. Token reduction và chất lượng (câu có đáp án; token reduction tính trên mọi câu)\n",
@@ -151,6 +156,7 @@ def report(out, items):
              "*non_inferior = True: cận dưới CI 95% của (nén − base) > −0,05, tức faithfulness không giảm quá 0,05. "
              "False: không đủ bằng chứng để nói faithfulness được giữ nguyên.*\n",
              "## 3. Chênh lệch ghép cặp so với base (câu có đáp án)\n",
+             "`significant_holm`: sau hiệu chỉnh Holm, hai họ riêng (3 chế độ nén chính; các baseline và mức nén thêm), `family_size` là cỡ họ; CI và p thô vẫn được giữ.\n",
              pr.drop(columns=["lo", "hi"]).to_markdown(index=False), "",
              "## 4. Chỉ số phụ\n", sm[["mode", "faithfulness_full", "faithfulness_full_ci95", "hallucination_full",
                                        "latency_s"]].to_markdown(index=False), "",
@@ -171,7 +177,10 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--modes", nargs="+", default=MODES, choices=ALL_MODES)
     ap.add_argument("--report-only", action="store_true")
+    ap.add_argument("--answers-only", action="store_true", help="chỉ sinh câu trả lời, chưa chấm (giai đoạn 3)")
     args = ap.parse_args()
+    if config.S3_RAW and not args.answers_only:
+        ap.error("S3_RAW=1 chỉ được dùng với --answers-only; chấm điểm cần bộ đã duyệt.")
     items = load_items()
     if args.limit:
         items = items[: args.limit]
@@ -188,16 +197,17 @@ def main():
         for m in modes:   # 1. sinh câu trả lời (qwen2.5:7b) cho mọi chế độ
             (out / m).mkdir(parents=True, exist_ok=True)
             ri = out / m / "run_info.json"
-            prev = json.loads(ri.read_text(encoding="utf-8")) if ri.exists() else None
-            ri.write_text(json.dumps({**info, "mode": m, "spec": compress.mode_spec(m)} if prev is None else
-                                     {**prev, f"judge_pass_{config.JUDGE_PASS}": {"started": info["started"],
-                                                                                 "environment": info["environment"]}},
-                                     ensure_ascii=False, indent=2), encoding="utf-8")
+            record_attempt(ri, {**info, "mode": m, "spec": compress.mode_spec(m),
+                               "judge_pass": config.JUDGE_PASS, "raw_testset": config.S3_RAW,
+                               "question_ids": [t["id"] for t in items], "seed": config.SEED},
+                           answers_only=args.answers_only, order=config.KG_ORDER)
             answers[m] = load_jsonl(out / m / "answers.jsonl")
             for t in tqdm(items, desc=f"[{m}] trả lời"):
                 if t["id"] not in answers[m]:
                     answers[m][t["id"]] = {"id": t["id"], **compress.answer(t["question"], m)}
                     append_jsonl(out / m / "answers.jsonl", answers[m][t["id"]])
+        if args.answers_only:
+            return
         gt_path = out / "gt_claims.jsonl"   # 2. ý của đáp án chuẩn: tách 1 lần, dùng chung
         gts = load_jsonl(gt_path)
         for t in tqdm([t for t in items if t["type"] != "unanswerable"], desc="ý của đáp án chuẩn"):

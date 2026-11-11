@@ -49,6 +49,9 @@ from kg_build import load_papers, use_kg_store
 SYSTEMS = {"vector_rag": "rag_langchain", "graphrag": "rag_graphrag"}
 TESTSET_FILES = [config.TESTSET_FILE, *(config.TESTSET_FILE.parent / f for f in
                                         ("singlehop_kg.json", "multihop.json", "multihop_kg.json", "unanswerable.json"))]
+# Giai đoạn 3: câu sinh thêm trong 30 bài (generate_testset_s3.py, đã duyệt tay) cho nội dung 3, 4; ý 2 vẫn dùng TESTSET_FILES
+TESTSET_FILES_S3 = [*TESTSET_FILES, *(config.TESTSET_FILE.parent / (f + ("_raw" if config.S3_RAW else "") + ".json")
+                                      for f in ("singlehop_s3", "multihop_s3", "multihop_s3_bridge", "unanswerable_s3_near"))]
 TYPES = ("single", "multihop", "unanswerable")
 
 USEFUL = ChatPromptTemplate.from_messages([

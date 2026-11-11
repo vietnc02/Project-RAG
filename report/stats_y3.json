@@ -1451,7 +1451,7 @@
         "n": 14,
         "p": 0.22,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1462,7 +1462,7 @@
         "n": 13,
         "p": 0.5304,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1473,7 +1473,7 @@
         "n": 15,
         "p": 0.6144,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1484,7 +1484,7 @@
         "n": 15,
         "p": 0.5088,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1495,7 +1495,7 @@
         "n": 15,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1508,7 +1508,7 @@
         "n": 14,
         "p": 0.2748,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1519,7 +1519,7 @@
         "n": 12,
         "p": 0.52,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1530,7 +1530,7 @@
         "n": 15,
         "p": 0.7192,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1541,7 +1541,7 @@
         "n": 15,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1552,7 +1552,7 @@
         "n": 15,
         "p": 0.7272,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1565,7 +1565,7 @@
         "n": 15,
         "p": 0.5416,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1576,7 +1576,7 @@
         "n": 13,
         "p": 0.548,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1587,7 +1587,7 @@
         "n": 15,
         "p": 0.1924,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1598,7 +1598,7 @@
         "n": 15,
         "p": 0.4348,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1609,7 +1609,7 @@
         "n": 15,
         "p": 0.7008,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1622,7 +1622,7 @@
         "n": 36,
         "p": 0.9152,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1633,7 +1633,7 @@
         "n": 32,
         "p": 0.846,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1644,7 +1644,7 @@
         "n": 37,
         "p": 0.8792,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1655,7 +1655,7 @@
         "n": 37,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1666,7 +1666,7 @@
         "n": 37,
         "p": 0.7376,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1679,7 +1679,7 @@
         "n": 60,
         "p": 0.1552,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1690,7 +1690,7 @@
         "n": 37,
         "p": 0.0436,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": true,
         "significant_holm": false
       },
@@ -1701,7 +1701,7 @@
         "n": 62,
         "p": 0.0,
         "p_holm": 0.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": true,
         "significant_holm": true
       },
@@ -1712,7 +1712,7 @@
         "n": 62,
         "p": 0.1076,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1723,7 +1723,7 @@
         "n": 62,
         "p": 0.0,
         "p_holm": 0.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": true,
         "significant_holm": true
       }
@@ -1736,7 +1736,7 @@
         "n": 60,
         "p": 0.2764,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1747,7 +1747,7 @@
         "n": 47,
         "p": 0.092,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1757,8 +1757,8 @@
         "hi": -0.03383333306545079,
         "n": 62,
         "p": 0.0044,
-        "p_holm": 0.1232,
-        "family_size": 30,
+        "p_holm": 0.13640000000000002,
+        "family_size": 33,
         "significant": true,
         "significant_holm": false
       },
@@ -1769,7 +1769,7 @@
         "n": 62,
         "p": 0.8896,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1780,7 +1780,7 @@
         "n": 62,
         "p": 0.2064,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1795,7 +1795,7 @@
         "n": 23,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1806,7 +1806,7 @@
         "n": 23,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       },
@@ -1817,7 +1817,7 @@
         "n": 23,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false
       }
@@ -1982,7 +1982,7 @@
       "n": 60
     }
   },
-  "holm_family": 30,
+  "holm_family": 33,
   "sufficiency": {
     "delta": 0.1,
     "rows": [
@@ -1994,7 +1994,7 @@
         "n": 15,
         "p": 1.0,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false,
         "verdict": "inconclusive"
@@ -2007,7 +2007,7 @@
         "n": 37,
         "p": 0.7376,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false,
         "verdict": "enough"
@@ -2020,7 +2020,7 @@
         "n": 62,
         "p": 0.0,
         "p_holm": 0.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": true,
         "significant_holm": true,
         "verdict": "not_enough"
@@ -2033,7 +2033,7 @@
         "n": 62,
         "p": 0.2064,
         "p_holm": 1.0,
-        "family_size": 30,
+        "family_size": 33,
         "significant": false,
         "significant_holm": false,
         "verdict": "inconclusive"

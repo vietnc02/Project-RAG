@@ -89,7 +89,9 @@ def select_papers():
     assert len(chosen) == 30, len(chosen)
     # Thứ tự phân tầng: xáo trong từng chủ đề rồi xen kẽ theo tỉ lệ -> k bài đầu (k = 10, 20, 30)
     # giữ tỉ lệ chủ đề như 30 bài (ý 3 dựng KG trên k bài đầu).
-    rng = random.Random(config.SEED)
+    # thứ tự khác (giai đoạn 3, KG_ORDER = "o1", "o2"...): cùng cách phân tầng, seed = SEED + số thứ tự
+    seed = config.SEED + int(config.KG_ORDER[1:]) if config.KG_ORDER else config.SEED
+    rng = random.Random(seed)
     groups = defaultdict(list)
     for s in chosen:
         groups[topic[s]].append(s)
@@ -104,7 +106,7 @@ def select_papers():
     config.KG_DIR.mkdir(parents=True, exist_ok=True)
     config.KG_PAPERS_FILE.write_text(json.dumps({
         "rule": "Chủ đề quantum: Quantum Security + Quantum Machine Learning (23 bài trong papers/ + 7 bài bổ sung "
-                f"trong papers_y2/); thứ tự phân tầng theo chủ đề (seed {config.SEED}) để k bài đầu giữ tỉ lệ chủ đề",
+                f"trong papers_y2/); thứ tự phân tầng theo chủ đề (seed {seed}) để k bài đầu giữ tỉ lệ chủ đề",
         "papers": papers}, ensure_ascii=False, indent=2), encoding="utf-8")
     for k in (10, 20, 30):
         print(k, Counter(p["topic"] for p in papers[:k]), sum(p["chunks"] for p in papers[:k]), "chunk")
@@ -361,7 +363,7 @@ def build(k: int):
     vec = lambda txts: np.asarray(  # noqa: E731
         [v for i in tqdm(range(0, len(txts), 64), desc="Embed")
          for v in emb.embed_documents(txts[i:i + 64])], dtype=np.float16)
-    out = config.KG_DIR / f"k{k}"
+    out = config.kg_dir(k)
     out.mkdir(parents=True, exist_ok=True)
     stats = graph_stats(entities, relations, chunk_source, ex)
     (out / "graph.json").write_text(json.dumps({"k": k, "papers": papers, "stats": stats, "entities": entities,

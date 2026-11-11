@@ -91,6 +91,8 @@ def agreement(per_pass: list[dict], ids: list[str]) -> dict:
 def main(root: Path):
     groups = defaultdict(dict)
     for fp in root.rglob("*.jsonl"):
+        if any(part in fp.parts for part in (".s3_backups", ".s3_smoke")):
+            continue
         m = PASS_RE.match(fp.name)
         if m and m["base"].startswith("scores"):
             groups[fp.parent / f"{m['base']}.jsonl"][int(m["n"])] = fp

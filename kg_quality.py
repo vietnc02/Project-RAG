@@ -41,7 +41,7 @@ from tqdm import tqdm
 import config
 from evaluate import bootstrap_ci, judge
 from evaluate_graphrag import gold_chunks
-from evaluate_kg_scale import KS, OUT, load_items
+from evaluate_kg_scale import KS, RUN_DIR as OUT, load_items
 from kg_build import load_papers, norm, split_acronym
 
 GOLD_RAW = config.PROJECT_DIR / "testset" / "kg_gold_raw.json"
@@ -52,7 +52,7 @@ N_ORDERS = 20          # số thứ tự bài ngẫu nhiên cho đường cong t
 
 # ---------------- 1. Cấu trúc KG + đường cong tăng trưởng ----------------
 def load_graph(k: int) -> dict:
-    fp = config.KG_DIR / f"k{k}" / "graph.json"
+    fp = config.kg_dir(k) / "graph.json"
     if not fp.exists():
         raise SystemExit(f"Chưa có {fp}: chạy python kg_build.py --build --k {k}")
     return json.loads(fp.read_text(encoding="utf-8"))

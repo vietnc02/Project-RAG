@@ -1,0 +1,147 @@
+[
+  {
+    "id": "u3001",
+    "type": "unanswerable",
+    "question": "What are the advantages and disadvantages of using weighted subspace VQE compared to non-weighted subspace VQE in terms of computational resources and accuracy of the approximated subspace of the lowest eigenstates?",
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "missing_information": "The passage does not provide information on the computational resources required for each variant or the accuracy of the approximated subspace of the lowest eigenstates for both weighted and non-weighted subspace VQE.",
+    "anchor_source": "Variational quantum algorithms",
+    "anchor_text": "For instance, one creates states |ψk⟩= σk| ˜ψG⟩for low-weight Pauli operators σk, and expands the candidates for the eigenstates\nas |E⟩= P\nk αk|ψk⟩.\nThen, one obtains approximations to the lowest eigenstates by training the coeﬃcients\nα = (α0, α1, α2, ...) while solving the generalised eigenvalue problem Hα = ESα, with Hk,j = ⟨ψk|H|ψj⟩and\nSk,j = ⟨ψk|ψj⟩.\n4.\nSubspace VQE\nThe main idea behind subspace VQE [110] is to train\na unitary for preparing states in the lowest energy subspace of H.\nThere are two variants of subspace VQE\ncalled weighted and non-weighted subspace VQE. For\nthe weighted subspace VQE, one considers a cost function C(θ) = Pm\ni=0 wi⟨ϕi|U(θ)HU(θ)|ϕi⟩with ordered\nweights w0 > w1 > · · · > wm and easily prepared\nmutually-orthogonal states {|ϕi⟩}.\nBy minimizing the\ncost function, one approximates the subspace of the lowest eigenstates as {U(θ∗)|ϕi⟩}m\ni=0. Since the weights are\nin decreasing order, each state U(θ∗)|ϕi⟩corresponds to",
+    "screened_contexts": [
+      {
+        "text": "impact on the overall quantization error, making it more fine-grained than GPTQ but far\nless computationally efficient, employing the same amount of time to quantize a model\n100× smaller.",
+        "topic": "Ref",
+        "source": "Optimizing_BFloat16_Deployment_of_Tiny_Transformer",
+        "path": "Ref\\Optimizing_BFloat16_Deployment_of_Tiny_Transformer.pdf",
+        "page": 3,
+        "chunk_id": "6e35be591377-13"
+      },
+      {
+        "text": "scaling the input data, which increases the average overlap between encoded states and improves the\nstability of kernel estimation. Additionally, projected or structured kernels can be used to simplify\nstate comparisons by focusing on specific observables or subspaces, thus reducing sensitivity to\nnoise and enhancing the discriminative power of the kernel matrix.\nWhile the QSVM promises enhanced speed and efficiency for complex, high-dimensional classification tasks, its practical application remains challenging due to limitations in current quantum\ntechnology, such as qubit availability and quantum errors. Realizing the full potential of QSVM\ndepends on advances in quantum computing, particularly in quantum error correction, an ongoing\narea of intense research.\nFurthermore, there exist other versions of QSVM, like the PegasosQSVM. The PegasosQSVM\nalgorithm is basically the same as QSVM, except that it is adapted for larger datasets and implements",
+        "page": 15,
+        "path": "Quantum Machine Learning\\A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications.pdf",
+        "source": "A Survey of Quantum Machine Learning - Foundations,Algorithms, Frameworks, Data and Applications",
+        "chunk_id": "f642ef5c199a-68",
+        "topic": "Quantum Machine Learning"
+      },
+      {
+        "text": "the hardness closely tied to worst-case lattice problems [186]. The carefully chosen noise distribution ensures that distinguishing \nLWE samples from random remains challenging for both classical and quantum computers, preserving security against quantum \nattacks.\nComputers and Electrical Engineering 128 (2025) 110649 \n14",
+        "page": 14,
+        "source": "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions",
+        "chunk_id": "08d761285c1c-87",
+        "topic": "Quantum Security",
+        "path": "Quantum Security\\Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions.pdf"
+      },
+      {
+        "text": "weights 𝑄(W) and activations 𝑄(X), while retaining full-precision values during the backward pass and for updating\ngradients to ensure stable learning dynamics. The comparisons of the post-training quantization methods are summarized\nin Table 1, detailing precision, addressed problems, and technical contributions of each method.\n2.3.4\nLow-Rank Techniques. Low-rank techniques compress LLMs by approximating a high-dimensional weight matrix\nwith two lower-dimensional matrices, reducing computational and memory requirements. A matrix W ∈R𝑚×𝑛is\napproximated as W ≈A × B, where A ∈R𝑚×𝑟and B ∈R𝑟×𝑛, with 𝑟much smaller than 𝑚or 𝑛, reducing the number\nof parameters. Building on this concept, Ji et al. [158] propose a low-rank method tailored for LLMs, leveraging the\nobservation that while LLMs have high-rank weights, their feature interactions tend to exhibit low-rank properties. The",
+        "chunk_id": "647f2fe8eed3-62",
+        "path": "Ref\\A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness.pdf",
+        "page": 13,
+        "source": "A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness",
+        "topic": "Ref"
+      },
+      {
+        "text": "20\nFali Wang, et al.\nPTQ and QAT, retains the most salient weights while binarizing the rest based on magnitudes. BiLLM [147], another\nPTQ method, uses a Hessian-based metric to identify salient and non-salient weights. Salient weights undergo binary\nresidual approximation to minimize loss, while non-salient weights are divided into sparse and concentrated groups for\nseparate binarization, reducing quantization errors. Activation quantization faces challenges with outliers that can\nstretch the quantization range, causing most values to cluster at few bits and introducing significant errors. To address\nthis, LLM.int8() [80] isolates outlier features for 16-bit processing and handles the rest in 8-bit. SmoothQuant [386]\ncircumvents per-channel quantization issues by employing a \"smoothing\" technique that shifts the quantization challenge\nfrom activations to weights through a per-channel scaling transformation. This balance between activating and weight",
+        "page": 20,
+        "path": "Ref\\A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness.pdf",
+        "chunk_id": "647f2fe8eed3-91",
+        "source": "A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness",
+        "topic": "Ref"
+      },
+      {
+        "text": "majority voting to enhance pseudo-label accuracy, serving as a pseudo-label for training during test-time.\nComparison between LLMs and SLMs for QA. When comparing LLMs such as GPT-4 [2] or BLOOM-175B [181]\nwith fine-tuned SLMs in QA tasks, the benefits of SLMs are clear. LLMs, while versatile across multiple domains due to\nextensive pre-training, are computationally demanding, making them less ideal for resource-limited settings. SLMs,\nhowever, when fine-tuned for specific domains, often match or exceed the performance of larger models within those\nspecialties. The trade-off is between large-scale models’ generalization and small-scale model’s specialization: LLMs\nhandle diverse domains but may need additional techniques such as knowledge injection for domain-specific queries.\nIn contrast, domain-specific SLMs, though less flexible, provide higher accuracy and more relevant responses, making",
+        "page": 24,
+        "source": "A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness",
+        "topic": "Ref",
+        "path": "Ref\\A Comprehensive Survey of Small Language Models in the Era of Large Language Models - Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness.pdf",
+        "chunk_id": "647f2fe8eed3-112"
+      },
+      {
+        "text": "with significantly fewer parameters, lower memory requirements, improved latency, and\nreduced energy consumption while maintaining high accuracy. Crucially, this method is\nmore efficient and less resource-intensive than designing and training a model specifically\ntailored for embedded deployment from scratch.",
+        "chunk_id": "6e35be591377-51",
+        "page": 13,
+        "topic": "Ref",
+        "source": "Optimizing_BFloat16_Deployment_of_Tiny_Transformer",
+        "path": "Ref\\Optimizing_BFloat16_Deployment_of_Tiny_Transformer.pdf"
+      },
+      {
+        "text": "quantum computing’s advantage of significantly accelerated problem-solving capabilities, which result from using Shor’s and \nGrover’s algorithms. A comprehensive assessment of hardware demands, together with error correction methods is provided, along \nwith an overview of vulnerabilities that quantum systems pose to classical encryption methods like RSA and AES, as presented in \nthe table. The analysis includes a discussion of scalability difficulties, noise levels, and gate fidelity problems that affect quantum \nsystems.\nComputers and Electrical Engineering 128 (2025) 110649 \n7",
+        "chunk_id": "08d761285c1c-41",
+        "topic": "Quantum Security",
+        "page": 7,
+        "path": "Quantum Security\\Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions.pdf",
+        "source": "Next-Generation Quantum Security - The Impact of Quantum Computing on Cybersecurity—Threats, Mitigations, and Solutions"
+      },
+      {
+        "text": "9\nThe non-weighted subspace VQE makes use of the cost\nfunction C1(θ) = Pm\ni=0⟨ϕi|U †(θ)HU(θ)|ϕi⟩. Minimizing C1 again gives the subspace of lowest eigenstates.\nAs each state U(θ∗)|ϕi⟩is in a superposition of the\neigenstates, one needs to further optimize a second cost\nC2(θ∗, φ) = ⟨ϕi|V †(φ)U †(θ∗)HU(θ∗)V (φ)|ϕi⟩over parameters φ to rotate each state U(θ∗)V (φ)|ϕi⟩to an\neigenstate.\n5.\nMultistate contracted VQE\nThe multistate contracted VQE [56] can be regarded\nas a midway point between subspace expansion and\nsubspace VQE. It ﬁrst obtains the lowest energy subspace {U(θ∗)|ϕi⟩}m\ni=0 by optimizing C1(θ) as in the nonweighted subspace VQE. Instead of optimizing an additional unitary, the multistate contracted VQE approximates each eigenstate as |E⟩= P\ni αiU(θ∗)|ϕi⟩with coeﬃcients αi which are obtained by solving a generalised\neigenvalue problem similar to subspace expansion with\nS = 1.\n6.\nAdiabatically assisted VQE",
+        "source": "Variational quantum algorithms",
+        "page": 9,
+        "topic": "Quantum Machine Learning",
+        "chunk_id": "44b1cee70529-47",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf"
+      },
+      {
+        "text": "For instance, one creates states |ψk⟩= σk| ˜ψG⟩for low-weight Pauli operators σk, and expands the candidates for the eigenstates\nas |E⟩= P\nk αk|ψk⟩.\nThen, one obtains approximations to the lowest eigenstates by training the coeﬃcients\nα = (α0, α1, α2, ...) while solving the generalised eigenvalue problem Hα = ESα, with Hk,j = ⟨ψk|H|ψj⟩and\nSk,j = ⟨ψk|ψj⟩.\n4.\nSubspace VQE\nThe main idea behind subspace VQE [110] is to train\na unitary for preparing states in the lowest energy subspace of H.\nThere are two variants of subspace VQE\ncalled weighted and non-weighted subspace VQE. For\nthe weighted subspace VQE, one considers a cost function C(θ) = Pm\ni=0 wi⟨ϕi|U(θ)HU(θ)|ϕi⟩with ordered\nweights w0 > w1 > · · · > wm and easily prepared\nmutually-orthogonal states {|ϕi⟩}.\nBy minimizing the\ncost function, one approximates the subspace of the lowest eigenstates as {U(θ∗)|ϕi⟩}m\ni=0. Since the weights are\nin decreasing order, each state U(θ∗)|ϕi⟩corresponds to",
+        "page": 8,
+        "topic": "Quantum Machine Learning",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf",
+        "source": "Variational quantum algorithms",
+        "chunk_id": "44b1cee70529-45"
+      },
+      {
+        "text": "update the parameters from θ to θ + ˙θ∆t with a small\ntime step ∆t. Similar variational algorithms could be applied for simulating the Wick-rotated Schrödinger equation of imaginary time evolution [87] and general ﬁrstorder derivative equations with non-Hermitian Hamiltonians [92]. A systematic comparison between diﬀerent\nvariational principles for diﬀerent problems can be found\nin Ref. [91]. Recent works also extend the algorithms to\nuse adaptive ansatz to reduce the circuit depth [119, 120]\n9.\nSubspace approach\nThe weighted subspace VQE [110] provides an alternative way to simulate dynamics in the subspace of the\nlow energy eigenstates [121]. Here one uses the weighted\nsubspace VQE unitary operator U(θ∗) that maps computational basis states {|ϕj⟩} to the low energy eigenstates\n{|Ej⟩} as U(θ∗)|ϕj⟩≈eiδj|Ej⟩, with δj an unknown",
+        "topic": "Quantum Machine Learning",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf",
+        "chunk_id": "44b1cee70529-52",
+        "source": "Variational quantum algorithms",
+        "page": 9
+      },
+      {
+        "text": "For using VQE on fermionic systems, this scaling can\nactually be brought down to either quadratic or, for simpler cases, even linear [221] in n.\nThis signiﬁcant improvement is found by considering factorizations of the\ntwo-electron integral tensors, rather than working at the\noperator level. The success of this approach suggests that\nusing background information on the problem may significantly improve the measurement eﬃciency of estimating",
+        "topic": "Quantum Machine Learning",
+        "source": "Variational quantum algorithms",
+        "page": 17,
+        "chunk_id": "44b1cee70529-105",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf"
+      },
+      {
+        "text": "transformation has been used as a type of ansatz to obtain solutions near the more challenging endpoint [113].\n7.\nAccelerated VQE\nAs previously mentioned, whereas Quantum Phase Estimation (QPE) provides a means to estimate eigenenergies in the fault-tolerant era, it is not implementable in\nthe near-term. However, one of the positive features of\nthis algorithm is that a precision ϵ can be obtained with a\nnumber of measurements which scale as O(log( 1\nϵ )). This\nis in contrast with VQE, which requires O( 1\nϵ2 ) measurement for the same precision. This scaling motivated the\nAccelerated VQE algorithm, which interpolates between\nthe VQE and QPE algorithms [114–116]. The interpolation involves taking the VQE algorithm and replacing\nthe measurement process with a tunable version of QPE\ncalled α-QPE. This allows the measurement cost to interpolate between that of VQE and QPE.\nDynamical quantum simulation\nApart from static eigenstate problems, VQAs can also",
+        "topic": "Quantum Machine Learning",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf",
+        "page": 9,
+        "chunk_id": "44b1cee70529-49",
+        "source": "Variational quantum algorithms"
+      },
+      {
+        "text": "many-particle quantum systems (large molecules, for example). When applied to quantum\nproblems this hybrid quantum-classical procedure goes by the name Variational Quantum\nEigensolver (VQE) [25].\nWill NISQ technology running QAOA or VQE be able to outperform classical algorithms that ﬁnd approximate solutions to the same problems? Nobody knows, but we’re\ngoing to try it and see how well we can do. It’s an ambitious goal, because the classical\nmethods we use to solve these problems are well honed after decades of development. On\nthe other hand, even if early-generation NISQ devices are not yet ready to compete with\nthe best classical computers, experimental results might encourage our hopes that QAOA\nand/or VQE can surpass classical methods in the future, and so spur further technological\nimprovements.\n6.2\nHow quantum testbeds might help\nThe history of classical computing teaches us that when hardware becomes available that",
+        "chunk_id": "cf64a00c519e-33",
+        "page": 8,
+        "source": "Quantum Computing in the NISQ era and beyond",
+        "path": "papers_y2/Quantum Machine Learning\\Quantum Computing in the NISQ era and beyond.pdf",
+        "topic": "Quantum Machine Learning"
+      },
+      {
+        "text": "used.\nThe classical optimization problems associated\nwith VQAs are expected to be NP-hard in general as\nthey involve cost functions that can have many local\nminima [94]. In addition to the typical diﬃculties encountered in complex classical optimizations, it has been\nshown that when training a VQA one can encounter new\nchallenges. These include issues such as the inherently\nstochastic environment due to the ﬁnite budget for measurements, hardware noise, and the presence of barren\nplateaus (see main text). This has led to the development of many quantum-aware optimizers, with the optimal choice still being an active topic of debate. Here we\ndiscuss a selection of optimizers that have been designed\nor promoted for use with VQAs. For convenience, these\nwill be grouped into two categories based on whether or\nnot they implement some version of gradient descent.\n1.\nGradient descent methods\nOne of the most common approaches to optimization is",
+        "source": "Variational quantum algorithms",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf",
+        "chunk_id": "44b1cee70529-33",
+        "topic": "Quantum Machine Learning",
+        "page": 6
+      },
+      {
+        "text": "22\ncomputers will eventually be able to handle this diﬃculty [271, 272], there is also the potential for achieving a\nsigniﬁcant quantum advantage in this area with VQAs in\nthe Noisy Intermediate-Scale Quantum (NISQ) era [273].\nAdvances in this direction include work on VQAs for\nLGT simulation [13] and variational determinations of\nmass gaps, Green’s functions, and running coupling constants [274–276]. In addition, an approach using a VQA\nto determine interpolation operators to accelerate classical LGT computations has been proposed [277]. Finally,\nthe impacts of decoherence by hardware noise on LGT\ncalculations have been studied, ﬁnding that gauge violations caused by decoherence only grow linearly at short\ntimes, suggesting that short depth approaches may be\npossible [278]. Taken together, these results show that\nstudying LGTs is a viable candidate for NISQ quantum\nadvantage.\nC.\nOptimization and machine learning\nAlthough it is natural to consider that VQAs can bring",
+        "page": 22,
+        "chunk_id": "44b1cee70529-131",
+        "path": "papers_y2/Quantum Machine Learning\\Variational quantum algorithms.pdf",
+        "topic": "Quantum Machine Learning",
+        "source": "Variational quantum algorithms"
+      }
+    ],
+    "absence_verified": false,
+    "sampling": "near_topic_candidate",
+    "reviewed": false,
+    "keep": true,
+    "generation_seed": 42,
+    "topic": "Quantum Machine Learning"
+  }
+]

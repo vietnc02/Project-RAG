@@ -1,0 +1,1538 @@
+{
+ "sheet_id": "a70992a66d53",
+ "exported_at": "2026-11-05T10:05:07.368Z",
+ "n_total": 255,
+ "n_done": 255,
+ "labels": [
+  {
+   "code": "Q001",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q002",
+   "key": "keep",
+   "label": 2,
+   "note": "Hỏi rõ đối tượng để câu tự đứng: \"What is the main emphasis of García and Ullah’s survey of quantum machine learning in healthcare, and what limitation does this create for readers seeking algorithmic or implementation details?\" Đáp án hiện tại phù hợp."
+  },
+  {
+   "code": "Q003",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q004",
+   "key": "keep",
+   "label": 0,
+   "note": "Hỏi tên tác giả và năm giới thiệu LWE, thuộc tiêu chí loại câu hỏi về tên tác giả. Đoạn chỉ nói 'correlating' mà không giải thích phép quy giảm/SVP như vế sau yêu cầu."
+  },
+  {
+   "code": "Q005",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q006",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức xác suất bị mất số mũ: |…|2 không biểu diễn rõ bình phương môđun; đáp án còn lẫn số hiệu (16). Thuộc nhóm câu hỏi công thức lỗi ký tự."
+  },
+  {
+   "code": "Q007",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q008",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ [80] và định danh ngữ cảnh: \"Which two quantum classifiers did Ricardo et al. compare in the hybrid-model evaluation reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications, and what accuracy improvement over classical methods was reported?\" Đáp án: \"They compared QSVM and QNN and reported accuracy improvements of 3–7% over classical methods.\" Không tự đổi 3–7% thành điểm phần trăm vì nguồn không nói rõ."
+  },
+  {
+   "code": "Q009",
+   "key": "keep",
+   "label": 2,
+   "note": "Gộp hai vế hỏi trùng nhau và nêu IoT: \"Which cryptographic technique did Geethanjali et al. combine with LSB steganography to protect confidential IoT data?\" Đáp án: \"Elliptic-curve cryptography (ECC).\""
+  },
+  {
+   "code": "Q010",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu hỏi đã nêu luôn mục tiêu cần trả lời. Sửa thành: \"What physical-qubit target and target year are stated for Google’s QEC-based roadmap toward fault-tolerant quantum computation in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"Around one million physical qubits by 2029, with the goal of fault-tolerant quantum computation through QEC.\" Đây là lộ trình được bài báo nêu, không xác nhận tiến độ hiện tại."
+  },
+  {
+   "code": "Q011",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q012",
+   "key": "keep",
+   "label": 0,
+   "note": "Đoạn B cảnh báo giả định độ khó của PQC, không nói bảo đảm an ninh QKD bị thuật toán lượng tử mới phá vỡ. Câu hỏi và đáp án chuyển nhầm đối tượng của cảnh báo, tạo liên hệ không được hai đoạn chứng minh."
+  },
+  {
+   "code": "Q013",
+   "key": "keep",
+   "label": 0,
+   "note": "Dùng 'the first paper', không tự đứng. Đoạn A chỉ nhắc CBOM trong từ khóa, không đủ định nghĩa hoặc cơ sở so sánh CBOM như đáp án; phép ghép hai chủ đề quá lỏng."
+  },
+  {
+   "code": "Q014",
+   "key": "keep",
+   "label": 0,
+   "note": "Biểu thức 2n − 1 và không gian 2n chiều bị mất số mũ, dễ bị hiểu thành 2*n − 1 thay vì 2^n − 1. Thuộc nhóm công thức lỗi ký tự."
+  },
+  {
+   "code": "Q015",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ mốc tương đối 'in the past two years' và làm rõ đây là cải tiến thuật toán: \"What algorithmic improvements to Shor’s algorithm are reported in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"Reduced qubit counts and improved asymptotic runtime, particularly by leveraging advances in quantum error correction.\" Bỏ các số trích dẫn rời."
+  },
+  {
+   "code": "Q016",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q017",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q018",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức bị biến ký hiệu tích phân thành Z; câu hỏi dùng 'the paper'; đáp án lặp lại biểu thức thay vì giải thích ý nghĩa. Không đạt yêu cầu câu hỏi công thức và tính tự đứng."
+  },
+  {
+   "code": "Q019",
+   "key": "keep",
+   "label": 0,
+   "note": "Biểu thức O(1/ϵα) mất định dạng số mũ, khiến quan hệ theo sai số không rõ. Câu hỏi phụ thuộc chính vào biểu thức bị lỗi."
+  },
+  {
+   "code": "Q020",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the implementation' bằng ngữ cảnh cụ thể: \"Which method is used for modular addition alongside a Cuccaro-style ripple-carry adder in the Shor implementation described in Practical Challenges in Executing Shor’s Algorithm?\" Đáp án: \"A two’s-complement overflow/comparator method.\""
+  },
+  {
+   "code": "Q021",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q022",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q023",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh thiết kế: \"How many additional FPGA slices does the hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber require relative to the unprotected Kyber implementation?\" Đáp án: \"It requires 260 additional slices; the DSP and BRAM counts remain unchanged.\""
+  },
+  {
+   "code": "Q024",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q025",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án gán nhầm các lợi ích của QKNN (phát hiện nghe lén, giảm lỗi/nhiễu, mở rộng) cho St-HQCNN. Hai đoạn không chứng minh St-HQCNN cải thiện an ninh hơn QCNN phân loại ảnh."
+  },
+  {
+   "code": "Q026",
+   "key": "keep",
+   "label": 0,
+   "note": "Hỏi trực tiếp số hiệu phương trình (6.19), công thức phân số còn bị vỡ bố cục. Thuộc tiêu chí loại."
+  },
+  {
+   "code": "Q027",
+   "key": "keep",
+   "label": 2,
+   "note": "Nêu rõ Kyber và viết đáp án thành phát biểu có ngữ cảnh: \"What success rate is reported for the cyclic-rotation attack using five traces against a fifth-order masked CRYSTALS-Kyber implementation?\" Đáp án: \"The reported attack success rate is 87.085% with five traces against the fifth-order masked implementation employing cyclic rotations.\""
+  },
+  {
+   "code": "Q028",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh benchmark bằng tên bài: \"Which computational timings are compared in the benchmark in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?\" Đáp án: \"Average key-generation, encryption, and decryption/signing times for RSA-2048, ECC-P256, Kyber-512, Dilithium-II, and Falcon512.\""
+  },
+  {
+   "code": "Q029",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q030",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'during loop1' thiếu ngữ cảnh; hỏi: \"In the 2048-bit RSA factoring resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many CCZ states are needed for the largest lookup using six address qubits?\" Đáp án: \"At least 57 CCZ states per such lookup.\" Bỏ biểu thức '26' mất số mũ và phần số lớp không được hỏi."
+  },
+  {
+   "code": "Q031",
+   "key": "keep",
+   "label": 0,
+   "note": "Đoạn B mô tả sơ đồ TF/MDI-QKD nhưng không nói chúng làm phát sinh các PNS tinh vi hơn hoặc kênh hai chiều. Đáp án tự suy diễn tác động lên kiểm định của Xiaoming et al."
+  },
+  {
+   "code": "Q032",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q033",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q034",
+   "key": "keep",
+   "label": 2,
+   "note": "Làm rõ giao diện thuộc mạng QKD: \"Which three service-management operations are provided by the REST-based northbound interface of the QKD network controller?\" Đáp án: \"Creating, modifying, and deleting services.\""
+  },
+  {
+   "code": "Q035",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án bị cắt giữa câu. Sửa: \"wolfSSL, Bouncy Castle, and Botan.\" Hỏi có quy chiếu rõ: \"Which libraries are described in A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries as having moved aggressively to implement NIST’s post-quantum algorithms?\""
+  },
+  {
+   "code": "Q036",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q037",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ khẳng định HHL 'provides a theoretical foundation' không được hai đoạn nêu. Hỏi: \"Which mathematical task connects HHL with variational linear-system algorithms, and what NISQ design goal distinguishes the variational approaches from fault-tolerant quantum algorithms?\" Đáp án: \"Both address solving linear systems of equations. Variational approaches seek heuristic scalings comparable to the provable scalings of fault-tolerant algorithms while keeping their requirements compatible with NISQ hardware.\" Hai đoạn cần cho hai phần: nhiệm vụ của HHL và mục tiêu của VQA."
+  },
+  {
+   "code": "Q038",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the paper' bằng tên: \"Which implementation components form the crypto-agility roadmap in The Quantum Security Deadline?\" Đáp án: \"CBOM analysis, hybrid encryption deployment, and automated certificate lifecycle management (CLM) integration.\""
+  },
+  {
+   "code": "Q039",
+   "key": "keep",
+   "label": 0,
+   "note": "Toán tử tổng trong công thức bị trích thành Pm_i=0 và bố cục toán bị hỏng. Câu hỏi phụ thuộc trực tiếp công thức lỗi ký tự."
+  },
+  {
+   "code": "Q040",
+   "key": "keep",
+   "label": 0,
+   "note": "Không có đoạn nào thiết lập vai trò của quantum games trong chuẩn bị an ninh lượng tử cho doanh nghiệp. Đáp án ghép hai chủ đề và bỏ mất vai trò cụ thể của QML trong cải thiện trò chơi."
+  },
+  {
+   "code": "Q041",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung Kyber và bỏ phần đáp án ngoài yêu cầu: \"How many basemul calls are selected for CPA in the improved trial-and-error lattice attack on Kyber?\" Đáp án: \"The method selects 60 basemul calls for CPA.\" Không cần nêu 38/39 đầu vào lattice nếu câu không hỏi."
+  },
+  {
+   "code": "Q042",
+   "key": "keep",
+   "label": 2,
+   "note": "Nêu điều kiện của ước lượng: \"For the n = 2048 resource estimate in How to factor 2048 bit RSA integers with less than a million noisy qubits, how many physical qubits do hot storage and the compute region use together?\" Đáp án: \"Hot storage uses 177,112 physical qubits and the compute region uses 170,352, totaling 347,464 physical qubits.\" Bỏ công thức và ký hiệu chưa định nghĩa không cần thiết."
+  },
+  {
+   "code": "Q043",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q044",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức với ρ2 không rõ là bình phương hay ký hiệu khác, và không phải dạng von Neumann entropy chuẩn như đáp án gọi. Không dùng câu hỏi công thức sai/mơ hồ làm đáp án chuẩn."
+  },
+  {
+   "code": "Q045",
+   "key": "keep",
+   "label": 0,
+   "note": "Đoạn B đã mô tả đầy đủ cả QBM và QCBM cùng nguyên lý huấn luyện/sampling. Không cần đoạn A, nên không đạt yêu cầu multi-hop."
+  },
+  {
+   "code": "Q046",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'this attack' bằng tên phương pháp: \"Which technique solves the reduced-dimension LWE problem in the improved two-step side-channel/lattice attack on Kyber?\" Đáp án: \"Kannan’s embedding technique.\" Bỏ 'We', trích dẫn [12] và dấu phẩy cuối."
+  },
+  {
+   "code": "Q047",
+   "key": "keep",
+   "label": 0,
+   "note": "Không có nguồn nào chứng minh ghép entropy cộng đồng với hệ gợi ý chuỗi sẽ đạt ưu thế dung lượng/khái quát hóa của QNN. Đây là suy diễn chuyển kết quả giữa các mô hình, không phải kết luận từ hai đoạn."
+  },
+  {
+   "code": "Q048",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q049",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức 'phase transition probability' không định nghĩa B, không có điều kiện hoặc chuẩn hóa và không đủ cơ sở để trình bày như công thức tổng quát. Câu hỏi công thức không rõ nghĩa."
+  },
+  {
+   "code": "Q050",
+   "key": "keep",
+   "label": 0,
+   "note": "F. Rodríguez-Díaz et al. là dòng đầu trang của bài khảo sát, không phải bằng chứng họ đề xuất mô hình đạt 99.58%. Đoạn A bắt đầu giữa mô tả nên thiếu danh tính mô hình/tác giả; đáp án gán sai tác giả."
+  },
+  {
+   "code": "Q051",
+   "key": "keep",
+   "label": 0,
+   "note": "Toàn bộ nội dung đáp án, kể cả đánh đổi chống nhiễu và mô tả Boltzmann machine, đã có trong đoạn B. Đoạn A không cần thiết, không đạt multi-hop."
+  },
+  {
+   "code": "Q052",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ số chú thích dính vào tên kho: đáp án là \"awesome-pqc\", không phải \"awesome-pqc1\". Sửa câu hỏi: \"What curated open repository is introduced in Post-Quantum Cryptography and Quantum-Safe Security for the PQC community?\""
+  },
+  {
+   "code": "Q053",
+   "key": "keep",
+   "label": 2,
+   "note": "Làm rõ thuật toán và N: \"How is signal quality quantified in the QPE-based Shor order-finding experiments described in Practical Challenges in Executing Shor’s Algorithm, where N is the integer modulus?\" Đáp án: \"By the windowed hit rate relative to a uniform baseline.\" Bỏ giới hạn N > 30 vì đoạn không giới hạn cách đo này cho riêng N > 30."
+  },
+  {
+   "code": "Q054",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung giả thiết nguồn: \"In the no-eavesdropping model of decoy-state QKD, which two sources contribute to the yield Y_n for n ≥ 1?\" Đáp án: \"Detection of signal photons (η_n) and background detection events (p_dark).\""
+  },
+  {
+   "code": "Q055",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q056",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án nhầm hai yêu cầu khác nhau: tính uniform/computable của cổng không bắt buộc N phải nằm trong thanh ghi dữ liệu. Toàn bộ nội dung về NREG/adders đã ở A; B không thiết lập quan hệ mà câu hỏi giả định."
+  },
+  {
+   "code": "Q057",
+   "key": "keep",
+   "label": 2,
+   "note": "Đoạn không đủ trả lời cách kết hợp thành phần lượng tử/cổ điển; bỏ vế đó và phần câu bị cắt. Hỏi: \"Which hybrid GAN framework is introduced to enhance channel prediction in MIMO-OFDM systems?\" Đáp án: \"HQDCGAN-MIMO-OFDM, a hybrid quantum deep convolutional generative adversarial network framework.\""
+  },
+  {
+   "code": "Q058",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức phương sai bị mất phân số, chỉ số và số mũ trong đáp án. Thuộc nhóm công thức lỗi ký tự."
+  },
+  {
+   "code": "Q059",
+   "key": "keep",
+   "label": 2,
+   "note": "Tránh hỏi trạng thái hiện tại không gắn thời điểm. Hỏi: \"What standardization gap for hybrid classical/post-quantum schemes is identified in A Comprehensive Survey on Pre Versus Post Quantum Security Schemes for 5G-Enabled IoT Applications?\" Đáp án: \"The survey identifies a lack of standardization for hybrid schemes intended to support efficient implementation and backward compatibility.\" Đây là phát biểu của nguồn."
+  },
+  {
+   "code": "Q060",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu trả lời bị cắt, câu hỏi tuyệt đối quá rộng. Sửa: \"Which PQC families are listed as being designed to resist quantum attacks?\" Đáp án: \"Lattice-based, multivariate-based, and code-based cryptosystems.\""
+  },
+  {
+   "code": "Q061",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q062",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q063",
+   "key": "keep",
+   "label": 0,
+   "note": "Đoạn chỉ khẳng định kết quả khác Koashi, không giải thích khác như thế nào. Đáp án trộn chú thích và câu bị cắt, không trả lời được phần so sánh."
+  },
+  {
+   "code": "Q064",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q065",
+   "key": "keep",
+   "label": 0,
+   "note": "Pseudocode mất số mũ trong 2^i*c, bị hiển thị thành 2ic. Câu hỏi phụ thuộc mã/công thức bị lỗi ký tự."
+  },
+  {
+   "code": "Q066",
+   "key": "keep",
+   "label": 2,
+   "note": "Nguồn nêu ví dụ, không chứng minh một khoảng cách tối thiểu phổ quát. Hỏi: \"What example of a surface-code distance is suggested for QuANet, together with fault-tolerant syndrome extraction, to reach break-even logical-qubit coherence?\" Đáp án: \"The review gives surface-code distance d ≥ 3 as an example; an adequate distance and fault-tolerant syndrome extraction are required.\""
+  },
+  {
+   "code": "Q067",
+   "key": "keep",
+   "label": 0,
+   "note": "Các 'step 1', 'step 3' và hai bảng của Bob không được định nghĩa trong đoạn. Thiếu ngữ cảnh giao thức tung đồng xu để câu hỏi tự đứng và hiểu kết luận."
+  },
+  {
+   "code": "Q068",
+   "key": "keep",
+   "label": 0,
+   "note": "Xác suất cos2a/sin2a bị mất số mũ; câu hỏi cũng chưa nói góc đo so với phương ngang. Thuộc câu hỏi công thức lỗi ký tự."
+  },
+  {
+   "code": "Q069",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung decoy-state QKD vào câu hỏi. Đáp án viết rõ: \"S ≥ q{−Q_μ f(E_μ) H_2(E_μ) + Q_1[1 − H_2(e_1)]}. Here q is the basis-sifting factor: 1/2 for standard BB84 and approximately 1 for efficient BB84; f(E_μ) accounts for practical error-correction inefficiency.\" Giữ đủ ngoặc và chỉ số."
+  },
+  {
+   "code": "Q070",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q071",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q072",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the study' bằng tên: \"Which quantum-resistant alternatives are evaluated for security, performance, and implementation feasibility in A Comparative Study of Classical and Post-Quantum Cryptographic Algorithms in the Era of Quantum Computing?\" Đáp án: \"Kyber, Dilithium, and Falcon.\""
+  },
+  {
+   "code": "Q073",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q074",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q075",
+   "key": "keep",
+   "label": 2,
+   "note": "Chuẩn hóa đáp án: \"Each MNIST image is a 28 × 28 grayscale matrix. Flattening it produces a real vector with 784 components (x ∈ ℝ^784).\" Không hiển thị ℝ784 như tích hay ký hiệu không rõ."
+  },
+  {
+   "code": "Q076",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q077",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the study' bằng mô tả thí nghiệm có trong đoạn: \"What QEC cycle time is reported for the surface-code experiment encoding a logical qubit using nine physical data qubits?\" Đáp án: \"A QEC cycle time of 1.1 μs is reported.\""
+  },
+  {
+   "code": "Q078",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q079",
+   "key": "keep",
+   "label": 0,
+   "note": "Không có đoạn nào nối hạng thấp của ma trận sở thích hoặc quantum speedup với khả năng tránh barren plateaus. Đáp án suy diễn quan hệ nhân quả và khả năng chống BP không được chứng minh."
+  },
+  {
+   "code": "Q080",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q081",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q082",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q083",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q084",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q085",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q086",
+   "key": "keep",
+   "label": 0,
+   "note": "Chỉ hỏi phép trừ minh họa 3329 − 2280 = 1049, không kiểm tra cơ chế hay nhận thức đáng kể về tấn công. Thuộc chi tiết số học vụn vặt; nên thay bằng câu về tương quan PCC giữa hệ số đúng và giá trị bù trong một vòng tạo câu khác."
+  },
+  {
+   "code": "Q087",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức đáp án sai: mất ngoặc nhân Q_μ và mất phép chia E_μ/Ω trong entropy. Phần định nghĩa Ω bị cắt. Thuộc đáp án sai/công thức lỗi."
+  },
+  {
+   "code": "Q088",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q089",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án hiện tại lặp câu hỏi mà chưa làm rõ nhược điểm. Hỏi: \"What deployment drawback of code-based cryptosystems motivates key-length-reduction approaches such as the Niederreiter variant for resource-constrained IoT devices?\" Đáp án: \"Their large key sizes make deployment on resource-constrained IoT devices difficult.\""
+  },
+  {
+   "code": "Q090",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q091",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh nguồn thay 'the research': \"What proportion of companies is reported as having a quantum-safe crypto strategy in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"The review reports that 5% of companies have such a strategy.\" Không diễn giải đây là tỷ lệ hiện tại của mọi doanh nghiệp hay tự thêm phạm vi khảo sát chưa có trong đoạn."
+  },
+  {
+   "code": "Q092",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q093",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh mô hình và nhiễu: \"What accuracy is reported for the localized-cost QCNN in Beyond Barren Plateaus: A Scalable Quantum Convolutional Architecture for High-Fidelity Image Classification under symmetric depolarizing noise with p = 0.01?\" Đáp án: \"The reported classification accuracy is 94.2%.\""
+  },
+  {
+   "code": "Q094",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'according to the table' và nêu đúng phạm vi: \"How many total power traces are required by the improved non-profiled CPA/two-step attack to recover the 128-coefficient key group SK-128 in Kyber?\" Đáp án: \"Between 660 and 900 power traces in total (60 basemul calls with 11–15 traces each).\" Không gọi đây là số traces của toàn bộ khóa Kyber."
+  },
+  {
+   "code": "Q095",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q096",
+   "key": "keep",
+   "label": 0,
+   "note": "Không có dữ liệu public-key size hoặc computational efficiency của X25519 trong đoạn A. Không trả lời được phép so sánh chính; đáp án chỉ nói X25519 là cơ chế cổ điển."
+  },
+  {
+   "code": "Q097",
+   "key": "keep",
+   "label": 0,
+   "note": "Hai đoạn không chứng minh PQC/homomorphic encryption khắc phục các vector tấn công do superposition/parallelism trong QFL, càng không khắc phục nhiễu môi trường hoặc tấn công semantic encoding. Đáp án khẳng định quá mức."
+  },
+  {
+   "code": "Q098",
+   "key": "keep",
+   "label": 2,
+   "note": "Hỏi khớp mức chi tiết nguồn: \"What tailored quantum-resistant measure is proposed for protecting cloud data?\" Đáp án: \"Post-quantum encryption for cloud data.\" Đoạn không nêu các hệ mật cụ thể để trả lời câu hỏi 'what cryptographic systems'."
+  },
+  {
+   "code": "Q099",
+   "key": "keep",
+   "label": 2,
+   "note": "Định nghĩa ký hiệu trong câu hỏi: \"In residue arithmetic for computations modulo L, how does the bit length ℓ of the small primes in the residue set P scale with L according to the prime number theorem?\" Đáp án: \"The prime set can be chosen with prime bit length ℓ = Θ(log log L).\""
+  },
+  {
+   "code": "Q100",
+   "key": "keep",
+   "label": 2,
+   "note": "Làm rõ hai lựa chọn thay vì câu 'two possible preparations' thiếu liệt kê: \"In the CV-QKD description, how does choosing a measurement basis compare with using both bases simultaneously in terms of sifting?\" Đáp án: \"When a basis is selected, sifting removes uncorrelated measurement data. In the described variants where Alice and Bob use both bases simultaneously, sifting is unnecessary.\" Dùng 'measurement data', không gọi dữ liệu CV là qubits bị loại."
+  },
+  {
+   "code": "Q101",
+   "key": "keep",
+   "label": 0,
+   "note": "'the described states' và r không được định nghĩa độc lập; biểu thức 1/3r2 còn mất ngoặc/số mũ. Thuộc câu hỏi công thức lỗi và thiếu ngữ cảnh."
+  },
+  {
+   "code": "Q102",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ đánh giá 'more severe threat' vì không có cơ sở so sánh mức độ. Đáp án: \"The SIKE attack described in the survey runs in approximately one hour on standard classical hardware and does not require quantum computation. By contrast, breaking RSA/ECC with Shor’s algorithm requires a sufficiently powerful cryptographically relevant quantum computer.\" Cả hai đoạn đều cần cho phép so sánh tài nguyên này."
+  },
+  {
+   "code": "Q103",
+   "key": "keep",
+   "label": 0,
+   "note": "Trùng ý định nghĩa/lời hứa tác động rộng của QML ở Q085; câu và đáp án chỉ lặp 'potential to revolutionize' mà không nêu cơ chế hoặc tác động cụ thể cho hai ngành được hỏi."
+  },
+  {
+   "code": "Q104",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q105",
+   "key": "keep",
+   "label": 2,
+   "note": "Hỏi cụ thể hai khoảng trống thay vì liên hệ suy đoán: \"Which complementary literature gaps are identified by Quantum Key Distribution Networks—Key Management: A Survey and QUANTUM KEY DISTRIBUTION: Bridging Theoretical Security Proofs, Practical Attacks, and Error Correction?\" Đáp án: \"The key-management survey identifies a missing comprehensive system-level engineering view and provides a chronological account of key-manager functionality. The security review identifies incomplete coverage of CV-QKD security proofs and insufficient updates on experimental attacks/security developments in earlier reviews.\" Không tự khẳng định quan hệ nhân quả giữa hai khoảng trống."
+  },
+  {
+   "code": "Q106",
+   "key": "keep",
+   "label": 0,
+   "note": "Câu hỏi đòi tên ba thuật toán nhưng đoạn A dừng trước danh sách và đáp án chỉ nêu số hiệu FIPS/các loại thuật toán. Không đủ bằng chứng trong đoạn để trả lời; phần phân loại còn trùng Q212."
+  },
+  {
+   "code": "Q107",
+   "key": "keep",
+   "label": 2,
+   "note": "Rút gọn câu trả lời bị lỗi ngữ pháp: \"Gong et al. (2023) developed multi-party semi-quantum private comparison (MQPC) protocols using decoherence-free states to support communication under collective-dephasing and collective-rotation noise.\""
+  },
+  {
+   "code": "Q108",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q109",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q110",
+   "key": "keep",
+   "label": 2,
+   "note": "Nguồn không gán đích năm 2035 cho ETSI như câu hỏi. Chỉ hỏi: \"What year does the White House’s NSM-10 target for mitigating most quantum risk, as reported in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"The stated target is 2035.\" Bỏ quy kết ETSI có cùng hạn chót."
+  },
+  {
+   "code": "Q111",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung nền tảng còn thiếu trong đáp án: \"FALCON is based on NTRU lattices, uses a rapid Fourier trapdoor sampler, and relies on the SIS problem over NTRU. Its key-generation inputs include the prime modulus q and monic polynomial φ. Messages are signed with secret key sk and signatures are verified with public key h.\" Không chỉ trả lời chung chung 'based on the lattice'."
+  },
+  {
+   "code": "Q112",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q113",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q114",
+   "key": "keep",
+   "label": 2,
+   "note": "Nêu tên hệ thống và đáp án đầy đủ: \"In the Kyber shuffling countermeasure’s random permutation generator (RPG), how far is the completed permutation cyclically shifted to the right before output?\" Đáp án: \"It is cyclically shifted to the right six times before being output as the final random address permutation.\""
+  },
+  {
+   "code": "Q115",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án thừa các thiết kế cho ML-DSA/SPHINCS+. Chỉ trả lời: \"FFT and discrete Gaussian co-designs are mentioned for FALCON hardware acceleration.\""
+  },
+  {
+   "code": "Q116",
+   "key": "keep",
+   "label": 0,
+   "note": "Chỉ đoạn A đã đủ trả lời toàn bộ; không cần B, nên không phải multi-hop. Đáp án còn gọi sai E_μ là quantum efficiency thay vì quantum bit error rate và dựa vào phần định nghĩa bị cắt."
+  },
+  {
+   "code": "Q117",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q118",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q119",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ suy luận QRL cũng dùng/đánh giá LMS. Đáp án: \"QRL deploys the hash-based XMSS signature scheme in its blockchain. wolfSSL supports the stateful hash-based schemes LMS and XMSS for software/firmware code signing. The two examples illustrate hash-based post-quantum signatures in blockchain and embedded code-signing deployments, respectively.\" Không khẳng định cả hai triển khai đều sử dụng LMS."
+  },
+  {
+   "code": "Q120",
+   "key": "keep",
+   "label": 0,
+   "note": "Toán tử tổng trong đáp án bị biến thành ×, mất cận tổng, làm sai biểu thức zero-noise extrapolation. Thuộc công thức lỗi ký tự."
+  },
+  {
+   "code": "Q121",
+   "key": "keep",
+   "label": 0,
+   "note": "Phương trình trạng thái tái tạo ở đầu A thuộc phần autoencoder trước tiêu đề QGAN, bị gán nhầm cho QGAN. B không có biểu thức trạng thái để so sánh và không nêu virtual reality; kết luận ứng dụng/độ thực tế vượt nguồn."
+  },
+  {
+   "code": "Q122",
+   "key": "keep",
+   "label": 2,
+   "note": "Nêu rõ giai đoạn online và ký hiệu: \"What is the online recommendation-stage runtime of the quantum recommendation algorithm for a low-rank preference matrix with m customers, n products, and rank k?\" Đáp án: \"The online stage runs in O(poly(k) polylog(mn)) time by sampling from a low-rank approximation rather than reconstructing the full matrix.\" Nên kèm phần nguồn trước đó định nghĩa m, n, k khi phát hành lại phiếu."
+  },
+  {
+   "code": "Q123",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q124",
+   "key": "keep",
+   "label": 2,
+   "note": "Sửa câu trả lời lỗi OCR và đại từ: \"A barren plateau makes the cost-function landscape essentially flat because its partial derivatives vanish exponentially with system size on average.\""
+  },
+  {
+   "code": "Q125",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'the paper' và số hiệu hình: \"Which class of attacks on QML models in 6G replaces a deployed model with a malicious one?\" Đáp án: \"QML compromise attacks.\""
+  },
+  {
+   "code": "Q126",
+   "key": "keep",
+   "label": 2,
+   "note": "Nguồn B ghi F1 là 0.94 nhưng classical là 0.87%, không cùng thang đo; không tự sửa 0.87% thành 0.87 khi chưa kiểm chứng. Đổi phần so sánh sang số liệu latency đầy đủ: \"How can noise undermine QML-assisted 6G digital twins, and what intrusion-detection latency reduction is reported for quantum processing relative to classical processing?\" Đáp án: \"Noise can corrupt qubit-encoded real-time data/measurements and lead to unreliable digital-twin predictions. The cybersecurity example reports latency falling from 320 ms to 110 ms with quantum processing.\" Hai đoạn cần cho hai ý."
+  },
+  {
+   "code": "Q127",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q128",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án phải có ngữ cảnh và phân biệt phát biểu nguồn với quy định đã xác minh. Hỏi: \"What UK NCSC PQC-migration year is stated in harvest-now-decrypt-later-pqc-threat-model?\" Đáp án: \"The document states a migration year of 2035.\" Đoạn trích không đủ để xác nhận tính chất pháp lý của từ 'mandate'."
+  },
+  {
+   "code": "Q129",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q130",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án gán cơ chế DFS của giao thức MQPC cho thuật toán QML/quantum generative models. Hai đoạn chỉ nói các chủ đề cạnh nhau, không chứng minh QML tạo khả năng chống collective noise đó."
+  },
+  {
+   "code": "Q131",
+   "key": "keep",
+   "label": 0,
+   "note": "Hỏi mục đích chung của bài khảo sát bằng 'the paper', còn đánh đồng nhiều cách quản lý khóa với một approach cụ thể. Đáp án chỉ là mục tiêu nghiên cứu chung, không kiểm tra nội dung kỹ thuật đáng kể."
+  },
+  {
+   "code": "Q132",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án bịa group size 384 trong khi B ghi Kyber 128 và Dilithium 256. A không định lượng ảnh hưởng lên chi phí RSA để thực hiện so sánh với lattice dimension; hai chủ đề bị ghép thiếu quan hệ."
+  },
+  {
+   "code": "Q133",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q134",
+   "key": "keep",
+   "label": 0,
+   "note": "QML detection rates và độ an toàn của thuật toán mật mã là hai loại chỉ số không tương đương. A không cho chi phí tính toán, B không cho kết quả benchmark thời gian cụ thể, nên không đủ dữ liệu cho phép so sánh efficiency mà câu hỏi đòi hỏi."
+  },
+  {
+   "code": "Q135",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'the example code' không được định danh: \"How does the residue-arithmetic RSA factoring implementation replace modular multiplications with modular additions?\" Đáp án: \"By classically precomputing short discrete logarithms.\""
+  },
+  {
+   "code": "Q136",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q137",
+   "key": "keep",
+   "label": 0,
+   "note": "Đoạn A chỉ chứa Falcon ở phần bảng trước tiêu đề case study iMessage, không nói Apple triển khai Falcon. Đáp án suy diễn từ bố cục trang, còn nhầm vai trò chữ ký với bảo vệ bí mật khóa trao đổi."
+  },
+  {
+   "code": "Q138",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q139",
+   "key": "keep",
+   "label": 0,
+   "note": "Câu hỏi đòi hai thuật toán QRL cụ thể, nhưng nguồn chỉ nói 'two novel QRL-based algorithms' và không nêu tên/mô tả phân biệt. Đáp án lặp lại tiền đề, không trả lời vế chính."
+  },
+  {
+   "code": "Q140",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q141",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q142",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q143",
+   "key": "keep",
+   "label": 2,
+   "note": "Định nghĩa n và bỏ phần suy diễn lợi thế không được hỏi: \"How does the number of trainable parameters in the localized-cost QCNN architecture scale with the number of qubits n?\" Đáp án: \"The trainable-parameter count scales as O(log n).\""
+  },
+  {
+   "code": "Q144",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh bước xử lý: \"In Ekerå–Håstad-style period finding for an RSA modulus N = pq, what value of d is recovered with high probability after classical post-processing?\" Đáp án: \"With high probability, d = p + q − 2, where p and q are the prime factors of N.\""
+  },
+  {
+   "code": "Q145",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'according to Figure 2'. Hỏi: \"Which classical and quantum stages are integrated in the QML-based intrusion detection system (QML-IDS)?\" Đáp án: \"The system combines network monitoring and feature extraction/classical preprocessing, quantum feature mapping and circuit transpilation/optimization, QML models such as VQC, QSVM and QCNN, and classical learning/post-processing for network alerts and evaluation.\""
+  },
+  {
+   "code": "Q146",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ tham chiếu Equation (26)/(27) khỏi đáp án. Viết: \"The loss is an observable expectation value, L(θ) = ⟨ψ(θ)∣O∣ψ(θ)⟩. Here ∣ψ(θ)⟩ is the parameterized QNN state, and O is a Hermitian measurement observable associated with the classification or regression task.\""
+  },
+  {
+   "code": "Q147",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án nói parallel QPE dùng ít control qubits là sai: đoạn B ghi dùng t control qubits, không phải ưu thế giảm qubit so với iterative QPE. A không thiết lập tương đương giữa gộp phase corrections và lựa chọn parallel QPE."
+  },
+  {
+   "code": "Q148",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q149",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'the paper': \"Which two applications are associated with early quantum coding using non-orthogonal quantum states?\" Đáp án: \"Counterfeit-resistant money and multiplexing.\" Khi đưa lại nguồn nên nối từ 'multiplex-' bị ngắt trang để người chấm thấy đầy đủ."
+  },
+  {
+   "code": "Q150",
+   "key": "keep",
+   "label": 0,
+   "note": "Nguồn chỉ nói review sẽ trình bày các kiến trúc và phương pháp encoding, không liệt kê chúng. Đáp án lặp lại tuyên bố này thay vì trả lời 'what are'."
+  },
+  {
+   "code": "Q151",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q152",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án hiện nêu giả thiết thay vì trả lời 'what can be used'. Đổi câu hỏi: \"Under what alternative assumptions can quantum randomness expansion remain certifiable even with untrusted equipment?\" Đáp án: \"It can rely on the inability of spacelike-separated parties to communicate, or on suitable assumptions about quantum computational hardness.\""
+  },
+  {
+   "code": "Q153",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q154",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh bộ điều khiển: \"In the hardware shuffling countermeasure for Kyber, how many replacement RAM/ROM read and write addresses does the address controller (ADDR) provide?\" Đáp án: \"It provides four replacement read addresses and two replacement write addresses.\""
+  },
+  {
+   "code": "Q155",
+   "key": "keep",
+   "label": 2,
+   "note": "Sửa đáp án thành nội dung trực tiếp: \"Qiskit and TensorFlow Quantum are discussed as tools for developing hybrid quantum-classical models.\" Bỏ 'The passage mentions' và [96]/[65]."
+  },
+  {
+   "code": "Q156",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung cơ sở vận hành bị thiếu trong đáp án: \"ML-KEM is lattice-based and operates over polynomial rings with carefully chosen parameters. The passage grounds its security guarantees in worst-case lattice problems.\" Bỏ đoạn quảng bá hiệu năng không được câu hỏi yêu cầu; không tự bổ sung chi tiết phép quy giảm chưa có trong nguồn."
+  },
+  {
+   "code": "Q157",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q158",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q159",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q160",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'mentioned in the paper' và làm rõ loại tấn công: \"What property of Dilithium’s point-wise multiplication makes it susceptible to the discussed side-channel attacks on lattice-based PQC?\" Đáp án: \"Dilithium uses single-point PWM and is described as more vulnerable to similar PWM-targeting side-channel attacks.\""
+  },
+  {
+   "code": "Q161",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay [149] bằng mô tả định danh được: \"What key/signature-size trade-off is reported for the Rand Basis-based post-quantum blockchain signature scheme, and what hardness assumption underpins the LWE-based protection discussed for Kyber?\" Đáp án: \"The Rand Basis scheme reduces public and private key sizes but increases signature size relative to earlier schemes. The lattice-based protection discussed for Kyber relies on the difficulty of finding short vectors in high-dimensional lattices.\" Không để người đọc phải tra số trích dẫn để biết đối tượng."
+  },
+  {
+   "code": "Q162",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức fidelity bị hiển thị ba dấu trị tuyệt đối và lẫn thẻ HTML <sup>; phần công thức toán làm đáp án chuẩn bị lỗi ký tự/định dạng. Nguồn cũng dùng thuật ngữ 'gate fidelity' rộng hơn biểu thức độ chồng lấp theo cặp trạng thái này."
+  },
+  {
+   "code": "Q163",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án gán nhầm vai trò giảm legacy risk của forward-secure lifecycles cho QKD. Sửa: \"PQC can protect broad existing infrastructures through software migration, although delayed migration leaves exposure. QKD adds physical-layer key-distribution guarantees for selected highly sensitive fiber links, with cost and scalability limits; its keys can feed symmetric encryption such as AES while PQC or pre-shared keys provide authentication. Forward-secure lifecycles, rather than QKD itself, are the measure the HNDL passage assigns to mitigating archival/legacy risk.\""
+  },
+  {
+   "code": "Q164",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q165",
+   "key": "keep",
+   "label": 2,
+   "note": "Đoạn không cho tên mô hình/tác giả, không gán mô hình cho tác giả ở đầu trang. Hỏi có nguồn rõ: \"What performance is reported in A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications for the hybrid model combining classical preprocessing, a variational quantum layer, and mini-batch training?\" Đáp án: \"The model is reported to achieve 99.58% accuracy, outperform its classical counterpart, and show enhanced robustness on noisy data.\" Nên bổ sung phần đoạn trước có tên mô hình khi phát hành lại."
+  },
+  {
+   "code": "Q166",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q167",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án thừa ví dụ Ueno/3072 traces không được hỏi. Sửa: \"The modified FO transform ensures random secret/error values are generated within the permitted procedure and checked during decapsulation. The prior work described in the second passage uses CPA twice to recover 60% of the Kyber-512 secret key using approximately 1,619 power traces, leaving 40% erroneous coefficients.\" Không gọi đây là phục hồi toàn bộ khóa."
+  },
+  {
+   "code": "Q168",
+   "key": "keep",
+   "label": 2,
+   "note": "S không phải 'security parameter' mà là secure key-generation rate per emitted signal state. Hỏi: \"What lower bound is given for the secure key-generation rate per emitted signal state in decoy-state QKD?\" Đáp án: \"S ≥ Q_μ{−H_2(E_μ) + Ω[1 − H_2(e_1)]}, where Ω is the fraction of detections originating from single-photon signals and e_1 is their QBER.\""
+  },
+  {
+   "code": "Q169",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q170",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q171",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q172",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q173",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q174",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q175",
+   "key": "keep",
+   "label": 0,
+   "note": "Câu hỏi đã nêu nguyên đáp án f = O(log log N), không định nghĩa ý nghĩa f và chỉ yêu cầu lặp lại công thức. Không kiểm tra tri thức độc lập."
+  },
+  {
+   "code": "Q176",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q177",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q178",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay đáp án bảng/cụt bằng câu đầy đủ: \"The TFQ-Cirq simulation pipeline uses an initial learning rate η_0 = 0.015.\""
+  },
+  {
+   "code": "Q179",
+   "key": "keep",
+   "label": 0,
+   "note": "Ghép QPE, quantum convolution và autoencoders mà hai đoạn không thiết lập so sánh. Đáp án tự thêm hạn chế autoencoder; đoạn A không đủ thông tin hạn chế hardware cụ thể theo yêu cầu chung."
+  },
+  {
+   "code": "Q180",
+   "key": "keep",
+   "label": 0,
+   "note": "Nguồn chỉ nói đã sửa Fisher–Yates, không cho biết sửa cụ thể gì. Đáp án lặp nguyên tiền đề, không trả lời được câu hỏi về modification."
+  },
+  {
+   "code": "Q181",
+   "key": "keep",
+   "label": 2,
+   "note": "Quy chiếu rõ đây là ước lượng trong mô hình, không dự báo chắc chắn: \"What baseline attacker-decryption-horizon estimate H_a is used relative to Q-Day T_Qday in harvest-now-decrypt-later-pqc-threat-model?\" Đáp án: \"The model assumes H_a ≈ T_Qday + 3–5 years to allow for operational deployment, refinement, and scaling after Q-Day.\""
+  },
+  {
+   "code": "Q182",
+   "key": "keep",
+   "label": 2,
+   "note": "Đoạn không giải thích quan hệ toán học cụ thể giữa hai khóa. Bỏ vế đó; hỏi: \"Which type of cryptographic system uses an asymmetric public/private key pair for encryption and decryption?\" Đáp án: \"A public-key cryptography system.\""
+  },
+  {
+   "code": "Q183",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung ngữ cảnh giao thức: \"In quantum public-key distribution, which scheme lets Alice and Bob authenticate public-channel messages using a small pre-shared secret key?\" Đáp án: \"The Wegman–Carter multiple-message authentication scheme.\""
+  },
+  {
+   "code": "Q184",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q185",
+   "key": "keep",
+   "label": 0,
+   "note": "Tiền đề nói phá DSA và DH bằng phân tích số nguyên là sai; chúng liên quan bài toán logarithm rời rạc. Nguồn bảng cũng ghi sai cơ chế, không nên dùng làm câu/đáp án chuẩn."
+  },
+  {
+   "code": "Q186",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu hiện tại vòng vo và đã nêu phép kiểm tra. Hỏi: \"How does the Fujisaki–Okamoto transform in Kyber use re-encryption to check ciphertext tampering?\" Đáp án: \"It decrypts the received ciphertext, re-encrypts the recovered message to obtain c′, and compares c′ with the received ciphertext c; the equality result determines the subsequent session-key selection.\""
+  },
+  {
+   "code": "Q187",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án gán Google dùng trapped ions là sai so với bảng: IBM và Google cùng nằm ở nhóm synthetic qubits. Số liệu sampling benchmark cũng bị diễn giải thành lợi thế tính toán chung không có điều kiện nhiệm vụ."
+  },
+  {
+   "code": "Q188",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q189",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q190",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án nhầm hệ n qubits với 2n qubits và mất số mũ 2^n ở chiều không gian/số hệ số. Hai mô tả đều dùng vector đơn vị trong Hilbert space chứ không phải hai nguyên lý khác nhau như cách diễn đạt so sánh."
+  },
+  {
+   "code": "Q191",
+   "key": "keep",
+   "label": 2,
+   "note": "Giới hạn phạm vi kết luận lượng tử: \"How does vanishing-gradient scaling in classical deep networks compare with the barren-plateau scaling discussed for randomly initialized parameterized quantum circuits?\" Đáp án: \"Classical gradients can vanish exponentially with the number of layers; in the quantum barren-plateau setting discussed, gradients become exponentially small with the number of qubits.\" Không khẳng định mọi mạch lượng tử đều có gradient như vậy."
+  },
+  {
+   "code": "Q192",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q193",
+   "key": "keep",
+   "label": 0,
+   "note": "Nguồn nêu hậu quả và tầm quan trọng đồng bộ kho/queue, không nêu cơ chế nào phát hiện hoặc bảo đảm loại khóa hỏng như câu hỏi yêu cầu. Đáp án lặp hiện tượng thay vì xác định mechanism."
+  },
+  {
+   "code": "Q194",
+   "key": "keep",
+   "label": 2,
+   "note": "Đáp án phải nêu tên approach: \"A sub-logical ansatz includes device-level control parameters in the variational ansatz, giving additional flexibility. It connects VQAs to quantum optimal control, which maps logical operations to physical control parameters and is especially relevant to quantum simulation.\""
+  },
+  {
+   "code": "Q195",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q196",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q197",
+   "key": "keep",
+   "label": 2,
+   "note": "Đoạn bị cắt trước phần phân phối global keys. Trả lời đúng phần đầy đủ, phù hợp câu hỏi về vai trò: \"The mechanism provides a fair and effective supply of keys to multiple applications through key-sharing and key-allocation functions.\" Không kể chi tiết tiếp theo chưa có trong đoạn."
+  },
+  {
+   "code": "Q198",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q199",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q200",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q201",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the architecture' bằng localized-cost QCNN trong tên bài; định nghĩa j là qubit bị loại và k là qubit giữ lại. Đáp án: \"The pooling operation uses V_pool(θ) = CNOT_(j→k) [I ⊗ R_y(θ)] CNOT_(j→k), with j as the control and k as the surviving qubit. Qubit j is then traced out.\""
+  },
+  {
+   "code": "Q202",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q203",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q204",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án so sánh space complexity với gate count rồi kết luận modular exponentiation 'more efficient', trong khi các biểu thức được nêu có cùng bậc cho space/gate count và thời gian exponentiation lớn hơn. So sánh khác đại lượng và kết luận sai."
+  },
+  {
+   "code": "Q205",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q206",
+   "key": "keep",
+   "label": 2,
+   "note": "Bổ sung phạm vi NSS và quy chiếu nguồn; không biến thành hạn chót chung cho mọi TLS. Hỏi: \"What adoption year does A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries report for quantum-resistant software/firmware signing and web/cloud TLS in US National Security Systems (NSS)?\" Đáp án: \"The survey reports 2025 for those NSS applications.\" Cần kiểm chứng tài liệu NSA gốc nếu muốn dùng câu như phát biểu chính sách thực tế thay vì đọc hiểu nguồn."
+  },
+  {
+   "code": "Q207",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q208",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q209",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q210",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q211",
+   "key": "keep",
+   "label": 2,
+   "note": "B không nêu một implementation Kyber cụ thể và còn nói NewHope. Hỏi: \"What total trace budget is reported for the improved non-profiled CPA/two-step recovery of Kyber’s SK-128 group, and which KEM implementations are described as suitable when power consumption or execution time is a concern?\" Đáp án: \"The SK-128 attack uses 660–900 traces. The survey identifies Kyber and NewHope as suitable KEM implementations when power consumption or execution time matters.\""
+  },
+  {
+   "code": "Q212",
+   "key": "keep",
+   "label": 2,
+   "note": "Phân biệt lựa chọn 2022 với ba chuẩn hoàn tất 2024. Hỏi: \"Which algorithm categories are covered by NIST’s first three finalized PQC standards released in August 2024?\" Đáp án: \"One key-encapsulation mechanism and two digital-signature schemes.\""
+  },
+  {
+   "code": "Q213",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q214",
+   "key": "keep",
+   "label": 0,
+   "note": "Công thức tối ưu 'min U' thiếu cấu trúc phụ thuộc tham số/miền tối ưu rõ ràng, QVA chưa được mở rộng; đáp án gọi U là operator 'representing quantum state' không rõ nghĩa. Không đạt tiêu chí câu hỏi công thức chính xác."
+  },
+  {
+   "code": "Q215",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q216",
+   "key": "keep",
+   "label": 2,
+   "note": "Nêu đủ đối chiếu và tránh coi số 50–100 qubits của bài khảo sát cũ là hiện trạng. Hỏi: \"How do the reported IBM NISQ Shor experiments compare with fault-tolerant RSA resource estimates, and why does the VQA review distinguish quantum supremacy from practical quantum advantage?\" Đáp án: \"The IBM experiments factored only small integers such as 15 and 21. The cited fault-tolerant estimate calls for roughly 20 million physical qubits for about eight hours at a 1 μs surface-code cycle, with major engineering work still needed. The VQA review attributes early limitations to noise and qubit constraints and distinguishes success on contrived supremacy tasks from speedups on practical applications.\""
+  },
+  {
+   "code": "Q217",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu hiện tại chứa luôn đáp án. Hỏi: \"Which computational task is identified as a natural candidate for problems that are classically hard but accessible to quantum computers?\" Đáp án: \"Simulating a many-particle quantum system.\""
+  },
+  {
+   "code": "Q218",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ Ref. [11] không định danh: \"Which hybrid framework is described for intelligent-firewall malware detection in Quantum Machine Learning for Cybersecurity?\" Đáp án: \"A combination of behavioral analysis, QML, and graph neural networks (GNNs).\""
+  },
+  {
+   "code": "Q219",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q220",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ 'now' không gắn thời điểm. Hỏi: \"Which technology categories are reported as offering beta PQC support in Are Enterprises Ready for Quantum-Safe Cybersecurity?\" Đáp án: \"Major VPN vendors and TLS libraries.\" Không biến nhận định trong bài thành trạng thái hiện tại đã xác minh."
+  },
+  {
+   "code": "Q221",
+   "key": "keep",
+   "label": 0,
+   "note": "Ghép câu hỏi QKD với high-frequency trading mà không có bước suy luận nối hai bài. Đáp án thêm cơ chế high-dimensional data cho trading từ phần QKD; B chỉ có nhận xét tiềm năng chung, không nêu ứng dụng/thuật toán cụ thể."
+  },
+  {
+   "code": "Q222",
+   "key": "keep",
+   "label": 2,
+   "note": "Làm rõ chuẩn: \"In ETSI QKD 004 key-stream sessions, which function returns the requested amount of key material for a specified Key Stream Identifier (KSID)?\" Đáp án: \"The GET_KEY function.\""
+  },
+  {
+   "code": "Q223",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q224",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q225",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q226",
+   "key": "keep",
+   "label": 2,
+   "note": "Đoạn dừng ở 'both for key', chưa đủ cho mô tả chi phí của hai thao tác. Dùng đặc tính có đầy đủ trong đoạn: \"SPHINCS+ signatures range from approximately 8 to 30 kilobytes. It is a stateless hash-based scheme relying on established hash functions rather than lattice structure, with a performance cost.\" Nếu giữ chi tiết key generation/signing, phải nối phần nguồn ở trang tiếp theo."
+  },
+  {
+   "code": "Q227",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q228",
+   "key": "keep",
+   "label": 0,
+   "note": "Câu hỏi và đáp án lặp nguyên nguyên tắc 'adversarial training between two neural networks' đã có ngay trong câu. Nguồn bị ngắt trước khi mô tả generator/discriminator nên không đủ giải thích cơ chế huấn luyện."
+  },
+  {
+   "code": "Q229",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the new method/paper' bằng decoy-state QKD và so sánh GLLP: \"How does the secure key-generation rate scale with channel transmission probability η in the decoy-state method compared with the prior GLLP-style approach?\" Đáp án: \"The decoy-state method achieves O(η) scaling with signal intensity μ = O(1), compared with O(η^2) when the earlier approach chooses μ = O(η).\""
+  },
+  {
+   "code": "Q230",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu hỏi ghi ngược điều kiện topology: thay 'hardware with non-nearest-neighbor connectivity' bằng 'hardware limited to nearest-neighbor connectivity'. Giữ phần đối chiếu và đáp án về SWAP routing cùng thiết kế/transpilation theo native gates, topology từng nền tảng."
+  },
+  {
+   "code": "Q231",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ suy luận hai trường hợp bảo đảm lợi thế giống nhau. Hỏi: \"Why might quantum learning networks suit tasks involving quantum-state inputs and outputs, and what architectural properties allow QCNNs to target logarithmic circuit depth for image classification?\" Đáp án: \"Quantum learning networks may suit control of quantum systems and distributions where entanglement matters. QCNNs translate hierarchical feature extraction and translation invariance into quantum circuits, seeking logarithmic depth through their hierarchical structure and quantum operations. These are proposed advantages, not a demonstrated common speedup for classical image data.\""
+  },
+  {
+   "code": "Q232",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q233",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q234",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q235",
+   "key": "keep",
+   "label": 2,
+   "note": "Loại thẻ HTML trong đáp án và chuẩn hóa công thức còn đủ thành phần: \"Risk_org = sum_(i=1)^n P(L_d^(i) > H_a given data_type_i) × (data_value_i × impact_i).\" Giải thích ngắn đây là tổng rủi ro có trọng số trên n loại dữ liệu của tổ chức. Không để <sub>/<sup> hiện như văn bản."
+  },
+  {
+   "code": "Q236",
+   "key": "keep",
+   "label": 0,
+   "note": "'the deployment' không được định danh; đoạn kết thúc case trước rồi mới sang Google Chrome nên không được gán nhầm 99.8% cho Chrome. Nguồn thiếu tiêu đề case cần thiết và đáp án là số liệu trơ trọi."
+  },
+  {
+   "code": "Q237",
+   "key": "keep",
+   "label": 2,
+   "note": "Thu hẹp phát biểu hiệu năng tuyệt đối: \"Which QML model families does Quantum Machine Learning for Cybersecurity discuss as promising approaches for faster, more efficient, and more robust cybersecurity analysis?\" Đáp án: \"Quantum support vector machines (QSVMs), quantum neural networks (QNNs), variational quantum circuits (VQCs), and quantum generative adversarial networks (QGANs).\" Không khẳng định chúng vượt mọi phương pháp cổ điển trong mọi tác vụ."
+  },
+  {
+   "code": "Q238",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án đổi Ω(1/poly(n)) thành O(1/poly(n)), làm sai hướng ràng buộc của kết quả cần tránh BP. A xét U− là 2-design, không đủ để gán nguyên công thức một tốc độ O(2^−n) phổ quát khi chưa xét chuẩn hóa H; công thức nguồn còn vỡ định dạng."
+  },
+  {
+   "code": "Q239",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q240",
+   "key": "keep",
+   "label": 0,
+   "note": "Xác suất 12/p_i^α_i là cận cho một prime power cố định, không phải xác suất tồn tại bất kỳ prime power > 18. Câu ghép kết quả discrete logarithm với conjecture chọn primes để factoring mà không có quan hệ được hai đoạn thiết lập; đáp án diễn giải sai tốc độ/điều kiện deviation."
+  },
+  {
+   "code": "Q241",
+   "key": "keep",
+   "label": 0,
+   "note": "Hỏi một thuật toán cụ thể nhưng đáp án chỉ nêu hướng dimensionality reduction. Nguồn liệt kê nhiều họ kỹ thuật và không định danh một thuật toán duy nhất ứng với câu hỏi."
+  },
+  {
+   "code": "Q242",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án chỉ là số trích dẫn [131], không nêu được tên khảo sát và không tự đứng. Thuộc câu hỏi tham chiếu tài liệu vụn vặt."
+  },
+  {
+   "code": "Q243",
+   "key": "keep",
+   "label": 0,
+   "note": "'the technique mentioned' không được định danh trong đoạn, bắt đầu từ giữa mô tả. Không thể sửa thành câu tự đứng mà không bổ sung phần nguồn trước đó xác định kỹ thuật."
+  },
+  {
+   "code": "Q244",
+   "key": "keep",
+   "label": 2,
+   "note": "Định danh ký hiệu trong câu hỏi: \"What does a higher value of the enterprise Quantum-Resilience Index R(t) indicate?\" Đáp án hiện tại phù hợp: greater quantum resilience through agility, automation, and cryptographic readiness."
+  },
+  {
+   "code": "Q245",
+   "key": "keep",
+   "label": 0,
+   "note": "Nguồn chỉ gợi ý dùng quantum annealing cho bước thermalization; không chứng minh liên hệ cụ thể giữa chuẩn bị Gibbs state trong SDP với lịch nhiệt độ T(t) được A gọi là quantum annealing. Đáp án biến phép tương tự chưa được thiết lập thành cơ chế và điều kiện tạo speedup."
+  },
+  {
+   "code": "Q246",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay 'the proposed method' bằng định danh: \"Which lattice-based scheme is currently protected by the compact hardware shuffling countermeasure in A Hardware-Friendly Shuffling Countermeasure Against Side-Channel Attacks for Kyber, and which extensions are proposed?\" Đáp án: \"It currently protects Kyber; future work proposes extending it to Dilithium and Raccoon, with error-detection mechanisms also considered.\""
+  },
+  {
+   "code": "Q247",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q248",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q249",
+   "key": "keep",
+   "label": 2,
+   "note": "Thay [10] và [13] bằng tên mô tả trong bảng: \"Why do the TECS and TCAD hardware shuffling schemes require substantial pre-storage to achieve high security?\" Đáp án: \"Their random permutations are generated outside the hardware and preloaded into storage.\""
+  },
+  {
+   "code": "Q250",
+   "key": "keep",
+   "label": 2,
+   "note": "Bỏ cấu trúc gán Kyber chạy 'on ... Saber' sai nghĩa. Hỏi: \"Which class of side-channel techniques is highlighted as overcoming masking and shuffling defenses in lattice-based cryptographic implementations?\" Đáp án: \"Advanced side-channel analysis techniques, particularly those based on deep learning.\" Không lặp câu nguồn bị nối lỗi giữa các triển khai Kyber/Saber."
+  },
+  {
+   "code": "Q251",
+   "key": "keep",
+   "label": 0,
+   "note": "Đáp án sai cột: 3.5 ms thuộc Full PQC (Kyber-1024); Hybrid (ECDHE + Kyber-768) trong bảng là 2.7 ms. Theo quy tắc đáp án sai, loại câu hiện tại."
+  },
+  {
+   "code": "Q252",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q253",
+   "key": "keep",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "code": "Q254",
+   "key": "keep",
+   "label": 2,
+   "note": "Câu hỏi nhầm lớp khởi tạo với 'each layer'. Hỏi: \"Which initial single-qubit rotation layer is applied before the random circuit layers to avoid making X, Y, or Z a preferred gradient direction?\" Đáp án: \"An initial layer of R_Y(π/4) = exp(−iπY/8) rotations.\" Bỏ khẳng định R_Y(π/4) = √H gây nhầm với căn cổng Hadamard."
+  },
+  {
+   "code": "Q255",
+   "key": "keep",
+   "label": 2,
+   "note": "Nguồn không nêu cụ thể 'additional functions' là gì. Hỏi: \"What implementation-level vulnerability is reported for the Kyber512 reference implementation under chosen-ciphertext conditions?\" Đáp án: \"It is reported to be susceptible to side-channel attacks that can enable recovery of the entire secret key under the described conditions.\" Không diễn giải thành phá bài toán lattice hoặc mọi triển khai Kyber."
+  }
+ ]
+}
